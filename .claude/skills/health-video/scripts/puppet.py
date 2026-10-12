@@ -135,6 +135,9 @@ class Puppet:
             if p.get("image"):
                 # rig-kit piece: its own aligned image, nothing to cut and nothing hidden behind it
                 img = _load_rgb(os.path.join(root, p["image"]))
+                if p.get("crop"):  # part drawn elsewhere on a sheet
+                    x0, y0, x1, y1 = p["crop"]
+                    img = img[y0:y1, x0:x1]
                 pfg = cv2.bitwise_not(_bg_mask(img))
                 pfg = cv2.morphologyEx(pfg, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
                 if p.get("poly"):
@@ -144,6 +147,16 @@ class Puppet:
                 sl = (slice(max(0, y - 4), y + h + 4), slice(max(0, x - 4), x + w + 4))
                 piece = dict(p)
                 piece["origin"] = (max(0, x - 4), max(0, y - 4))
+                if p.get("src_anchor"):
+                    # place the part: its src_anchor (in the part image) lands on the pivot, scaled
+                    ax, ay = p["src_anchor"]
+                    k = p.get("scale", 1.0)
+                    st = cairo.Matrix()
+                    st.translate(*p["pivot"])
+                    st.rotate(math.radians(p.get("rest_rotate", 0.0)))
+                    st.scale(k, k)
+                    st.translate(-ax, -ay)
+                    piece["static"] = st
                 red_img = _load_rgb(os.path.join(root, p["red_image"])) if p.get("red_image") else recolor_skin_to_red(img)
                 piece["surf"] = _to_surface(img[sl], soft[sl])
                 piece["surf_red"] = _to_surface(red_img[sl], cv2.bitwise_and(soft, _skin_mask(img))[sl])
@@ -198,6 +211,8 @@ class Puppet:
             base = cv2.inpaint(base, unknown, 7, cv2.INPAINT_TELEA)
             base_red = cv2.inpaint(base_red, unknown, 7, cv2.INPAINT_TELEA)
         alpha = cv2.bitwise_or(rest, inpaint)
+        for poly in R.get("erase", []):  # trim art the rig replaces (e.g. square shoulder stumps)
+            alpha = cv2.bitwise_and(alpha, cv2.bitwise_not(_poly_mask(src.shape, poly)))
         alpha = cv2.morphologyEx(alpha, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
         # ink outline along the reconstructed part of the silhouette
         edge = cv2.subtract(alpha, cv2.erode(alpha, np.ones((7, 7), np.uint8)))
@@ -239,6 +254,10 @@ class Puppet:
         ch = p.get("angle")
         if not ch:
             return 0.0
+        lim = self.rig.get("limits", {}).get(ch)
+        if lim:  # the art only holds up within this range; beyond it, use an AI clip instead
+            pose = dict(pose)
+            pose[ch] = min(max(pose.get(ch, 0.0), lim[0]), lim[1])
         return self.sign.get(ch, 1) * (pose.get(ch, self.rest.get(ch, 0)) - self.rest.get(ch, 0)) * p.get("factor", 1.0)
 
     def matrix(self, name, pose, cache):
@@ -316,7 +335,10 @@ class Puppet:
                 cr.paint_with_alpha(min(1.0, a))
         cache = {}
         for p in self.pieces:
-            self._paint(cr, p["surf"], p["surf_red"], p["origin"], self.matrix(p["name"], pose, cache), red_pieces.get(p["name"], 0))
+            m = self.matrix(p["name"], pose, cache)
+            if p.get("static"):
+                m = p["static"].multiply(m)
+            self._paint(cr, p["surf"], p["surf_red"], p["origin"], m, red_pieces.get(p["name"], 0))
         cr.restore()
 
     def _paint_legs(self, cr, pose, base_amt):

@@ -75,6 +75,6 @@ palms down, shoulders relaxed, not shrugged").
 | Shot need | Path |
 |-----------|------|
 | Exercise demo with weight shift, legs, squats, lunges, walking, sit-to-stand | AI video (start/end frames + motion prompt), then `qa_motion.py` |
-| Arm-only movements in front view: lateral/front raise, press, shrug, pointing, holds with muscle highlights | puppet (rig kit) for exact, repeatable motion; AI video works too |
-| Fault demos that must show an exact wrong angle (too high, shrug) | puppet, or AI video checked by QA against the fault ranges |
+| Any exercise range of motion, arms included (raises, presses, curls) and fault demos | AI video between anatomically drawn keyframes, checked by QA + the anatomy checklist. Rotating a limb drawing can't show the scapula, armpit, hand rotation or muscle changes (see anatomy-motion.md). |
+| Holds under labels, muscle highlights, breathing, small settles (≤15°) | puppet / keyframe still |
 | Talking, idle, "most people" groups, scientists | puppet idle (breathing/sway) or short AI loops |

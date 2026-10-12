@@ -22,7 +22,9 @@ cream. Each is only ~600 px tall, so they serve as identity references, not as f
   rotates at 0.6× the arm angle and covers the shoulder joint.
 - The arm art is drawn ≈12° inward, so `rest` = −12. Calibrated with `qa_motion.py`: commanded 12°/88°
   measures 11°/81°.
-- **Limits: abduction −12…100°.** Above ~100° the cap's cut shows, so overhead moves for this
-  character go to AI video.
+- **Limits: ±15° around the drawn pose only** (breathing, settle). The full-range lateral raise test
+  was rejected by the user as anatomically wrong: a rotated hanging-arm drawing can't show the
+  scapula, armpit, palm rotation or deltoid contraction. Range of motion comes from keyframe
+  drawings + AI video; see `.claude/skills/health-video/references/anatomy-motion.md`.
 - Hands are open (no fists), so dumbbell shots need a fist arm variant or an AI clip.
 - Test: `test_timeline.json` (2 controlled senior lateral raises) passes motion QA.

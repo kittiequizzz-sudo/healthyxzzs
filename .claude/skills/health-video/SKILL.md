@@ -21,6 +21,9 @@ Read before working:
 - `references/motion-research.md`: how each exercise really moves. **Always, before planning any shot
   where a body moves.** If an exercise is missing, research it first (use web search) and add a card.
   Never invent joint angles.
+- `references/anatomy-motion.md`: what a body must *look like* at each key pose (scapula, hands,
+  armpit, muscle shapes) and why rotating a still limb drawing is anatomically wrong. **Always,
+  before writing any keyframe or motion prompt.**
 - `references/character-sheets.md`: the cast, what the user generates per character, and which
   motion path suits which shot.
 - `references/niche-playbook.md`: script structure, retention, visual vocabulary, health-claim rules.
@@ -72,8 +75,9 @@ projects/<slug>/
    exercise, the correct or fault variant, view, reps, tempo (video/controlled; seniors slower), and
    the muscles to highlight on which word.
 4. **Choose the motion path per shot** (table in `character-sheets.md`): AI video for whole-body,
-   weight-shift and leg movements and for "hero" shots; puppet for exact arm movements, fault angles,
-   holds and idles when the character has a rig.
+   weight-shift and leg movements, for "hero" shots, and for **any** range of motion (arms
+   included). Puppet only for holds, breathing/idle, small settles and highlights on keyframe
+   stills.
 5. **Write the order** (`asset-order.md` format). For AI clips: a start-pose and end-pose prompt with
    the card's exact angles, and a motion prompt (one action, the reps, the tempo in seconds, what
    must stay still, a static camera, cream background). For puppet shots: nothing to order.
@@ -110,6 +114,9 @@ projects/<slug>/
 
 - The illustration quality must match the reference. Never draw the characters with code
   primitives; motion comes from AI clips of the user's art or from puppets cut from the user's art.
+- Exercise range of motion only ever comes from anatomically drawn keyframes (AI image edits)
+  joined by AI image-to-video. Never rotate a limb drawing more than ~15° from its drawn pose.
+  Puppets are for breathing, sway, small settles, holds and highlights on keyframe stills.
 - Motion must match the research card: range, tempo, what moves and what stays still. Holds keep
   breathing. Nothing teleports. Fault demos show the specific fault and nothing else.
 - Hard cuts only. Something new appears every 2–3 s. One idea per frame.

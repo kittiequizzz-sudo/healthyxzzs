@@ -41,9 +41,14 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
 (each a separate motion), and the QA ranges used by `qa_motion.py`.
 
 ### Lateral raise (front view)
-- Bottom: arms ≈10–15° from the trunk, elbows soft (≈10°). Top: **≈85–95° abduction, at shoulder
-  height** **[coach]**. The reference clips peak at 89–101° **[ref]**. Elbows bend slightly
-  (≈15°), and the elbows lead the hands.
+- Bottom: arms hang close to the sides, elbows soft, **palms facing the thighs** (neutral grip).
+  Top: **≈80–95° at shoulder height** **[coach]**, **palms facing the floor**, the elbows soft
+  (≈10–30°) and leading. Arms move in the **scapular plane, ≈20–30° in front of the body**
+  **[coach]**. The reference clips peak at 89–101° **[ref]**.
+- Passive motion that must show: the clavicle elevates and retracts, the scapula rotates upward and
+  tilts back ([Ludewig 2009](https://pmc.ncbi.nlm.nih.gov/articles/PMC2657311)), and the armpit opens.
+  There is no visible shrug in a correct rep. Full drawing spec and frame checklist:
+  `anatomy-motion.md`.
 - Muscles: side (medial) delts. Neutral humeral rotation gave the most medial-delt activity, while
   internal rotation shifted work to the rear delts and upper traps
   ([Coratella 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7503819/)).

@@ -60,6 +60,38 @@ Image-to-video motion prompt:
 > Background stays flat cream, no camera movement, no new objects, no text, keep cartoon style and
 > outlines consistent.
 
+### Exercise clips: start pose, end pose, motion prompt
+
+Every exercise clip is generated from the character's master sheet with **two pose keyframes** and a
+motion prompt. Take the angles from the exercise card in `motion-research.md`, word for word in
+plain language. Image models follow body descriptions better than degree numbers, so translate:
+90° abduction = "arms straight out to the sides at exactly shoulder height, parallel to the floor".
+
+Start pose (image edit of `<id>_front.png`):
+> Same character, same style, same framing and cream background. Now standing tall holding a black
+> hex dumbbell in each hand, arms hanging at the sides slightly away from the thighs, elbows very
+> slightly bent, shoulders relaxed and down, feet hip-width.
+
+End pose:
+> Same character, same style, same framing. Now arms raised out to the sides to exactly shoulder
+> height, upper arms parallel to the floor, elbows slightly bent, palms facing down, shoulders
+> relaxed (not shrugged), torso upright and still.
+
+Motion prompt (first frame = start pose, last frame = end pose when the tool supports it; otherwise
+start pose only):
+> Static locked-off camera, flat cream background. The character performs {reps} smooth, controlled
+> {exercise}: {concentric description} over about {con} seconds, brief pause, then lowers over about
+> {ecc} seconds. Only the {moving joints} move; torso, head, hips and legs stay completely still.
+> Consistent anatomy and proportions, no extra limbs, no morphing, no camera movement, no text.
+
+Fault clips describe the fault exactly as the card defines it, for example:
+> …dips the knees slightly, then explosively straightens the legs and leans the torso back while
+> flinging both dumbbells up to shoulder height in a fast swing…
+
+Every clip goes through `qa_motion.py` with the card's exercise name. A reject is returned to the
+user with a one-line fix: which angle or timing was wrong, and how to change the pose frames or
+the prompt.
+
 Secondary characters: swap the skin colour (purple #8E6AC8 for "other people"; green #7BC86C and
 purple for the two scientists in white lab coats with round glasses holding notepads).
 

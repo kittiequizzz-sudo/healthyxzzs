@@ -40,6 +40,31 @@ and larger values are pixels in the 1920×1080 design space. Paths are relative 
 | `push` | `[1, 1]` | Zoom from → to across the shot (ease in-out). Use 1.04–1.08 on stills. |
 | `focus` | none | `[x, y]` point the push zooms towards. |
 | `bg` | timeline `bg` | Background colour behind the asset. |
+| `puppet` | none | Animate a rigged character instead of using `asset` (see below). |
+
+## Puppet shots
+
+```json
+{"id": "S05", "start": 12.4, "end": 15.9, "push": [1.0, 1.04],
+ "puppet": {"rig": "../../characters/young_m/front.rig.json",
+            "motion": "lateral_raise", "reps": 2, "tempo": "video",
+            "highlight": {"delts": 1}, "highlight_at": 13.1,
+            "height": 0.95, "pos": [0.5, 0.52], "focus": [960, 600]}}
+```
+
+| Field | Default | Meaning |
+|-------|---------|---------|
+| `rig` | — | Rig JSON (pieces, pivots, muscles, regions); paths are relative to the timeline. |
+| `motion` | none | Exercise name from `motion.py` `EXERCISES` (must have a card in motion-research.md). |
+| `reps`, `tempo`, `end`, `rom` | 1, exercise default, `hold`, 1.0 | Repetitions; `video`/`controlled`/`slow`/`cheat` or `[con, top, ecc, bottom]` seconds; `end: "top"` holds the top of the last rep; `rom` scales the range (seniors ≈0.8). |
+| `lead_in`, `delay` | 0.15, 0 | Stillness before the first rep; extra delay to land a rep on a word. |
+| `keys` | none | Custom motion instead of `motion`: `[{"pose": {"arm_l": 45}, "dur": 0.4}, {"hold": 0.3}]`. |
+| `capture` | none | Replay curves measured from a real video (`qa_motion.py --capture` JSON); `map`, `from`, `to`, `swap`. |
+| `start_pose` | stand | Channel overrides for the starting pose. |
+| `highlight`, `highlight_at`, `highlight_in` | none | Muscles to turn red, when, and the fade-in duration. |
+| `highlight_from` | none | Red driven by an angle, e.g. `{"traps": "arm_l"}` turns the traps red as the arm passes 95°. |
+| `lag`, `sway` | `{"arm_r": 0.04}`, 1.0 | Left/right lag in seconds; breathing/sway amount (0 = none). |
+| `height`, `pos`, `focus` | 1.0, centre, image centre | Character height as a fraction of frame height; where `focus` (a source-image point) lands. |
 
 ## Overlay catalogue
 

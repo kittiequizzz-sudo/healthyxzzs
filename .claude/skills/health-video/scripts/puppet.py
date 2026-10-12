@@ -132,6 +132,23 @@ class Puppet:
         self.pieces = []
         taken = np.zeros(fg.shape, np.uint8)
         for p in sorted(R["pieces"], key=lambda p: p.get("z", 0)):
+            if p.get("image"):
+                # rig-kit piece: its own aligned image, nothing to cut and nothing hidden behind it
+                img = _load_rgb(os.path.join(root, p["image"]))
+                pfg = cv2.bitwise_not(_bg_mask(img))
+                pfg = cv2.morphologyEx(pfg, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+                if p.get("poly"):
+                    pfg = cv2.bitwise_and(pfg, _poly_mask(img.shape, p["poly"]))
+                soft = cv2.GaussianBlur(pfg, (3, 3), 0)
+                x, y, w, h = cv2.boundingRect(pfg)
+                sl = (slice(max(0, y - 4), y + h + 4), slice(max(0, x - 4), x + w + 4))
+                piece = dict(p)
+                piece["origin"] = (max(0, x - 4), max(0, y - 4))
+                red_img = _load_rgb(os.path.join(root, p["red_image"])) if p.get("red_image") else recolor_skin_to_red(img)
+                piece["surf"] = _to_surface(img[sl], soft[sl])
+                piece["surf_red"] = _to_surface(red_img[sl], cv2.bitwise_and(soft, _skin_mask(img))[sl])
+                self.pieces.append(piece)
+                continue
             m = cv2.bitwise_and(_poly_mask(src.shape, p["poly"]), fg)
             sel = p.get("select", "all")
             if sel == "red":

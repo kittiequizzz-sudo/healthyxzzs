@@ -255,3 +255,46 @@ def alive(pose, t, seed=0.0, breath_hz=0.25, sway=1.0, lag=None, track=None):
         if k in p:
             p[k] += 0.6 * sway * math.sin(2 * math.pi * 0.17 * t + (0 if side == "l" else 1.3) + seed)
     return p
+
+
+# ------------------------------------------------------------------ motion capture
+
+class CapturedTrack:
+    """Replays angle curves measured from a real video by qa_motion.py --capture.
+
+    The curves are median-filtered and smoothed, then mapped onto rig channels, e.g.
+    {"abd_l": "arm_l", "abd_r": "arm_r", "elbow_l": "elbow_l"}. Front-view abduction is mirrored
+    across the body: the coach's left arm drives the character's screen-left arm unless swap=True."""
+
+    def __init__(self, capture_json, mapping=None, t0=0.0, t1=None, swap=False, base=None):
+        import json
+
+        import numpy as np
+        with open(capture_json) as f:
+            rows = json.load(f)["frames"]
+        rows = [r for r in rows if r["t"] >= t0 and (t1 is None or r["t"] <= t1)]
+        self.t = np.array([r["t"] - rows[0]["t"] for r in rows])
+        mapping = mapping or {"abd_l": "arm_l", "abd_r": "arm_r", "elbow_l": "elbow_l", "elbow_r": "elbow_r"}
+        if swap:
+            mapping = {k: v.replace("_l", "_X").replace("_r", "_l").replace("_X", "_r") for k, v in mapping.items()}
+        self.base = dict(base or STAND_FRONT)
+        self.ch = {}
+        for src, dst in mapping.items():
+            v = np.array([r.get(src, np.nan) for r in rows], float)
+            ok = ~np.isnan(v)
+            if ok.sum() < 2:
+                continue
+            v = np.interp(self.t, self.t[ok], v[ok])
+            pad = np.pad(v, (2, 2), mode="edge")
+            v = np.median(np.stack([pad[i:i + len(v)] for i in range(5)]), axis=0)
+            k = 7
+            v = np.convolve(np.pad(v, (k // 2, k // 2), mode="edge"), np.ones(k) / k, mode="valid")
+            self.ch[dst] = v
+        self.end = float(self.t[-1]) if len(self.t) else 0.0
+
+    def sample(self, t):
+        import numpy as np
+        p = dict(self.base)
+        for dst, v in self.ch.items():
+            p[dst] = float(np.interp(t, self.t, v))
+        return p

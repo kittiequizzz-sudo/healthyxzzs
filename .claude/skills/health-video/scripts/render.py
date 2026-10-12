@@ -716,7 +716,10 @@ class Shot:
             _PUPPETS[path] = Puppet(path)
         self.pp = _PUPPETS[path]
         lead = spec.get("lead_in", 0.15)
-        if spec.get("keys"):
+        if spec.get("capture"):  # replay angles measured from a real video (qa_motion.py --capture)
+            self.track = M.CapturedTrack(os.path.join(self.root, spec["capture"]), spec.get("map"), spec.get("from", 0.0),
+                                         spec.get("to"), spec.get("swap", False), spec.get("start_pose"))
+        elif spec.get("keys"):
             start = dict(M.STAND_FRONT)
             start.update(spec.get("start_pose", {}))
             self.track = M.keyframes(start, [{"hold": lead}] + spec["keys"])

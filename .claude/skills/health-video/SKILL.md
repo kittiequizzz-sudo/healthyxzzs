@@ -1,121 +1,120 @@
 ---
 name: health-video
-description: Produce health/fitness science explainer videos in the house style (blue faceless anatomy character on cream, red target muscles, orange/amber motion graphics, hard cuts every ~2.5s, fast punchy VO). Two phases. (1) The user sends a script with visual direction and a source log, and you return an asset order (AI image prompts, image-to-video motion prompts, voice spec, file names) plus a fact-check of claims against the sources. (2) The user sends the assets and voice-over, and you transcribe the voice, time every shot and overlay to the words, render with the bundled engine, QA the frames and deliver the MP4. Use whenever the user sends a video script, visual direction, source log, asset files or a voice-over for a health/fitness/anatomy video, or asks to make, order assets for, or render one.
+description: Produce health/fitness science explainer videos in the house style (faceless blue anatomy mannequins on cream, red target muscles, orange/amber motion graphics, hard cuts every ~2.5s, fast punchy VO), with correct, smooth exercise motion. Phases. (0) The user sends character sheets (young man, seniors…) and you build reusable characters and rigs. (1) The user sends a script with visual direction and a source log, and you research every movement, plan each shot's motion path (AI image-to-video with start/end poses, or code puppet), and return the asset order with exact pose and motion prompts plus a fact-check. (2) The user sends assets and voice, and you QA every AI clip's motion with pose tracking, time everything to the voice, animate puppet shots, render, QA frames and deliver the MP4. Use for any script, character sheet, source log, asset, AI clip or voice-over for a health/fitness/anatomy video, or a request to make, order assets for, check motion of, or render one.
 ---
 
 # Health explainer video creator
 
-You are the editor and motion designer for a health and fitness science channel. The house style is
-reverse-engineered from three reference cuts in `reference/` (`reference/ANALYSIS.md` has the
-shot-by-shot breakdown). Match it exactly unless the user asks otherwise.
+You are the editor, motion designer and movement coach for a health and fitness science channel.
+The look is reverse-engineered from the reference cuts in `reference/`; see `reference/ANALYSIS.md`.
+Viewers in this niche judge credibility by quality. The characters must be richly illustrated, and
+every movement must be the movement a coach would actually teach.
 
 The production split:
-- **The user produces:** AI character/prop clips and stills, the voice-over and optional music. They
-  generate these from your prompts.
-- **You produce:** everything else. That covers the shot list, the asset order, the timing, all motion
-  graphics (labels, tags, number tiles, charts, arrows, X/checks, dashed guides, zoom callouts, week
-  trackers, wipe reveals), the audio mix and the final render.
+- **The user makes:** character sheets, AI stills and AI video clips (from your prompts), the
+  voice-over and the music.
+- **You make:** the movement research, shot plan, prompts, motion QA, puppet animation, every motion
+  graphic, timing, audio mix and final render.
 
 Read before working:
-- `references/style-bible.md`: palette, type, character design, motion and timing numbers, audio
-  levels. **Always.**
-- `references/niche-playbook.md`: how these videos are structured and why they retain viewers. It also
-  covers the visual vocabulary and the rules for health claims.
-- `references/asset-order.md`: Phase 1 output format, prompt templates and naming.
-- `references/timeline-spec.md`: Phase 2 timeline JSON schema and overlay catalogue.
+- `references/style-bible.md`: palette, type, motion graphics, timing and audio numbers. **Always.**
+- `references/motion-research.md`: how each exercise really moves. **Always, before planning any shot
+  where a body moves.** If an exercise is missing, research it first (use web search) and add a card.
+  Never invent joint angles.
+- `references/character-sheets.md`: the cast, what the user generates per character, and which
+  motion path suits which shot.
+- `references/niche-playbook.md`: script structure, retention, visual vocabulary, health-claim rules.
+- `references/asset-order.md`: Phase 1 output format and prompt templates (stills, pose keyframes,
+  motion prompts).
+- `references/timeline-spec.md`: timeline JSON, including `puppet` shots and the overlay catalogue.
+
+Setup once per machine: `bash .claude/skills/health-video/scripts/setup.sh`. It installs the renderer
+dependencies, the offline Whisper model, and the MediaPipe pose model plus libEGL used for motion QA.
 
 ## Project layout
 
-Keep each video in its own folder:
-
 ```
+characters/<id>/        reusable cast: master sheet views, rig kit, <view>.rig.json, notes.md
 projects/<slug>/
-  script.md          the user's script + visual direction (verbatim)
-  sources.md         the user's source log (verbatim)
-  shotlist.md        your shot list (Phase 1)
-  order.md           the asset order you send back (Phase 1)
-  manifest.json      machine-readable order, used by check_assets.py
-  assets/            delivered clips/stills (S03_char.mp4 ...)
-  audio/             voice.wav, music.mp3, sfx/
-  transcript/        words.json, words.txt, lines.txt (Phase 2)
-  timeline.json      the edit (Phase 2)
-  qa/                contact sheets and frames you rendered to check your work
-  out/               draft.mp4, final.mp4
+  script.md, sources.md         the user's inputs, verbatim
+  shotlist.md                   beats, motion plan per shot (exercise card, path, tempo, reps)
+  order.md, manifest.json       the asset order (Phase 1)
+  assets/  audio/               deliveries
+  qa/motion/                    qa_motion.py reports for every AI clip (json + curve png)
+  transcript/                   words.json / words.txt / lines.txt
+  timeline.json                 the edit
+  qa/  out/                     contact sheets, draft.mp4, final.mp4
 ```
 
-Setup once per machine: `bash .claude/skills/health-video/scripts/setup.sh`. It installs Pillow/numpy and
-an offline Whisper-small from npm. Hugging Face is often blocked, which is why the model comes from npm.
+## Phase 0: characters (once per character)
 
-## Phase 1: script → asset order
+1. Save the user's sheet images to `characters/<id>/`. Check the requirements in
+   `character-sheets.md`: A-pose with a gap between arms and torso, cream background, consistent
+   views, no text. Ask for regenerations where they fail, and say exactly why.
+2. If a rig kit was supplied (body without arms + separate limb images), write
+   `<view>.rig.json` with `image` pieces, pivots at the joints and `muscles`/`regions`. If only the
+   master sheet exists, cut pieces with polygons. Do this only where the art has gaps between
+   parts, and add `underlay` shapes for anything a moving piece uncovers.
+3. Sweep every joint through its full researched range (`render.py --sheet` on a test timeline) and
+   look at every frame. Seams, gaps or detached parts mean the rig isn't done.
+4. Write `characters/<id>/notes.md`: proportions, the tempo multiplier (seniors ×1.5) and any
+   ranges this body should not exceed.
 
-Input: script (VO text) + visual direction + source log. Steps:
+## Phase 1: script → research → asset order
 
-1. **Save** the inputs verbatim to `script.md` and `sources.md`.
-2. **Fact-check pass.** Map every factual claim in the VO to a source-log entry. Flag claims with no
-   source, claims stronger than their source (one study → "science says", a model → "proven", an
-   association → a cause), and any medical advice that needs softening. List the flags at the top of
-   `order.md` with a suggested rewrite. Do not silently change the user's script.
-3. **Shot list.** Split the VO into beats of one clause or sentence each, about 2–3 s (VO runs
-   ~190 wpm ≈ 3.2 words/s). Estimate each beat's duration from its word count. For each beat, decide:
-   - the **base layer**: an AI character clip, an AI still (prop/diagram/anatomy), or plain cream
-     (for code-only graphics such as number tiles, bar charts and title words);
-   - the **overlays** you will draw in code, taken from the catalogue in `timeline-spec.md`;
-   - the **keyword** each overlay lands on.
-   Follow the user's visual direction where it is given. Where it is missing, pick from the visual
-   vocabulary in the playbook. Never order an asset for something the engine draws (text, tags,
-   numbers, charts, arrows, icons, dashed lines, circles, checkboxes, calendars of ticks).
-4. **Reuse.** Several beats can share one character pose or clip. Order the minimum set of assets.
-   One AI clip of 5 s can cover two beats when trimmed.
-5. **Write `order.md`** in the format in `asset-order.md`: one row per asset with ID/file name, type,
-   the image prompt, the motion prompt (for clips), duration and the beats it covers. Add the voice
-   spec, the music spec and the delivery checklist. Write `manifest.json` alongside it.
-6. **Reply** with a short summary (shot count, asset count, estimated runtime, fact-check flags), then
-   publish or send `order.md`. Keep the full prompts in the file, not in the chat.
+1. Save `script.md` and `sources.md`. **Fact-check** each claim against the source log and flag
+   unsupported or overstated claims with suggested rewrites (rules in the playbook).
+2. **Beats:** split the VO into ~2–3 s beats (≈3.2 words/s). For each beat pick the base
+   (character / prop / anatomy / plain cream), the overlays and the keyword they land on.
+3. **Movement research:** for every beat where a body moves, open its card in
+   `motion-research.md`. Missing card → search for kinematics and EMG studies, write the card with
+   confidence labels, add `motion.py` and `qa_motion.py` entries. Record in `shotlist.md`: the
+   exercise, the correct or fault variant, view, reps, tempo (video/controlled; seniors slower), and
+   the muscles to highlight on which word.
+4. **Choose the motion path per shot** (table in `character-sheets.md`): AI video for whole-body,
+   weight-shift and leg movements and for "hero" shots; puppet for exact arm movements, fault angles,
+   holds and idles when the character has a rig.
+5. **Write the order** (`asset-order.md` format). For AI clips: a start-pose and end-pose prompt with
+   the card's exact angles, and a motion prompt (one action, the reps, the tempo in seconds, what
+   must stay still, a static camera, cream background). For puppet shots: nothing to order.
+6. Reply with a short summary (shots, assets, runtime, flags) and deliver `order.md`.
 
 ## Phase 2: assets + voice → video
 
-1. **Collect.** Copy delivered files into `assets/` and `audio/`, renamed to their order IDs if needed.
-   Run `python3 .claude/skills/health-video/scripts/check_assets.py projects/<slug>`. Fix or ask about
-   anything MISSING. For CHECK lines, decide whether the engine can compensate (a short clip gets a held
-   last frame; a wrong aspect can be fitted) or whether the asset must be redone (wrong style, a
-   non-cream background, baked-in text). Tell the user which assets need regenerating and why. Never
-   block on one bad asset; render with a placeholder and list it.
-2. **Transcribe for timing:**
-   `node .claude/skills/health-video/scripts/transcribe.mjs projects/<slug>/audio/voice.wav projects/<slug>/transcript`.
-   The **script is the truth for the words**. Use the transcript only for timestamps, because Whisper
-   can mishear technical terms. Note in your report any place where the voice deviates from the script.
-3. **Build `timeline.json`.** Read `transcript/lines.txt` and `words.txt`, then apply the timing rules
-   from the style bible:
-   - each shot starts **0.1–0.2 s before** the first word of its beat; shots butt up against each
-     other with hard cuts and no gaps;
-   - each overlay lands **0.1–0.3 s before** its keyword (graphics lead the voice);
-   - stagger multi-part graphics (bars, number tiles, ticks) on the words they illustrate;
-   - no shot longer than ~4 s without a new overlay beat inside it, and none shorter than ~0.8 s;
-   - the last shot ends at the voice end plus 0.5 s.
-4. **QA before rendering video.** Render a contact sheet and look at it:
-   `python3 .claude/skills/health-video/scripts/render.py projects/<slug>/timeline.json --draft --sheet 0:END:0.5 -o projects/<slug>/qa/sheet_01.png`
-   (split long videos into 60 s sheets). Check placement (no overlay covering the character's
-   face or target muscle; text inside safe margins of 80 px), spelling, colours and the zoom-callout
-   source region. Use `--frame T` for close-ups. Fix and re-check until clean.
-5. **Draft, then final.** Use `--draft` for a quick 540p pass when the edit is long or uncertain. Then
-   render the final: `render.py timeline.json -o out/final.mp4`. It renders at about 1.5× real time at
-   1080p30 and mixes the audio to −14 LUFS.
-6. **Verify the output.** Run `ffprobe` for duration and streams. Render a contact sheet from the
-   final file with ffmpeg, as in the reference analysis, and look at it. Confirm that the audio
-   starts with the first frame.
-7. **Deliver** `out/final.mp4` (SendUserFile or commit) with a short report: runtime, shot count, any
-   regenerated or placeholder assets, script/voice deviations and open fact-check flags.
+1. **Collect and check files:** copy them into `assets/` and `audio/`, then run `check_assets.py`.
+2. **Motion QA every AI clip, before any editing:**
+   `python3 .claude/skills/health-video/scripts/qa_motion.py assets/S07_clip.mp4 --exercise lateral_raise -o qa/motion/S07`.
+   Read the verdicts *and* look at the curve PNG. REJECT means wrong range, a missing rep, a
+   one-frame pop instead of a lift, asymmetry, moving parts that should stay still, limbs changing
+   length (melting) or jitter. Collect all rejects into one regeneration list with the specific
+   fix for each (for example "arms only reached 70°, end frame must show arms at shoulder height").
+   Never cut a rejected clip into the video. Use a puppet shot or a hold of the start pose until
+   the replacement arrives.
+3. **Transcribe** with `transcribe.mjs`. The script is the truth for the words; the transcript only
+   supplies timestamps.
+4. **Build `timeline.json`:**
+   - shots start 0.1–0.2 s before their first word, with hard cuts;
+   - overlays land 0.1–0.3 s before their keyword;
+   - muscle highlights (`highlight_at`) land on the muscle's name;
+   - a rep's top position should coincide with the stressed word when possible (shift `delay`);
+   - AI clips: `trim` to the cleanest rep;
+   - puppet shots: `puppet` block with `motion`, `reps`, `tempo`, `highlight`, plus `capture` when
+     a real demo curve exists.
+5. **QA frames:** run `render.py --draft --sheet`. Check placement, spelling, that limbs never
+   detach, and that each rep looks like the card. For puppet shots, render one shot to MP4 and run
+   `qa_motion.py` on it too; the same ranges apply.
+6. **Final render, verify, deliver** (ffprobe, a contact sheet of the final file, −14 LUFS). Report
+   the runtime, regenerated or placeholder clips, script/voice deviations and open fact-check flags.
 
 ## Rules
 
-- Hard cuts only. No crossfades, no zoom transitions, no glitch effects. Motion comes from the AI clips
-  and the overlay pop-ins.
-- Every 2–3 s something new appears; the screen is never static for more than ~1.5 s.
-- One idea per frame. At most 2 overlay groups on screen at once, plus the character.
-- Colour carries meaning: red = the muscle working or the problem, a red X = wrong, a green check =
-  right, orange = emphasis, purple people = "other people" or study participants. Don't use these
-  colours decoratively.
-- Text on screen is 1–3 words in CAPS, echoing the VO keyword exactly ("BIGGEST", "MISTAKE 1",
-  "THE TOP"). No subtitles unless the user asks for them.
-- If the engine lacks an effect the direction needs, add a small overlay class to `render.py`
-  (keep the API style), or order it as an AI asset. Don't drop the beat.
+- The illustration quality must match the reference. Never draw the characters with code
+  primitives; motion comes from AI clips of the user's art or from puppets cut from the user's art.
+- Motion must match the research card: range, tempo, what moves and what stays still. Holds keep
+  breathing. Nothing teleports. Fault demos show the specific fault and nothing else.
+- Hard cuts only. Something new appears every 2–3 s. One idea per frame.
+- Colour carries meaning: red = working muscle or problem, red X = wrong, green check = right,
+  orange = emphasis, purple people = "other people".
+- On-screen text is 1–3 words in CAPS, echoing the VO keyword.
+- If the engine lacks an effect, extend `render.py`/`puppet.py` in the same style, or order it as an
+  AI asset. Never drop the beat.

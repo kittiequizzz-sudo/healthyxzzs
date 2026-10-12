@@ -1,0 +1,119 @@
+{
+ "fps": 30,
+ "bg": "cream",
+ "voice": "audio/voice.wav",
+ "duration": 10.0,
+ "shots": [
+  {
+   "id": "S01",
+   "start": 0.0,
+   "end": 2.7,
+   "push": [
+    1.0,
+    1.05
+   ],
+   "puppet": {
+    "rig": "../../characters/senior_m/front_still.rig.json",
+    "height": 1.25,
+    "pos": [
+     0.64,
+     0.6
+    ],
+    "focus": [
+     177,
+     330
+    ],
+    "highlight": {
+     "delts": 1
+    },
+    "highlight_at": 1.95,
+    "highlight_in": 0.4
+   },
+   "overlays": [
+    {
+     "type": "text",
+     "text": "HEAVIEST",
+     "pos": [
+      0.26,
+      0.45
+     ],
+     "size": 120,
+     "at": 1.15
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "start": 2.7,
+   "end": 4.9,
+   "asset": "assets/S02_clip_raise-to-shoulder.mp4",
+   "overlays": [
+    {
+     "type": "tag",
+     "text": "PARALLEL",
+     "pos": [
+      0.84,
+      0.62
+     ],
+     "at": 3.5,
+     "size": 60
+    },
+    {
+     "type": "icon",
+     "kind": "check",
+     "pos": [
+      0.85,
+      0.3
+     ],
+     "size": 90,
+     "at": 4.2
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "start": 4.9,
+   "end": 7.55,
+   "asset": "assets/S03_clip_lever.mp4",
+   "overlays": [
+    {
+     "type": "tag",
+     "text": "SHORTER LEVER",
+     "pos": [
+      0.76,
+      0.22
+     ],
+     "at": 6.75
+    }
+   ]
+  },
+  {
+   "id": "S04",
+   "start": 7.55,
+   "end": 10.0,
+   "asset": "assets/S04_clip_overhead-traps.mp4",
+   "overlays": [
+    {
+     "type": "icon",
+     "kind": "x",
+     "pos": [
+      0.86,
+      0.38
+     ],
+     "size": 100,
+     "at": 8.1
+    },
+    {
+     "type": "tag",
+     "text": "TRAPS",
+     "pos": [
+      0.82,
+      0.66
+     ],
+     "at": 9.1,
+     "size": 60
+    }
+   ]
+  }
+ ]
+}

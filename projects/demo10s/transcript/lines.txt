@@ -1,0 +1,3 @@
+[0.38 - 4.76] (w0-15) But the dumbbell is heaviest for your delts when your arm is parallel to the floor.
+[5.04 - 7.26] (w16-22) Go higher and the lever gets shorter.
+[7.72 - 9.62] (w23-30) More of the job goes to your traps.

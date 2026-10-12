@@ -657,12 +657,16 @@ class Shot:
         self.asset = spec.get("asset")
         self.src_frames = None
         self.still = None
+        self.puppet = spec.get("puppet")
 
     def _asset_path(self):
         return os.path.join(self.root, self.asset)
 
     def open(self, t_from):
         """Prepare the base layer for rendering starting at absolute time t_from."""
+        if self.puppet:
+            self._open_puppet()
+            return
         if not self.asset:
             return
         p = self._asset_path()
@@ -702,7 +706,65 @@ class Shot:
             self.proc.kill()
             self.proc = None
 
+    # ---- puppet base layer: illustrated character animated by the motion library
+    def _open_puppet(self):
+        import motion as M
+        spec = self.puppet
+        path = os.path.join(self.root, spec["rig"])
+        if path not in _PUPPETS:
+            from puppet import Puppet
+            _PUPPETS[path] = Puppet(path)
+        self.pp = _PUPPETS[path]
+        lead = spec.get("lead_in", 0.15)
+        if spec.get("keys"):
+            start = dict(M.STAND_FRONT)
+            start.update(spec.get("start_pose", {}))
+            self.track = M.keyframes(start, [{"hold": lead}] + spec["keys"])
+        elif spec.get("motion"):
+            self.track = M.build(spec["motion"], reps=spec.get("reps", 1), tempo=spec.get("tempo"), lead_in=lead,
+                                 end=spec.get("end", "hold"), base=spec.get("start_pose"), scale_rom=spec.get("rom", 1.0))
+        else:
+            start = dict(M.STAND_FRONT)
+            start.update(spec.get("start_pose", {}))
+            self.track = M.Track(start)
+        self.M = M
+
+    def _puppet_frame(self, t):
+        import cairo
+        M, spec, pp = self.M, self.puppet, self.pp
+        lt = t - self.t0 - spec.get("delay", 0.0)
+        pose = M.alive(self.track.sample(lt), lt, seed=self.t0, lag=spec.get("lag", {"arm_r": 0.04}), track=self.track,
+                       sway=spec.get("sway", 1.0))
+        hl = {}
+        for mus, amt in (spec.get("highlight") or {}).items():
+            at = spec.get("highlight_at", self.t0)
+            k = clamp01((t - at) / spec.get("highlight_in", 0.4))
+            hl[mus] = amt * ease_in_out(k)
+        for mus, ch in (spec.get("highlight_from") or {}).items():  # e.g. {"traps": "arm_l"}: red as the arm passes 95°
+            hl[mus] = max(hl.get(mus, 0), clamp01((pose.get(ch, 0) - 95) / 40))
+        cw, ch_ = self.ctx.W, self.ctx.H
+        surf = cairo.ImageSurface(cairo.FORMAT_RGB24, cw, ch_)
+        cr = cairo.Context(surf)
+        cr.set_source_rgb(*(self.bg / 255.0))
+        cr.paint()
+        sw, sh = pp.size
+        p = clamp01((t - self.t0) / max(1e-6, self.t1 - self.t0))
+        push = self.s.get("push", [1.0, 1.0])
+        z = push[0] + (push[1] - push[0]) * ease_in_out(p)
+        k = ch_ * spec.get("height", 1.0) / sh * z
+        cx, cy = self.ctx.pt(spec.get("pos", [0.5, 0.5]))
+        fx, fy = spec.get("focus", [sw / 2, sh / 2])  # source-image point that sits at pos
+        cr.translate(cx, cy)
+        cr.scale(k, k)
+        cr.translate(-fx, -fy)
+        pp.draw(cr, pose, hl)
+        surf.flush()
+        buf = np.ndarray((ch_, surf.get_stride() // 4, 4), np.uint8, buffer=surf.get_data())[:, :cw]
+        return np.ascontiguousarray(buf[..., 2::-1])
+
     def base(self, t):
+        if self.puppet:
+            return self._puppet_frame(t)
         cw, ch = self.ctx.W, self.ctx.H
         frame = np.empty((ch, cw, 3), np.uint8)
         frame[:] = self.bg
@@ -735,6 +797,9 @@ class Shot:
         if dx1 > dx0 and dy1 > dy0:
             frame[dy0:dy1, dx0:dx1] = np.asarray(src)[sy0:sy0 + dy1 - dy0, sx0:sx0 + dx1 - dx0]
         return frame
+
+
+_PUPPETS = {}
 
 
 # ---------------------------------------------------------------- render

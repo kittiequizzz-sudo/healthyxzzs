@@ -1,0 +1,110 @@
+{
+ "fps": 30,
+ "shots": [
+  {
+   "id": "S01",
+   "start": 0,
+   "end": 4.4,
+   "push": [
+    1.0,
+    1.04
+   ],
+   "puppet": {
+    "rig": "characters/demo_blue/front.rig.json",
+    "motion": "lateral_raise",
+    "reps": 2,
+    "highlight": {
+     "delts": 1
+    },
+    "highlight_at": 0.6,
+    "height": 1.0,
+    "pos": [
+     0.5,
+     0.52
+    ],
+    "focus": [
+     960,
+     600
+    ]
+   },
+   "overlays": [
+    {
+     "type": "text",
+     "text": "SHOULDER HEIGHT",
+     "pos": [
+      0.8,
+      0.3
+     ],
+     "size": 70,
+     "at": 0.9
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "start": 4.4,
+   "end": 6.2,
+   "push": [
+    1.0,
+    1.03
+   ],
+   "puppet": {
+    "rig": "characters/demo_blue/front.rig.json",
+    "motion": "lateral_raise_too_high",
+    "end": "top",
+    "highlight_from": {
+     "traps": "arm_l"
+    },
+    "height": 0.82,
+    "pos": [
+     0.5,
+     0.6
+    ],
+    "focus": [
+     960,
+     600
+    ]
+   },
+   "overlays": [
+    {
+     "type": "icon",
+     "kind": "x",
+     "pos": [
+      0.72,
+      0.2
+     ],
+     "at": 5.3
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "start": 6.2,
+   "end": 8.4,
+   "puppet": {
+    "rig": "characters/demo_blue/front.rig.json",
+    "motion": "lateral_raise_swing",
+    "height": 1.0,
+    "pos": [
+     0.5,
+     0.52
+    ],
+    "focus": [
+     960,
+     600
+    ]
+   },
+   "overlays": [
+    {
+     "type": "tag",
+     "text": "SWING",
+     "pos": [
+      0.8,
+      0.75
+     ],
+     "at": 6.7
+    }
+   ]
+  }
+ ]
+}

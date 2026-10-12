@@ -176,7 +176,7 @@ def phase_times(t, v, lo_thr, hi_thr):
     return ups, downs
 
 
-def check(rows, fps, exercise, view):
+def check(rows, fps, exercise, view, rigid=False):
     spec = SPECS.get(exercise, {})
     ch = spec.get("channel", "abd")
     out = {"exercise": exercise, "verdicts": [], "pass": True}
@@ -232,7 +232,8 @@ def check(rows, fps, exercise, view):
         pk = float(np.nanpercentile(v, 95))
         (note if pk <= mx else fail)(f"{part} peaks at {pk:.0f}° (max {mx}°)")
     # AI artefacts: limbs changing length = melting; high-frequency wobble = jitter
-    for key in ("uarm_l", "uarm_r", "farm_l", "farm_r", "torso_len"):
+    # (skipped for puppet renders: rigid parts cannot melt, so any change is detector noise)
+    for key in (() if rigid else ("uarm_l", "uarm_r", "farm_l", "farm_r", "torso_len")):
         _, v = series(rows, key)
         if np.isnan(v).all():
             continue
@@ -275,6 +276,7 @@ def main():
     ap.add_argument("--exercise", default="lateral_raise")
     ap.add_argument("--view", default="front")
     ap.add_argument("--capture", action="store_true", help="just extract angle curves (for motion capture)")
+    ap.add_argument("--puppet", action="store_true", help="QA a puppet render: skip the limb-length (melting) check")
     ap.add_argument("--start", type=float, default=0)
     ap.add_argument("--end", type=float)
     ap.add_argument("-o", "--out", required=True)
@@ -284,7 +286,7 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     result = {"video": a.video, "fps": fps, "frames": rows}
     if not a.capture:
-        result["qa"] = check(rows, fps, a.exercise, a.view)
+        result["qa"] = check(rows, fps, a.exercise, a.view, rigid=a.puppet)
         for v in result["qa"]["verdicts"]:
             print(v)
         print("PASS" if result["qa"]["pass"] else "REJECT")

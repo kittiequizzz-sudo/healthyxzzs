@@ -102,7 +102,7 @@ projects/<slug>/
      a real demo curve exists.
 5. **QA frames:** run `render.py --draft --sheet`. Check placement, spelling, that limbs never
    detach, and that each rep looks like the card. For puppet shots, render one shot to MP4 and run
-   `qa_motion.py` on it too; the same ranges apply.
+   `qa_motion.py --puppet` on it too; the same ranges apply.
 6. **Final render, verify, deliver** (ffprobe, a contact sheet of the final file, −14 LUFS). Report
    the runtime, regenerated or placeholder clips, script/voice deviations and open fact-check flags.
 

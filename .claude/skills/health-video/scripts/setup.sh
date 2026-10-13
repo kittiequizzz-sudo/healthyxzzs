@@ -30,3 +30,11 @@ if [ ! -d "$ASR_DIR/node_modules/sts-whisper-small" ]; then
   (cd "$ASR_DIR" && npm init -y >/dev/null && npm install --ignore-scripts --no-audit --no-fund sts-whisper-small @huggingface/transformers >/dev/null)
 fi
 echo "health-video ready (cache: $CACHE)"
+
+# flat renderer (HTML/SVG scenes → MP4 via headless Chromium)
+FLAT="$(cd "$(dirname "$0")/../flat" && pwd)"
+if [ ! -d "$FLAT/node_modules/playwright-core" ]; then
+  (cd "$FLAT" && npm install --no-audit --no-fund >/dev/null)
+fi
+# render.mjs uses $CHROMIUM or /opt/pw-browsers/chromium; set CHROMIUM if Chromium lives elsewhere
+echo "flat renderer ready"

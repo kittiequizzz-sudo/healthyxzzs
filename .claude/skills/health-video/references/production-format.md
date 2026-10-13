@@ -16,7 +16,7 @@ for the approved reference implementation.
    same scale, same floor line, side view, cream #F5ECD7 background, no text (template:
    `characters/senior_m/situp_pose_sheet.md`). The user generates it in a free image app.
 3. Check each pose against the anatomy checklist; ask for a regeneration with exact fixes if any fail.
-4. Cut each pose to a transparent PNG (align on the planted feet, recolour skin to house blue #58A9E4).
+4. Cut the poses: `scripts/cut_poses.py` (aligned transparent PNGs in the house blue + `<name>_poses.json`).
 5. In the scene: show poses one at a time (0.22 s fade, slight push-in about the hip), progress dots,
    numbered step cards that light up with their pose, pulsing red callout circles on the working
    muscle, and a dashed motion arc for the moving body part. A shorter exercise variant can reuse a
@@ -30,3 +30,7 @@ Every number on screen must come from the source log / research.
 ## Per-video workflow
 Script/topic → research + fact-check → scene plan + pose-sheet orders → user sends pose sheets +
 voice-over → transcribe, time every beat 0.1–0.3 s before its word → render → frame QA → deliver.
+
+## Language
+- On-screen text uses the script's language (usually Spanish; Inter covers á é í ó ú ñ ¿ ¡).
+- Chat with the owner in Vietnamese. Image prompts in English with a Vietnamese explanation.

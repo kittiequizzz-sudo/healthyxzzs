@@ -6,3 +6,5 @@ projects/*/out/*.png
 projects/figtest/*.png
 projects/*/out/*.png
 characters/*/circles.json
+.claude/skills/health-video/flat/node_modules
+.claude/skills/health-video/flat/package-lock.json

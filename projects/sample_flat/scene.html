@@ -1,0 +1,138 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F5ECD7;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+window.DURATION = 28;
+const svg = document.getElementById('s');
+el('rect', { width: 1920, height: 1080, fill: C.cream }, svg);
+
+// ---------- scene 1: title
+const S1 = el('g', {}, svg);
+const t1a = Text(S1, 'SIT-UPS', { x: 520, y: 470, size: 136, color: C.ink });
+const vs = Text(S1, 'vs', { x: 960, y: 470, size: 90, color: C.orange });
+const t1b = Text(S1, 'CURL-UPS', { x: 1420, y: 470, size: 136, color: C.ink });
+const sub = Text(S1, 'Which one is safer for your back?', { x: 960, y: 640, size: 58, weight: 700, color: C.blueDark });
+const bar1 = el('rect', { x: 360, y: 560, width: 1200, height: 10, rx: 5, fill: C.orange }, S1);
+
+// ---------- scene 2: sit-up with phases
+const S2 = el('g', {}, svg);
+el('line', { x1: 200, y1: 822, x2: 1720, y2: 822, stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, S2);
+const fig2 = Figure(S2, { x: 860, floor: 818, scale: 1.25 });
+const h2 = Text(S2, 'THE SIT-UP', { x: 960, y: 130, size: 92 });
+const ph1 = Card(S2, { x: 1380, y: 300, w: 400, h: 130, fill: C.white });
+const ph1t = Text(ph1, '1  CURL', { x: 1580, y: 350, size: 56 });
+const ph1s = Text(ph1, 'abs', { x: 1580, y: 400, size: 34, weight: 700, color: C.red });
+const ph2 = Card(S2, { x: 1380, y: 470, w: 400, h: 130, fill: C.white });
+const ph2t = Text(ph2, '2  HINGE', { x: 1580, y: 520, size: 56 });
+const ph2s = Text(ph2, 'hip flexors', { x: 1580, y: 570, size: 34, weight: 700, color: C.red });
+
+// ---------- scene 3: spine load
+const S3 = el('g', {}, svg);
+const h3 = Text(S3, 'YOUR LOWER SPINE', { x: 960, y: 130, size: 84 });
+const spineG = el('g', {}, S3);
+const verts = [], discs = [];
+for (let i = 0; i < 5; i++) {
+  const y = 320 + i * 118;
+  const v = el('g', {}, spineG);
+  el('rect', { x: 560, y, width: 230, height: 86, rx: 22, fill: C.bone, stroke: C.ink, 'stroke-width': 6 }, v);
+  el('path', { d: `M790 ${y + 20} L880 ${y + 34} L880 ${y + 58} L790 ${y + 66} Z`, fill: C.bone, stroke: C.ink, 'stroke-width': 6, 'stroke-linejoin': 'round' }, v);
+  verts.push(v);
+  if (i < 4) discs.push(el('rect', { x: 575, y: y + 90, width: 200, height: 26, rx: 13, fill: C.disc, stroke: C.ink, 'stroke-width': 5 }, spineG));
+}
+const arrows = [];
+for (const ax of [610, 740]) arrows.push(el('path', { d: `M${ax} 205 L${ax} 285 M${ax - 26} 257 L${ax} 287 L${ax + 26} 257`, stroke: C.red, 'stroke-width': 16, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, S3));
+const num = Text(S3, '0', { x: 1360, y: 470, size: 190, color: C.red });
+const unit = Text(S3, 'newtons', { x: 1360, y: 600, size: 60, weight: 800 });
+const note = Text(S3, 'squeezing your lower discs in every sit-up', { x: 1360, y: 680, size: 36, weight: 600, color: C.blueDark });
+const src3 = Card(S3, { x: 1070, y: 780, w: 580, h: 90, fill: C.amber });
+Text(src3, 'Spine biomechanics research (McGill)', { x: 1360, y: 826, size: 30, weight: 800, color: C.white });
+
+// ---------- scene 4: curl-up + EMG bar
+const S4 = el('g', {}, svg);
+el('line', { x1: 120, y1: 822, x2: 1100, y2: 822, stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, S4);
+const fig4 = Figure(S4, { x: 560, floor: 818, scale: 1.1 });
+const h4 = Text(S4, 'THE CURL-UP', { x: 960, y: 130, size: 92 });
+const cap4 = Text(S4, 'head + shoulders only', { x: 520, y: 900, size: 40, weight: 700, color: C.blueDark });
+const chart = el('g', {}, S4);
+el('line', { x1: 1240, y1: 760, x2: 1760, y2: 760, stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, chart);
+const barBg = el('rect', { x: 1420, y: 360, width: 160, height: 400, rx: 18, fill: '#E9DFC7' }, chart);
+const barFg = el('rect', { x: 1420, y: 760, width: 160, height: 0, rx: 18, fill: C.orange, stroke: C.ink, 'stroke-width': 6 }, chart);
+const line50 = el('line', { x1: 1380, y1: 560, x2: 1640, y2: 560, stroke: C.ink, 'stroke-width': 4, 'stroke-dasharray': '16 12' }, chart);
+const l50 = Text(chart, '50% of max', { x: 1660, y: 560, size: 30, weight: 700, anchor: 'start' });
+const barLbl = Text(chart, 'ABS ACTIVITY', { x: 1500, y: 810, size: 34, weight: 800 });
+const barVal = Text(chart, '', { x: 1500, y: 320, size: 52, color: C.orange });
+
+// ---------- scene 5: takeaway
+const S5 = el('g', {}, svg);
+const k1 = Card(S5, { x: 260, y: 300, w: 640, h: 300, fill: C.white });
+Text(k1, 'CURL-UP', { x: 580, y: 380, size: 80 });
+Text(k1, 'strong abs, less spine bending', { x: 580, y: 450, size: 32, weight: 700, color: C.blueDark });
+const chk = el('path', { d: 'M530 525 L570 562 L640 492', stroke: C.green, 'stroke-width': 22, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, k1);
+const k2 = Card(S5, { x: 1020, y: 300, w: 640, h: 300, fill: C.white });
+Text(k2, 'SIT-UP', { x: 1340, y: 380, size: 80 });
+Text(k2, 'skip it if your back hurts', { x: 1340, y: 450, size: 32, weight: 700, color: C.blueDark });
+const xx = el('path', { d: 'M1305 495 L1375 565 M1375 495 L1305 565', stroke: C.red, 'stroke-width': 22, fill: 'none', 'stroke-linecap': 'round' }, k2);
+const srcs = Text(S5, 'Sources: curl-up vs sit-up EMG (PMC155519) · Sullivan 2015 JSCR · McGill spine load', { x: 960, y: 760, size: 26, weight: 600, color: '#6b6658' });
+
+function vis(g, t, a, b) { const on = t >= a && t < b; g.setAttribute('display', on ? 'inline' : 'none'); return on; }
+
+window.draw = function (t) {
+  // scene 1 0–4.5
+  if (vis(S1, t, 0, 4.5)) {
+    show(t1a, t, 0.1, 4.5); pop(vs, t, 0.6, 960, 470, 4.5); show(t1b, t, 0.9, 4.5);
+    set(bar1, { width: 1200 * E.out(prog(t, 1.4, 2.1)), opacity: 1 - prog(t, 4.2, 4.5) });
+    show(sub, t, 1.8, 4.5);
+  }
+  // scene 2 4.5–11
+  if (vis(S2, t, 4.5, 11)) {
+    const lt = t - 5.0;
+    const u = lt < 0 ? 0 : reps(lt, { up: 1.5, hold: 0.4, down: 1.8, rest: 0.35 });
+    const curl = E.inOut(prog(u, 0.0, 0.45)), hinge = E.inOut(prog(u, 0.4, 1.0));
+    fig2.draw(situpPose(u), { abs: curl * 0.95, hip: hinge * 0.95 });
+    show(h2, t, 4.6, 11);
+    show(ph1, t, 5.2, 11); show(ph2, t, 5.6, 11);
+    ph1t.setAttribute('fill', curl > 0.2 && hinge < 0.6 ? C.orange : C.ink);
+    ph2t.setAttribute('fill', hinge > 0.3 ? C.orange : C.ink);
+  }
+  // scene 3 11–17.5
+  if (vis(S3, t, 11, 17.5)) {
+    show(h3, t, 11.1, 17.5);
+    const sq = E.inOut(prog(t, 12.4, 13.4)) * (0.6 + 0.4 * Math.sin((t - 12.4) * 5) * prog(t, 13.4, 14));
+    discs.forEach((d, i) => set(d, { y: 320 + i * 118 + 90 + 6 * sq, height: 26 - 12 * sq, fill: sq > 0.3 ? C.red : C.disc }));
+    verts.forEach((v, i) => v.setAttribute('transform', `translate(0 ${(i * 6 * sq).toFixed(1)})`));
+    show(spineG, t, 11.3, 17.5, { dy: 0 });
+    arrows.forEach((a, i) => { const k = E.out(prog(t, 12.2 + i * 0.1, 12.7 + i * 0.1)); a.setAttribute('transform', `translate(0 ${(-60 * (1 - k) + 18 * sq).toFixed(1)})`); a.setAttribute('opacity', k.toFixed(2)); });
+    const n = Math.round(3300 * E.out(prog(t, 12.6, 14.4)) / 10) * 10;
+    num.textContent = n >= 3300 ? '≈3,300' : n.toLocaleString('en-US');
+    show(num, t, 12.5, 17.5, { dy: 20 }); show(unit, t, 13.0, 17.5); show(note, t, 13.6, 17.5); show(src3, t, 14.6, 17.5);
+  }
+  // scene 4 17.5–24
+  if (vis(S4, t, 17.5, 24)) {
+    const lt = t - 18.0;
+    const u = lt < 0 ? 0 : reps(lt, { up: 1.0, hold: 0.6, down: 1.3, rest: 0.4 });
+    fig4.draw(curlupPose(u), { abs: E.inOut(u) * 0.95 });
+    show(h4, t, 17.6, 24); show(cap4, t, 18.4, 24);
+    show(chart, t, 19.0, 24, { dy: 0 });
+    const v = E.out(prog(t, 19.6, 21.0)) * 0.55;
+    set(barFg, { y: 760 - 400 * v, height: 400 * v });
+    barVal.textContent = t > 20.9 ? '> 50%' : '';
+    show(l50, t, 19.4, 24); show(barVal, t, 20.9, 24, { dy: 10 });
+  }
+  // scene 5 24–28
+  if (vis(S5, t, 24, 28)) {
+    pop(k1, t, 24.1, 580, 450); pop(k2, t, 24.5, 1340, 450);
+    const c = E.out(prog(t, 25.0, 25.5)); chk.setAttribute('stroke-dasharray', '200'); chk.setAttribute('stroke-dashoffset', (200 * (1 - c)).toFixed(1));
+    const x2 = E.out(prog(t, 25.4, 25.9)); xx.setAttribute('stroke-dasharray', '230'); xx.setAttribute('stroke-dashoffset', (230 * (1 - x2)).toFixed(1));
+    show(srcs, t, 26.0, 28);
+  }
+};
+window.draw(0);
+</script>
+</body></html>

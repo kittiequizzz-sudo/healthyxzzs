@@ -1,0 +1,192 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 3 — el cerebro y la memoria.
+window.START = at('p3') - 0.6;
+window.END = at('p4') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('p3silencio'), g => SectionCard(g, 3, 'EL CEREBRO', 'y la memoria mientras duermes', ['brain'])(START + 0.1));
+
+// 1. 3 a.m.: the brain keeps working
+scene(svg, () => at('p3silencio'), () => at('p3pregunta'), g => {
+  const st = Still(g, 'cut/s_awake.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.4, 0.45], zoom: 0.1 });
+  const time = Chip(g, '03:00', { cx: 645, cy: 900, fill: C.ink, color: C.amber, size: 60 });
+  const glow = el('circle', { cx: 1560, cy: 330, r: 200, fill: C.amber, opacity: 0 }, g);
+  const B = el('g', {}, g); cut(B, 'brain', 1560, 330, 340);
+  const sparks = [0, 1, 2, 3, 4, 5].map(i => el('circle', { r: 9, fill: C.white, stroke: C.orange, 'stroke-width': 4 }, g));
+  const c1 = Chip(g, 'ORGANIZA RECUERDOS', { cx: 1560, cy: 620, size: 38 });
+  const c2 = Chip(g, 'NECESITA ENERGÍA', { cx: 1560, cy: 760, fill: C.amber, size: 38 });
+  return t => {
+    st.draw(t, at('p3silencio') - 1.5, at('p3pregunta'));
+    show(time, t, at('p3silencio') - 0.4);
+    pop(B, t, at('p3neuronas'), 1560, 330);
+    glow.setAttribute('opacity', t > at('p3neuronas') ? (0.2 + 0.1 * Math.sin(t * 4)).toFixed(2) : 0);
+    sparks.forEach((s, i) => {
+      const ph = (t * 0.9 + i / 6) % 1, a = i * 1.05;
+      set(s, { cx: 1560 + Math.cos(a) * (60 + ph * 120), cy: 320 + Math.sin(a) * (40 + ph * 80), opacity: t > at('p3neuronas') ? Math.sin(ph * Math.PI).toFixed(2) : 0 });
+    });
+    show(c1, t, at('p3recuerdos')); show(c2, t, at('p3energia'));
+  };
+});
+
+// 2. the question: memory and sleep? → depends
+scene(svg, () => at('p3pregunta'), () => at('p3quinta'), g => {
+  const a = Text(g, '¿UNA SEMANA SIN CENAR AFECTA…', { x: 960, y: 220, size: 72 });
+  const m = el('g', {}, g); Card(m, { x: 260, y: 340, w: 640, h: 320 }); cut(m, 'brain', 580, 470, 200); Text(m, 'MEMORIA', { x: 580, y: 615, size: 52 });
+  const s = el('g', {}, g); Card(s, { x: 1020, y: 340, w: 640, h: 320 }); Icon.moon(s, 1270, 380, 1.6); Text(s, 'SUEÑO', { x: 1340, y: 615, size: 52 });
+  const d = Chip(g, 'DEPENDE DE TU ORGANISMO', { cx: 960, cy: 820, fill: C.amber, size: 56 });
+  return t => { show(a, t, at('p3pregunta')); show(m, t, at('p3memoria')); show(s, t, at('p3sueno')); show(d, t, at('p3depende')); };
+});
+
+// 3. energy: ≈1/5 at rest; glucose, ketones in long fasts; skipping one dinner ≠ starving brain
+scene(svg, () => at('p3quinta'), () => at('p3complicarse'), g => {
+  Progress(g, 2);
+  const pie = el('g', {}, g);
+  el('circle', { cx: 420, cy: 470, r: 230, fill: C.white, stroke: C.ink, 'stroke-width': 8 }, pie);
+  const slice = el('path', { fill: C.orange, stroke: C.ink, 'stroke-width': 8, 'stroke-linejoin': 'round' }, pie);
+  cut(pie, 'brain', 520, 330, 120);
+  const lab = Text(g, '≈ 1/5 DE LA ENERGÍA', { x: 420, y: 780, size: 54 });
+  const lab2 = Text(g, 'en reposo', { x: 420, y: 850, size: 40, weight: 800, color: C.blueDark });
+  const gl = el('g', {}, g); Card(gl, { x: 900, y: 250, w: 420, h: 220 }); Icon.drop(gl, 950, 290, 1.2); Text(gl, 'GLUCOSA', { x: 1190, y: 350, size: 46 }); Text(gl, 'habitual', { x: 1190, y: 415, size: 34, weight: 800, color: C.blueDark });
+  const arr = Arrow(g, 1340, 360, 1440, 360, C.ink, 12);
+  const ke = el('g', {}, g); Card(ke, { x: 1460, y: 250, w: 380, h: 220 }); Text(ke, 'CUERPOS', { x: 1650, y: 320, size: 46 }); Text(ke, 'CETÓNICOS', { x: 1650, y: 375, size: 46, color: C.orange }); Text(ke, 'ayuno prolongado', { x: 1650, y: 430, size: 32, weight: 800, color: C.blueDark });
+  const ok = el('g', {}, g); Card(ok, { x: 900, y: 600, w: 940, h: 230, fill: C.green });
+  Text(ok, 'SALTAR UNA CENA', { x: 1370, y: 680, size: 58, color: C.white });
+  Text(ok, '≠ CEREBRO SIN ALIMENTO', { x: 1370, y: 760, size: 58, color: C.white });
+  return t => {
+    show(pie, t, at('p3quinta') - 0.2);
+    const u = E.inOut(prog(t, at('p3quinta'), at('p3quinta') + 1)) * 0.2;
+    const a1 = -Math.PI / 2, a2 = a1 + u * 2 * Math.PI;
+    set(slice, { d: u > 0.001 ? `M420 470 L${420 + 230 * Math.cos(a1)} ${470 + 230 * Math.sin(a1)} A230 230 0 0 1 ${420 + 230 * Math.cos(a2)} ${470 + 230 * Math.sin(a2)} Z` : '' });
+    show(lab, t, at('p3quinta') + 0.5); show(lab2, t, at('p3quinta') + 0.8);
+    show(gl, t, at('p3glucosa')); arr.setAttribute('opacity', prog(t, at('p3cetonicos') - 0.4, at('p3cetonicos'))); show(ke, t, at('p3cetonicos'));
+    show(ok, t, at('p3mecanismos'));
+  };
+});
+
+// 4. diabetes + insulin: nocturnal hypoglycaemia and its signs
+scene(svg, () => at('p3complicarse'), () => at('p3hambre'), g => {
+  const A = el('g', {}, g);
+  const st = Still(A, 'cut/s_glucose.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.45, 0.5], zoom: 0.08 });
+  const c1 = Chip(A, 'DIABETES + INSULINA', { cx: 1560, cy: 330, size: 40 });
+  const c2 = el('g', {}, A); Card(c2, { x: 1300, y: 450, w: 520, h: 230, fill: C.red });
+  Text(c2, 'BAJADA DE AZÚCAR', { x: 1560, y: 530, size: 44, color: C.white }); Text(c2, 'DURANTE LA NOCHE', { x: 1560, y: 600, size: 44, color: C.white });
+  const sub = Text(A, 'si se salta una comida sin ajustar el tratamiento', { x: 645, y: 880, size: 36, weight: 800, color: C.blueDark });
+  const Bg = el('g', {}, g);
+  Text(Bg, 'SEÑALES DE HIPOGLUCEMIA', { x: 960, y: 150, size: 70, color: C.red });
+  const sy = [['SUDORACIÓN', 'p3sudoracion', 'drop'], ['TEMBLORES', 'p3temblores', 'zig'], ['PALPITACIONES', 'p3palpita', 'heart'], ['PESADILLAS', 'p3pesadillas', 'moon'], ['CONFUSIÓN', 'p3confusion', 'question']].map(([s, k, ic], i) => {
+    const c = el('g', {}, Bg), x = 70 + i * 362;
+    Card(c, { x, y: 280, w: 330, h: 380 });
+    el('rect', { x, y: 280, width: 330, height: 24, rx: 12, fill: C.red }, c);
+    if (ic === 'zig') el('path', { d: `M${x + 90} 450 l25 -40 l25 80 l25 -80 l25 80 l25 -40`, fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, c);
+    else Icon[ic](c, x + 105, 360, 1.2, ic === 'drop' ? C.blue : undefined);
+    Text(c, s, { x: x + 165, y: 600, size: s.length > 11 ? 34 : 40 });
+    return [c, k, x];
+  });
+  const st2 = Stamp(Bg, 'REQUIEREN ATENCIÓN', { cx: 960, cy: 850, size: 72 });
+  return t => {
+    const sw = at('p3sudoracion') - 0.4;
+    const k = E.inOut(prog(t, sw, sw + 0.4));
+    A.setAttribute('opacity', 1 - k); A.style.display = k >= 1 ? 'none' : '';
+    Bg.setAttribute('opacity', k); Bg.style.display = k <= 0 ? 'none' : '';
+    st.draw(t, at('p3complicarse'), sw);
+    show(c1, t, at('p3insulina')); show(c2, t, at('p3bajada')); show(sub, t, at('p3bajada') + 1);
+    sy.forEach(([c, kk, x]) => pop(c, t, at(kk), x + 165, 470));
+    st2.draw(t, at('p3hipo'));
+  };
+});
+
+// 5. hunger can change sleep: calm vs broken nights; after 60, poor sleep hits focus, mood, memory
+scene(svg, () => at('p3hambre'), () => at('p3teHas'), g => {
+  Progress(g, 2);
+  const h = Text(g, 'EL HAMBRE PUEDE CAMBIAR TU SUEÑO', { x: 900, y: 150, size: 60 });
+  const row = (y, label, col, jag, k) => {
+    const r = el('g', {}, g);
+    Card(r, { x: 100, y, w: 1720, h: 200 });
+    Text(r, label, { x: 140, y: y + 50, size: 36, anchor: 'start', color: col });
+    let d = '';
+    for (let i = 0; i <= 160; i++) {
+      const x = 140 + i * 10.4;
+      const base = y + 130 + 30 * Math.sin(i * 0.12);
+      const spike = jag && (i % 23 === 11) ? -45 : 0;
+      d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (base + spike).toFixed(1);
+    }
+    const p = el('path', { d, fill: 'none', stroke: col, 'stroke-width': 8, 'stroke-linejoin': 'round', 'stroke-dasharray': 3000, 'stroke-dashoffset': 3000 }, r);
+    return [r, p, k];
+  };
+  const rows = [row(210, 'CENA TEMPRANA: DUERMEN BIEN', C.green, false, 'p3algunas'), row(440, 'DEMASIADAS POCAS CALORÍAS', C.red, true, 'p3otras')];
+  const chips = ['DESPERTARES', 'IRRITABILIDAD', 'INSOMNIO'].map((s, i) => Chip(g, s, { cx: 560 + i * 400, cy: 735, size: 34, fill: C.red, color: C.white }));
+  const age = Chip(g, '+60 AÑOS: DORMIR MAL AFECTA A…', { cx: 960, cy: 850, fill: C.ink, color: C.amber, size: 42 });
+  const eff = ['CONCENTRACIÓN', 'ÁNIMO', 'MEMORIA DIARIA'].map((s, i) => Chip(g, s, { cx: 460 + i * 500, cy: 980, size: 44 }));
+  return t => {
+    show(h, t, at('p3hambre'));
+    rows.forEach(([r, p, k]) => { show(r, t, at(k)); p.setAttribute('stroke-dashoffset', 3000 * (1 - E.inOut(prog(t, at(k) + 0.2, at(k) + 2.2)))); });
+    chips.forEach((c, i) => show(c, t, at('p3despertares') + i * 0.4));
+    show(age, t, at('p3sesenta'));
+    show(eff[0], t, at('p3concentracion')); show(eff[1], t, at('p3concentracion') + 0.9); show(eff[2], t, at('p3recordar'));
+  };
+});
+
+// 6. comment prompt
+scene(svg, () => at('p3teHas'), () => at('p3llaves'), g => {
+  const st = Still(g, 'cut/s_awake.png', { x: 460, y: 110, w: 1000, h: 556, iw: STILL[0], ih: STILL[1], focus: [0.7, 0.3], zoom: 0.08 });
+  const q = Text(g, '¿TE DESPIERTAS CON HAMBRE DE MADRUGADA?', { x: 960, y: 760, size: 58 });
+  const cta = CTA(g, 'comment');
+  return t => { st.draw(t, at('p3teHas'), at('p3llaves')); show(q, t, at('p3teHas')); pop(cta, t, at('p3cuentame'), 960, 925); };
+});
+
+// 7. forgetting keys ≠ brain damage; what matters
+scene(svg, () => at('p3llaves'), () => at('p3temprano'), g => {
+  const k = el('g', {}, g);
+  el('circle', { cx: 300, cy: 240, r: 70, fill: C.amber, stroke: C.ink, 'stroke-width': 8 }, k);
+  el('circle', { cx: 300, cy: 240, r: 24, fill: C.cream, stroke: C.ink, 'stroke-width': 6 }, k);
+  el('path', { d: 'M370 240 H620 V290 M560 240 V280', fill: 'none', stroke: C.ink, 'stroke-width': 22, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, k);
+  const a = Text(g, 'OLVIDAR UNAS LLAVES', { x: 1240, y: 210, size: 60 });
+  const b = Text(g, '≠ LESIÓN CEREBRAL', { x: 1240, y: 290, size: 60, color: C.red });
+  const list = [['ALIMENTACIÓN SUFICIENTE', 'p3importante'], ['SIN RESTRICCIONES EXTREMAS', 'p3extremas'], ['CONSULTA SI HAY SÍNTOMAS', 'p3consultar']].map(([s, kk], i) => {
+    const c = el('g', {}, g); Card(c, { x: 360, y: 440 + i * 180, w: 1200, h: 140 }); Icon.check(c, 395, 460 + i * 180, 1);
+    Text(c, s, { x: 530, y: 512 + i * 180, size: 52, anchor: 'start' });
+    return [c, kk];
+  });
+  return t => { show(k, t, at('p3llaves')); show(a, t, at('p3llaves')); show(b, t, at('p3lesion')); list.forEach(([c, kk]) => show(c, t, at(kk))); };
+});
+
+// 8. early dinner ≠ going to bed hungry
+scene(svg, () => at('p3temprano'), () => at('p3cuestion'), g => {
+  const st = Still(g, 'cut/s_light.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.4, 0.6], zoom: 0.08 });
+  const a = Text(g, 'CENAR TEMPRANO', { x: 1570, y: 330, size: 54 });
+  const b = Text(g, '≠ ACOSTARSE', { x: 1570, y: 410, size: 54, color: C.red });
+  const b2 = Text(g, 'CON HAMBRE', { x: 1570, y: 480, size: 54, color: C.red });
+  const c = el('g', {}, g); Card(c, { x: 1290, y: 600, w: 560, h: 220, fill: C.green });
+  Text(c, 'LIGERA + EQUILIBRADA', { x: 1570, y: 670, size: 40, color: C.white }); Text(c, '> ELIMINARLA', { x: 1570, y: 750, size: 52, color: C.white });
+  return t => { st.draw(t, at('p3temprano'), at('p3cuestion')); show(a, t, at('p3temprano')); show(b, t, at('p3temprano') + 0.4); show(b2, t, at('p3temprano') + 0.6); show(c, t, at('p3ligera')); };
+});
+
+// 9. next: the heart
+scene(svg, () => at('p3cuestion'), () => END + 1, g => {
+  const top = Text(g, 'Y MIENTRAS TANTO…', { x: 960, y: 150, size: 70 });
+  const H = el('g', {}, g); cut(H, 'heart', 960, 500, 440);
+  const lab = Text(g, 'TU CORAZÓN SIGUE LATIENDO', { x: 960, y: 800, size: 64, color: C.red });
+  const chips = [Chip(g, '+60 AÑOS', { cx: 720, cy: 940, fill: C.ink, color: C.amber, size: 44 }), Chip(g, 'TENSIÓN ARTERIAL', { cx: 1180, cy: 940, fill: C.amber, size: 44 })];
+  return t => {
+    show(top, t, at('p3cuestion'));
+    const beat = t > at('p3corazon') ? 1 + 0.05 * Math.pow(Math.max(0, Math.sin((t - at('p3corazon')) * Math.PI * 2.4)), 8) : 1;
+    pop(H, t, at('p3corazon') - 0.2, 960, 500);
+    if (t > at('p3corazon') + 0.4) H.setAttribute('transform', `translate(960 500) scale(${beat.toFixed(3)}) translate(-960 -500)`);
+    show(lab, t, at('p3corazon') + 0.3);
+    chips.forEach((c, i) => show(c, t, at('p3tension') - 1.2 + i * 0.6));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

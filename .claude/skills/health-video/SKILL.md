@@ -49,6 +49,10 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
 9. **Render and QA:** run `node flat/render.mjs scene.html x --frames t1,t2,… --png out/f` and look at
    the frames. Fix placement, spelling and timing. Then run
    `node flat/render.mjs scene.html out/final.mp4 --audio voice.wav`.
+   Long videos (10+ min): one HTML per script section, each setting `window.START`/`window.END` on the
+   shared voice timeline, then `node scripts/render_sections.mjs projects/<slug> voice.mp3 out/final.mp4
+   intro.html punto1.html … --jobs 3` (parallel, frame-snapped joins, voice added once; ~3× real time
+   per job). Shared pieces for a video go in its `common.js` (see `projects/7dias_sin_cenar/`).
 10. **Deliver** the MP4, along with a short Vietnamese summary of what's in it and any open fact-check flags.
 
 Setup once per machine: `bash scripts/setup.sh`. It installs Whisper (offline), the flat renderer
@@ -67,6 +71,6 @@ dependencies (playwright-core) and the motion QA tools.
   Tile, Cutout, Stamp, Clock, DayCounter, icons, sceneVis). Organ/topic video reference:
   `projects/7dias_sin_cenar/intro.html`. `figure.js`, `pictogram.js` and
   `sheetfigure.js` are rejected experiments; don't use them for videos.
-- `scripts/`: `cut_poses.py`, `cut_items.py`, `transcribe.mjs`, `cues.mjs`, `setup.sh`, plus the legacy tools `render.py`,
+- `scripts/`: `cut_poses.py`, `cut_items.py`, `transcribe.mjs`, `cues.mjs`, `render_sections.mjs`, `setup.sh`, plus the legacy tools `render.py`,
   `puppet.py`, `motion.py` and `qa_motion.py`.
 - `characters/`: the user's character sheets. `projects/`: one folder per video.

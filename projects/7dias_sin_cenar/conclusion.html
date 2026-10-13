@@ -1,0 +1,126 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Conclusión, quiz and end card.
+window.START = at('c0') - 0.6;
+window.END = 1349.2 + 2.5;             // voice ends at 1349.2 s; hold the last card a moment
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('c1sorprenda'), g => {
+  el('rect', { width: 1920, height: 1080, fill: C.ink }, g);
+  const a = Text(g, 'CONCLUSIÓN', { x: 960, y: 380, size: 70, color: C.amber });
+  const b = Text(g, '7 DÍAS SIN CENAR:', { x: 960, y: 520, size: 110, color: C.cream });
+  const c = Text(g, '¿BENEFICIO O RIESGO?', { x: 960, y: 650, size: 80, color: C.orange });
+  const im = el('g', {}, g);
+  ORDER6.forEach(([n], i) => cut(im, n, 560 + i * 160, 860, 130));
+  return t => { show(a, t, START + 0.1); show(b, t, START + 0.3); show(c, t, START + 0.7); show(im, t, START + 1); };
+});
+
+// 1. neither miracle nor automatic damage — it depends
+scene(svg, () => at('c1sorprenda'), () => at('c2higado'), g => {
+  const r = el('g', {}, g); Card(r, { x: 260, y: 170, w: 1400, h: 150 }); Icon.cross(r, 295, 195, 1);
+  Text(r, 'NO REJUVENECES MILAGROSAMENTE', { x: 1010, y: 247, size: 54 });
+  const d = el('g', {}, g); Card(d, { x: 260, y: 370, w: 1400, h: 150 }); Icon.cross(d, 295, 395, 1);
+  Text(d, 'NO TE DETERIORAS AUTOMÁTICAMENTE', { x: 1010, y: 447, size: 54 });
+  const h = Text(g, 'TODO DEPENDE DE…', { x: 960, y: 640, size: 66, color: C.orange });
+  const chips = ['TU SALUD', 'TUS NECESIDADES', 'LO QUE COMES EN EL DÍA'].map((s, i) => Chip(g, s, { cx: [380, 900, 1480][i], cy: 800, fill: C.amber, size: 40 }));
+  return t => { show(r, t, at('c1rejuvenecer')); show(d, t, at('c1deteriora')); show(h, t, at('c1depende')); chips.forEach((c, i) => show(c, t, at('c1depende') + 0.6 + i * 0.6)); };
+});
+
+// 2. what each organ does — summary
+scene(svg, () => at('c2higado'), () => at('c3advertencia'), g => {
+  const items = [['liver', 'HÍGADO', 'adapta su energía', 'c2higado'], ['pancreas', 'PÁNCREAS', 'ajusta la insulina', 'c2pancreas'], ['brain', 'CEREBRO', 'sigue necesitando combustible', 'c2cerebro'], ['calf', 'MÚSCULOS', 'necesitan proteína', 'c2musculos']].map(([n, a, b, k], i) => {
+    const c = el('g', {}, g), x = 120 + (i % 2) * 860, y = 130 + Math.floor(i / 2) * 430;
+    Card(c, { x, y, w: 820, h: 380 });
+    cut(c, n, x + 190, y + 190, 260);
+    Text(c, a, { x: x + 560, y: y + 160, size: 58 }); Text(c, b, { x: x + 560, y: y + 240, size: b.length > 20 ? 30 : 38, weight: 800, color: C.blueDark });
+    return [c, k, x + 410, y + 190];
+  });
+  return t => items.forEach(([c, k, cx, cy]) => pop(c, t, at(k), cx, cy));
+});
+
+// 3. the warning
+scene(svg, () => at('c3advertencia'), () => at('c4reco'), g => {
+  const w = Warn(g, 'ANTES DE UN AYUNO PROLONGADO', ['', '', ''], { y: 110 });
+  const l = [['MÁS DE 60 AÑOS', 'c3sesenta'], ['DIABETES O FÁRMACOS PARA EL AZÚCAR', 'c3diabetes'], ['ENFERMEDADES CRÓNICAS', 'c3cronicas']].map(([s, k], i) => [Text(g, s, { x: 960, y: 285 + i * 95, size: 52 }), k]);
+  const ok = Chip(g, '→ CONSULTA A UN PROFESIONAL', { cx: 960, cy: 680, fill: C.green, color: C.white, size: 52 });
+  const ig = ['BAJADAS DE GLUCOSA', 'MAREOS PERSISTENTES', 'COMER DEMASIADO POCO'].map((s, i) => Chip(g, s, { cx: [390, 960, 1530][i], cy: 860, fill: C.red, color: C.white, size: 34 }));
+  const ign = Text(g, 'no los ignores', { x: 960, y: 980, size: 46, weight: 800, color: C.red });
+  return t => {
+    show(w, t, at('c3advertencia')); l.forEach(([e, k]) => show(e, t, at(k))); show(ok, t, at('c3consultar'));
+    show(ig[0], t, at('c3glucosa')); show(ig[1], t, at('c3mareos')); show(ig[2], t, at('c3insuf')); show(ign, t, at('c3insuf') + 1);
+  };
+});
+
+// 4. improve dinner before eliminating it
+scene(svg, () => at('c4reco'), () => at('c5quiz'), g => {
+  const st = Still(g, 'cut/s_light.png', { x: 60, y: 200, w: 1000, h: 556, iw: STILL[0], ih: STILL[1], focus: [0.45, 0.6], zoom: 0.08 });
+  const h = Text(g, 'ANTES DE ELIMINAR LA CENA, MEJÓRALA', { x: 960, y: 120, size: 62, color: C.green });
+  const l = [['VERDURAS', 'c4verduras'], ['PROTEÍNA DE CALIDAD', 'c4proteinas'], ['CANTIDAD ADECUADA', 'c4cantidades'], ['CENA CON ANTELACIÓN', 'c4antelacion'], ['NADA EXCESIVO AL DORMIR', 'c4abundante']].map(([s, k], i) => {
+    const c = el('g', {}, g); Card(c, { x: 1120, y: 200 + i * 160, w: 740, h: 125 }); Icon.check(c, 1145, 213 + i * 160, 1);
+    Text(c, s, { x: 1265, y: 263 + i * 160, size: s.length > 18 ? 38 : 46, anchor: 'start' });
+    return [c, k];
+  });
+  return t => { st.draw(t, at('c4reco'), at('c5quiz')); show(h, t, at('c4mejorarla')); l.forEach(([c, k]) => show(c, t, at(k))); };
+});
+
+// 5. quiz (no reveal: the answer goes in the comments)
+scene(svg, () => at('c5quiz'), () => at('c6megusta'), g => {
+  const top = Chip(g, 'PREGUNTA FINAL', { cx: 960, cy: 110, fill: C.ink, color: C.amber, size: 48 });
+  const q = Text(g, '¿QUÉ ÓRGANO PRODUCE LA INSULINA?', { x: 960, y: 250, size: 66 });
+  const opts = [['A', 'HÍGADO', 'liver'], ['B', 'PÁNCREAS', 'pancreas'], ['C', 'ESTÓMAGO', 'stomach']].map(([L, s, n], i) => {
+    const c = el('g', {}, g), x = 170 + i * 560;
+    Card(c, { x, y: 340, w: 460, h: 420 });
+    el('circle', { cx: x + 60, cy: 400, r: 38, fill: C.orange, stroke: C.ink, 'stroke-width': 5 }, c);
+    Text(c, L, { x: x + 60, y: 402, size: 44, color: C.white });
+    cut(c, n, x + 230, 540, 260); Text(c, s, { x: x + 230, y: 710, size: 50 });
+    return [c, x + 230];
+  });
+  const cta = CTA(g, 'comment');
+  const dur = (at('c5escribe') - at('c5opciones')) / 3;
+  return t => { show(top, t, at('c5quiz')); show(q, t, at('c5organo')); opts.forEach(([c, cx], i) => pop(c, t, at('c5opciones') + i * dur, cx, 550)); pop(cta, t, at('c5escribe'), 960, 925); };
+});
+
+// 6. like, subscribe, bell
+scene(svg, () => at('c6megusta'), () => at('c7recuerda'), g => {
+  const like = el('g', {}, g); Card(like, { x: 180, y: 380, w: 480, h: 220, fill: C.white, r: 110 });
+  const th = el('g', { transform: 'translate(300 470) scale(0.72) translate(-350 -460)' }, like);
+  el('path', { d: 'M260 520 V450 H300 L340 380 C360 370 380 380 375 405 L365 445 H420 C440 445 450 465 442 480 L425 525 C420 535 410 540 400 540 H300 V520 Z', fill: C.blue, stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, th);
+  Text(like, 'ME GUSTA', { x: 500, y: 492, size: 46 });
+  const sub = el('g', {}, g); Card(sub, { x: 720, y: 380, w: 520, h: 220, fill: C.red, r: 110 });
+  Text(sub, 'SUSCRÍBETE', { x: 980, y: 492, size: 62, color: C.white });
+  const bell = el('g', {}, g); Card(bell, { x: 1300, y: 380, w: 440, h: 220, fill: C.white, r: 110 });
+  const bi = el('g', {}, bell);
+  el('path', { d: 'M1420 420 C1385 420 1370 450 1370 480 V520 L1350 545 H1490 L1470 520 V480 C1470 450 1455 420 1420 420 Z', fill: C.amber, stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, bi);
+  el('circle', { cx: 1420, cy: 558, r: 13, fill: C.amber, stroke: C.ink, 'stroke-width': 6 }, bi);
+  Text(bell, 'ACTIVA', { x: 1610, y: 492, size: 44 });
+  const msg = Text(g, 'para seguir descubriendo cómo funciona tu cuerpo', { x: 960, y: 760, size: 46, weight: 800, color: C.blueDark });
+  return t => {
+    pop(like, t, at('c6megusta'), 420, 490); pop(sub, t, at('c6suscribe'), 980, 490); pop(bell, t, at('c6campana'), 1520, 490);
+    if (t > at('c6campana') + 0.4) bi.setAttribute('transform', `rotate(${(12 * Math.sin((t - at('c6campana')) * 14) * Math.exp(-(t - at('c6campana')) * 1.5)).toFixed(2)} 1420 425)`);
+    show(msg, t, at('c6campana') + 0.8);
+  };
+});
+
+// 7. final quote
+scene(svg, () => at('c7recuerda'), () => END + 1, g => {
+  el('rect', { width: 1920, height: 1080, fill: C.ink }, g);
+  const a = Text(g, 'DESPUÉS DE LOS 60,', { x: 960, y: 300, size: 76, color: C.amber });
+  const b = Text(g, 'NO SE TRATA DE COMER CADA VEZ MENOS,', { x: 960, y: 470, size: 66, color: C.cream });
+  const c = Text(g, 'SINO DE ALIMENTARTE CADA VEZ MEJOR', { x: 960, y: 590, size: 72, color: C.green });
+  const d = Text(g, 'Nos vemos en el próximo vídeo', { x: 960, y: 820, size: 50, weight: 700, color: C.blueFar });
+  const im = el('g', {}, g); ORDER6.forEach(([n], i) => cut(im, n, 560 + i * 160, 960, 110));
+  return t => { show(a, t, at('c7recuerda')); show(b, t, at('c7menos') - 0.6); show(c, t, at('c7mejor') - 0.4); show(d, t, at('c8')); show(im, t, at('c8') + 0.4); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

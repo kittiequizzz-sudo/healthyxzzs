@@ -1,0 +1,205 @@
+[0.18 - 7.00] (w0-14) ¿Qué pasaría si esta noche decidieras no cenar y repitieras esa decisión durante siete días?
+[7.26 - 16.06] (w15-33) Lo sorprendente es que, mientras tú duermes, seis partes fundamentales de tu cuerpo podrían reaccionar de maneras muy diferentes.
+[16.28 - 20.28] (w34-42) Y algunas consecuencias, quizá no sean las que esperas.
+[20.54 - 24.16] (w43-51) Tu hígado comenzaría a gestionar sus reservas de energía.
+[24.36 - 27.80] (w52-62) Tu páncreas tendría que adaptarse a un nuevo horario de alimentación.
+[28.76 - 32.88] (w63-73) Pero, ¿qué ocurriría con tu cerebro, tu corazón y tus músculos?
+[34.18 - 42.40] (w74-93) Muchas personas mayores de 60 años eliminan la cena pensando que así perderán grasa, dormirán mejor y controlarán su azúcar.
+[43.22 - 46.80] (w94-102) Sin embargo, dejar de cenar no garantiza esos beneficios.
+[47.72 - 55.00] (w103-121) Dependiendo de tu salud, tus medicamentos y lo que comas durante el día, los resultados pueden ser muy distintos.
+[55.18 - 66.74] (w122-151) Hoy descubriremos qué puede suceder dentro de tus órganos durante siete días sin cenar, desde los primeros cambios digestivos hasta sus posibles efectos sobre la memoria y la fuerza muscular.
+[67.60 - 74.48] (w152-167) Y presta especial atención al último órgano, porque su respuesta puede ser decisiva si tienes diabetes.
+[74.74 - 78.48] (w168-179) Antes de empezar, cuéntame en los comentarios ¿A qué hora suele cenar?
+[79.40 - 82.60] (w180-191) Quizá tu respuesta revele más sobre tus hábitos de lo que imaginas.
+[83.86 - 85.14] (w192-192) .1.
+[85.14 - 87.12] (w193-195) Estómago e intestinos.
+[87.40 - 90.74] (w196-202) Descansan o sufren cuando dejas de cenar.
+[90.86 - 94.70] (w203-211) La primera noche sin cenar puede parecer completamente normal.
+[94.78 - 99.54] (w212-223) Te acuestas, apagas la luz y piensas que tu estómago está descansando.
+[99.80 - 103.56] (w224-233) Pero dentro de tu abdomen ocurre algo mucho más interesante.
+[103.76 - 109.38] (w234-244) Tu sistema digestivo sigue trabajando, aunque no hayas comido absolutamente nada.
+[109.68 - 115.98] (w245-256) El estómago continúa produciendo pequeñas cantidades de ácido y realizando movimientos naturales.
+[116.16 - 124.00] (w257-274) Mientras tanto, los intestinos mantienen una actividad especial que ayuda a desplazar los restos de alimentos y secreciones.
+[124.46 - 132.84] (w275-293) Este mecanismo forma parte de la limpieza normal del aparato digestivo y funciona especialmente durante los periodos sin comida.
+[133.04 - 135.56] (w294-298) ¿Aquí aparece una pregunta importante?
+[135.72 - 142.18] (w299-312) ¿Significa esto que, cuanto más tiempo permanezca sin comer, más saludable estará tu estómago?
+[142.58 - 144.14] (w313-314) No necesariamente.
+[144.38 - 155.26] (w315-336) Durante los primeros días, algunas personas experimentan menos pesades nocturnas, especialmente si antes acostumbraban a cenar demasiado tarde o en grandes cantidades.
+[155.68 - 159.62] (w337-345) También podrían notar menos molestias relacionadas con la digestión.
+[159.90 - 165.82] (w346-356) Sin embargo, otras personas sienten hambre intensa, náuseas o molestias abdominales.
+[166.38 - 174.00] (w357-371) Y si padeces gastritis, úlceras o problemas digestivos, cambiar bruscamente tus horarios puede resultar incómodo.
+[174.32 - 182.00] (w372-386) Existe además un proceso celular llamado autofagia, mediante el cual las células reciclan componentes deteriorados.
+[182.90 - 194.96] (w387-412) Aunque suele relacionarse con el ayuno, todavía no sabemos exactamente cuánto tiempo debe permanecer una persona sin comer para obtener beneficios clínicos concretos mediante este mecanismo.
+[195.18 - 205.10] (w413-433) Por eso, dejar de cenar durante siete días no garantiza una limpieza profunda del intestino ni una regeneración extraordinaria del estómago.
+[205.30 - 212.30] (w434-449) Si te interesa comprender estos cambios que casi nunca podemos observar directamente, puedes suscribirte al canal.
+[212.52 - 218.76] (w450-461) Aquí explicamos cómo funciona tu cuerpo con palabras sencillas, sin promesas milagrosas.
+[219.08 - 221.28] (w462-466) Ahora, piensa en algo cotidiano.
+[221.42 - 228.62] (w467-482) Una persona de 68 años acostumbra a cenar embutidos, pan y queso justo antes de acostarse.
+[228.82 - 235.14] (w483-497) Si sustituye esa cena por una comida equilibrada y más temprana, probablemente no te diferencias.
+[235.36 - 241.08] (w498-509) Pero esas mejoras no significan que eliminar completamente la cena sea necesario.
+[241.28 - 250.00] (w510-530) Una alternativa razonable consiste en cenar dos o tres horas antes de dormir, con alimentos fáciles de digerir y suficientes nutrientes.
+[251.20 - 254.26] (w531-538) Y aquí llega el detalle que muchos desconocen.
+[254.50 - 259.20] (w539-550) Cuando dejas de cenar, los cambios no se limitan al aparato digestivo.
+[259.40 - 264.00] (w551-563) Tu hígado empieza a modificar la forma en que proporciona energía al organismo.
+[264.86 - 274.18] (w564-581) Lo que sucede entonces puede sorprenderte, porque incluso mientras duermes, tu cuerpo necesita combustible para seguir funcionando correctamente.
+[274.74 - 275.80] (w582-583) Punto 2.
+[276.08 - 276.92] (w584-585) El hígado.
+[277.20 - 281.10] (w586-595) La fábrica de energía que cambia su forma de trabajar.
+[281.38 - 286.20] (w596-608) Mientras tú duermes tranquilamente, tu hígado tiene una misión que no puede abandonar.
+[287.10 - 295.06] (w609-626) Mantener suficiente energía disponible para que tu cerebro, tu corazón y el resto de tus órganos continúen funcionando.
+[295.22 - 302.82] (w627-644) Y cuando decides eliminar la cena durante siete días, esta misión empieza a desarrollarse de una manera diferente.
+[303.00 - 306.26] (w645-652) Piensa en tu hígado como una almacena inteligente.
+[306.54 - 312.08] (w653-667) Durante el día, después de comer, guarda parte de la glucosa en forma de glucógeno.
+[312.34 - 320.38] (w668-686) Cuando pasan varias horas sin recibir alimentos, comienza a utilizar esas reservas para mantener estable el azúcar en sangre.
+[320.60 - 323.32] (w687-691) Pero aquí aparece algo fascinante.
+[323.62 - 333.00] (w692-713) Cuando el ayuno se prolonga, las reservas de glucógeno van disminuyendo y el organismo aumenta progresivamente la utilización de grasas como combustible.
+[333.72 - 341.00] (w714-729) El hígado también puede fabricar glucosa a partir de otras sustancias mediante un proceso llamado gluconeogenesis.
+[341.78 - 349.02] (w730-746) Esto no significa que tu hígado esté sufriendo ni que esté eliminando mágicamente todas las toxinas acumuladas.
+[349.38 - 355.70] (w747-757) Simplemente, está utilizando mecanismos naturales que permiten mantener el equilibrio energético.
+[355.84 - 363.74] (w758-775) Durante los primeros días sin cenar, algunas personas podrían experimentar una reducción de su consumo total de calorías.
+[363.94 - 374.08] (w776-797) Con el tiempo, esto puede favorecer la pérdida de peso y mejorar ciertos indicadores metabólicos, especialmente cuando existe exceso de grasa corporal.
+[374.54 - 383.20] (w798-815) Sin embargo, existe una diferencia enorme entre reducir las calorías innecesarias y privar al organismo de nutrientes esenciales.
+[383.80 - 390.42] (w816-827) Después de los 60 años, mantener una alimentación suficiente resulta especialmente importante.
+[390.62 - 401.62] (w828-852) Si eliminas las cenas sin compensar adecuadamente las proteínas, vitaminas y minerales durante el día, podrías favorecer la debilidad y la pérdida de masa muscular.
+[401.88 - 413.90] (w853-872) Y atención, si tienes diabetes, enfermedades hepáticas o tomas determinados medicamentos, modificar bruscamente tus horarios de alimentación requiere orientación profesional.
+[414.12 - 421.18] (w873-889) Por cierto, si conoces a alguien que suele saltarse la cena para adelgazar rápidamente, comparte este video.
+[421.42 - 425.34] (w890-899) Comprender estos mecanismos puede ayudarle a tomar decisiones más seguras.
+[426.62 - 428.86] (w900-904) Ahora viene una cuestión importante.
+[428.92 - 434.92] (w905-915) ¿Qué sucede cuando las reservas energéticas disminuyen mientras estás profundamente dormido?
+[435.24 - 442.78] (w916-933) Tu hígado puede seguir proporcionando combustible, pero eso no significa que todas las personas respondan igual al ayuno.
+[443.00 - 448.58] (w934-944) Y precisamente, aquí entra en escena el siguiente protagonista, tu cerebro.
+[448.86 - 459.70] (w945-971) Porque una cosa es acostarse con el estómago vacío, y otra muy distinta es descubrir cómo puede cambiar tu descanso cuando modificas de repente tus hábitos alimentarios.
+[460.26 - 463.44] (w972-978) Punto 3, el cerebro y la memoria.
+[463.54 - 466.22] (w979-984) ¿Qué ocurre mientras duermes sin cenar?
+[466.68 - 468.54] (w985-990) Son las tres de la madrugada.
+[468.76 - 475.92] (w991-1005) Tu habitación permanece en silencio, pero dentro de tu cabeza, millones de neuronas continúan trabajando.
+[476.16 - 482.16] (w1006-1015) Tu cerebro organiza recuerdos, procesa información y mantiene funciones esenciales.
+[482.42 - 489.46] (w1016-1027) Para conseguirlo, necesita energía constantemente, incluso cuando llevas muchas horas sin comer.
+[489.72 - 492.16] (w1028-1032) Aquí surge una pregunta inquietante.
+[492.30 - 497.62] (w1033-1048) ¿Puede unas semanas sin cenar afectar a tu memoria y a la calidad de tu sueño?
+[497.78 - 501.56] (w1049-1056) La respuesta depende de cómo responda tu organismo.
+[501.68 - 506.72] (w1057-1069) El cerebro consume aproximadamente una quinta parte de la energía corporal en reposo.
+[507.60 - 516.94] (w1070-1086) Su combustible habitual es la glucosa, aunque durante ayunos prolongados también puede aprovechar sustancias llamadas cuerpos cetónicos.
+[517.06 - 522.92] (w1087-1097) Afortunadamente, nuestro organismo dispone de mecanismos para mantener el suministro energético.
+[523.16 - 529.50] (w1098-1112) Por eso, saltarse una cena no significa que el cerebro se quede automáticamente sin alimento.
+[529.94 - 536.00] (w1113-1124) Sin embargo, las cosas pueden complicarse cuando existen determinadas enfermedades o tratamientos.
+[536.38 - 549.30] (w1125-1154) Por ejemplo, una persona con diabetes que utiliza insulina o ciertos medicamentos podría experimentar una bajada peligrosa de azúcar durante la noche, si elimina una comida sin ajustar su tratamiento.
+[549.88 - 559.50] (w1155-1171) Su doración, temblores, palpitaciones, pesadillas o confusión al despertar pueden ser señales de hipoglucemia que requieren atención.
+[560.40 - 562.90] (w1172-1177) Pero existe otro detalle menos conocido.
+[563.48 - 566.66] (w1178-1184) El hambre también puede modificar nuestro descanso.
+[567.08 - 570.52] (w1185-1192) Algunas personas duermen cómodamente con una cena temprana.
+[570.94 - 581.66] (w1193-1209) Otras, especialmente cuando reducen demasiado las calorías, experimentan despertares frecuentes, irritabilidad o dificultades para conciliar el sueño.
+[581.96 - 592.98] (w1210-1234) Y después de los 60 años, descansar mal puede afectar a la concentración, al equilibrio emocional y a la capacidad de recordar pequeños detalles cotidianos.
+[593.10 - 597.06] (w1235-1244) ¿Te has despertado alguna vez durante la madrugada sintiendo hambre?
+[597.30 - 599.14] (w1245-1248) Cuéntamelo en los comentarios.
+[599.24 - 606.20] (w1249-1263) Tu experiencia puede ayudar a otras personas a reconocer cómo reaccionan ante diferentes horarios alimentarios.
+[606.56 - 614.04] (w1264-1281) Conviene recordar que olvidar unas llaves ocasionalmente no demuestra que exista una lesión cerebral causada por el ayuno.
+[614.22 - 623.80] (w1282-1300) Lo importante es mantener una alimentación suficiente, evitar restricciones extremas y consultar con un profesional si aparecen síntomas preocupantes.
+[624.18 - 628.50] (w1301-1311) Además, cenar temprano no tiene por qué significar acostarse con hambre.
+[629.04 - 634.50] (w1312-1323) Una comida ligera y equilibrada puede resultar más adecuada que eliminarla completamente.
+[635.18 - 638.50] (w1324-1330) Y todavía queda una cuestión especialmente importante.
+[639.20 - 645.24] (w1331-1344) Mientras tu cerebro intenta mantener su actividad nocturna, tu corazón continúa latiendo sin descanso.
+[646.18 - 650.88] (w1345-1354) ¿Podría cambiar su funcionamiento cuando modificas bruscamente tus hábitos alimentarios?
+[651.80 - 657.68] (w1355-1370) La respuesta merece especial atención si tienes más de 60 años o problemas de tensión arterial.
+[658.48 - 659.64] (w1371-1372) Punto 4.
+[659.72 - 662.10] (w1373-1377) El corazón y la circulación.
+[662.10 - 665.60] (w1378-1386) ¿Puede cambiar tu presión arterial si dejas de cenar?
+[665.72 - 669.06] (w1387-1396) Tu corazón no sabe que has decidido saltarte la cena.
+[669.20 - 672.68] (w1397-1405) No entiende de dietas, horarios, ni promesas para adelgazar.
+[673.60 - 682.30] (w1406-1424) Simplemente continúa latiendo aproximadamente 100 .000 veces al día mientras adapta su funcionamiento a las necesidades de tu organismo.
+[682.58 - 690.40] (w1425-1439) Pero cuando modificas bruscamente tus hábitos alimentarios, también pueden producirse cambios en tu sistema cardiovascular.
+[690.60 - 695.08] (w1440-1450) Durante la noche, la presión arterial suele disminuir de forma natural.
+[695.38 - 700.54] (w1451-1462) Este descenso forma parte del ritmo biológico que permite al organismo descansar.
+[700.78 - 708.08] (w1463-1480) Sin embargo, no ocurre de la misma manera en todas las personas, especialmente después de los 60 años.
+[708.40 - 710.70] (w1481-1485) Aquí aparece una cuestión interesante.
+[710.94 - 720.62] (w1486-1505) Algunos estudios sobre alimentación restringida en el tiempo han observado mejoras moderadas en la presión arterial y determinados indicadores metabólicos.
+[720.94 - 729.34] (w1506-1522) Pero estos resultados no significan que eliminar completamente la cena durante siete días proteja automáticamente tu corazón.
+[729.70 - 738.88] (w1523-1546) De hecho, el beneficio puede depender de la cantidad total de alimentos, la calidad de la dieta, el peso corporal y las enfermedades existentes.
+[740.02 - 744.20] (w1547-1556) Piensa en alguien que toma medicamentos para controlar la hipertensión.
+[744.30 - 755.72] (w1557-1580) Si comienza a comer mucho menos, se deshidrata o pierde peso rápidamente, podría experimentar mareos al levantarse, debilidad o una bajada excesiva de tensión.
+[756.02 - 763.98] (w1581-1602) Y cuando una persona mayor se levanta durante la madrugada para ir al baño, esos mareos pueden aumentar el riesgo de caídas.
+[764.34 - 768.50] (w1603-1609) Existe además otro aspecto importante, los electrolitos.
+[768.86 - 775.70] (w1610-1626) El sodio, el potasio y el magnesio participan en el funcionamiento normal del corazón y los músculos.
+[776.10 - 789.80] (w1627-1649) Saltarse una cena no provoca necesariamente una deficiencia, pero una alimentación insuficiente, acompañada de vómitos, diarrea o determinados medicamentos, puede favorecer desequilibrios peligrosos.
+[790.10 - 798.74] (w1650-1665) Por eso, si experimentas palpitaciones persistentes, mareos intensos o desmayos, no debes atribuirlos simplemente al hambre.
+[798.98 - 805.20] (w1666-1678) Y si aparece dolor torácico intenso o dificultad respiratoria, busca atención médica urgente.
+[806.20 - 819.10] (w1679-1707) La recomendación más prudente no consiste en dejar de comer por miedo a engordar, sino en mantener una alimentación equilibrada, controlar la presión arterial y respetar los tratamientos prescritos.
+[819.36 - 825.76] (w1708-1721) Pero todavía falta descubrir una consecuencia que preocupa especialmente después de los 60 años.
+[826.10 - 833.94] (w1722-1736) Porque mientras el corazón mantiene la circulación, tus músculos necesitan conservar algo fundamental, su fuerza.
+[834.18 - 846.76] (w1737-1764) Y cuando la alimentación resulta insuficiente durante varios días, las piernas pueden ser unas de las primeras en mostrar las consecuencias de una pérdida de energía inutrientes ..5.
+[847.00 - 848.66] (w1765-1767) Músculos y nervios.
+[848.80 - 852.32] (w1768-1777) El peligro silencioso de perder fuerza después de los 60.
+[853.58 - 856.24] (w1778-1783) Hay algo que muchas personas desconocen.
+[856.32 - 867.78] (w1784-1810) Puedes perder peso durante una semana sin haber conseguido exactamente lo que buscabas, porque cuando la báscula marca menos kilos, no siempre significa que hayas eliminado grasa.
+[868.06 - 876.26] (w1811-1829) Parte de esa diferencia puede corresponder al agua corporal, y si la alimentación resulta insuficiente, también a masa muscular.
+[876.44 - 881.80] (w1830-1841) Y después de los 60 años, esta distinción adquiere una importancia enorme.
+[881.92 - 886.44] (w1842-1851) Nuestros músculos no sirven únicamente para caminar o levantar objetos.
+[887.18 - 893.38] (w1852-1865) También nos permiten mantener el equilibrio, levantarnos de una silla y conservar nuestra independencia.
+[893.66 - 900.66] (w1866-1881) Con el envejecimiento, aumenta el riesgo de sarcopenia, una pérdida progresiva de masa y fuerza muscular.
+[900.86 - 909.24] (w1882-1900) Por eso, reducir demasiado la alimentación puede convertirse en un problema cuando no se consumen suficientes proteínas y calorías.
+[910.06 - 914.98] (w1901-1911) ¿Qué ocurre entonces si decides pasar siete noches consecutivas sin cenar?
+[915.18 - 921.66] (w1912-1924) Durante las primeras jornadas, tu organismo utiliza diferentes reservas energéticas para continuar funcionando.
+[921.92 - 927.44] (w1925-1937) Saltarse a una cena no significa que tus músculos comiencen inmediatamente a desaparecer.
+[927.68 - 939.74] (w1938-1962) Sin embargo, si durante el resto del día tampoco consume suficientes nutrientes, el cuerpo podría empezar a utilizar proteínas musculares para cubrir determinadas necesidades metabólicas.
+[939.88 - 947.34] (w1963-1979) Con el tiempo, mantener ese déficit puede perjudicar tu fuerza y dificultar la recuperación después del ejercicio.
+[947.70 - 952.44] (w1980-1989) Existe además otro síntoma que merece atención, los calambres nocturnos.
+[953.50 - 960.90] (w1990-2003) Muchas personas mayores conocen perfectamente esa sensación de despertarse con la pantorrilla completamente contraída.
+[961.18 - 970.00] (w2004-2022) Aunque estos calambres pueden tener diferentes causas, una hidratación inadecuada o ciertos desequilibrios minerales pueden contribuir a su aparición.
+[970.92 - 975.92] (w2023-2034) No obstante, dejar de cenar no significa necesariamente que vayas a sufrirlos.
+[976.68 - 981.32] (w2035-2045) Por eso, antes de eliminar una comida, conviene preguntarse algo fundamental.
+[982.12 - 987.00] (w2046-2055) ¿Estoy recibiendo suficientes proteínas, vitaminas y minerales durante el día?
+[987.68 - 995.78] (w2056-2069) Huevos, pescado, legumbres, lácteos y otros alimentos nutritivos pueden ayudarte a cubrir estas necesidades.
+[996.22 - 1004.00] (w2070-2092) Y si este video te está ayudando a comprender mejor tu cuerpo compártelo con alguien que esté intentando adelgazar después de los 60.
+[1004.68 - 1009.50] (w2093-2103) Quizá necesite conocer esta diferencia entre perder peso y conservar músculo.
+[1009.80 - 1017.78] (w2104-2121) Recuerda también que realizar ejercicios de fuerza adaptados a tu condición física es fundamental para proteger tu autonomía.
+[1017.96 - 1028.04] (w2122-2145) Pero todavía nos queda analizar un órgano decisivo, porque mientras tus músculos necesitan energía, tu páncreas participa en el control de la glucosa sanguínea.
+[1028.22 - 1035.44] (w2146-2159) Y modificar tus horarios de alimentación puede tener consecuencias especialmente importantes si padeces diabetes.
+[1035.86 - 1036.88] (w2160-2161) Punto 6.
+[1037.28 - 1039.92] (w2162-2168) El páncreas y el azúcar en sangre.
+[1040.04 - 1043.60] (w2169-2176) Mejora tu insulina o estás corriendo un riesgo.
+[1043.74 - 1051.74] (w2177-2196) Llegamos al último órgano de este recorrido y posiblemente al que más atención merece si tienes más de 60 años.
+[1051.98 - 1061.66] (w2197-2224) Porque mientras tú decides saltarte la cena para cuidar tu salud, tu páncreas debe adaptarse a los cambios en la cantidad de glucosa que circula por tu sangre.
+[1061.94 - 1065.00] (w2225-2230) Pero aquí aparece una contradicción sorprendente.
+[1065.36 - 1072.50] (w2231-2244) Una misma estrategia alimentaria puede resultar beneficiosa para algunas personas y peligrosa para otras.
+[1073.02 - 1077.00] (w2245-2254) Para comprenderlo, primero debemos conocer el papel de la insulina.
+[1077.60 - 1084.00] (w2255-2271) Cada vez que comes alimentos que contienen hidratos de carbono, tu organismo los transforma parcialmente en glucosa.
+[1085.02 - 1094.12] (w2272-2292) Entonces, el páncreas libera insulina, una hormona que facilita la entrada de esa glucosa en las células para utilizarla como energía.
+[1094.34 - 1099.64] (w2293-2304) Cuando permaneces varias horas sin comer, los niveles de insulina suelen disminuir.
+[1099.92 - 1105.14] (w2305-2315) Este cambio permite que el organismo utilice progresivamente sus reservas energéticas.
+[1105.46 - 1115.90] (w2316-2338) Por eso, algunos estudios han observado que determinados horarios de alimentación pueden mejorar la sensibilidad a la insulina y favorecer el control metabólico.
+[1116.18 - 1121.48] (w2339-2350) Sin embargo, existe un detalle fundamental que muchas personas pasan por alto.
+[1121.74 - 1127.16] (w2351-2362) No es necesario eliminar completamente la cena para conseguir esos posibles beneficios.
+[1127.42 - 1137.78] (w2363-2383) La calidad de los alimentos, el ejercicio físico, el descanso y el mantenimiento de un peso saludable también desempeñan funciones esenciales.
+[1138.20 - 1143.76] (w2384-2398) Ahora piensa en una persona de 70 años que toma insulina para controlar su diabetes.
+[1144.00 - 1153.86] (w2399-2420) Si decide dejar de cenar durante siete días sin consultar con su médico, podría experimentar episodios de hipoglucemia, especialmente durante la noche.
+[1154.18 - 1163.00] (w2421-2436) Sudor frío, temblores, confusión, palpitaciones o debilidad intensa pueden indicar que el azúcar ha descendido demasiado.
+[1163.62 - 1170.80] (w2437-2451) Y una hipoglucemia grave puede provocar pérdida de conocimiento y convertirse en una emergencia médica.
+[1170.92 - 1174.54] (w2452-2461) Tampoco debemos olvidar lo que ocurre a la mañana siguiente.
+[1174.90 - 1184.84] (w2462-2482) Después de muchas horas sin comer, algunas personas experimentan un aumento importante de glucosa si desayunan grandes cantidades de alimentos refinados.
+[1185.16 - 1191.94] (w2483-2498) Sin embargo, esta respuesta depende de múltiples factores y no significa que el páncreas esté dañado.
+[1192.20 - 1203.18] (w2499-2522) Por eso, la verdadera pregunta no debería ser cuánto tiempo puedes resistir sin cenar, sino cómo organizar tu alimentación para mantener estable tu salud.
+[1203.44 - 1210.00] (w2523-2539) Y ahora que conocemos las posibles respuestas de estos seis órganos, queda resolver la cuestión más importante.
+[1210.98 - 1218.00] (w2540-2555) ¿Merece realmente la pena eliminar la cena durante siete días, especialmente después de los 60 años?
+[1218.70 - 1223.00] (w2556-2566) La respuesta puede cambiar completamente tu manera de entender el ayuno.
+[1223.38 - 1229.52] (w2567-2581) Después de recorrer estos seis órganos, podemos responder a la pregunta que planteamos al principio.
+[1229.56 - 1234.00] (w2582-2591) ¿Qué sucede realmente cuando dejas de cenar durante siete días?
+[1234.18 - 1236.60] (w2592-2596) La respuesta quizá te sorprenda.
+[1236.74 - 1244.44] (w2597-2612) Tu cuerpo no comienza a rejuvenecer milagrosamente, pero tampoco se deteriora automáticamente por saltarse una comida.
+[1244.64 - 1252.72] (w2613-2634) Todo depende de tu estado de salud, tus necesidades nutricionales y la cantidad de alimentos que consumes durante el resto del día.
+[1253.02 - 1255.60] (w2635-2641) Tu hígado adapta su producción de energía.
+[1255.84 - 1258.72] (w2642-2648) Tu páncreas modifica la liberación de insulina.
+[1258.98 - 1266.86] (w2649-2663) Tu cerebro continúa necesitando combustible y tus músculos requieren suficientes proteínas para conservar su fuerza.
+[1267.16 - 1271.06] (w2664-2672) Pero hay una advertencia que quiero que recuerdes especialmente.
+[1271.26 - 1285.54] (w2673-2702) Si tienes más de 60 años, padeces diabetes, tomas medicamentos para controlar el azúcar o sufres enfermedades crónicas, no empieces un ayuno prolongado sin consultar previamente con un profesional sanitario.
+[1285.70 - 1295.20] (w2703-2721) Una bajada importante de glucosa, los mareos persistentes o una alimentación insuficiente pueden tener consecuencias que no debes ignorar.
+[1295.36 - 1296.76] (w2722-2723) Mi recomendación?
+[1297.06 - 1300.14] (w2724-2731) Antes de eliminar la cena, prueba a mejorarla.
+[1300.28 - 1304.42] (w2732-2739) Elige verduras, proteínas de calidad y cantidades adecuadas.
+[1304.80 - 1311.00] (w2740-2752) Cena con suficiente antelación y evita acostarte después de una comida excesivamente abundante.
+[1311.28 - 1314.50] (w2753-2759) Y ahora, llega nuestra pequeña pregunta final.
+[1314.70 - 1319.00] (w2760-2772) ¿Qué órgano produce la insulina que ayuda a controlar el azúcar en sangre?
+[1319.34 - 1322.32] (w2773-2779) ¿El hígado, el páncreas o el estómago?
+[1322.76 - 1328.64] (w2780-2797) Escribe tu respuesta en los comentarios y cuéntame también si alguna vez has probado a dormir sin cenar.
+[1329.04 - 1338.14] (w2798-2820) Si has aprendido algo nuevo, deja tu me gusta, suscríbete al canal y activa la campanita para seguir descubriendo cómo funciona tu cuerpo.
+[1338.60 - 1346.98] (w2821-2841) Recuerda, después de los 60, cuidar tu salud no consiste en comer cada vez menos, sino en alimentarte cada vez mejor.
+[1347.44 - 1349.14] (w2842-2847) Nos vemos en el próximo vídeo.

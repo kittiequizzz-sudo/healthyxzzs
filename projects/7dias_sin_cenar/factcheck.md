@@ -15,7 +15,7 @@ bỏ. Có 4 điểm nên chỉnh nhẹ (không bắt buộc), ghi bên dưới.
 | Tim đập khoảng 100.000 lần/ngày | Đúng (70 nhịp/phút × 1.440 phút ≈ 100.800) | — |
 | Huyết áp giảm tự nhiên về đêm | Đúng (hiện tượng "dipping") | — |
 | Một số nghiên cứu ăn giới hạn thời gian cho thấy huyết áp cải thiện vừa phải | Đúng, và kịch bản dùng chữ "moderadas" là chính xác: huyết áp tâm thu giảm khoảng 4 mmHg (chủ yếu nhờ giảm cân), và chỉ khoảng 1,8 mmHg nếu không giảm calo | [Meta-analysis 2022](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9644535/); [Meta-analysis 2025](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12672340/) |
-| Nguy cơ sarcopenia, cần đủ protein, tập sức mạnh | Đúng. Sarcopenia gặp ở gần 50% người trên 80 tuổi; ESPEN khuyến nghị 1–1,3 g protein/kg/ngày cho người cao tuổi | [Harvard Health](https://www.health.harvard.edu/staying-healthy/muscle-loss-and-protein-needs-in-older-adults); [tổng quan 2025](https://www.revistas.una.ac.cr/index.php/uniciencia/article/view/20429) |
+| Nguy cơ sarcopenia, cần đủ protein, tập sức mạnh | Đúng. Sarcopenia gặp ở gần 50% người trên 80 tuổi; ESPEN và PROT-AGE khuyến nghị khoảng 1–1,2 g protein/kg/ngày cho người cao tuổi khỏe mạnh (trên màn hình ghi "1–1,2 g") | [Harvard Health](https://www.health.harvard.edu/staying-healthy/muscle-loss-and-protein-needs-in-older-adults); [tổng quan 2025](https://www.revistas.una.ac.cr/index.php/uniciencia/article/view/20429) |
 | Người dùng insulin bỏ bữa có thể bị hạ đường huyết ban đêm; các triệu chứng liệt kê | Đúng; lời khuyên hỏi bác sĩ là cần thiết | — |
 | Câu đố: tụy sản xuất insulin | Đúng | — |
 

@@ -14,7 +14,7 @@
 // Intro of "¿Qué pasa si dejas de cenar 7 días?" — every beat keyed to a cue word in the voice-over.
 const T = CUE, L = 0.2;              // beats land 0.2 s before the word
 const at = k => T[k] - L;
-window.DURATION = T.p1 + 5;
+window.DURATION = at("p1acuestas");   // Punto 1 takes over here
 const svg = document.getElementById('s');
 el('rect', { width: 1920, height: 1080, fill: C.cream }, svg);
 const SZ = { stomach: [282, 251], intestines: [287, 291], liver: [317, 212], brain: [318, 267], heart: [194, 270], pancreas: [333, 193], calf: [111, 372], body: [242, 453] };
@@ -70,7 +70,7 @@ const beliefs = [['PERDER GRASA', 'grasa'], ['DORMIR MEJOR', 'dormir'], ['CONTRO
   Text(g, s, { x: 610, y: y + 77, size: 62, anchor: 'start' });
   return { g, k, ok, q };
 });
-const stamp = Stamp(Cg, 'NO GARANTIZADO', { cx: 1180, cy: 610, size: 92 });
+const stamp = Stamp(Cg, 'NO GARANTIZADO', { cx: 960, cy: 900, size: 92 });
 
 // ---------- D: it depends on…
 const D = el('g', {}, svg);
@@ -81,7 +81,7 @@ const dep = [['TU SALUD', 'salud', 'heart'], ['TUS MEDICAMENTOS', 'meds', 'pill'
   Card(g, { x, y: 300, w: 500, h: 400, fill: C.white });
   el('rect', { x, y: 300, width: 500, height: 26, rx: 13, fill: C.amber }, g);
   Icon[ic](g, x + 160, 370, 1.8);
-  Text(g, s, { x: x + 250, y: 630, size: 46 });
+  Text(g, s, { x: x + 250, y: 630, size: s.length > 12 ? 38 : 46 });
   return { g, k, cx: x + 250, cy: 500 };
 });
 const distTxt = Text(D, 'RESULTADOS MUY DISTINTOS', { x: 960, y: 850, size: 70, color: C.orange });

@@ -1,0 +1,159 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 5 — músculos y nervios.
+window.START = at('p5') - 0.6;
+window.END = at('p6') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('p5') + 2.4, g => SectionCard(g, 5, 'LOS MÚSCULOS', 'el peligro silencioso después de los 60', ['calf'])(START + 0.1));
+
+// 1. fewer kilos on the scale ≠ only fat: water, fat, and (if under-eating) muscle
+scene(svg, () => at('p5') + 2.4, () => at('p5sesenta'), g => {
+  const h = Text(g, 'MENOS KILOS EN LA BÁSCULA…', { x: 960, y: 150, size: 70 });
+  const sc = el('g', {}, g);
+  el('rect', { x: 180, y: 300, width: 520, height: 520, rx: 70, fill: C.white, stroke: C.ink, 'stroke-width': 10 }, sc);
+  el('rect', { x: 270, y: 380, width: 340, height: 150, rx: 24, fill: C.ink }, sc);
+  const kg = Text(sc, '', { x: 440, y: 458, size: 80, color: C.green });
+  el('rect', { x: 260, y: 620, width: 140, height: 140, rx: 30, fill: C.cream, stroke: C.ink, 'stroke-width': 6 }, sc);
+  el('rect', { x: 480, y: 620, width: 140, height: 140, rx: 30, fill: C.cream, stroke: C.ink, 'stroke-width': 6 }, sc);
+  const q = Text(g, '¿DE QUÉ?', { x: 1300, y: 300, size: 64 });
+  const segs = [['AGUA', C.blue, 'p5agua', 0.38], ['GRASA', C.amber, 'p5grasa', 0.34], ['MÚSCULO', C.red, 'p5masa', 0.28]];
+  const bars = segs.map(([s, col, k, f], i) => {
+    const b = el('g', {}, g);
+    const r = el('rect', { x: 900, y: 0, height: 120, rx: 18, fill: col, stroke: C.ink, 'stroke-width': 6 }, b);
+    const tx = Text(b, s, { x: 0, y: 0, size: 38, color: C.white });
+    return { b, r, tx, k, f };
+  });
+  const note = Text(g, 'si comes poco, también músculo', { x: 1300, y: 760, size: 42, weight: 800, color: C.red });
+  return t => {
+    show(h, t, at('p5') + 2.4); show(sc, t, at('p5bascula') - 0.3);
+    kg.textContent = '−' + (2 * E.out(prog(t, at('p5bascula'), at('p5bascula') + 1.2))).toFixed(1) + ' kg';
+    show(q, t, at('p5grasa') - 0.8);
+    // order on screen: grasa first (as said), then agua, then músculo
+    let x = 800;
+    for (const s of [bars[1], bars[0], bars[2]]) {
+      const u = E.inOut(prog(t, at(s.k), at(s.k) + 0.6)), w = 1000 * s.f * u;
+      set(s.r, { x, y: 420, width: Math.max(0, w) }); set(s.tx, { x: x + w / 2, y: 482 }); s.tx.setAttribute('opacity', u > 0.6 ? 1 : 0);
+      s.b.setAttribute('opacity', u > 0 ? 1 : 0);
+      x += w;
+    }
+    show(note, t, at('p5masa') + 0.4);
+  };
+});
+
+// 2. after 60: muscles = walking, balance, getting up, independence
+scene(svg, () => at('p5sesenta'), () => at('p5sarcopenia'), g => {
+  const st = Still(g, 'cut/s_chair.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.5, 0.5], zoom: 0.08 });
+  const age = Chip(g, 'DESPUÉS DE LOS 60', { cx: 645, cy: 900, fill: C.ink, color: C.amber, size: 50 });
+  const l = [['CAMINAR', 'p5caminar'], ['EQUILIBRIO', 'p5equilibrio'], ['LEVANTARTE DE UNA SILLA', 'p5silla'], ['INDEPENDENCIA', 'p5indep']].map(([s, k], i) => {
+    const c = el('g', {}, g); Card(c, { x: 1290, y: 170 + i * 175, w: 560, h: 135, fill: i === 3 ? C.green : C.white });
+    Text(c, s, { x: 1570, y: 238 + i * 175, size: s.length > 14 ? 34 : 46, color: i === 3 ? C.white : C.ink });
+    return [c, k];
+  });
+  return t => { st.draw(t, at('p5sesenta'), at('p5sarcopenia')); show(age, t, at('p5sesenta')); l.forEach(([c, k]) => show(c, t, at(k))); };
+});
+
+// 3. sarcopenia
+scene(svg, () => at('p5sarcopenia'), () => at('p5siete'), g => {
+  Progress(g, 4);
+  const h = Text(g, 'SARCOPENIA', { x: 960, y: 160, size: 96, color: C.red });
+  const s = Text(g, 'pérdida progresiva de masa y fuerza muscular', { x: 960, y: 250, size: 46, weight: 800, color: C.blueDark });
+  const M = el('g', {}, g); cut(M, 'calf', 520, 600, 520);
+  const st = el('g', {}, g); Card(st, { x: 960, y: 380, w: 820, h: 260 });
+  Text(st, '≈ 50%', { x: 1370, y: 480, size: 110, color: C.red }); Text(st, 'de los mayores de 80 años', { x: 1370, y: 580, size: 40 });
+  const src = Text(g, 'Fuente: Harvard Health', { x: 1370, y: 680, size: 30, weight: 700, color: C.grey });
+  const p = el('g', {}, g); Card(p, { x: 960, y: 760, w: 820, h: 150, fill: C.amber });
+  Text(p, 'POCA PROTEÍNA + POCAS CALORÍAS', { x: 1370, y: 836, size: 42 });
+  return t => {
+    show(h, t, at('p5sarcopenia')); show(s, t, at('p5sarcopenia') + 0.6);
+    show(M, t, at('p5sarcopenia'));
+    const k = 1 - 0.22 * E.inOut(prog(t, at('p5sarcopenia') + 1, at('p5sarcopenia') + 3));
+    M.setAttribute('transform', `translate(520 600) scale(${k.toFixed(3)} 1) translate(-520 -600)`);
+    show(st, t, at('p5sarcopenia') + 1.5); show(src, t, at('p5sarcopenia') + 1.8);
+    show(p, t, at('p5proteinas'));
+  };
+});
+
+// 4. seven nights: reserves first; muscles don't vanish — unless the whole day lacks nutrients
+scene(svg, () => at('p5siete'), () => at('p5calambres'), g => {
+  const h = Text(g, '¿7 NOCHES SIN CENAR?', { x: 960, y: 130, size: 70 });
+  const rows = [['PRIMERO: RESERVAS DE ENERGÍA', C.white, C.ink, 'p5reservas'], ['UNA CENA ≠ PERDER MÚSCULO', C.green, C.white, 'p5nodesaparecer'],
+    ['PERO SI TODO EL DÍA FALTAN NUTRIENTES…', C.amber, C.ink, 'p5restodia'], ['EL CUERPO USA PROTEÍNA DEL MÚSCULO', C.red, C.white, 'p5musculares']].map(([s, f, c, k], i) => {
+    const r = el('g', {}, g); Card(r, { x: 310, y: 230 + i * 175, w: 1300, h: 130, fill: f });
+    Text(r, s, { x: 960, y: 297 + i * 175, size: 50, color: c });
+    return [r, k];
+  });
+  const res = ['MENOS FUERZA', 'PEOR RECUPERACIÓN'].map((s, i) => Chip(g, s, { cx: 680 + i * 560, cy: 975, fill: C.white, color: C.red, size: 42 }));
+  return t => { show(h, t, at('p5siete')); rows.forEach(([r, k]) => show(r, t, at(k))); res.forEach((c, i) => show(c, t, at('p5deficit') + 0.8 + i * 0.5)); };
+});
+
+// 5. night cramps
+scene(svg, () => at('p5calambres'), () => at('p5pregunta') - 0.8, g => {
+  const st = Still(g, 'cut/s_cramp.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.6, 0.55], zoom: 0.12 });
+  const h = Text(g, 'CALAMBRES NOCTURNOS', { x: 645, y: 900, size: 64, color: C.red });
+  const c = [['VARIAS CAUSAS POSIBLES', 'p5causas', C.white, C.ink], ['POCA HIDRATACIÓN', 'p5hidratacion', C.amber, C.ink], ['DESEQUILIBRIO DE MINERALES', 'p5hidratacion', C.amber, C.ink], ['NO CENAR ≠ CALAMBRES SEGUROS', 'p5nonecesaria', C.green, C.white]].map(([s, k, f, col], i) => {
+    const r = el('g', {}, g); Card(r, { x: 1290, y: 190 + i * 170, w: 570, h: 130, fill: f });
+    Text(r, s, { x: 1575, y: 256 + i * 170, size: s.length > 20 ? 30 : 38, color: col });
+    return [r, k, i === 2 ? 1 : 0];
+  });
+  return t => { st.draw(t, at('p5calambres'), at('p5pregunta')); show(h, t, at('p5pantorrilla') - 0.5); c.forEach(([r, k, d]) => show(r, t, at(k) + d * 1.2)); };
+});
+
+// 6. protein foods
+scene(svg, () => at('p5pregunta') - 0.8, () => at('p5comparte'), g => {
+  const q = Text(g, '¿RECIBES SUFICIENTES PROTEÍNAS, VITAMINAS Y MINERALES?', { x: 960, y: 130, size: 48 });
+  const foods = [['eggs', 'HUEVOS', 'p5huevos', 330, 380], ['fish', 'PESCADO', 'p5pescado', 960, 380], ['lentils', 'LEGUMBRES', 'p5legumbres', 1590, 380], ['dairy', 'LÁCTEOS', 'p5lacteos', 600, 800]].map(([n, s, k, x, y]) => {
+    const c = el('g', {}, g); cut(c, n, x, y - 20, 340); Text(c, s, { x, y: y + 150, size: 48 });
+    return [c, k, x, y];
+  });
+  const esp = el('g', {}, g); Card(esp, { x: 1050, y: 700, w: 760, h: 220, fill: C.white });
+  Text(esp, '1–1,2 g de proteína', { x: 1430, y: 770, size: 50, color: C.green }); Text(esp, 'por kg de peso al día', { x: 1430, y: 835, size: 40 });
+  Text(esp, 'ESPEN · mayores', { x: 1430, y: 888, size: 28, weight: 700, color: C.grey });
+  return t => { show(q, t, at('p5pregunta') - 0.6); foods.forEach(([c, k, x, y]) => pop(c, t, at(k) - 0.1, x, y)); show(esp, t, at('p5lacteos') + 1.5); };
+});
+
+// 7. share
+scene(svg, () => at('p5comparte'), () => at('p5ejercicio'), g => {
+  const a = Text(g, 'PERDER PESO', { x: 960, y: 320, size: 100 });
+  const b = Text(g, '≠ CONSERVAR MÚSCULO', { x: 960, y: 450, size: 90, color: C.red });
+  const cta = CTA(g, 'share');
+  return t => { pop(cta, t, at('p5comparte'), 960, 925); show(a, t, at('p5diferencia') - 1.5); show(b, t, at('p5diferencia') + 0.6); };
+});
+
+// 8. strength exercise protects autonomy
+scene(svg, () => at('p5ejercicio'), () => at('p5organo'), g => {
+  const st = Still(g, 'cut/s_chair.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.5, 0.4], zoom: 0.1 });
+  const a = el('g', {}, g); Card(a, { x: 1290, y: 260, w: 560, h: 220, fill: C.white });
+  Text(a, 'EJERCICIOS', { x: 1570, y: 340, size: 52 }); Text(a, 'DE FUERZA', { x: 1570, y: 410, size: 52, color: C.orange });
+  const b = Chip(g, 'adaptados a ti', { cx: 1570, cy: 560, size: 40 });
+  const c = el('g', {}, g); Card(c, { x: 1290, y: 650, w: 560, h: 150, fill: C.green });
+  Text(c, 'TU AUTONOMÍA', { x: 1570, y: 726, size: 50, color: C.white });
+  return t => { st.draw(t, at('p5ejercicio'), at('p5organo')); show(a, t, at('p5ejercicio')); show(b, t, at('p5ejercicio') + 0.8); show(c, t, at('p5autonomia')); };
+});
+
+// 9. the last organ: the pancreas
+scene(svg, () => at('p5organo'), () => END + 1, g => {
+  const top = Text(g, 'EL ÓRGANO DECISIVO', { x: 960, y: 150, size: 76 });
+  const glow = el('circle', { cx: 960, cy: 500, r: 300, fill: C.amber, opacity: 0 }, g);
+  const P = el('g', {}, g); cut(P, 'pancreas', 960, 500, 600);
+  const n = Text(g, 'TU PÁNCREAS', { x: 960, y: 790, size: 90, color: C.orange });
+  const d = Chip(g, 'CLAVE SI TIENES DIABETES', { cx: 960, cy: 940, fill: C.red, color: C.white, size: 50 });
+  return t => {
+    show(top, t, at('p5organo')); pop(P, t, at('p5pancreas'), 960, 500);
+    glow.setAttribute('opacity', t > at('p5pancreas') ? (0.22 + 0.1 * Math.sin(t * 4)).toFixed(2) : 0);
+    show(n, t, at('p5pancreas') + 0.3); show(d, t, at('p5diabetes'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

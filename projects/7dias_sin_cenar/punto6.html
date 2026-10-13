@@ -1,0 +1,199 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 6 — el páncreas y el azúcar en sangre.
+window.START = at('p6') - 0.6;
+window.END = at('c0') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('p6sesenta') - 1.5, g => SectionCard(g, 6, 'EL PÁNCREAS', 'y el azúcar en sangre', ['pancreas'])(START + 0.1));
+
+// 1. the last organ; adapts to how much glucose is in the blood
+scene(svg, () => at('p6sesenta') - 1.5, () => at('p6contradiccion'), g => {
+  Progress(g, 5);
+  const h = Chip(g, 'EL ÚLTIMO ÓRGANO · +60: MÁXIMA ATENCIÓN', { cx: 900, cy: 160, fill: C.ink, color: C.amber, size: 42 });
+  const P = el('g', {}, g); cut(P, 'pancreas', 960, 430, 560);
+  const tube = el('g', {}, g);
+  el('rect', { x: 120, y: 690, width: 1680, height: 150, rx: 75, fill: '#F3B4A8', stroke: C.ink, 'stroke-width': 8 }, tube);
+  const dots = []; for (let i = 0; i < 14; i++) dots.push(el('circle', { r: 20, fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, tube));
+  const lab = Text(g, 'GLUCOSA EN TU SANGRE', { x: 960, y: 920, size: 50 });
+  return t => {
+    show(h, t, at('p6sesenta') - 1.3); pop(P, t, at('p6sesenta') - 1.2, 960, 430);
+    show(tube, t, at('p6adaptarse')); show(lab, t, at('p6adaptarse') + 0.4);
+    dots.forEach((d, i) => { const x = 180 + ((i * 123 + t * 140) % 1560); set(d, { cx: x, cy: 765 + 30 * Math.sin(i * 1.9) }); });
+  };
+});
+
+// 2. one strategy, two outcomes
+scene(svg, () => at('p6contradiccion'), () => at('p6insulina'), g => {
+  const top = el('g', {}, g); Card(top, { x: 560, y: 160, w: 800, h: 150, fill: C.white });
+  Text(top, 'LA MISMA ESTRATEGIA', { x: 960, y: 236, size: 60 });
+  const aL = Arrow(g, 820, 330, 520, 520, C.ink, 14), aR = Arrow(g, 1100, 330, 1400, 520, C.ink, 14);
+  const L = el('g', {}, g); Card(L, { x: 160, y: 560, w: 740, h: 300, fill: C.green }); Icon.check(L, 470, 600, 1);
+  Text(L, 'BENEFICIOSA', { x: 530, y: 750, size: 64, color: C.white }); Text(L, 'para algunas personas', { x: 530, y: 815, size: 38, weight: 800, color: C.white });
+  const R = el('g', {}, g); Card(R, { x: 1020, y: 560, w: 740, h: 300, fill: C.red }); Icon.cross(R, 1340, 600, 1);
+  Text(R, 'PELIGROSA', { x: 1390, y: 750, size: 64, color: C.white }); Text(R, 'para otras', { x: 1390, y: 815, size: 38, weight: 800, color: C.white });
+  return t => {
+    show(top, t, at('p6contradiccion'));
+    aL.setAttribute('opacity', prog(t, at('p6beneficiosa') - 0.4, at('p6beneficiosa'))); show(L, t, at('p6beneficiosa'));
+    aR.setAttribute('opacity', prog(t, at('p6peligrosa') - 0.4, at('p6peligrosa'))); show(R, t, at('p6peligrosa'));
+  };
+});
+
+// 3. insulin: carbs → glucose → pancreas releases insulin → it opens the cell's door → energy
+scene(svg, () => at('p6insulina'), () => at('p6horas'), g => {
+  const h = Text(g, 'EL PAPEL DE LA INSULINA', { x: 960, y: 110, size: 66 });
+  const food = el('g', {}, g); cut(food, 'lentils', 230, 560, 300); Text(food, 'HIDRATOS', { x: 230, y: 750, size: 44 });
+  const a1 = Arrow(g, 410, 560, 520, 560, C.ink, 12);
+  const glu = []; for (let i = 0; i < 8; i++) glu.push(el('circle', { r: 22, fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, g));
+  const gl = Text(g, 'GLUCOSA', { x: 740, y: 750, size: 44, color: C.orange });
+  const P = el('g', {}, g); cut(P, 'pancreas', 1000, 270, 300);
+  const keys = [0, 1, 2].map(() => {
+    const k = el('g', {}, g);
+    el('circle', { cx: 0, cy: 0, r: 20, fill: C.blue, stroke: C.ink, 'stroke-width': 5 }, k);
+    el('path', { d: 'M20 0 H64 V16 M50 0 V14', fill: 'none', stroke: C.ink, 'stroke-width': 9, 'stroke-linecap': 'round' }, k);
+    return k;
+  });
+  const ins = Text(g, 'INSULINA', { x: 1000, y: 410, size: 46, color: C.blueDark });
+  // the cell, with a door on its left side
+  const cell = el('g', {}, g);
+  el('circle', { cx: 1560, cy: 600, r: 230, fill: '#FBD9C9', stroke: C.ink, 'stroke-width': 8 }, cell);
+  el('circle', { cx: 1600, cy: 600, r: 70, fill: '#C58BB0', stroke: C.ink, 'stroke-width': 6 }, cell);
+  Text(cell, 'CÉLULA', { x: 1560, y: 880, size: 44 });
+  const door = el('rect', { x: 1322, y: 545, width: 26, height: 110, rx: 8, fill: C.blue, stroke: C.ink, 'stroke-width': 5 }, g);
+  const energy = el('g', {}, g);
+  el('path', { d: 'M1590 470 L1540 600 L1585 600 L1555 720 L1640 570 L1595 570 L1625 470 Z', fill: C.amber, stroke: C.ink, 'stroke-width': 6, 'stroke-linejoin': 'round' }, energy);
+  const en = Text(g, 'ENERGÍA', { x: 1560, y: 960, size: 54, color: C.orange });
+  glu.forEach(d => g.appendChild(d));   // glucose drawn above the cell once it enters
+  g.appendChild(energy);
+  return t => {
+    show(h, t, at('p6insulina'));
+    show(food, t, at('p6hidratos')); a1.setAttribute('opacity', prog(t, at('p6glucosa') - 0.5, at('p6glucosa')));
+    show(gl, t, at('p6glucosa'));
+    const open = E.inOut(prog(t, at('p6entrada') - 0.2, at('p6entrada') + 0.5));
+    glu.forEach((d, i) => {
+      const bx = 620 + (i % 4) * 70, by = 540 + Math.floor(i / 4) * 80 + 10 * Math.sin(t * 3 + i);
+      const u = E.inOut(prog(t, at('p6entrada') + 0.3 + i * 0.18, at('p6entrada') + 1.1 + i * 0.18));
+      set(d, { cx: lerp(bx, 1450 + (i % 3) * 50, u), cy: lerp(by, 560 + (i % 3) * 40, u), opacity: t > at('p6glucosa') ? 1 : 0 });
+    });
+    show(P, t, at('p6libera') - 0.6); show(ins, t, at('p6libera'));
+    keys.forEach((k, i) => {
+      const u = E.inOut(prog(t, at('p6libera') + i * 0.25, at('p6libera') + 1 + i * 0.25));
+      k.setAttribute('transform', `translate(${lerp(1000, 1270, u)} ${lerp(330, 530 + i * 40, u)})`);
+      k.setAttribute('opacity', t > at('p6libera') ? 1 : 0);
+    });
+    show(cell, t, at('p6libera') + 0.3);
+    door.setAttribute('transform', `translate(0 ${(-open * 120).toFixed(1)})`);
+    door.setAttribute('opacity', prog(t, at('p6libera') + 0.3, at('p6libera') + 0.6));
+    show(energy, t, at('p6energia')); show(en, t, at('p6energia'));
+  };
+});
+
+// 4. fasting hours: insulin falls, reserves used; some studies: better insulin sensitivity
+scene(svg, () => at('p6horas'), () => at('p6detalle'), g => {
+  const ch = el('g', {}, g);
+  Card(ch, { x: 140, y: 150, w: 1000, h: 620 });
+  Text(ch, 'INSULINA DURANTE LA NOCHE', { x: 190, y: 210, size: 40, anchor: 'start' });
+  el('line', { x1: 210, y1: 700, x2: 1090, y2: 700, stroke: C.ink, 'stroke-width': 5 }, ch);
+  [['CENA', 240], ['MEDIANOCHE', 640], ['MAÑANA', 1040]].forEach(([s, x]) => Text(ch, s, { x, y: 740, size: 28, weight: 800, color: C.grey }));
+  const line = el('path', { d: 'M240 300 C420 300 480 600 640 640 S900 660 1060 665', fill: 'none', stroke: C.blue, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1200, 'stroke-dashoffset': 1200 }, ch);
+  const down = Chip(g, 'BAJA LA INSULINA', { cx: 1520, cy: 280, fill: C.blue, color: C.white, size: 46 });
+  const res = Chip(g, 'USA SUS RESERVAS', { cx: 1520, cy: 440, fill: C.white, size: 46 });
+  const st = el('g', {}, g); Card(st, { x: 1210, y: 560, w: 620, h: 260, fill: C.green });
+  Text(st, 'ALGUNOS ESTUDIOS:', { x: 1520, y: 625, size: 36, color: C.white });
+  Text(st, 'MEJOR SENSIBILIDAD', { x: 1520, y: 695, size: 46, color: C.white }); Text(st, 'A LA INSULINA', { x: 1520, y: 760, size: 46, color: C.white });
+  return t => {
+    show(ch, t, at('p6horas')); line.setAttribute('stroke-dashoffset', 1200 * (1 - E.inOut(prog(t, at('p6horas') + 0.3, at('p6disminuir') + 1))));
+    show(down, t, at('p6disminuir')); show(res, t, at('p6reservas')); show(st, t, at('p6estudios'));
+  };
+});
+
+// 5. you don't need to drop dinner for these benefits
+scene(svg, () => at('p6detalle'), () => at('p6setenta'), g => {
+  const h = Text(g, 'NO HACE FALTA ELIMINAR LA CENA', { x: 960, y: 170, size: 70, color: C.green });
+  const items = [['CALIDAD DE', 'LA COMIDA', 'p6calidad', 'plate'], ['EJERCICIO', 'FÍSICO', 'p6ejercicio', 'heart'], ['BUEN', 'DESCANSO', 'p6descanso', 'moon'], ['PESO', 'SALUDABLE', 'p6peso', 'check']].map(([a, b, k, ic], i) => {
+    const c = el('g', {}, g), x = 110 + i * 440;
+    Card(c, { x, y: 320, w: 380, h: 440 }); el('rect', { x, y: 320, width: 380, height: 26, rx: 13, fill: C.green }, c);
+    Icon[ic](c, x + 120, 400, 1.4);
+    Text(c, a, { x: x + 190, y: 640, size: 46 }); Text(c, b, { x: x + 190, y: 700, size: 46, color: C.green });
+    return [c, k, x + 190];
+  });
+  return t => { show(h, t, at('p6noesnecesario') - 0.3); items.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 540)); };
+});
+
+// 6. the 70-year-old on insulin: nocturnal hypoglycaemia → signs → emergency
+scene(svg, () => at('p6setenta'), () => at('p6manana'), g => {
+  const A = el('g', {}, g);
+  const st = Still(A, 'cut/s_glucose.png', { x: 70, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.4, 0.45], zoom: 0.1 });
+  const c1 = Chip(A, '70 AÑOS + INSULINA', { cx: 1560, cy: 260, fill: C.ink, color: C.amber, size: 44 });
+  const c2 = Chip(A, '7 DÍAS SIN CENAR', { cx: 1560, cy: 410, size: 44 });
+  const c3 = Chip(A, 'SIN CONSULTAR', { cx: 1560, cy: 560, fill: C.amber, size: 44 });
+  const c4 = el('g', {}, A); Card(c4, { x: 1300, y: 660, w: 520, h: 200, fill: C.red });
+  Text(c4, 'HIPOGLUCEMIA', { x: 1560, y: 735, size: 54, color: C.white }); Text(c4, 'NOCTURNA', { x: 1560, y: 800, size: 46, color: C.white });
+  const Bg = el('g', {}, g);
+  Text(Bg, 'EL AZÚCAR BAJÓ DEMASIADO', { x: 960, y: 150, size: 66, color: C.red });
+  const ks = ['p6sudor', 'p6temblores', 'p6temblores', 'p6temblores', 'p6debilidad'];
+  const sy = [['SUDOR FRÍO', 'drop'], ['TEMBLORES', 'zig'], ['CONFUSIÓN', 'question'], ['PALPITACIONES', 'heart'], ['DEBILIDAD', 'cross']].map(([s, ic], i) => {
+    const c = el('g', {}, Bg), x = 70 + i * 362;
+    Card(c, { x, y: 260, w: 330, h: 360 }); el('rect', { x, y: 260, width: 330, height: 24, rx: 12, fill: C.red }, c);
+    if (ic === 'zig') el('path', { d: `M${x + 90} 420 l25 -40 l25 80 l25 -80 l25 80 l25 -40`, fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, c);
+    else Icon[ic](c, x + 105, 330, 1.2, ic === 'drop' ? C.blue : undefined);
+    Text(c, s, { x: x + 165, y: 560, size: s.length > 11 ? 34 : 40 });
+    return [c, x + 165];
+  });
+  const grave = el('g', {}, Bg); Card(grave, { x: 210, y: 700, w: 1500, h: 140, fill: C.ink });
+  Text(grave, 'GRAVE: PÉRDIDA DE CONOCIMIENTO', { x: 960, y: 772, size: 56, color: C.white });
+  const em = Stamp(Bg, 'EMERGENCIA MÉDICA', { cx: 960, cy: 950, size: 66 });
+  return t => {
+    const sw = at('p6sudor') - 0.4, k = E.inOut(prog(t, sw, sw + 0.4));
+    A.setAttribute('opacity', 1 - k); A.style.display = k >= 1 ? 'none' : '';
+    Bg.setAttribute('opacity', k); Bg.style.display = k <= 0 ? 'none' : '';
+    st.draw(t, at('p6setenta'), sw);
+    show(c1, t, at('p6setenta')); show(c2, t, at('p6setenta') + 1.6); show(c3, t, at('p6sinconsultar')); show(c4, t, at('p6hipo'));
+    sy.forEach(([c, cx], i) => pop(c, t, at(ks[i]) + (i >= 1 && i <= 3 ? (i - 1) * 0.7 : 0), cx, 440));
+    show(grave, t, at('p6grave')); em.draw(t, at('p6emergencia'));
+  };
+});
+
+// 7. next morning: a refined breakfast can spike glucose in some people — depends, not a damaged pancreas
+scene(svg, () => at('p6manana'), () => at('p6verdadera'), g => {
+  const h = Text(g, 'A LA MAÑANA SIGUIENTE', { x: 960, y: 130, size: 66 });
+  const ch = el('g', {}, g); Card(ch, { x: 140, y: 220, w: 1100, h: 560 });
+  Text(ch, 'GLUCOSA', { x: 190, y: 275, size: 36, anchor: 'start' });
+  el('line', { x1: 210, y1: 720, x2: 1190, y2: 720, stroke: C.ink, 'stroke-width': 5 }, ch);
+  const spike = el('path', { d: 'M230 600 C400 600 480 600 560 590 C640 580 660 330 720 320 C800 310 860 520 980 570 S1140 600 1180 600', fill: 'none', stroke: C.orange, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1400, 'stroke-dashoffset': 1400 }, ch);
+  const bf = Chip(ch, 'DESAYUNO REFINADO', { cx: 600, cy: 660, fill: C.amber, size: 30 });
+  const some = Chip(g, 'EN ALGUNAS PERSONAS', { cx: 1560, cy: 300, size: 40 });
+  const dep = Chip(g, 'DEPENDE DE MUCHOS FACTORES', { cx: 1560, cy: 470, fill: C.amber, size: 34 });
+  const ok = el('g', {}, g); Card(ok, { x: 1290, y: 580, w: 540, h: 200, fill: C.green });
+  Text(ok, 'NO SIGNIFICA', { x: 1560, y: 650, size: 42, color: C.white }); Text(ok, 'PÁNCREAS DAÑADO', { x: 1560, y: 720, size: 46, color: C.white });
+  return t => {
+    show(h, t, at('p6manana')); show(ch, t, at('p6manana') + 0.3);
+    spike.setAttribute('stroke-dashoffset', 1400 * (1 - E.inOut(prog(t, at('p6aumento'), at('p6aumento') + 2))));
+    show(bf, t, at('p6refinados')); show(some, t, at('p6aumento') - 1); show(dep, t, at('p6depende')); show(ok, t, at('p6danado'));
+  };
+});
+
+// 8. the real question; is it worth it?
+scene(svg, () => at('p6verdadera'), () => END + 1, g => {
+  const no = el('g', {}, g); Card(no, { x: 260, y: 160, w: 1400, h: 150 }); Icon.cross(no, 295, 185, 1);
+  Text(no, '¿CUÁNTO AGUANTO SIN CENAR?', { x: 1010, y: 237, size: 56 });
+  const yes = el('g', {}, g); Card(yes, { x: 260, y: 360, w: 1400, h: 150, fill: C.green }); Icon.check(yes, 295, 385, 1, C.ink);
+  Text(yes, '¿CÓMO ORGANIZO MI ALIMENTACIÓN?', { x: 1010, y: 437, size: 56, color: C.white });
+  const six = el('g', {}, g);
+  ORDER6.forEach(([n, s], i) => { const x = 260 + i * 280; Card(six, { x: x - 110, y: 600, w: 220, h: 220 }); cut(six, n, x, 710, 170); });
+  const q = Text(g, '¿MERECE LA PENA?', { x: 960, y: 950, size: 90, color: C.orange });
+  return t => { show(no, t, at('p6verdadera')); show(yes, t, at('p6organizar')); show(six, t, at('p6seis')); show(q, t, at('p6merece')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

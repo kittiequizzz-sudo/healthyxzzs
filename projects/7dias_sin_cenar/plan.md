@@ -65,7 +65,7 @@ exercise, so it needs **no pose sheets**, only an **organ sheet** and **scene st
 - Functions: walking, balance, getting up from a chair (3 icons).
 - "Sarcopenia": muscle from ORDER A shrinking + "≈50% de mayores de 80" (Harvard).
 - Still S6: senior with a calf cramp in bed.
-- Protein foods: still S7 (eggs, fish, legumes, dairy) + "1–1,3 g/kg/día (ESPEN)".
+- Protein foods: still S7 (eggs, fish, legumes, dairy) + "1–1,2 g/kg/día (ESPEN)".
 - Share callout + "ejercicio de fuerza".
 
 ## Punto 6, páncreas (≈2.7 min)

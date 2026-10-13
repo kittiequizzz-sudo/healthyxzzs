@@ -28,3 +28,270 @@ comenta | cuéntame en los comentarios
 hora | a qué hora sueles cenar
 quiza | Quizá tu respuesta
 p1 | La primera noche sin cenar
+# Punto 1 — estómago e intestinos
+p1acuestas | Te acuestas, apagas la luz
+p1abdomen | dentro de tu abdomen ocurre
+p1sigue | tu sistema digestivo sigue trabajando
+p1acido | pequeñas cantidades de ácido
+p1movs | realizando movimientos naturales
+p1intest | los intestinos mantienen una actividad especial
+p1limpieza | forma parte de la limpieza normal
+p1sincomida | durante los periodos sin comida
+p1pregunta | significa esto que cuanto más tiempo
+p1no | No necesariamente
+p1primeros | Durante los primeros días
+p1pesadez | menos pesadez nocturna
+p1molestias | menos molestias relacionadas
+p1otras | otras personas sienten hambre intensa
+p1nauseas | náuseas o molestias abdominales
+p1gastritis | si padeces gastritis
+p1bruscamente | cambiar bruscamente tus horarios
+p1autofagia | un proceso celular llamado autofagia
+p1reciclan | las células reciclan componentes
+p1nosabemos | todavía no sabemos exactamente
+p1poreso | Por eso, dejar de cenar
+p1limpiezaprof | una limpieza profunda del intestino
+p1regen | una regeneración extraordinaria
+p1suscribe | puedes suscribirte al canal
+p1sinpromesas | sin promesas milagrosas
+p1cotidiano | Ahora piensa en algo cotidiano
+p1embutidos | cenar embutidos, pan y queso
+p1sustituye | Si sustituye esa cena
+p1diferencias | probablemente note diferencias
+p1mejoras | esas mejoras no significan
+p1alternativa | Una alternativa razonable
+p1horas | dos o tres horas antes de dormir
+p1faciles | alimentos fáciles de digerir
+p1detalle | aquí llega el detalle
+p1higado | Tu hígado empieza a modificar
+p1sorprender | Lo que sucede entonces
+p1combustible | necesita combustible
+p2 | Mientras tú duermes tranquilamente
+# Punto 2 — hígado
+p2mision | tiene una misión que no puede abandonar
+p2energia | mantener suficiente energía disponible
+p2diferente | de una manera diferente
+p2almacen | como un almacén inteligente
+p2glucogeno | en forma de glucógeno
+p2horas | Cuando pasan varias horas
+p2estable | mantener estable el azúcar
+p2fascinante | Pero aquí aparece algo fascinante
+p2disminuyendo | las reservas de glucógeno van disminuyendo
+p2grasas | utilización de grasas como combustible
+p2fabricar | puede fabricar glucosa
+p2gluconeo | llamado gluconeogénesis
+p2nosufre | Esto no significa que tu hígado
+p2toxinas | todas las toxinas acumuladas
+p2natural | Simplemente está utilizando
+p2calorias | reducción de su consumo total
+p2peso | favorecer la pérdida de peso
+p2exceso | cuando existe exceso de grasa
+p2diferencia | existe una diferencia enorme
+p2privar | privar al organismo de nutrientes
+p2sesenta | Después de los sesenta años
+p2proteinas | las proteínas, vitaminas y minerales
+p2debilidad | favorecer la debilidad
+p2atencion | Y atención: si tienes diabetes
+p2hepaticas | enfermedades hepáticas
+p2meds | tomas determinados medicamentos
+p2orientacion | requiere orientación profesional
+p2comparte | comparte este vídeo
+p2cuestion | Ahora viene una cuestión importante
+p2dormido | mientras estás profundamente dormido
+p2igual | todas las personas respondan igual
+p2cerebro | el siguiente protagonista
+p2descanso | cómo puede cambiar tu descanso
+p3 | Son las tres de la madrugada
+# Punto 3 — cerebro
+p3silencio | Tu habitación permanece en silencio
+p3neuronas | millones de neuronas continúan
+p3recuerdos | organiza recuerdos
+p3energia | necesita energía constantemente
+p3pregunta | Aquí surge una pregunta inquietante
+p3memoria | afectar a tu memoria
+p3sueno | la calidad de tu sueño
+p3depende | La respuesta depende
+p3quinta | una quinta parte de la energía
+p3glucosa | Su combustible habitual es la glucosa
+p3cetonicos | llamados cuerpos cetónicos
+p3mecanismos | Afortunadamente, nuestro organismo
+p3sinalimento | se quede automáticamente sin alimento
+p3complicarse | las cosas pueden complicarse
+p3insulina | que utiliza insulina
+p3bajada | una bajada peligrosa de azúcar
+p3sudoracion | Sudoración
+p3temblores | temblores
+p3palpita | palpitaciones
+p3pesadillas | pesadillas
+p3confusion | confusión al despertar
+p3hipo | señales de hipoglucemia
+p3hambre | el hambre también puede modificar
+p3algunas | Algunas personas duermen cómodamente
+p3otras | Otras, especialmente cuando reducen
+p3despertares | despertares frecuentes
+p3sesenta | Y después de los sesenta años
+p3concentracion | afectar a la concentración
+p3recordar | la capacidad de recordar
+p3teHas | Te has despertado alguna vez
+p3cuentame | Cuéntamelo en los comentarios
+p3llaves | olvidar unas llaves
+p3lesion | una lesión cerebral
+p3importante | Lo importante es mantener
+p3extremas | evitar restricciones extremas
+p3consultar | consultar con un profesional
+p3temprano | cenar temprano no tiene
+p3ligera | Una comida ligera y equilibrada
+p3cuestion | todavía queda una cuestión
+p3corazon | tu corazón continúa latiendo
+p3tension | problemas de tensión arterial
+p4 | Tu corazón no sabe que has decidido
+# Punto 4 — corazón
+p4latiendo | Simplemente continúa latiendo
+p4cienmil | veces al día mientras adapta
+p4bruscamente | Pero cuando modificas bruscamente
+p4noche | Durante la noche, la presión arterial
+p4ritmo | forma parte del ritmo biológico
+p4nomisma | no ocurre de la misma manera
+p4interesante | Aquí aparece una cuestión interesante
+p4estudios | Algunos estudios sobre alimentación
+p4moderadas | mejoras moderadas en la presión
+p4noproteja | proteja automáticamente tu corazón
+p4depender | el beneficio puede depender
+p4calidad | la calidad de la dieta
+p4hipertension | controlar la hipertensión
+p4mareos | podría experimentar mareos
+p4bajada | una bajada excesiva de tensión
+p4bano | para ir al baño
+p4caidas | el riesgo de caídas
+p4electrolitos | los electrolitos
+p4sodio | El sodio, el potasio y el magnesio
+p4nonecesaria | no provoca necesariamente
+p4vomitos | acompañada de vómitos
+p4desequilibrios | desequilibrios peligrosos
+p4palpitaciones | si experimentas palpitaciones persistentes
+p4noatribuir | no debes atribuirlos
+p4toracico | dolor torácico intenso
+p4urgente | busca atención médica urgente
+p4prudente | La recomendación más prudente
+p4equilibrada | mantener una alimentación equilibrada
+p4tratamientos | respetar los tratamientos
+p4falta | todavía falta descubrir
+p4fuerza | su fuerza
+p4piernas | las piernas pueden ser
+p5 | Hay algo que muchas personas desconocen
+# Punto 5 — músculos
+p5bascula | cuando la báscula marca
+p5grasa | hayas eliminado grasa
+p5agua | al agua corporal
+p5masa | también a masa muscular
+p5sesenta | Y después de los sesenta años
+p5caminar | no sirven únicamente para caminar
+p5equilibrio | mantener el equilibrio
+p5silla | levantarnos de una silla
+p5indep | conservar nuestra independencia
+p5sarcopenia | el riesgo de sarcopenia
+p5proteinas | suficientes proteínas y calorías
+p5siete | si decides pasar siete noches
+p5reservas | utiliza diferentes reservas
+p5nodesaparecer | Saltarse una cena no significa
+p5restodia | durante el resto del día
+p5musculares | utilizar proteínas musculares
+p5deficit | mantener ese déficit
+p5calambres | los calambres nocturnos
+p5pantorrilla | con la pantorrilla completamente
+p5causas | pueden tener diferentes causas
+p5hidratacion | una hidratación inadecuada
+p5nonecesaria | No obstante, dejar de cenar
+p5pregunta | estoy recibiendo suficientes proteínas
+p5huevos | Huevos
+p5pescado | pescado
+p5legumbres | legumbres
+p5lacteos | lácteos
+p5comparte | compártelo con alguien
+p5diferencia | entre perder peso y conservar músculo
+p5ejercicio | ejercicios de fuerza adaptados
+p5autonomia | proteger tu autonomía
+p5organo | un órgano decisivo
+p5pancreas | tu páncreas participa
+p5diabetes | si padeces diabetes
+p6 | Llegamos al último órgano
+# Punto 6 — páncreas
+p6sesenta | más atención merece
+p6adaptarse | tu páncreas debe adaptarse
+p6contradiccion | una contradicción sorprendente
+p6beneficiosa | puede resultar beneficiosa
+p6peligrosa | y peligrosa para otras
+p6insulina | el papel de la insulina
+p6hidratos | contienen hidratos de carbono
+p6glucosa | parcialmente en glucosa
+p6libera | el páncreas libera insulina
+p6entrada | facilita la entrada
+p6energia | para utilizarla como energía
+p6horas | Cuando permaneces varias horas
+p6disminuir | suelen disminuir
+p6reservas | utilice progresivamente sus reservas
+p6estudios | algunos estudios han observado
+p6sensibilidad | mejorar la sensibilidad
+p6detalle | existe un detalle fundamental
+p6noesnecesario | No es necesario eliminar
+p6calidad | La calidad de los alimentos
+p6ejercicio | el ejercicio físico
+p6descanso | el descanso
+p6peso | un peso saludable
+p6setenta | una persona de setenta años
+p6sinconsultar | sin consultar con su médico
+p6hipo | episodios de hipoglucemia
+p6sudor | Sudor frío
+p6temblores | temblores, confusión
+p6debilidad | debilidad intensa
+p6demasiado | ha descendido demasiado
+p6grave | una hipoglucemia grave
+p6emergencia | una emergencia médica
+p6manana | a la mañana siguiente
+p6aumento | un aumento importante de glucosa
+p6refinados | alimentos refinados
+p6depende | esta respuesta depende
+p6danado | el páncreas esté dañado
+p6verdadera | la verdadera pregunta
+p6organizar | cómo organizar tu alimentación
+p6seis | estos seis órganos
+p6merece | merece realmente la pena
+p6respuesta | La respuesta puede cambiar
+# Conclusión
+c0 | Después de recorrer estos seis órganos
+c1sorprenda | La respuesta quizá te sorprenda
+c1rejuvenecer | no comienza a rejuvenecer
+c1deteriora | tampoco se deteriora
+c1depende | Todo depende de tu estado
+c2higado | Tu hígado adapta
+c2pancreas | Tu páncreas modifica
+c2cerebro | Tu cerebro continúa necesitando
+c2musculos | tus músculos requieren
+c3advertencia | hay una advertencia
+c3sesenta | Si tienes más de sesenta
+c3diabetes | padeces diabetes
+c3meds | tomas medicamentos
+c3cronicas | enfermedades crónicas
+c3consultar | sin consultar previamente
+c3glucosa | Una bajada importante de glucosa
+c3mareos | los mareos persistentes
+c3insuf | una alimentación insuficiente
+c4reco | Mi recomendación
+c4mejorarla | prueba a mejorarla
+c4verduras | Elige verduras
+c4proteinas | proteínas de calidad
+c4cantidades | cantidades adecuadas
+c4antelacion | Cena con suficiente antelación
+c4abundante | excesivamente abundante
+c5quiz | nuestra pequeña pregunta final
+c5organo | Qué órgano produce la insulina
+c5opciones | El hígado, el páncreas o el estómago
+c5escribe | Escribe tu respuesta
+c5probado | si alguna vez has probado
+c6megusta | deja tu Me gusta
+c6suscribe | suscríbete al canal
+c6campana | activa la campanita
+c7recuerda | Recuerda: después de los sesenta
+c7menos | comer cada vez menos
+c7mejor | alimentarte cada vez mejor
+c8 | Nos vemos en el próximo vídeo

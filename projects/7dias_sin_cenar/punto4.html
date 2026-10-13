@@ -1,0 +1,182 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 4 — el corazón y la circulación.
+window.START = at('p4') - 0.6;
+window.END = at('p5') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+const beat = (t, t0) => t > t0 ? 1 + 0.06 * Math.pow(Math.max(0, Math.sin((t - t0) * Math.PI * 1.2)), 10) : 1;
+
+scene(svg, () => START, () => at('p4') + 2.6, g => SectionCard(g, 4, 'EL CORAZÓN', 'y la presión arterial', ['heart'])(START + 0.1));
+
+// 1. the heart doesn't know you skipped dinner — ~100,000 beats a day
+scene(svg, () => at('p4') + 2.6, () => at('p4bruscamente'), g => {
+  Progress(g, 3);
+  const H = el('g', {}, g); cut(H, 'heart', 560, 540, 520);
+  const a = Text(g, 'NO SABE NADA', { x: 1340, y: 330, size: 70 });
+  const b = Text(g, 'DE DIETAS NI HORARIOS', { x: 1340, y: 410, size: 50, color: C.blueDark });
+  const n = Text(g, '', { x: 1340, y: 600, size: 130, color: C.red });
+  const l = Text(g, 'LATIDOS AL DÍA', { x: 1340, y: 710, size: 56 });
+  return t => {
+    pop(H, t, at('p4') + 2.6, 560, 540);
+    if (t > at('p4') + 3.2) { const s = beat(t, at('p4') + 3.2); H.setAttribute('transform', `translate(560 540) scale(${s.toFixed(3)}) translate(-560 -540)`); }
+    show(a, t, at('p4') + 3); show(b, t, at('p4') + 3.4);
+    const u = E.out(prog(t, at('p4cienmil') - 0.8, at('p4cienmil') + 0.8));
+    n.textContent = '≈ ' + Math.round(u * 100000).toLocaleString('es-ES').replace(/,/g, '.');
+    show(n, t, at('p4cienmil') - 0.8); show(l, t, at('p4cienmil') - 0.4);
+  };
+});
+
+// 2. blood pressure normally dips at night; not the same in everyone after 60
+scene(svg, () => at('p4bruscamente'), () => at('p4interesante'), g => {
+  const top = Chip(g, 'CAMBIOS BRUSCOS → TAMBIÉN EN TU CIRCULACIÓN', { cx: 960, cy: 130, fill: C.amber, size: 40 });
+  const ch = el('g', {}, g);
+  Card(ch, { x: 160, y: 250, w: 1600, h: 620 });
+  Text(ch, 'PRESIÓN ARTERIAL', { x: 210, y: 300, size: 40, anchor: 'start' });
+  const X = h => 260 + (h - 18) / 14 * 1400;   // 18:00 → 08:00
+  ['18:00', '22:00', '02:00', '06:00'].forEach((s, i) => Text(ch, s, { x: X(18 + i * 4), y: 830, size: 30, weight: 800, color: C.grey }));
+  el('rect', { x: X(23), y: 330, width: X(30) - X(23), height: 460, fill: '#22305A', opacity: 0.12 }, ch);
+  Icon.moon(ch, X(26.5) - 35, 340, 0.7);
+  const curve = (dip) => { let d = ''; for (let i = 0; i <= 140; i++) { const h = 18 + i / 10; const n = Math.exp(-Math.pow((h - 27) / 3, 2)); d += (i ? 'L' : 'M') + X(h).toFixed(1) + ' ' + (470 + dip * n * 220 + 12 * Math.sin(i * 0.7)).toFixed(1); } return d; };
+  const dip = el('path', { d: curve(1), fill: 'none', stroke: C.green, 'stroke-width': 10, 'stroke-linejoin': 'round', 'stroke-dasharray': 3000, 'stroke-dashoffset': 3000 }, ch);
+  const flat = el('path', { d: curve(0.25), fill: 'none', stroke: C.red, 'stroke-width': 8, 'stroke-dasharray': '18 14', opacity: 0 }, ch);
+  const l1 = Chip(g, 'DESCENSO NATURAL DE NOCHE', { cx: 960, cy: 960, fill: C.green, color: C.white, size: 40 });
+  const l2 = Text(g, 'ritmo biológico', { x: X(27), y: 760, size: 38, weight: 800, color: C.green });
+  const l3 = Chip(g, '+60: NO SIEMPRE IGUAL', { cx: X(21), cy: 640, fill: C.white, color: C.red, size: 34 });
+  return t => {
+    show(top, t, at('p4bruscamente'));
+    show(ch, t, at('p4noche') - 0.4);
+    dip.setAttribute('stroke-dashoffset', 3000 * (1 - E.inOut(prog(t, at('p4noche'), at('p4noche') + 2.5))));
+    show(l1, t, at('p4noche') + 1.5); show(l2, t, at('p4ritmo'));
+    flat.setAttribute('opacity', prog(t, at('p4nomisma'), at('p4nomisma') + 0.6)); show(l3, t, at('p4nomisma') + 0.4);
+  };
+});
+
+// 3a. studies: moderate improvement (≈ −4 mmHg, mostly with weight loss) — no automatic protection
+scene(svg, () => at('p4interesante'), () => at('p4depender'), g => {
+  const h = Text(g, 'ESTUDIOS: COMER EN UN HORARIO LIMITADO', { x: 960, y: 150, size: 56 });
+  const ch = el('g', {}, g);
+  Card(ch, { x: 260, y: 250, w: 900, h: 560 });
+  el('line', { x1: 330, y1: 740, x2: 1090, y2: 740, stroke: C.ink, 'stroke-width': 6 }, ch);
+  el('rect', { x: 420, y: 340, width: 220, height: 400, rx: 10, fill: C.grey }, ch);
+  const bar = el('rect', { x: 760, width: 220, rx: 10, fill: C.green }, ch);
+  Text(ch, 'ANTES', { x: 530, y: 780, size: 34, weight: 800 }); Text(ch, 'DESPUÉS', { x: 870, y: 780, size: 34, weight: 800 });
+  const n = Text(g, '≈ −4 mmHg', { x: 1480, y: 420, size: 96, color: C.green });
+  const n2 = Text(g, 'sobre todo con pérdida de peso', { x: 1480, y: 510, size: 36, weight: 800, color: C.blueDark });
+  const src = Text(g, 'Metaanálisis 2022 y 2025', { x: 1480, y: 570, size: 30, weight: 700, color: C.grey });
+  const st = Stamp(g, 'NO PROTEGE AUTOMÁTICAMENTE', { cx: 960, cy: 920, size: 62 });
+  return t => {
+    show(h, t, at('p4estudios') - 0.3); show(ch, t, at('p4estudios'));
+    const u = E.inOut(prog(t, at('p4moderadas'), at('p4moderadas') + 1.2));
+    const hh = 400 - 70 * u; set(bar, { y: 740 - hh, height: hh });
+    show(n, t, at('p4moderadas') + 0.6); show(n2, t, at('p4moderadas') + 1); show(src, t, at('p4moderadas') + 1.3);
+    st.draw(t, at('p4noproteja'));
+  };
+});
+
+// 3b. the benefit depends on…
+scene(svg, () => at('p4depender'), () => at('p4hipertension'), g => {
+  const h = Text(g, 'EL BENEFICIO DEPENDE DE…', { x: 960, y: 170, size: 76 });
+  const items = [['CANTIDAD', 'TOTAL', 'plate'], ['CALIDAD', 'DE LA DIETA', 'check'], ['PESO', 'CORPORAL', 'drop'], ['ENFERMEDADES', 'PREVIAS', 'heart']].map(([a, b, ic], i) => {
+    const c = el('g', {}, g), x = 110 + i * 440;
+    Card(c, { x, y: 320, w: 380, h: 440 }); el('rect', { x, y: 320, width: 380, height: 26, rx: 13, fill: C.amber }, c);
+    Icon[ic](c, x + 120, 400, 1.4, ic === 'check' ? C.green : undefined);
+    Text(c, a, { x: x + 190, y: 640, size: a.length > 10 ? 40 : 50 }); Text(c, b, { x: x + 190, y: 700, size: 34, weight: 800, color: C.blueDark });
+    return [c, x + 190];
+  });
+  return t => { show(h, t, at('p4depender')); items.forEach(([c, cx], i) => pop(c, t, at('p4depender') + 0.6 + i * (at('p4calidad') - at('p4depender')) * 0.55, cx, 540)); };
+});
+
+// 4. blood-pressure medication + eating much less → dizziness, low pressure → night-time falls
+scene(svg, () => at('p4hipertension'), () => at('p4electrolitos'), g => {
+  const A = el('g', {}, g);
+  Icon.pill(A, 200, 160, 1.6);
+  Text(A, 'MEDICAMENTOS PARA LA TENSIÓN', { x: 420, y: 245, size: 58, anchor: 'start' });
+  const plus = Text(A, '+ comer mucho menos · deshidratación · perder peso rápido', { x: 960, y: 400, size: 42, weight: 800, color: C.blueDark });
+  const ch = ['MAREOS AL LEVANTARSE', 'DEBILIDAD', 'TENSIÓN DEMASIADO BAJA'].map((s, i) => Chip(A, s, { cx: 960, cy: 560 + i * 150, fill: C.red, color: C.white, size: 50 }));
+  const Bg = el('g', {}, g);
+  const st = Still(Bg, 'cut/s_dizzy.png', { x: 90, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.45, 0.35], zoom: 0.1 });
+  const ck = Clock(Bg, { cx: 1570, cy: 330, r: 120, night: true }); ck.draw(3.2);
+  const risk = el('g', {}, Bg); Card(risk, { x: 1300, y: 560, w: 540, h: 220, fill: C.red });
+  Text(risk, 'RIESGO', { x: 1570, y: 635, size: 56, color: C.white }); Text(risk, 'DE CAÍDAS', { x: 1570, y: 710, size: 56, color: C.white });
+  return t => {
+    const sw = at('p4bano') - 1.6, k = E.inOut(prog(t, sw, sw + 0.4));
+    A.setAttribute('opacity', 1 - k); A.style.display = k >= 1 ? 'none' : '';
+    Bg.setAttribute('opacity', k); Bg.style.display = k <= 0 ? 'none' : '';
+    show(plus, t, at('p4hipertension') + 1.5);
+    ch.forEach((c, i) => show(c, t, at('p4mareos') + i * (at('p4bajada') - at('p4mareos')) / 2));
+    st.draw(t, sw, at('p4electrolitos'));
+    pop(ck.g, t, sw + 0.6, 1570, 330); show(risk, t, at('p4caidas'));
+  };
+});
+
+// 5. electrolytes
+scene(svg, () => at('p4electrolitos'), () => at('p4palpitaciones'), g => {
+  const h = Text(g, 'ELECTROLITOS', { x: 960, y: 150, size: 84 });
+  const tiles = [['Na', 'SODIO', C.blue], ['K', 'POTASIO', C.amber], ['Mg', 'MAGNESIO', C.green]].map(([s, n, col], i) => {
+    const c = el('g', {}, g), x = 330 + i * 460;
+    Card(c, { x, y: 240, w: 340, h: 340, fill: col });
+    Text(c, s, { x: x + 170, y: 390, size: 150, color: C.white }); Text(c, n, { x: x + 170, y: 520, size: 44, color: C.ink });
+    return [c, x + 170];
+  });
+  const ok = Chip(g, 'SALTAR UNA CENA ≠ DEFICIENCIA', { cx: 960, cy: 690, fill: C.green, color: C.white, size: 48 });
+  const bad = el('g', {}, g); Card(bad, { x: 160, y: 800, w: 1600, h: 150, fill: C.red });
+  Text(bad, 'COMER POCO + VÓMITOS / DIARREA / FÁRMACOS → DESEQUILIBRIOS', { x: 960, y: 876, size: 44, color: C.white });
+  return t => { show(h, t, at('p4electrolitos')); tiles.forEach(([c, cx], i) => pop(c, t, at('p4sodio') + i * 0.6, cx, 410)); show(ok, t, at('p4nonecesaria')); show(bad, t, at('p4vomitos')); };
+});
+
+// 6. warning signs → emergency
+scene(svg, () => at('p4palpitaciones'), () => at('p4prudente'), g => {
+  const A = el('g', {}, g);
+  const w = Warn(A, 'NO LO ATRIBUYAS AL HAMBRE', ['PALPITACIONES PERSISTENTES', 'MAREOS INTENSOS', 'DESMAYOS'], { y: 220 });
+  const Bg = el('g', {}, g);
+  el('rect', { width: 1920, height: 1080, fill: C.red }, Bg);
+  Icon.heart(Bg, 860, 170, 2);
+  Text(Bg, 'DOLOR TORÁCICO INTENSO', { x: 960, y: 500, size: 80, color: C.white });
+  Text(Bg, 'DIFICULTAD PARA RESPIRAR', { x: 960, y: 610, size: 80, color: C.white });
+  const u = el('g', {}, Bg); Card(u, { x: 560, y: 740, w: 800, h: 170, fill: C.white });
+  Text(u, '→ URGENCIAS', { x: 960, y: 827, size: 90, color: C.red });
+  return t => {
+    const sw = at('p4toracico') - 0.3, k = E.inOut(prog(t, sw, sw + 0.3));
+    A.setAttribute('opacity', 1 - k); Bg.setAttribute('opacity', k); Bg.style.display = k <= 0 ? 'none' : '';
+    show(w, t, at('p4palpitaciones'));
+    pop(u, t, at('p4urgente'), 960, 825);
+  };
+});
+
+// 7. the prudent advice
+scene(svg, () => at('p4prudente'), () => at('p4falta'), g => {
+  const h = Text(g, 'NO DEJES DE COMER POR MIEDO A ENGORDAR', { x: 960, y: 170, size: 58 });
+  const l = [['ALIMENTACIÓN EQUILIBRADA', 'p4equilibrada', 0], ['CONTROLA TU PRESIÓN', 'p4equilibrada', 1.8], ['RESPETA TU TRATAMIENTO', 'p4tratamientos', 0]].map(([s, k, d], i) => {
+    const c = el('g', {}, g); Card(c, { x: 360, y: 320 + i * 190, w: 1200, h: 150 }); Icon.check(c, 395, 345 + i * 190, 1);
+    Text(c, s, { x: 530, y: 397 + i * 190, size: 56, anchor: 'start' });
+    return [c, k, d];
+  });
+  return t => { show(h, t, at('p4prudente')); l.forEach(([c, k, d]) => show(c, t, at(k) + d)); };
+});
+
+// 8. next: muscles
+scene(svg, () => at('p4falta'), () => END + 1, g => {
+  const top = Text(g, 'UNA CONSECUENCIA QUE PREOCUPA DESPUÉS DE LOS 60', { x: 960, y: 150, size: 50 });
+  const glow = el('circle', { cx: 960, cy: 520, r: 270, fill: C.amber, opacity: 0 }, g);
+  const M = el('g', {}, g); cut(M, 'calf', 960, 520, 480);
+  const f = Text(g, 'TU FUERZA', { x: 960, y: 860, size: 90, color: C.orange });
+  const p = Text(g, 'las piernas: de las primeras en notarlo', { x: 960, y: 960, size: 46, weight: 800, color: C.blueDark });
+  return t => {
+    show(top, t, at('p4falta')); pop(M, t, at('p4fuerza') - 2, 960, 520);
+    glow.setAttribute('opacity', t > at('p4fuerza') - 2 ? (0.2 + 0.1 * Math.sin(t * 4)).toFixed(2) : 0);
+    show(f, t, at('p4fuerza')); show(p, t, at('p4piernas'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

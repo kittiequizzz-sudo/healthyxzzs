@@ -1,0 +1,197 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 2 — el hígado.
+window.START = at('p2') - 0.6;
+window.END = at('p3') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('p2mision'), g => SectionCard(g, 2, 'EL HÍGADO', 'la fábrica de energía', ['liver'])(START + 0.1));
+
+// 1. the liver's mission: energy for brain, heart and the rest, all night
+scene(svg, () => at('p2mision'), () => at('p2almacen'), g => {
+  Progress(g, 1);
+  const h = Text(g, 'SU MISIÓN: ENERGÍA TODA LA NOCHE', { x: 900, y: 150, size: 62 });
+  const L = el('g', {}, g); cut(L, 'liver', 520, 560, 520);
+  const targets = [['brain', 'CEREBRO', 1420, 330], ['heart', 'CORAZÓN', 1420, 610], [null, 'RESTO DEL CUERPO', 1420, 860]];
+  const parts = targets.map(([n, s, x, y], i) => {
+    const a = Arrow(g, 800, 560, x - 200, y);
+    const t = el('g', {}, g);
+    if (n) { Card(t, { x: x - 170, y: y - 115, w: 340, h: 230 }); cut(t, n, x, y - 25, 150); Text(t, s, { x, y: y + 82, size: 34 }); }
+    else Chip(t, s, { cx: x, cy: y, size: 40 });
+    return [a, t];
+  });
+  Icon.moon(g, 80, 60, 0.9);
+  const tag = Chip(g, 'SIN CENA → TRABAJA DE OTRA FORMA', { cx: 680, cy: 980, fill: C.amber, size: 40 });
+  return t => {
+    show(h, t, at('p2mision')); pop(L, t, at('p2mision'), 520, 560);
+    parts.forEach(([a, c], i) => { const t0 = at('p2energia') + i * 0.3; a.setAttribute('opacity', prog(t, t0, t0 + 0.3)); show(c, t, t0 + 0.15); });
+    show(tag, t, at('p2diferente'));
+  };
+});
+
+// 2. a smart warehouse: glucose stored as glycogen, released over the night to keep blood sugar steady
+scene(svg, () => at('p2almacen'), () => at('p2fascinante'), g => {
+  Progress(g, 1);
+  const h = Text(g, 'UN ALMACÉN INTELIGENTE', { x: 900, y: 150, size: 72 });
+  const L = el('g', {}, g); cut(L, 'liver', 420, 520, 460);
+  const bat = Battery(g, { x: 840, y: 330, label: 'GLUCÓGENO' });
+  const dots = [0, 1, 2, 3, 4, 5].map(() => el('circle', { r: 16, fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, g));
+  const gl = Text(g, 'glucosa', { x: 420, y: 790, size: 44, weight: 800, color: C.orange });
+  const ck = Clock(g, { cx: 1500, cy: 360, r: 110, night: true });
+  const ch = el('g', {}, g);
+  Card(ch, { x: 1200, y: 560, w: 620, h: 300 });
+  Text(ch, 'AZÚCAR EN SANGRE', { x: 1510, y: 610, size: 36 });
+  el('path', { d: 'M1250 760 C1330 690 1380 760 1450 745 S1600 750 1770 752', fill: 'none', stroke: C.green, 'stroke-width': 10, 'stroke-linecap': 'round' }, ch);
+  Text(ch, 'ESTABLE', { x: 1510, y: 820, size: 44, color: C.green });
+  return t => {
+    show(h, t, at('p2almacen')); show(L, t, at('p2almacen'));
+    const fillU = prog(t, at('p2glucogeno') - 0.4, at('p2glucogeno') + 1.6);
+    const drain = prog(t, at('p2horas'), at('p2fascinante'));
+    bat.draw(0.25 + 0.7 * E.inOut(fillU) - 0.3 * drain);
+    show(bat.g, t, at('p2almacen') + 0.3);
+    show(gl, t, at('p2glucogeno') - 0.4, at('p2horas'));
+    dots.forEach((d, i) => {
+      const u = clamp(((t - at('p2glucogeno') + 0.4) * 1.2 - i * 0.25));
+      set(d, { cx: lerp(560, 930, u), cy: lerp(560, 620, u) - Math.sin(u * Math.PI) * 120, opacity: u > 0 && u < 1 ? 1 : 0 });
+    });
+    pop(ck.g, t, at('p2horas'), 1500, 360);
+    ck.draw(lerp(21, 27, prog(t, at('p2horas'), at('p2fascinante'))));
+    show(ch, t, at('p2estable'));
+  };
+});
+
+// 3. longer fast: glycogen falls, more fat burned, and the liver makes glucose (gluconeogenesis)
+scene(svg, () => at('p2fascinante'), () => at('p2nosufre'), g => {
+  Progress(g, 1);
+  const h = Text(g, 'SI EL AYUNO SE ALARGA…', { x: 900, y: 150, size: 72 });
+  const bat = Battery(g, { x: 230, y: 330, label: 'GLUCÓGENO ↓' });
+  const fat = el('g', {}, g);
+  Card(fat, { x: 640, y: 300, w: 560, h: 520 });
+  Icon.drop(fat, 820, 360, 2);
+  Text(fat, 'GRASAS', { x: 920, y: 640, size: 64 });
+  Text(fat, 'como combustible', { x: 920, y: 720, size: 38, weight: 800, color: C.blueDark });
+  const fatUp = Arrow(fat, 1120, 520, 1120, 380, C.green, 18);
+  const gng = el('g', {}, g);
+  Card(gng, { x: 1260, y: 300, w: 560, h: 520 });
+  cut(gng, 'liver', 1490, 450, 250);
+  const gear = Icon.gear(gng, 1640, 470, 1.2);
+  Text(gng, 'FABRICA GLUCOSA', { x: 1540, y: 640, size: 50 });
+  const word = Text(gng, 'gluconeogénesis', { x: 1540, y: 720, size: 42, weight: 800, color: C.orange });
+  return t => {
+    show(h, t, at('p2fascinante'));
+    show(bat.g, t, at('p2fascinante') + 0.3);
+    bat.draw(0.65 - 0.5 * E.inOut(prog(t, at('p2disminuyendo'), at('p2disminuyendo') + 2.5)));
+    show(fat, t, at('p2grasas'));
+    gear.setAttribute('transform', `translate(1640 470) scale(1.2) rotate(${((t - at('p2fabricar')) * 60).toFixed(1)} 50 50)`);
+    show(gng, t, at('p2fabricar'));
+    word.setAttribute('opacity', prog(t, at('p2gluconeo'), at('p2gluconeo') + 0.3));
+  };
+});
+
+// 4. not suffering, not a magic detox — just natural balance
+scene(svg, () => at('p2nosufre'), () => at('p2calorias'), g => {
+  const h = Text(g, 'ESTO NO SIGNIFICA…', { x: 960, y: 170, size: 72 });
+  const a = el('g', {}, g); Card(a, { x: 360, y: 300, w: 1200, h: 170 }); Icon.cross(a, 400, 335, 1);
+  Text(a, 'UN «DETOX» MÁGICO', { x: 560, y: 387, size: 66, anchor: 'start' });
+  const b = el('g', {}, g); Card(b, { x: 360, y: 540, w: 1200, h: 170 }); Icon.check(b, 400, 575, 1);
+  Text(b, 'EQUILIBRIO ENERGÉTICO NATURAL', { x: 560, y: 627, size: 54, anchor: 'start' });
+  const L = el('g', {}, g); cut(L, 'liver', 960, 880, 280);
+  return t => { show(h, t, at('p2nosufre')); show(L, t, at('p2nosufre') + 0.2); show(a, t, at('p2toxinas') - 0.4); show(b, t, at('p2natural')); };
+});
+
+// 5. possible benefit: fewer calories → weight loss → better markers (with excess fat)
+scene(svg, () => at('p2calorias'), () => at('p2diferencia'), g => {
+  const h = Text(g, 'POSIBLE BENEFICIO', { x: 960, y: 170, size: 76, color: C.green });
+  const steps = [['MENOS', 'CALORÍAS', 'p2calorias'], ['PÉRDIDA', 'DE PESO', 'p2peso'], ['MEJORES', 'MARCADORES', 'p2peso']].map(([a, b, k], i) => {
+    const c = el('g', {}, g), x = 170 + i * 560;
+    Card(c, { x, y: 360, w: 460, h: 280, fill: C.white });
+    el('rect', { x, y: 360, width: 460, height: 30, rx: 15, fill: C.green }, c);
+    Text(c, a, { x: x + 230, y: 470, size: 58 }); Text(c, b, { x: x + 230, y: 550, size: 58, color: C.green });
+    return [c, k, i];
+  });
+  const arrows = [0, 1].map(i => Arrow(g, 650 + i * 560, 500, 715 + i * 560, 500, C.ink, 12));
+  const ex = Chip(g, 'sobre todo si hay exceso de grasa', { cx: 960, cy: 800, fill: C.amber, size: 46 });
+  return t => {
+    show(h, t, at('p2calorias'));
+    steps.forEach(([c, k, i]) => show(c, t, at(k) + (i === 2 ? 1.2 : 0)));
+    arrows.forEach((a, i) => a.setAttribute('opacity', prog(t, at(i ? 'p2peso' : 'p2peso') - 0.2 + i * 1.2, at('p2peso') + i * 1.2)));
+    show(ex, t, at('p2exceso'));
+  };
+});
+
+// 6. fewer calories ≠ fewer nutrients — after 60, missing protein → weakness
+scene(svg, () => at('p2diferencia'), () => at('p2atencion'), g => {
+  const a = el('g', {}, g); Card(a, { x: 80, y: 140, w: 790, h: 160, fill: C.white }); Icon.check(a, 110, 170, 1);
+  Text(a, 'Menos calorías de sobra', { x: 240, y: 222, size: 48, anchor: 'start' });
+  const b = el('g', {}, g); Card(b, { x: 1060, y: 140, w: 780, h: 160, fill: C.white }); Icon.cross(b, 1090, 170, 1);
+  Text(b, 'Menos nutrientes', { x: 1220, y: 222, size: 48, anchor: 'start' });
+  const neq = Text(g, '≠', { x: 960, y: 222, size: 110, color: C.red });
+  const age = Chip(g, 'DESPUÉS DE LOS 60', { cx: 960, cy: 420, fill: C.ink, color: C.amber, size: 48 });
+  const tiles = ['PROTEÍNAS', 'VITAMINAS', 'MINERALES'].map((s, i) => Chip(g, s, { cx: 420 + i * 540, cy: 590, fill: C.white, size: 50 }));
+  const risk = el('g', {}, g); Card(risk, { x: 260, y: 760, w: 1400, h: 150, fill: C.red });
+  Text(risk, 'DEBILIDAD · PÉRDIDA DE MÚSCULO', { x: 960, y: 836, size: 60, color: C.white });
+  return t => {
+    show(a, t, at('p2diferencia')); show(neq, t, at('p2privar') - 0.3); show(b, t, at('p2privar'));
+    show(age, t, at('p2sesenta'));
+    tiles.forEach((c, i) => show(c, t, at('p2proteinas') + i * 0.35));
+    show(risk, t, at('p2debilidad'));
+  };
+});
+
+// 7. warning: diabetes, liver disease, medication → professional guidance
+scene(svg, () => at('p2atencion'), () => at('p2comparte'), g => {
+  const w = Warn(g, 'ATENCIÓN SI TIENES…', ['', '', ''], { y: 180 });
+  const items = [['DIABETES', 'p2atencion'], ['ENFERMEDAD DEL HÍGADO', 'p2hepaticas'], ['CIERTOS MEDICAMENTOS', 'p2meds']].map(([s, k], i) => [Text(g, s, { x: 960, y: 355 + i * 95, size: 56 }), k]);
+  const ok = Chip(g, '→ CONSULTA A TU MÉDICO', { cx: 960, cy: 820, fill: C.green, color: C.white, size: 54 });
+  return t => { show(w, t, at('p2atencion') - 0.3); items.forEach(([e, k]) => show(e, t, at(k))); show(ok, t, at('p2orientacion')); };
+});
+
+// 8. share
+scene(svg, () => at('p2comparte'), () => at('p2cuestion'), g => {
+  const a = Text(g, '¿CONOCES A ALGUIEN QUE', { x: 960, y: 330, size: 76 });
+  const b = Text(g, 'SE SALTA LA CENA PARA ADELGAZAR?', { x: 960, y: 450, size: 70, color: C.orange });
+  const cta = CTA(g, 'share');
+  return t => { show(a, t, at('p2comparte') - 1.6); show(b, t, at('p2comparte') - 1.2); pop(cta, t, at('p2comparte'), 960, 925); };
+});
+
+// 9. reserves falling during deep sleep — not everyone responds the same
+scene(svg, () => at('p2cuestion'), () => at('p2cerebro'), g => {
+  const s = Still(g, 'cut/s_awake.png', { x: 90, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.4, 0.5], zoom: 0.08 });
+  const bat = Battery(g, { x: 1420, y: 230, w: 200, h: 380, label: 'RESERVAS' });
+  const q = Text(g, '¿Y SI BAJAN MIENTRAS DUERMES?', { x: 665, y: 900, size: 58 });
+  const ch = ['CADA PERSONA', 'RESPONDE DISTINTO'].map((s, i) => Text(g, s, { x: 1520, y: 820 + i * 70, size: 46, color: i ? C.orange : C.ink }));
+  return t => {
+    s.draw(t, at('p2cuestion'), at('p2cerebro'));
+    show(bat.g, t, at('p2cuestion') + 0.3);
+    bat.draw(0.55 - 0.3 * prog(t, at('p2cuestion'), at('p2dormido') + 2));
+    show(q, t, at('p2dormido') - 0.6);
+    ch.forEach((e, i) => show(e, t, at('p2igual') + i * 0.3));
+  };
+});
+
+// 10. next: the brain
+scene(svg, () => at('p2cerebro'), () => END + 1, g => {
+  const glow = el('circle', { cx: 960, cy: 500, r: 300, fill: C.amber, opacity: 0 }, g);
+  const B = el('g', {}, g); cut(B, 'brain', 960, 500, 520);
+  const a = Text(g, 'SIGUIENTE: TU CEREBRO', { x: 960, y: 140, size: 72 });
+  const m = el('g', {}, g); Icon.moon(m, 640, 860, 1);
+  const q = Text(g, '¿y tu descanso?', { x: 1000, y: 915, size: 64, color: C.blueDark, anchor: 'middle' });
+  return t => {
+    show(a, t, at('p2cerebro')); pop(B, t, at('p2cerebro') + 0.3, 960, 500);
+    glow.setAttribute('opacity', t > at('p2cerebro') + 0.3 ? (0.22 + 0.1 * Math.sin(t * 4)).toFixed(2) : 0);
+    show(m, t, at('p2descanso')); show(q, t, at('p2descanso'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

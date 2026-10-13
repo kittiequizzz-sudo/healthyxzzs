@@ -1,0 +1,228 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 1 — estómago e intestinos. Runs on the global voice timeline.
+window.START = at('p1acuestas');
+window.END = at('p2') - 0.6;            // the Punto 2 card takes over in the pause
+window.DURATION = window.END;
+const svg = Stage();
+
+// 1. lights out — "your stomach is resting?"
+scene(svg, () => START, () => at('p1abdomen'), g => {
+  const st = Still(g, 'cut/s_awake.png', { x: 110, y: 130, w: 1220, h: 680, iw: STILL[0], ih: STILL[1], focus: [0.4, 0.45], zoom: 0.1 });
+  const ck = Clock(g, { cx: 1600, cy: 380, r: 150, night: true });
+  const q = Text(g, '¿TU ESTÓMAGO', { x: 1600, y: 640, size: 58 });
+  const q2 = Text(g, 'DESCANSA?', { x: 1600, y: 715, size: 70, color: C.orange });
+  return t => {
+    st.draw(t, START, at('p1abdomen'));
+    ck.draw(lerp(22.5, 23.5, prog(t, START, at('p1abdomen'))));
+    show(q, t, START + 1.2); show(q2, t, START + 1.5);
+  };
+});
+
+// 2. the stomach keeps working: a little acid + movements
+scene(svg, () => at('p1abdomen'), () => at('p1intest'), g => {
+  Progress(g, 0);
+  const h = Text(g, 'SIGUE TRABAJANDO', { x: 640, y: 150, size: 76 });
+  cut(g, 'stomach', 640, 580, 620);
+  const drops = [];
+  for (let i = 0; i < 9; i++) drops.push(el('path', { d: 'M0 -26 C10 -10 16 0 16 8 A16 16 0 0 1 -16 8 C-16 0 -10 -10 0 -26 Z', fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, g));
+  const arcs = [0, 1, 2].map(i => el('path', { fill: 'none', stroke: C.orange, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': '20 16' }, g));
+  const c1 = el('g', {}, g); Card(c1, { x: 1200, y: 330, w: 600, h: 150 }); Icon.question(c1, 1225, 355, 1, C.amber);
+  Text(c1, 'UN POCO DE ÁCIDO', { x: 1345, y: 405, size: 46, anchor: 'start' });
+  const c2 = el('g', {}, g); Card(c2, { x: 1200, y: 540, w: 600, h: 150 });
+  el('path', { d: 'M1240 615 q20 -40 40 0 t40 0', fill: 'none', stroke: C.orange, 'stroke-width': 12, 'stroke-linecap': 'round' }, c2);
+  Text(c2, 'MOVIMIENTOS', { x: 1345, y: 615, size: 46, anchor: 'start' });
+  return t => {
+    show(h, t, at('p1abdomen'));
+    const a = at('p1acido');
+    drops.forEach((d, i) => {
+      const ph = ((t - a) * 0.5 + i / 9) % 1;
+      const x = 560 + (i % 3) * 70 + 15 * Math.sin(i * 2.3), y = 560 + ph * 140;
+      set(d, { transform: `translate(${x} ${y}) scale(${0.8 + 0.2 * Math.sin(i)})`, opacity: t > a ? (Math.sin(ph * Math.PI) * clamp((t - a) * 3)).toFixed(2) : 0 });
+    });
+    const m = at('p1movs');
+    arcs.forEach((p, i) => {
+      const r = 300 + i * 30, s0 = -160 + i * 25 + ((t - m) * 40) % 360;
+      const A = s0 * Math.PI / 180, B = (s0 + 70) * Math.PI / 180;
+      set(p, { d: `M${640 + r * Math.cos(A)} ${580 + r * Math.sin(A)} A${r} ${r} 0 0 1 ${640 + r * Math.cos(B)} ${580 + r * Math.sin(B)}`, opacity: t > m ? clamp((t - m) * 3) : 0 });
+    });
+    show(c1, t, at('p1acido')); show(c2, t, at('p1movs'));
+  };
+});
+
+// 3. intestines: migrating motor complex — a cleaning wave every 90–230 min
+scene(svg, () => at('p1intest'), () => at('p1pregunta'), g => {
+  Progress(g, 0);
+  cut(g, 'intestines', 430, 520, 560);
+  const chev = [0, 1, 2, 3, 4].map(() => el('path', { d: 'M-18 -26 L14 0 L-18 26', fill: 'none', stroke: C.orange, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g));
+  const name = el('g', {}, g);
+  Card(name, { x: 820, y: 170, w: 1000, h: 130, fill: C.ink });
+  Text(name, 'COMPLEJO MOTOR MIGRATORIO', { x: 1320, y: 237, size: 50, color: C.amber });
+  // activity chart over 8 hours of fasting: a strong burst every ~2 h
+  const ch = el('g', {}, g);
+  Card(ch, { x: 820, y: 360, w: 1000, h: 400 });
+  el('line', { x1: 880, y1: 690, x2: 1770, y2: 690, stroke: C.ink, 'stroke-width': 5 }, ch);
+  ['0 h', '2 h', '4 h', '6 h', '8 h'].forEach((s, i) => Text(ch, s, { x: 880 + i * 222, y: 725, size: 28, weight: 800, color: C.grey }));
+  const wave = el('path', { fill: 'none', stroke: C.orange, 'stroke-width': 7, 'stroke-linejoin': 'round' }, ch);
+  const pts = [];
+  for (let i = 0; i <= 400; i++) {
+    const h = i / 50;                                    // hours
+    const ph = (h + 0.4) % 1.9;                          // cycle ≈ 115 min
+    const burst = ph > 1.55 ? Math.abs(Math.sin(i * 1.7)) * 230 * Math.sin((ph - 1.55) / 0.35 * Math.PI) : 0;
+    const mid = ph > 0.9 && ph <= 1.55 ? Math.abs(Math.sin(i * 2.9)) * 60 : 0;
+    pts.push([880 + h * 111, 690 - 6 - burst - mid]);
+  }
+  const tag = el('g', {}, g); Card(tag, { x: 1010, y: 800, w: 620, h: 110, fill: C.amber });
+  Text(tag, 'CADA 90–230 MIN', { x: 1320, y: 857, size: 52 });
+  const fast = Text(g, 'sobre todo cuando no comes', { x: 1320, y: 960, size: 42, weight: 800, color: C.blueDark });
+  const clean = el('g', {}, g); Card(clean, { x: 230, y: 860, w: 400, h: 100, fill: C.green });
+  Text(clean, 'LIMPIEZA NORMAL', { x: 430, y: 911, size: 40, color: C.white });
+  return t => {
+    show(name, t, at('p1intest'));
+    show(ch, t, at('p1intest') + 0.4);
+    const u = prog(t, at('p1intest') + 0.6, at('p1pregunta') - 1);
+    set(wave, { points: '', d: 'M' + pts.slice(0, Math.max(2, Math.round(u * pts.length))).map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L') });
+    chev.forEach((c, i) => {
+      const ph = ((t * 0.45) + i / 5) % 1;
+      set(c, { transform: `translate(${230 + ph * 400} 830)`, opacity: (Math.sin(ph * Math.PI) * clamp((t - at('p1intest')) * 2)).toFixed(2) });
+    });
+    show(tag, t, at('p1limpieza')); show(clean, t, at('p1limpieza') + 0.3);
+    show(fast, t, at('p1sincomida'));
+  };
+});
+
+// 4. more hours without food = healthier? → no necesariamente
+scene(svg, () => at('p1pregunta'), () => at('p1primeros'), g => {
+  const q = Question(g, ['¿MÁS HORAS SIN COMER', '= ESTÓMAGO MÁS SANO?'], { y: 360 });
+  const st = Stamp(g, 'NO NECESARIAMENTE', { cx: 960, cy: 760, size: 84 });
+  return t => { show(q, t, at('p1pregunta')); st.draw(t, at('p1no')); };
+});
+
+// 5. some feel better, others feel worse
+scene(svg, () => at('p1primeros'), () => at('p1autofagia'), g => {
+  const cols = TwoCols(g, [['Menos pesadez nocturna', 'p1pesadez'], ['Menos molestias digestivas', 'p1molestias']],
+                          [['Hambre intensa', 'p1otras'], ['Náuseas, dolor abdominal', 'p1nauseas']]);
+  const w = el('g', {}, g);
+  Card(w, { x: 140, y: 690, w: 1640, h: 150, fill: C.red });
+  Text(w, 'GASTRITIS · ÚLCERAS  →  CAMBIOS GRADUALES', { x: 960, y: 766, size: 54, color: C.white });
+  return t => { cols(t); show(w, t, at('p1gastritis')); };
+});
+
+// 6. autophagy: cells recycle parts — clinical benefit of a given fast still unknown
+scene(svg, () => at('p1autofagia'), () => at('p1poreso'), g => {
+  const h = Text(g, 'AUTOFAGIA', { x: 960, y: 140, size: 90 });
+  const sub = Text(g, 'las células reciclan piezas viejas', { x: 960, y: 225, size: 46, weight: 800, color: C.blueDark });
+  const cell = el('g', {}, g);
+  el('circle', { cx: 960, cy: 560, r: 230, fill: '#FBD9C9', stroke: C.ink, 'stroke-width': 8 }, cell);
+  el('circle', { cx: 920, cy: 540, r: 80, fill: '#C58BB0', stroke: C.ink, 'stroke-width': 6 }, cell);
+  const bits = [[1050, 470], [1060, 640], [870, 660], [1010, 560]].map(([x, y], i) => el('rect', { x: x - 22, y: y - 12, width: 44, height: 24, rx: 12, fill: i % 2 ? C.amber : C.grey, stroke: C.ink, 'stroke-width': 4 }, cell));
+  const ring = el('g', {}, g);
+  for (let i = 0; i < 3; i++) {
+    const a0 = i * 120 + 10, a1 = a0 + 90, r = 300;
+    const p = (a) => [960 + r * Math.cos(a * Math.PI / 180), 560 + r * Math.sin(a * Math.PI / 180)];
+    const [x0, y0] = p(a0), [x1, y1] = p(a1), [hx, hy] = p(a1 - 9);
+    el('path', { d: `M${x0} ${y0} A${r} ${r} 0 0 1 ${x1} ${y1}`, fill: 'none', stroke: C.green, 'stroke-width': 22, 'stroke-linecap': 'round' }, ring);
+    const n = [Math.cos((a1 + 90) * Math.PI / 180), Math.sin((a1 + 90) * Math.PI / 180)];
+    el('path', { d: `M${x1 + n[0] * 30} ${y1 + n[1] * 30} L${hx - 30 * Math.cos(a1 * Math.PI / 180)} ${hy - 30 * Math.sin(a1 * Math.PI / 180)} L${hx + 30 * Math.cos(a1 * Math.PI / 180)} ${hy + 30 * Math.sin(a1 * Math.PI / 180)} Z`, fill: C.green, stroke: 'none' }, ring);
+  }
+  const tag = el('g', {}, g);
+  Card(tag, { x: 410, y: 900, w: 1100, h: 120, fill: C.amber });
+  Text(tag, 'BENEFICIO CLÍNICO: AÚN NO SE SABE', { x: 960, y: 961, size: 52 });
+  return t => {
+    show(h, t, at('p1autofagia')); show(sub, t, at('p1reciclan'));
+    pop(cell, t, at('p1autofagia') + 0.3, 960, 560);
+    ring.setAttribute('transform', `rotate(${((t - at('p1reciclan')) * 30).toFixed(1)} 960 560)`);
+    ring.setAttribute('opacity', clamp((t - at('p1reciclan')) * 2));
+    bits.forEach((b, i) => b.setAttribute('opacity', 1 - clamp((t - at('p1reciclan') - 0.6 - i * 0.4) * 2) * 0.85));
+    show(tag, t, at('p1nosabemos'));
+  };
+});
+
+// 7. no guarantees
+scene(svg, () => at('p1poreso'), () => at('p1suscribe'), g => {
+  const l = CrossList(g, [['LIMPIEZA PROFUNDA DEL INTESTINO', 'p1limpiezaprof'], ['REGENERACIÓN DEL ESTÓMAGO', 'p1regen']], { head: '7 DÍAS SIN CENAR NO GARANTIZA:', y: 360 });
+  return l;
+});
+
+// 8. subscribe
+scene(svg, () => at('p1suscribe'), () => at('p1cotidiano'), g => {
+  const a = Text(g, 'TU CUERPO,', { x: 960, y: 330, size: 110 });
+  const b = Text(g, 'EXPLICADO CON PALABRAS SENCILLAS', { x: 960, y: 470, size: 66, color: C.blueDark });
+  const c = el('g', {}, g); Card(c, { x: 560, y: 560, w: 800, h: 120, fill: C.green });
+  Text(c, 'SIN PROMESAS MILAGROSAS', { x: 960, y: 621, size: 52, color: C.white });
+  const cta = CTA(g, 'sub');
+  return t => { show(a, t, at('p1suscribe')); show(b, t, at('p1suscribe') + 0.3); pop(cta, t, at('p1suscribe') + 0.6, 960, 925); show(c, t, at('p1sinpromesas')); };
+});
+
+// 9. the 68-year-old: heavy late dinner → lighter, earlier dinner
+scene(svg, () => at('p1cotidiano'), () => at('p1alternativa'), g => {
+  const s1 = Still(g, 'cut/s_heavy.png', { x: 90, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.45, 0.6], zoom: 0.08 });
+  const s2 = Still(g, 'cut/s_light.png', { x: 90, y: 150, w: 1150, h: 640, iw: STILL[0], ih: STILL[1], focus: [0.45, 0.6], zoom: 0.08 });
+  const age = el('g', {}, g); Card(age, { x: 1360, y: 160, w: 420, h: 130, fill: C.ink }); Text(age, '68 AÑOS', { x: 1570, y: 226, size: 66, color: C.amber });
+  const ck = Clock(g, { cx: 1570, cy: 470, r: 120 });
+  const chipsA = ['EMBUTIDOS', 'PAN', 'QUESO'].map((s, i) => { const c = el('g', {}, g); Card(c, { x: 1360, y: 640 + i * 105, w: 420, h: 85, fill: C.white, r: 42 }); Text(c, s, { x: 1570, y: 683 + i * 105, size: 42 }); return c; });
+  const chipsB = ['EQUILIBRADA', 'MÁS TEMPRANO'].map((s, i) => { const c = el('g', {}, g); Card(c, { x: 1360, y: 640 + i * 105, w: 420, h: 85, fill: C.green, r: 42 }); Text(c, s, { x: 1570, y: 683 + i * 105, size: 40, color: C.white }); return c; });
+  const note = Text(g, 'cenar mejor  ≠  no cenar', { x: 665, y: 900, size: 64, color: C.orange });
+  return t => {
+    const sw = at('p1sustituye');
+    const k = E.inOut(prog(t, sw, sw + 0.5));
+    s1.g.setAttribute('opacity', 1 - k); s2.g.setAttribute('opacity', k);
+    s1.draw(t, at('p1cotidiano'), sw); s2.draw(t, sw, at('p1alternativa'));
+    show(age, t, at('p1cotidiano') + 0.3);
+    pop(ck.g, t, at('p1cotidiano') + 0.6, 1570, 470);
+    ck.draw(lerp(23, 20, E.inOut(prog(t, sw, sw + 1.2))));
+    chipsA.forEach((c, i) => { show(c, t, at('p1embutidos') + i * 0.35, sw); });
+    chipsB.forEach((c, i) => show(c, t, sw + 0.4 + i * 0.4));
+    show(note, t, at('p1mejoras'));
+  };
+});
+
+// 10. dinner 2–3 h before bed, easy to digest
+scene(svg, () => at('p1alternativa'), () => at('p1detalle'), g => {
+  const h = Text(g, 'UNA ALTERNATIVA RAZONABLE', { x: 960, y: 150, size: 72 });
+  const bar = el('g', {}, g);
+  const fill = TimeBar(bar, 360, 1560, 420, [[360, 'CENA', '20:00', C.green], [1560, 'DORMIR', '23:00', C.blue]]);
+  const gap = el('g', {}, g); Card(gap, { x: 760, y: 280, w: 400, h: 100, fill: C.amber, r: 50 }); Text(gap, '2–3 HORAS', { x: 960, y: 331, size: 52 });
+  const foods = el('g', {}, g);
+  cut(foods, 'fish', 620, 760, 360); cut(foods, 'veg', 1300, 760, 380);
+  const lab = Text(g, 'fácil de digerir  +  nutrientes', { x: 960, y: 990, size: 54, color: C.blueDark });
+  return t => {
+    show(h, t, at('p1alternativa')); show(bar, t, at('p1alternativa') + 0.2);
+    fill(E.inOut(prog(t, at('p1horas'), at('p1horas') + 1.6)));
+    pop(gap, t, at('p1horas') + 0.4, 960, 330);
+    show(foods, t, at('p1faciles')); show(lab, t, at('p1faciles') + 0.3);
+  };
+});
+
+// 11. hand-off to the liver
+scene(svg, () => at('p1detalle'), () => END + 1, g => {
+  const s = el('g', {}, g); cut(s, 'stomach', 480, 520, 380);
+  const arrow = el('path', { d: 'M760 520 L1100 520 M1060 480 L1105 520 L1060 560', fill: 'none', stroke: C.orange, 'stroke-width': 18, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  const glow = el('circle', { cx: 1420, cy: 520, r: 250, fill: C.amber, opacity: 0 }, g);
+  const l = el('g', {}, g); cut(l, 'liver', 1420, 520, 440);
+  const lab = Text(g, 'HÍGADO', { x: 1420, y: 800, size: 80 });
+  const q = Text(g, '¿DE DÓNDE SALE EL COMBUSTIBLE?', { x: 960, y: 960, size: 64, color: C.orange });
+  const top = Text(g, 'NO SOLO LA DIGESTIÓN…', { x: 960, y: 170, size: 70 });
+  return t => {
+    show(top, t, at('p1detalle'));
+    show(s, t, at('p1detalle'));
+    s.setAttribute('opacity', +s.getAttribute('opacity') * (1 - 0.6 * prog(t, at('p1higado'), at('p1higado') + 0.6)));
+    arrow.setAttribute('opacity', prog(t, at('p1higado') - 0.3, at('p1higado')));
+    pop(l, t, at('p1higado'), 1420, 520);
+    show(lab, t, at('p1higado') + 0.3);
+    glow.setAttribute('opacity', (t > at('p1higado') ? 0.25 + 0.12 * Math.sin(t * 4) : 0).toFixed(2));
+    show(q, t, at('p1combustible'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

@@ -2,3 +2,4 @@ __pycache__/
 node_modules/
 projects/*/qa/
 *.f32
+projects/*/out/*.png

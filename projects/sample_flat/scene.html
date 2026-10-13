@@ -6,6 +6,7 @@
   text{font-family:Inter,sans-serif}
 </style>
 <script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/figure.js"></script>
 </head><body>
 <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
 <script>
@@ -24,7 +25,7 @@ const bar1 = el('rect', { x: 360, y: 560, width: 1200, height: 10, rx: 5, fill: 
 // ---------- scene 2: sit-up with phases
 const S2 = el('g', {}, svg);
 el('line', { x1: 200, y1: 822, x2: 1720, y2: 822, stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, S2);
-const fig2 = Figure(S2, { x: 860, floor: 818, scale: 1.25 });
+const fig2 = FlatFigure(S2, { x: 900, floor: 818, scale: 1.2 });
 const h2 = Text(S2, 'THE SIT-UP', { x: 960, y: 130, size: 92 });
 const ph1 = Card(S2, { x: 1380, y: 300, w: 400, h: 130, fill: C.white });
 const ph1t = Text(ph1, '1  CURL', { x: 1580, y: 350, size: 56 });
@@ -57,7 +58,7 @@ Text(src3, 'Spine biomechanics research (McGill)', { x: 1360, y: 826, size: 30, 
 // ---------- scene 4: curl-up + EMG bar
 const S4 = el('g', {}, svg);
 el('line', { x1: 120, y1: 822, x2: 1100, y2: 822, stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, S4);
-const fig4 = Figure(S4, { x: 560, floor: 818, scale: 1.1 });
+const fig4 = FlatFigure(S4, { x: 600, floor: 818, scale: 1.05 });
 const h4 = Text(S4, 'THE CURL-UP', { x: 960, y: 130, size: 92 });
 const cap4 = Text(S4, 'head + shoulders only', { x: 520, y: 900, size: 40, weight: 700, color: C.blueDark });
 const chart = el('g', {}, S4);

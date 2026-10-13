@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#F5ECD7}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script><script src="../../.claude/skills/health-video/flat/figure.js"></script></head>
+<body><svg id="s" width="1920" height="1080"></svg><script>
+window.DURATION=1; const svg=document.getElementById('s');
+el('rect',{width:1920,height:1080,fill:'#F5ECD7'},svg);
+for (const fl of [500, 1000]) el('line',{x1:40,y1:fl+2,x2:1880,y2:fl+2,stroke:'#1B1A22','stroke-width':5},svg);
+const a=FlatFigure(svg,{x:520,floor:500,scale:0.95}), b=FlatFigure(svg,{x:1240,floor:500,scale:0.95});
+const c=FlatFigure(svg,{x:520,floor:1000,scale:0.95}), d=FlatFigure(svg,{x:1240,floor:1000,scale:0.95});
+window.draw=t=>{ a.draw(situpPose(0),{}); b.draw(situpPose(0.4),{abs:0.9}); c.draw(situpPose(1),{hip:0.9}); d.draw(curlupPose(1),{abs:0.9}); };
+window.draw(0);
+</script></body></html>

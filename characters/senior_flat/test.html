@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#F5ECD7}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script><script src="../../.claude/skills/health-video/flat/sheetfigure.js"></script></head>
+<body><svg id="s" width="1920" height="1080"></svg><script>
+window.DURATION=1; const svg=document.getElementById('s');
+el('rect',{width:1920,height:1080,fill:'#F5ECD7'},svg);
+el('line',{x1:40,y1:600,x2:1880,y2:600,stroke:'#1B1A22','stroke-width':5},svg); el('line',{x1:40,y1:1000,x2:1880,y2:1000,stroke:'#1B1A22','stroke-width':5},svg);
+const ref=null;
+const FA=SheetFigure(svg,{x:480,floor:1000,H:560});
+const FB=SheetFigure(svg,{x:1080,floor:1000,H:560});
+const FC=SheetFigure(svg,{x:1500,floor:1000,H:560}); const FD=SheetFigure(svg,{x:900,floor:600,H:560});
+window.draw=t=>{ FA.draw({stand:true}); FB.draw(situpPose(0)); FC.draw(situpPose(1)); FD.draw(situpPose(0.38)); };
+window.draw(0);
+</script></body></html>

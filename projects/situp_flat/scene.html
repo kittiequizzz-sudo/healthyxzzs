@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#F5ECD7}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script><script src="../../.claude/skills/health-video/flat/sheetfigure.js"></script></head>
+<body><svg id="s" width="1920" height="1080"></svg><script>
+window.DURATION=8.6; const svg=document.getElementById('s');
+el('rect',{width:1920,height:1080,fill:'#F5ECD7'},svg);
+el('ellipse',{cx:960,cy:905,rx:620,ry:18,fill:'#1B1A22',opacity:0.08},svg);
+el('line',{x1:260,y1:900,x2:1660,y2:900,stroke:'#1B1A22','stroke-width':6,'stroke-linecap':'round'},svg);
+const fig=SheetFigure(svg,{x:900,floor:900,H:820,dir:'../../characters/senior_flat/'});
+const h=Text(svg,'THE SIT-UP',{x:960,y:120,size:88});
+window.draw=t=>{ const u=t<0.5?0:reps(t-0.5,{up:1.5,hold:0.45,down:1.9,rest:0.25}); fig.draw(situpPose(u)); };
+window.draw(0);
+</script></body></html>

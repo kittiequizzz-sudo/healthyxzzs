@@ -4,3 +4,5 @@ projects/*/qa/
 *.f32
 projects/*/out/*.png
 projects/figtest/*.png
+projects/*/out/*.png
+characters/*/circles.json

@@ -138,3 +138,26 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
    `SPECS[...]` in `qa_motion.py` (channel, bottom/top ranges, still parts).
 4. If a real demo video is available, run `qa_motion.py --capture` on it and compare the curve with
    the card. Real timing beats guessed timing.
+
+### Sit-up, bent-knee (side view)
+- Setup: lying on the back, knees bent ≈90°, feet flat and hip-width apart, arms crossed on the chest
+  (hands behind the head invite neck pulling) **[coach]**
+  ([The Manual](https://themanual.com/fitness/how-to-do-sit-ups);
+  [Today](https://www.today.com/today/amp/tdna219780)).
+- Two phases **[study]**: (1) **curl / trunk-flexion phase**: the chin tucks, then the head, shoulders
+  and upper back peel off the floor one vertebra at a time while the lower back stays down. This is
+  where the abdominals work hardest; pure spine flexion gives >50% MVC
+  ([curl-up vs sit-up EMG](https://pmc.ncbi.nlm.nih.gov/articles/PMC155519)). (2) **Hip-flexion phase**:
+  the whole curled trunk hinges up at the hips toward the thighs, driven by the hip flexors
+  (iliopsoas, rectus femoris). Traditional sit-ups showed more rectus femoris and peak hip flexion,
+  a trunk-focused version more rectus abdominis and obliques
+  ([Sullivan 2015](https://researchwith.montclair.edu/en/publications/effect-of-traditional-vs-modified-bent-knee-sit-up-on-abdominal-a/)).
+- Lowering reverses it: the hips extend first, then the spine unrolls back to the floor, under control.
+- Tempo **[coach]**: ≈1–1.5 s up, ≈1.5–2 s down, no bounce off the floor.
+- Safety note for scripts: McGill reported ≈3,300 N of lumbar compression in a sit-up, and bent knees
+  barely change it ([Michigan Today](https://michigantoday.umich.edu/2016/08/17/just-say-no-to-sit-ups);
+  [Six Physio](https://sixphysio.com/blog/media/the-end-of-the-sit-up)). For older viewers or back pain,
+  flag it and offer the **curl-up** (phase 1 only, one knee bent, hands under the lower back).
+- Faults: pulling on the neck with the hands; momentum swing with the feet lifting; jerking up with
+  a flat back (no curl); arching the lower back; dropping back down.
+- Muscles: rectus abdominis + obliques (curl phase), hip flexors (hinge phase).

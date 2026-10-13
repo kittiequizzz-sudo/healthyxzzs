@@ -101,3 +101,25 @@ prompt is written. It covers, for each key pose:
 
 Research it (biomechanics and EMG papers first, reputable coaching libraries second) and cite it.
 If no source covers a detail, say so and use the coaching standard.
+
+## Sit-up (bent-knee, side view): drawing spec
+
+**Pose 0, lying:** flat on the back, head down, knees bent ≈90° pointing up, feet flat, arms crossed
+on the chest. The lower back has its natural small curve.
+
+**Pose 1, curl 20–30°:** chin tucked (gap of a fist between chin and chest), head and shoulder
+blades off the floor, upper back rounded, lower back still on the floor. The abs are visibly
+shortened, with a crease at the ribs.
+
+**Pose 2, ~45°:** the spine is fully curled (C-shape), the lower back just leaving the floor, and the
+hinge starts at the hips. The feet stay flat.
+
+**Pose 3, ~70–80° (top):** the trunk is up near vertical with the chest toward the thighs, the back
+rounded slightly or neutral, the chin still lightly tucked and the arms still crossed. The hips are
+at maximum flexion; the knees and feet have not moved.
+
+**Locked across all poses:** hips, legs and feet (same pixels; only the trunk, head and arms change).
+
+**Checklist:** chin tucked from pose 1 on; the curl comes before the hinge (never a stiff plank
+swinging up); the feet stay down; the arms stay crossed with no hands pulling the head; the
+movement reverses smoothly on the way down.

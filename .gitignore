@@ -3,3 +3,4 @@ node_modules/
 projects/*/qa/
 *.f32
 projects/*/out/*.png
+projects/figtest/*.png

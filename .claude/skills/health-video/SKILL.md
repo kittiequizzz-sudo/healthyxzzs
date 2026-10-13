@@ -36,11 +36,16 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
 5. **Check delivered sheets** against the anatomy checklist, and ask for regenerations with exact fixes.
 6. **Cut poses:** `python3 scripts/cut_poses.py sheet.webp projects/<slug>/poses --name <exercise> --count N`.
    This writes aligned transparent PNGs in the house blue, plus `<name>_poses.json`.
+   Other sheets: `python3 scripts/cut_items.py sheet.webp projects/<slug>/cut --names a,b,c` cuts separate
+   items (organs, foods; reading order; `--close 3` if two items touch), and `--grid 2x2 --names …`
+   splits a panel sheet into scene stills. Check the cut-outs on a dark contact sheet.
 7. **Build `scene.html`:** start from `projects/sample_flat/scene.html` and use `flat/lib.js` for text,
    cards, easing and charts.
 8. **Time to the voice:** `node scripts/transcribe.mjs voice.wav transcript --lang spanish|english`.
    The script stays the truth for the words; the transcript only gives timestamps. Every beat lands
-   0.1–0.3 s before its keyword.
+   0.1–0.3 s before its keyword. Write `cues.txt` (`label | phrase from the script`, in order) and run
+   `node scripts/cues.mjs transcript/words.json cues.txt cues.js`; the scene reads `CUE.label`, so a new
+   voice take only needs the cues re-run, not new times.
 9. **Render and QA:** run `node flat/render.mjs scene.html x --frames t1,t2,… --png out/f` and look at
    the frames. Fix placement, spelling and timing. Then run
    `node flat/render.mjs scene.html out/final.mp4 --audio voice.wav`.
@@ -58,8 +63,10 @@ dependencies (playwright-core) and the motion QA tools.
 - `references/history.md`: what was tried in this project and why it was dropped. Read it before
   proposing a "new" approach.
 - `references/legacy-skill-notes.md`: the earlier skill version (AI video, puppets), kept for reference only.
-- `flat/`: `render.mjs` (HTML → MP4, deterministic), `lib.js` (helpers). `figure.js`, `pictogram.js` and
+- `flat/`: `render.mjs` (HTML → MP4, deterministic), `lib.js` (helpers), `kit.js` (Still with push-in,
+  Tile, Cutout, Stamp, Clock, DayCounter, icons, sceneVis). Organ/topic video reference:
+  `projects/7dias_sin_cenar/intro.html`. `figure.js`, `pictogram.js` and
   `sheetfigure.js` are rejected experiments; don't use them for videos.
-- `scripts/`: `cut_poses.py`, `transcribe.mjs`, `setup.sh`, plus the legacy tools `render.py`,
+- `scripts/`: `cut_poses.py`, `cut_items.py`, `transcribe.mjs`, `cues.mjs`, `setup.sh`, plus the legacy tools `render.py`,
   `puppet.py`, `motion.py` and `qa_motion.py`.
 - `characters/`: the user's character sheets. `projects/`: one folder per video.

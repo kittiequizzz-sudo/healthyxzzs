@@ -1,0 +1,30 @@
+# label | phrase from the script (searched in order). Intro
+q1 | Qué pasaría si esta noche
+dias7 | durante siete días
+duermes | mientras tú duermes
+seis | seis partes fundamentales
+algunas | Y algunas consecuencias
+higado | Tu hígado comenzaría
+pancreas | Tu páncreas tendría
+cerebro | con tu cerebro
+corazon | tu corazón y
+musculos | tus músculos
+muchas | Muchas personas mayores
+grasa | perderán grasa
+dormir | dormirán mejor
+azucar | controlarán su azúcar
+garantiza | no garantiza esos beneficios
+salud | Dependiendo de tu salud
+meds | tus medicamentos
+comas | lo que comas
+distintos | pueden ser muy distintos
+hoy | Hoy descubriremos
+digest | primeros cambios digestivos
+memoria | sobre la memoria
+fuerza | la fuerza muscular
+ultimo | presta especial atención
+diabetes | si tienes diabetes
+comenta | cuéntame en los comentarios
+hora | a qué hora sueles cenar
+quiza | Quizá tu respuesta
+p1 | La primera noche sin cenar

@@ -1,0 +1,228 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F5ECD7;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro of "¿Qué pasa si dejas de cenar 7 días?" — every beat keyed to a cue word in the voice-over.
+const T = CUE, L = 0.2;              // beats land 0.2 s before the word
+const at = k => T[k] - L;
+window.DURATION = T.p1 + 5;
+const svg = document.getElementById('s');
+el('rect', { width: 1920, height: 1080, fill: C.cream }, svg);
+const SZ = { stomach: [282, 251], intestines: [287, 291], liver: [317, 212], brain: [318, 267], heart: [194, 270], pancreas: [333, 193], calf: [111, 372], body: [242, 453] };
+const img = n => ['cut/' + n + '.png', ...SZ[n]];
+
+// ---------- A: the question + day counter (still S1)
+const A = el('g', {}, svg);
+const stillA = Still(A, 'cut/s_noplate.png', { x: 90, y: 150, w: 1150, h: 640, iw: 829, ih: 460, focus: [0.55, 0.5], zoom: 0.10 });
+const hA = Text(A, '¿Y SI DEJAS DE CENAR…', { x: 665, y: 880, size: 66 });
+const hA2 = Text(A, '…7 DÍAS?', { x: 665, y: 970, size: 80, color: C.orange });
+const day = DayCounter(A, { x: 1340, y: 230, days: 7 });
+const clockA = Clock(A, { cx: 1575, cy: 560, r: 120 });
+const sleepTxt = Text(A, 'mientras duermes…', { x: 1575, y: 740, size: 42, weight: 800, color: C.blueDark });
+
+// ---------- B: organ map — six parts around the body
+const B = el('g', {}, svg);
+const BS = 820 / 453, BX = 960 - 242 * BS / 2, BY = 160;
+const bodyG = el('g', {}, B);
+el('image', { href: 'cut/body.png', x: BX, y: BY, width: 242 * BS, height: 453 * BS }, bodyG);
+const bp = (x, y) => [BX + x * BS, BY + y * BS];
+const hB = Text(B, '6 PARTES DE TU CUERPO', { x: 960, y: 92, size: 60 });
+const organs = [
+  { key: 'estomago', label: 'ESTÓMAGO E\nINTESTINOS', imgs: [img('stomach'), img('intestines')], pt: bp(130, 180), side: 0, row: 2 },
+  { key: 'higado', label: 'HÍGADO', imgs: [img('liver')], pt: bp(104, 150), side: 1, row: 0 },
+  { key: 'cerebro', label: 'CEREBRO', imgs: [img('brain')], pt: bp(121, 30), side: 0, row: 0 },
+  { key: 'corazon', label: 'CORAZÓN', imgs: [img('heart')], pt: bp(134, 126), side: 0, row: 1 },
+  { key: 'musculos', label: 'MÚSCULOS', imgs: [img('calf')], pt: bp(146, 368), side: 1, row: 2 },
+  { key: 'pancreas', label: 'PÁNCREAS', imgs: [img('pancreas')], pt: bp(124, 166), side: 1, row: 1 },
+];
+const TW = 330, TH = 250;
+organs.forEach((o, i) => {
+  o.g = el('g', {}, B);
+  const x = o.side ? 1920 - 120 - TW : 120, y = 170 + o.row * (TH + 30);
+  const ax = o.side ? x : x + TW, ay = y + TH / 2;
+  o.line = el('path', { d: `M${ax} ${ay} L${o.pt[0]} ${o.pt[1]}`, stroke: C.ink, 'stroke-width': 5, 'stroke-dasharray': '4 12', 'stroke-linecap': 'round', fill: 'none' }, o.g);
+  o.dot = el('circle', { cx: o.pt[0], cy: o.pt[1], r: 13, fill: C.orange, stroke: C.ink, 'stroke-width': 5 }, o.g);
+  o.tile = Tile(o.g, { x, y, w: TW, h: TH, imgs: o.imgs, label: o.label, size: o.size || 38 });
+});
+// order of appearance on "seis partes fundamentales" (the six as the video will cover them)
+const popOrder = ['estomago', 'higado', 'cerebro', 'corazon', 'musculos', 'pancreas'];
+// highlights spoken in the intro
+const hiKeys = [['higado', 'higado'], ['pancreas', 'pancreas'], ['cerebro', 'cerebro'], ['corazon', 'corazon'], ['musculos', 'musculos']];
+
+// ---------- C: beliefs → "NO GARANTIZADO"
+const Cg = el('g', {}, svg);
+const hC = Text(Cg, 'MAYORES DE 60: «SI NO CENO…»', { x: 960, y: 150, size: 64 });
+const beliefs = [['PERDER GRASA', 'grasa'], ['DORMIR MEJOR', 'dormir'], ['CONTROLAR EL AZÚCAR', 'azucar']].map(([s, k], i) => {
+  const g = el('g', {}, Cg);
+  const y = 270 + i * 190;
+  Card(g, { x: 430, y, w: 1060, h: 150, fill: C.white });
+  const ok = Icon.check(g, 470, y + 25, 1);
+  const q = Icon.question(g, 470, y + 25, 1);
+  Text(g, s, { x: 610, y: y + 77, size: 62, anchor: 'start' });
+  return { g, k, ok, q };
+});
+const stamp = Stamp(Cg, 'NO GARANTIZADO', { cx: 1180, cy: 610, size: 92 });
+
+// ---------- D: it depends on…
+const D = el('g', {}, svg);
+const hD = Text(D, 'DEPENDE DE…', { x: 960, y: 170, size: 80 });
+const dep = [['TU SALUD', 'salud', 'heart'], ['TUS MEDICAMENTOS', 'meds', 'pill'], ['LO QUE COMES', 'comas', 'plate']].map(([s, k, ic], i) => {
+  const g = el('g', {}, D);
+  const x = 150 + i * 560;
+  Card(g, { x, y: 300, w: 500, h: 400, fill: C.white });
+  el('rect', { x, y: 300, width: 500, height: 26, rx: 13, fill: C.amber }, g);
+  Icon[ic](g, x + 160, 370, 1.8);
+  Text(g, s, { x: x + 250, y: 630, size: 46 });
+  return { g, k, cx: x + 250, cy: 500 };
+});
+const distTxt = Text(D, 'RESULTADOS MUY DISTINTOS', { x: 960, y: 850, size: 70, color: C.orange });
+
+// ---------- E: the journey — 7 nights, from digestion to memory and strength
+const Eg = el('g', {}, svg);
+const hE = Text(Eg, 'DENTRO DE TUS ÓRGANOS · 7 NOCHES', { x: 960, y: 150, size: 64 });
+el('line', { x1: 200, y1: 640, x2: 1720, y2: 640, stroke: C.ink, 'stroke-width': 10, 'stroke-linecap': 'round' }, Eg);
+const trackFill = el('line', { x1: 200, y1: 640, x2: 200, y2: 640, stroke: C.orange, 'stroke-width': 18, 'stroke-linecap': 'round' }, Eg);
+for (let d = 0; d < 7; d++) {
+  const x = 200 + d * (1520 / 6);
+  el('circle', { cx: x, cy: 640, r: 16, fill: C.cream, stroke: C.ink, 'stroke-width': 6 }, Eg);
+  Text(Eg, 'DÍA ' + (d + 1), { x, y: 700, size: 34, weight: 800 });
+}
+const journey = [['stomach', 'DIGESTIÓN', 'digest', 200], ['brain', 'MEMORIA', 'memoria', 960], ['calf', 'FUERZA MUSCULAR', 'fuerza', 1720]].map(([n, s, k, x]) => {
+  const g = el('g', {}, Eg);
+  Card(g, { x: x - 170, y: 280, w: 340, h: 280, fill: C.white });
+  Cutout(g, ...[`cut/${n}.png`], { cx: x, cy: 395, iw: SZ[n][0], ih: SZ[n][1], fit: 190 });
+  Text(g, s, { x, y: 520, size: s.length > 10 ? 30 : 40 });
+  return { g, k, x };
+});
+
+// ---------- F: the last organ (kept a mystery until the end of the video)
+const F = el('g', {}, svg);
+const hF = Text(F, 'ATENCIÓN AL ÚLTIMO ÓRGANO', { x: 960, y: 150, size: 70 });
+const minis = ['stomach', 'liver', 'brain', 'heart', 'calf'].map((n, i) => {
+  const g = el('g', {}, F);
+  Card(g, { x: 120 + i * 250, y: 380, w: 210, h: 210, fill: C.white });
+  Cutout(g, `cut/${n}.png`, { cx: 225 + i * 250, cy: 485, iw: SZ[n][0], ih: SZ[n][1], fit: 160 });
+  Text(g, String(i + 1), { x: 225 + i * 250, y: 640, size: 44, weight: 800, color: C.grey });
+  return g;
+});
+const mystery = el('g', {}, F);
+const mRing = el('rect', { x: 1352, y: 312, width: 396, height: 396, rx: 44, fill: 'none', stroke: C.red, 'stroke-width': 10 }, mystery);
+Card(mystery, { x: 1370, y: 330, w: 360, h: 360, fill: C.ink, r: 34 });
+Text(mystery, '?', { x: 1550, y: 515, size: 230, color: C.amber });
+Text(mystery, '6', { x: 1550, y: 760, size: 52, color: C.red });
+const diab = el('g', {}, F);
+Card(diab, { x: 610, y: 820, w: 700, h: 120, fill: C.red });
+Text(diab, 'SI TIENES DIABETES', { x: 960, y: 882, size: 58, color: C.white });
+
+// ---------- G: comment prompt
+const G = el('g', {}, svg);
+Icon.bubble(G, 250, 210, 3.2);
+const hG = Text(G, '¿A QUÉ HORA', { x: 1150, y: 330, size: 92, anchor: 'start' });
+const hG2 = Text(G, 'SUELES CENAR?', { x: 1150, y: 440, size: 92, anchor: 'start', color: C.orange });
+Text(G, 'Cuéntamelo en los comentarios', { x: 1150, y: 530, size: 42, weight: 700, anchor: 'start', color: C.blueDark });
+const clockG = Clock(G, { cx: 570, cy: 760, r: 150 });
+const chips = ['19:00', '20:30', '22:00'].map((s, i) => {
+  const g = el('g', {}, G);
+  Card(g, { x: 1150 + i * 230, y: 640, w: 200, h: 100, fill: C.white, r: 50 });
+  Text(g, s, { x: 1250 + i * 230, y: 692, size: 50 });
+  return g;
+});
+
+// ---------- H: section card (end of intro)
+const H = el('g', {}, svg);
+el('rect', { x: 0, y: 0, width: 1920, height: 1080, fill: C.ink }, H);
+const hH = Text(H, 'PUNTO 1', { x: 960, y: 420, size: 70, color: C.amber });
+const hH2 = Text(H, 'ESTÓMAGO E INTESTINOS', { x: 960, y: 560, size: 110, color: C.cream });
+const hH3 = Text(H, '¿descansan o sufren?', { x: 960, y: 690, size: 54, weight: 700, color: C.blueFar });
+const hHimg = el('g', {}, H);
+Cutout(hHimg, 'cut/stomach.png', { cx: 700, cy: 860, iw: 282, ih: 251, fit: 220 });
+Cutout(hHimg, 'cut/intestines.png', { cx: 1220, cy: 860, iw: 287, ih: 291, fit: 220 });
+
+window.draw = function (t) {
+  // A
+  sceneVis(A, t, -1, at('seis'));
+  stillA.draw(t, 0, at('seis'));
+  show(hA, t, 0.2); show(hA2, t, at('dias7'));
+  pop(day.g, t, at('dias7'), 1575, 295);
+  day.draw(prog(t, at('dias7'), at('dias7') + 2.2));
+  pop(clockA.g, t, at('duermes'), 1575, 560);
+  clockA.draw(lerp(20, 27, E.inOut(prog(t, at('duermes'), at('seis')))));   // 20:00 → 03:00
+  show(sleepTxt, t, at('duermes') + 0.3);
+
+  // B (also used for the intro's organ names)
+  sceneVis(B, t, at('seis'), at('muchas'));
+  show(hB, t, at('seis'));
+  show(bodyG, t, at('seis') - 0.1, 1e9, { dy: 20 });
+  const hiOn = hiKeys.map(([k, c]) => [k, at(c)]);
+  const hiStart = hiOn[0][1];
+  let cur = null;
+  for (const [k, s] of hiOn) if (t >= s) cur = k;
+  if (t > at('musculos') + 1.6) cur = null;   // all back on after the list
+  popOrder.forEach((k, i) => {
+    const o = organs.find(o => o.key === k);
+    const t0 = at('seis') + 0.25 + i * 0.32;
+    pop(o.tile.g, t, t0, o.tile.cx, o.tile.cy);
+    const lu = E.out(prog(t, t0 + 0.2, t0 + 0.6));
+    o.line.setAttribute('opacity', lu); o.dot.setAttribute('opacity', lu);
+    const on = cur === k, dim = cur && !on;
+    o.g.setAttribute('opacity', dim ? 0.35 : 1);
+    o.tile.ring.setAttribute('opacity', on ? 1 : 0);
+    if (on) set(o.dot, { r: 13 + 5 * Math.abs(Math.sin((t - hiStart) * 4)), fill: C.red });
+    else set(o.dot, { r: 13, fill: C.orange });
+  });
+
+  // C
+  sceneVis(Cg, t, at('muchas'), at('salud'));
+  show(hC, t, at('muchas'));
+  for (const b of beliefs) {
+    show(b.g, t, at(b.k));
+    const nog = t > at('garantiza') + 0.15;
+    b.ok.style.display = nog ? 'none' : '';
+    b.q.style.display = nog ? '' : 'none';
+  }
+  stamp.draw(t, at('garantiza'));
+
+  // D
+  sceneVis(D, t, at('salud'), at('hoy'));
+  show(hD, t, at('salud') - 0.1);
+  for (const d of dep) pop(d.g, t, at(d.k), d.cx, d.cy);
+  show(distTxt, t, at('distintos'));
+
+  // E
+  sceneVis(Eg, t, at('hoy'), at('ultimo'));
+  show(hE, t, at('hoy'));
+  const fx = 200 + 1520 * E.inOut(prog(t, at('digest'), at('fuerza') + 0.8));
+  set(trackFill, { x2: fx });
+  for (const j of journey) pop(j.g, t, at(j.k), j.x, 420);
+
+  // F
+  sceneVis(F, t, at('ultimo'), at('comenta'));
+  show(hF, t, at('ultimo'));
+  minis.forEach((g, i) => { show(g, t, at('ultimo') + 0.1 + i * 0.12); g.setAttribute('opacity', Math.min(+g.getAttribute('opacity'), t > at('ultimo') + 1.6 ? 0.4 : 1)); });
+  pop(mystery, t, at('ultimo') + 0.9, 1550, 510);
+  mRing.setAttribute('opacity', (0.5 + 0.5 * Math.sin(t * 6)).toFixed(2));
+  pop(diab, t, at('diabetes'), 960, 880);
+
+  // G
+  sceneVis(G, t, at('comenta'), at('p1') - 0.6);
+  show(hG, t, at('comenta')); show(hG2, t, at('hora'));
+  pop(clockG.g, t, at('comenta') + 0.2, 570, 760);
+  clockG.draw(18 + 4.5 * E.inOut(prog(t, at('hora'), at('hora') + 3)));
+  chips.forEach((g, i) => pop(g, t, at('hora') + 0.8 + i * 0.25, 1250 + i * 230, 690));
+
+  // H
+  sceneVis(H, t, at('p1') - 0.6, 1e9);
+  show(hH, t, at('p1') - 0.4); show(hH2, t, at('p1') - 0.2); show(hH3, t, at('p1') + 0.3);
+  show(hHimg, t, at('p1') + 0.5);
+};
+</script>
+</body></html>

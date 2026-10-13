@@ -1,0 +1,1 @@
+const CUE={"q1":1,"dias7":3.5,"duermes":6,"seis":8.5,"algunas":11,"higado":13.5,"pancreas":16,"cerebro":18.5,"corazon":21,"musculos":23.5,"muchas":26,"grasa":28.5,"dormir":31,"azucar":33.5,"garantiza":36,"salud":38.5,"meds":41,"comas":43.5,"distintos":46,"hoy":48.5,"digest":51,"memoria":53.5,"fuerza":56,"ultimo":58.5,"diabetes":61,"comenta":63.5,"hora":66,"quiza":68.5,"p1":71};

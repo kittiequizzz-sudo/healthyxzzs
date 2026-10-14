@@ -1,6 +1,6 @@
 ---
 name: health-video
-description: Make health and fitness science explainer videos in the channel's approved format. It combines code-rendered infographics (kinetic titles, anatomy diagrams, count-up numbers, charts, check/X takeaways, on-screen sources) with exercise step sequences built from real drawings: one AI pose sheet per exercise, which the user generates, shown as sequential poses with step cards, muscle callouts and motion arcs. There is no puppet animation and no code-drawn people. Workflow: script or topic → research and fact-check → pose-sheet prompts → the user sends pose sheets and a voice-over → cut poses, build scenes, time them to the voice, render and QA → deliver the MP4. Use for any health/fitness video script, topic, pose sheet, voice-over or render request on this channel.
+description: Make health and fitness science explainer videos (short exercise explainers or 20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
 # Health explainer video creator
@@ -30,30 +30,35 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
    search for studies and citing them.
 3. **Scene plan:** split the script into ~2–4 s beats and pick a scene type for each from
    `production-format.md`: infographic, diagram, chart, exercise step sequence or takeaway.
-4. **Order pose sheets:** one prompt per exercise. Use 3–4 poses in one row, the same character, a cream
-   background and no text (template: `characters/senior_m/situp_pose_sheet.md`). Add only the props the
-   exercise needs.
-5. **Check delivered sheets** against the anatomy checklist, and ask for regenerations with exact fixes.
+4. **Order assets** (`references/asset-order.md`): sheets, not single images. A pose sheet per exercise
+   (3–4 poses in a row, template `characters/senior_m/situp_pose_sheet.md`); for topic videos an organ or
+   food item sheet and 2×2 scene panels with the character; plus the voice spec. Write `order.md`.
+5. **Check delivered sheets** (anatomy, character consistency, clocks/times, no baked-in text) and ask
+   for regenerations with exact fixes.
 6. **Cut poses:** `python3 scripts/cut_poses.py sheet.webp projects/<slug>/poses --name <exercise> --count N`.
    This writes aligned transparent PNGs in the house blue, plus `<name>_poses.json`.
    Other sheets: `python3 scripts/cut_items.py sheet.webp projects/<slug>/cut --names a,b,c` cuts separate
    items (organs, foods; reading order; `--close 3` if two items touch), and `--grid 2x2 --names …`
    splits a panel sheet into scene stills. Check the cut-outs on a dark contact sheet.
-7. **Build `scene.html`:** start from `projects/sample_flat/scene.html` and use `flat/lib.js` for text,
-   cards, easing and charts.
+7. **Build scenes:** short video → one `scene.html` from `projects/sample_flat/scene.html`. Long topic
+   video → one HTML per section plus `common.js`, starting from `projects/7dias_sin_cenar/` (recipes in
+   `production-format.md`). Helpers: `flat/lib.js` and `flat/kit.js`.
 8. **Time to the voice:** `node scripts/transcribe.mjs voice.wav transcript --lang spanish|english`.
    The script stays the truth for the words; the transcript only gives timestamps. Every beat lands
    0.1–0.3 s before its keyword. Write `cues.txt` (`label | phrase from the script`, in order) and run
    `node scripts/cues.mjs transcript/words.json cues.txt cues.js`; the scene reads `CUE.label`, so a new
    voice take only needs the cues re-run, not new times.
-9. **Render and QA:** run `node flat/render.mjs scene.html x --frames t1,t2,… --png out/f` and look at
+9. **Render and QA** (`references/qa-checklist.md`): run `node flat/render.mjs scene.html x --frames t1,t2,… --png out/f` and look at
    the frames. Fix placement, spelling and timing. Then run
    `node flat/render.mjs scene.html out/final.mp4 --audio voice.wav`.
    Long videos (10+ min): one HTML per script section, each setting `window.START`/`window.END` on the
    shared voice timeline, then `node scripts/render_sections.mjs projects/<slug> voice.mp3 out/final.mp4
    intro.html punto1.html … --jobs 3` (parallel, frame-snapped joins, voice added once; ~3× real time
    per job). Shared pieces for a video go in its `common.js` (see `projects/7dias_sin_cenar/`).
-10. **Deliver** the MP4, along with a short Vietnamese summary of what's in it and any open fact-check flags.
+10. **Deliver** the MP4 with a short Vietnamese summary of what's in it and any changes made to on-screen
+    facts. Files over 30 MB can't be uploaded to the app: split without re-encoding into ~280 s parts
+    (command in `qa-checklist.md`) and send them in order. Never commit full renders (GitHub's 100 MB limit);
+    commit the scenes, cues and assets so the video can be re-rendered.
 
 Setup once per machine: `bash scripts/setup.sh`. It installs Whisper (offline), the flat renderer
 dependencies (playwright-core) and the motion QA tools.
@@ -66,6 +71,8 @@ dependencies (playwright-core) and the motion QA tools.
   `#F95C00`, amber `#F7AD36`, ink `#1B1A22`) and typography (Inter Black/ExtraBold).
 - `references/history.md`: what was tried in this project and why it was dropped. Read it before
   proposing a "new" approach.
+- `references/asset-order.md`: sheet types, prompt templates, voice spec, delivery checks.
+- `references/qa-checklist.md`: build/QA gotchas (overflow, z-order, cues) and delivery limits.
 - `references/legacy-skill-notes.md`: the earlier skill version (AI video, puppets), kept for reference only.
 - `flat/`: `render.mjs` (HTML → MP4, deterministic), `lib.js` (helpers), `kit.js` (Still with push-in,
   Tile, Cutout, Stamp, Clock, DayCounter, icons, sceneVis). Organ/topic video reference:

@@ -1,8 +1,10 @@
 # Production format (APPROVED by the channel owner, use this for every video)
 
-**Infographic explainer + illustrated exercise step sequences.** Rendered entirely in code
-(`flat/render.mjs` captures `scene.html` frame by frame → MP4). See `projects/sample_flat/scene.html`
-for the approved reference implementation.
+**Infographic explainer + real drawings shown as stills or step sequences.** Rendered entirely in code
+(`flat/render.mjs` captures HTML scenes frame by frame → MP4). Two approved references:
+- Exercise video: `projects/sample_flat/scene.html` (sit-up vs curl-up, 28 s).
+- Topic/organ video: `projects/7dias_sin_cenar/` ("¿Qué pasa si dejas de cenar 7 días?", 22 min,
+  Spanish; intro + 6 sections + conclusion). Owner's verdict: "right, tốt".
 
 ## Never do this (all rejected by the user)
 - Animating drawn characters by rotating cut-out limbs (puppets, rig sheets): looks creepy.
@@ -26,6 +28,30 @@ for the approved reference implementation.
 Kinetic titles, anatomy diagrams (e.g. the spine with squeezing discs + force arrows), count-up
 numbers, animated bar charts with reference lines, check/X takeaway cards, on-screen source line.
 Every number on screen must come from the source log / research.
+
+## Topic / organ explainers (long videos, e.g. "what happens to your organs if…")
+Structure follows the script: intro → `PUNTO 1…n` → conclusion. One HTML file per section on the
+shared voice timeline; shared pieces in the project's `common.js`. Building blocks (see the 7dias files):
+- **Section card:** dark ink screen, "PUNTO n" in amber, big title, subtitle, the organ drawing; shown
+  in the voice's pause before the section.
+- **Progress strip:** the six organs in small circles at the top right, the current one ringed orange.
+- **Organ map** (intro): body silhouette in the middle, organ tiles left/right with dashed leader lines
+  to dots on the body; the organ being named lights up (red ring, pulsing dot), the others dim.
+- **Scene stills** from the 2×2 panels: a rounded frame with a slow push-in, plus side chips/cards
+  (age, clock, foods). Swap between two stills with a 0.5 s crossfade for "before → after".
+- **Mechanism diagrams:** battery draining (glycogen), activity chart drawn over time (MMC waves),
+  blood-pressure curve with the night dip, insulin "key" opening a cell door with glucose entering,
+  cell with rotating recycle arrows (autophagy), pie slice (1/5 of energy), count-up (≈100.000).
+- **Judgement cards:** green column vs red column (some people / others), crossed-out myths with an
+  animated strike, a rubber-stamp verdict ("NO GARANTIZADO", "NO NECESARIAMENTE"), red warning card
+  with the risk groups, full-red emergency screen ("→ URGENCIAS").
+- **Symptom row:** 5 tiles with icons popping one per spoken word.
+- **CTA cards** where the script asks: subscribe (red pill), share, comment (bubble icon); final
+  like / subscribe / bell row.
+- **Quiz:** three option cards (A/B/C with drawings). Don't reveal the answer if the script asks viewers to
+  comment it.
+- **Ending:** the script's closing quote in large type on ink, then "Nos vemos…" with the organ row.
+Colour logic: green = possible benefit, amber = depends / caution, red = risk / warning.
 
 ## Per-video workflow
 Script/topic → research + fact-check → scene plan + pose-sheet orders → user sends pose sheets +

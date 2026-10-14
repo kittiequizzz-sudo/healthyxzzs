@@ -18,9 +18,13 @@ motion graphics).
 | 9 | Pictogram figures | Not chosen | |
 | 10 | Rig from the owner's flat parts sheet | Rejected | "Looks creepy af": rigid parts rotating at pins. |
 | 11 | **Infographics + illustrated step sequences of real drawings** | **APPROVED** ("that's what I'm talking about") | Every frame is a real drawing; motion is explained with steps, arrows and callouts. |
+| 12 | Same format for a 22-min organ topic video (`projects/7dias_sin_cenar/`): organ sheet + 2×2 scene panels + food sheet, ~300 voice cues, sections rendered in parallel | **APPROVED** ("right, tốt") | First full video delivered. Scene panels with push-in replace any character animation. |
 
 What worked from the start: the infographic scenes (titles, spine diagram with force counter, EMG bar
 chart, takeaway cards, sources).
+
+Delivery note: the app's upload limit is 30 MB, so long videos go out as parts split without
+re-encoding (`qa-checklist.md`).
 
 Lesson: moving a drawn human in code always reads as a puppet. Don't propose another
 animated-figure method unless the owner asks for one explicitly.

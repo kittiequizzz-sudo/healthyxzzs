@@ -1,144 +1,56 @@
-# Phase 1 output: the asset order
+# Asset orders (what the user generates)
 
-The order tells the user exactly what to generate and how to name it. It must be copy-paste
-ready: each prompt is complete on its own and repeats the house style, because image models have no
-memory between prompts.
+The user generates images in free apps (Gemini, ChatGPT) and records the voice. Everything else is
+drawn in code. Order **sheets**, not single images: several items in one generation stay in the same
+style, scale and character, and the cutters split them for you. Worked example:
+`projects/7dias_sin_cenar/order.md` (4 sheets for a 22-minute video).
 
-## What to order vs. what you draw
+Write the order in Vietnamese, one block per sheet: the file name, a one-line Vietnamese explanation,
+then a copy-paste English prompt in a quote block. Every prompt is complete on its own (image models have
+no memory) and ends with "no text, 16:9, high resolution". For sheets with the character, tell the
+user to attach the character sheet (`characters/…`).
 
-| Order from the user (AI or recorded) | Draw yourself in the engine (never order) |
-|--------------------------------------|-------------------------------------------|
-| Character clips (image-to-video) | Title words, tags, captions |
-| Character stills (poses, views, close-ups) | Number tiles, bar charts, meters |
-| Highlight variants (same still, muscle red) | Arrows, dashed lines, X / check icons |
-| Props and scenes (mirror, CRT computer, calendar, scientists) | Zoom callout circles |
-| Anatomy inserts (bones, joints) | Week trackers, tick boxes |
-| Voice-over, music bed, optional SFX | Push-ins, wipes, pops, all timing |
+## Order from the user vs. draw in code
 
-If a prop is simple and appears on its own (a dumbbell), order a still and animate it with
-pop/push. If the prop must move physically (a dumbbell dropping, a calendar flipping), order a clip.
+| Order (real drawings) | Draw in code (never order) |
+|---|---|
+| Exercise pose sheets (3–4 poses in a row) | Titles, labels, captions, section cards |
+| Organ/body-part sheets (separate items on cream) | Charts, curves, pie, bars, count-ups |
+| Scene panels: 2×2 grid of moments with the character | Icons: check/X/?, pill, heart, moon, drop, gear, plate, clock, battery, bell, thumb |
+| Food/object sheets (separate items on cream) | Arrows, stamps, callout circles, timelines |
+| Voice-over (+ optional music) | Cell diagrams, "door" animations, all motion and timing |
 
-## Naming
+## Sheet types and prompt templates
 
-`S{shot:02d}_{kind}_{slug}` plus an extension, for example `S04_char_side-deltoid.png`,
-`S04_char_side-deltoid_red.png` or `S07_clip_squat-swing.mp4`. Shared assets take the first shot that
-uses them. Kinds: `clip` (video), `char` (character still), `prop`, `anat`, `scene`.
+**1. Exercise pose sheet** → `scripts/cut_poses.py`. Template: `characters/senior_m/situp_pose_sheet.md`.
+One row, 3–4 key poses, same character and floor line, side view, cream `#F5ECD7`, no text.
 
-## Specs for every visual asset
+**2. Item sheet (organs, foods, objects)** → `scripts/cut_items.py --names …` (reading order).
+> Flat medical illustration sheet, clean modern health-app style, soft two-tone shading, thin dark
+> outline, consistent style and scale. [N items] drawn SEPARATELY and evenly spaced in two rows on a flat
+> cream #F5ECD7 background: 1) … 2) … . Anatomically correct shapes, friendly colors. No text, no
+> labels, no numbers, 16:9, high resolution.
 
-- 16:9, 1920×1080 or larger. Clips 5 s (10 s only when the beat needs it), 24–30 fps, MP4/H.264.
-- A **flat solid cream background, `#F5ECD7`**, with no vignette, texture, floor or text. Mention this in
-  every prompt and check it on delivery (check_assets.py samples the corners).
-- No text, letters, numbers, logos or watermarks in any asset; all text is drawn by the engine.
-- For clips: a static, locked-off camera; one simple action; the subject stays in frame; the
-  background stays flat. Generate a clip from its still (image-to-video) so the style holds.
-- For highlight variants: generate as an *edit* of the base still ("recolour only the left deltoid
-  glossy red #E23B2E, change nothing else") so the images line up pixel-for-pixel.
+Ask for items to be clearly separated; if two still touch, cut with `--close 3`. A "body silhouette"
+item gives an organ map base. Expect the app to draw a realistic face on it; that is fine at small size.
 
-## Prompt templates
+**3. Scene panels (2×2)** → `scripts/cut_items.py --grid 2x2 --names a,b,c,d`.
+> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior
+> character as the attached reference (blue skin, grey hair and beard, glowing white eyes), same 2D
+> cartoon style with bold outlines and flat shading, simple [warm/night] backgrounds, no text.
+> Panel 1: … Panel 2: … Panel 3: … Panel 4: … 16:9, high resolution.
 
-House style block. Paste it into every image prompt:
+Panels are shown as stills with a slow push-in (never animated). Pick moments the script describes
+(the case study, the night-time symptom, the healthy alternative). Clocks drawn in a panel must show
+the time the script says. Each panel is ~830×460 after the split.
 
-> 2D cartoon illustration, bold clean black outlines, cel-shaded flat colours with one soft shadow
-> tone, faceless athletic male mannequin character with smooth sky-blue skin (#58A9E4), bald head,
-> two glowing white almond-shaped eyes, no nose, no mouth, no ears, clearly defined realistic muscle
-> anatomy, dark grey athletic shorts with drawstring, barefoot, black hexagonal dumbbells, flat solid
-> cream background (#F5ECD7), no floor, no shadow on background, no text, 16:9
+## Voice spec (put in every order)
+- Read the script exactly, slow and clear (~150 wpm), no music.
+- Pause ~1 s before each section ("PUNTO n"). Do not read the section headings: they appear on screen.
+- Any format (mp3/wav). Optional `music.mp3`: calm, wordless, loopable.
 
-Character still:
-> [HOUSE STYLE]. {view: front / side profile facing right / back}, {framing: full body centred with
-> headroom / waist-up close-up / shoulder close-up}, {pose: standing holding dumbbells at sides …}.
-> {position: centred / in right third of frame}.
-
-Highlight variant (image edit of the still above):
-> Same image, change nothing except recolour the {muscle(s)} to a glossy saturated red (#E23B2E) with
-> subtle highlights, keep the outlines.
-
-Image-to-video motion prompt:
-> Static locked-off camera. The character {single action, e.g. "slowly raises both dumbbells out to
-> the sides to shoulder height and lowers them once"}. Smooth, controlled, realistic tempo.
-> Background stays flat cream, no camera movement, no new objects, no text, keep cartoon style and
-> outlines consistent.
-
-### Exercise clips: start pose, end pose, motion prompt
-
-Every exercise clip is generated from the character's master sheet with **two pose keyframes** and a
-motion prompt. Take the angles from the exercise card in `motion-research.md`, word for word in
-plain language. Image models follow body descriptions better than degree numbers, so translate:
-90° abduction = "arms straight out to the sides at exactly shoulder height, parallel to the floor".
-
-Start pose (image edit of `<id>_front.png`):
-> Same character, same style, same framing and cream background. Now standing tall holding a black
-> hex dumbbell in each hand, arms hanging at the sides slightly away from the thighs, elbows very
-> slightly bent, shoulders relaxed and down, feet hip-width.
-
-End pose:
-> Same character, same style, same framing. Now arms raised out to the sides to exactly shoulder
-> height, upper arms parallel to the floor, elbows slightly bent, palms facing down, shoulders
-> relaxed (not shrugged), torso upright and still.
-
-Motion prompt (first frame = start pose, last frame = end pose when the tool supports it; otherwise
-start pose only):
-> Static locked-off camera, flat cream background. The character performs {reps} smooth, controlled
-> {exercise}: {concentric description} over about {con} seconds, brief pause, then lowers over about
-> {ecc} seconds. Only the {moving joints} move; torso, head, hips and legs stay completely still.
-> Consistent anatomy and proportions, no extra limbs, no morphing, no camera movement, no text.
-
-Fault clips describe the fault exactly as the card defines it, for example:
-> …dips the knees slightly, then explosively straightens the legs and leans the torso back while
-> flinging both dumbbells up to shoulder height in a fast swing…
-
-Every clip goes through `qa_motion.py` with the card's exercise name. A reject is returned to the
-user with a one-line fix: which angle or timing was wrong, and how to change the pose frames or
-the prompt.
-
-Secondary characters: swap the skin colour (purple #8E6AC8 for "other people"; green #7BC86C and
-purple for the two scientists in white lab coats with round glasses holding notepads).
-
-Anatomy insert:
-> Clean educational illustration of the {joint/structure}, ivory bones with black outlines,
-> translucent light-blue skin silhouette, {structure} in red, flat cream background (#F5ECD7), no
-> labels, no text, 16:9.
-
-## order.md layout
-
-```markdown
-# <Video title>: asset order
-
-**Runtime estimate:** 8:40 · **Shots:** 190 · **Assets to make:** 46 (31 clips, 12 stills, 3 variants)
-
-## Fact-check flags
-1. "…proven to double growth…" (line 23): source S4 is one 8-week study (n=21) → suggest "one study found…".
-
-## Voice-over
-- File: `audio/voice.wav` (48 kHz, mono/stereo, no music, no processing beyond light de-noise)
-- Read the script exactly; ~190 wpm, energetic but clear; 0.3 s pause between sentences, 0.8 s before each "Mistake N".
-- Text to read: script.md (sections 1–7).
-
-## Music (optional)
-- Soft warm lo-fi/ambient bed, no vocals, constant energy, ≥ runtime or loopable → `audio/music.mp3`.
-
-## Assets
-| ID | Type | Covers shots | Prompt (image) | Motion prompt (clip) | Notes |
-|----|------|--------------|----------------|----------------------|-------|
-| S01_clip_lateral-raise | clip 5s | S01, S06 | … | … | front, full body |
-
-## Delivery checklist
-- [ ] All files named exactly by ID (extension free), in one folder or zip
-- [ ] Cream background, no text, 16:9 on every visual
-- [ ] voice.wav
-```
-
-## manifest.json
-
-```json
-{
-  "title": "5 lateral raise mistakes",
-  "assets": [
-    {"id": "S01_clip_lateral-raise", "kind": "video", "min_duration": 4.0, "desc": "front lateral raise loop"},
-    {"id": "S04_char_side-deltoid", "kind": "image", "desc": "side close-up"},
-    {"id": "S04_char_side-deltoid_red", "kind": "image", "desc": "same, deltoid red"}
-  ]
-}
-```
-List visual assets only. `check_assets.py` scans `assets/`; the voice and music go in `audio/`.
+## Checking a delivery
+- Copy into `projects/<slug>/assets/` with the ordered names; voice into `audio/`.
+- Look at every sheet: anatomy, consistent character, clocks/times right, no text baked in.
+- Cut, then check the cut-outs on a dark contact sheet (edges, missing parts, two items merged).
+- Ask for a regeneration only with exact fixes ("panel 3: clock must show 8:00").

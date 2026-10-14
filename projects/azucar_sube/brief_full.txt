@@ -1,0 +1,505 @@
+Video 1: ¿Por qué come lo mismo y ahora el azúcar le sube más?
+Oct 14, 2026 · @EV 1000
+1. Video brief
+Channel pilot, publishing Monday 19 October 2026. Every [HOST: …] field must be filled with real facts before recording; nothing there was invented.
+Field
+Content
+Pillar
+A — Entienda su diabetes
+Subject
+Mechanism: why sugar rises over the years even when eating stays the same
+Target countries
+All Latin America + Spain. Figures cited for Mexico (ENSANUT 2022) and IDF South & Central America. Note: IDF places Mexico in its North America & Caribbean region
+Primary viewer / register
+Seniors 60+ and caregivers · usted
+Host credential line
+[HOST: real specialty, board, years in practice, patient population]
+Everyday moment
+"Llevo años comiendo lo mismo y ahora el glucómetro marca más. Y el doctor quiere subirme la medicina."
+Puzzle
+Si usted come lo mismo de siempre, ¿por qué ahora el azúcar le sube más?
+Reframe
+No es que usted coma peor: es que su cuerpo cambió. La cerradura se oxidó, hay menos puertas, y el páncreas trabaja más cansado
+Clave 1
+La cerradura oxidada. Muscle takes about 80% of glucose under insulin; in type 2 diabetes, insulin-driven leg-muscle uptake is about 50% lower (DeFronzo & Tripathy 2009)
+Clave 2
+Menos puertas. Muscle mass falls about 3–8% per decade after age 30, faster after 60 (Volpi et al. 2004)
+Clave 3
+El páncreas cansado. In UKPDS, beta-cell function was about 50% at diagnosis and kept falling over 6 years on every treatment (UKPDS 16, 1995)
+Open-loop payoff
+Culpables escondidos: some common medicines (corticoides, tiazidas, estatinas) and poor sleep. One 4-hour night cut insulin sensitivity about 25% in 9 healthy adults (Donga 2010, tiny study)
+Guideline position
+ADA Standards of Care 2026, Section 13: rec. 13.7a (healthy older adults: A1C <7.0–7.5%), 13.4, 13.13, 13.14b. ADA physical-activity targets (Section 5). ALAD 2019 guidelines: [RESEARCH GAP: ALAD older-adult targets not retrieved]
+After 65
+Individualized targets; higher hypoglycemia risk with insulin and sulfonylureas; deintensify when harms outweigh benefits; muscle loss speeds up
+Drugs named
+Class mentions only: metformina, glibenclamida, glimepirida, insulina, prednisona (corticoide), hidroclorotiazida (tiazida), estatinas. No doses
+Demo
+Key + two padlocks (one rusty); the same breakfast plate "2016 vs 2026"; glucometer on camera; "tienda con puertas" drawing for muscle
+Host story
+[HOST: own family member with diabetes, or own family history]
+Counterargument
+Sometimes it is the food: portions and drinks creep up. UKPDS predates GLP-1 and SGLT2 drugs. Donga is 9 healthy people. Muscle-loss rates are averages
+Hypoglycemia warning
+Yes. The video encourages more activity and strength work, which can lower sugar in people on insulin or sulfonylureas
+Red flags
+Very high sugar with vomiting, confusion or extreme thirst; low sugar with confusion or fainting → urgencias
+Bigger picture
+Needing more medicine is the nature of the disease, not a personal failure. Keeping muscle is keeping independence
+Myths
+"Si me suben la medicina es porque lo hice mal" · "Si como igual, no puede subir" · "Haga lo que haga, la diabetes avanza igual"
+Help resources
+Emergency numbers by country on screen
+Specialist reviewer
+[HOST: name, credential]
+Conflicts of interest
+[HOST: industry payments Y/N]
+Sponsor
+None
+Length
+8–12 min, about 1,750 words
+Language notes
+tortilla / arepa / pan; jugo — o zumo; pesas — o mancuernas; glucómetro
+Related video for CTA
+Wed 21 Oct: el A1C explicado
+2. Title options
+Top pick first. Every title promises only what the video proves.
+¿Por qué come lo mismo de siempre y ahora el azúcar le sube más?
+Come igual que hace 10 años… ¿por qué su azúcar ya no es la misma?
+Lo que su endocrinóloga quisiera que usted supiera: por qué la diabetes cambia con los años
+No es la tortilla: las 3 razones por las que su azúcar sube con la edad
+¿Le subieron la medicina? No es su culpa: lo que pasa en su cuerpo
+La cerradura oxidada: por qué su azúcar sube aunque no haya cambiado nada
+Diabetes después de los 60: por qué el mismo plato ya no da el mismo resultado
+¿Por qué su azúcar sube con los años? Una endocrinóloga se lo explica
+El músculo, el páncreas y su azúcar: lo que nadie le explicó en la consulta
+3 cosas que cambian en su cuerpo y le suben el azúcar (y qué preguntarle a su médico)
+3. Thumbnail concepts
+#
+Subject
+Emotion
+Contrast
+Large text
+1
+Host in white coat holding the same breakfast plate twice
+Curiosity
+Labels "2016: 130" vs "2026: 170" in mg/dL
+MISMO PLATO… ¿MÁS AZÚCAR?
+2
+Host holding a key next to a rusty padlock
+Curiosity, a half smile
+Shiny key vs rusty lock
+LA CERRADURA OXIDADA
+3
+Glucometer reading 170 mg/dL in an older hand, tortillas blurred behind
+Gentle surprise
+None: one clear object
+NO ES LA TORTILLA
+4
+Host pointing at a simple drawing of muscle and pancreas
+Reassurance
+Two body parts, one arrow
+¿POR QUÉ SUBE?
+Rules: no fear imagery, no wounds. The glucometer must be generic, with no visible brand. The two readings in concept 1 are illustrative, so label them "ejemplo" in small text.
+4. Cold open
+About 210 words, roughly 80 seconds. It is also Beat 1 of the script.
+[DOC SHOT: la host sentada, glucómetro en la mano, luz cálida]
+[ON-SCREEN TEXT: Doña Carmen es un personaje. Dramatización · Cifras de ejemplo]
+Doña Carmen tiene 71 años. Desayuna lo mismo desde hace diez años: dos tortillas, sus frijolitos, un huevo y café con leche. Hace diez años, dos horas después del desayuno, su glucómetro marcaba unos 140. Hoy, con el mismo plato, marca 190.
+Y en su última consulta le dijeron: "Hay que subirle la medicina". Ella salió pensando: "¿Qué estoy haciendo mal?"
+Si a usted le pasó algo parecido, quiero decirle algo desde el principio: probablemente no está haciendo nada mal.
+[SUBTÍTULO GRANDE: Mismo plato… ¿más azúcar?]
+Si usted come lo mismo de siempre, ¿por qué el azúcar le sube más? La respuesta no está en el plato. Está en tres cosas que cambian dentro de su cuerpo con los años.
+Soy [HOST: nombre], endocrinóloga. Llevo [HOST: X] años tratando diabetes, y la mayoría de mis pacientes son latinos mayores de 60. Esta pregunta me la hacen casi todas las semanas.
+Hoy le explico esas tres razones y qué dicen las guías médicas. Al final le doy tres preguntas para su próxima cita. Y le cuento dos culpables escondidos que casi nadie revisa.
+5. Full script (Spanish)
+About 1,850 spoken words, roughly 12 minutes at a calm pace. Markers in brackets are not read aloud.
+Pronunciation: glibenclamida (gli-ben-CLA-mi-da) · glimepirida (gli-me-pi-RI-da) · hidroclorotiazida (i-dro-clo-ro-tia-SI-da; in Spain, -ZI-da) · prednisona (pred-ni-SO-na) · sarcopenia (sar-co-PE-nia).
+Beat 1 — Apertura
+Use the cold open from section 4, word for word.
+Beat 2 — Desmentir lo obvio
+Lo primero que mucha gente piensa, y lo que muchas veces le dicen, es: "Seguro está comiendo de más".
+Y para ser honesta, a veces es cierto. Las porciones crecen sin que nos demos cuenta. El refresco que antes era de domingo ahora está en la mesa todos los días. Vale la pena revisarlo.
+Pero si fuera solo la comida, ¿cómo se explica esto? Tengo pacientes muy cuidadosos. Miden su arroz, no tocan el pan dulce. Y aun así, con los años, ven subir su azúcar.
+[SUBTÍTULO GRANDE: No es (solo) la comida]
+Aquí está la idea central de este video. No es que usted coma peor. Es que su cuerpo maneja el azúcar de otra manera. En la diabetes tipo 2, eso es parte de cómo funciona la enfermedad. No es un castigo. No es descuido.
+Beat 3 — La explicación: tres claves
+Para entenderlo, le presento a tres personajes: la insulina, el músculo y el páncreas.
+Clave 1: la cerradura oxidada.
+[DEMO: la host sostiene una llave y dos candados, uno limpio y uno oxidado]
+Cuando usted come, el azúcar pasa a la sangre. Para salir de la sangre y entrar a las células, necesita una llave. Esa llave es la insulina. La insulina abre la puerta, el azúcar entra, y la célula lo usa como energía.
+¿Y a dónde va la mayor parte de ese azúcar? No al cerebro. No a la grasa. Al músculo. Estudios del investigador Ralph DeFronzo muestran que, cuando la insulina está trabajando, cerca de 8 de cada 10 partes del azúcar que sale de la sangre se van al músculo.
+[SUBTÍTULO GRANDE: 8 de cada 10 → al músculo]
+En la diabetes tipo 2, la llave sigue funcionando. Pero la cerradura está oxidada.
+[DEMO: intenta girar la llave en el candado oxidado; cuesta]
+En esos mismos estudios, con la misma cantidad de insulina, el músculo de las piernas de personas con diabetes tipo 2 recibía más o menos la mitad del azúcar. Eso es lo que llamamos resistencia a la insulina.
+[SUBTÍTULO GRANDE: La mitad]
+Clave 2: menos puertas.
+[VISUAL: dibujo simple del músculo como una tienda con muchas puertas; después, la misma tienda más chica y con menos puertas]
+Piense en el músculo como una tienda grande, con muchas puertas por donde entra el azúcar. Con los años, la tienda se achica. Después de los 30, perdemos en promedio entre 3 y 8% de masa muscular cada diez años. Y después de los 60, la pérdida se acelera. Los médicos le llamamos sarcopenia.
+[SUBTÍTULO GRANDE: 3 a 8% de músculo cada 10 años]
+Menos músculo es menos puertas. Y si además las cerraduras están oxidadas, el azúcar se queda más tiempo en la sangre.
+[DEMO: los dos platos iguales lado a lado, etiquetas "2016" y "2026"]
+Por eso el mismo plato de hace diez años hoy le sube más. La comida es la misma. La tienda que la recibe es más chica.
+Y ojo: esto no depende de estar gordo o flaco. Hay personas delgadas que han perdido mucho músculo.
+Clave 3: el páncreas cansado.
+[VISUAL: el páncreas dibujado como una fábrica de llaves, con trabajadores]
+El páncreas es la fábrica de llaves. Cuando las cerraduras están oxidadas, el páncreas hace horas extra. Fabrica más y más insulina para compensar. Durante años lo logra. Pero esas células, que se llaman células beta, se van cansando.
+El estudio más grande sobre esto se llama UKPDS. Se hizo en el Reino Unido, con miles de personas recién diagnosticadas, seguidas durante años. Encontró que, al momento del diagnóstico, las células beta ya funcionaban más o menos a la mitad. Y en los seis años siguientes siguieron bajando, con cualquier tratamiento: dieta, pastillas o insulina.
+[SUBTÍTULO GRANDE: Al diagnóstico, el páncreas ya trabaja a la mitad]
+Lo que esto quiere decir, en palabras simples: en la diabetes tipo 2 es normal que, con los años, se necesite más ayuda. No porque usted falló. Porque la fábrica de llaves se va cansando.
+Un detalle honesto: ese estudio empezó a finales de los años setenta, antes de varias medicinas modernas. Todavía se estudia si los tratamientos nuevos cambian ese cansancio.
+Beat 4 — Transición (no sponsor)
+Bueno, sigamos.
+Beat 5 — Lo que dicen las guías
+Las guías más usadas en el mundo son los Estándares de Atención de la Asociación Americana de Diabetes. Se actualizan cada año. En la edición 2026, la sección de adultos mayores dice algo que sorprende a mucha gente.
+[DOC SHOT: página de la sección 13, Standards of Care 2026; resaltar la recomendación 13.7a]
+Para personas mayores con pocas enfermedades, buena memoria y que se valen por sí mismas, la meta de A1C puede ser menos de 7 a 7.5%. Para quienes tienen más enfermedades o más fragilidad, las metas pueden ser menos estrictas.
+[SUBTÍTULO GRANDE: Su meta es suya: depende de su salud]
+En palabras simples: su meta no tiene que ser la de su vecina. Y las mismas guías piden algo más. En adultos mayores, prefieren medicinas con poco riesgo de bajar demasiado el azúcar. Y piden reducir las medicinas cuando el daño o la carga son mayores que el beneficio. O sea: ajustar la medicina con los años puede ser subirla… o bajarla.
+Las guías también recomiendan movimiento. Para la mayoría de los adultos con diabetes, unos 150 minutos de actividad a la semana; por ejemplo, media hora, cinco días. Y ejercicios de fuerza dos o tres veces por semana, en días no seguidos. ¿Por qué fuerza? Por la clave número dos: es la forma de cuidar las puertas de la tienda.
+[ON-SCREEN TEXT: Asociación Americana de Diabetes, Estándares de Atención 2026]
+Aunque soy endocrinóloga, no soy su doctora. Antes de cambiar cualquier medicina o la insulina, o de empezar un ejercicio nuevo, hable con su equipo médico.
+Beat 6 — ¿Y esto me afecta a mí?
+Usted dirá: "Doctora, yo me siento bien". Justamente. El azúcar alta casi no duele hasta que ya hizo daño. Por eso vale la pena entender estos cambios a tiempo.
+Y ahora, los dos culpables escondidos que le prometí.
+Culpable 1: otras medicinas. Algunas medicinas comunes pueden subir el azúcar. Las más conocidas son los corticoides, como la prednisona, que se usan para la artritis, el asma o la piel. También algunos diuréticos para la presión, como la hidroclorotiazida. Y, un poco, las estatinas para el colesterol.
+[ON-SCREEN TEXT: No deje ninguna medicina por su cuenta]
+Esto no quiere decir que sean malas. Muchas veces su beneficio es mayor. Quiere decir que su médico debe saber todo lo que usted toma. Incluida la inyección para la rodilla y la pastilla que le recomendó la vecina.
+Culpable 2: dormir mal. En un estudio de Países Bajos, nueve personas sanas durmieron solo cuatro horas una noche. Al día siguiente, su cuerpo respondía a la insulina cerca de una cuarta parte peor. Es un estudio muy pequeño, en gente sin diabetes, así que no es una prueba definitiva. Pero si usted duerme mal, ronca fuerte o se despierta muchas veces, coménteselo a su médico.
+Ahora, una advertencia importante. Si usted usa insulina, o pastillas como la glibenclamida o la glimepirida, hacer más ejercicio o comer distinto puede bajarle el azúcar demasiado. Las señales son: temblor, sudor frío, hambre de repente, el corazón acelerado y confusión.
+[SUBTÍTULO GRANDE: Menos de 70 mg/dL = azúcar baja]
+Antes de moverse más, pregúntele a su médico cómo prevenirlo.
+Y vaya a urgencias, o llame al número de emergencias de su país, si el azúcar está muy baja y la persona está confundida o se desmaya. O si el azúcar está muy alta y hay vómito, mucha sed o confusión.
+[ON-SCREEN TEXT: Emergencias — México 911 · Colombia 123 · Chile 131 · Perú 106 · Argentina 107 · España 112 · Rep. Dominicana 911. VERIFY ALL BEFORE PUBLISH]
+Beat 7 — Matices y la otra cara
+Para ser justa, hay cosas que no sabemos del todo. Los números de pérdida de músculo son promedios. Hay personas de 80 años más fuertes que otras de 60. El estudio del páncreas es anterior a varias medicinas modernas. Y a veces sí es la comida. Las porciones crecen, aparecen los jugos — o zumos — todos los días. Casi siempre es una mezcla de cuerpo y plato.
+Lo que sí está claro es que el músculo responde a cualquier edad, si el ejercicio se adapta a la salud de cada persona. Levantarse de la silla varias veces. Subir un escalón. Cargar la bolsa del mandado. Su médico le puede decir qué le conviene a usted.
+[B-ROLL: adultos mayores latinos con bandas elásticas, levantándose de una silla, caminando en familia]
+Beat 8 — La imagen completa
+Esto nunca fue solo sobre un número. En México, según la ENSANUT 2022, cerca de 18 de cada 100 adultos viven con diabetes. En Sudamérica y Centroamérica, la Federación Internacional de Diabetes calcula unos 35 millones de adultos con diabetes en 2024.
+[SUBTÍTULO GRANDE: Usted no está solo]
+Muchas de esas personas escucharon "hay que subirle la medicina" y salieron de la consulta sintiéndose culpables. Yo quiero que usted salga de este video con otra idea. No es que usted coma peor. Su cuerpo cambió. Subir la medicina no es fracasar: es acompañar a un cuerpo que cambia.
+Y cuidar el músculo no es vanidad. Es poder levantarse solo. Cargar a un nieto. Bailar en la boda de su nieta.
+[HOST: one real personal moment, about 30 seconds, e.g., a family member with diabetes. Use only a true story]
+Beat 9 — Lo que usted puede hacer + cierre
+Anote estas tres preguntas y llévelas a su próxima cita.
+[ON-SCREEN TEXT: 3 PREGUNTAS PARA SU CITA — hold on screen at least 10 seconds]
+Uno: "¿Cuál es mi meta de A1C, según mi salud? ¿Y cómo ha cambiado mi A1C en el último año?"
+Dos: "¿Alguna de mis otras medicinas puede estar subiéndome el azúcar?" Lleve todas sus cajas de medicina en una bolsa.
+Tres: "¿Qué ejercicio de fuerza es seguro para mí? ¿Y cómo evito que el azúcar me baje demasiado?"
+Y una pregunta para usted, aquí en los comentarios: ¿cuántos años lleva con diabetes, y ha notado que su azúcar cambió con el tiempo? Yo leo los comentarios.
+[HOST: one honest line, e.g., how the channel is funded or your own sweet tooth]
+Si este video le sirvió, mándeselo a alguien de su familia que tenga diabetes, o que esté en riesgo. Suscríbase para que usted entienda su diabetes y nadie lo engañe. El miércoles le explico el A1C: la foto de tres meses que su médico mira primero, y por qué sentirse bien no siempre quiere decir que el azúcar esté bien. Y recuerde: esto es información, no una consulta. Hable con su médico antes de cambiar cualquier cosa. Cuídese mucho.
+6. Sponsor
+No sponsor for this video. Beat 4 is only a one-line transition into the guidelines. When a sponsor is signed for a later video, it must pass the Section 4 rules and get a bridge written for that video's theme.
+7. Source log
+15 sources. Five are guidelines, government data or primary trials. Several were retrieved through abstracts or secondary pages; the review notes in section 8 flag which need a full-text check.
+#
+Source / author
+ID
+Date
+Type
+Design / population
+Fact used (units)
+Section
+Reliability
+1
+ADA Professional Practice Committee — 13. Older Adults: Standards of Care in Diabetes—2026
+doi:10.2337/dc26-s013; Diabetes Care 49(Suppl 1):S277–S296
+Dec 2025
+Guideline
+Consensus guideline
+Rec. 13.7a: healthy older adults A1C <7.0–7.5%; 13.4, 13.13, 13.14b
+Beats 5, 6
+High
+2
+PMC full text of Section 13
+PMC12690186
+Dec 2025
+Guideline
+—
+Wording of 13.7a; lifestyle tailored to frailty status
+Beats 5, 7
+High
+3
+Medical Dialogues — summary of ADA Standards 2026
+—
+1 Sep 2026
+News
+—
+Standards published Jan 2026; most adults A1C <7%, less stringent for complex older adults
+Beat 5 context
+Supporting
+4
+ADCES-aligned summary of ADA activity targets
+—
+Jul 2026
+Orientation
+—
+≥150 min/week aerobic; resistance 2–3 sessions/week, nonconsecutive days
+Beat 5
+Supporting — verify in ADA Section 5
+5
+DeFronzo RA, Tripathy D. Skeletal muscle insulin resistance is the primary defect in T2D. Diabetes Care
+PMC2811436
+2009
+Review
+Insulin-clamp studies
+~80% of glucose uptake in muscle under insulin clamp; leg-muscle uptake ~50% lower in T2D
+Beat 3, clave 1
+High
+6
+Volpi E, Nazemi R, Fujita S. Muscle tissue changes with aging. Curr Opin Clin Nutr Metab Care 7(4):405–410
+—
+Jul 2004
+Review
+Narrative review
+Muscle mass falls ~3–8% per decade after 30, faster after 60
+Beat 3, clave 2
+Medium — figure confirmed via citing sources, not full text
+7
+UKPDS Group. UKPDS 16: overview of 6 years' therapy of type II diabetes. Diabetes 44:1249–1258
+doi:10.2337/diab.44.11.1249
+Nov 1995
+Trial
+RCT, UK, newly diagnosed T2D; 2,287 in main comparison, 6 years
+Glycemic deterioration with progressive loss of beta-cell function on all therapies
+Beat 3, clave 3
+High
+8
+Holman RR. Progressive hyperglycemia: the UKPDS experience
+DTU219
+1990s
+Review
+UKPDS 6-year data
+Beta-cell function declined in all groups regardless of therapy
+Beat 3, clave 3
+High
+9
+Beta-cell function in treatment-naïve T2D: 15 trials
+—
+2025
+Review
+Pooled baseline trial data
+UKPDS HOMA-B ~50% at diagnosis
+Beat 3, clave 3
+Medium
+10
+Donga E et al. A single night of partial sleep deprivation induces insulin resistance. JCEM 95(6):2963–2968
+PMID 20371664; doi:10.1210/jc.2009-2430
+Jun 2010
+Trial
+Crossover, 9 healthy adults, Netherlands, 4 h vs normal sleep, 1 night
+Glucose infusion rate ~25% lower after short sleep
+Beat 6
+Medium (tiny sample)
+11
+GoodRx en español — medicamentos que suben el azúcar
+—
+n/d
+Orientation
+—
+Corticoides, tiazidas, estatinas can raise glucose
+Beat 6
+Supporting — replace with prescribing info or a review
+12
+ADA en español — síntomas de hipoglucemia
+—
+n/d
+Organization
+—
+Symptoms usually begin below 70 mg/dL; sweating, shaking, confusion
+Beat 6
+High
+13
+Basto-Abreu A et al. Prevalencia de prediabetes y diabetes en México: Ensanut 2022. Salud Pública Méx 65(supl 1):S163
+—
+2023
+Government
+Probabilistic survey, 1,945 adults ≥20 expanding to 78.3 million
+Total diabetes prevalence 18.3%, Mexico, 2022
+Beat 8
+High
+14
+IDF Diabetes Atlas — South and Central America
+IDF Atlas 2025
+2024 data
+Government / organization
+Modelled estimates, 19 countries
+35.4 million adults 20–79 with diabetes, 2024
+Beat 8
+High
+15
+Guías ALAD 2019
+Revista ALAD, ISSN 2248-6518
+2019
+Guideline
+Regional guideline
+Confirms the 2019 edition exists; older-adult targets not yet extracted
+Brief
+Medium — get the official copy
+Emergency numbers came from Infobae's directory and an international list. Treat them as provisional until checked against each government's site.
+8. Fact-check, specialist review and QC score
+Draft score: 86/100. It is not shippable yet: specialist sign-off and the open items below are automatic-fail conditions until they are closed.
+Line-by-line check against the log
+Claim in script
+Status
+Note for reviewer
+"8 de cada 10 partes" of glucose go to muscle
+Sourced (#5)
+Measured under insulin-clamp conditions; "cuando la insulina está trabajando" is a simplification. Confirm wording
+Leg muscle gets "más o menos la mitad" in T2D
+Sourced (#5)
+~50% reduction during the last hour of the clamp
+3–8% muscle loss per decade after 30, faster after 60
+Partly sourced (#6)
+Figure confirmed only through citing papers. Read the Volpi full text
+Beta cells "a la mitad" at diagnosis, falling for 6 years on all treatments
+Sourced (#7, #8, #9)
+The 50% figure is HOMA-B, an estimate. Confirm in UKPDS 16 full text
+UKPDS "empezó a finales de los años setenta"
+To verify
+Recruitment start date not retrieved in this pass
+One 4-hour night → insulin response ~¼ worse, 9 healthy adults
+Sourced (#10)
+Script states sample size and limits
+ADA 13.7a: A1C <7.0–7.5% for healthy older adults; less stringent for complex health
+Sourced (#1, #2)
+No number given for complex health, on purpose
+150 min/week + strength 2–3 times/week
+To verify
+Secondary sources only (#4). Confirm in ADA 2026 Section 5
+Corticoides, tiazidas, estatinas can raise glucose
+Weak source (#11)
+Replace with a review or each drug's prospecto before publish
+Hypoglycemia <70 mg/dL, symptoms listed
+Sourced (#12)
+—
+México 18.3% (ENSANUT 2022)
+Sourced (#13)
+Said as "cerca de 18 de cada 100"
+~35 million adults, South & Central America, 2024
+Sourced (#14)
+Excludes Mexico (IDF North America & Caribbean region)
+Emergency numbers
+Provisional
+Check each on the official government site in publish week
+Doña Carmen's readings 140 → 190 mg/dL
+Illustrative
+Labeled "dramatización · cifras de ejemplo" on screen
+Required checks
+☒ Units and decimals: A1C in %, glucose in mg/dL, no mmol/L conversions needed
+☒ No relative-risk claims made
+☒ Hypoglycemia warning present (Beat 6), naming insulin and sulfonylureas
+☒ No instruction to start, stop or change any medicine; every action is a question for the doctor
+☒ No cure or reversal language
+☒ Fictional patient labeled; no invented quotes from real people
+☒ Guideline disagreement: ALAD older-adult targets not yet compared with ADA → [RESEARCH GAP]
+☐ Bilingual clinician translation check
+☐ Host credential line, host story and honest moment filled with real facts
+☐ Conflict-of-interest declaration (industry payments Y/N)
+☒ Sponsor and advertising rules: not applicable, no sponsor
+☐ Specialist sign-off: name, credential, date
+QC score (Section 10)
+Category
+Points
+Why
+Medical accuracy & safety
+21/25
+Sourced and safe, but three items still need full-text or official confirmation
+Specialist depth
+13/15
+Muscle, pancreas and guideline layers; aging is explicit. ALAD comparison missing
+Clarity for older viewers
+9/10
+One idea per sentence; three analogies; every number spoken with its unit
+Hook
+9/10
+Familiar moment, puzzle and promise inside 80 seconds, no fear bait
+Actionability
+9/10
+Three concrete questions plus "bring all your boxes"
+Voice, warmth & culture
+9/10
+No shame; real breakfast plate; usted throughout
+Retention
+12/15
+Demos and numbers every 45–90 s in Beats 1–3; Beats 5–6 are talkier. Consider a role-play cut-in in Beat 5
+Accessibility
+4/5
+Big-text markers throughout; reviewed captions not yet made
+Total
+86/100
+9. Description and pinned comment
+Chapter times are estimates; reset them after the edit.
+Description
+¿Come lo mismo de siempre y ahora el azúcar le sube más? No es que usted lo esté haciendo mal. En este video, una endocrinóloga le explica las 3 cosas que cambian dentro de su cuerpo con los años —la cerradura oxidada, menos músculo y un páncreas más cansado—, qué dicen las guías médicas para adultos mayores y qué preguntarle a su médico.Capítulos0:00 Mismo plato, más azúcar1:20 No es (solo) la comida2:20 Clave 1: la cerradura oxidada3:50 Clave 2: menos puertas5:10 Clave 3: el páncreas cansado6:40 Lo que dicen las guías 20268:10 Dos culpables escondidos9:50 Lo que todavía no sabemos10:40 Usted no está solo11:30 3 preguntas para su citaLas 3 preguntas para su próxima cita1. ¿Cuál es mi meta de A1C, según mi salud? ¿Y cómo ha cambiado mi A1C en el último año?2. ¿Alguna de mis otras medicinas puede estar subiéndome el azúcar? (Lleve todas sus cajas.)3. ¿Qué ejercicio de fuerza es seguro para mí? ¿Y cómo evito que el azúcar me baje demasiado?Revisado por: [NOMBRE], [CREDENCIAL]Aviso médico: Este video es educativo. No reemplaza una consulta. No empiece, deje ni cambie ninguna medicina o la insulina sin hablar con su equipo médico.Si usa insulina, glibenclamida o glimepirida: el ejercicio o los cambios en la comida pueden bajarle el azúcar. Señales: temblor, sudor frío, hambre repentina, confusión. Pregunte a su médico cómo prevenirlo.Emergencias: México 911 · Colombia 123 · Chile 131 · Perú 106 · Argentina 107 · España 112 · Rep. Dominicana 911 [VERIFICAR ANTES DE PUBLICAR]Este video no tiene patrocinador.[Conflictos de interés: declarar aquí]Fuentes- ADA, Standards of Care in Diabetes—2026, Sección 13 (Adultos mayores): https://doi.org/10.2337/dc26-s013- DeFronzo y Tripathy, Diabetes Care 2009: https://pmc.ncbi.nlm.nih.gov/articles/PMC2811436/- UKPDS 16, Diabetes 1995: https://doi.org/10.2337/diab.44.11.1249- Volpi y col., Curr Opin Clin Nutr Metab Care 2004 (pérdida muscular con la edad)- Donga y col., JCEM 2010: https://doi.org/10.1210/jc.2009-2430- ENSANUT 2022, Salud Pública de México- Atlas de la Diabetes de la FID, Sudamérica y Centroamérica: https://diabetesatlas.org/data-by-location/region/south-and-central-america/- ADA en español, hipoglucemia: https://diabetes.org/es/vivir-con-diabetes/hipoglucemia-niveles-bajos-de-glucosa-en-sangre/sintomas-tratamientoPara que usted entienda su diabetes — y nadie lo engañe.
+Pinned comment
+📋 Las 3 preguntas para su próxima cita (tómele captura de pantalla):1. ¿Cuál es mi meta de A1C, según mi salud?2. ¿Alguna de mis otras medicinas me sube el azúcar?3. ¿Qué ejercicio de fuerza es seguro para mí, y cómo evito que el azúcar me baje?Y cuénteme: ¿cuántos años lleva con diabetes, y notó que su azúcar cambió con el tiempo? 👇El miércoles: el A1C explicado, la foto de 3 meses que su médico mira primero.
+10. Visual and B-roll list
+Item
+Beat
+Source / data
+Rights status
+Two padlocks (one rusty) and a key
+3
+Props
+Own footage
+Same breakfast plate twice: 2 tortillas, frijoles, huevo, café con leche; labels "2016" / "2026"
+1, 3
+Props
+Own footage
+Generic glucometer, brand covered
+1
+Prop
+Own footage
+Drawing: muscle as a store with many doors → fewer doors
+3
+Original illustration
+Own; label "ilustración" if AI-assisted
+Drawing: pancreas as a key factory with tired workers
+3
+Original illustration
+Own; label "ilustración" if AI-assisted
+Big text cards: "8 de cada 10", "La mitad", "3 a 8% cada 10 años", "<70 mg/dL", "Su meta es suya"
+3, 5, 6
+Sources #5, #6, #7, #12, #1
+Own graphics
+Screenshot of ADA Standards 2026, Section 13, rec. 13.7a highlighted
+5
+doi:10.2337/dc26-s013
+Fair-use commentary — flag for review
+Emergency-numbers card by country
+6
+Official government sites (to verify)
+Own graphic
+Card: "No deje ninguna medicina por su cuenta"
+6
+—
+Own graphic
+B-roll: older Latino adults with resistance bands, sit-to-stand from a chair, family walk
+7
+Stock
+Needs licensing; respectful, non-stereotyped
+B-roll: family breakfast table, abuela and grandchild
+8
+Stock or own
+Needs licensing / own
+End card: 3 questions, held at least 10 seconds
+9
+—
+Own graphic
+No wound, amputation or hospital-emergency imagery anywhere in this video.
+11. Short-form cut (vertical, about 55 seconds)
+Built from Clave 1 and Clave 2. Big subtitles on every line.
+[HOOK, 0–3 s — host to camera, holding the two plates] ¿Come lo mismo de siempre y ahora el azúcar le sube más?
+[SUBTÍTULO GRANDE: Mismo plato… ¿más azúcar?]
+No es que usted coma peor. Es que su cuerpo cambió.
+[DEMO: key and rusty padlock] La insulina es la llave que mete el azúcar al músculo. Y el músculo recibe cerca de 8 de cada 10 partes de ese azúcar. En la diabetes tipo 2, la cerradura se oxida. Entra más o menos la mitad.
+[SUBTÍTULO GRANDE: La cerradura oxidada]
+Y con los años perdemos músculo: entre 3 y 8% cada diez años después de los 30. Menos músculo, menos puertas.
+[SUBTÍTULO GRANDE: Menos músculo = menos puertas]
+Por eso el mismo plato hoy le sube más. No es su culpa.
+Pregúntele a su médico: "¿Qué ejercicio de fuerza es seguro para mí?" Y si usa insulina o pastillas para bajar el azúcar, pregunte cómo evitar que le baje demasiado.
+[END CARD: "Video completo en el canal" · Esto es información, no una consulta]

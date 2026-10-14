@@ -6,11 +6,16 @@
 - Topic/organ video: `projects/7dias_sin_cenar/` ("¿Qué pasa si dejas de cenar 7 días?", 22 min,
   Spanish; intro + 6 sections + conclusion). Owner's verdict: "right, tốt".
 
+**Style rules that override older recipes below: `youtube-style.md`** (picture first, ≤ 6-word
+captions, a paced hook, no slide-deck look).
+
 ## Never do this (all rejected by the user)
 - Animating drawn characters by rotating cut-out limbs (puppets, rig sheets): looks creepy.
 - Code-drawn human figures (stick, tube, flat-vector or pictogram): too simple or ugly.
 - Warping or morphing between drawings.
 - Reusing clips from the reference demos as if they were new work.
+- Slide-deck look: sentence cards on empty cream, text menus ("EN ESTE VIDEO" with 4 cards), long
+  full-screen title slides, slow fades through empty cream.
 
 ## Exercise scenes = step sequences of real drawings
 1. Research the exercise first (`motion-research.md`, `anatomy-motion.md`); add a card if missing.
@@ -32,8 +37,8 @@ Every number on screen must come from the source log / research.
 ## Topic / organ explainers (long videos, e.g. "what happens to your organs if…")
 Structure follows the script: intro → `PUNTO 1…n` → conclusion. One HTML file per section on the
 shared voice timeline; shared pieces in the project's `common.js`. Building blocks (see the 7dias files):
-- **Section card:** dark ink screen, "PUNTO n" in amber, big title, subtitle, the organ drawing; shown
-  in the voice's pause before the section.
+- **Section break:** a kicker caption ("PUNTO 2 · EL HÍGADO") over the section's first picture, ≤ 1.5 s.
+  The full dark ink title card is now only for the conclusion.
 - **Progress strip:** the six organs in small circles at the top right, the current one ringed orange.
 - **Organ map** (intro): body silhouette in the middle, organ tiles left/right with dashed leader lines
   to dots on the body; the organ being named lights up (red ring, pulsing dot), the others dim.
@@ -42,9 +47,9 @@ shared voice timeline; shared pieces in the project's `common.js`. Building bloc
 - **Mechanism diagrams:** battery draining (glycogen), activity chart drawn over time (MMC waves),
   blood-pressure curve with the night dip, insulin "key" opening a cell door with glucose entering,
   cell with rotating recycle arrows (autophagy), pie slice (1/5 of energy), count-up (≈100.000).
-- **Judgement cards:** green column vs red column (some people / others), crossed-out myths with an
-  animated strike, a rubber-stamp verdict ("NO GARANTIZADO", "NO NECESARIAMENTE"), red warning card
-  with the risk groups, full-red emergency screen ("→ URGENCIAS").
+- **Judgement:** pictures with ✓/✗ badges (some people / others), a rubber-stamp verdict over a
+  picture ("NO GARANTIZADO"), a red warning card for risk groups (short lines), full-red emergency screen
+  ("→ URGENCIAS"). Avoid columns of sentence cards.
 - **Symptom row:** 5 tiles with icons popping one per spoken word.
 - **CTA cards** where the script asks: subscribe (red pill), share, comment (bubble icon); final
   like / subscribe / bell row.

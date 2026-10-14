@@ -10,6 +10,11 @@ then a copy-paste English prompt in a quote block. Every prompt is complete on i
 no memory) and ends with "no text, 16:9, high resolution". For sheets with the character, tell the
 user to attach the character sheet (`characters/…`).
 
+## How many drawings
+Budget **about 1 drawing per 15–20 s of voice** (`youtube-style.md`): a 10-minute video needs about
+4 scene sheets (2×2 = 16 panels) + 1–2 item sheets. Map every planned panel to its beat in `plan.md`
+first; a beat without a picture gets one ordered.
+
 ## Order from the user vs. draw in code
 
 | Order (real drawings) | Draw in code (never order) |

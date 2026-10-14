@@ -24,6 +24,10 @@ motion graphics).
 What worked from the start: the infographic scenes (titles, spine diagram with force counter, EMG bar
 chart, takeaway cards, sources).
 
+Feedback after video 13 (azucar_sube): "too much text, looks like a presentation; keep the key
+phrases, add images, raise the pace at the start without rushing; it's YouTube, not slides" →
+`youtube-style.md` (picture first, ≤ 6-word captions, hook cut every 1.5–2.5 s, ~1 drawing per 15–20 s).
+
 Delivery note: the app's upload limit is 30 MB, so long videos go out as parts split without
 re-encoding (`qa-checklist.md`).
 

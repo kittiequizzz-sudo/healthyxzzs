@@ -17,6 +17,8 @@
   previous section's `END` is the same value.
 
 ## Frame QA (render 10–15 frames per section, look at a contact sheet)
+- **YouTube check first (`youtube-style.md` §5):** every frame has a picture; ≤ 2 captions besides the
+  source line; no caption repeats the voice word for word; in the hook every 1.5 s step looks different.
 - **Text overflow:** long Spanish labels overflow cards. Shrink by length (`s.length > N ? smaller`),
   use two-line labels (`'A\nB'` in Tile), or measure with `getComputedTextLength()` (strike-throughs).
 - **Overlaps:** stamps over the cards they judge (put stamps below), chips over chart lines, icons over

@@ -162,3 +162,45 @@ function DayCounter(svg, { x, y, days = 7, label = 'DÍA' }) {
     },
   };
 }
+
+// ---------------------------------------------------------------- YouTube motion helpers
+// (see references/youtube-style.md). All are pure functions of t, like everything else.
+
+// Hard cut: a scene is fully on between a and b (no fade). Use instead of sceneVis inside the hook.
+function cutVis(g, t, a, b) {
+  const on = t >= a && t < b;
+  g.style.display = on ? '' : 'none';
+  g.setAttribute('opacity', on ? 1 : 0);
+  return on ? 1 : 0;
+}
+// Idle life for a cut-out: slow bob + tiny tilt, so nothing on screen is ever frozen.
+function float(e, t, cx, cy, { amp = 6, period = 3.2, tilt = 1.2, phase = 0, base = '' } = {}) {
+  const w = (t / period + phase) * 2 * Math.PI;
+  e.setAttribute('transform', `${base} translate(0 ${(amp * Math.sin(w)).toFixed(2)}) rotate(${(tilt * Math.sin(w * 0.7)).toFixed(2)} ${cx} ${cy})`);
+}
+// Zoom punch on a key word: whole group scales 1 → 1+k → settles at 1+k/3 (camera "leans in").
+function punch(g, t, t0, cx = 960, cy = 540, k = 0.08) {
+  const u = prog(t, t0, t0 + 0.18), v = prog(t, t0 + 0.18, t0 + 0.6);
+  const s = t < t0 ? 1 : 1 + k * E.out(u) - (k * 2 / 3) * E.inOut(v);
+  g.setAttribute('transform', `translate(${cx} ${cy}) scale(${s.toFixed(4)}) translate(${-cx} ${-cy})`);
+}
+// Slide in from a side (dir 'l','r','u','d') with overshoot; optional exit at t1.
+function slideIn(e, t, t0, dir = 'r', dist = 420, t1 = 1e9) {
+  const u = E.back(prog(t, t0, t0 + 0.4)), x = 1 - E.inOut(prog(t, t1 - 0.25, t1));
+  const d = (1 - u) * dist + (1 - x) * dist;
+  const [dx, dy] = { l: [-d, 0], r: [d, 0], u: [0, -d], d: [0, d] }[dir];
+  e.setAttribute('transform', `translate(${dx.toFixed(1)} ${dy.toFixed(1)})`);
+  e.setAttribute('opacity', clamp(prog(t, t0, t0 + 0.15)) * x);
+}
+// Key phrase as a caption ON the picture: dark pill, 1–6 words, optional highlighted word.
+function Caption(svg, str, { cx = 960, cy = 960, size = 56, hi = '', fill = C.ink, color = C.white, hiColor = C.amber } = {}) {
+  const g = el('g', {}, svg);
+  const w = str.length * size * 0.62 + 80, h = size * 1.6;
+  el('rect', { x: cx - w / 2, y: cy - h / 2, width: w, height: h, rx: h / 2, fill, opacity: 0.92 }, g);
+  const t = el('text', { x: cx, y: cy + 2, 'font-size': size, 'font-weight': 900, 'text-anchor': 'middle', 'dominant-baseline': 'middle', 'font-family': 'Inter', fill: color }, g);
+  if (hi && str.includes(hi)) {
+    const [a, b] = str.split(hi);
+    for (const [s, c] of [[a, color], [hi, hiColor], [b, color]]) if (s) { const sp = el('tspan', { fill: c }, t); sp.textContent = s; }
+  } else t.textContent = str;
+  return g;
+}

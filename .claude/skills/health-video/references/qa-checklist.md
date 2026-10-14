@@ -4,8 +4,14 @@
 - Build with real cues as soon as the transcript exists. Placeholder cues (evenly spaced) are fine for
   layout checks only. Never let a QA helper overwrite `cues.js` with placeholders after the real one
   exists.
-- `cues.mjs` prints MISSING cues. Whisper writes numbers as digits ("100.000" for "cien mil") and can
-  split or merge words. Rephrase the cue with nearby words instead of guessing a time.
+- `cues.mjs` prints MISSING cues. It matches letters, not words, and folds number words (uno→1), so
+  Whisper's merges ("Clav1"), digits ("100.000" for "cien mil") and mishearings mostly still match.
+  It takes the EARLIEST good match within ~100 s of the previous cue. If a cue is missing or lands early
+  on a similar phrase ("Culpable 1" vs "culpables escondidos"), lengthen the phrase with the next words
+  ("Culpable 1, otras medicinas"); never type a time by hand.
+- If the user sends the voice in several files (one per beat group), join them once into
+  `audio/voice.mp3` with ~0.8 s of silence between parts (ffmpeg concat with `anullsrc`), then transcribe
+  and cue the joined file. Don't build per-part timelines.
 - Check cue gaps: a cue that jumps far ahead means it matched the wrong sentence.
 - Section boundaries: each section's `START` is the next heading's pause (`at('pN') - 0.6`); the
   previous section's `END` is the same value.

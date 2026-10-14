@@ -21,9 +21,15 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
   generates pose sheets in free apps (Gemini, ChatGPT). Never propose paid tools as the default.
 - **Never reuse clips from `reference/` demos** as if they were new work.
 - **Research before showing any movement or claim.** Never invent angles, numbers or study details.
+- **Faceless channel: the narrator never claims to be a doctor.** Scripts written for an on-camera
+  clinician ("Soy endocrinóloga…", "mis pacientes…", host stories) get a narrator version (`script.md`)
+  that removes the credential and invented personal stories. Use the original only if a real clinician
+  signs it. Fictional patients (e.g. Doña Carmen) are fine when labelled "Dramatización" on screen.
+- **No logos** of organisations or brands, and never AI-drawn ones; cite sources as text.
 
 ## Workflow per video
-1. **Intake:** save the script (any language) and source log to `projects/<slug>/`.
+1. **Intake:** save the script (any language, .docx is fine: unzip `word/document.xml`) and source log to
+   `projects/<slug>/`.
 2. **Research and fact-check:** check every claim against the sources and flag overstated or unsupported
    ones (`references/niche-playbook.md`). For every exercise, open or write its card in
    `references/motion-research.md` and its drawing spec in `references/anatomy-motion.md`, using web
@@ -78,6 +84,6 @@ dependencies (playwright-core) and the motion QA tools.
   Tile, Cutout, Stamp, Clock, DayCounter, icons, sceneVis). Organ/topic video reference:
   `projects/7dias_sin_cenar/intro.html`. `figure.js`, `pictogram.js` and
   `sheetfigure.js` are rejected experiments; don't use them for videos.
-- `scripts/`: `cut_poses.py`, `cut_items.py`, `transcribe.mjs`, `cues.mjs`, `render_sections.mjs`, `setup.sh`, plus the legacy tools `render.py`,
+- `scripts/`: `cut_poses.py`, `cut_items.py`, `transcribe.mjs`, `cues.mjs`, `qa_pages.mjs` (contact sheet per section), `render_sections.mjs`, `setup.sh`, plus the legacy tools `render.py`,
   `puppet.py`, `motion.py` and `qa_motion.py`.
 - `characters/`: the user's character sheets. `projects/`: one folder per video.

@@ -79,7 +79,7 @@ quedamas | el azúcar se queda más tiempo
 mismoplato | Por eso el mismo plato
 lacomida | La comida es la misma
 maschica | La tienda que la recibe
-ojo | Y ojo
+ojo | esto no depende de estar
 delgadas | Hay personas delgadas
 # clave 3
 k3 | Clave 3
@@ -138,7 +138,7 @@ justamente | Justamente
 noduele | El azúcar alta casi no duele
 atiempo | entender estos cambios a tiempo
 prometi | los dos culpables escondidos que le prometí
-cul1 | Culpable 1
+cul1 | Culpable 1, otras medicinas
 cortic | los corticoides
 artritis | la artritis, el asma
 diureticos | algunos diuréticos
@@ -147,7 +147,7 @@ nomalas | Esto no quiere decir que sean malas
 todo | debe saber todo lo que usted toma
 rodilla | la inyección para la rodilla
 vecina2 | la pastilla que le recomendó
-cul2 | Culpable 2
+cul2 | Culpable 2: dormir mal
 nueve | nueve personas sanas
 cuatro | solo cuatro horas
 cuarta | cerca de una cuarta parte peor

@@ -4,12 +4,15 @@
 //
 // cues.txt: one cue per line, `label | phrase`, in script order (# comments allowed).
 // Cues are searched in order, each starting after the previous match, with accent/case/punctuation
-// folded and a small edit tolerance (Whisper mishears a word now and then). The cue time is the start
+// folded and a small edit tolerance (Whisper mishears a word now and then). The earliest match scoring
+// >= 0.8 wins; otherwise the best match >= 0.6. The cue time is the start
 // of the phrase's first word. Writes `const CUE = {label: seconds, ...}` and prints any misses.
 import fs from 'fs';
 
 const [wordsPath, cuesPath, outPath] = process.argv.slice(2);
-const fold = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9ñ]/g, '');
+const NUM = { uno: '1', una: '1', dos: '2', tres: '3', cuatro: '4', cinco: '5', seis: '6', siete: '7', ocho: '8', nueve: '9', diez: '10' };
+const fold0 = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9ñ]/g, '');
+const fold = s => { const f = fold0(s); return NUM[f] ?? f; };
 const raw = JSON.parse(fs.readFileSync(wordsPath, 'utf8'));
 const words = raw.map(x => ({ w: fold(x.w ?? x.word ?? x.text), s: x.s ?? x.start })).filter(w => w.w);
 
@@ -21,17 +24,20 @@ function lev(a, b) {
       d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
   return d[a.length][b.length];
 }
-// score of phrase p matching at index i: mean per-word similarity
+// Character-level score of phrase p (array of folded words) starting at transcript word i: the phrase's
+// letters are compared with the transcript's letters from word i on, so word splits and merges by
+// Whisper ("Clav1" for "Clave 1") don't break the match.
 function score(p, i) {
-  let s = 0;
-  for (let k = 0; k < p.length; k++) {
-    const w = words[i + k]?.w;
-    if (!w) return 0;
-    s += 1 - lev(p[k], w) / Math.max(p[k].length, w.length);
-  }
-  return s / p.length;
+  const target = p.join('');
+  let got = '';
+  for (let k = i; k < words.length && got.length < target.length + 3; k++) got += words[k].w;
+  if (!got) return 0;
+  let bestD = Infinity;
+  for (let L = Math.max(1, target.length - 2); L <= target.length + 2; L++) bestD = Math.min(bestD, lev(target, got.slice(0, L)));
+  return 1 - bestD / target.length;
 }
 
+const GOOD = 0.8, WEAK = 0.6;
 const out = {};
 const miss = [];
 let from = 0;
@@ -39,13 +45,15 @@ for (const line of fs.readFileSync(cuesPath, 'utf8').split('\n')) {
   if (!line.trim() || line.trim().startsWith('#')) continue;
   const [label, phrase] = line.split('|').map(s => s.trim());
   const p = phrase.split(/\s+/).map(fold).filter(Boolean);
+  // take the EARLIEST good match after the previous cue (a later exact repeat of the same words, e.g.
+  // "tipo 2", must not win over a slightly misheard first occurrence); fall back to the best weak match
   let best = -1, bs = 0;
-  for (let i = from; i < Math.min(words.length, from + 600); i++) {   // stay near the previous cue
+  for (let i = from; i < Math.min(words.length, from + 250); i++) {   // stay near the previous cue (~100 s)
     const sc = score(p, i);
+    if (sc >= GOOD) { best = i; bs = sc; break; }
     if (sc > bs + 1e-9) { bs = sc; best = i; }
-    if (sc === 1) break;
   }
-  if (best < 0 || bs < 0.75) { miss.push(`${label} (${phrase}) best=${bs.toFixed(2)}`); continue; }
+  if (best < 0 || bs < WEAK) { miss.push(`${label} (${phrase}) best=${bs.toFixed(2)}`); continue; }
   out[label] = +words[best].s.toFixed(2);
   from = best + 1;
 }

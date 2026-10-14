@@ -44,6 +44,13 @@ Panels are shown as stills with a slow push-in (never animated). Pick moments th
 (the case study, the night-time symptom, the healthy alternative). Clocks drawn in a panel must show
 the time the script says. Each panel is ~830×460 after the split.
 
+## No logos
+Never order or use logos of health organisations, journals, governments or brands, and never let an image
+app draw one (that would be a fake logo of a real organisation). A logo implies endorsement and most
+organisations forbid unlicensed use. Cite sources as text cards in the channel style ("Asociación
+Americana de Diabetes · Estándares 2026"; small source line under each number). Prompts for objects
+(glucometer, medicine boxes) must say "generic, no brand, no readable text".
+
 ## Voice spec (put in every order)
 - Read the script exactly, slow and clear (~150 wpm), no music.
 - Pause ~1 s before each section ("PUNTO n"). Do not read the section headings: they appear on screen.

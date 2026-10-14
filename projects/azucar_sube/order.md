@@ -24,6 +24,10 @@ trước, không cần tạo lại. Gửi lại đây kèm tên file như bên d
 
 > Flat illustration sheet, clean modern style, soft shading, thin dark outline, consistent style and scale. Items drawn SEPARATELY and evenly spaced in two rows on a flat cream #F5ECD7 background: 1) a shiny golden key, 2) a clean silver padlock, 3) an old rusty padlock, 4) a breakfast plate with two corn tortillas, refried beans and a fried egg, 5) a cup of café con leche, 6) a generic glucose meter with a blank screen, 7) a cloth bag with generic medicine boxes and pill bottles, 8) a red resistance band and a small dumbbell. No text, no labels, no brands, 16:9, high resolution.
 
+## Logo: KHÔNG cần
+Không dùng logo của ADA, IDF, ENSANUT hay bất kỳ tổ chức nào, và không tạo logo bằng AI. Nguồn sẽ hiện bằng chữ
+theo phong cách của kênh (tên tổ chức + năm).
+
 ## Giọng đọc (`voice.mp3`)
 - Đọc **`script.md`** (bản người dẫn giấu mặt, khoảng 1.730 từ, tầm 11–12 phút). Giọng ấm, chậm, rõ (khoảng 150 từ/phút), xưng "usted", không nhạc nền.
 - Không đọc các tiêu đề "## Beat…". Ngừng khoảng 1 giây trước mỗi "Clave 1/2/3" và trước mỗi Beat mới.

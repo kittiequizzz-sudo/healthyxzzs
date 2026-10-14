@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 9 — three questions for your appointment, CTA, close.
+window.START = at('b9') - 0.4;
+window.END = 588.0 + 2.5;          // voice.mp3 ends at 588.0 s; hold the last card
+window.DURATION = window.END;
+const svg = Stage();
+
+// 1. three questions (held on screen while they are read)
+scene(svg, () => START, () => at('coment'), g => {
+  const head = el('g', {}, g); el('rect', { x: 0, y: 0, width: 1920, height: 150, fill: C.ink }, head);
+  Text(head, '3 PREGUNTAS PARA SU CITA', { x: 960, y: 78, size: 70, color: C.amber });
+  const qs = [['¿Cuál es mi meta de A1C, según mi salud?', '¿Cómo cambió mi A1C en el último año?', 'q1'],
+    ['¿Alguna de mis otras medicinas', 'me está subiendo el azúcar?', 'q2'],
+    ['¿Qué ejercicio de fuerza es seguro para mí?', '¿Cómo evito que el azúcar me baje demasiado?', 'q3']].map(([a, b, k], i) => {
+    const c = el('g', {}, g), y = 200 + i * 270;
+    const bg = el('rect', { x: 140, y, width: 1640, height: 230, rx: 26, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, c);
+    el('circle', { cx: 250, cy: y + 115, r: 66, fill: C.orange, stroke: C.ink, 'stroke-width': 6 }, c);
+    Text(c, String(i + 1), { x: 250, y: y + 118, size: 76, color: C.white });
+    Text(c, a, { x: 360, y: y + 85, size: 46, anchor: 'start' }); Text(c, b, { x: 360, y: y + 155, size: 46, anchor: 'start', color: C.blueDark });
+    return [c, bg, k];
+  });
+  const bag = el('g', {}, g); cut(bag, 'bolsa', 1640, 560, 170);
+  const bagl = Chip(g, 'lleve todas sus cajas', { cx: 1640, cy: 655, fill: C.amber, size: 24 });
+  return t => {
+    qs.forEach(([c, bg, k], i) => {
+      show(c, t, START + 0.4 + i * 0.3);
+      const on = t > at(k) - 0.2 && (i === 2 || t < at(qs[i + 1][2]) - 0.2);
+      set(bg, { stroke: on ? C.orange : C.ink, 'stroke-width': on ? 10 : 6 });
+    });
+    show(bag, t, at('cajas')); show(bagl, t, at('cajas') + 0.3);
+  };
+});
+
+// 2. comment prompt
+scene(svg, () => at('coment'), () => at('manda'), g => {
+  Icon.bubble(g, 180, 230, 3.2);
+  const a = Text(g, '¿CUÁNTOS AÑOS LLEVA', { x: 600, y: 330, size: 70, anchor: 'start' });
+  const b = Text(g, 'CON DIABETES?', { x: 600, y: 420, size: 70, anchor: 'start', color: C.orange });
+  const c = Text(g, '¿Notó que su azúcar cambió con el tiempo?', { x: 600, y: 520, size: 40, weight: 800, anchor: 'start', color: C.blueDark });
+  const cta = CTA(g, 'comment');
+  const r = Text(g, 'Leemos todos los comentarios', { x: 960, y: 800, size: 40, weight: 800, color: C.green });
+  return t => { show(a, t, at('anos')); show(b, t, at('anos') + 0.3); show(c, t, at('anos') + 1.5); pop(cta, t, at('coment'), 960, 925); show(r, t, at('leemos')); };
+});
+
+// 3. share + subscribe + next video
+scene(svg, () => at('manda'), () => at('recuerde'), g => {
+  const a = Text(g, 'MÁNDESELO A ALGUIEN DE SU FAMILIA', { x: 960, y: 200, size: 60 });
+  const a2 = Text(g, 'que tenga diabetes o esté en riesgo', { x: 960, y: 280, size: 44, weight: 800, color: C.blueDark });
+  const sub = el('g', {}, g); Card(sub, { x: 610, y: 380, w: 700, h: 170, fill: C.red, r: 85 });
+  Text(sub, 'SUSCRÍBASE', { x: 960, y: 467, size: 70, color: C.white });
+  const s2 = Text(g, 'para que usted entienda su diabetes y nadie lo engañe', { x: 960, y: 620, size: 40, weight: 800, color: C.ink });
+  const nx = el('g', {}, g); Card(nx, { x: 410, y: 720, w: 1100, h: 200, fill: C.white });
+  Text(nx, 'MIÉRCOLES: EL A1C EXPLICADO', { x: 960, y: 800, size: 56, color: C.blue }); Text(nx, 'la foto de 3 meses que su médico mira primero', { x: 960, y: 865, size: 36, weight: 800, color: C.blueDark });
+  return t => { show(a, t, at('manda')); show(a2, t, at('manda') + 0.6); pop(sub, t, at('suscribase'), 960, 465); show(s2, t, at('suscribase') + 0.8); show(nx, t, at('miercoles')); };
+});
+
+// 4. close
+scene(svg, () => at('recuerde'), () => END + 1, g => {
+  el('rect', { width: 1920, height: 1080, fill: C.ink }, g);
+  const a = Text(g, 'ESTO ES INFORMACIÓN, NO UNA CONSULTA', { x: 960, y: 330, size: 62, color: C.cream });
+  const b = Text(g, 'Hable con su médico antes de cambiar cualquier cosa', { x: 960, y: 440, size: 44, weight: 700, color: C.blueFar });
+  const c = Text(g, 'CUÍDESE MUCHO', { x: 960, y: 640, size: 110, color: C.amber });
+  const im = el('g', {}, g); CLAVES.forEach(([n], i) => cut(im, n, 760 + i * 200, 860, 140));
+  return t => { show(a, t, at('recuerde')); show(b, t, at('recuerde') + 0.6); show(c, t, at('cuidese')); show(im, t, at('cuidese') + 0.4); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

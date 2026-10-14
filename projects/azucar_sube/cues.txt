@@ -1,0 +1,212 @@
+# Cues on audio/voice.mp3 (beat123 + 0.8 s + beat4567 + 0.8 s + beat89)
+# intro
+carmen | Doña Carmen tiene 71 años
+desayuna | Desayuna lo mismo
+tortillas | dos tortillas
+frijoles | sus frijolitos
+huevo | un huevo
+cafe | café con leche
+hace10 | Hace diez años, dos horas
+m140 | marcaba unos 140
+hoy | Hoy, con el mismo plato
+m190 | marca 190
+consulta | en su última consulta
+subirle | Hay que subirle la medicina
+salio | Ella salió pensando
+mal | Qué estoy haciendo mal
+parecido | Si a usted le pasó algo parecido
+nada | probablemente no está haciendo nada mal
+puzzle | Si usted come lo mismo de siempre
+noplato | La respuesta no está en el plato
+tres | Está en tres cosas
+comun | Es una de las preguntas
+hoyexp | Hoy le explico esas tres razones
+guias | qué dicen las guías
+preguntas | tres preguntas para su próxima cita
+culpables | dos culpables escondidos
+# beat 2
+b2 | Lo primero que mucha gente piensa
+demas | Seguro está comiendo de más
+honestos | para ser honestos
+porciones | Las porciones crecen
+refresco | El refresco que antes
+revisarlo | Vale la pena revisarlo
+fuera | Pero si fuera solo la comida
+cuidadosas | Hay personas muy cuidadosas
+arroz | Miden su arroz
+pandulce | no tocan el pan dulce
+aunasi | Y aun así
+idea | Aquí está la idea central
+peor | No es que usted coma peor
+maneja | su cuerpo maneja el azúcar
+tipo2 | En la diabetes tipo 2
+castigo | No es un castigo
+descuido | No es descuido
+# beat 3 — clave 1
+b3 | Para entenderlo
+insulina | la insulina, el músculo
+musculo | el músculo y el páncreas
+pancreas | y el páncreas
+k1 | Clave 1
+sangre | el azúcar pasa a la sangre
+salir | Para salir de la sangre
+llave | necesita una llave
+eslainsulina | Esa llave es la insulina
+abre | La insulina abre la puerta
+entra | el azúcar entra
+energia | la usa como energía
+adonde | Y a dónde va la mayor parte
+cerebro | No al cerebro
+grasa | No a la grasa
+almusculo | Al músculo
+defronzo | Estudios del investigador
+ocho | cerca de 8 de cada 10
+sigue | la llave sigue funcionando
+oxidada | la cerradura está oxidada
+mismos | En esos mismos estudios
+mitad | más o menos la mitad
+resistencia | resistencia a la insulina
+# clave 2
+k2 | Clave 2
+tienda | Piense en el músculo como una tienda
+achica | la tienda se achica
+despues30 | Después de los 30
+p38 | entre 3 y 8
+despues60 | después de los 60, la pérdida
+sarcopenia | Los médicos le llaman sarcopenia
+menospuertas | Menos músculo es menos puertas
+quedamas | el azúcar se queda más tiempo
+mismoplato | Por eso el mismo plato
+lacomida | La comida es la misma
+maschica | La tienda que la recibe
+ojo | Y ojo
+delgadas | Hay personas delgadas
+# clave 3
+k3 | Clave 3
+fabrica | El páncreas es la fábrica de llaves
+horas | hace horas extra
+compensar | Fabrica más y más insulina
+logra | Durante años lo logra
+beta | se llaman células beta
+cansando | se van cansando
+ukpds | se llama UKPDS
+reino | Se hizo en el Reino Unido
+diagnostico | al momento del diagnóstico
+amitad | ya funcionaban más o menos a la mitad
+seis | en los seis años siguientes
+dieta | dieta, pastillas o insulina
+simples | en palabras simples
+ayuda | se necesite más ayuda
+fallo | No porque usted falló
+cansa | Porque la fábrica de llaves
+honesto | Un detalle honesto
+setenta | finales de los años setenta
+nuevos | si los tratamientos nuevos
+# beat 4–5 — guías
+b4 | Bueno, sigamos
+estandares | Las guías más usadas
+ada | Asociación Americana de Diabetes
+cadaano | Se actualizan cada año
+ed2026 | En la edición 2026
+sorprende | dice algo que sorprende
+pocas | Para personas mayores con pocas
+memoria | buena memoria
+valen | se valen por sí mismas
+meta | la meta de A1C
+siete | menos de 7 a 7.5
+fragilidad | más enfermedades o más fragilidad
+estrictas | pueden ser menos estrictas
+vecina | no tiene que ser la de su vecina
+algomas | las mismas guías piden algo más
+pocoriesgo | poco riesgo de bajar demasiado
+reducir | piden reducir las medicinas
+osea | O sea: ajustar la medicina
+subirla | puede ser subirla
+bajarla | o bajarla
+movimiento | también recomiendan movimiento
+m150 | unos 150 minutos
+mediahora | media hora, cinco días
+fuerza | ejercicios de fuerza dos o tres
+noseguidos | en días no seguidos
+porque | Por qué fuerza
+puertas | cuidar las puertas de la tienda
+info | Este video es información
+equipo | hable con su equipo médico
+# beat 6 — culpables
+b6 | Usted dirá
+justamente | Justamente
+noduele | El azúcar alta casi no duele
+atiempo | entender estos cambios a tiempo
+prometi | los dos culpables escondidos que le prometí
+cul1 | Culpable 1
+cortic | los corticoides
+artritis | la artritis, el asma
+diureticos | algunos diuréticos
+estatinas | las estatinas para el colesterol
+nomalas | Esto no quiere decir que sean malas
+todo | debe saber todo lo que usted toma
+rodilla | la inyección para la rodilla
+vecina2 | la pastilla que le recomendó
+cul2 | Culpable 2
+nueve | nueve personas sanas
+cuatro | solo cuatro horas
+cuarta | cerca de una cuarta parte peor
+pequeno | Es un estudio muy pequeño
+ronca | ronca fuerte
+advertencia | una advertencia importante
+usainsulina | Si usted usa insulina
+glib | glibenclamida
+bajarle | puede bajarle el azúcar demasiado
+senales | Las señales son
+temblor | temblor
+sudor | sudor frío
+hambre | hambre de repente
+corazon | el corazón acelerado
+confusion | y confusión
+prevenirlo | cómo prevenirlo
+urgencias | vaya a urgencias
+baja | si el azúcar está muy baja
+alta | si el azúcar está muy alta
+# beat 7 — matices
+b7 | Para ser justos
+promedios | son promedios
+ochenta | personas de 80 años
+anterior | El estudio del páncreas
+sies | a veces sí es la comida
+jugos | aparecen los jugos
+mezcla | una mezcla de cuerpo y plato
+claro | Lo que sí está claro
+silla | Levantarse de la silla
+escalon | Subir un escalón
+bolsa | Cargar la bolsa
+conviene | Su médico le puede decir
+# beat 8 — imagen completa
+b8 | Esto nunca fue solo
+mexico | En México
+dieciocho | cerca de 18 de cada 100
+sudamerica | En Sudamérica y Centroamérica
+millones | 35 millones
+escucharon | Muchas de esas personas escucharon
+culpables2 | sintiéndose culpables
+otraidea | con otra idea
+cambio | Su cuerpo cambió
+fracasar | Subir la medicina no es fracasar
+acompanar | es acompañar a un cuerpo
+vanidad | cuidar el músculo no es vanidad
+levantarse | Es poder levantarse solo
+nieto | Cargar a un nieto
+bailar | Bailar en la boda
+# beat 9 — cierre
+b9 | Anote estas tres preguntas
+q1 | Uno
+q2 | Dos
+cajas | Lleve todas sus cajas
+q3 | Tres
+coment | Y una pregunta para usted
+anos | cuántos años lleva con diabetes
+leemos | Leemos todos los comentarios
+manda | mándeselo a alguien
+suscribase | Suscríbase
+miercoles | El miércoles le explicamos
+recuerde | Y recuerde
+cuidese | Cuídese mucho

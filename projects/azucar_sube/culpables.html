@@ -1,0 +1,133 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 6 — does this affect me? hidden culprits, hypoglycaemia, emergencies.
+window.START = at('b6') - 0.4;
+window.END = at('b7') - 0.4;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 1. "but I feel fine"
+scene(svg, () => START, () => at('prometi'), g => {
+  const q = Question(g, ['«PERO YO', 'ME SIENTO BIEN»'], { y: 280 });
+  const a = el('g', {}, g); Card(a, { x: 360, y: 580, w: 1200, h: 150, fill: C.red });
+  Text(a, 'EL AZÚCAR ALTA CASI NO DUELE', { x: 960, y: 657, size: 58, color: C.white });
+  const b = Chip(g, 'ENTIÉNDALO A TIEMPO', { cx: 960, cy: 860, fill: C.green, color: C.white, size: 50 });
+  return t => { show(q, t, START + 0.2); show(a, t, at('noduele')); show(b, t, at('atiempo')); };
+});
+
+// 2. two hidden culprits
+scene(svg, () => at('prometi'), () => at('cul1'), g => {
+  const h = Text(g, '2 CULPABLES ESCONDIDOS', { x: 960, y: 260, size: 90, color: C.red });
+  const cards = [0, 1].map(i => { const c = el('g', {}, g); Card(c, { x: 560 + i * 460, y: 400, w: 340, h: 340, fill: C.ink }); Text(c, '?', { x: 730 + i * 460, y: 580, size: 220, color: C.amber }); return [c, 730 + i * 460]; });
+  return t => { show(h, t, at('prometi')); cards.forEach(([c, cx], i) => pop(c, t, at('prometi') + 0.5 + i * 0.3, cx, 570)); };
+});
+
+// 3. culprit 1: other medicines
+scene(svg, () => at('cul1'), () => at('cul2'), g => {
+  const A = el('g', {}, g);
+  Chip(A, 'CULPABLE 1: OTRAS MEDICINAS', { cx: 960, cy: 120, fill: C.ink, color: C.amber, size: 48 });
+  const rows = [['CORTICOIDES', 'como la prednisona · artritis, asma, piel', 'cortic'], ['DIURÉTICOS', 'como la hidroclorotiazida · presión', 'diureticos'], ['ESTATINAS', 'un poco · colesterol', 'estatinas']].map(([a, b, k], i) => {
+    const c = el('g', {}, A); Card(c, { x: 260, y: 230 + i * 175, w: 1400, h: 140 }); Icon.pill(c, 290, 248 + i * 175, 1);
+    Text(c, a, { x: 420, y: 285 + i * 175, size: 50, anchor: 'start' }); Text(c, b, { x: 420, y: 335 + i * 175, size: 32, weight: 800, anchor: 'start', color: C.blueDark });
+    return [c, k];
+  });
+  const no = el('g', {}, A); Card(no, { x: 260, y: 780, w: 1400, h: 140, fill: C.red });
+  Text(no, 'NO DEJE NINGUNA MEDICINA POR SU CUENTA', { x: 960, y: 852, size: 52, color: C.white });
+  const ben = Text(A, 'no son malas: muchas veces su beneficio es mayor', { x: 960, y: 980, size: 38, weight: 800, color: C.green });
+  const Bg = el('g', {}, g);
+  const st = still(Bg, 'c_medicinas', { x: 60, y: 150, w: 1180, h: 630, focus: [0.45, 0.6], zoom: 0.08 });
+  const tell = el('g', {}, Bg); Card(tell, { x: 1290, y: 200, w: 570, h: 240, fill: C.green });
+  Text(tell, 'SU MÉDICO DEBE', { x: 1575, y: 285, size: 46, color: C.white }); Text(tell, 'SABER TODO', { x: 1575, y: 350, size: 54, color: C.white }); Text(tell, 'lo que usted toma', { x: 1575, y: 405, size: 36, weight: 800, color: C.white });
+  const r1 = Chip(Bg, 'la inyección de la rodilla', { cx: 1575, cy: 560, size: 34 });
+  const r2 = Chip(Bg, 'la pastilla de la vecina', { cx: 1575, cy: 690, size: 34 });
+  return t => {
+    const sw = at('todo') - 0.6, k = E.inOut(prog(t, sw, sw + 0.4));
+    A.setAttribute('opacity', 1 - k); A.style.display = k >= 1 ? 'none' : '';
+    Bg.setAttribute('opacity', k); Bg.style.display = k <= 0 ? 'none' : '';
+    rows.forEach(([c, kk]) => show(c, t, at(kk))); show(no, t, at('nomalas') - 1.5); show(ben, t, at('nomalas') + 0.6);
+    st.draw(t, sw, at('cul2')); show(tell, t, at('todo')); show(r1, t, at('rodilla')); show(r2, t, at('vecina2'));
+  };
+});
+
+// 4. culprit 2: poor sleep
+scene(svg, () => at('cul2'), () => at('advertencia'), g => {
+  const st = still(g, 'c_noche', { x: 60, y: 150, w: 1180, h: 630, focus: [0.35, 0.5], zoom: 0.1 });
+  const h = Chip(g, 'CULPABLE 2: DORMIR MAL', { cx: 650, cy: 880, fill: C.ink, color: C.amber, size: 48 });
+  const a = el('g', {}, g); Card(a, { x: 1290, y: 150, w: 570, h: 260 });
+  Text(a, '9 personas sanas', { x: 1575, y: 230, size: 44 }); Text(a, '1 noche de 4 horas', { x: 1575, y: 300, size: 44, color: C.blueDark }); Text(a, 'Países Bajos', { x: 1575, y: 360, size: 32, weight: 800, color: C.grey });
+  const b = el('g', {}, g); Card(b, { x: 1290, y: 450, w: 570, h: 220, fill: C.red });
+  Text(b, '≈ ¼ PEOR', { x: 1575, y: 530, size: 64, color: C.white }); Text(b, 'respuesta a la insulina', { x: 1575, y: 600, size: 36, weight: 800, color: C.white });
+  const c = Chip(g, 'ESTUDIO MUY PEQUEÑO', { cx: 1575, cy: 740, fill: C.amber, size: 36 });
+  const d = Chip(g, '¿RONCA O SE DESPIERTA? DÍGASELO A SU MÉDICO', { cx: 960, cy: 990, fill: C.white, size: 38 });
+  const src = Text(g, 'Donga y col. · JCEM 2010', { x: 1575, y: 830, size: 28, weight: 700, color: C.grey });
+  return t => {
+    st.draw(t, at('cul2'), at('advertencia')); show(h, t, at('cul2'));
+    show(a, t, at('nueve')); show(b, t, at('cuarta')); show(src, t, at('cuarta') + 0.5); show(c, t, at('pequeno')); show(d, t, at('ronca'));
+  };
+});
+
+// 5. warning: insulin / sulfonylureas → hypoglycaemia signs, < 70 mg/dL
+scene(svg, () => at('advertencia'), () => at('urgencias'), g => {
+  const A = el('g', {}, g);
+  const st = still(A, 'c_hipo', { x: 60, y: 150, w: 1180, h: 630, focus: [0.4, 0.4], zoom: 0.08 });
+  const w = el('g', {}, A); Card(w, { x: 1290, y: 150, w: 570, h: 620 });
+  el('rect', { x: 1290, y: 150, width: 570, height: 100, rx: 22, fill: C.red }, w);
+  Text(w, 'ADVERTENCIA', { x: 1575, y: 202, size: 50, color: C.white });
+  const m = ['INSULINA', 'GLIBENCLAMIDA', 'GLIMEPIRIDA'].map((s, i) => Text(w, s, { x: 1575, y: 320 + i * 70, size: 44 }));
+  const plus = Text(w, '+ más ejercicio o', { x: 1575, y: 580, size: 36, weight: 800, color: C.blueDark });
+  const plus2 = Text(w, 'comer distinto', { x: 1575, y: 630, size: 36, weight: 800, color: C.blueDark });
+  const low = Text(w, '→ AZÚCAR MUY BAJA', { x: 1575, y: 710, size: 42, color: C.red });
+  const Bg = el('g', {}, g);
+  Text(Bg, 'SEÑALES DE AZÚCAR BAJA', { x: 960, y: 140, size: 66, color: C.red });
+  const ks = ['temblor', 'sudor', 'hambre', 'corazon', 'confusion'];
+  const sy = [['TEMBLOR', 'zig'], ['SUDOR FRÍO', 'drop'], ['HAMBRE DE REPENTE', 'plate'], ['CORAZÓN ACELERADO', 'heart'], ['CONFUSIÓN', 'question']].map(([s, ic], i) => {
+    const c = el('g', {}, Bg), x = 70 + i * 362;
+    Card(c, { x, y: 240, w: 330, h: 360 }); el('rect', { x, y: 240, width: 330, height: 24, rx: 12, fill: C.red }, c);
+    if (ic === 'zig') el('path', { d: `M${x + 90} 400 l25 -40 l25 80 l25 -80 l25 80 l25 -40`, fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, c);
+    else Icon[ic](c, x + 105, 310, 1.2, ic === 'drop' ? C.blue : undefined);
+    const words = s.split(' ');
+    if (words.length > 2 || s.length > 12) { if (words.length === 2) words.splice(1, 0, '');  Text(c, words.slice(0, 2).join(' ').trim(), { x: x + 165, y: 525, size: 32 }); Text(c, words.slice(2).join(' '), { x: x + 165, y: 565, size: 32 }); }
+    else Text(c, s, { x: x + 165, y: 545, size: s.length > 11 ? 32 : 40 });
+    return [c, x + 165, ks[i]];
+  });
+  const big = el('g', {}, Bg); Card(big, { x: 410, y: 670, w: 1100, h: 160, fill: C.ink });
+  Text(big, '< 70 mg/dL = AZÚCAR BAJA', { x: 960, y: 752, size: 70, color: C.amber });
+  const pv = Chip(Bg, 'ANTES DE MOVERSE MÁS: PREGUNTE CÓMO PREVENIRLO', { cx: 960, cy: 950, fill: C.green, color: C.white, size: 36 });
+  return t => {
+    const sw = at('senales') - 0.4, k = E.inOut(prog(t, sw, sw + 0.4));
+    A.setAttribute('opacity', 1 - k); A.style.display = k >= 1 ? 'none' : '';
+    Bg.setAttribute('opacity', k); Bg.style.display = k <= 0 ? 'none' : '';
+    st.draw(t, at('advertencia'), sw); show(w, t, at('usainsulina'));
+    m.forEach((e, i) => show(e, t, at(i ? 'glib' : 'usainsulina') + (i === 2 ? 0.8 : 0)));
+    show(plus, t, at('bajarle') - 1.2); show(plus2, t, at('bajarle') - 1); show(low, t, at('bajarle'));
+    sy.forEach(([c, cx, kk]) => pop(c, t, at(kk), cx, 420));
+    show(big, t, at('confusion') + 1); show(pv, t, at('prevenirlo') - 1);
+  };
+});
+
+// 6. emergency
+scene(svg, () => at('urgencias'), () => END + 1, g => {
+  el('rect', { width: 1920, height: 1080, fill: C.red }, g);
+  const h = Text(g, 'VAYA A URGENCIAS', { x: 960, y: 150, size: 96, color: C.white });
+  const a = el('g', {}, g); Card(a, { x: 160, y: 270, w: 780, h: 300, fill: C.white });
+  Text(a, 'AZÚCAR MUY BAJA', { x: 550, y: 350, size: 52, color: C.blue }); Text(a, '+ confusión o desmayo', { x: 550, y: 440, size: 44 });
+  const b = el('g', {}, g); Card(b, { x: 980, y: 270, w: 780, h: 300, fill: C.white });
+  Text(b, 'AZÚCAR MUY ALTA', { x: 1370, y: 350, size: 52, color: C.red }); Text(b, '+ vómito, mucha sed', { x: 1370, y: 440, size: 44 }); Text(b, 'o confusión', { x: 1370, y: 500, size: 44 });
+  const nums = el('g', {}, g); Card(nums, { x: 160, y: 650, w: 1600, h: 300, fill: C.ink });
+  Text(nums, 'EMERGENCIAS', { x: 960, y: 710, size: 40, color: C.amber });
+  Text(nums, 'México 911 · Colombia 123 · Chile 131 · Perú 106', { x: 960, y: 800, size: 50, color: C.white });
+  Text(nums, 'Argentina 107 · España 112 · Rep. Dominicana 911', { x: 960, y: 880, size: 50, color: C.white });
+  return t => { show(h, t, at('urgencias')); show(a, t, at('baja')); show(b, t, at('alta')); show(nums, t, at('urgencias') + 1.2); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

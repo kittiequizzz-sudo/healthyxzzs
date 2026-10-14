@@ -13,3 +13,5 @@ projects/*/out/sections/
 projects/*/out/render.log
 projects/7dias_sin_cenar/out/*.mp4
 projects/*/out/parts/
+projects/azucar_sube/out/
+projects/azucar_sube/transcript.log

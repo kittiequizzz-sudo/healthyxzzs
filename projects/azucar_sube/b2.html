@@ -1,0 +1,64 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 2 — not (only) the food.
+window.START = at('b2') - 0.3;
+window.END = at('b3') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 1. "you must be eating too much" — sometimes true
+scene(svg, () => START, () => at('fuera'), g => {
+  const q = Question(g, ['«SEGURO ESTÁ', 'COMIENDO DE MÁS»'], { y: 290 });
+  const ok = Chip(g, 'A VECES ES CIERTO', { cx: 960, cy: 560, fill: C.amber, size: 46 });
+  const a = el('g', {}, g); Card(a, { x: 200, y: 660, w: 720, h: 170 }); cut(a, 'plato', 330, 745, 190);
+  Text(a, 'PORCIONES MÁS GRANDES', { x: 450, y: 747, size: 36, anchor: 'start' });
+  const b = el('g', {}, g); Card(b, { x: 1000, y: 660, w: 720, h: 170 }); Icon.drop(b, 1040, 690, 1.1, C.red);
+  Text(b, 'REFRESCO TODOS LOS DÍAS', { x: 1170, y: 747, size: 36, anchor: 'start' });
+  const rv = Chip(g, 'VALE LA PENA REVISARLO', { cx: 960, cy: 940, fill: C.green, color: C.white, size: 42 });
+  return t => { show(q, t, START + 0.2); show(ok, t, at('honestos')); show(a, t, at('porciones')); show(b, t, at('refresco')); show(rv, t, at('revisarlo')); };
+});
+
+// 2. careful people: still rising over the years
+scene(svg, () => at('fuera'), () => at('idea'), g => {
+  const h = Text(g, '¿Y LAS PERSONAS CUIDADOSAS?', { x: 960, y: 140, size: 70 });
+  const l = [['MIDEN SU ARROZ', 'arroz'], ['NADA DE PAN DULCE', 'pandulce']].map(([s, k], i) => {
+    const c = el('g', {}, g); Card(c, { x: 140, y: 280 + i * 190, w: 640, h: 140 }); Icon.check(c, 170, 300 + i * 190, 1);
+    Text(c, s, { x: 300, y: 352 + i * 190, size: 44, anchor: 'start' });
+    return [c, k];
+  });
+  const ch = el('g', {}, g); Card(ch, { x: 880, y: 250, w: 900, h: 560 });
+  Text(ch, 'AZÚCAR CON LOS AÑOS', { x: 930, y: 310, size: 36, anchor: 'start' });
+  el('line', { x1: 940, y1: 740, x2: 1730, y2: 740, stroke: C.ink, 'stroke-width': 5 }, ch);
+  ['2016', '2021', '2026'].forEach((s, i) => Text(ch, s, { x: 980 + i * 360, y: 778, size: 30, weight: 800, color: C.grey }));
+  const line = el('path', { d: 'M980 650 C1150 640 1300 610 1450 560 S1650 430 1700 400', fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1000, 'stroke-dashoffset': 1000 }, ch);
+  const lab = Text(g, 'Y AUN ASÍ, SUBE', { x: 1330, y: 920, size: 64, color: C.red });
+  return t => {
+    show(h, t, at('fuera')); l.forEach(([c, k]) => show(c, t, at(k)));
+    show(ch, t, at('cuidadosas'));
+    line.setAttribute('stroke-dashoffset', 1000 * (1 - E.inOut(prog(t, at('aunasi'), at('aunasi') + 1.8))));
+    show(lab, t, at('aunasi') + 0.6);
+  };
+});
+
+// 3. the central idea
+scene(svg, () => at('idea'), () => END + 1, g => {
+  const st = Stamp(g, 'NO ES (SOLO) LA COMIDA', { cx: 960, cy: 220, size: 84 });
+  const a = Text(g, 'SU CUERPO MANEJA EL AZÚCAR', { x: 960, y: 440, size: 72 });
+  const b = Text(g, 'DE OTRA MANERA', { x: 960, y: 530, size: 72, color: C.orange });
+  const t2 = Chip(g, 'ASÍ FUNCIONA LA DIABETES TIPO 2', { cx: 960, cy: 680, fill: C.ink, color: C.amber, size: 44 });
+  const c1 = Chip(g, 'NO ES UN CASTIGO', { cx: 620, cy: 860, fill: C.green, color: C.white, size: 50 });
+  const c2 = Chip(g, 'NO ES DESCUIDO', { cx: 1300, cy: 860, fill: C.green, color: C.white, size: 50 });
+  return t => { st.draw(t, at('idea')); show(a, t, at('maneja') - 0.6); show(b, t, at('maneja')); show(t2, t, at('tipo2')); show(c1, t, at('castigo')); show(c2, t, at('descuido')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

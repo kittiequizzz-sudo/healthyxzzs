@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 7 — nuances; muscle responds at any age.
+window.START = at('b7') - 0.4;
+window.END = at('b8') - 0.4;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 1. what we don't fully know
+scene(svg, () => START, () => at('claro'), g => {
+  const h = Text(g, 'LO QUE NO SABEMOS DEL TODO', { x: 960, y: 140, size: 70 });
+  const cards = [['Las cifras de músculo', 'son promedios', 'promedios'], ['Hay personas de 80', 'más fuertes que otras de 60', 'ochenta'], ['El estudio del páncreas', 'es anterior a medicinas modernas', 'anterior'], ['A veces sí es la comida:', 'porciones, jugos diarios', 'sies']].map(([a, b, k], i) => {
+    const c = el('g', {}, g), x = 140 + (i % 2) * 840, y = 240 + Math.floor(i / 2) * 280;
+    Card(c, { x, y, w: 800, h: 230, fill: i === 3 ? C.amber : C.white });
+    Text(c, a, { x: x + 400, y: y + 95, size: 44 }); Text(c, b, { x: x + 400, y: y + 160, size: 40, color: i === 3 ? C.ink : C.blueDark });
+    return [c, k];
+  });
+  const mix = Chip(g, 'CASI SIEMPRE: CUERPO + PLATO', { cx: 960, cy: 920, fill: C.ink, color: C.amber, size: 50 });
+  return t => { show(h, t, START + 0.2); cards.forEach(([c, k]) => show(c, t, at(k))); show(mix, t, at('mezcla')); };
+});
+
+// 2. muscle responds at any age
+scene(svg, () => at('claro'), () => END + 1, g => {
+  const st = still(g, 'c_silla', { x: 60, y: 200, w: 1100, h: 640, focus: [0.5, 0.45], zoom: 0.08 });
+  const h = Text(g, 'EL MÚSCULO RESPONDE A CUALQUIER EDAD', { x: 960, y: 110, size: 62, color: C.green });
+  const l = [['LEVANTARSE DE LA SILLA', 'silla'], ['SUBIR UN ESCALÓN', 'escalon'], ['CARGAR LA BOLSA', 'bolsa']].map(([s, k], i) => {
+    const c = el('g', {}, g); Card(c, { x: 1210, y: 230 + i * 170, w: 660, h: 130 }); Icon.check(c, 1235, 245 + i * 170, 1);
+    Text(c, s, { x: 1365, y: 297 + i * 170, size: s.length > 18 ? 36 : 42, anchor: 'start' });
+    return [c, k];
+  });
+  const m = Chip(g, 'SU MÉDICO LE DICE QUÉ LE CONVIENE', { cx: 1500, cy: 800, fill: C.white, size: 28 });
+  return t => { st.draw(t, at('claro'), END); show(h, t, at('claro')); l.forEach(([c, k]) => show(c, t, at(k))); show(m, t, at('conviene')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

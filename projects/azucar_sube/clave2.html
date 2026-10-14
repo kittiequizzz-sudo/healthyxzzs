@@ -1,0 +1,107 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 3b — clave 2: fewer doors.
+window.START = at('k2') - 0.5;
+window.END = at('k3') - 0.5;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('tienda') - 0.1, g => SectionCard(g, 2, 'MENOS PUERTAS', 'el músculo se achica con los años', ['calf'])(START + 0.1));
+
+// 1. the muscle is a shop with many doors → it shrinks
+scene(svg, () => at('tienda') - 0.1, () => at('despues30'), g => {
+  Progress(g, 1);
+  const s1 = still(g, 'm_tienda', { x: 160, y: 170, w: 1600, h: 800, focus: [0.5, 0.5], zoom: 0.05 });
+  const s2 = still(g, 'm_tienda_chica', { x: 160, y: 170, w: 1600, h: 800, focus: [0.5, 0.5], zoom: 0.05 });
+  const a = Chip(g, 'MÚSCULO = TIENDA CON MUCHAS PUERTAS', { cx: 960, cy: 110, fill: C.white, size: 40 });
+  const b = Chip(g, 'CON LOS AÑOS, LA TIENDA SE ACHICA', { cx: 960, cy: 110, fill: C.amber, size: 40 });
+  return t => {
+    const k = E.inOut(prog(t, at('achica'), at('achica') + 0.6));
+    s1.g.setAttribute('opacity', 1 - k); s2.g.setAttribute('opacity', k);
+    s1.draw(t, at('tienda'), at('achica')); s2.draw(t, at('achica'), at('despues30'));
+    show(a, t, at('tienda'), at('achica') + 0.3); show(b, t, at('achica') + 0.3);
+  };
+});
+
+// 2. muscle mass falls 3–8% per decade after 30, faster after 60 → sarcopenia
+scene(svg, () => at('despues30'), () => at('menospuertas'), g => {
+  Progress(g, 1);
+  const ch = el('g', {}, g); Card(ch, { x: 120, y: 160, w: 1100, h: 700 });
+  Text(ch, 'MASA MUSCULAR', { x: 170, y: 220, size: 38, anchor: 'start' });
+  const X = a => 220 + (a - 30) / 50 * 900, Y = m => 780 - (m - 50) / 50 * 500;
+  el('line', { x1: 200, y1: 790, x2: 1150, y2: 790, stroke: C.ink, 'stroke-width': 5 }, ch);
+  [30, 40, 50, 60, 70, 80].forEach(a => Text(ch, a + ' años', { x: X(a), y: 828, size: 26, weight: 800, color: C.grey }));
+  // illustrative: −5%/decade to 60, then faster
+  const pts = []; let m = 100;
+  for (let a = 30; a <= 80; a += 1) { pts.push([X(a), Y(m)]); m *= a < 60 ? 0.995 : 0.988; }
+  const line = el('path', { d: 'M' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L'), fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1400, 'stroke-dashoffset': 1400 }, ch);
+  const v60 = el('line', { x1: X(60), y1: 260, x2: X(60), y2: 790, stroke: C.amber, 'stroke-width': 6, 'stroke-dasharray': '14 12', opacity: 0 }, ch);
+  const n = el('g', {}, g); Card(n, { x: 1290, y: 200, w: 520, h: 280 });
+  Text(n, '−3 a 8 %', { x: 1550, y: 300, size: 90, color: C.red }); Text(n, 'cada 10 años', { x: 1550, y: 390, size: 44 }); Text(n, 'después de los 30', { x: 1550, y: 440, size: 32, weight: 800, color: C.blueDark });
+  const f = Chip(g, 'DESPUÉS DE LOS 60: MÁS RÁPIDO', { cx: 1550, cy: 570, fill: C.amber, size: 34 });
+  const s = Text(g, 'SARCOPENIA', { x: 1550, y: 720, size: 84, color: C.red });
+  Source(g, 'Volpi y col. · 2004 · promedios; la curva es ilustrativa');
+  return t => {
+    show(ch, t, at('despues30') - 0.2);
+    line.setAttribute('stroke-dashoffset', 1400 * (1 - E.inOut(prog(t, at('despues30'), at('despues60') + 1.5))));
+    v60.setAttribute('opacity', prog(t, at('despues60'), at('despues60') + 0.4));
+    show(n, t, at('p38')); show(f, t, at('despues60')); show(s, t, at('sarcopenia'));
+  };
+});
+
+// 3. fewer doors (+ rusty locks) → sugar stays in the blood
+scene(svg, () => at('menospuertas'), () => at('mismoplato'), g => {
+  Progress(g, 1);
+  const a = Text(g, 'MENOS MÚSCULO = MENOS PUERTAS', { x: 960, y: 200, size: 70 });
+  const b = el('g', {}, g); cut(b, 'candado_oxidado', 500, 340, 130); Text(b, '+ CERRADURAS OXIDADAS', { x: 1000, y: 345, size: 54, color: C.orange });
+  const ch = el('g', {}, g); Card(ch, { x: 260, y: 440, w: 1400, h: 470 });
+  Text(ch, 'AZÚCAR EN SANGRE DESPUÉS DE COMER', { x: 310, y: 495, size: 34, anchor: 'start' });
+  el('line', { x1: 320, y1: 850, x2: 1600, y2: 850, stroke: C.ink, 'stroke-width': 5 }, ch);
+  const before = el('path', { d: 'M340 800 C500 800 560 600 680 590 C800 580 880 790 1100 800 L1580 800', fill: 'none', stroke: C.green, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-dasharray': 1600, 'stroke-dashoffset': 1600 }, ch);
+  const now = el('path', { d: 'M340 800 C500 800 580 540 720 520 C900 500 1100 600 1300 690 S1500 760 1580 770', fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1600, 'stroke-dashoffset': 1600 }, ch);
+  const l1 = Text(ch, 'antes', { x: 1000, y: 770, size: 32, weight: 800, color: C.green });
+  const l2 = Text(ch, 'ahora: se queda más tiempo', { x: 1250, y: 620, size: 34, weight: 800, color: C.red });
+  return t => {
+    show(a, t, at('menospuertas')); show(b, t, at('menospuertas') + 1.5); show(ch, t, at('quedamas') - 0.6);
+    before.setAttribute('stroke-dashoffset', 1600 * (1 - E.inOut(prog(t, at('quedamas') - 0.4, at('quedamas') + 0.8)))); show(l1, t, at('quedamas') + 0.4);
+    now.setAttribute('stroke-dashoffset', 1600 * (1 - E.inOut(prog(t, at('quedamas') + 0.6, at('quedamas') + 2)))); show(l2, t, at('quedamas') + 1.6);
+  };
+});
+
+// 4. same plate, smaller shop
+scene(svg, () => at('mismoplato'), () => at('ojo'), g => {
+  Progress(g, 1);
+  const mk = (x, year, shop) => {
+    const c = el('g', {}, g); Card(c, { x, y: 170, w: 780, h: 760 });
+    Text(c, year, { x: x + 390, y: 240, size: 60, color: C.blueDark });
+    cut(c, 'plato', x + 390, 400, 360);
+    const s = el('g', {}, c); const st = still(s, shop, { x: x + 60, y: 560, w: 660, h: 340, focus: [0.5, 0.5], zoom: 0 }); st.draw(0, 0, 1);
+    return c;
+  };
+  const a = mk(140, '2016', 'm_tienda'), b = mk(1000, '2026', 'm_tienda_chica');
+  const l1 = Chip(g, 'LA COMIDA ES LA MISMA', { cx: 960, cy: 1000, fill: C.white, size: 40 });
+  const l2 = Chip(g, 'LA TIENDA QUE LA RECIBE ES MÁS CHICA', { cx: 960, cy: 1000, fill: C.amber, size: 40 });
+  return t => { show(a, t, at('mismoplato')); show(b, t, at('mismoplato') + 0.4); show(l1, t, at('lacomida'), at('maschica')); show(l2, t, at('maschica')); };
+});
+
+// 5. not about being thin or heavy
+scene(svg, () => at('ojo'), () => END + 1, g => {
+  const a = Text(g, 'NO DEPENDE DE ESTAR', { x: 960, y: 200, size: 72 });
+  const b = Text(g, 'GORDO O FLACO', { x: 960, y: 300, size: 90, color: C.orange });
+  const body = el('g', {}, g); cut(body, 'body', 640, 650, 520);
+  const c = el('g', {}, g); Card(c, { x: 960, y: 520, w: 800, h: 260, fill: C.white });
+  Text(c, 'Personas delgadas también', { x: 1360, y: 610, size: 46 }); Text(c, 'pueden perder mucho músculo', { x: 1360, y: 680, size: 46, color: C.red });
+  return t => { show(a, t, at('ojo')); show(b, t, at('ojo') + 0.3); show(body, t, at('delgadas') - 0.4); show(c, t, at('delgadas')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

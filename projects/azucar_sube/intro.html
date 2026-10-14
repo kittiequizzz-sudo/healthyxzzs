@@ -1,0 +1,121 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 1 — apertura: Doña Carmen, same plate, more sugar.
+window.START = 0;
+window.END = at('b2') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const drama = g => Text(g, 'Doña Carmen es un personaje · Dramatización · Cifras de ejemplo', { x: 960, y: 1045, size: 26, weight: 700, color: C.grey });
+
+// 1. Carmen's breakfast
+scene(svg, () => -1, () => at('hace10'), g => {
+  const st = still(g, 'c_desayuno', { x: 60, y: 150, w: 1180, h: 630, focus: [0.4, 0.55], zoom: 0.1 });
+  const age = Chip(g, 'DOÑA CARMEN · 71 AÑOS', { cx: 650, cy: 880, fill: C.ink, color: C.amber, size: 46 });
+  const h = Text(g, 'SU DESAYUNO DE SIEMPRE', { x: 1580, y: 200, size: 40 });
+  const items = [['2 TORTILLAS', 'tortillas'], ['FRIJOLES', 'frijoles'], ['1 HUEVO', 'huevo'], ['CAFÉ CON LECHE', 'cafe']].map(([s, k], i) => [Chip(g, s, { cx: 1580, cy: 330 + i * 150, size: 42 }), k]);
+  drama(g);
+  return t => {
+    st.draw(t, 0, at('hace10'));
+    show(age, t, at('carmen')); show(h, t, at('desayuna'));
+    items.forEach(([c, k]) => show(c, t, at(k)));
+  };
+});
+
+// 2. same plate: 140 ten years ago, 190 today
+scene(svg, () => at('hace10'), () => at('consulta'), g => {
+  const h = Text(g, 'EL MISMO PLATO', { x: 960, y: 140, size: 76 });
+  const mk = (x, label, k, val, col) => {
+    const c = el('g', {}, g);
+    Card(c, { x, y: 230, w: 760, h: 640 });
+    Text(c, label, { x: x + 380, y: 300, size: 50, color: C.blueDark });
+    cut(c, 'plato', x + 230, 500, 330);
+    cut(c, 'glucometro', x + 580, 500, 230);
+    const n = Text(c, '', { x: x + 380, y: 760, size: 120, color: col });
+    Text(c, 'mg/dL · 2 h después', { x: x + 380, y: 835, size: 32, weight: 800, color: C.grey });
+    return [c, k, n, val];
+  };
+  const cards = [mk(150, 'HACE 10 AÑOS', 'm140', 140, C.green), mk(1010, 'HOY', 'm190', 190, C.red)];
+  drama(g);
+  return t => {
+    show(h, t, at('hace10'));
+    show(cards[0][0], t, at('hace10')); show(cards[1][0], t, at('hoy'));
+    cards.forEach(([c, k, n, v]) => { n.textContent = Math.round(v * E.out(prog(t, at(k) - 0.3, at(k) + 0.6))); });
+  };
+});
+
+// 3. the consultation → "¿qué estoy haciendo mal?"
+scene(svg, () => at('consulta'), () => at('parecido'), g => {
+  const s1 = still(g, 'c_consulta', { x: 60, y: 150, w: 1180, h: 630, focus: [0.6, 0.4], zoom: 0.08 });
+  const s2 = still(g, 'c_duda', { x: 60, y: 150, w: 1180, h: 630, focus: [0.45, 0.35], zoom: 0.1 });
+  const q1 = el('g', {}, g); Card(q1, { x: 1290, y: 260, w: 570, h: 220, fill: C.white });
+  Text(q1, '«Hay que subirle', { x: 1575, y: 340, size: 48 }); Text(q1, 'la medicina»', { x: 1575, y: 405, size: 48, color: C.red });
+  const q2 = el('g', {}, g); Card(q2, { x: 1290, y: 560, w: 570, h: 220, fill: C.amber });
+  Text(q2, '«¿Qué estoy', { x: 1575, y: 640, size: 52 }); Text(q2, 'haciendo mal?»', { x: 1575, y: 705, size: 52 });
+  drama(g);
+  return t => {
+    const k = E.inOut(prog(t, at('salio') - 0.2, at('salio') + 0.3));
+    s1.g.setAttribute('opacity', 1 - k); s2.g.setAttribute('opacity', k);
+    s1.draw(t, at('consulta'), at('salio')); s2.draw(t, at('salio'), at('parecido'));
+    show(q1, t, at('subirle')); show(q2, t, at('mal'));
+  };
+});
+
+// 4. "probablemente no está haciendo nada mal"
+scene(svg, () => at('parecido'), () => at('puzzle'), g => {
+  const a = Text(g, 'Si a usted le pasó algo parecido…', { x: 960, y: 360, size: 56, weight: 800, color: C.blueDark });
+  const b = el('g', {}, g); Card(b, { x: 260, y: 470, w: 1400, h: 230, fill: C.green });
+  Text(b, 'PROBABLEMENTE NO ESTÁ', { x: 960, y: 555, size: 70, color: C.white }); Text(b, 'HACIENDO NADA MAL', { x: 960, y: 635, size: 70, color: C.white });
+  return t => { show(a, t, at('parecido')); show(b, t, at('nada')); };
+});
+
+// 5. same plate, more sugar? — the answer is in three changes inside the body
+scene(svg, () => at('puzzle'), () => at('hoyexp'), g => {
+  const h = Text(g, 'MISMO PLATO… ¿MÁS AZÚCAR?', { x: 960, y: 150, size: 84, color: C.orange });
+  const pl = el('g', {}, g); cut(pl, 'plato', 960, 420, 460);
+  const x = Icon.cross(g, 1150, 300, 1.2);
+  const lab = Chip(g, 'NO ESTÁ EN EL PLATO', { cx: 960, cy: 640, fill: C.white, size: 42 });
+  const three = Text(g, '3 CAMBIOS DENTRO DE SU CUERPO', { x: 960, y: 770, size: 56 });
+  const badges = CLAVES.map(([n, s], i) => {
+    const c = el('g', {}, g), cx = 600 + i * 360;
+    el('circle', { cx, cy: 900, r: 80, fill: C.white, stroke: C.orange, 'stroke-width': 8 }, c);
+    cut(c, n, cx, 900, 110);
+    return [c, cx];
+  });
+  const com = Text(g, 'una de las preguntas más comunes en consulta', { x: 960, y: 1040, size: 32, weight: 800, color: C.grey });
+  return t => {
+    show(h, t, at('puzzle'));
+    show(pl, t, at('puzzle') + 0.3);
+    pl.setAttribute('opacity', Math.min(+pl.getAttribute('opacity'), 1 - 0.6 * prog(t, at('noplato'), at('noplato') + 0.5)));
+    pop(x, t, at('noplato') + 0.6, 1210, 360); show(lab, t, at('noplato') + 0.6);
+    show(three, t, at('tres'));
+    badges.forEach(([c, cx], i) => pop(c, t, at('tres') + 0.5 + i * 0.35, cx, 900));
+    show(com, t, at('comun'));
+  };
+});
+
+// 6. what this video promises
+scene(svg, () => at('hoyexp'), () => END + 1, g => {
+  const h = Text(g, 'EN ESTE VIDEO', { x: 960, y: 170, size: 70 });
+  const items = [['3', 'RAZONES', 'hoyexp', C.orange], ['ADA', 'LO QUE DICEN LAS GUÍAS', 'guias', C.blue], ['3', 'PREGUNTAS PARA SU CITA', 'preguntas', C.green], ['2', 'CULPABLES ESCONDIDOS', 'culpables', C.red]].map(([n, s, k, col], i) => {
+    const c = el('g', {}, g), x = 110 + i * 440;
+    Card(c, { x, y: 320, w: 380, h: 440 });
+    el('rect', { x, y: 320, width: 380, height: 26, rx: 13, fill: col }, c);
+    Text(c, n, { x: x + 190, y: 500, size: n.length > 1 ? 100 : 150, color: col });
+    const words = s.split(' '), half = Math.ceil(words.length / 2);
+    Text(c, words.slice(0, half).join(' '), { x: x + 190, y: 650, size: 36 }); Text(c, words.slice(half).join(' '), { x: x + 190, y: 700, size: 36 });
+    return [c, k, x + 190];
+  });
+  return t => { show(h, t, at('hoyexp')); items.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 540)); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

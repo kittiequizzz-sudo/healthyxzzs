@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beats 4–5 — what the guidelines say.
+window.START = at('b4') - 0.4;
+window.END = at('b6') - 0.4;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('ada') - 0.2, g => SectionCard(g, 'LO QUE DICEN', 'LAS GUÍAS MÉDICAS', 'para adultos mayores', [])(START + 0.1));
+
+// 1. the ADA Standards of Care, updated every year
+scene(svg, () => at('ada') - 0.2, () => at('pocas'), g => {
+  const doc = el('g', {}, g);
+  Card(doc, { x: 660, y: 140, w: 600, h: 620, fill: C.white });
+  el('rect', { x: 660, y: 140, width: 600, height: 120, rx: 22, fill: C.blue }, doc);
+  Text(doc, 'ESTÁNDARES', { x: 960, y: 185, size: 44, color: C.white }); Text(doc, 'DE ATENCIÓN 2026', { x: 960, y: 233, size: 40, color: C.white });
+  for (let i = 0; i < 6; i++) el('rect', { x: 720, y: 310 + i * 60, width: i % 3 === 2 ? 320 : 480, height: 18, rx: 9, fill: C.grey, opacity: 0.5 }, doc);
+  const sec = Chip(doc, 'SECCIÓN 13: ADULTOS MAYORES', { cx: 960, cy: 700, fill: C.amber, size: 30 });
+  const org = Text(g, 'Asociación Americana de Diabetes', { x: 960, y: 850, size: 54 });
+  const yr = Chip(g, 'SE ACTUALIZAN CADA AÑO', { cx: 960, cy: 960, fill: C.white, size: 40 });
+  return t => { show(doc, t, at('ada') - 0.2); show(org, t, at('ada')); show(yr, t, at('cadaano')); show(sec, t, at('ed2026')); };
+});
+
+// 2. A1C targets depend on your health
+scene(svg, () => at('pocas'), () => at('vecina'), g => {
+  const L = el('g', {}, g); Card(L, { x: 120, y: 150, w: 800, h: 760 });
+  el('rect', { x: 120, y: 150, width: 800, height: 100, rx: 22, fill: C.green }, L);
+  Text(L, 'MAYORES SANOS', { x: 520, y: 202, size: 48, color: C.white });
+  const ck = [['Pocas enfermedades', 'pocas'], ['Buena memoria', 'memoria'], ['Se valen por sí mismos', 'valen']].map(([s, k], i) => {
+    const c = el('g', {}, L); Icon.check(c, 170, 290 + i * 110, 0.8); Text(c, s, { x: 280, y: 330 + i * 110, size: 42, anchor: 'start' }); return [c, k];
+  });
+  const goal = el('g', {}, L); Text(goal, 'A1C', { x: 520, y: 690, size: 44, color: C.blueDark }); Text(goal, '< 7 – 7,5 %', { x: 520, y: 800, size: 110, color: C.green });
+  const R = el('g', {}, g); Card(R, { x: 1000, y: 150, w: 800, h: 760 });
+  el('rect', { x: 1000, y: 150, width: 800, height: 100, rx: 22, fill: C.amber }, R);
+  Text(R, 'MÁS ENFERMEDADES', { x: 1400, y: 202, size: 44 });
+  Text(R, 'o más fragilidad', { x: 1400, y: 420, size: 50, color: C.blueDark });
+  Text(R, 'METAS MENOS', { x: 1400, y: 640, size: 70, color: C.orange }); Text(R, 'ESTRICTAS', { x: 1400, y: 730, size: 70, color: C.orange });
+  Source(g, 'ADA · Estándares de Atención 2026 · Sección 13');
+  return t => { show(L, t, at('pocas') - 0.2); ck.forEach(([c, k]) => show(c, t, at(k))); show(goal, t, at('siete') - 0.3); show(R, t, at('fragilidad')); };
+});
+
+// 3. your goal is yours; fewer-risk medicines; adjusting can mean up or down
+scene(svg, () => at('vecina'), () => at('movimiento'), g => {
+  const st = Stamp(g, 'SU META ES SUYA', { cx: 960, cy: 190, size: 90 });
+  const a = el('g', {}, g); Card(a, { x: 160, y: 360, w: 780, h: 220 }); Icon.pill(a, 200, 410, 1.1);
+  Text(a, 'Medicinas con poco riesgo', { x: 600, y: 445, size: 40 }); Text(a, 'de bajar demasiado el azúcar', { x: 600, y: 505, size: 40 });
+  const b = el('g', {}, g); Card(b, { x: 980, y: 360, w: 780, h: 220 }); Icon.question(b, 1020, 420, 1, C.amber);
+  Text(b, 'Reducir medicinas si el daño', { x: 1440, y: 445, size: 40 }); Text(b, 'es mayor que el beneficio', { x: 1440, y: 505, size: 40 });
+  const ajust = Text(g, 'AJUSTAR LA MEDICINA PUEDE SER…', { x: 960, y: 690, size: 54 });
+  const up = el('g', {}, g); Arrow(up, 620, 920, 620, 780, C.red, 22); Text(up, 'SUBIRLA', { x: 780, y: 860, size: 64, anchor: 'start', color: C.red });
+  const dn = el('g', {}, g); Arrow(dn, 1180, 780, 1180, 920, C.green, 22); Text(dn, 'O BAJARLA', { x: 1240, y: 860, size: 64, anchor: 'start', color: C.green });
+  return t => { st.draw(t, at('vecina')); show(a, t, at('pocoriesgo')); show(b, t, at('reducir')); show(ajust, t, at('osea')); show(up, t, at('subirla')); show(dn, t, at('bajarla')); };
+});
+
+// 4. movement: 150 min/week + strength 2–3 days, not consecutive
+scene(svg, () => at('movimiento'), () => at('info'), g => {
+  const h = Text(g, 'MOVIMIENTO', { x: 960, y: 130, size: 80 });
+  const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+  const tiles = days.map((d, i) => {
+    const c = el('g', {}, g), x = 170 + i * 230;
+    const bg = el('rect', { x, y: 240, width: 200, height: 300, rx: 24, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, c);
+    Text(c, d, { x: x + 100, y: 290, size: 50 });
+    const m = Text(c, '30 min', { x: x + 100, y: 400, size: 40, color: C.green });
+    const w = el('g', {}, c); cut(w, 'pesas', x + 100, 480, 110);
+    return { c, bg, m, w };
+  });
+  const tot = Chip(g, '≈ 150 MIN POR SEMANA', { cx: 960, cy: 640, fill: C.green, color: C.white, size: 48 });
+  const fz = Chip(g, 'FUERZA: 2–3 DÍAS, NO SEGUIDOS', { cx: 960, cy: 770, fill: C.blue, color: C.white, size: 44 });
+  const why = el('g', {}, g); cut(why, 'calf', 640, 920, 120); Text(why, '¿POR QUÉ? CUIDA LAS PUERTAS (CLAVE 2)', { x: 720, y: 925, size: 42, anchor: 'start' });
+  Source(g, 'ADA · Estándares de Atención 2026');
+  return t => {
+    show(h, t, at('movimiento'));
+    tiles.forEach((d, i) => {
+      show(d.c, t, at('movimiento') + 0.2 + i * 0.08);
+      const on = i < 5 && t > at('mediahora') + i * 0.25;
+      d.m.setAttribute('opacity', on ? 1 : 0); d.bg.setAttribute('fill', on ? '#E3F3E6' : C.white);
+      d.w.setAttribute('opacity', [0, 2, 4].includes(i) && t > at('noseguidos') ? 1 : 0);
+    });
+    show(tot, t, at('m150')); show(fz, t, at('fuerza')); show(why, t, at('porque'));
+  };
+});
+
+// 5. information, not a consultation
+scene(svg, () => at('info'), () => END + 1, g => {
+  const a = Text(g, 'ESTO ES INFORMACIÓN,', { x: 960, y: 400, size: 80 });
+  const b = Text(g, 'NO UNA CONSULTA', { x: 960, y: 500, size: 80, color: C.orange });
+  const c = el('g', {}, g); Card(c, { x: 310, y: 610, w: 1300, h: 200, fill: C.green });
+  Text(c, 'Antes de cambiar medicinas, insulina', { x: 960, y: 685, size: 46, color: C.white }); Text(c, 'o ejercicio: hable con su equipo médico', { x: 960, y: 750, size: 46, color: C.white });
+  return t => { show(a, t, at('info')); show(b, t, at('info') + 0.3); show(c, t, at('equipo') - 1); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

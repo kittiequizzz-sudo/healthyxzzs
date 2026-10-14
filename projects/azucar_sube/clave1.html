@@ -1,0 +1,126 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 3a — three characters; clave 1: the rusty lock.
+window.START = at('b3') - 0.3;
+window.END = at('k2') - 0.5;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. three characters
+scene(svg, () => START, () => at('k1') - 0.4, g => {
+  const h = Text(g, 'TRES PERSONAJES', { x: 960, y: 170, size: 76 });
+  const items = [['llave', 'LA INSULINA', 'insulina'], ['calf', 'EL MÚSCULO', 'musculo'], ['pancreas', 'EL PÁNCREAS', 'pancreas']].map(([n, s, k], i) => {
+    const c = el('g', {}, g), x = 170 + i * 560;
+    Card(c, { x, y: 300, w: 460, h: 480 }); cut(c, n, x + 230, 500, 300); Text(c, s, { x: x + 230, y: 720, size: 46 });
+    return [c, k, x + 230];
+  });
+  return t => { show(h, t, START + 0.2); items.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 540)); };
+});
+
+// 1. section card
+scene(svg, () => at('k1') - 0.4, () => at('sangre') - 0.2, g => SectionCard(g, 1, 'LA CERRADURA OXIDADA', 'por qué el azúcar entra peor', ['llave', 'candado_oxidado'])(at('k1') - 0.3));
+
+// 2. key opens the door: sugar in blood → insulin → cell → energy
+scene(svg, () => at('sangre') - 0.2, () => at('adonde'), g => {
+  Progress(g, 0);
+  const vessel = el('g', {}, g);
+  el('rect', { x: 100, y: 560, width: 760, height: 170, rx: 85, fill: '#F3B4A8', stroke: C.ink, 'stroke-width': 8 }, vessel);
+  Text(vessel, 'SANGRE', { x: 480, y: 790, size: 44, color: C.red });
+  const dots = []; for (let i = 0; i < 9; i++) dots.push(el('circle', { r: 22, fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, g));
+  const cell = el('g', {}, g);
+  el('circle', { cx: 1480, cy: 600, r: 250, fill: '#FBD9C9', stroke: C.ink, 'stroke-width': 8 }, cell);
+  el('circle', { cx: 1530, cy: 600, r: 75, fill: '#C58BB0', stroke: C.ink, 'stroke-width': 6 }, cell);
+  Text(cell, 'CÉLULA', { x: 1480, y: 905, size: 44 });
+  const door = el('rect', { x: 1218, y: 540, width: 28, height: 120, rx: 8, fill: C.blue, stroke: C.ink, 'stroke-width': 5 }, g);
+  const key = el('g', {}, g); cut(key, 'llave', 0, 0, 170);
+  const kl = Chip(g, 'LA LLAVE = INSULINA', { cx: 960, cy: 200, fill: C.amber, size: 44 });
+  dots.forEach(d => g.appendChild(d));
+  const en = el('g', {}, g);
+  el('path', { d: 'M1510 470 L1460 600 L1505 600 L1475 720 L1560 570 L1515 570 L1545 470 Z', fill: C.amber, stroke: C.ink, 'stroke-width': 6, 'stroke-linejoin': 'round' }, en);
+  const enl = Text(g, 'ENERGÍA', { x: 1480, y: 980, size: 50, color: C.orange });
+  return t => {
+    show(vessel, t, at('sangre') - 0.2); show(cell, t, at('salir'));
+    const open = E.inOut(prog(t, at('abre'), at('abre') + 0.5));
+    dots.forEach((d, i) => {
+      const bx = 180 + (i * 77) % 620, by = 645 + 25 * Math.sin(i * 2 + t * 2.5);
+      const u = E.inOut(prog(t, at('entra') + i * 0.12, at('entra') + 0.8 + i * 0.12));
+      set(d, { cx: lerp(bx, 1380 + (i % 3) * 50, u), cy: lerp(by, 560 + Math.floor(i / 3) * 45, u), opacity: t > at('sangre') ? 1 : 0 });
+    });
+    const ku = E.inOut(prog(t, at('llave'), at('abre')));
+    key.setAttribute('transform', `translate(${lerp(960, 1150, ku)} ${lerp(380, 600, ku)}) rotate(${lerp(-20, 90, ku)})`);
+    key.setAttribute('opacity', prog(t, at('llave') - 0.3, at('llave')));
+    show(kl, t, at('eslainsulina'));
+    door.setAttribute('transform', `translate(0 ${(-open * 130).toFixed(1)})`);
+    door.setAttribute('opacity', prog(t, at('salir'), at('salir') + 0.3));
+    show(en, t, at('energia')); show(enl, t, at('energia'));
+  };
+});
+
+// 3. where does the sugar go? 8 of 10 → muscle
+scene(svg, () => at('adonde'), () => at('sigue'), g => {
+  Progress(g, 0);
+  const h = Text(g, '¿A DÓNDE VA EL AZÚCAR?', { x: 900, y: 140, size: 70 });
+  const bins = [['brain', 'CEREBRO', 'cerebro', 360], [null, 'GRASA', 'grasa', 960], ['calf', 'MÚSCULO', 'almusculo', 1560]].map(([n, s, k, x]) => {
+    const c = el('g', {}, g); Card(c, { x: x - 220, y: 560, w: 440, h: 360 });
+    if (n) cut(c, n, x, 700, 200); else Icon.drop(c, x - 70, 630, 1.4, C.amber);
+    Text(c, s, { x, y: 870, size: 46 });
+    const no = Icon.cross(c, x + 120, 580, 0.9);
+    return { c, k, x, no };
+  });
+  const dots = []; for (let i = 0; i < 10; i++) dots.push(el('circle', { r: 26, fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, g));
+  const big = Chip(g, '8 DE CADA 10 → AL MÚSCULO', { cx: 960, cy: 400, fill: C.green, color: C.white, size: 56 });
+  Source(g, 'DeFronzo y Tripathy · Diabetes Care 2009 · con insulina activa');
+  return t => {
+    show(h, t, at('adonde'));
+    bins.forEach((b, i) => { show(b.c, t, at('adonde') + 0.3 + i * 0.2); b.no.style.display = (i < 2 && t > at(b.k)) ? '' : 'none'; });
+    bins[2].c.setAttribute('transform', `translate(1560 740) scale(${(1 + (t > at('almusculo') ? 0.05 * Math.sin((t - at('almusculo')) * 5) : 0)).toFixed(3)}) translate(-1560 -740)`);
+    dots.forEach((d, i) => {
+      const x0 = 510 + i * 100, y0 = 260;
+      const target = i < 8 ? [1460 + (i % 4) * 65, 650 + Math.floor(i / 4) * 60] : [i === 8 ? 300 : 980, 640];
+      const u = E.inOut(prog(t, at('ocho') + i * 0.1, at('ocho') + 0.9 + i * 0.1));
+      set(d, { cx: lerp(x0, target[0], u), cy: lerp(y0, target[1], u), opacity: t > at('adonde') + 0.2 ? 1 : 0 });
+    });
+    show(big, t, at('ocho') + 1.2);
+  };
+});
+
+// 4. the key still works, the lock is rusty → muscle gets about half
+scene(svg, () => at('sigue'), () => END + 1, g => {
+  Progress(g, 0);
+  const L = el('g', {}, g); Card(L, { x: 160, y: 140, w: 760, h: 400 });
+  cut(L, 'llave', 380, 340, 220); cut(L, 'candado', 650, 330, 260); Text(L, 'SIN DIABETES', { x: 540, y: 505, size: 38, color: C.green });
+  const okL = Icon.check(L, 790, 170, 0.9);
+  const R = el('g', {}, g); Card(R, { x: 1000, y: 140, w: 760, h: 400 });
+  const rk = el('g', {}, R); cut(rk, 'llave', 1220, 340, 220); cut(R, 'candado_oxidado', 1490, 330, 260);
+  Text(R, 'DIABETES TIPO 2', { x: 1380, y: 505, size: 38, color: C.red });
+  const ch = el('g', {}, g); Card(ch, { x: 160, y: 600, w: 1600, h: 330 });
+  Text(ch, 'AZÚCAR QUE ENTRA AL MÚSCULO DE LAS PIERNAS', { x: 960, y: 650, size: 36 });
+  el('rect', { x: 260, y: 700, width: 1100, height: 70, rx: 14, fill: C.green }, ch);
+  const bar = el('rect', { x: 260, y: 800, height: 70, rx: 14, fill: C.red }, ch);
+  Text(ch, 'SIN DIABETES', { x: 1380, y: 737, size: 32, anchor: 'start', weight: 800, color: C.green });
+  Text(ch, 'DIABETES TIPO 2', { x: 1380, y: 837, size: 32, anchor: 'start', weight: 800, color: C.red });
+  const half = Text(ch, 'LA MITAD', { x: 840, y: 837, size: 44, anchor: 'start', color: C.red });
+  const res = Chip(g, 'RESISTENCIA A LA INSULINA', { cx: 960, cy: 1000, fill: C.ink, color: C.amber, size: 40 });
+  return t => {
+    show(L, t, at('sigue')); show(R, t, at('oxidada') - 0.3);
+    okL.style.display = t > at('sigue') + 0.8 ? '' : 'none';
+    const sh = t > at('oxidada') ? 8 * Math.sin((t - at('oxidada')) * 22) * Math.exp(-((t - at('oxidada')) % 2.2) * 1.5) : 0;
+    rk.setAttribute('transform', `rotate(${sh.toFixed(2)} 1300 340)`);
+    show(ch, t, at('mismos'));
+    set(bar, { width: 550 * E.inOut(prog(t, at('mitad') - 0.6, at('mitad') + 0.4)) });
+    show(half, t, at('mitad') + 0.3);
+    show(res, t, at('resistencia'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

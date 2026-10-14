@@ -1,0 +1,89 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Beat 3c — clave 3: the tired pancreas.
+window.START = at('k3') - 0.5;
+window.END = at('b4') - 0.4;
+window.DURATION = window.END;
+const svg = Stage();
+
+scene(svg, () => START, () => at('fabrica') - 0.1, g => SectionCard(g, 3, 'EL PÁNCREAS CANSADO', 'la fábrica de llaves', ['pancreas'])(START + 0.1));
+
+// 1. key factory: overtime → tired beta cells
+scene(svg, () => at('fabrica') - 0.1, () => at('ukpds'), g => {
+  Progress(g, 2);
+  const s1 = still(g, 'm_fabrica', { x: 60, y: 170, w: 1200, h: 690, focus: [0.4, 0.6], zoom: 0.06 });
+  const s2 = still(g, 'm_fabrica_cansada', { x: 60, y: 170, w: 1200, h: 690, focus: [0.4, 0.6], zoom: 0.06 });
+  const h = Chip(g, 'PÁNCREAS = FÁBRICA DE LLAVES', { cx: 660, cy: 100, fill: C.white, size: 40 });
+  const l = [['HORAS EXTRA', 'horas', C.amber, C.ink], ['MÁS Y MÁS INSULINA', 'compensar', C.white, C.ink], ['DURANTE AÑOS, LO LOGRA', 'logra', C.green, C.white], ['LAS CÉLULAS BETA SE CANSAN', 'cansando', C.red, C.white]].map(([s, k, f, col], i) => {
+    const c = el('g', {}, g); Card(c, { x: 1320, y: 200 + i * 175, w: 540, h: 135, fill: f });
+    Text(c, s, { x: 1590, y: 268 + i * 175, size: s.length > 18 ? 32 : 40, color: col });
+    return [c, k];
+  });
+  const beta = Chip(g, 'CÉLULAS BETA', { cx: 660, cy: 940, fill: C.ink, color: C.amber, size: 44 });
+  return t => {
+    const k = E.inOut(prog(t, at('cansando') - 0.3, at('cansando') + 0.3));
+    s1.g.setAttribute('opacity', 1 - k); s2.g.setAttribute('opacity', k);
+    s1.draw(t, at('fabrica'), at('cansando')); s2.draw(t, at('cansando'), at('ukpds'));
+    show(h, t, at('fabrica')); l.forEach(([c, kk]) => show(c, t, at(kk))); show(beta, t, at('beta'));
+  };
+});
+
+// 2. UKPDS: about half at diagnosis, still falling for 6 years on every treatment
+scene(svg, () => at('ukpds'), () => at('simples'), g => {
+  Progress(g, 2);
+  const h = Chip(g, 'ESTUDIO UKPDS · REINO UNIDO · MILES DE PERSONAS', { cx: 900, cy: 110, fill: C.ink, color: C.amber, size: 38 });
+  const ch = el('g', {}, g); Card(ch, { x: 120, y: 200, w: 1120, h: 700 });
+  Text(ch, 'FUNCIÓN DE LAS CÉLULAS BETA', { x: 170, y: 260, size: 36, anchor: 'start' });
+  const X = y => 260 + (y + 4) / 10 * 900, Y = p => 820 - p / 100 * 500;
+  el('line', { x1: 240, y1: 830, x2: 1200, y2: 830, stroke: C.ink, 'stroke-width': 5 }, ch);
+  el('line', { x1: 240, y1: Y(100), x2: 1200, y2: Y(100), stroke: C.grey, 'stroke-width': 3, 'stroke-dasharray': '10 10' }, ch);
+  Text(ch, '100 %', { x: 230, y: Y(100), size: 26, weight: 800, anchor: 'end', color: C.grey });
+  [['−4', -4], ['diagnóstico', 0], ['+3 años', 3], ['+6 años', 6]].forEach(([s, y]) => Text(ch, s, { x: X(y), y: 866, size: 26, weight: 800, color: C.grey }));
+  const pre = el('path', { d: `M${X(-4)} ${Y(80)} C${X(-2)} ${Y(70)} ${X(-1)} ${Y(58)} ${X(0)} ${Y(50)}`, fill: 'none', stroke: C.ink, 'stroke-width': 8, 'stroke-dasharray': '16 12', opacity: 0 }, ch);
+  const dot = el('circle', { cx: X(0), cy: Y(50), r: 16, fill: C.orange, stroke: C.ink, 'stroke-width': 5, opacity: 0 }, ch);
+  const lab50 = Text(ch, '≈ 50 %', { x: X(0) - 20, y: Y(50) - 50, size: 50, color: C.orange });
+  const cols = [[C.green, 0], [C.blue, 8], [C.red, -8]];
+  const lines = cols.map(([col, off]) => el('path', { d: `M${X(0)} ${Y(50)} C${X(2)} ${Y(44 + off / 4)} ${X(4)} ${Y(36 + off / 3)} ${X(6)} ${Y(28 + off / 2)}`, fill: 'none', stroke: col, 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-dasharray': 900, 'stroke-dashoffset': 900 }, ch));
+  const leg = ['DIETA', 'PASTILLAS', 'INSULINA'].map((s, i) => Chip(g, s, { cx: 1560, cy: 560 + i * 120, fill: cols[i][0], color: C.white, size: 40 }));
+  const big = el('g', {}, g); Card(big, { x: 1290, y: 200, w: 560, h: 260, fill: C.white });
+  Text(big, 'AL DIAGNÓSTICO,', { x: 1570, y: 275, size: 38 }); Text(big, 'EL PÁNCREAS YA', { x: 1570, y: 330, size: 38 }); Text(big, 'TRABAJA A LA MITAD', { x: 1570, y: 395, size: 42, color: C.orange });
+  Source(g, 'UKPDS 16 · Diabetes 1995 · estimación HOMA-B · curva ilustrativa');
+  return t => {
+    show(h, t, at('ukpds')); show(ch, t, at('reino'));
+    pre.setAttribute('opacity', prog(t, at('diagnostico') - 0.5, at('diagnostico')));
+    dot.setAttribute('opacity', prog(t, at('amitad') - 0.3, at('amitad'))); show(lab50, t, at('amitad')); show(big, t, at('amitad') + 0.6);
+    lines.forEach(l => l.setAttribute('stroke-dashoffset', 900 * (1 - E.inOut(prog(t, at('seis'), at('seis') + 2)))));
+    leg.forEach((c, i) => show(c, t, at('dieta') + i * 0.5));
+  };
+});
+
+// 3. needing more help ≠ failing
+scene(svg, () => at('simples'), () => at('honesto'), g => {
+  const st = still(g, 'm_fabrica_cansada', { x: 460, y: 110, w: 1000, h: 572, focus: [0.4, 0.5], zoom: 0.06 });
+  const a = el('g', {}, g); Card(a, { x: 260, y: 740, w: 1400, h: 150, fill: C.white });
+  Text(a, 'CON LOS AÑOS SE NECESITA MÁS AYUDA', { x: 960, y: 817, size: 54 });
+  const b = Chip(g, 'NO PORQUE USTED FALLÓ', { cx: 960, cy: 980, fill: C.green, color: C.white, size: 50 });
+  return t => { st.draw(t, at('simples'), at('honesto')); show(a, t, at('ayuda')); show(b, t, at('fallo')); };
+});
+
+// 4. honest detail: an old study
+scene(svg, () => at('honesto'), () => END + 1, g => {
+  const h = Text(g, 'UN DETALLE HONESTO', { x: 960, y: 220, size: 76, color: C.amber });
+  const a = el('g', {}, g); Card(a, { x: 310, y: 330, w: 1300, h: 200 });
+  Text(a, 'El estudio empezó a finales de los 70', { x: 960, y: 405, size: 50 }); Text(a, 'antes de varias medicinas modernas', { x: 960, y: 475, size: 44, color: C.blueDark });
+  const b = el('g', {}, g); Card(b, { x: 310, y: 600, w: 1300, h: 200, fill: C.amber });
+  Text(b, '¿Los tratamientos nuevos cambian', { x: 960, y: 675, size: 48 }); Text(b, 'ese cansancio? Se sigue estudiando.', { x: 960, y: 745, size: 48 });
+  return t => { show(h, t, at('honesto')); show(a, t, at('setenta') - 0.5); show(b, t, at('nuevos')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

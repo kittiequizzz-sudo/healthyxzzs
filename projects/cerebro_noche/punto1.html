@@ -36,7 +36,7 @@ function Vessel(g, { dim = false } = {}) {
 }
 
 // 1. section kicker over the brain with the blue fluid
-scene(svg, () => START, () => at('cada'), g => {
+scene(svg, () => START - 1, () => at('cada'), g => {
   const b = el('g', {}, g); cut(b, 'a1_brain', 960, 400, 620);
   const fl = Flow(g, { x1: 560, x2: 1360, y: 390, spread: 150, n: 34, r: 9, speed: 220 });
   const k = Kicker(g, 1, 'EL CEREBRO SE LIMPIA SOLO');

@@ -28,7 +28,7 @@ function scene(svg, a, b, build, { hard = false } = {}) {
 function drawScenes(t) {
   for (const [s, ph] of STARS) s.setAttribute('opacity', (0.25 + 0.35 * (0.5 + 0.5 * Math.sin(t * 1.3 + ph))).toFixed(3));
   for (const s of scenes) {
-    const v = s.hard ? cutVis(s.g, t, s.a(), s.b()) : sceneVis(s.g, t, s.a(), s.b(), 0.25);
+    const v = s.hard ? cutVis(s.g, t, s.a(), s.b()) : sceneVis(s.g, t, s.a(), s.b() + 0.25, 0.25);   // old scene stays until the new one has faded in (no dip to empty)
     if (v > 0) s.draw(t);
   }
 }

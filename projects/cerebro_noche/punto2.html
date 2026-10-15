@@ -50,7 +50,7 @@ function Signal(g) {
 const gateAt = (t, t0) => clamp((t - t0) / 0.35);
 
 // 1. section kicker over the sagittal brain + padlock
-scene(svg, () => START, () => at('corriendo') - 0.6, g => {
+scene(svg, () => START - 1, () => at('corriendo') - 0.6, g => {
   const b = el('g', {}, g); cut(b, 'a2_sagittal', 960, 390, 560);
   const lk = Lock(g, 1230, 270, 1.1);
   const k = Kicker(g, 2, 'TU CEREBRO TE PARALIZA');

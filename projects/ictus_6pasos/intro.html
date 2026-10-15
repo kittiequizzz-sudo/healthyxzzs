@@ -10,7 +10,7 @@
 <script>
 // Intro — hook: what a stroke takes away, the signs, six steps, call 112.
 window.START = 0;
-window.END = at('p1') - 0.6;
+window.END = at('h1') - 0.4;
 window.DURATION = window.END;
 const svg = Stage();
 const cap = (g, s, o = {}) => Caption(g, s, { cy: 965, size: 62, ...o });
@@ -87,7 +87,7 @@ scene(svg, () => at('insignif'), () => at('peligro'), g => {
   });
   return t => {
     show(h, t, at('insignif'));
-    items.forEach(([c, k, cx, st]) => { pop(c, t, at(k), cx, 560); st.draw(t, at(k), at('peligro')); });
+    items.forEach(([c, k, cx, st], i) => { pop(c, t, Math.min(at(k), at('insignif') + 0.5 + i * 0.4), cx, 560); st.draw(t, at('insignif'), at('peligro')); show(c.lastChild, t, at(k)); });
   };
 }, true);
 
@@ -130,7 +130,7 @@ stillScene(svg, 'r4', () => at('esencial'), () => at('quedate'), { focus: [0.75,
   const h = Text(g, 'ANTE CUALQUIER SOSPECHA', { x: 960, y: 230, size: 76, color: C.cream });
   const b = Badge112(g, { cx: 960, cy: 520, size: 1.6 });
   const c = cap(g, 'NO ESPERES AL FINAL DEL VÍDEO', { size: 60, fill: C.red, hi: 'NO ESPERES' });
-  return t => { show(h, t, at('esencial') + 0.6); b.draw(t, at('llama112')); show(c, t, at('noesperes')); };
+  return t => { show(h, t, at('esencial')); b.draw(t, at('llama112')); show(c, t, at('noesperes')); };
 });
 
 // 11. stay: your independence, someone you love

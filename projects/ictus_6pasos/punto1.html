@@ -9,8 +9,8 @@
 <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
 <script>
 // Punto 1 — recognise the signs: F.A.S.T., Rafael's story, other signs.
-window.START = at('p1') - 0.6;
-window.END = at('p2') - 0.6;
+window.START = at('h1') - 0.4;
+window.END = at('h2') - 0.4;
 window.DURATION = window.END;
 const svg = Stage();
 const cap = (g, s, o = {}) => Caption(g, s, { cy: 965, size: 62, ...o });
@@ -50,20 +50,25 @@ stillScene(svg, 'f1', () => at('cambio'), () => at('aprender'), { focus: [0.55, 
   return t => { show(a, t, at('cambio'), at('cansancio')); show(b, t, at('cansancio')); };
 });
 
+// 5a. learning the signs makes a huge difference
+stillScene(svg, 'l2', () => at('aprender'), () => at('regla'), { focus: [0.6, 0.4], zoom: 0.12 }, g => {
+  const a = cap(g, 'UNA DIFERENCIA ENORME', { hi: 'ENORME' });
+  return t => show(a, t, at('aprender') + 1.5);
+});
 // 5. F.A.S.T. — four letters
-scene(svg, () => at('aprender'), () => at('F'), g => {
+scene(svg, () => at('regla'), () => at('F'), g => {
   const h = Text(g, 'UNA REGLA MUY SENCILLA', { x: 960, y: 200, size: 80 });
   const tiles = FAST.map(([L], i) => {
     const c = el('g', {}, g), x = 960 + (i - 1.5) * 380;
-    Card(c, { x: x - 160, y: 340, w: 320, h: 320, fill: C.orange, r: 40 });
-    Text(c, L, { x, y: 510, size: 230, color: C.white });
-    return [c, x];
+    const q = el('g', {}, c); Card(q, { x: x - 160, y: 340, w: 320, h: 320, fill: C.white, r: 40 }); Text(q, '?', { x, y: 510, size: 200, color: C.grey });
+    const f = el('g', {}, c); Card(f, { x: x - 160, y: 340, w: 320, h: 320, fill: C.orange, r: 40 }); Text(f, L, { x, y: 510, size: 230, color: C.white });
+    return [c, x, f];
   });
   const sub = Chip(g, '4 LETRAS · 4 SEÑALES', { cx: 960, cy: 820, size: 52 });
   const p = Progress(g, 0);
   return t => {
-    show(h, t, at('aprender') + 0.2);
-    tiles.forEach(([c, x], i) => { pop(c, t, at('fast') + 0.25 + i * 0.25, x, 500); float(c.firstChild, t, x, 500, { phase: i * 0.25, amp: 5 }); });
+    show(h, t, at('regla'));
+    tiles.forEach(([c, x, f], i) => { pop(c, t, at('regla') + 0.4 + i * 0.2, x, 500); pop(f, t, at('fast') + 0.25 + i * 0.25, x, 500); float(c.firstChild, t, x, 500, { phase: i * 0.25, amp: 5 }); });
     show(sub, t, at('letras'));
   };
 });
@@ -116,10 +121,10 @@ scene(svg, () => at('rafael'), () => at('inquietante'), g => {
 });
 scene(svg, () => at('inquietante'), () => at('insistia'), g => {
   const st = still(g, 'r2', { zoom: 0 });
-  const co = Callout(g, ...imgPt(FULL, 'r2', 315, 395), 120);
+  const co = Callout(st.g, ...imgPt(FULL, 'r2', 355, 350), 120);
   const a = cap(g, 'LA MANO NO RESPONDE', { hi: 'NO RESPONDE' });
   Drama(g);
-  return t => { st.draw(t, 0, 1); punch(st.g, t, at('mando'), ...imgPt(FULL, 'r2', 315, 395), 0.06); co(t, at('mano1')); show(a, t, at('mando')); };
+  return t => { st.draw(t, 0, 1); punch(st.g, t, at('mando'), ...imgPt(FULL, 'r2', 355, 350), 0.06); co(t, at('mano1')); show(a, t, at('mando')); };
 });
 stillScene(svg, 'r3', () => at('insistia'), () => at('recordo'), { focus: [0.3, 0.4], zoom: 0.12 }, g => {
   const a = cap(g, '«ESTOY BIEN»', { size: 72, hi: 'BIEN' });

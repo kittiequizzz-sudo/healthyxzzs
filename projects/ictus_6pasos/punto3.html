@@ -9,21 +9,31 @@
 <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
 <script>
 // Punto 3 — the position while the ambulance comes: decision by consciousness and breathing.
-window.START = at('p3') - 0.6;
-window.END = at('p4') - 0.6;
+window.START = at('h3') - 0.4;
+window.END = at('h4') - 0.4;
 window.DURATION = window.END;
 const svg = Stage();
 const cap = (g, s, o = {}) => Caption(g, s, { cy: 965, size: 62, ...o });
 const capL = (g, s, o = {}) => Caption(g, s, { cx: 675, cy: 930, size: 56, ...o });
 
 // 1. kicker over the waiting scene; done so far: signs ✓, 112 ✓
-stillScene(svg, 'e1', () => START, () => at('sentarla'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+stillScene(svg, 'e1', () => START, () => at('debil'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
   const k = Kicker(g, 3, 'LA POSICIÓN');
   Progress(g, 2);
   const d1 = el('g', {}, g); Chip(d1, 'SEÑALES', { cx: 1640, cy: 230, size: 40 }); Icon.check(d1, 1440, 195, 0.7);
   const d2 = el('g', {}, g); Chip(d2, 'LLAMADA AL 112', { cx: 1600, cy: 340, size: 40 }); Icon.check(d2, 1330, 305, 0.7);
   const a = cap(g, 'UNA ESPERA ANGUSTIOSA', { hi: 'ESPERA' });
   return t => { slideIn(k, t, START + 0.2, 'l', 600); slideIn(d1, t, at('p3') + 0.2, 'r', 400); slideIn(d2, t, at('llamado3'), 'r', 400); show(a, t, at('espera3')); };
+});
+// 1b. getting weaker; you want to help
+stillScene(svg, 'r2', () => at('debil'), () => at('sentarla'), { focus: [0.4, 0.6], zoom: 0.14 }, g => {
+  const a = cap(g, 'CADA VEZ MÁS DÉBIL', { hi: 'DÉBIL' });
+  const amb = icon(g, 'ambulance', 0, 0, 2);
+  return t => {
+    show(a, t, at('debil'));
+    const u = prog(t, at('debil'), at('sentarla'));
+    amb.setAttribute('transform', `translate(${lerp(1920, 1500, E.out(u * 3))} 90)`);
+  };
 });
 // 2. sit, lie down or leave them? it depends
 scene(svg, () => at('sentarla'), () => at('funciones'), g => {

@@ -9,7 +9,7 @@ consecuencias | las consecuencias de un ictus
 reducirse | podrían reducirse
 reconocido | hubiera reconocido las señales
 atiempo | pedido ayuda a tiempo
-sesenta | Después de los sesenta años
+sesenta | Después de los 60 años
 autonomia | perder la autonomía
 vestirte | No poder vestirte solo
 comer | necesitar ayuda para comer
@@ -31,6 +31,7 @@ quedate | Quédate, porque conocer
 independencia | proteger tu independencia
 quieres | la vida de alguien a quien quieres
 # punto 1
+h1 | Punto 1
 p1 | Tu cerebro puede estar sufriendo
 convencido | convencido de que no ocurre nada grave
 peligrosos | uno de los aspectos más peligrosos
@@ -81,6 +82,7 @@ fundamental1 | Y ahora viene una cuestión fundamental
 decir | qué debes decir exactamente
 rapida | organizar una respuesta rápida
 # punto 2
+h2 | Punto 2
 p2 | Sabías que dos personas
 diferente | una atención muy diferente
 suerte | No se trata de tener suerte
@@ -116,6 +118,7 @@ normalidad | aunque la persona recupere
 colocar | cómo debes colocar
 riesgos | puede crear nuevos riesgos
 # punto 3
+h3 | Punto 3
 p3 | Ya has reconocido las señales
 llamado3 | Has llamado al 112
 espera3 | comienza una espera
@@ -153,4 +156,5 @@ tension | una pastilla para bajar la tensión
 logica | Parece una manera lógica
 complicaciones | estas decisiones pueden provocar
 # punto 4
+h4 | Punto 4 El error más peligroso
 p4 | Hay un gesto que hacemos

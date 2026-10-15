@@ -1,0 +1,168 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 3 — the position while the ambulance comes: decision by consciousness and breathing.
+window.START = at('p3') - 0.6;
+window.END = at('p4') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+const cap = (g, s, o = {}) => Caption(g, s, { cy: 965, size: 62, ...o });
+const capL = (g, s, o = {}) => Caption(g, s, { cx: 675, cy: 930, size: 56, ...o });
+
+// 1. kicker over the waiting scene; done so far: signs ✓, 112 ✓
+stillScene(svg, 'e1', () => START, () => at('sentarla'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const k = Kicker(g, 3, 'LA POSICIÓN');
+  Progress(g, 2);
+  const d1 = el('g', {}, g); Chip(d1, 'SEÑALES', { cx: 1640, cy: 230, size: 40 }); Icon.check(d1, 1440, 195, 0.7);
+  const d2 = el('g', {}, g); Chip(d2, 'LLAMADA AL 112', { cx: 1600, cy: 340, size: 40 }); Icon.check(d2, 1330, 305, 0.7);
+  const a = cap(g, 'UNA ESPERA ANGUSTIOSA', { hi: 'ESPERA' });
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); slideIn(d1, t, at('p3') + 0.2, 'r', 400); slideIn(d2, t, at('llamado3'), 'r', 400); show(a, t, at('espera3')); };
+});
+// 2. sit, lie down or leave them? it depends
+scene(svg, () => at('sentarla'), () => at('funciones'), g => {
+  const opts = [['chair', 'SENTARLA'], ['bed', 'TUMBARLA'], ['question', 'DEJARLA']].map(([ic, s], i) => {
+    const c = el('g', {}, g), x = 960 + (i - 1) * 520;
+    Card(c, { x: x - 210, y: 200, w: 420, h: 420, fill: C.white, r: 36 });
+    Icon[ic](c, x - 110, 260, 2.2);
+    Text(c, s, { x, y: 560, size: 52 });
+    return [c, x];
+  });
+  const h = Text(g, 'DEPENDE DE:', { x: 960, y: 730, size: 56, color: C.orange });
+  const ch = [['CONCIENCIA', 'depende'], ['RESPIRACIÓN', 'respiracion3'], ['EL 112', 'indicaciones3']].map(([s, k], i) => [Chip(g, s, { cx: 960 + (i - 1) * 520, cy: 850, fill: C.ink, color: C.amber, size: 50 }), k]);
+  return t => {
+    opts.forEach(([c, x], i) => { pop(c, t, at('sentarla') + i * 0.45, x, 410); });
+    show(h, t, at('depende') - 0.2); ch.forEach(([c, k]) => show(c, t, at(k)));
+  };
+});
+// 3. what a stroke can affect: muscles, swallowing, airway
+scene(svg, () => at('funciones'), () => at('mover3'), g => {
+  const b = el('g', {}, g); const fl = floatCut(b, 'body', 700, 560, 860);
+  // points on the silhouette (fit 860 → scale 1.9; image 242x453 centred at 700,560)
+  const s = 860 / 453, P0 = [700 - 121 * s, 560 - 226.5 * s];
+  const pt = (x, y) => [P0[0] + x * s, P0[1] + y * s];
+  const items = [['MÚSCULOS', 'musculos', pt(192, 170), 740], ['TRAGAR', 'tragar', pt(121, 72), 300], ['RESPIRAR', 'vias', pt(140, 120), 520]].map(([lab, k, [x, y], ly]) => {
+    const c = el('g', {}, g);
+    el('line', { x1: x, y1: y, x2: 1150, y2: ly, stroke: C.ink, 'stroke-width': 5, 'stroke-dasharray': '10 10' }, c);
+    el('circle', { cx: x, cy: y, r: 18, fill: C.red, stroke: C.ink, 'stroke-width': 5 }, c);
+    Card(c, { x: 1150, y: ly - 75, w: 600, h: 150, fill: C.white, r: 30 });
+    Text(c, lab, { x: 1450, y: ly, size: 60 });
+    return [c, k];
+  });
+  return t => { fl(t); show(b, t, at('funciones')); items.forEach(([c, k]) => show(c, t, at(k))); };
+});
+// 4. don't make them walk
+stillScene(svg, 'e4', () => at('mover3'), () => at('consciente'), { focus: [0.45, 0.45], zoom: 0.1 }, g => {
+  const x = icon(g, 'cross', 1620, 100, 1.8);
+  const a = cap(g, 'NO LA HAGAS CAMINAR', { fill: C.red });
+  const b = cap(g, 'RIESGO DE CAÍDAS', { hi: 'CAÍDAS' });
+  return t => { pop(x, t, at('mover3') + 0.3, 1710, 190); show(a, t, at('mover3'), at('caidas')); show(b, t, at('caidas')); };
+});
+
+// 5–7. decision: still on the left, the two questions + answer on the right
+function Decide(g, conscious, breathes, answer, color) {
+  const c = el('g', {}, g);
+  const rows = [['¿CONSCIENTE?', conscious], ['¿RESPIRA BIEN?', breathes]].map(([s, ok], i) => {
+    const r = el('g', {}, c), y = 140 + i * 170;
+    Card(r, { x: 1360, y, w: 500, h: 140, fill: C.white, r: 28 });
+    Text(r, s, { x: 1395, y: y + 70, size: 42, anchor: 'start' });
+    Icon[ok ? 'check' : 'cross'](r, 1750, y + 25, 0.9);
+    return r;
+  });
+  const a = el('g', {}, c);
+  Card(a, { x: 1360, y: 500, w: 500, h: 330, fill: color, r: 30 });
+  answer.forEach((s, i) => Text(a, s, { x: 1610, y: 665 + (i - (answer.length - 1) / 2) * 62, size: 46, color: C.white }));
+  return [rows, a];
+}
+scene(svg, () => at('consciente'), () => at('pierde'), g => {
+  const st = still(g, 'e1', { ...LEFT, focus: [0.5, 0.5], zoom: 0.08 });
+  const [rows, a] = Decide(g, true, true, ['SENTADA CON', 'APOYO O', 'RECOSTADA'], C.green);
+  const c = capL(g, 'NO LA OBLIGUES A LEVANTARSE', { size: 48, fill: C.red });
+  return t => {
+    st.draw(t, at('consciente'), at('pierde'));
+    rows.forEach((r, i) => slideIn(r, t, at('consciente') + i * 0.5, 'r', 500));
+    pop(a, t, at('sentada'), 1610, 665); show(c, t, at('obligarla'), at('presta'));
+  };
+});
+scene(svg, () => at('pierde'), () => at('norespira'), g => {
+  const st = still(g, 'e2', { ...LEFT, focus: [0.3, 0.6], zoom: 0.08 });
+  const [rows, a] = Decide(g, false, true, ['DE LADO:', 'POSICIÓN', 'LATERAL DE', 'SEGURIDAD'], C.orange);
+  const c = capL(g, 'SIGUE AL 112', { hi: '112' });
+  return t => {
+    st.draw(t, at('pierde'), at('norespira'));
+    rows.forEach((r, i) => slideIn(r, t, at('pierde') + i * 0.5, 'r', 500));
+    pop(a, t, at('lateral'), 1610, 665); show(c, t, at('lateral') + 1.5);
+  };
+});
+// 7. not breathing normally: red card, held
+scene(svg, () => at('norespira'), () => at('aflojar'), g => {
+  el('rect', { x: 0, y: 0, width: 1920, height: 1080, fill: C.red }, g);
+  const w = el('g', {}, g);
+  Card(w, { x: 260, y: 170, w: 1400, h: 640, fill: C.white, r: 40 });
+  Text(w, '¿NO RESPIRA NORMALMENTE?', { x: 960, y: 290, size: 70, color: C.red });
+  const b = Badge112(w, { cx: 560, cy: 540, size: 1.2 });
+  Text(w, 'DÍSELO AL 112', { x: 1180, y: 490, size: 66 });
+  Text(w, 'TE GUIARÁ EN LA RCP', { x: 1180, y: 590, size: 54, color: C.blueDark });
+  const n = Caption(g, 'NUNCA "DE LADO Y ESPERAR"', { cy: 930, size: 58, fill: C.ink });
+  return t => { show(w, t, at('norespira')); b.draw(t, at('norespira') + 0.6); show(n, t, at('nunca3')); };
+});
+// 8. loosen clothing, watch for changes
+stillScene(svg, 'e3', () => at('aflojar'), () => at('sacudirla'), { focus: [0.4, 0.4], zoom: 0.12 }, g => {
+  const a = cap(g, 'AFLOJA LA ROPA', { hi: 'AFLOJA' });
+  const b = cap(g, 'OBSERVA CUALQUIER CAMBIO', { hi: 'OBSERVA' });
+  return t => { show(a, t, at('aflojar'), at('observar')); show(b, t, at('observar')); };
+});
+// 9. no shaking, no massage, no forcing to walk
+stillScene(svg, 'e4', () => at('sacudirla'), () => at('sola'), { focus: [0.5, 0.4], zoom: 0.06 }, g => {
+  Veil(g, 0.45);
+  const items = [['SACUDIRLA', 'sacudirla'], ['MASAJES FUERTES', 'masajes'], ['FORZARLA A CAMINAR', 'despertarla']].map(([s, k], i) => {
+    const c = el('g', {}, g), y = 260 + i * 210;
+    Card(c, { x: 460, y: y - 80, w: 1000, h: 160, fill: C.white, r: 34 });
+    Icon.cross(c, 490, y - 50, 1);
+    Text(c, s, { x: 1010, y, size: 58 });
+    return [c, k];
+  });
+  const a = cap(g, 'NO ARREGLAN EL CEREBRO', { fill: C.red });
+  return t => { items.forEach(([c, k]) => slideIn(c, t, at(k), 'r', 500)); show(a, t, at('despertarla') + 1.6); };
+});
+// 10. never leave them alone
+scene(svg, () => at('sola'), () => at('compartir'), g => {
+  const st = still(g, 'e1', { zoom: 0 });
+  const [hx, hy] = imgPt(FULL, 'e1', 440, 320);
+  const a = cap(g, 'NO LA DEJES SOLA', { hi: 'SOLA' });
+  return t => { st.draw(t, 0, 1); punch(st.g, t, at('sola'), hx, hy, 0.12); show(a, t, at('sola') + 0.2); };
+});
+// 11. share
+stillScene(svg, 'a4', () => at('compartir'), () => at('peligro3'), { focus: [0.5, 0.4], zoom: 0.08 }, g => {
+  Veil(g, 0.35);
+  const c = CTA(g, 'share', 880);
+  return t => pop(c, t, at('compartir'), 960, 880);
+});
+// 12. bridge: water, aspirin, a pill for blood pressure… helpful?
+scene(svg, () => at('peligro3'), () => END + 1, g => {
+  const h = Text(g, 'TODAVÍA QUEDA UN PELIGRO', { x: 960, y: 170, size: 76, color: C.red });
+  const its = [['glass', 'AGUA', 'agua'], ['pill', 'ASPIRINA', 'aspirina'], ['gauge', 'PASTILLA DE\nLA TENSIÓN', 'tension']].map(([ic, s, k], i) => {
+    const c = el('g', {}, g), x = 960 + (i - 1) * 520;
+    Card(c, { x: x - 210, y: 280, w: 420, h: 460, fill: C.white, r: 36 });
+    Icon[ic](c, x - 110, 330, 2.2);
+    s.split('\n').forEach((l, j, arr) => Text(c, l, { x, y: 640 + (j - (arr.length - 1) / 2) * 52, size: 46 }));
+    const x2 = el('g', { opacity: 0 }, c); Icon.cross(x2, x + 90, 250, 1.2);
+    return [c, k, x, x2];
+  });
+  const a = cap(g, '¿AYUDA… O PELIGRO?', { cy: 900, hi: 'PELIGRO' });
+  return t => {
+    show(h, t, at('peligro3'));
+    its.forEach(([c, k, x, x2], i) => { pop(c, t, at(k), x, 510); x2.setAttribute('opacity', prog(t, at('complicaciones') + i * 0.3, at('complicaciones') + 0.2 + i * 0.3)); });
+    show(a, t, at('logica'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 2 — the call: what to say to 112, the time of onset, no private car.
+window.START = at('p2') - 0.6;
+window.END = at('p3') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+const cap = (g, s, o = {}) => Caption(g, s, { cy: 965, size: 62, ...o });
+const SPLIT_L = { x: 50, y: 230, w: 890, h: 560, r: 26 }, SPLIT_R = { x: 980, y: 230, w: 890, h: 560, r: 26 };
+
+// 1. two calls, two very different responses
+scene(svg, () => START, () => at('segundos'), g => {
+  const k = Kicker(g, 2, 'LA LLAMADA');
+  Progress(g, 1);
+  const s1 = still(g, 'l1', { ...SPLIT_L, focus: [0.3, 0.4] });
+  const s2 = still(g, 'l2', { ...SPLIT_R, focus: [0.6, 0.4] });
+  const a = cap(g, 'DEPENDE DE CÓMO LLAMES', { cy: 900, hi: 'CÓMO' });
+  const x1 = el('g', {}, g); Chip(x1, 'SUERTE', { cx: 620, cy: 1005, fill: C.white, size: 40 }); Icon.cross(x1, 400, 965, 0.8);
+  const x2 = el('g', {}, g); Chip(x2, 'VIVIR CERCA', { cx: 1240, cy: 1005, fill: C.white, size: 40 }); Icon.cross(x2, 960, 965, 0.8);
+  return t => {
+    slideIn(k, t, START + 0.2, 'l', 600);
+    s1.draw(t, START, at('segundos')); s2.draw(t, START, at('segundos'));
+    show(s1.g, t, START + 0.3); show(s2.g, t, at('diferente') - 0.4);
+    show(a, t, at('diferente'), at('suerte'));
+    show(x1, t, at('suerte')); show(x2, t, at('cerca'));
+  };
+});
+// 2. the first seconds of the call
+scene(svg, () => at('segundos'), () => at('padre'), g => {
+  const ck = MinuteClock(g, { cx: 700, cy: 480, r: 260 });
+  const ph = icon(g, 'phone', 1150, 330, 3);
+  const a = cap(g, 'LOS PRIMEROS SEGUNDOS', { cy: 900, hi: 'SEGUNDOS' });
+  const b = cap(g, 'UN ERROR MUY COMÚN', { cy: 900, fill: C.red });
+  return t => {
+    ck.draw(t, at('segundos')); pop(ck.g, t, at('segundos'), 700, 480); pop(ph, t, at('segundos') + 0.3, 1300, 480);
+    show(a, t, at('segundos') + 0.2, at('error2')); show(b, t, at('error2'));
+  };
+});
+// 3. the vague call
+stillScene(svg, 'l1', () => at('padre'), () => at('espana'), { focus: [0.3, 0.35], zoom: 0.12 }, g => {
+  const q1 = el('g', {}, g); Card(q1, { x: 1100, y: 130, w: 720, h: 150, fill: C.white, r: 30 }); Text(q1, '«Se encuentra mal»', { x: 1460, y: 207, size: 56 });
+  const q2 = el('g', {}, g); Card(q2, { x: 1100, y: 320, w: 720, h: 150, fill: C.white, r: 30 }); Text(q2, '«Está mareada»', { x: 1460, y: 397, size: 56 });
+  const s = Stamp(g, 'DEMASIADO VAGO', { cx: 1460, cy: 620, size: 76 });
+  return t => { slideIn(q1, t, at('padre'), 'r', 500); slideIn(q2, t, at('mareada'), 'r', 500); s.draw(t, at('precision')); };
+});
+// 4. Código Ictus: 112 → ambulance → hospital alerted
+scene(svg, () => at('espana'), () => at('sencillo'), g => {
+  const h = Text(g, 'CÓDIGO ICTUS', { x: 960, y: 170, size: 110, color: C.red });
+  const b = Badge112(g, { cx: 330, cy: 520, size: 1.1 });
+  const amb = icon(g, 'ambulance', 790, 370, 3.2);
+  const hos = icon(g, 'hospital', 1450, 390, 2.6);
+  const l2 = Chip(g, 'AVISADO', { cx: 1580, cy: 730, fill: C.green, color: C.white, size: 44 });
+  const ar1 = el('g', {}, g); Arrow(ar1, 520, 520, 780, 520);
+  const ar2 = el('g', {}, g); Arrow(ar2, 1110, 520, 1420, 520);
+  const a = cap(g, 'NO HACE FALTA PEDIRLO', { cy: 900, fill: C.white, color: C.ink, hi: 'NO' });
+  const c = cap(g, 'EXPLICA LOS SÍNTOMAS', { cy: 900, hi: 'SÍNTOMAS' });
+  return t => {
+    pop(h, t, at('codigo'), 960, 170);
+    b.draw(t, at('espana') + 0.2);
+    show(ar1, t, at('coordinar')); pop(amb, t, at('coordinar') + 0.3, 950, 530); float(amb.firstChild, t, 950, 530, { amp: 4, base: 'translate(790 370) scale(3.2)' });
+    show(ar2, t, at('coordinar') + 0.8); pop(hos, t, at('coordinar') + 1.1, 1580, 520); show(l2, t, at('coordinar') + 1.5);
+    show(a, t, at('protocolo'), at('sintomas2')); show(c, t, at('sintomas2'));
+  };
+});
+// 5. the clear call: three keywords
+stillScene(svg, 'l2', () => at('sencillo'), () => at('detalle'), { focus: [0.55, 0.4], zoom: 0.1 }, g => {
+  const ks = [['«ICTUS»', 'creo'], ['«BRAZO DERECHO»', 'fuerza2'], ['«LE CUESTA HABLAR»', 'hablar2']].map(([s, k], i) => [Chip(g, s, { cx: 1480, cy: 520 + i * 140, fill: C.white, size: 48 }), k]);
+  const ok = icon(g, 'check', 1660, 90, 1.6);
+  const a = cap(g, 'CLARO Y CONCRETO', { hi: 'CLARO' });
+  return t => { ks.forEach(([c, k]) => slideIn(c, t, at(k), 'r', 500)); pop(ok, t, at('operador'), 1740, 170); show(a, t, at('operador')); };
+});
+// 6. the hour it started — or the last time they were well
+scene(svg, () => at('detalle'), () => at('despierta'), g => {
+  const ck = Clock(g, { cx: 560, cy: 470, r: 260 });
+  const a = Text(g, '¿A QUÉ HORA EMPEZÓ?', { x: 1370, y: 380, size: 72, color: C.orange });
+  const b = el('g', {}, g); Card(b, { x: 970, y: 480, w: 800, h: 150, fill: C.white, r: 30 }); Text(b, 'O: ÚLTIMA VEZ QUE ESTABA BIEN', { x: 1370, y: 557, size: 40 });
+  const c = cap(g, 'EL HOSPITAL DECIDE EL TRATAMIENTO', { cy: 930, size: 56, hi: 'TRATAMIENTO' });
+  return t => {
+    ck.draw(18 + 0.5 * prog(t, at('detalle'), at('despierta'))); pop(ck.g, t, at('detalle'), 560, 470);
+    show(a, t, at('hora')); show(b, t, at('ultimo')); show(c, t, at('tratamientos'));
+  };
+});
+// 7. wakes up with symptoms: say when they were last well (the night before)
+scene(svg, () => at('despierta'), () => at('coche'), g => {
+  const s1 = still(g, 'l3', { x: 60, y: 140, w: 820, h: 470, r: 24, focus: [0.6, 0.5], zoom: 0.06 });
+  const s2 = still(g, 'l4', { x: 1040, y: 140, w: 820, h: 470, r: 24, focus: [0.4, 0.5], zoom: 0.06 });
+  const tl = el('g', {}, g);
+  el('line', { x1: 470, y1: 720, x2: 1450, y2: 720, stroke: C.ink, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-dasharray': '2 24' }, tl);
+  Chip(tl, '23:00 · BIEN', { cx: 470, cy: 720, fill: C.green, color: C.white, size: 44 });
+  Chip(tl, '7:00 · SÍNTOMAS', { cx: 1450, cy: 720, fill: C.red, color: C.white, size: 44 });
+  Icon.question(tl, 910, 670, 1);
+  const ar = el('g', {}, g); Arrow(ar, 470, 900, 470, 790, C.orange, 16);
+  const a = Text(g, 'DI ESTA HORA', { x: 470, y: 960, size: 58, color: C.orange });
+  return t => {
+    s1.draw(t, at('despierta'), at('coche')); s2.draw(t, at('despierta'), at('coche'));
+    show(s2.g, t, at('despierta')); show(s1.g, t, at('despierta') + 1.2); show(tl, t, at('despierta') + 1.6);
+    show(ar, t, at('noche') - 0.3); show(a, t, at('noche') - 0.3);
+  };
+});
+// 8. not by car: call 112 and follow the operator
+scene(svg, () => at('coche'), () => at('normalidad'), g => {
+  const c1 = el('g', {}, g); Card(c1, { x: 210, y: 220, w: 660, h: 560, fill: C.white, r: 36 });
+  Icon.car(c1, 340, 300, 4); Text(c1, 'TU COCHE', { x: 540, y: 710, size: 56 });
+  const x = icon(g, 'cross', 720, 200, 1.6);
+  const c2 = el('g', {}, g); Card(c2, { x: 1050, y: 220, w: 660, h: 560, fill: C.white, r: 36 });
+  Icon.ambulance(c2, 1180, 300, 4); Text(c2, 'LLAMA AL 112', { x: 1380, y: 710, size: 56 });
+  const ok = icon(g, 'check', 1560, 200, 1.6);
+  const a = cap(g, 'SIGUE AL OPERADOR', { cy: 900, hi: 'OPERADOR' });
+  const b = cap(g, 'NO ESPERES MÁS SÍNTOMAS', { cy: 900, fill: C.red });
+  return t => {
+    pop(c1, t, at('coche'), 540, 500); pop(x, t, at('coche') + 0.5, 800, 280);
+    pop(c2, t, at('coche') + 0.9, 1380, 500); pop(ok, t, at('indicaciones'), 1640, 280);
+    show(a, t, at('indicaciones'), at('mas2')); show(b, t, at('mas2'));
+  };
+});
+// 9. even if they seem fine again, it is still urgent
+stillScene(svg, 'r3', () => at('normalidad'), () => at('colocar'), { focus: [0.3, 0.4], zoom: 0.1 }, g => {
+  const s = Stamp(g, 'SIGUE SIENDO URGENTE', { cx: 1180, cy: 260, size: 78 });
+  return t => s.draw(t, at('normalidad') + 0.6);
+});
+// 10. bridge: how should I position them?
+stillScene(svg, 'e4', () => at('colocar'), () => END + 1, { focus: [0.45, 0.4], zoom: 0.1 }, g => {
+  const q = icon(g, 'question', 1640, 110, 1.8);
+  const a = cap(g, '¿CÓMO COLOCARLA?', { hi: 'COLOCARLA' });
+  const b = cap(g, 'MOVERLA PUEDE SER UN RIESGO', { fill: C.red });
+  return t => { pop(q, t, at('colocar') + 0.3, 1730, 200); show(a, t, at('colocar'), at('riesgos')); show(b, t, at('riesgos')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

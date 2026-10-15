@@ -8,7 +8,7 @@ const SZ = {
   f1: [828, 455], f2: [828, 455], f3: [828, 468], f4: [828, 468],
   l1: [827, 461], l2: [827, 461], l3: [827, 464], l4: [827, 464],
   e1: [828, 461], e2: [828, 461], e3: [828, 466], e4: [828, 466],
-  brain: [318, 267], heart: [194, 270],
+  brain: [318, 267], heart: [194, 270], body: [242, 453],
 };
 // Frames for drawn panels: FULL (hook, big moments), LEFT (still + side info on the right).
 const FULL = { x: 40, y: 40, w: 1840, h: 1000, r: 30 };
@@ -240,3 +240,51 @@ function Pulse(g, cx, cy, r = 40) {
 }
 // Drooping mouth corner in f1 (image px). The drawn droop is on Rafael's left; see factcheck/cues.
 const MOUTH = [505, 285];
+// More icons for steps 2–3.
+Icon.glass = (p, x, y, s = 1) => {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, p);
+  el('path', { d: 'M28 14 H72 L66 88 H34 Z', fill: C.white, stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, g);
+  el('path', { d: 'M32 44 H68 L65 86 H35 Z', fill: C.blueFar }, g);
+  el('path', { d: 'M28 14 H72 L66 88 H34 Z', fill: 'none', stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, g);
+  return g;
+};
+Icon.gauge = (p, x, y, s = 1) => {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, p);
+  el('path', { d: 'M10 70 A40 40 0 0 1 90 70 Z', fill: C.white, stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, g);
+  el('path', { d: 'M62 34 A40 40 0 0 1 90 70 L76 70 A26 26 0 0 0 58 46 Z', fill: C.red }, g);
+  el('line', { x1: 50, y1: 70, x2: 78, y2: 42, stroke: C.ink, 'stroke-width': 8, 'stroke-linecap': 'round' }, g);
+  el('circle', { cx: 50, cy: 70, r: 8, fill: C.ink }, g);
+  return g;
+};
+Icon.car = (p, x, y, s = 1) => {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, p);
+  el('path', { d: 'M8 66 V50 L22 46 L32 28 H66 L78 46 L92 50 V66 Z', fill: C.blue, stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, g);
+  el('path', { d: 'M38 34 H62 L70 46 H32 Z', fill: C.white, stroke: C.ink, 'stroke-width': 5, 'stroke-linejoin': 'round' }, g);
+  for (const cx of [28, 72]) el('circle', { cx, cy: 68, r: 11, fill: C.ink }, g);
+  return g;
+};
+Icon.ambulance = (p, x, y, s = 1) => {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, p);
+  el('path', { d: 'M4 72 V30 H62 V44 H80 L96 58 V72 Z', fill: C.white, stroke: C.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, g);
+  el('rect', { x: 4, y: 56, width: 92, height: 8, fill: C.red }, g);
+  el('path', { d: 'M27 36 H39 V44 H47 V56 H39 V64 H27 V56 H19 V44 H27 Z', fill: C.red, transform: 'translate(0 -6) scale(1 0.8)' }, g);
+  el('rect', { x: 26, y: 22, width: 14, height: 8, rx: 3, fill: C.blue, stroke: C.ink, 'stroke-width': 4 }, g);
+  for (const cx of [24, 76]) el('circle', { cx, cy: 76, r: 11, fill: C.ink }, g);
+  return g;
+};
+Icon.hospital = (p, x, y, s = 1) => {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, p);
+  el('rect', { x: 12, y: 20, width: 76, height: 72, rx: 6, fill: C.white, stroke: C.ink, 'stroke-width': 7 }, g);
+  el('path', { d: 'M42 30 H58 V44 H72 V60 H58 V74 H42 V60 H28 V44 H42 Z', fill: C.red, stroke: C.ink, 'stroke-width': 4, 'stroke-linejoin': 'round' }, g);
+  el('line', { x1: 4, y1: 92, x2: 96, y2: 92, stroke: C.ink, 'stroke-width': 7, 'stroke-linecap': 'round' }, g);
+  return g;
+};
+Icon.bed = (p, x, y, s = 1) => {
+  const g = el('g', { transform: `translate(${x} ${y}) scale(${s})` }, p);
+  el('rect', { x: 8, y: 50, width: 84, height: 20, rx: 6, fill: C.amber, stroke: C.ink, 'stroke-width': 7 }, g);
+  el('rect', { x: 14, y: 36, width: 26, height: 16, rx: 8, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, g);
+  el('path', { d: 'M8 30 V86 M92 50 V86', stroke: C.ink, 'stroke-width': 8, 'stroke-linecap': 'round' }, g);
+  return g;
+};
+// icon wrapped in its own group so pop()/slideIn() can transform it
+const icon = (g, name, x, y, s, ...a) => { const w = el('g', {}, g); Icon[name](w, x, y, s, ...a); return w; };

@@ -82,3 +82,75 @@ decir | qué debes decir exactamente
 rapida | organizar una respuesta rápida
 # punto 2
 p2 | Sabías que dos personas
+diferente | una atención muy diferente
+suerte | No se trata de tener suerte
+cerca | vivir más cerca de un hospital
+segundos | durante los primeros segundos
+error2 | Y aquí aparece un error
+padre | Mi padre se encuentra mal
+mareada | Mi mujer está mareada
+precision | no describen con precisión
+espana | En España existe
+codigo | llamado Código Ictus
+coordinar | coordinar rápidamente
+atencion2 | Pero atención
+protocolo | exigir que activen
+sintomas2 | explicar claramente los síntomas
+sencillo | Puedes decir algo tan sencillo
+creo | Creo que mi marido
+fuerza2 | ha perdido fuerza en el brazo
+hablar2 | tiene dificultades para hablar
+operador | Esa información permite al operador
+detalle | Ahora viene un detalle
+hora | a qué hora comenzaron
+ultimo | el último momento
+porque2 | Por qué es tan importante
+tratamientos | algunos tratamientos destinados
+pruebas2 | las pruebas hospitalarias
+despierta | si una persona despierta
+noche | aunque fuera la noche anterior
+coche | no lleves al paciente
+indicaciones | sigue las indicaciones del operador
+mas2 | Tampoco esperes a que aparezcan
+normalidad | aunque la persona recupere
+colocar | cómo debes colocar
+riesgos | puede crear nuevos riesgos
+# punto 3
+p3 | Ya has reconocido las señales
+llamado3 | Has llamado al 112
+espera3 | comienza una espera
+debil | parece cada vez más débil
+sentarla | es mejor sentarla
+depende | depende de su estado de conciencia
+respiracion3 | su respiración
+indicaciones3 | las indicaciones del servicio
+funciones | algunas funciones
+musculos | el control de los músculos
+tragar | la capacidad para tragar
+vias | la protección de las vías
+mover3 | mover a la persona innecesariamente
+caidas | riesgo de caídas
+consciente | Si permanece consciente
+obligarla | Evita obligarla a levantarse
+sentada | permanecer sentada con apoyo
+presta | Pero presta mucha atención
+pierde | Si pierde el conocimiento
+lateral | posición lateral de seguridad
+norespira | Si no respira normalmente
+rcp | maniobras de reanimación
+nunca3 | Nunca debes limitarte
+aflojar | aflojar las prendas
+observar | observar cualquier cambio
+sacudirla | Evita sacudirla
+masajes | darle masajes fuertes
+despertarla | intentar despertarla
+sola | no dejes sola a la persona
+compartir | puedes compartir este vídeo
+peligro3 | todavía queda un peligro
+agua | un vaso de agua
+aspirina | una aspirina
+tension | una pastilla para bajar la tensión
+logica | Parece una manera lógica
+complicaciones | estas decisiones pueden provocar
+# punto 4
+p4 | Hay un gesto que hacemos

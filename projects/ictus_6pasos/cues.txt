@@ -1,0 +1,84 @@
+# Cues on audio/voice.mp3
+# intro
+manana | Y si mañana te despertaras
+brazo | ya no puedes mover un brazo
+caminar | caminar sin ayuda
+hijos | decir el nombre de tus hijos
+doloroso | Lo más doloroso es que
+consecuencias | las consecuencias de un ictus
+reducirse | podrían reducirse
+reconocido | hubiera reconocido las señales
+atiempo | pedido ayuda a tiempo
+sesenta | Después de los sesenta años
+autonomia | perder la autonomía
+vestirte | No poder vestirte solo
+comer | necesitar ayuda para comer
+familia | depender de tu familia
+insignif | algo aparentemente insignificante
+sonrisa | una sonrisa torcida
+mano | una mano que pierde fuerza
+palabras | unas palabras que de repente
+peligro | El verdadero peligro
+descanso | pensar que desaparecerá
+seis | seis pasos fundamentales
+ambulancia0 | qué hacer mientras llega la ambulancia
+errores0 | qué errores evitar
+minuto0 | por qué cada minuto importa
+esencial | Pero recuerda algo esencial
+llama112 | llama inmediatamente al
+noesperes | No esperes a terminar
+quedate | Quédate, porque conocer
+independencia | proteger tu independencia
+quieres | la vida de alguien a quien quieres
+# punto 1
+p1 | Tu cerebro puede estar sufriendo
+convencido | convencido de que no ocurre nada grave
+peligrosos | uno de los aspectos más peligrosos
+caida | No siempre provoca una caída
+conocimiento | pérdida inmediata del conocimiento
+cambio | A veces comienza con un pequeño cambio
+cansancio | confundir con el cansancio
+aprender | aprender a reconocer las primeras señales
+regla | existe una regla muy sencilla
+fast | Se llama
+letras | cuatro letras inglesas
+F | La primera letra
+asimetria | asimetría repentina en el rostro
+comisura | Una comisura de la boca
+dolor | Aunque la persona no sienta dolor
+A | La segunda letra
+levante | pídele que levante ambos brazos
+cae | Si uno pierde fuerza
+neuro | podría existir un problema neurológico
+S | La tercera letra
+extranas | pronuncia frases extrañas
+comprender | Le cuesta comprender
+lenguaje | Una alteración repentina del lenguaje
+rafael | piensa en Rafael
+zaragoza | vivía con su esposa en Zaragoza
+tarde | Una tarde, mientras hablaban
+dificiles | palabras difíciles de entender
+distraido | Su mujer pensó que estaba distraído
+inquietante | observó algo inquietante
+mando | intentaba coger el mando
+mano1 | mano
+insistia | Él insistía en que estaba bien
+cena | levantarse para preparar la cena
+recordo | Su esposa recordó las señales
+llamo | llamó inmediatamente al
+noespero | No esperó a comprobar
+correcta | Esa fue la decisión correcta
+T | aquí aparece la última letra
+sindemora | llama al 112 sin demora
+pruebas | No esperes a completar
+tambien | Recuerda también que un ictus
+vision | pérdida brusca de visión
+andar | dificultades para caminar
+cabeza | un dolor de cabeza repentino
+suscribete | suscríbete al canal
+queremos | Queremos que más personas
+fundamental1 | Y ahora viene una cuestión fundamental
+decir | qué debes decir exactamente
+rapida | organizar una respuesta rápida
+# punto 2
+p2 | Sabías que dos personas

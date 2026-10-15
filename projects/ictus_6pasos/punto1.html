@@ -1,0 +1,179 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 1 — recognise the signs: F.A.S.T., Rafael's story, other signs.
+window.START = at('p1') - 0.6;
+window.END = at('p2') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+const cap = (g, s, o = {}) => Caption(g, s, { cy: 965, size: 62, ...o });
+const capL = (g, s, o = {}) => Caption(g, s, { cx: 675, cy: 930, size: 56, ...o });
+
+// 1. kicker over the brain
+scene(svg, () => START, () => at('convencido'), g => {
+  const k = Kicker(g, 1, 'LAS SEÑALES');
+  Progress(g, 0);
+  const b = el('g', {}, g);
+  const fl = floatCut(b, 'brain', 960, 590, 760);
+  const pu = Pulse(b, 1020, 510, 50);
+  return t => { slideIn(k, t, START + 0.3, 'l', 600); fl(t); pu(t); pop(b, t, START + 0.4, 960, 590); };
+});
+// 2. "nothing serious…"
+stillScene(svg, 'r3', () => at('convencido'), () => at('caida'), { focus: [0.3, 0.4], zoom: 0.1 }, g => {
+  const c = cap(g, '«NO ES NADA»', { size: 72, hi: 'NADA' });
+  const d = Drama(g);
+  return t => show(c, t, at('convencido'));
+});
+// 3. not always a fall or fainting
+stillScene(svg, 'e2', () => at('caida'), () => at('cambio'), { focus: [0.3, 0.6], zoom: 0.06 }, g => {
+  Veil(g, 0.35);
+  const a = Chip(g, 'NO SIEMPRE HAY CAÍDA', { cx: 960, cy: 300, size: 58 });
+  const b = Chip(g, 'NI DESMAYO', { cx: 960, cy: 480, size: 58 });
+  const xa = Icon.cross(g, 0, 0, 1.2), xb = Icon.cross(g, 0, 0, 1.2);
+  return t => {
+    pop(a, t, at('caida'), 960, 300); pop(b, t, at('conocimiento'), 960, 480);
+    set(xa, { transform: `translate(${430 - 60} ${300 - 60}) scale(1.2)`, opacity: prog(t, at('caida') + 0.4, at('caida') + 0.6) });
+    set(xb, { transform: `translate(${700 - 60} ${480 - 60}) scale(1.2)`, opacity: prog(t, at('conocimiento') + 0.4, at('conocimiento') + 0.6) });
+  };
+});
+// 4. a small change, easy to mistake for tiredness or age
+stillScene(svg, 'f1', () => at('cambio'), () => at('aprender'), { focus: [0.55, 0.6], zoom: 0.14 }, g => {
+  const a = cap(g, 'UN PEQUEÑO CAMBIO', { hi: 'PEQUEÑO' });
+  const b = cap(g, '¿CANSANCIO? ¿LA EDAD?', { fill: C.orange });
+  return t => { show(a, t, at('cambio'), at('cansancio')); show(b, t, at('cansancio')); };
+});
+
+// 5. F.A.S.T. — four letters
+scene(svg, () => at('aprender'), () => at('F'), g => {
+  const h = Text(g, 'UNA REGLA MUY SENCILLA', { x: 960, y: 200, size: 80 });
+  const tiles = FAST.map(([L], i) => {
+    const c = el('g', {}, g), x = 960 + (i - 1.5) * 380;
+    Card(c, { x: x - 160, y: 340, w: 320, h: 320, fill: C.orange, r: 40 });
+    Text(c, L, { x, y: 510, size: 230, color: C.white });
+    return [c, x];
+  });
+  const sub = Chip(g, '4 LETRAS · 4 SEÑALES', { cx: 960, cy: 820, size: 52 });
+  const p = Progress(g, 0);
+  return t => {
+    show(h, t, at('aprender') + 0.2);
+    tiles.forEach(([c, x], i) => { pop(c, t, at('fast') + 0.25 + i * 0.25, x, 500); float(c.firstChild, t, x, 500, { phase: i * 0.25, amp: 5 }); });
+    show(sub, t, at('letras'));
+  };
+});
+
+// 6–8. F, A, S: drawing on the left, the four tiles on the right
+function fastScene(n, a, b, build) {
+  scene(svg, a, b, g => {
+    const st = still(g, n, { ...LEFT, zoom: 0 });
+    const tiles = FastColumn(g, { x: 1380, y: 120 });
+    const more = build(g);
+    return t => {
+      st.draw(t, a(), b());
+      lightFast(tiles, t, [at('F'), t >= at('A') ? at('A') : 0, t >= at('S') ? at('S') : 0, t >= at('T') ? at('T') : 0]);
+      punch(st.g, t, a() + 0.6, 675, 490, 0.04);
+      more(t);
+    };
+  });
+}
+fastScene('f1', () => at('F'), () => at('A'), g => {
+  const [mx, my] = imgPt(LEFT, 'f1', MOUTH[0], MOUTH[1]);
+  const co = Callout(g, mx, my, 95);
+  const a = capL(g, 'CARA: ¿ASIMÉTRICA?', { hi: 'CARA' });
+  const b = capL(g, 'SONRISA DESIGUAL', { hi: 'DESIGUAL' });
+  const c = capL(g, 'SIN DOLOR, PERO URGENTE', { fill: C.red });
+  return t => { co(t, at('comisura')); show(a, t, at('F') + 0.3, at('comisura')); show(b, t, at('comisura'), at('dolor')); show(c, t, at('dolor')); };
+});
+fastScene('f2', () => at('A'), () => at('S'), g => {
+  const [hx, hy] = imgPt(LEFT, 'f2', 350, 330);
+  const arc = el('g', {}, g); Arrow(arc, hx + 90, hy - 230, hx + 90, hy + 10, C.red, 14, '6 26');
+  const co = Callout(g, hx, hy, 95);
+  const a = capL(g, 'LEVANTA LOS DOS BRAZOS', { hi: 'DOS BRAZOS' });
+  const b = capL(g, 'UN BRAZO CAE', { hi: 'CAE', fill: C.red });
+  return t => { show(arc, t, at('cae')); co(t, at('cae') + 0.2); show(a, t, at('levante'), at('cae')); show(b, t, at('cae')); };
+});
+fastScene('f3', () => at('S'), () => at('rafael'), g => {
+  const a = capL(g, 'HABLA CONFUSA', { hi: 'CONFUSA' });
+  const b = capL(g, '¿NO TE ENTIENDE?', { fill: C.orange });
+  const co = Callout(g, ...imgPt(LEFT, 'f3', 620, 120), 150);
+  return t => { show(a, t, at('extranas'), at('comprender')); show(b, t, at('comprender')); co(t, at('extranas')); };
+});
+
+// 9–13. Rafael's story (dramatisation)
+scene(svg, () => at('rafael'), () => at('inquietante'), g => {
+  const st = still(g, 'r1', { focus: [0.3, 0.45], zoom: 0.14 });
+  const id = Chip(g, 'RAFAEL · 72 AÑOS · ZARAGOZA', { cx: 960, cy: 130, fill: C.ink, color: C.amber, size: 48 });
+  const a = cap(g, 'PALABRAS DIFÍCILES', { hi: 'DIFÍCILES' });
+  const b = cap(g, '¿DISTRAÍDO?', { fill: C.orange });
+  Drama(g);
+  return t => { st.draw(t, at('rafael'), at('inquietante')); show(id, t, at('rafael') + 0.3); show(a, t, at('dificiles'), at('distraido')); show(b, t, at('distraido')); };
+});
+scene(svg, () => at('inquietante'), () => at('insistia'), g => {
+  const st = still(g, 'r2', { zoom: 0 });
+  const co = Callout(g, ...imgPt(FULL, 'r2', 315, 395), 120);
+  const a = cap(g, 'LA MANO NO RESPONDE', { hi: 'NO RESPONDE' });
+  Drama(g);
+  return t => { st.draw(t, 0, 1); punch(st.g, t, at('mando'), ...imgPt(FULL, 'r2', 315, 395), 0.06); co(t, at('mano1')); show(a, t, at('mando')); };
+});
+stillScene(svg, 'r3', () => at('insistia'), () => at('recordo'), { focus: [0.3, 0.4], zoom: 0.12 }, g => {
+  const a = cap(g, '«ESTOY BIEN»', { size: 72, hi: 'BIEN' });
+  Drama(g);
+  return t => show(a, t, at('insistia'));
+});
+stillScene(svg, 'r4', () => at('recordo'), () => at('T'), { focus: [0.75, 0.4], zoom: 0.1 }, g => {
+  const b = Badge112(g, { cx: 1600, cy: 200, size: 1.1 });
+  const s = Stamp(g, 'DECISIÓN CORRECTA', { cx: 700, cy: 230, size: 72, color: C.green, rot: -6 });
+  const a = cap(g, 'NO ESPERÓ', { hi: 'NO ESPERÓ' });
+  Drama(g);
+  return t => { b.draw(t, at('llamo')); show(a, t, at('noespero')); s.draw(t, at('correcta')); };
+});
+
+// 14. T — time: call 112 without delay
+scene(svg, () => at('T'), () => at('tambien'), g => {
+  const ck = MinuteClock(g, { cx: 520, cy: 430, r: 250 });
+  const b = Badge112(g, { cx: 520, cy: 830, size: 1.1 });
+  const tiles = FastColumn(g, { x: 1380, y: 120 });
+  const a = Caption(g, 'UNA SEÑAL BASTA', { cx: 960, cy: 1010, size: 54, hi: 'UNA' });
+  return t => {
+    ck.draw(t, at('T')); pop(ck.g, t, at('T'), 520, 430);
+    lightFast(tiles, t, [at('F'), at('A'), at('S'), at('T')]);
+    b.draw(t, at('sindemora')); show(a, t, at('pruebas'));
+  };
+});
+
+// 15. other sudden signs
+scene(svg, () => at('tambien'), () => at('suscribete'), g => {
+  const st = still(g, 'f4', { ...LEFT, focus: [0.5, 0.4], zoom: 0.1 });
+  const h = Text(g, 'TAMBIÉN, DE REPENTE:', { x: 1610, y: 170, size: 46, color: C.orange });
+  const rows = [['eye', 'VISIÓN', 'vision'], ['walk', 'CAMINAR', 'andar'], ['question', 'DOLOR DE\nCABEZA', 'cabeza']].map(([ic, s, k], i) => {
+    const c = el('g', {}, g), y = 250 + i * 230;
+    Card(c, { x: 1380, y, w: 470, h: 190, fill: C.white, r: 28 });
+    Icon[ic](c, 1405, y + 40, 1.1, ic === 'question' ? C.red : undefined);
+    s.split('\n').forEach((l, j, arr) => Text(c, l, { x: 1540, y: y + 95 + (j - (arr.length - 1) / 2) * 52, size: 48, anchor: 'start' }));
+    return [c, k];
+  });
+  return t => { st.draw(t, at('tambien'), at('suscribete')); show(h, t, at('tambien')); rows.forEach(([c, k]) => slideIn(c, t, at(k), 'r', 500)); };
+});
+
+// 16. subscribe
+stillScene(svg, 'a4', () => at('suscribete'), () => at('fundamental1'), { focus: [0.5, 0.4], zoom: 0.08 }, g => {
+  Veil(g, 0.35);
+  const c = CTA(g, 'sub', 880);
+  return t => pop(c, t, at('suscribete'), 960, 880);
+});
+// 17. bridge: what do I say on the phone?
+stillScene(svg, 'l2', () => at('fundamental1'), () => END + 1, { focus: [0.7, 0.35], zoom: 0.1 }, g => {
+  const b = Badge112(g, { cx: 1650, cy: 190, size: 0.9 });
+  const a = cap(g, '¿QUÉ DIGO AL 112?', { hi: '112' });
+  return t => { b.draw(t, at('fundamental1') + 0.4); show(a, t, at('decir')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

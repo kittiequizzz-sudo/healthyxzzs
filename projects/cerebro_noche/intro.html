@@ -1,0 +1,251 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#141A2E;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — hook: a hard cut every ~2 s, every beat a picture.
+window.START = 0;
+window.END = at('p1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const H = { hard: true };
+
+// 1. cold open: asleep at night → "your brain works"
+scene(svg, () => -1, () => at('recuerdos'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'b1_sleep', { focus: [0.3, 0.4], zoom: 0.12 });
+  const clk = Caption(g, '23:00', { cx: 300, cy: 150, size: 54, fill: C.ink, color: C.amber });
+  const cap = Cap(g, 'TU CEREBRO TRABAJA', { hi: 'TRABAJA' });
+  return t => { st.draw(t, 0, at('recuerdos')); slideIn(clk, t, 1.4, 'l', 300); punch(w, t, at('jamas'), 560, 400, 0.1); show(cap, t, at('jamas')); };
+}, H);
+
+// 2. memories filed into the brain
+scene(svg, () => at('recuerdos'), () => at('conexiones'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 460, 700);
+  const cards = [[Icon.heart, -1], [Icon.bubble, 1], [Icon.plate, -1]].map(([ic, side], i) => {
+    const c = el('g', {}, g);
+    Card(c, { x: -70, y: -60, w: 140, h: 120, fill: C.cream, r: 18 });
+    ic(c, -40, -42, 0.8);
+    return [c, side, i];
+  });
+  const cap = Cap(g, 'RECUERDOS', { hi: 'RECUERDOS' });
+  return t => {
+    float(b, t, 960, 460);
+    cards.forEach(([c, side, i]) => {
+      const u = E.inOut(prog(t, at('recuerdos') + 0.2 + i * 0.45, at('recuerdos') + 1.0 + i * 0.45));
+      const x = lerp(960 + side * 820, 900 + i * 60, u), y = lerp(250 + i * 220, 440, u), s = lerp(1.3, 0.35, u);
+      set(c, { transform: `translate(${x} ${y}) scale(${s})`, opacity: u < 0.97 ? 1 : 1 - prog(t, at('recuerdos') + 1.0 + i * 0.45, at('recuerdos') + 1.2 + i * 0.45) });
+    });
+    show(cap, t, at('recuerdos'));
+  };
+}, H);
+
+// 3. neurons rewire: sparks run down the axon
+scene(svg, () => at('conexiones'), () => at('limpieza'), g => {
+  const X = 960, Y = 470, F = 1000, iw = 541, ih = 370, s = F / iw;
+  const P = [[0.25, 0.42], [0.4, 0.62], [0.55, 0.7], [0.7, 0.72], [0.84, 0.66]].map(([u, v]) => [X - F / 2 + u * iw * s, Y - ih * s / 2 + v * ih * s]);
+  const n = el('g', {}, g); cut(n, 'a3_neuron', X, Y, F);
+  const sp = [0, 1, 2].map(() => el('circle', { r: 16, fill: C.amber, stroke: C.white, 'stroke-width': 5 }, g));
+  const cap = Cap(g, 'NUEVAS CONEXIONES', { hi: 'CONEXIONES' });
+  return t => {
+    float(n, t, X, Y, { amp: 4 });
+    sp.forEach((e, i) => {
+      const u = ((t - at('conexiones')) * 0.75 + i / 3) % 1, f = u * (P.length - 1), k = Math.floor(f), r = f - k;
+      const p = P[Math.min(k, P.length - 2)], q = P[Math.min(k + 1, P.length - 1)];
+      set(e, { cx: lerp(p[0], q[0], r), cy: lerp(p[1], q[1], r), opacity: Math.min(1, u * 6, (1 - u) * 6) });
+    });
+    show(cap, t, at('conexiones'));
+  };
+}, H);
+
+// 4. night cleaning: blue fluid sweeps grey waste away
+scene(svg, () => at('limpieza'), () => at('inquietante'), g => {
+  const w = el('g', {}, g);
+  const b = el('g', {}, w); cut(b, 'a1_brain', 960, 460, 700);
+  const waste = Dots(w, 22, { x: 700, y: 260, w: 520, h: 380, r: 12 });
+  const fl = Flow(w, { x1: 520, x2: 1420, y: 440, spread: 170, n: 40, r: 11, speed: 260 });
+  const cap = Cap(g, 'LIMPIEZA NOCTURNA', { hi: 'LIMPIEZA' });
+  return t => {
+    float(b, t, 960, 460);
+    fl.draw(t, prog(t, at('limpieza'), at('limpieza') + 0.5));
+    waste.draw(t, { tx: 1500, ty: 440, k: prog(t, at('limpieza') + 0.6, at('inquietante') - 0.3) });
+    show(cap, t, at('limpieza'));
+    punch(w, t, at('cientificos'), 960, 460, 0.08);
+  };
+}, H);
+
+// 5. "lo más inquietante": the dark bedroom
+scene(svg, () => at('inquietante'), () => at('bloqueara'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'b4_door', { focus: [0.6, 0.5], zoom: 0.18 });
+  const cap = Cap(g, 'LO MÁS INQUIETANTE', { hi: 'INQUIETANTE' });
+  return t => { st.draw(t, at('inquietante'), at('bloqueara')); show(cap, t, at('inquietante')); punch(w, t, at('inquietante') + 2.8, 1150, 520, 0.08); };
+}, H);
+
+// 6. muscles locked
+scene(svg, () => at('bloqueara'), () => at('nisiquiera'), g => {
+  const st = still(g, 'b1_sleep', { focus: [0.45, 0.6], zoom: 0.06 });
+  const tint = el('rect', { ...BIG, rx: 28, fill: C.red, opacity: 0 }, g);
+  const lk = Lock(g, 1100, 640, 1.5);
+  const cap = Cap(g, 'MÚSCULOS BLOQUEADOS', { hi: 'BLOQUEADOS' });
+  return t => {
+    st.draw(t, at('bloqueara'), at('nisiquiera'));
+    tint.setAttribute('opacity', (0.18 * prog(t, at('bloqueara'), at('bloqueara') + 0.4)).toFixed(3));
+    pop(lk, t, at('bloqueara') + 0.2, 1100, 640);
+    show(cap, t, at('musculos'));
+  };
+}, H);
+
+// 7. "and you won't even notice": close on the calm face
+scene(svg, () => at('nisiquiera'), () => at('porque'), g => {
+  const st = still(g, 'b1_sleep', { focus: [0.3, 0.38], zoom: 0.45 });
+  const cap = Cap(g, 'NI TE DAS CUENTA', { hi: 'NI' });
+  return t => { st.draw(t, at('nisiquiera') - 0.6, at('porque')); show(cap, t, at('nisiquiera')); };
+}, H);
+
+// 8. ¿por qué?
+scene(svg, () => at('porque'), () => at('fallara'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'b4_door', { focus: [0.6, 0.5], zoom: 0.1 });
+  el('rect', { ...BIG, rx: 28, fill: C.ink, opacity: 0.45 }, w);
+  const q = Text(g, '¿POR QUÉ?', { x: 960, y: 520, size: 190, color: C.amber });
+  return t => { st.draw(t, at('porque'), at('fallara')); pop(q, t, at('porque'), 960, 520); };
+}, H);
+
+// 9. ¿y si fallara? — acting out a dream
+scene(svg, () => at('fallara'), () => at('decadas'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'c2_rbd', { focus: [0.4, 0.4], zoom: 0.12 });
+  const cap = Cap(g, '¿Y SI FALLARA?', { hi: 'FALLARA', size: 66 });
+  return t => { st.draw(t, at('fallara'), at('decadas')); show(cap, t, at('fallara')); punch(w, t, at('fallara') + 1.2, 640, 400, 0.08); };
+}, H);
+
+// 10. "sleep = switch off"? → no: the brain stays on
+scene(svg, () => at('decadas'), () => at('actividad'), g => {
+  const sw = el('g', {}, g);
+  el('rect', { x: 260, y: 360, width: 560, height: 260, rx: 130, fill: '#3A4366', stroke: C.cream, 'stroke-width': 10 }, sw);
+  const knob = el('circle', { cy: 490, r: 105, fill: C.cream, stroke: C.ink, 'stroke-width': 8 }, sw);
+  const off = Text(sw, 'OFF', { x: 640, y: 495, size: 70, color: C.cream });
+  const on = Text(sw, 'ON', { x: 410, y: 495, size: 70, color: C.ink });
+  const b = el('g', {}, g); cut(b, 'a1_brain', 1380, 480, 620);
+  const cap1 = Cap(g, '¿DORMIR = DESCONECTAR?', { hi: 'DESCONECTAR' });
+  const cap2 = Cap(g, 'SIGUE ENCENDIDO', { hi: 'ENCENDIDO' });
+  return t => {
+    const u = E.back(prog(t, at('hoy'), at('hoy') + 0.4));
+    set(knob, { cx: lerp(390, 690, clamp(u, 0, 1.1)), fill: u > 0.5 ? C.amber : C.cream });
+    sw.firstChild.setAttribute('fill', u > 0.5 ? C.green : '#3A4366');
+    off.setAttribute('opacity', 1 - clamp(u)); on.setAttribute('opacity', clamp(u));
+    b.setAttribute('opacity', (0.35 + 0.65 * clamp(u)).toFixed(3));
+    float(b, t, 1380, 480);
+    show(cap1, t, at('decadas') + 0.3, at('hoy'));
+    show(cap2, t, at('hoy') + 0.3);
+  };
+}, H);
+
+// 11. extraordinary activity: regions light up
+scene(svg, () => at('actividad'), () => at('diez') - 0.9, g => {
+  const w = el('g', {}, g);
+  const b = el('g', {}, w); cut(b, 'a1_brain', 960, 460, 760);
+  const fl = el('filter', { id: 'soft', x: '-50%', y: '-50%', width: '200%', height: '200%' }, g); el('feGaussianBlur', { stdDeviation: 18 }, fl);
+  const spots = [[780, 360], [980, 300], [1120, 420], [880, 500], [1060, 560]].map(([x, y]) => el('circle', { cx: x, cy: y, r: 60, fill: '#FFE08A', opacity: 0, filter: 'url(#soft)' }, w));
+  const cap = Cap(g, 'ACTIVIDAD EXTRAORDINARIA', { hi: 'EXTRAORDINARIA' });
+  return t => {
+    spots.forEach((s, i) => s.setAttribute('opacity', (0.9 * Math.max(0, Math.sin(t * 2.6 + i * 1.3)) * prog(t, at('actividad'), at('actividad') + 0.5)).toFixed(3)));
+    show(cap, t, at('actividad'));
+    punch(w, t, at('actividad') + 1.8, 960, 460, 0.07);
+  };
+}, H);
+
+// 12. ten processes every night
+scene(svg, () => at('diez') - 0.9, () => at('olvidamos'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 280, 380);
+  const ten = Ten(g, { cy: 640 });
+  const cap = Cap(g, '10 PROCESOS CADA NOCHE', { hi: '10' });
+  return t => {
+    float(b, t, 960, 280);
+    ten.items.forEach((it, i) => pop(it.c, t, at('diez') + i * 0.14, it.x, ten.cy));
+    show(cap, t, at('cabeza'));
+  };
+}, H);
+
+// 13. forgetting: a memory card dissolves
+scene(svg, () => at('olvidamos'), () => at('aprendemos'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 1320, 460, 560);
+  const card = el('g', {}, g);
+  Card(card, { x: 340, y: 300, w: 420, h: 320, fill: C.cream, r: 24 });
+  Icon.heart(card, 490, 340, 1.2);
+  [0, 1].forEach(i => el('rect', { x: 400, y: 500 + i * 46, width: 300 - i * 90, height: 22, rx: 11, fill: C.grey }, card));
+  const bits = Dots(g, 26, { x: 360, y: 310, w: 380, h: 300, r: 10, fill: C.cream, seed: 11 });
+  const cap = Cap(g, 'OLVIDAR', { hi: 'OLVIDAR' });
+  return t => {
+    const k = prog(t, at('olvidamos') + 0.5, at('aprendemos') - 0.3);
+    card.setAttribute('opacity', (1 - k).toFixed(3));
+    bits.draw(t, { appear: prog(t, at('olvidamos') + 0.4, at('olvidamos') + 0.8), tx: 120, ty: 200, k });
+    float(b, t, 1320, 460);
+    show(cap, t, at('olvidamos'));
+  };
+}, H);
+
+// 14. learning while asleep: brain + light bulb
+scene(svg, () => at('aprendemos'), () => at('ultimo'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 540, 640);
+  const bulb = el('g', {}, g);
+  const glow = el('circle', { cx: 960, cy: 170, r: 120, fill: C.amber, opacity: 0.3 }, bulb);
+  el('path', { d: 'M960 90 A70 70 0 0 1 1005 214 L1000 240 L920 240 L915 214 A70 70 0 0 1 960 90 Z', fill: C.amber, stroke: C.ink, 'stroke-width': 7 }, bulb);
+  el('rect', { x: 925, y: 240, width: 70, height: 34, rx: 8, fill: C.grey, stroke: C.ink, 'stroke-width': 6 }, bulb);
+  const cap = Cap(g, 'APRENDER', { hi: 'APRENDER' });
+  return t => {
+    float(b, t, 960, 540);
+    pop(bulb, t, at('aprendemos') + 0.3, 960, 190);
+    glow.setAttribute('r', (110 + 15 * Math.sin(t * 5)).toFixed(1));
+    show(cap, t, at('aprendemos'));
+  };
+}, H);
+
+// 15. "pay attention to the last one": #10 grows orange
+scene(svg, () => at('ultimo'), () => at('pesadillas'), g => {
+  const ten = Ten(g, { cy: 470 });
+  const cap = Cap(g, 'EL ÚLTIMO', { hi: 'ÚLTIMO', size: 66 });
+  return t => {
+    const u = E.inOut(prog(t, at('ultimo') + 0.5, at('ultimo') + 1.4));
+    ten.items.forEach((it, i) => {
+      if (i < 9) { it.c.setAttribute('opacity', (1 - u).toFixed(3)); it.c.removeAttribute('transform'); }
+      else {
+        const x = lerp(it.x, 960, u), s = 1 + 1.6 * u;
+        it.c.setAttribute('transform', `translate(${x} ${ten.cy}) scale(${s.toFixed(3)}) translate(${-it.x} ${-ten.cy})`);
+        set(it.ring, { fill: u > 0.5 ? C.orange : N.bg2 });
+      }
+    });
+    show(cap, t, at('ultimo') + 0.6);
+  };
+}, H);
+
+// 16. nightmares that feel real
+scene(svg, () => at('pesadillas'), () => at('empecemos'), g => {
+  const st = still(g, 'c3_paralysis', { focus: [0.75, 0.45], zoom: 0.16 });
+  const cap = Cap(g, 'PESADILLAS MUY REALES', { hi: 'REALES' });
+  return t => { st.draw(t, at('pesadillas'), at('empecemos')); show(cap, t, at('pesadillas')); };
+}, H);
+
+// 17. first: how the brain removes waste
+scene(svg, () => at('empecemos'), () => END + 1, g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 470, 700);
+  const waste = Dots(g, 30, { x: 660, y: 250, w: 600, h: 420, r: 13, seed: 5 });
+  const fl = Flow(g, { x1: 520, x2: 1460, y: 470, spread: 180, n: 44, r: 11, speed: 280 });
+  const cap = Cap(g, 'RESIDUOS', { hi: 'RESIDUOS' });
+  return t => {
+    float(b, t, 960, 470);
+    waste.draw(t, { appear: prog(t, at('empecemos'), at('empecemos') + 1.2), tx: 1560, ty: 470, k: prog(t, at('residuos') + 0.8, END) });
+    fl.draw(t, prog(t, at('residuos') + 0.3, at('residuos') + 0.8));
+    show(cap, t, at('residuos'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

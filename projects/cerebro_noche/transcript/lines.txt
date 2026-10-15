@@ -1,0 +1,46 @@
+[0.30 - 6.60] (w0-13) Esta noche, mientras duermas, tu cerebro hará algo que jamás podrías conseguir estando despierto.
+[6.86 - 15.74] (w14-31) Reorganizará tus recuerdos, modificará conexiones entre neuronas y activará mecanismos de limpieza que todavía sorprenden a los científicos.
+[15.98 - 24.82] (w32-53) Pero lo más inquietante es que, durante una parte de la noche, tu propio cerebro bloqueará temporalmente los movimientos de tus músculos.
+[25.10 - 26.70] (w54-59) Y ni siquiera te darás cuenta.
+[27.32 - 28.70] (w60-63) ¿Por qué necesita hacerlo?
+[29.20 - 31.70] (w64-69) ¿Qué ocurriría si ese mecanismo fallara?
+[32.50 - 36.20] (w70-76) Durante décadas, pensamos que dormir significaba desconectar.
+[36.60 - 42.70] (w77-88) Hoy sabemos que algunas regiones cerebrales mantienen una actividad extraordinaria mientras descansamos.
+[43.56 - 49.82] (w89-103) En este vídeo, descubrirás 10 procesos sorprendentes que suceden dentro de tu cabeza cada noche.
+[50.08 - 63.98] (w104-135) Algunos explican por qué olvidamos ciertas cosas, otros revelan cómo aprendemos mientras dormimos y presta especial atención al último, porque podría cambiar tu manera de interpretar esas pesadillas que parecen tan reales.
+[65.04 - 70.74] (w136-146) Empecemos por algo fascinante, cómo tu cerebro elimina residuos mientras duermes.
+[71.22 - 72.30] (w147-148) Punto 1.
+[72.42 - 75.62] (w149-155) El cerebro se limpia solo mientras duermes.
+[75.76 - 79.94] (w156-164) Cada día, tu cerebro produce residuos que necesitan eliminarse.
+[80.14 - 85.56] (w165-178) Son sustancias que aparecen como consecuencia natural de la actividad de millones de neuronas.
+[85.80 - 88.20] (w179-183) Pero existe un detalle sorprendente.
+[88.36 - 95.04] (w184-199) Mientras tú descansas, el cerebro activa mecanismos que facilitan la retirada de algunos de esos desechos.
+[95.32 - 105.26] (w200-225) Uno de ellos se conoce como sistema glimfático, una red de circulación de líquidos que participa en la eliminación de sustancias acumuladas en el tejido cerebral.
+[105.48 - 113.90] (w226-244) Durante el sueño, especialmente en determinadas fases profundas, este proceso puede funcionar de manera diferente a cuando estamos despiertos.
+[114.28 - 119.56] (w245-260) Piensa en una ciudad que necesita limpiar sus calles después de una jornada de tráfico intenso.
+[120.10 - 122.90] (w261-267) Algo parecido sucede dentro de tu cabeza.
+[123.14 - 131.84] (w268-288) El líquido cephalorraquidio circula por espacios asociados a los vasos sanguíneos y contribuye al intercambio de sustancias con el tejido cerebral.
+[132.12 - 140.48] (w289-306) Entre los residuos estudiados se encuentra la proteína betaamiloide, cuya acumulación está relacionada con la enfermedad de Alzheimer.
+[140.70 - 150.34] (w307-330) Sin embargo, todavía se investiga cómo funciona exactamente este mecanismo en las personas y hasta qué punto influye en nuestra salud a largo plazo.
+[150.54 - 154.96] (w331-339) Lo fascinante es que dormir no significa simplemente descansar.
+[155.28 - 160.24] (w340-349) También proporciona condiciones importantes para mantener el equilibrio del cerebro.
+[160.48 - 170.74] (w350-371) Si te interesa descubrir estos procesos que ocurren silenciosamente dentro de tu cuerpo, suscríbete al canal, porque todavía quedan nueve fenómenos extraordinarios.
+[170.94 - 174.26] (w372-377) Y el siguiente resulta especialmente inquietante.
+[174.46 - 180.72] (w378-391) Mientras sueñas, tu cerebro puede impedir deliberadamente que muevas gran parte de tu cuerpo.
+[181.06 - 182.20] (w392-393) Punto 2.
+[182.28 - 186.60] (w394-402) Tu cerebro paraliza tu cuerpo para protegerte mientras sueñas.
+[186.86 - 192.82] (w403-417) Esta noche podrías estar corriendo, saltando o escapando de algún peligro dentro de un sueño.
+[193.02 - 197.70] (w418-427) Sin embargo, tu cuerpo permanecerá prácticamente inmóvil sobre la cama.
+[197.90 - 199.64] (w428-432) Y no es una casualidad.
+[199.80 - 207.60] (w433-451) Tu cerebro dispone de un mecanismo extraordinario que impide que reproduzcas físicamente muchas de las acciones que estás soñando.
+[207.86 - 220.14] (w452-480) Este fenómeno se llama atonía muscular y aparece principalmente durante la fase REM, una etapa del sueño caracterizada por una intensa actividad cerebral y movimientos rápidos de los ojos.
+[220.36 - 229.44] (w481-499) Durante esos minutos, determinadas regiones del tronco encefálico activan circuitos que inhiben las neuronas encargadas de controlar nuestros músculos.
+[229.58 - 234.34] (w500-511) Sustancias como el GABA y la glifina partifipan en este bloqueo temporal.
+[234.66 - 241.40] (w512-527) Gracias a ellas, podemos experimentar sueños llenos de movimientos y levantarnos de la cama para representarlos.
+[241.72 - 247.48] (w528-540) Pero ¿qué ocurre cuando ese sistema no se sincroniza correctamente con nuestro despertar?
+[247.74 - 262.16] (w541-569) Aparece uno de los fenómenos nocturnos más desconcertantes, la parálisis del sueño, conocida popularmente como parálisis del sueño, o en algunas culturas como quedarse atrapado bajo una presencia invisible.
+[262.36 - 272.72] (w570-590) La persona recupera la consciencia, puede percibir su habitación e incluso experimentar alucinaciones, pero durante unos segundos resulta incapaz de moverse.
+[272.96 - 277.78] (w591-599) Aunque suele ser inofensiva, la experiencia puede resultar aterradora.
+[278.02 - 279.94] (w600-603) Y existe otra curiosidad.
+[280.18 - 284.82] (w604-615) Justo cuando empiezas a dormir, tu cerebro puede provocar el efecto contrario.
+[285.04 - 290.56] (w616-627) En lugar de inmovilizarte, desencadena una sacudida repentina que te despierta sobresaltado.

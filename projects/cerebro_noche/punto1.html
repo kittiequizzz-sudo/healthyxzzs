@@ -1,0 +1,221 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#141A2E;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 1 — el cerebro se limpia solo mientras duermes (glymphatic system).
+window.START = at('p1') - 0.3;
+window.END = at('p2') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+
+// Vessel + CSF sleeve diagram, reused in three scenes. Returns draw(t, {flow, pull, arrows}).
+function Vessel(g, { dim = false } = {}) {
+  const v = el('g', {}, g);
+  const tissue = Dots(v, 26, { x: 300, y: 790, w: 1320, h: 110, r: 11, seed: 9 });
+  const top = Dots(v, 18, { x: 330, y: 110, w: 1260, h: 70, r: 11, seed: 21 });
+  const im = el('g', {}, v); cut(im, 'a4_vessel', 960, 470, 1150);
+  const f1 = Flow(v, { x1: 420, x2: 1500, y: 262, spread: 16, n: 22, r: 10, speed: 170 });
+  const f2 = Flow(v, { x1: 420, x2: 1500, y: 690, spread: 16, n: 22, r: 10, speed: 170 });
+  const arr = el('g', {}, v);
+  [560, 960, 1360].forEach(x => { Arrow(arr, x - 24, 790, x - 24, 735, C.amber, 12); Arrow(arr, x + 24, 735, x + 24, 790, C.amber, 12); });
+  if (dim) v.setAttribute('opacity', 0.45);
+  return (t, { flow = 1, pull = 0, arrows = 0 } = {}) => {
+    float(im, t, 960, 470, { amp: 3, tilt: 0.3 });
+    f1.draw(t, flow); f2.draw(t, flow);
+    tissue.draw(t, { tx: 1500, ty: 700, k: pull });
+    top.draw(t, { tx: 1500, ty: 262, k: pull });
+    arr.setAttribute('opacity', arrows.toFixed(3));
+    arr.setAttribute('transform', `translate(0 ${(4 * Math.sin(t * 4)).toFixed(1)})`);
+  };
+}
+
+// 1. section kicker over the brain with the blue fluid
+scene(svg, () => START, () => at('cada'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 400, 620);
+  const fl = Flow(g, { x1: 560, x2: 1360, y: 390, spread: 150, n: 34, r: 9, speed: 220 });
+  const k = Kicker(g, 1, 'EL CEREBRO SE LIMPIA SOLO');
+  return t => { float(b, t, 960, 400); fl.draw(t, prog(t, START + 0.6, START + 1.2)); pop(k, t, at('p1'), 960, 860); };
+});
+
+// 2. daily waste from millions of neurons
+scene(svg, () => at('cada'), () => at('detalle'), g => {
+  const small = [[330, 240], [1590, 240], [330, 720], [1590, 720]].map(([x, y]) => { const s = el('g', {}, g); cut(s, 'a3_neuron', x, y, 360); return [s, x, y]; });
+  const n = el('g', {}, g); cut(n, 'a3_neuron', 960, 450, 900);
+  const waste = Dots(g, 34, { x: 520, y: 220, w: 880, h: 470, r: 12, seed: 4 });
+  const c1 = Cap(g, 'RESIDUOS DE CADA DÍA', { hi: 'RESIDUOS' });
+  const c2 = Cap(g, 'MILLONES DE NEURONAS', { hi: 'MILLONES' });
+  return t => {
+    float(n, t, 960, 450, { amp: 4 });
+    waste.draw(t, { appear: prog(t, at('cada') + 0.8, at('millones')) });
+    small.forEach(([s, x, y], i) => { show(s, t, at('millones') + i * 0.15); });
+    show(c1, t, at('cada') + 0.6, at('millones')); show(c2, t, at('millones') + 0.2);
+  };
+});
+
+// 3. while you rest, the brain removes some of that waste
+scene(svg, () => at('detalle'), () => at('glinf'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'b1_sleep', { focus: [0.3, 0.4], zoom: 0.12 });
+  const ins = el('g', {}, g);
+  el('circle', { cx: 1500, cy: 330, r: 215, fill: N.bg, stroke: C.cream, 'stroke-width': 10 }, ins);
+  const ib = el('g', {}, ins); cut(ib, 'a1_brain', 1500, 330, 330);
+  const fl = Flow(ins, { x1: 1340, x2: 1660, y: 320, spread: 80, n: 16, r: 7, speed: 120 });
+  const c1 = Cap(g, 'MIENTRAS DESCANSAS', { hi: 'DESCANSAS' });
+  const c2 = Cap(g, 'RETIRA DESECHOS', { hi: 'RETIRA' });
+  return t => {
+    st.draw(t, at('detalle'), at('glinf'));
+    punch(w, t, at('detalle'), 600, 420, 0.06);
+    show(c1, t, at('descansas'), at('desechos')); show(c2, t, at('desechos') + 0.2);
+    pop(ins, t, at('desechos') - 0.3, 1500, 330);
+    fl.draw(t, 1);
+  };
+});
+
+// 4. the glymphatic system: fluid along the vessels carries waste away
+scene(svg, () => at('glinf'), () => at('fases'), g => {
+  const V = Vessel(g);
+  const cap = Cap(g, 'SISTEMA GLINFÁTICO', { hi: 'GLINFÁTICO' });
+  const src = Src(g, 'Iliff et al., Sci Transl Med 2012 · Xie et al., Science 2013 (en ratones)');
+  return t => {
+    V(t, { flow: prog(t, at('red'), at('red') + 0.6), pull: prog(t, at('tejido1') - 0.4, at('fases') - 0.4) });
+    show(cap, t, at('glinf')); show(src, t, at('glinf') + 0.5);
+  };
+});
+
+// 5. during deep sleep it works differently
+scene(svg, () => at('fases'), () => at('ciudad'), g => {
+  const w = el('g', {}, g);
+  const hy = Hypnogram(w, { x: 400, y: 230, w: 1320, h: 470 });
+  const cap = Cap(g, 'SUEÑO PROFUNDO', { hi: 'PROFUNDO' });
+  const src = Src(g, 'Fultz et al., Science 2019 · Hablitz et al., Sci Adv 2019');
+  return t => {
+    hy.draw(E.inOut(prog(t, at('fases') - 0.2, at('fases') + 1.6)), prog(t, at('fases') + 1.0, at('fases') + 1.4) * (0.75 + 0.25 * Math.sin(t * 4)));
+    show(cap, t, at('fases') + 1.2); show(src, t, at('fases') + 1.4);
+    punch(w, t, at('despiertos'), 960, 500, 0.05);
+  };
+});
+
+// 6. city metaphor: the street sweeper at night
+scene(svg, () => at('ciudad'), () => at('parecido'), g => {
+  const st = still(g, 'b2_sweeper', { focus: [0.55, 0.6], zoom: 0.14 });
+  const c1 = Cap(g, 'UNA CIUDAD DE NOCHE', { hi: 'NOCHE' });
+  const c2 = Cap(g, 'DESPUÉS DEL TRÁFICO', { hi: 'TRÁFICO' });
+  return t => { st.draw(t, at('ciudad'), at('parecido')); show(c1, t, at('ciudad'), at('trafico')); show(c2, t, at('trafico') + 0.2); };
+});
+
+// 7. something similar inside your head
+scene(svg, () => at('parecido'), () => at('lcr'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 450, 720);
+  const waste = Dots(g, 26, { x: 680, y: 240, w: 560, h: 400, r: 12, seed: 8 });
+  const fl = Flow(g, { x1: 540, x2: 1400, y: 440, spread: 170, n: 40, r: 10, speed: 260 });
+  const cap = Cap(g, 'DENTRO DE TU CABEZA', { hi: 'CABEZA' });
+  return t => {
+    float(b, t, 960, 450);
+    fl.draw(t, 1);
+    waste.draw(t, { tx: 1500, ty: 440, k: prog(t, at('parecido') + 0.6, at('lcr')) });
+    show(cap, t, at('parecido'));
+  };
+});
+
+// 8. CSF flows along the vessels and exchanges with brain tissue
+scene(svg, () => at('lcr'), () => at('beta'), g => {
+  const V = Vessel(g);
+  const lcr = Chip(g, 'LÍQUIDO CEFALORRAQUÍDEO', { cx: 960, cy: 160, fill: N.csf, size: 46 });
+  const vas = Chip(g, 'VASO SANGUÍNEO', { cx: 960, cy: 470, fill: C.red, color: C.white, size: 44 });
+  const cap = Cap(g, 'INTERCAMBIO', { hi: 'INTERCAMBIO' });
+  return t => {
+    V(t, { flow: 1, pull: prog(t, at('intercambio') + 0.3, at('beta') - 0.3), arrows: prog(t, at('intercambio'), at('intercambio') + 0.4) });
+    show(lcr, t, at('lcr')); show(vas, t, at('vasos'), at('intercambio'));
+    show(cap, t, at('intercambio'));
+  };
+});
+
+// 9. beta-amyloid, linked to Alzheimer's
+scene(svg, () => at('beta'), () => at('investiga'), g => {
+  const n = el('g', {}, g); cut(n, 'a3_neuron', 960, 450, 900);
+  const pl = [];
+  let sd = 13; const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < 9; i++) {
+    const cx = 560 + rnd() * 800, cy = 260 + rnd() * 380, c = el('g', {}, g);
+    for (let j = 0; j < 5; j++) el('circle', { cx: cx + (rnd() - 0.5) * 50, cy: cy + (rnd() - 0.5) * 40, r: 14 + rnd() * 12, fill: N.plaque, stroke: C.ink, 'stroke-width': 4 }, c);
+    pl.push([c, cx, cy]);
+  }
+  const c1 = Cap(g, 'BETA-AMILOIDE', { hi: 'BETA-AMILOIDE' });
+  const c2 = Cap(g, 'RELACIONADA CON ALZHEIMER', { hi: 'ALZHEIMER' });
+  return t => {
+    float(n, t, 960, 450, { amp: 4 });
+    pl.forEach(([c, x, y], i) => pop(c, t, at('beta') + 0.3 + i * 0.25, x, y));
+    show(c1, t, at('beta'), at('alzheimer')); show(c2, t, at('alzheimer') + 0.2);
+  };
+});
+
+// 10. still being studied in people
+scene(svg, () => at('investiga'), () => at('fascinante'), g => {
+  const V = Vessel(g, { dim: true });
+  const st = Stamp(g, 'AÚN EN ESTUDIO', { cx: 960, cy: 470, size: 92, color: C.orange });
+  const cap = Cap(g, '¿Y EN PERSONAS?', { hi: 'PERSONAS' });
+  const src = Src(g, 'Xie 2013 y Miao 2024: estudios en ratones, resultados aún debatidos · Shokri-Kojori, PNAS 2018 (personas)');
+  return t => { V(t, { flow: 1 }); st.draw(t, at('investiga')); show(cap, t, at('personas')); show(src, t, at('investiga') + 0.5); };
+});
+
+// 11. sleep is not just rest: balance for the brain
+scene(svg, () => at('fascinante'), () => at('interesa'), g => {
+  const st = still(g, 'b3_morning', { focus: [0.3, 0.35], zoom: 0.1 });
+  const ok = el('g', {}, g); Icon.check(ok, 1560, 120, 1.7);
+  const c1 = Cap(g, 'NO SOLO DESCANSAR', { hi: 'SOLO' });
+  const c2 = Cap(g, 'EQUILIBRIO DEL CEREBRO', { hi: 'EQUILIBRIO' });
+  return t => {
+    st.draw(t, at('fascinante'), at('interesa'));
+    show(c1, t, at('fascinante'), at('equilibrio')); show(c2, t, at('equilibrio') + 0.2);
+    pop(ok, t, at('equilibrio') + 0.3, 1645, 205);
+  };
+});
+
+// 12. subscribe — nine more to go
+scene(svg, () => at('interesa'), () => at('siguiente'), g => {
+  const b = el('g', {}, g); cut(b, 'a1_brain', 960, 230, 330);
+  const ten = Ten(g, { cy: 520 });
+  const tick = el('g', {}, g); Icon.check(tick, ten.items[0].x - 40, 440, 0.8);
+  const sub = el('g', {}, g);
+  el('rect', { x: 700, y: 650, width: 520, height: 130, rx: 65, fill: C.red, stroke: C.cream, 'stroke-width': 6 }, sub);
+  Text(sub, 'SUSCRÍBETE', { x: 960, y: 717, size: 62, color: C.white });
+  const cap = Cap(g, 'QUEDAN 9', { hi: '9', size: 64 });
+  return t => {
+    float(b, t, 960, 230);
+    ten.items.forEach((it, i) => {
+      show(it.c, t, at('interesa') + i * 0.08, 1e9, { dy: 20, dur: 0.3 });
+      if (i === 0) set(it.ring, { fill: C.green });
+      else set(it.ring, { fill: t > at('nueve') + (i - 1) * 0.1 ? C.orange : N.bg2 });
+    });
+    pop(tick, t, at('interesa') + 0.6, ten.items[0].x + 10, 490);
+    pop(sub, t, at('suscribete'), 960, 715);
+    show(cap, t, at('nueve'));
+  };
+});
+
+// 13. bridge: while you dream, the brain stops you moving
+scene(svg, () => at('siguiente'), () => END + 1, g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'c1_dream', { focus: [0.6, 0.3], zoom: 0.1 });
+  const lk = Lock(g, 520, 760, 1.3);
+  const cap = Cap(g, 'NO TE DEJA MOVERTE', { hi: 'MOVERTE' });
+  return t => {
+    st.draw(t, at('siguiente'), END);
+    punch(w, t, at('siguiente') + 1.6, 1100, 300, 0.06);
+    pop(lk, t, at('impedir') + 0.3, 520, 760);
+    show(cap, t, at('impedir'));
+  };
+});
+
+// progress strip (point 1 of 10), above everything
+scene(svg, () => at('cada'), () => END + 1, g => { const p = Progress(g, 0); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

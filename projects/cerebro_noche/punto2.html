@@ -1,0 +1,218 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#141A2E;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 2 — tu cerebro paraliza tu cuerpo mientras sueñas (REM atonia, sleep paralysis).
+window.START = at('p2') - 0.3;
+window.END = 292.2;            // voice ends at 290.7; short hold on the last picture
+window.DURATION = window.END;
+const svg = Stage();
+
+// Brain → spinal cord → muscle diagram with a signal and a gate.
+// draw(t, {sig, gate, ring}) — sig: signal on, gate 0..1 (dots stop at the gate), ring: brainstem pulse.
+function Signal(g) {
+  const d = el('g', {}, g);
+  const B = el('g', {}, d); cut(B, 'a2_sagittal', 560, 430, 640);
+  const M = el('g', {}, d); cut(M, 'a5_muscle', 1500, 500, 560);
+  const ring = el('circle', { cx: 592, cy: 520, r: 70, fill: 'none', stroke: C.red, 'stroke-width': 10, opacity: 0 }, d);
+  const P = [[624, 715], [700, 930], [1180, 960], [1380, 640]];
+  const bz = u => { const v = 1 - u; return [0, 1].map(k => v * v * v * P[0][k] + 3 * v * v * u * P[1][k] + 3 * v * u * u * P[2][k] + u * u * u * P[3][k]); };
+  el('path', { d: `M${P[0]} C${P[1]} ${P[2]} ${P[3]}`, fill: 'none', stroke: '#3A4366', 'stroke-width': 18, 'stroke-linecap': 'round' }, d);
+  const dots = [0, 1, 2, 3, 4].map(() => el('circle', { r: 14, fill: C.amber, stroke: C.white, 'stroke-width': 4 }, d));
+  const GU = 0.55, [gx, gy] = bz(GU);
+  const gate = el('g', {}, d);
+  el('rect', { x: gx - 16, y: gy - 90, width: 32, height: 180, rx: 12, fill: C.red, stroke: C.ink, 'stroke-width': 6 }, gate);
+  const stop = Chip(gate, 'STOP', { cx: gx, cy: gy - 140, fill: C.red, color: C.white, size: 40 });
+  return {
+    g: d, gx, gy,
+    draw(t, { sig = 1, gate: gk = 0, ring: rk = 0 } = {}) {
+      float(B, t, 560, 430, { amp: 3 }); float(M, t, 1500, 500, { amp: 3, phase: 0.4 });
+      dots.forEach((e, i) => {
+        let u = ((t * 0.32 + i / 5) % 1);
+        if (gk > 0.5) u = Math.min(u, GU - 0.03 - i * 0.012);
+        const [x, y] = bz(u);
+        set(e, { cx: x.toFixed(1), cy: y.toFixed(1), opacity: (sig * Math.min(1, u * 10)).toFixed(3) });
+      });
+      pop(gate, t, gk > 0 ? t - gk * 0.35 : 1e9, gx, gy);
+      if (gk <= 0) gate.setAttribute('opacity', 0);
+      set(ring, { opacity: (rk * (0.6 + 0.4 * Math.sin(t * 5))).toFixed(3), r: (70 + 8 * Math.sin(t * 5)).toFixed(1) });
+      // muscle relaxes (dims) once the gate is up
+      M.setAttribute('opacity', (1 - 0.35 * clamp(gk)).toFixed(3));
+    },
+  };
+}
+const gateAt = (t, t0) => clamp((t - t0) / 0.35);
+
+// 1. section kicker over the sagittal brain + padlock
+scene(svg, () => START, () => at('corriendo') - 0.6, g => {
+  const b = el('g', {}, g); cut(b, 'a2_sagittal', 960, 390, 560);
+  const lk = Lock(g, 1230, 270, 1.1);
+  const k = Kicker(g, 2, 'TU CEREBRO TE PARALIZA');
+  return t => { float(b, t, 960, 390); pop(k, t, at('p2'), 960, 860); pop(lk, t, at('p2') + 0.8, 1230, 270); };
+});
+
+// 2. running in a dream…
+scene(svg, () => at('corriendo') - 0.6, () => at('inmovil'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'c1_dream', { focus: [0.62, 0.3], zoom: 0.16 });
+  const cap = Cap(g, 'CORRES EN SUEÑOS', { hi: 'CORRES' });
+  return t => { st.draw(t, at('corriendo') - 0.6, at('inmovil')); show(cap, t, at('corriendo')); punch(w, t, at('peligro'), 1200, 330, 0.07); };
+});
+
+// 3. …while the body stays still
+scene(svg, () => at('inmovil'), () => at('mecanismo2'), g => {
+  const st = still(g, 'b1_sleep', { focus: [0.45, 0.6], zoom: 0.08 });
+  const c1 = Cap(g, 'CUERPO INMÓVIL', { hi: 'INMÓVIL' });
+  const c2 = Cap(g, 'NO ES CASUALIDAD', { hi: 'CASUALIDAD' });
+  return t => { st.draw(t, at('inmovil'), at('mecanismo2')); show(c1, t, at('inmovil'), at('casualidad')); show(c2, t, at('casualidad') + 0.2); };
+});
+
+// 4. the brain blocks the signal to the muscles
+scene(svg, () => at('mecanismo2'), () => at('atonia'), g => {
+  const S = Signal(g);
+  const cap = Cap(g, 'SEÑAL BLOQUEADA', { hi: 'BLOQUEADA' });
+  const t0 = () => at('mecanismo2') + 2.6;
+  return t => { S.draw(t, { gate: gateAt(t, t0()) }); show(cap, t, t0()); };
+});
+
+// 5. muscle atonia during REM sleep (rapid eye movements)
+scene(svg, () => at('atonia'), () => at('tronco'), g => {
+  const hy = Hypnogram(g, { x: 420, y: 360, w: 1300, h: 380 });
+  const ew = el('g', {}, g); const eye = Eye(ew, 960, 160, 1.3);
+  const c1 = Cap(g, 'ATONÍA MUSCULAR', { hi: 'ATONÍA' });
+  const c2 = Cap(g, 'FASE REM', { hi: 'REM', size: 64 });
+  return t => {
+    hy.draw(E.inOut(prog(t, at('atonia') - 0.2, at('atonia') + 1.4)), 0, prog(t, at('rem'), at('rem') + 0.4) * (0.75 + 0.25 * Math.sin(t * 4)));
+    show(c1, t, at('atonia'), at('rem')); show(c2, t, at('rem') + 0.2);
+    pop(ew, t, at('ojos'), 960, 160);
+    eye.draw(t, t > at('ojos') + 0.3);
+  };
+});
+
+// 6–7. the brainstem inhibits motor neurons; GABA and glycine
+scene(svg, () => at('tronco'), () => at('gracias'), g => {
+  const S = Signal(g);
+  const c1 = Cap(g, 'TRONCO ENCEFÁLICO', { hi: 'TRONCO' });
+  const c2 = Cap(g, 'FRENA LA SEÑAL', { hi: 'FRENA' });
+  const m1 = Chip(g, 'GABA', { cx: 0, cy: 0, fill: C.amber, size: 46 });
+  const m2 = Chip(g, 'GLICINA', { cx: 0, cy: 0, fill: C.green, color: C.white, size: 46 });
+  const src = Src(g, 'Brooks y Peever, J Neurosci 2012 · Peever y Fuller, Curr Biol 2017');
+  return t => {
+    S.draw(t, { gate: gateAt(t, at('inhiben')), ring: prog(t, at('tronco'), at('tronco') + 0.4) * (1 - prog(t, at('gaba'), at('gaba') + 0.4)) });
+    show(c1, t, at('tronco'), at('inhiben')); show(c2, t, at('inhiben') + 0.2, at('gaba'));
+    const u1 = E.back(prog(t, at('gaba'), at('gaba') + 0.5)), u2 = E.back(prog(t, at('glicina'), at('glicina') + 0.5));
+    m1.setAttribute('transform', `translate(${lerp(300, S.gx - 170, u1)} ${S.gy - 30})`); m1.setAttribute('opacity', clamp(u1 * 3));
+    m2.setAttribute('transform', `translate(${lerp(1800, S.gx + 230, u2)} ${S.gy - 30})`); m2.setAttribute('opacity', clamp(u2 * 3));
+    show(src, t, at('gaba'));
+  };
+});
+
+// 8. dreams full of movement, without getting up
+scene(svg, () => at('gracias'), () => at('pero2'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'c1_dream', { focus: [0.3, 0.6], zoom: 0.12 });
+  const cap = Cap(g, 'SUEÑAS SIN MOVERTE', { hi: 'SIN MOVERTE' });
+  return t => { st.draw(t, at('gracias'), at('pero2')); show(cap, t, at('gracias')); punch(w, t, at('gracias') + 3, 500, 500, 0.06); };
+});
+
+// 9. out of sync: the mind wakes, the muscles are still locked
+scene(svg, () => at('pero2'), () => at('aparece'), g => {
+  const X1 = 520, X2 = 1700, cur0 = () => at('pero2') + 0.6, cur1 = () => at('aparece') - 0.6;
+  const b = el('g', {}, g); cut(b, 'a1_brain', 330, 330, 290);
+  const m = el('g', {}, g); cut(m, 'a5_muscle', 330, 700, 300);
+  const bar = (y, col1, col2, split) => {
+    const r = el('g', {}, g);
+    el('rect', { x: X1, y: y - 50, width: (X2 - X1) * split, height: 100, rx: 20, fill: col1, stroke: C.ink, 'stroke-width': 6 }, r);
+    el('rect', { x: X1 + (X2 - X1) * split, y: y - 50, width: (X2 - X1) * (1 - split), height: 100, rx: 20, fill: col2, stroke: C.ink, 'stroke-width': 6 }, r);
+    return r;
+  };
+  bar(330, '#3A4366', C.amber, 0.35);
+  bar(700, C.red, C.green, 0.72);
+  const lk = Lock(g, X1 + (X2 - X1) * 0.18, 700, 0.7, C.cream);
+  const gap = el('rect', { x: X1 + (X2 - X1) * 0.35, y: 220, width: (X2 - X1) * 0.37, height: 590, rx: 20, fill: C.orange, opacity: 0, stroke: C.orange, 'stroke-width': 8, 'stroke-dasharray': '24 16' }, g);
+  const cursor = el('line', { y1: 230, y2: 800, stroke: C.cream, 'stroke-width': 8, 'stroke-linecap': 'round' }, g);
+  const cap = Cap(g, 'NO SE SINCRONIZA', { hi: 'NO' });
+  return t => {
+    float(b, t, 330, 330); float(m, t, 330, 700, { phase: 0.5 });
+    set(cursor, { x1: lerp(X1, X2, E.inOut(prog(t, cur0(), cur1()))), x2: lerp(X1, X2, E.inOut(prog(t, cur0(), cur1()))) });
+    const u = prog(t, at('sincroniza') + 0.6, at('sincroniza') + 1.0);
+    set(gap, { 'fill-opacity': (0.18 * u).toFixed(3), opacity: u.toFixed(3) });
+    show(cap, t, at('sincroniza'));
+  };
+});
+
+// 10. sleep paralysis — "an invisible presence"
+scene(svg, () => at('aparece'), () => at('consciencia'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'c3_paralysis', { focus: [0.75, 0.45], zoom: 0.14 });
+  const c1 = Cap(g, 'PARÁLISIS DEL SUEÑO', { hi: 'PARÁLISIS' });
+  const c2 = Cap(g, 'UNA PRESENCIA INVISIBLE', { hi: 'INVISIBLE' });
+  return t => {
+    st.draw(t, at('aparece'), at('consciencia'));
+    show(c1, t, at('paralisis'), at('presencia')); show(c2, t, at('presencia') + 0.2);
+    punch(w, t, at('culturas'), 1400, 450, 0.08);
+  };
+});
+
+// 11. awake, hallucinations, can't move for a few seconds
+scene(svg, () => at('consciencia'), () => at('inofensiva'), g => {
+  const st = Still(g, 'cut/c3_paralysis.png', { x: 60, y: 120, w: 1150, h: 644, iw: STILL[0], ih: STILL[1], focus: [0.25, 0.45], zoom: 0.18 });
+  const tile = (y, label, icon) => {
+    const c = el('g', {}, g);
+    Card(c, { x: 1270, y, w: 600, h: 200, fill: C.cream, r: 26 });
+    icon(c, 1370, y + 100);
+    Text(c, label, { x: 1460, y: y + 100, size: label.length > 11 ? 40 : 46, anchor: 'start' });
+    return c;
+  };
+  const t1 = tile(130, 'CONSCIENTE', (c, x, y) => { const e = Eye(c, x, y, 0.55); });
+  const t2 = tile(370, 'ALUCINACIONES', (c, x, y) => { const q = el('g', {}, c); Icon.question(q, x - 50, y - 50, 1); });
+  const t3 = tile(610, 'UNOS SEGUNDOS', (c, x, y) => Lock(c, x, y - 10, 0.8));
+  return t => {
+    st.draw(t, at('consciencia') - 0.5, at('inofensiva'));
+    show(t1, t, at('consciencia')); show(t2, t, at('alucinaciones')); show(t3, t, at('segundos'));
+  };
+});
+
+// 12. usually harmless, but frightening
+scene(svg, () => at('inofensiva'), () => at('curiosidad'), g => {
+  const st = still(g, 'c3_paralysis', { focus: [0.3, 0.45], zoom: 0.1 });
+  const sp = Stamp(g, 'SUELE SER INOFENSIVA', { cx: 960, cy: 300, size: 72, color: C.green, rot: -5 });
+  const cap = Cap(g, 'PERO DA MIEDO', { hi: 'MIEDO' });
+  const src = Src(g, 'Sharpless y Barber, Sleep Med Rev 2011');
+  return t => { st.draw(t, at('inofensiva'), at('curiosidad')); sp.draw(t, at('inofensiva')); show(cap, t, at('aterradora')); show(src, t, at('inofensiva') + 0.4); };
+});
+
+// 13. another curiosity: as you fall asleep, the opposite effect
+scene(svg, () => at('curiosidad'), () => at('sacudida'), g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'b1_sleep', { focus: [0.3, 0.4], zoom: 0.1 });
+  const c1 = Cap(g, 'OTRA CURIOSIDAD', { hi: 'CURIOSIDAD' });
+  const c2 = Cap(g, 'EL EFECTO CONTRARIO', { hi: 'CONTRARIO' });
+  return t => {
+    st.draw(t, at('curiosidad'), at('sacudida'));
+    show(c1, t, at('curiosidad'), at('contrario')); show(c2, t, at('contrario') + 0.2);
+    punch(w, t, at('empiezas'), 560, 400, 0.06);
+  };
+}, { hard: true });
+
+// 14. the sudden jolt (hard cut) → next point
+scene(svg, () => at('sacudida'), () => END + 1, g => {
+  const w = el('g', {}, g);
+  const st = still(w, 'c4_jerk', { focus: [0.45, 0.4], zoom: 0.1 });
+  const cap = Cap(g, '¡UNA SACUDIDA!', { hi: 'SACUDIDA', size: 64 });
+  const nx = Caption(g, 'PUNTO 3 →', { cx: 1640, cy: 160, size: 46, fill: C.orange, color: C.white });
+  return t => { st.draw(t, at('sacudida'), END); punch(w, t, at('sacudida') + 0.1, 960, 450, 0.1); show(cap, t, at('sacudida')); show(nx, t, at('sobresaltado') + 1.2); };
+}, { hard: true });
+
+// progress strip (point 2 of 10), above everything
+scene(svg, () => at('corriendo') - 0.6, () => END + 1, g => { Progress(g, 1); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

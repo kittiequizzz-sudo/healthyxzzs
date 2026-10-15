@@ -5,7 +5,7 @@ received. Timing comes from the voice-over (transcribe → cues 0.1–0.3 s befo
 
 Format: code infographics + real drawings shown as stills (push-in) and cut-outs. No pose sheets
 (no exercise). Drawings: ORDER A (brain/item sheet) + ORDER B, C, D (2×2 scene panels) = 16 drawings
-for ~4.3 min ≈ 1 per 16 s. Character: senior_m (attach his sheet).
+for ~4.3 min ≈ 1 per 16 s. Character: round_m (white round-head man, `characters/round_m/`).
 
 ## Visual system
 - **Night palette**: ink `#1B1A22` sky with a moon in the corner for "while you sleep"; cream for the

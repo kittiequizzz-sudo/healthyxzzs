@@ -6,7 +6,6 @@ and the voice. You find every other picture and make all the sound. Worked examp
 
 ## Photos: `scripts/find_media.py`
 ```
-export TMPDIR=<scratchpad>
 python3 .claude/skills/health-news/scripts/find_media.py search "blood pressure" --n 8 --sheet <scratchpad>/s1.jpg
 python3 .claude/skills/health-news/scripts/find_media.py search "heart anatomy" --src science --sheet <scratchpad>/s2.jpg
 python3 .claude/skills/health-news/scripts/find_media.py get projects/<slug> bp_arm oca98fa9d

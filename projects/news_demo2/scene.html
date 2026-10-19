@@ -11,8 +11,7 @@
 // No voice yet: times are fixed; a real video keys them to CUE.
 window.DURATION = 36;
 const svg = NewsStage();
-const SZ = { bedroom: [2112, 1402], bp_arm: [2112, 1273], bp_care: [2112, 1433], bp_monitor: [2112, 1207], brain: [2112, 1408],
-  burger: [2112, 1409], couple: [2112, 1408], plate: [2112, 1281], salmon: [2112, 1405], steth: [2112, 1409] };
+const SZ = {bedroom: [2112, 1402], bp_arm: [2112, 1273], bp_care: [2112, 1433], bp_monitor: [2112, 1207], brain: [2112, 1408], brain_old: [2112, 1774], burger: [2112, 1409], couple: [2112, 1408], doctor_desk: [2112, 1408], plate: [2112, 1281], salmon: [2112, 1405], steth: [2112, 1409]};
 const img = n => ({ href: 'assets/' + n + '.jpg', iw: SZ[n][0], ih: SZ[n][1] });
 const photo = (g, n, o) => Photo(g, 'assets/' + n + '.jpg', { iw: SZ[n][0], ih: SZ[n][1], ...o });
 const shots = [];

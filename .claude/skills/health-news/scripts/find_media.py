@@ -12,7 +12,9 @@ import argparse, io, json, os, re, sys, time, urllib.error, urllib.parse, urllib
 # Wikimedia's robot policy needs a descriptive agent with a contact URL, and polite pacing.
 UA = {'User-Agent': 'health-news-video/1.0 (https://github.com/kittiequizzz-sudo/healthyxzzs) python-urllib'}
 OK = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? ?[0-9.]*|cc-by(-sa)?-[0-9.]+)$', re.I)
-CACHE = os.path.join(os.environ.get('TMPDIR', '/tmp'), 'find_media_last.json')
+# candidates of every search, so `get` can fetch them later (not TMPDIR: setting it breaks Chromium renders)
+CACHE = os.path.expanduser('~/.cache/health-news/find_media_last.json')
+os.makedirs(os.path.dirname(CACHE), exist_ok=True)
 
 
 def fetch(url, data=False, tries=5):
@@ -101,7 +103,7 @@ def search(a):
             r['error'] = str(e)[:60]
         ImageDraw.Draw(sheet).text(((k % c) * W + 6, (k // c) * H + 6), r['id'], fill='yellow')
         print(f"{r['id']:>12}  {r['w']}x{r['h']}  {r.get('source', 'commons'):<10} {r['license']:<14} {r['title'][:60]}  {r.get('error', '')}")
-    out = a.sheet or os.path.join(os.environ.get('TMPDIR', '/tmp'), 'find_media_sheet.jpg')
+    out = a.sheet or os.path.expanduser('~/.cache/health-news/find_media_sheet.jpg')
     sheet.save(out); print('contact sheet:', out)
 
 

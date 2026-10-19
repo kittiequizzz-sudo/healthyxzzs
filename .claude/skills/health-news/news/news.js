@@ -20,6 +20,8 @@ function NT(p, str, { x = 0, y = 0, size = 48, font = 'H', weight = 700, color =
 const win = (t, t0, t1 = 1e9, din = 0.35, dout = 0.3) => E.out(prog(t, t0, t0 + din)) * (1 - E.inOut(prog(t, t1 - dout, t1)));
 // Width of a text element; fonts load before the first frame, so measure lazily inside draw().
 const tw = e => e.getComputedTextLength();
+// Layout measured before the web fonts load is wrong; components re-measure until this is true.
+const fontsOK = () => document.fonts.status === 'loaded';
 const fmtES = (v, d = 0) => v.toLocaleString('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' });
 
 // Background, film grade and grain. Call NewsStage() first and grade.draw(t) last in window.draw.
@@ -81,10 +83,10 @@ function Photo(p, href, { iw, ih, x = 0, y = 0, w = 1920, h = 1080, from = [1.0,
 function Bug(p, { name, section = '' }) {
   const g = el('g', {}, p);
   // soft dark corner so the bug reads on bright photos
-  const lg = el('linearGradient', { id: 'bugbg', x1: 0, y1: 0, x2: 1, y2: 0.6 }, g);
-  el('stop', { offset: '0%', 'stop-color': N.ink, 'stop-opacity': 0.55 }, lg);
-  el('stop', { offset: '100%', 'stop-color': N.ink, 'stop-opacity': 0 }, lg);
-  el('rect', { width: 760, height: 170, fill: 'url(#bugbg)' }, g);
+  const rg = el('radialGradient', { id: 'bugbg', cx: 0, cy: 0, r: 1 }, g);
+  el('stop', { offset: '0%', 'stop-color': N.ink, 'stop-opacity': 0.6 }, rg);
+  el('stop', { offset: '100%', 'stop-color': N.ink, 'stop-opacity': 0 }, rg);
+  el('rect', { width: 900, height: 260, fill: 'url(#bugbg)' }, g);
   el('rect', { x: 70, y: 56, width: 14, height: 44, fill: N.red }, g);
   const nm = NT(g, name, { x: 100, y: 80, size: 34, ls: 1 });
   const sec = NT(g, section, { x: 0, y: 80, size: 30, weight: 500, color: N.dim, ls: 1 });
@@ -94,7 +96,7 @@ function Bug(p, { name, section = '' }) {
     g,
     section(s) { sec.textContent = s; placed = false; },
     draw(t, t0 = 0) {
-      if (!placed) { const x = 100 + tw(nm) + 22; set(bar, { x }); set(sec, { x: x + 20 }); placed = true; }
+      if (!placed) { const x = 100 + tw(nm) + 22; set(bar, { x }); set(sec, { x: x + 20 }); placed = fontsOK(); }
       g.setAttribute('opacity', win(t, t0).toFixed(3));
       bar.style.display = sec.style.display = sec.textContent ? '' : 'none';
     },
@@ -117,7 +119,7 @@ function LowerThird(p, { kicker, title, x = 110, y = 820, size = 58 }) {
   return {
     g,
     draw(t, t0, t1 = 1e9) {
-      if (!W) { set(kb, { width: tw(kt) + 44 }); W = tw(tt) + 56; set(tb, { width: W }); }
+      if (!W || !fontsOK()) { set(kb, { width: tw(kt) + 44 }); W = tw(tt) + 56; set(tb, { width: W }); }
       const a = E.out(prog(t, t0, t0 + 0.45)) * (1 - E.inOut(prog(t, t1 - 0.3, t1)));
       set(clip, { width: (a * (W + 20)).toFixed(1) });
       set(edge, { x: (x + a * W - 8).toFixed(1), opacity: a > 0.02 ? 1 : 0 });
@@ -144,7 +146,7 @@ function Headline(p, lines, { x = 960, y = 470, size = 120, anchor = 'middle', h
   return {
     g,
     draw(t, t0, t1 = 1e9) {
-      if (!wmax) wmax = Math.max(...rows.map(o => tw(o.e)));
+      if (!wmax || !fontsOK()) wmax = Math.max(...rows.map(o => tw(o.e)));
       const out = 1 - E.inOut(prog(t, t1 - 0.3, t1));
       rows.forEach((o, i) => {
         const u = E.out(prog(t, t0 + i * 0.12, t0 + i * 0.12 + 0.5));
@@ -274,7 +276,7 @@ function Bars(p, { rows, x = 160, y, w = 1600, max, unit = '', dec = 0, rowH = 1
   return {
     g,
     draw(t, ts) {
-      if (!bx) {
+      if (!bx || !fontsOK()) {
         bx = x + Math.max(...items.map(o => tw(o.lab))) + 50;
         bw = x + w - bx - 280;   // room for the value after the longest bar
         items.forEach(o => { set(o.track, { x: bx, width: bw }); set(o.bar, { x: bx }); });
@@ -335,7 +337,7 @@ function Callout(p, { x, y, r = 70, lx, ly, text }) {
     g,
     // at = optional [x, y] to follow a moving photo (Photo.map); the label stays put
     draw(t, t0, t1 = 1e9, at = null) {
-      if (!placed) { const w = tw(lt); set(bg, { x: lx < x ? lx - w - 22 : lx - 22, width: w + 44 }); placed = true; }
+      if (!placed) { const w = tw(lt); set(bg, { x: lx < x ? lx - w - 22 : lx - 22, width: w + 44 }); placed = fontsOK(); }
       if (at) { const a2 = Math.atan2(ly - at[1], lx - at[0]); x = at[0]; y = at[1]; sx = x + Math.cos(a2) * r; sy = y + Math.sin(a2) * r;
         set(ring, { cx: x, cy: y, transform: `rotate(-90 ${x} ${y})` }); set(line, { x1: sx, y1: sy }); }
       const out = 1 - E.inOut(prog(t, t1 - 0.25, t1));
@@ -409,6 +411,35 @@ function EndCard(p, { name, line = 'Información general · consulte a su médic
       show(nm, t, t0, 1e9, { dy: 30 });
       pop(btn, t, t0 + 0.4, 960, 580);
       show(ln, t, t0 + 0.8, 1e9, { dy: 20 });
+    },
+  };
+}
+
+// Image-sequence clip (scripts/parallax.py output, or frames extracted from stock footage), 1920×1080
+// frames f0000.jpg… in dir. Plays from t0 at fps and holds the last frame. The renderer awaits
+// window.ready() after each draw, so every frame is fully loaded before the screenshot.
+const PENDING = [];
+window.ready = () => Promise.all(PENDING.splice(0));
+function Clip(p, dir, { n, fps = 30, x = 0, y = 0, w = 1920, h = 1080, dark = 0.2, fade = true }) {
+  const g = el('g', {}, p);
+  const im = el('image', { x, y, width: w, height: h, preserveAspectRatio: 'xMidYMid slice' }, g);
+  if (dark) el('rect', { x, y, width: w, height: h, fill: N.ink, opacity: dark }, g);
+  if (fade) {
+    const gid = 'cf' + Math.random().toString(36).slice(2), lg = el('linearGradient', { id: gid, x1: 0, y1: 0, x2: 0, y2: 1 }, g);
+    el('stop', { offset: '45%', 'stop-color': N.ink, 'stop-opacity': 0 }, lg);
+    el('stop', { offset: '100%', 'stop-color': N.ink, 'stop-opacity': 0.85 }, lg);
+    el('rect', { x, y, width: w, height: h, fill: `url(#${gid})` }, g);
+  }
+  let cur = '';
+  return {
+    g,
+    draw(t, t0) {
+      const i = Math.max(0, Math.min(n - 1, Math.floor((t - t0) * fps)));
+      const href = `${dir}/f${String(i).padStart(4, '0')}.jpg`;
+      if (href === cur) return;
+      cur = href;
+      PENDING.push(new Promise(res => { im.addEventListener('load', res, { once: true }); im.addEventListener('error', res, { once: true }); }));
+      im.setAttribute('href', href);
     },
   };
 }

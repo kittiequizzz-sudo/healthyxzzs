@@ -24,6 +24,7 @@ const dur = await page.evaluate(() => window.DURATION);
 if (frames) {
   for (const t of frames.split(',').map(Number)) {
     await page.evaluate(t => window.draw(t), t);
+    await page.evaluate(() => window.ready && window.ready());   // pages with image sequences (news.js Clip)
     await page.screenshot({ path: `${opt('--png', 'frame')}_${t}.png` });
   }
   await browser.close();
@@ -42,6 +43,7 @@ const enc = spawn('ffmpeg', ff, { stdio: ['pipe', 'inherit', 'inherit'] });
 for (let i = 0; i < n; i++) {
   const t = t0 + i / fps;
   await page.evaluate(t => window.draw(t), t);
+  await page.evaluate(() => window.ready && window.ready());
   const png = await page.screenshot({ type: 'png' });
   if (!enc.stdin.write(png)) await new Promise(r => enc.stdin.once('drain', r));
   if (i % (fps * 5) === 0) process.stderr.write(`  ${t.toFixed(1)}s / ${t1}s\n`);

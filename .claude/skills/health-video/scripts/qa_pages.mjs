@@ -20,7 +20,7 @@ for (const p of pages) {
   const [s, e] = await pg.evaluate(() => [window.START || 0, window.END]);
   const files = [];
   for (let t = s + 1; t < e; t += +step) {
-    await pg.evaluate(t => window.draw(t), t);
+    await pg.evaluate(t => window.draw(t), t); await pg.evaluate(() => window.ready && window.ready());
     const f = `${dir}/qa/${p}_${t.toFixed(1)}.png`; await pg.screenshot({ path: f }); files.push(f);
   }
   execFileSync('python3', ['-c', `

@@ -34,6 +34,7 @@ small print, wipe, grade and the photo size table in the project's `common.js`.
 | Call | What it is | Draw |
 |---|---|---|
 | `Photo(p, href, {iw, ih, x, y, w, h, from:[zoom,fx,fy], to:[…], dark, fade})` | photo filling a box with a slow camera move; `map(px,py)` gives the screen point of an image pixel this frame | `draw(t, a, b)` = move from a to b |
+| `Clip(p, dir, {n, fps, x, y, w, h, dark, fade})` | image-sequence clip (parallax output or footage frames), holds last frame | `draw(t, t0)` |
 | `Bug(svg, {name, section})` | channel name + section, top left; `.section('…')` to change | `draw(t, t0)` |
 | `LowerThird(p, {kicker, title, x, y, size})` | red kicker + white title bar wiping in | `draw(t, t0, t1)` |
 | `Headline(p, lines, {x, y, size, anchor, hi})` | lines rising out of a mask, red rule; `hi` = gold line | `draw(t, t0, t1)` |

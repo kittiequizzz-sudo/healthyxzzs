@@ -43,7 +43,7 @@ pills and stamps. Use the news components in `news/news.js` instead.
    `scene-recipes.md`. Hook first 30–40 s: a cut every 2–3 s. Budget **1 photo per 8–12 s of voice**
    (photos carry the whole picture in this style). Mark which photos are full-bleed heroes.
 4. **Source pictures** for every beat with `find_media.py` (contact sheets → `get`), check each at 1:1
-   for watermarks, upscale. Order from the owner (`asset-order.md`) only the few shots stock can't
+   for watermarks. Turn the hero shots into parallax clips (`parallax.py`). Order from the owner (`asset-order.md`) only the few shots stock can't
    cover, plus the voice spec. Write `order.md`.
 5. **Check delivered photos:** hands and fingers, faces consistent for the recurring character,
    no text, no logos, no brand names, medical devices plausible, no gore. Ask for regenerations with
@@ -76,7 +76,7 @@ pills and stamps. Use the news components in `news/news.js` instead.
 - `references/news-style.md`: palette, type, grid, pacing, transitions, sound, honesty rules, QA.
 - `references/scene-recipes.md`: every component with its call, the hook and section recipes, beat → visual table.
 - `references/sourcing-and-sound.md`: finding CC0 photos, watermark/people rules, credits, SFX and the mix.
-- `scripts/find_media.py`, `scripts/sfx.py`, `scripts/mix.py`: photo search/download, synthesised effects + music bed, soundtrack mix.
+- `scripts/find_media.py`, `scripts/parallax.py`, `scripts/sfx.py`, `scripts/mix.py`: photo search/download (stock, Flickr, science/museum sources), 2.5D parallax clips from photos, synthesised effects + music bed, soundtrack mix.
 - `references/asset-order.md`: photo prompt templates (hero, 2×2 grid, item sheet), recurring characters, voice spec, delivery checks.
 - `news/news.js`: components (`NewsStage`, `Grade`, `Photo`, `Bug`, `LowerThird`, `Headline`,
   `BigNumber`, `Chapter`, `StudyCard`, `Quote`, `Bars`, `Split`, `Callout`, `Checklist`, `Wipe`,

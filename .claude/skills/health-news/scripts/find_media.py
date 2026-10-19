@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Search free-licence photos on Wikimedia Commons (and Openverse) and download the chosen ones.
 
-  find_media.py search "elderly woman dinner" [--n 12] [--src commons|openverse]   → candidates + contact sheet
+  find_media.py search "elderly woman dinner" [--n 12] [--src stock|flickr|science|commons]   → candidates + contact sheet
   find_media.py get <project_dir> <name> <candidate_id>                             → assets/<name>.jpg + credits.json
 
 Only licences that allow commercial use and modification are kept (CC0, PD, CC BY, CC BY-SA).
@@ -53,12 +53,21 @@ def wm_thumb(url, w):
     return f"{m[1]}thumb/{m[2]}{m[3]}/{w}px-{m[3]}" if m else url
 
 
-def openverse(q, n, sources='wordpress,rawpixel,stocksnap'):
+# Source groups (Openverse proxies all of these; checked from this environment, Oct 2026)
+GROUPS = {
+    'stock': ('wordpress,rawpixel,stocksnap', 'cc0,pdm'),                      # modern stock photos, CC0
+    'flickr': ('flickr', 'cc0,pdm,by'),                                         # huge, ≤ 1024 px, CC BY needs credit
+    'science': ('nasa,wellcome_collection,met,clevelandmuseum,brooklynmuseum,smk,rijksmuseum', 'cc0,pdm,by'),
+}                                                                               # medical history, anatomy plates, space
+
+
+def openverse(q, n, group='stock'):
+    sources, licenses = GROUPS[group]
     # Openverse (CC search) proxies the files of its sources, so this works even where the photo hosts
     # themselves are blocked. WordPress Photo Directory = modern CC0 photos up to 2048 px.
     out = []
     for page in (1, 2):
-        p = {'q': q, 'source': sources, 'license_type': 'commercial,modification', 'page_size': 20, 'page': page}
+        p = {'q': q, 'source': sources, 'license': licenses, 'page_size': 20, 'page': page}
         try:
             d = fetch('https://api.openverse.org/v1/images/?' + urllib.parse.urlencode(p), True)
         except Exception:
@@ -79,7 +88,7 @@ def openverse(q, n, sources='wordpress,rawpixel,stocksnap'):
 
 def search(a):
     from PIL import Image, ImageDraw
-    res = (commons if a.src == 'commons' else openverse)(a.q, a.n)
+    res = commons(a.q, a.n) if a.src == 'commons' else openverse(a.q, a.n, a.src)
     old = json.load(open(CACHE)) if os.path.exists(CACHE) else []
     json.dump(old + res, open(CACHE, 'w'))   # candidates from every search stay available to `get`
     W, H = 480, 270; c = 4; rows = max(1, (len(res) + c - 1) // c)
@@ -118,7 +127,7 @@ def get(a):
 
 
 ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest='cmd', required=True)
-s = sp.add_parser('search'); s.add_argument('q'); s.add_argument('--n', type=int, default=12); s.add_argument('--src', default='openverse'); s.add_argument('--sheet')
+s = sp.add_parser('search'); s.add_argument('q'); s.add_argument('--n', type=int, default=12); s.add_argument('--src', default='stock', help='stock | flickr | science | commons'); s.add_argument('--sheet')
 g = sp.add_parser('get'); g.add_argument('project'); g.add_argument('name'); g.add_argument('id')
 a = ap.parse_args()
 search(a) if a.cmd == 'search' else get(a)

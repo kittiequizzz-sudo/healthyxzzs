@@ -7,7 +7,7 @@
 </head><body>
 <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
 <script>
-// Documentary demo with real CC0 photos (credits.json) and synthesised SFX (window.SFX → scripts/mix.py).
+// Documentary demo with real CC0 photos (credits.json), 2.5D parallax clips (scripts/parallax.py) and synthesised SFX (window.SFX → scripts/mix.py).
 // No voice yet: times are fixed; a real video keys them to CUE.
 window.DURATION = 36;
 const svg = NewsStage();
@@ -20,15 +20,15 @@ const shot = (a, b, build, hard = true) => { const g = el('g', {}, svg); shots.p
 
 // 1 · cold open on the empty plate
 shot(0, 3.2, g => {
-  const ph = photo(g, 'plate', { from: [1.0, 0.5, 0.6], to: [1.15, 0.45, 0.68], dark: 0.2 });
+  const ph = Clip(g, 'clips/plate', { n: 99, dark: 0.2 });
   const hl = Headline(g, ['¿QUÉ PASA SI DEJA', 'DE CENAR 7 DÍAS?'], { x: 110, y: 300, size: 104, anchor: 'start', hi: 1 });
-  return t => { ph.draw(t, 0, 3.2); hl.draw(t, 0.4); };
+  return t => { ph.draw(t, 0); hl.draw(t, 0.4); };
 });
 // 2 · night
 shot(3.2, 6.4, g => {
-  const ph = photo(g, 'bedroom', { from: [1.12, 0.6, 0.55], to: [1.0, 0.55, 0.5], dark: 0.35 });
+  const ph = Clip(g, 'clips/bedroom', { n: 99, dark: 0.35 });
   const lt = LowerThird(g, { kicker: 'Mientras duerme', title: 'Su cuerpo sigue trabajando' });
-  return t => { ph.draw(t, 3.2, 6.4); lt.draw(t, 3.5); };
+  return t => { ph.draw(t, 3.2); lt.draw(t, 3.5); };
 });
 // 3 · number slam
 shot(6.4, 10.4, g => {
@@ -38,16 +38,16 @@ shot(6.4, 10.4, g => {
 });
 // 4 · brain + callout following the camera
 shot(10.4, 14.6, g => {
-  const ph = photo(g, 'brain', { from: [1.0, 0.5, 0.5], to: [1.12, 0.47, 0.42], dark: 0.1 });
+  const ph = Clip(g, 'clips/brain', { n: 129, dark: 0.1 });
   const co = Callout(g, { r: 110, lx: 1420, ly: 260, text: 'Cerebro' });
   const lt = LowerThird(g, { kicker: 'El cerebro', title: 'Usa 1/5 de la energía en reposo' });
-  return t => { ph.draw(t, 10.4, 14.6); co.draw(t, 11.2, 1e9, ph.map(944, 536)); lt.draw(t, 10.7); };
+  return t => { ph.draw(t, 10.4); co.draw(t, 11.2, 1e9, [852, 378]); lt.draw(t, 10.7); };
 });
 // 5 · chapter (after the wipe)
 shot(14.6, 18.6, g => {
-  const ph = photo(g, 'bp_care', { from: [1.1, 0.7, 0.45], to: [1.2, 0.72, 0.42], dark: 0.62 });
+  const ph = Clip(g, 'clips/bp_care', { n: 122, dark: 0.62 });
   const ch = Chapter(g, { n: 1, title: 'El corazón', sub: 'La presión baja durante la noche' });
-  return t => { ph.draw(t, 14.6, 18.6); ch.draw(t, 14.9); };
+  return t => { ph.draw(t, 14.6); ch.draw(t, 14.9); };
 }, false);
 // 6 · the study
 shot(18.6, 24.4, g => {
@@ -62,9 +62,9 @@ shot(24.4, 29, g => {
 });
 // 8 · reminder
 shot(29, 32.5, g => {
-  const ph = photo(g, 'couple', { from: [1.0, 0.5, 0.4], to: [1.1, 0.5, 0.35], dark: 0.15 });
+  const ph = Clip(g, 'clips/couple', { n: 108, dark: 0.15 });
   const lt = LowerThird(g, { kicker: 'Recuerde', title: 'Consulte a su médico antes de cambiar' });
-  return t => { ph.draw(t, 29, 32.5); lt.draw(t, 29.3); };
+  return t => { ph.draw(t, 29); lt.draw(t, 29.3); };
 });
 // 9 · end card
 shot(32.5, 36, g => { const e = EndCard(g, { name: 'SALUD 60+' }); return t => e.draw(t, 32.7); });

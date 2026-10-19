@@ -58,6 +58,11 @@ Same rule as health-video: picture first, key phrases only.
   "before → after" of the same place.
 - One graphic idea per shot: photo + one lower third, or photo + one number, or photo + study page.
 
+## Delivery quality
+Final encode in Full HD at high quality: `-c:v libx264 -crf 18 -preset slow -tune grain` (the grain needs
+the bits; CRF 26 looks soft). That is ≈ 1–1.5 MB per second, so anything over 30 MB is delivered as
+parts split without re-encoding (`qa-checklist.md`), never by crushing the quality.
+
 ## Sound
 - Voice: a documentary narrator (see `asset-order.md` voice spec).
 - Music bed: wordless, slow, low "documentary" pulse (soft piano or strings + light percussion),

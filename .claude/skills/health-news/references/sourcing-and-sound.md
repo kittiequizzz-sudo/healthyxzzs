@@ -21,12 +21,14 @@ themselves are blocked here. Look at the contact sheet before choosing.
 | `science` | Wellcome Collection, NASA, Met, Cleveland, Brooklyn, SMK, Rijksmuseum | CC0 / PD / CC BY | old anatomy plates, medical history, space, archive look | varies |
 | `commons` | Wikimedia Commons API | CC0 / PD / BY / BY-SA | anatomy, diagrams | rate-limited here (429) |
 
-- `get` saves `assets/<name>.jpg` at 2112 px wide (Lanczos + light unsharp when upscaling) and logs
+- `get` keeps the original in `assets/src/` and saves `assets/<name>.jpg` at 2112 px wide. Smaller
+  photos are **AI-upscaled with Real-ESRGAN x4plus** (`scripts/upscale.py`, ncnn on CPU, ~2 min per
+  1024 px photo; model cached from its GitHub release). `--fast` uses Lanczos for drafts. It logs
   title, author, licence and page in `credits.json`. **CC BY pictures (Flickr, Wellcome) need the
   credit line in the video description**; CC BY-SA is filtered out on purpose (share-alike on the video).
 - Short English queries work best ("stethoscope", "senior couple", "salmon vegetables"). Search a beat
   two ways (object + people) and pick the more cinematic picture.
-- Small pictures (≤ 1300 px) look best framed (`Photo` with w ≤ 1100, `Split`), under a dark overlay,
+- Even upscaled, small sources look best framed (`Photo` with w ≤ 1100, `Split`), under a dark overlay,
   or as a parallax clip (below); the grain hides the softness. Archive plates (portrait) go framed on
   the navy background, like a document.
 - **Watermarks:** some rawpixel files come back with a tiled "rawpixel" watermark. Check every download

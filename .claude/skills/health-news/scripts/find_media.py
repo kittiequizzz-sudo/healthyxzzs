@@ -2,7 +2,7 @@
 """Search free-licence photos on Wikimedia Commons (and Openverse) and download the chosen ones.
 
   find_media.py search "elderly woman dinner" [--n 12] [--src stock|flickr|science|commons]   → candidates + contact sheet
-  find_media.py get <project_dir> <name> <candidate_id>                             → assets/<name>.jpg + credits.json
+  find_media.py get <project_dir> <name> <candidate_id> [--fast]                    → assets/<name>.jpg (AI-upscaled to 2112 px) + credits.json
 
 Only licences that allow commercial use and modification are kept (CC0, PD, CC BY, CC BY-SA).
 Every download is logged in <project>/credits.json; put the CC BY / BY-SA lines in the video description.
@@ -111,14 +111,20 @@ def get(a):
     r = res[a.id]
     os.makedirs(os.path.join(a.project, 'assets'), exist_ok=True)
     dst = os.path.join(a.project, 'assets', a.name + '.jpg')
+    src = os.path.join(a.project, 'assets', 'src', a.name + '.jpg')     # original, kept for re-processing
+    os.makedirs(os.path.dirname(src), exist_ok=True)
+    open(src, 'wb').write(fetch(r['url']))
+    import cv2
+    img = cv2.imread(src)
+    if img.shape[1] < 2112 and not a.fast:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import upscale                                                   # Real-ESRGAN, ~2 min per photo
+        img = upscale.upscale(img, upscale.model())
+    h = round(img.shape[0] * 2112 / img.shape[1])
+    img = cv2.resize(img, (2112, h), interpolation=cv2.INTER_AREA if img.shape[1] > 2112 else cv2.INTER_LANCZOS4)
+    cv2.imwrite(dst, img, [cv2.IMWRITE_JPEG_QUALITY, 94])
     from PIL import Image
-    im = Image.open(io.BytesIO(fetch(r['url']))).convert('RGB')
-    from PIL import ImageFilter
-    if im.width != 2112:   # 1920 frame + room for the camera move; small files get a light sharpen
-        up = im.width < 2112
-        im = im.resize((2112, round(im.height * 2112 / im.width)), Image.LANCZOS)
-        if up: im = im.filter(ImageFilter.UnsharpMask(2, 70, 2))
-    im.save(dst, quality=92)
+    im = Image.open(dst)
     cf = os.path.join(a.project, 'credits.json')
     cr = json.load(open(cf)) if os.path.exists(cf) else {}
     cr[a.name] = {k: r[k] for k in ('title', 'author', 'license', 'page')} | {'size': list(im.size)}
@@ -129,5 +135,6 @@ def get(a):
 ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest='cmd', required=True)
 s = sp.add_parser('search'); s.add_argument('q'); s.add_argument('--n', type=int, default=12); s.add_argument('--src', default='stock', help='stock | flickr | science | commons'); s.add_argument('--sheet')
 g = sp.add_parser('get'); g.add_argument('project'); g.add_argument('name'); g.add_argument('id')
+g.add_argument('--fast', action='store_true', help='Lanczos instead of AI upscaling (drafts)')
 a = ap.parse_args()
 search(a) if a.cmd == 'search' else get(a)

@@ -65,10 +65,9 @@ pills and stamps. Use the news components in `news/news.js` instead.
    at every contact sheet with the checks in `news-style.md` § QA, then the shared `qa-checklist.md`.
 10. **Render and deliver:** `render.mjs` (short) or `render_sections.mjs … --jobs 3` (long), then
     `scripts/mix.py pages video.mp4 mixed.mp4 --voice audio/voice.mp3` for voice + music + effects.
-    The film grain makes the CRF 17 render huge (30 s ≈ 50 MB), so re-encode once for delivery:
-    `ffmpeg -i final.mp4 -c:v libx264 -crf 26 -preset slow -c:a copy -movflags +faststart final_small.mp4`
-    (30 s ≈ 3 MB, grain still visible). Then split anything over 30 MB into ~280 s parts without
-    re-encoding again (`qa-checklist.md`). Summarise in
+    Encode the delivery in Full HD at `-crf 18 -preset slow -tune grain` (`news-style.md` § Delivery
+    quality), then split anything over 30 MB into parts without re-encoding (`qa-checklist.md`).
+    CRF 26 is only for quick previews. Summarise in
     Vietnamese, including any on-screen facts you changed. Commit scenes, cues and cut assets, never the
     full render.
 
@@ -76,7 +75,7 @@ pills and stamps. Use the news components in `news/news.js` instead.
 - `references/news-style.md`: palette, type, grid, pacing, transitions, sound, honesty rules, QA.
 - `references/scene-recipes.md`: every component with its call, the hook and section recipes, beat → visual table.
 - `references/sourcing-and-sound.md`: finding CC0 photos, watermark/people rules, credits, SFX and the mix.
-- `scripts/find_media.py`, `scripts/parallax.py`, `scripts/sfx.py`, `scripts/mix.py`: photo search/download (stock, Flickr, science/museum sources), 2.5D parallax clips from photos, synthesised effects + music bed, soundtrack mix.
+- `scripts/find_media.py`, `scripts/upscale.py`, `scripts/parallax.py`, `scripts/sfx.py`, `scripts/mix.py`: photo search/download (stock, Flickr, science/museum sources), Real-ESRGAN upscaling, 2.5D parallax clips from photos, synthesised effects + music bed, soundtrack mix.
 - `references/asset-order.md`: photo prompt templates (hero, 2×2 grid, item sheet), recurring characters, voice spec, delivery checks.
 - `news/news.js`: components (`NewsStage`, `Grade`, `Photo`, `Bug`, `LowerThird`, `Headline`,
   `BigNumber`, `Chapter`, `StudyCard`, `Quote`, `Bars`, `Split`, `Callout`, `Checklist`, `Wipe`,

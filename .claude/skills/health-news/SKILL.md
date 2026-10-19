@@ -57,7 +57,10 @@ pills and stamps. Use the news components in `news/news.js` instead.
 9. **QA:** `node .claude/skills/health-video/scripts/qa_pages.mjs projects/<slug> 3 intro.html …` and look
    at every contact sheet with the checks in `news-style.md` § QA, then the shared `qa-checklist.md`.
 10. **Render and deliver:** `render.mjs … --audio` (short) or `render_sections.mjs … --jobs 3` (long).
-    Split over 30 MB into ~280 s parts without re-encoding (`qa-checklist.md`). Summarise in
+    The film grain makes the CRF 17 render huge (30 s ≈ 50 MB), so re-encode once for delivery:
+    `ffmpeg -i final.mp4 -c:v libx264 -crf 26 -preset slow -c:a copy -movflags +faststart final_small.mp4`
+    (30 s ≈ 3 MB, grain still visible). Then split anything over 30 MB into ~280 s parts without
+    re-encoding again (`qa-checklist.md`). Summarise in
     Vietnamese, including any on-screen facts you changed. Commit scenes, cues and cut assets, never the
     full render.
 

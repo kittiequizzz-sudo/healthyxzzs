@@ -80,8 +80,13 @@ function Photo(p, href, { iw, ih, x = 0, y = 0, w = 1920, h = 1080, from = [1.0,
 // Channel bug, top left: red square, channel name, section. Generic: never a real network's name or look.
 function Bug(p, { name, section = '' }) {
   const g = el('g', {}, p);
+  // soft dark corner so the bug reads on bright photos
+  const lg = el('linearGradient', { id: 'bugbg', x1: 0, y1: 0, x2: 1, y2: 0.6 }, g);
+  el('stop', { offset: '0%', 'stop-color': N.ink, 'stop-opacity': 0.55 }, lg);
+  el('stop', { offset: '100%', 'stop-color': N.ink, 'stop-opacity': 0 }, lg);
+  el('rect', { width: 760, height: 170, fill: 'url(#bugbg)' }, g);
   el('rect', { x: 70, y: 56, width: 14, height: 44, fill: N.red }, g);
-  NT(g, name, { x: 100, y: 80, size: 34, ls: 1 });
+  const nm = NT(g, name, { x: 100, y: 80, size: 34, ls: 1 });
   const sec = NT(g, section, { x: 0, y: 80, size: 30, weight: 500, color: N.dim, ls: 1 });
   const bar = el('rect', { x: 0, y: 64, width: 2, height: 32, fill: N.dim }, g);
   let placed = false;
@@ -89,7 +94,7 @@ function Bug(p, { name, section = '' }) {
     g,
     section(s) { sec.textContent = s; placed = false; },
     draw(t, t0 = 0) {
-      if (!placed) { const x = 100 + tw(g.children[1]) + 22; set(bar, { x }); set(sec, { x: x + 20 }); placed = true; }
+      if (!placed) { const x = 100 + tw(nm) + 22; set(bar, { x }); set(sec, { x: x + 20 }); placed = true; }
       g.setAttribute('opacity', win(t, t0).toFixed(3));
       bar.style.display = sec.style.display = sec.textContent ? '' : 'none';
     },

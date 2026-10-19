@@ -1,0 +1,77 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../.claude/skills/health-news/news/fonts.css">
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="../../.claude/skills/health-news/news/news.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Style demo for health-news (no voice). Stand-in pictures: the 7dias scene panels; a real video uses
+// the realistic photos ordered per references/asset-order.md. Times are fixed here; real videos use CUE.
+window.DURATION = 30;
+const svg = NewsStage();
+const pic = n => '../7dias_sin_cenar/cut/s_' + n + '.png';
+const IW = 828, IH = 460;
+const shots = [];
+const shot = (a, b, build, hard = true) => { const g = el('g', {}, svg); shots.push({ g, a, b, hard, draw: build(g) }); };
+
+// 1 · cold open: picture + kinetic headline
+shot(0, 4.5, g => {
+  const ph = Photo(g, pic('noplate'), { iw: IW, ih: IH, from: [1.0, 0.55, 0.5], to: [1.18, 0.62, 0.42], dark: 0.2 });
+  const hl = Headline(g, ['¿QUÉ PASA SI DEJA', 'DE CENAR 7 DÍAS?'], { x: 110, y: 790, size: 104, anchor: 'start', hi: 1 });
+  return t => { ph.draw(t, 0, 4.5); hl.draw(t, 0.5); };
+});
+// 2 · number slam over a dark picture
+shot(4.5, 8.5, g => {
+  const ph = Photo(g, pic('awake'), { iw: IW, ih: IH, from: [1.05, 0.4, 0.5], to: [1.15, 0.35, 0.45], dark: 0.62, fade: false });
+  const n = BigNumber(g, { to: 100000, label: 'latidos al día', x: 960, y: 450 });
+  return t => { ph.draw(t, 4.5, 8.5); n.draw(t, 4.8); punch(n.g, t, 5.9, 960, 450, 0.05); };
+});
+// 3 · lower third + callout that follows the camera move
+shot(8.5, 13, g => {
+  const ph = Photo(g, pic('dizzy'), { iw: IW, ih: IH, from: [1.0, 0.5, 0.4], to: [1.12, 0.48, 0.3], dark: 0.1 });
+  const co = Callout(g, { x: 0, y: 0, r: 120, lx: 1350, ly: 250, text: 'Cerebro' });
+  const lt = LowerThird(g, { kicker: 'El cerebro', title: 'Usa 1/5 de la energía en reposo' });
+  return t => { ph.draw(t, 8.5, 13); co.draw(t, 9.3, 1e9, ph.map(400, 70)); lt.draw(t, 8.8); };
+});
+// 4 · chapter opener (after the red wipe)
+shot(13, 17, g => {
+  const ph = Photo(g, pic('light'), { iw: IW, ih: IH, from: [1.1, 0.7, 0.5], to: [1.2, 0.75, 0.45], dark: 0.6 });
+  const ch = Chapter(g, { n: 1, title: 'El corazón', sub: 'La presión baja durante la noche' });
+  return t => { ph.draw(t, 13, 17); ch.draw(t, 13.3); };
+}, false);
+// 5 · the study on screen
+shot(17, 22.5, g => {
+  const ph = Photo(g, pic('glucose'), { iw: IW, ih: IH, x: 0, w: 1000, from: [1.0, 0.4, 0.5], to: [1.1, 0.35, 0.45], dark: 0.3, fade: false });
+  const st = StudyCard(g, { pub: 'Metaanálisis · 2022', title: ['Ayuno con horario', 'y presión arterial'], lines: ['Presión sistólica ≈ −4 mmHg', 'sobre todo al bajar de peso'], hi: 0 });
+  return t => { ph.draw(t, 17, 22.5); st.draw(t, 17.3, 18.6); };
+});
+// 6 · comparison with verdicts
+shot(22.5, 27, g => {
+  el('rect', { width: 1920, height: 1080, fill: N.bg }, g);
+  const sp = Split(g, { href: pic('light'), iw: IW, ih: IH, label: 'Cena ligera', good: true }, { href: pic('heavy'), iw: IW, ih: IH, label: 'Cena tardía y pesada', good: false });
+  return t => sp.draw(t, 22.5, 27, 22.8, 23.8);
+});
+// 7 · end card
+shot(27, 30, g => { const e = EndCard(g, { name: 'SALUD 60+' }); return t => e.draw(t, 27.2); });
+
+const bug = Bug(svg, { name: 'SALUD 60+', section: 'INFORME' });
+const sp = SmallPrint(svg);
+const notes = [[4.5, '70 latidos/min × 1.440 min', 'Imagen ilustrativa'], [8.5, 'NCBI StatPearls · Physiology, Fasting', 'Recreación'],
+  [13, '', ''], [17, 'metaanálisis 2022 (PMC9644535)', 'Imagen ilustrativa'], [22.5, '', 'Imagen ilustrativa'], [27, '', '']];
+const wipe = Wipe(svg);
+const grade = Grade(svg);
+
+window.draw = t => {
+  for (const s of shots) if ((s.hard ? cutVis : sceneVis)(s.g, t, s.a, s.b) > 0) s.draw(t);
+  bug.draw(t, 0.3);
+  bug.g.style.display = t < 27 ? '' : 'none';
+  const n = [[0, '', ''], ...notes].filter(x => t >= x[0]).at(-1);
+  sp.set(n[1], n[2]);
+  wipe.draw(t, 13);
+  grade.draw(t);
+};
+window.draw(0);
+</script>
+</body></html>

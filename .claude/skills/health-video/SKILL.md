@@ -11,6 +11,9 @@ videos, not slide decks**: picture first, short key-phrase captions, a fast but 
 rejected, and the scene recipes. The approved reference video is `projects/sample_flat/`
 (`scene.html` → `out/sample_flat.mp4`).
 
+Second style for the same channel: `health-news` (TV news / documentary look with realistic photos).
+Use it when the user asks for that style; it reuses this skill's tools and rules.
+
 ## Working with this user
 - **Chat in Vietnamese.** The user writes in Vietnamese; reply in Vietnamese.
 - **Scripts may arrive in Spanish.** On-screen text follows the script language. Transcribe Spanish

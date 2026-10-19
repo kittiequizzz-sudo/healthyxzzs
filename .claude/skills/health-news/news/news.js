@@ -24,24 +24,40 @@ const tw = e => e.getComputedTextLength();
 const fontsOK = () => document.fonts.status === 'loaded';
 const fmtES = (v, d = 0) => v.toLocaleString('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' });
 
-// Background, film grade and grain. Call NewsStage() first and grade.draw(t) last in window.draw.
+// Background and vignette. Call NewsStage() first and grade.draw(t) last in window.draw.
+// Layered rendering (scripts/render_layers.mjs opens the page with ?layered): photos and clips are not
+// drawn in the browser; their placement for the frame is pushed to window.BG and composited in Python
+// under the transparent graphics layer. Everything else on the page must stay transparent there.
+const LAYERED = /[?&]layered\b/.test(location.search);
+window.BG = [];
+function effOpacity(e) {
+  let a = 1;
+  for (; e && e.tagName !== 'svg'; e = e.parentNode) {
+    if (e.style && e.style.display === 'none') return 0;
+    const o = e.getAttribute && e.getAttribute('opacity');
+    if (o !== null && o !== undefined && o !== '') a *= Number(o);
+  }
+  return a;
+}
+function bgLayer(g, src, clip, place) {
+  const a = effOpacity(g);
+  if (a > 0.002) window.BG.push({ src, clip, place, a: +a.toFixed(4) });
+}
 function NewsStage() {
   const svg = document.getElementById('s');
-  el('rect', { width: 1920, height: 1080, fill: N.bg }, svg);
+  if (!LAYERED) el('rect', { width: 1920, height: 1080, fill: N.bg }, svg);
   return svg;
 }
-function Grade(svg, { grain = 0.07, vignette = 0.55 } = {}) {
+function Grade(svg, { vignette = 0.55 } = {}) {
+  // Film grain is added by ffmpeg at encode time (render.mjs --grain 6): an SVG noise filter made
+  // every frame ~10× slower to capture.
   const defs = el('defs', {}, svg);
   const rg = el('radialGradient', { id: 'nvig', cx: '50%', cy: '50%', r: '75%' }, defs);
   el('stop', { offset: '55%', 'stop-color': '#000', 'stop-opacity': 0 }, rg);
   el('stop', { offset: '100%', 'stop-color': '#000', 'stop-opacity': vignette }, rg);
-  const f = el('filter', { id: 'ngrain', x: 0, y: 0, width: '100%', height: '100%' }, defs);
-  const turb = el('feTurbulence', { type: 'fractalNoise', baseFrequency: 0.85, numOctaves: 1, seed: 1, result: 'n' }, f);
-  el('feColorMatrix', { type: 'matrix', values: `0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 ${grain * 2} -${grain * 0.6}` }, f);
   const g = el('g', { 'pointer-events': 'none' }, svg);
   el('rect', { width: 1920, height: 1080, fill: 'url(#nvig)' }, g);
-  el('rect', { width: 1920, height: 1080, filter: 'url(#ngrain)', opacity: 0.6 }, g);
-  return { g, draw(t) { set(turb, { seed: 1 + Math.floor(t * 12) % 97 }); svg.appendChild(g); } };
+  return { g, draw() { svg.appendChild(g); } };
 }
 
 // Full-bleed photo with a slow documentary camera move (zoom + drift), never warped.
@@ -53,8 +69,8 @@ function Photo(p, href, { iw, ih, x = 0, y = 0, w = 1920, h = 1080, from = [1.0,
   const cp = el('clipPath', { id }, g);
   el('rect', { x, y, width: w, height: h, rx: r }, cp);
   const inner = el('g', { 'clip-path': `url(#${id})` }, g);
-  el('rect', { x, y, width: w, height: h, fill: N.ink }, inner);
-  const img = el('image', { href, width: iw, height: ih, preserveAspectRatio: 'none' }, inner);
+  if (!LAYERED) el('rect', { x, y, width: w, height: h, fill: N.ink }, inner);
+  const img = LAYERED ? null : el('image', { href, width: iw, height: ih, preserveAspectRatio: 'none' }, inner);
   if (dark) el('rect', { x, y, width: w, height: h, fill: N.ink, opacity: dark }, inner);
   if (fade) {
     const gid = id + 'g', lg = el('linearGradient', { id: gid, x1: 0, y1: 0, x2: 0, y2: 1 }, g);
@@ -71,7 +87,8 @@ function Photo(p, href, { iw, ih, x = 0, y = 0, w = 1920, h = 1080, from = [1.0,
       const s = cover * lerp(from[0], to[0], u), dw = iw * s, dh = ih * s;
       const fx = lerp(from[1], to[1], u), fy = lerp(from[2], to[2], u);
       const ix = clamp(x + w / 2 - fx * dw, x + w - dw, x), iy = clamp(y + h / 2 - fy * dh, y + h - dh, y);
-      set(img, { x: ix.toFixed(1), y: iy.toFixed(1), width: dw.toFixed(1), height: dh.toFixed(1) });
+      if (LAYERED) bgLayer(g, href, [x, y, w, h], [+ix.toFixed(2), +iy.toFixed(2), +dw.toFixed(2), +dh.toFixed(2)]);
+      else set(img, { x: ix.toFixed(1), y: iy.toFixed(1), width: dw.toFixed(1), height: dh.toFixed(1) });
       cur = [ix, iy, dw / iw];
     },
     // screen position of image pixel (px, py) in the current frame (for callouts that follow the move)
@@ -312,8 +329,8 @@ function Split(p, left, right, { y = 200, h = 560 } = {}) {
     draw(t, a, b, tL, tR) {
       sides.forEach((o, i) => {
         const t0 = i ? tR : tL;
+        set(o.s, { opacity: E.out(prog(t, t0 - 0.2, t0 + 0.2)).toFixed(3) });   // before draw: layered mode reads it
         o.ph.draw(t, a, b);
-        set(o.s, { opacity: E.out(prog(t, t0 - 0.2, t0 + 0.2)).toFixed(3) });
         pop(o.b, t, t0 + 0.15, o.cx, o.cy);
       });
     },
@@ -422,7 +439,7 @@ const PENDING = [];
 window.ready = () => Promise.all(PENDING.splice(0));
 function Clip(p, dir, { n, fps = 30, x = 0, y = 0, w = 1920, h = 1080, dark = 0.2, fade = true }) {
   const g = el('g', {}, p);
-  const im = el('image', { x, y, width: w, height: h, preserveAspectRatio: 'xMidYMid slice' }, g);
+  const im = LAYERED ? null : el('image', { x, y, width: w, height: h, preserveAspectRatio: 'xMidYMid slice' }, g);
   if (dark) el('rect', { x, y, width: w, height: h, fill: N.ink, opacity: dark }, g);
   if (fade) {
     const gid = 'cf' + Math.random().toString(36).slice(2), lg = el('linearGradient', { id: gid, x1: 0, y1: 0, x2: 0, y2: 1 }, g);
@@ -436,6 +453,7 @@ function Clip(p, dir, { n, fps = 30, x = 0, y = 0, w = 1920, h = 1080, dark = 0.
     draw(t, t0) {
       const i = Math.max(0, Math.min(n - 1, Math.floor((t - t0) * fps)));
       const href = `${dir}/f${String(i).padStart(4, '0')}.jpg`;
+      if (LAYERED) return bgLayer(g, href, [x, y, w, h], [x, y, w, h]);
       if (href === cur) return;
       cur = href;
       PENDING.push(new Promise(res => { im.addEventListener('load', res, { once: true }); im.addEventListener('error', res, { once: true }); }));

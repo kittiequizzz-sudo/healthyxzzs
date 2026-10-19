@@ -13,8 +13,9 @@ import argparse, io, json, os, re, sys, time, urllib.error, urllib.parse, urllib
 UA = {'User-Agent': 'health-news-video/1.0 (https://github.com/kittiequizzz-sudo/healthyxzzs) python-urllib'}
 OK = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? ?[0-9.]*|cc-by(-sa)?-[0-9.]+)$', re.I)
 # candidates of every search, so `get` can fetch them later (not TMPDIR: setting it breaks Chromium renders)
-CACHE = os.path.expanduser('~/.cache/health-news/find_media_last.json')
-os.makedirs(os.path.dirname(CACHE), exist_ok=True)
+# one small file per candidate, so parallel searches never clobber each other
+CACHE = os.path.expanduser('~/.cache/health-news/candidates')
+os.makedirs(CACHE, exist_ok=True)
 
 
 def fetch(url, data=False, tries=5):
@@ -91,8 +92,11 @@ def openverse(q, n, group='stock'):
 def search(a):
     from PIL import Image, ImageDraw
     res = commons(a.q, a.n) if a.src == 'commons' else openverse(a.q, a.n, a.src)
-    old = json.load(open(CACHE)) if os.path.exists(CACHE) else []
-    json.dump(old + res, open(CACHE, 'w'))   # candidates from every search stay available to `get`
+    for r in res:
+        json.dump(r, open(os.path.join(CACHE, r['id'] + '.json'), 'w'))
+    if a.nosheet:
+        for r in res: print(f"{r['id']:>12}  {r['w']}x{r['h']}  {r.get('source', 'commons'):<10} {r['license']:<14} {r['title'][:60]}")
+        return
     W, H = 480, 270; c = 4; rows = max(1, (len(res) + c - 1) // c)
     sheet = Image.new('RGB', (W * c, H * rows), 'black')
     for k, r in enumerate(res):
@@ -109,8 +113,7 @@ def search(a):
 
 def get(a):
     import time; time.sleep(1)
-    res = {r['id']: r for r in json.load(open(CACHE))}
-    r = res[a.id]
+    r = json.load(open(os.path.join(CACHE, a.id + '.json')))
     os.makedirs(os.path.join(a.project, 'assets'), exist_ok=True)
     dst = os.path.join(a.project, 'assets', a.name + '.jpg')
     src = os.path.join(a.project, 'assets', 'src', a.name + '.jpg')     # original, kept for re-processing
@@ -135,7 +138,7 @@ def get(a):
 
 
 ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest='cmd', required=True)
-s = sp.add_parser('search'); s.add_argument('q'); s.add_argument('--n', type=int, default=12); s.add_argument('--src', default='stock', help='stock | flickr | science | commons'); s.add_argument('--sheet')
+s = sp.add_parser('search'); s.add_argument('q'); s.add_argument('--n', type=int, default=12); s.add_argument('--src', default='stock', help='stock | flickr | science | commons'); s.add_argument('--sheet'); s.add_argument('--nosheet', action='store_true')
 g = sp.add_parser('get'); g.add_argument('project'); g.add_argument('name'); g.add_argument('id')
 g.add_argument('--fast', action='store_true', help='Lanczos instead of AI upscaling (drafts)')
 a = ap.parse_args()

@@ -136,7 +136,7 @@ function LowerThird(p, { kicker, title, x = 110, y = 820, size = 58 }) {
   return {
     g,
     draw(t, t0, t1 = 1e9) {
-      if (!W || !fontsOK()) { set(kb, { width: tw(kt) + 44 }); W = tw(tt) + 56; set(tb, { width: W }); }
+      if (!W || !fontsOK()) { set(kb, { width: tw(kt) + 44 }); W = Math.max(tw(tt) + 56, tw(kt) + 44); set(tb, { width: tw(tt) + 56 }); }
       const a = E.out(prog(t, t0, t0 + 0.45)) * (1 - E.inOut(prog(t, t1 - 0.3, t1)));
       set(clip, { width: (a * (W + 20)).toFixed(1) });
       set(edge, { x: (x + a * W - 8).toFixed(1), opacity: a > 0.02 ? 1 : 0 });
@@ -460,4 +460,168 @@ function Clip(p, dir, { n, fps = 30, x = 0, y = 0, w = 1920, h = 1080, dark = 0.
       im.setAttribute('href', href);
     },
   };
+}
+
+// ---------------------------------------------------------------- explainer graphics (dark style)
+// Mock lab report (always labelled EJEMPLO, never real patient data). rows: [[name, value, unit]], hi = row index.
+function LabSheet(p, { rows, hi = 0, x = 560, y = 150, w = 800, title = 'RESULTADOS DE LABORATORIO' }) {
+  const g = el('g', {}, p), h = 200 + rows.length * 90;
+  const sheet = el('g', {}, g);
+  el('rect', { x: x + 14, y: y + 18, width: w, height: h, fill: '#000', opacity: 0.45 }, sheet);
+  el('rect', { x, y, width: w, height: h, fill: N.paper }, sheet);
+  NT(sheet, title, { x: x + 40, y: y + 60, size: 38, color: N.ink, ls: 2 });
+  NT(sheet, 'EJEMPLO', { x: x + w - 40, y: y + 60, size: 30, color: N.red, anchor: 'end', ls: 3 });
+  el('rect', { x: x + 40, y: y + 100, width: w - 80, height: 3, fill: N.ink }, sheet);
+  const marks = [];
+  rows.forEach(([n, v, u], i) => {
+    const yy = y + 160 + i * 90;
+    const m = el('rect', { x: x + 28, y: yy - 36, height: 72, width: 0, fill: N.gold, opacity: 0.85 }, sheet);
+    NT(sheet, n, { x: x + 40, y: yy, size: 40, font: 'B', weight: 800, color: N.ink });
+    NT(sheet, v + ' ' + u, { x: x + w - 40, y: yy, size: 52, font: 'S', color: i === hi ? N.red : N.ink, anchor: 'end' });
+    marks.push(m);
+  });
+  return {
+    g,
+    draw(t, t0, tHi, t1 = 1e9) {
+      const u = E.out(prog(t, t0, t0 + 0.6)), out = 1 - E.inOut(prog(t, t1 - 0.3, t1));
+      set(sheet, { transform: `translate(0 ${((1 - u) * 140).toFixed(1)}) rotate(${(-2 * u).toFixed(2)} ${x + w / 2} ${y + h / 2})`, opacity: (clamp(u * 2) * out).toFixed(3) });
+      set(marks[hi], { width: ((w - 56) * E.inOut(prog(t, tHi, tHi + 0.6))).toFixed(1) });
+      g.style.display = out > 0.001 && t >= t0 ? '' : 'none';
+    },
+  };
+}
+
+// "One photo vs the film": a single snapshot (one reading) and a film strip of many readings sliding by.
+function PhotoVsFilm(p, { readings = [142, 198, 121, 176, 133, 215, 158, 109, 187, 149, 164, 128], left = 'GLUCÓMETRO', leftSub = 'una foto', right = 'A1C', rightSub = 'la película de 2–3 meses' }) {
+  const g = el('g', {}, p);
+  const L = el('g', {}, g);
+  el('rect', { x: 170, y: 300, width: 420, height: 420, fill: N.white }, L);
+  el('rect', { x: 200, y: 330, width: 360, height: 300, fill: N.panel2 }, L);
+  NT(L, '198', { x: 380, y: 470, size: 120, font: 'S', anchor: 'middle' });
+  NT(L, 'mg/dL', { x: 380, y: 570, size: 36, color: N.dim, anchor: 'middle' });
+  NT(L, '12:40 · después de comer', { x: 380, y: 680, size: 28, font: 'B', color: N.ink, anchor: 'middle' });
+  NT(L, left, { x: 380, y: 230, size: 56, color: N.gold, anchor: 'middle', ls: 2 });
+  NT(L, leftSub, { x: 380, y: 800, size: 46, font: 'S', italic: true, anchor: 'middle' });
+  const R = el('g', {}, g);
+  const id = 'fs' + Math.random().toString(36).slice(2);
+  const cp = el('clipPath', { id }, R); el('rect', { x: 760, y: 330, width: 1000, height: 360 }, cp);
+  const strip = el('g', { 'clip-path': `url(#${id})` }, R);
+  const film = el('g', {}, strip);
+  const fw = 250;
+  readings.concat(readings).forEach((v, i) => {
+    const x = 760 + i * fw;
+    el('rect', { x, y: 330, width: fw, height: 360, fill: '#1A1A1A' }, film);
+    for (let k = 0; k < 6; k++) { el('rect', { x: x + 14 + k * 40, y: 345, width: 22, height: 16, rx: 3, fill: N.bg }, film); el('rect', { x: x + 14 + k * 40, y: 659, width: 22, height: 16, rx: 3, fill: N.bg }, film); }
+    el('rect', { x: x + 14, y: 380, width: fw - 28, height: 260, fill: N.panel2 }, film);
+    NT(film, String(v), { x: x + fw / 2, y: 505, size: 80, font: 'S', anchor: 'middle', color: v > 180 ? N.gold : N.white });
+  });
+  NT(R, right, { x: 1260, y: 230, size: 56, color: N.gold, anchor: 'middle', ls: 2 });
+  NT(R, rightSub, { x: 1260, y: 800, size: 46, font: 'S', italic: true, anchor: 'middle' });
+  return {
+    g,
+    draw(t, t0, tR) {
+      show(L, t, t0, 1e9, { dy: 30 });
+      show(R, t, tR, 1e9, { dy: 30 });
+      set(film, { transform: `translate(${(-((t - tR) * 120) % (readings.length * fw)).toFixed(1)} 0)` });
+    },
+  };
+}
+
+// Red blood cells; a growing share of them gets a gold sugar glaze. draw(t, t0, pctFrom, pctTo, dur)
+function SugarCells(p, { cols = 10, rows = 4, x = 260, y = 300, gap = 140, label = 'HEMOGLOBINA CON AZÚCAR' }) {
+  const g = el('g', {}, p);
+  const cells = [];
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    const cx = x + c * gap + (r % 2) * gap / 2, cy = y + r * gap * 0.82;
+    const cg = el('g', {}, g);
+    el('ellipse', { cx, cy, rx: 54, ry: 50, fill: '#B3202E' }, cg);
+    el('ellipse', { cx, cy, rx: 30, ry: 26, fill: '#8C1622' }, cg);
+    const glaze = el('ellipse', { cx, cy, rx: 58, ry: 54, fill: 'none', stroke: N.gold, 'stroke-width': 12, opacity: 0 }, cg);
+    cells.push({ cg, glaze, k: ((c * 7 + r * 13) % (cols * rows)) / (cols * rows) });
+  }
+  const pct = NT(g, '', { x: 960, y: y + rows * gap * 0.82 + 70, size: 90, font: 'S', anchor: 'middle', color: N.gold });
+  const lab = NT(g, label, { x: 960, y: y + rows * gap * 0.82 + 150, size: 44, anchor: 'middle', ls: 2 });
+  return {
+    g,
+    draw(t, t0, a = 0, b = 8, dur = 2.5) {
+      const v = lerp(a, b, E.inOut(prog(t, t0 + 0.6, t0 + 0.6 + dur)));
+      cells.forEach((o, i) => { const on = o.k * 100 < v * 4.5; set(o.glaze, { opacity: on ? 1 : 0 }); set(o.cg, { opacity: clamp(prog(t, t0 + i * 0.01, t0 + 0.3 + i * 0.01)) }); });
+      pct.textContent = fmtES(v, 1) + ' %';
+      set(pct, { opacity: clamp(prog(t, t0 + 0.4, t0 + 0.7)) }); set(lab, { opacity: clamp(prog(t, t0 + 0.5, t0 + 0.8)) });
+    },
+  };
+}
+
+// Kidney threshold as a glass: the level (mg/dL) rises; above the marked line sugar spills into the urine.
+function ThresholdGlass(p, { lo = 160, hi = 180, max = 260 }) {
+  const g = el('g', {}, p);
+  const gx = 760, gy = 220, gw = 400, gh = 600, Y = v => gy + gh - (v / max) * gh;
+  const id = 'gl' + Math.random().toString(36).slice(2);
+  const cp = el('clipPath', { id }, g); el('path', { d: `M${gx} ${gy} L${gx + gw} ${gy} L${gx + gw - 40} ${gy + gh} L${gx + 40} ${gy + gh} Z` }, cp);
+  const water = el('rect', { x: gx, width: gw, fill: '#4FA3D9', opacity: 0.85, 'clip-path': `url(#${id})` }, g);
+  el('path', { d: `M${gx} ${gy} L${gx + 40} ${gy + gh} L${gx + gw - 40} ${gy + gh} L${gx + gw} ${gy}`, fill: 'none', stroke: N.white, 'stroke-width': 8, 'stroke-linejoin': 'round' }, g);
+  el('rect', { x: gx - 30, y: Y(hi), width: gw + 60, height: Y(lo) - Y(hi), fill: N.red, opacity: 0.25 }, g);
+  el('line', { x1: gx - 30, x2: gx + gw + 30, y1: Y(lo), y2: Y(lo), stroke: N.red, 'stroke-width': 5, 'stroke-dasharray': '18 10' }, g);
+  NT(g, `${lo}–${hi} mg/dL`, { x: gx + gw + 60, y: (Y(lo) + Y(hi)) / 2, size: 50, font: 'S', color: N.red });
+  NT(g, 'LÍMITE DEL RIÑÓN', { x: gx + gw + 60, y: (Y(lo) + Y(hi)) / 2 + 60, size: 36, color: N.white, ls: 2 });
+  const val = NT(g, '', { x: gx - 60, y: 0, size: 64, font: 'S', anchor: 'end' });
+  const drops = [0, 1, 2].map(i => el('ellipse', { cx: gx + gw + 10 + i * 18, cy: 0, rx: 10, ry: 16, fill: '#4FA3D9', opacity: 0 }, g));
+  const urine = NT(g, '→ AZÚCAR EN LA ORINA', { x: gx + gw + 60, y: Y(hi) - 130, size: 42, color: N.gold, ls: 1 });
+  return {
+    g,
+    // keys: [[time, mg/dL], …] — the level eases between them
+    draw(t, keys) {
+      let v = keys[0][1];
+      for (let i = 1; i < keys.length; i++) if (t >= keys[i - 1][0]) v = lerp(keys[i - 1][1], keys[i][1], E.inOut(prog(t, keys[i - 1][0], keys[i][0])));
+      const top = Math.max(Y(v), gy - 4);
+      set(water, { y: top, height: gy + gh - top });
+      set(val, { y: top }); val.textContent = Math.round(v);
+      const over = v > hi;
+      drops.forEach((d, i) => set(d, { cy: gy + ((t * 300 + i * 120) % 420), opacity: over ? 0.9 : 0 }));
+      set(urine, { opacity: over ? 1 : 0 });
+      g.setAttribute('opacity', clamp(prog(t, keys[0][0] - 0.4, keys[0][0])));
+    },
+  };
+}
+
+// Two example glucose curves over 24 h with the same A1C (illustrative, labelled "ejemplo").
+function TwoCurves(p, { label = 'A1C 7 % · ejemplo' }) {
+  const g = el('g', {}, p);
+  const X = h => 220 + h / 24 * 1480, Y = v => 860 - (v - 40) / 280 * 560;
+  for (const v of [70, 180]) { el('line', { x1: 220, x2: 1700, y1: Y(v), y2: Y(v), stroke: N.dim, 'stroke-width': 2, 'stroke-dasharray': '10 10' }, g); NT(g, v + ' mg/dL', { x: 1720, y: Y(v), size: 30, color: N.dim }); }
+  el('line', { x1: 220, x2: 1700, y1: 860, y2: 860, stroke: N.white, 'stroke-width': 3 }, g);
+  ['0 h', '6 h', '12 h', '18 h', '24 h'].forEach((s, i) => NT(g, s, { x: X(i * 6), y: 900, size: 30, color: N.dim, anchor: 'middle' }));
+  const calm = h => 154 + 18 * Math.sin(h / 24 * 2 * Math.PI * 3);
+  const wild = h => 160 + 92 * Math.sin(h / 24 * 2 * Math.PI * 3 - 0.6) + 18 * Math.sin(h * 1.7);
+  const path = f => 'M' + Array.from({ length: 145 }, (_, i) => `${X(i / 6).toFixed(1)} ${Y(Math.max(55, Math.min(285, f(i / 6)))).toFixed(1)}`).join(' L');
+  const a = el('path', { d: path(calm), fill: 'none', stroke: N.teal, 'stroke-width': 9, 'stroke-linecap': 'round' }, g);
+  const b = el('path', { d: path(wild), fill: 'none', stroke: N.red, 'stroke-width': 9, 'stroke-linecap': 'round' }, g);
+  const la = NT(g, 'PERSONA 1', { x: 240, y: 230, size: 44, color: N.teal, ls: 2 });
+  const lb = NT(g, 'PERSONA 2', { x: 640, y: 230, size: 44, color: N.red, ls: 2 });
+  const tag = NT(g, label, { x: 1700, y: 230, size: 44, font: 'S', italic: true, anchor: 'end', color: N.gold });
+  return {
+    g,
+    draw(t, t0, t2) {
+      for (const [pth, ts] of [[a, t0], [b, t2]]) {
+        const L = pth.getTotalLength();
+        set(pth, { 'stroke-dasharray': L, 'stroke-dashoffset': (L * (1 - E.inOut(prog(t, ts, ts + 2)))).toFixed(1) });
+      }
+      set(la, { opacity: clamp(prog(t, t0, t0 + 0.3)) }); set(lb, { opacity: clamp(prog(t, t2, t2 + 0.3)) }); set(tag, { opacity: clamp(prog(t, t0 + 0.4, t0 + 0.8)) });
+    },
+  };
+}
+
+// Emergency numbers card (country · number), shown together and held.
+function NumbersCard(p, { title = 'EMERGENCIAS', items }) {
+  const g = el('g', {}, p);
+  el('rect', { x: 260, y: 170, width: 1400, height: 740, fill: N.panel, opacity: 0.96 }, g);
+  el('rect', { x: 260, y: 170, width: 1400, height: 110, fill: N.red }, g);
+  NT(g, title, { x: 960, y: 227, size: 60, anchor: 'middle', ls: 3 });
+  const rows = items.map(([c, n], i) => {
+    const r = el('g', {}, g), col = i % 2, row = Math.floor(i / 2), x = 330 + col * 680, y = 360 + row * 130;
+    NT(r, c, { x, y, size: 52, font: 'S' });
+    NT(r, n, { x: x + 560, y, size: 64, anchor: 'end', color: N.gold });
+    return r;
+  });
+  return { g, draw(t, t0) { show(g, t, t0, 1e9, { dy: 20 }); } };
 }

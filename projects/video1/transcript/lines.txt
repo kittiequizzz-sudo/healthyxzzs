@@ -1,0 +1,137 @@
+[0.24 - 3.96] (w0-8) Don Ernesto tiene 68 años y vive en Barranquilla.
+[4.16 - 6.08] (w9-13) Llega a la consulta contento.
+[6.20 - 8.64] (w14-17) ¡Doctora, me siento perfecto!
+[8.86 - 12.96] (w18-29) No tengo sed, no me levanto a orinar, camino todos los días.
+[13.14 - 13.96] (w30-32) Y le creo.
+[14.40 - 16.08] (w33-36) Entonces abro su análisis.
+[16.34 - 18.56] (w37-40) A1C 8 .1 %.
+[19.34 - 21.28] (w41-47) Él me mira y me dice, ¿cómo?
+[21.52 - 22.80] (w48-52) Si yo me siento bien.
+[23.12 - 26.36] (w53-63) Esta es una de las conversaciones más comunes en mi consultorio.
+[26.80 - 34.38] (w64-85) Y la entiendo, cuando algo anda mal en el cuerpo, esperamos que duela, que avise, pero el azúcar alta casi no avisa.
+[34.58 - 37.28] (w86-96) El lunes vimos por qué el azúcar sube con los años.
+[37.90 - 44.28] (w97-110) Hoy vamos al número que su médico mira primero, el A1C o hemoglobina glicosilada.
+[44.36 - 45.78] (w111-114) Le explico que mide.
+[45.82 - 55.24] (w115-142) ¿ qué quiere decir su número en el azúcar de todos los días, por qué usted puede sentirse bien con el azúcar alta, y cuándo el A1C puede engañar.
+[55.36 - 64.22] (w143-170) Al final le doy tres preguntas para su próxima cita, y le cuento de qué hablamos el lunes, de la medicina de la que todo el mundo habla.
+[64.26 - 65.40] (w171-173) ¿Qué gente piensa?
+[65.56 - 68.10] (w174-181) Si me siento bien, mi azúcar está bien.
+[68.16 - 69.34] (w182-185) ¿Qué tiene de cierto?
+[69.60 - 75.32] (w186-196) Bastante, sentirse bien importa, y el azúcar muy alta cida señales.
+[75.68 - 80.62] (w197-209) Seb, ganas de orinar a cada rato, cansancio, bajar de peso sin querer.
+[80.76 - 85.20] (w210-221) Pero esas señales suelen aparecer cuando el azúcar ya está bastante alta.
+[85.48 - 88.34] (w222-230) Antes de eso, el cuerpo casi no dice nada.
+[88.48 - 89.46] (w231-234) Le doy un número.
+[89.56 - 101.66] (w235-263) En México, según la enzanut de 2021 a 2024, de cada 100 personas que ya sabían que tenían diabetes, solo unas 33 tenían su A1C por debajo de 7.
+[102.20 - 104.68] (w264-270) Entonces, la idea central de este video.
+[104.78 - 107.04] (w271-275) La diabetes casi no avisa.
+[107.20 - 111.00] (w276-285) Por eso necesitamos un número que sí diga la verdad.
+[111.00 - 112.00] (w286-287) Clave 1.
+[112.12 - 114.02] (w288-292) La foto y la película.
+[114.12 - 117.62] (w293-304) Cuando usted se pica el dedo con el glucómetro, saca una foto.
+[117.78 - 119.58] (w305-309) Una foto de ese momento.
+[119.68 - 121.58] (w310-315) Si acaba de comer, sale alta.
+[121.68 - 124.66] (w316-322) Si lleva horas sin comer, más baja.
+[124.78 - 127.26] (w323-329) Una foto no cuenta toda la historia.
+[127.42 - 129.88] (w330-334) El A1C es otra cosa.
+[130.00 - 133.18] (w335-345) Es como la película de los últimos 2 o 3 meses.
+[133.30 - 135.66] (w346-351) En su sangre hay glóbulos rojos.
+[135.90 - 137.90] (w352-356) Imagina que son estas pelotitas.
+[138.06 - 141.58] (w357-365) A dentro, llaman la hemoglobina, que transporta el oxígeno.
+[141.76 - 151.78] (w366-393) Cuando hay azúcar en la sangre, una parte se le pega a la hemoglobina, y se queda pegada mientras vive ese glóbulo rojo, unos 120 días, 4 meses.
+[151.84 - 156.98] (w394-404) Mientras más azúcar y por más tiempo, más pelotitas quedan azucaradas.
+[157.16 - 159.44] (w405-409) El A1C mide justo eso.
+[159.44 - 163.14] (w410-418) ¿Qué porcentaje de su hemoglobina está cubierta de azúcar?
+[163.28 - 164.54] (w419-422) Y un detalle práctico.
+[164.66 - 167.92] (w423-431) los glóbulos más nuevos pesan más en el resultado.
+[168.00 - 173.22] (w432-451) Si su azúcar mejora hoy, en más o menos un mes ya se ve cerca de la mitad del cambio.
+[173.38 - 177.62] (w452-462) Por eso no tiene sentido repetir el A1C cada dos semanas.
+[177.90 - 180.54] (w463-467) Clave 2, traducir el número.
+[180.70 - 184.26] (w468-478) Un A1C de 8 % no le dice mucho a nadie.
+[184.50 - 187.20] (w479-488) Así que vamos a traducirlo al idioma de su glucómetro.
+[187.68 - 191.56] (w489-496) Un estudio internacional llamado ADAC hizo justo eso.
+[191.68 - 200.76] (w497-518) Silló a 507 adultos durante 3 meses, con miles de mediciones de azúcar cada uno, y comparó esas mediciones con su A1C.
+[200.90 - 210.58] (w519-539) Un A1C de 7 corresponde a un promedio de unos 154 mg por decilitro, un A1C de 8 a unos 183.
+[210.82 - 216.54] (w540-552) Cada punto de A1C son más o menos 29 mg más de promedio.
+[216.64 - 222.90] (w553-569) O sea, un A1C de 8 quiere decir que su azúcar ronda los 183 todo el tiempo.
+[223.10 - 229.48] (w570-591) Es más o menos lo que mucha gente ve después de una comida grande, pero de día y de noche durante meses.
+[229.74 - 234.32] (w592-602) Don Ernesto, con 8 .1, quiere un promedio de unos 186.
+[235.30 - 236.52] (w603-604) ¡Clave 3!
+[236.66 - 238.42] (w605-609) ¿Por qué no se siente?
+[238.60 - 240.68] (w610-614) Sus riñones filtran la sangre.
+[240.78 - 252.00] (w615-646) Normalmente, todo el azúcar que filtran lo devuelven a la sangre, no se pierde nada en la orina, pero tienen un límite, más o menos entre 160 y 180 mg por decilitro.
+[252.80 - 259.50] (w647-667) Por debajo de ese límite el riñón aguanta, por encima el azúcar se derrama a la orina y se lleva agua.
+[259.74 - 262.58] (w668-676) Ahí aparecen las seds y las ganas de orinar.
+[262.86 - 266.88] (w677-679) ¿Ve el problema?
+[263.26 - 263.76] (w680-681) ¿El problema?
+[264.00 - 267.02] (w682-687) Don Mernesto anda alrededor de 186.
+[267.24 - 271.50] (w688-700) Arratos está por debajo de ese límite y arratos a pelas por encima.
+[271.58 - 273.66] (w701-706) Su cuerpo casi no le grita.
+[273.76 - 277.28] (w707-720) Y ese límite cambia con la edad y con la salud de los riñones.
+[277.46 - 285.80] (w721-742) Pero los vasos pequeñitos de los ojos, los riñones y los nervios sí sienten ese azúcar, día tras día, sin hacer ruido.
+[286.70 - 288.00] (w743-744) Bueno, sigamos.
+[288.16 - 295.14] (w745-763) Las guías de la Asociación Americana de Diabetes, edición 2 Will 26, dicen varias cosas que usted debe conocer.
+[295.28 - 302.58] (w764-783) Para muchos adultos, una meta de A1C menor de 7 % es adecuada, si se logra sin bajones de azúcar.
+[302.80 - 309.48] (w784-803) Pero las mismas guías dicen que, cuando el tratamiento hace más daño que bien, la meta puede ser menos estricta.
+[309.62 - 316.28] (w804-823) Y para adultos mayores sanos, como vimos el lunes, la meta puede ser menor de 7 a 7 .5 %.
+[316.82 - 322.28] (w824-840) Cada cuanto medirlo, si usted está estable y en su meta, al menos dos veces al año.
+[322.50 - 327.30] (w841-857) Si no está en su meta, o le cambiaron el tratamiento, cada tres meses más o menos.
+[327.82 - 329.50] (w858-866) Y un dato para los hijos que nos ven.
+[329.98 - 335.10] (w867-877) Un A1C de 6 .5 % o más confirmado es diabetes.
+[335.50 - 339.90] (w878-886) Entre 5 .7 y 6 .4 % es prediabetes.
+[340.20 - 345.74] (w887-905) Si a su mamá o a su papá le diagnosticaron diabetes, pregúntela a su médico si usted debería medirse.
+[346.18 - 348.44] (w906-912) ¿Y vale la pena bajar el A1C?
+[348.72 - 355.04] (w913-929) Un estudio grande del Reino Unido, el UKPDS, siguió a miles de personas con diabetes tipo 2.
+[355.34 - 364.00] (w930-953) Cada punto menos de A1C se asoció con un riesgo 37 % menor de daño en los vasos pequeños, sobre todo de los ojos.
+[364.26 - 365.66] (w954-957) Ojo con dos cosas.
+[365.88 - 367.44] (w958-960) Es riesgo relativo.
+[367.52 - 373.10] (w961-977) No quiere decir que 37 de cada 100 personas se salven, y es un estudio de observación.
+[373.26 - 376.98] (w978-987) Muestra una relación, no prueba la causa por sí solo.
+[377.18 - 379.92] (w988-994) Este video no sustituya una consulta médica.
+[380.10 - 384.56] (w995-1007) Antes de cambiar cualquier medicina o la insulina, hable con su equipo médico.
+[384.82 - 388.90] (w1008-1016) Ahora, el A1C no es perfecto, a veces engaña.
+[389.04 - 394.96] (w1017-1032) Como depende de los glóbulos rojos, cualquier cosa que cambie cuánto viven puede mover el resultado.
+[395.06 - 405.00] (w1033-1057) Por ejemplo, anemia, un sangrado, una transfusión reciente, enfermedad avanzada de los riñones o ciertas variantes de la hemoglobina que se heredan en algunas familias.
+[405.48 - 410.54] (w1058-1072) En esos casos, el A1C puede salir más bajo o más alto de lo real.
+[410.64 - 415.38] (w1073-1085) Si su A1C dice una cosa y su glucómetro otra, no lo ignore.
+[415.62 - 416.88] (w1086-1090) Dígase lo a su médico.
+[417.02 - 418.64] (w1091-1096) Hay otros análisis que pueden ayudar.
+[419.32 - 424.06] (w1097-1108) Y una advertencia importante sobre el mito de, mientras más bajo, mejor.
+[424.14 - 433.12] (w1109-1131) Si usted usa insulina o o past como la glibenclamida o la glimepirida, perseguir un A1C muy bajo puede causar bajones de azúcar.
+[433.36 - 437.90] (w1132-1145) Después de los 65, eso puede terminar en una caída o en un desmayo.
+[438.02 - 444.56] (w1146-1157) Las señales son, temblor, sudor frío, hambre de repente, corazón acelerado, confusión.
+[444.82 - 458.34] (w1158-1196) Vaya urgencias, o llame al número de emergencias de su país si el azúcar está muy baja y la persona está confundida o se desmaya, o si el azúcar está muy alta y hay bómito, mucha sed o confusión.
+[458.46 - 465.56] (w1197-1214) Para ser justa, el A1C tiene un límite grande, es un promedio, y un promedio puede esconder cosas.
+[465.70 - 478.82] (w1215-1245) Mire estas dos personas, las dos tienen A1O -C de 7, una tiene el azúcar tranquila todo el día, la otra sube muchísimo y baja muchísimo, mismo número, historias muy distintas.
+[478.92 - 484.80] (w1246-1264) Por eso su médico a veces le pide también las lecturas del glucómetro o un sensor continuo de glucosa.
+[484.94 - 489.54] (w1265-1275) Y otra cosa, la traducción a Mg de decelitro es aproximada.
+[489.62 - 499.82] (w1276-1297) En el estudio ADAC, un A1C de 8 correspondió, en la mayoría de las personas, a promedios entre unos 147 y 217.
+[499.98 - 503.10] (w1298-1305) El número es una guía, no una sentencia.
+[503.30 - 508.58] (w1306-1325) Don Ernesto se fue de la consulta un poco serio, y le dije lo mismo que le digo a usted.
+[508.70 - 510.94] (w1326-1331) Sentirse bien es una buena noticia.
+[511.60 - 519.90] (w1332-1354) No es poca cosa, pero sus ojos, sus riñones y sus nervios dentro de 10 años no se sienten hoy, se miden hoy.
+[520.00 - 526.14] (w1355-1370) Conocer su A1C no es para regañarlo, es conocer su propia historia en un solo número.
+[526.32 - 529.88] (w1371-1380) Y con ese número, usted y su médico deciden juntos.
+[530.02 - 532.88] (w1381-1388) Anote estas tres preguntas para su próxima cita.
+[533.08 - 533.52] (w1389-1389) 1.
+[533.52 - 535.40] (w1390-1394) ¿Cuál fue mi último A1C?
+[535.50 - 536.38] (w1395-1398) ¿Cuál es mi meta?
+[536.48 - 538.28] (w1399-1403) ¿Y cada cuánto debo medirlo?
+[538.70 - 539.12] (w1404-1404) 2.
+[539.16 - 544.44] (w1405-1420) ¿Tengo algo como anemia o problemas de riñón que haga que mi A1C no sea exacto?
+[544.80 - 545.30] (w1421-1421) 3.
+[545.44 - 549.24] (w1422-1433) ¿Mi A1C y las lecturas de mi glucómetro cuentan la misma historia?
+[549.72 - 552.40] (w1434-1441) ¿Lleve su glucómetro o su libreta de lecturas?
+[552.54 - 555.00] (w1442-1450) Y una pregunta para usted, aquí en los comentarios.
+[555.52 - 557.96] (w1451-1456) ¿Sabe cuál fue su último A1C?
+[558.10 - 559.98] (w1457-1463) Si no lo sabe, no pasa nada.
+[560.12 - 561.24] (w1464-1467) Ya sabe qué preguntar.
+[561.92 - 567.88] (w1468-1485) El lunes hablamos de la medicina de la que todo el mundo habla o SEMPIC, MUNJARO y compañía.
+[567.94 - 571.34] (w1486-1497) ¿Se acuerda de la llave y la cerradura oxidada del primer video?
+[571.48 - 575.58] (w1498-1509) Le explico qué hacen de verdad estas medicinas dentro de su cuerpo.
+[575.66 - 581.12] (w1510-1528) Si este video les sirvió, mándeselo a alguien de su familia que tenga diabetes o que esté en riesgo.
+[581.30 - 585.38] (w1529-1539) Suscríbase para que usted entienda su diabetes y nadie lo engañe.
+[585.52 - 590.98] (w1540-1558) Si todavía no vio el video del lunes sobre por qué el azúcar sube con los años, véalo ahora.
+[591.06 - 594.72] (w1559-1566) Y recuerde, esto es información, no una consulta.
+[594.84 - 597.78] (w1567-1575) Hable con su médico antes de cambiar cualquier cosa.
+[597.92 - 598.62] (w1576-1577) Cuídese mucho.

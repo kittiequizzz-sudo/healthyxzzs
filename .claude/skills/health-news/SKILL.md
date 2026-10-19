@@ -33,43 +33,35 @@ This skill reuses the health-video tools and rules. Paths are relative to `.clau
 What does **not** carry over: the cream palette, the blue cartoon character, pose sheets, `Caption`
 pills and stamps. Use the news components in `news/news.js` instead.
 
-## Workflow per video
-1. **Intake:** save the script and source log to `projects/<slug>/` (`.docx`: unzip `word/document.xml`).
-   Rewrite for a narrator if the script speaks as a doctor (health-video rule). Turn any "noticia de
-   última hora" framing into an evergreen "informe".
-2. **Research and fact-check** (`factcheck.md`, in Vietnamese, corrected lines in Spanish). Note the
-   exact source for every number, study card and quote; a quote you can't find verbatim is dropped.
-3. **Scene plan** (`plan.md`): split into beats of 3–6 s and pick a recipe per beat from
-   `scene-recipes.md`. Hook first 30–40 s: a cut every 2–3 s. Budget **1 photo per 8–12 s of voice**
-   (photos carry the whole picture in this style). Mark which photos are full-bleed heroes.
-4. **Source pictures** for every beat with `find_media.py` (contact sheets → `get`), check each at 1:1
-   for watermarks. Turn the hero shots into parallax clips (`parallax.py`). Order from the owner (`asset-order.md`) only the few shots stock can't
-   cover, plus the voice spec. Write `order.md`.
-5. **Check delivered photos:** hands and fingers, faces consistent for the recurring character,
-   no text, no logos, no brand names, medical devices plausible, no gore. Ask for regenerations with
-   exact fixes.
-6. **Prepare:** put photos in `assets/` under their ordered names. Grids:
-   `python3 .claude/skills/health-video/scripts/cut_items.py grid.png projects/<slug>/cut --grid 2x2 --names a,b,c,d`.
-   Item sheets: same script with `--names` (white background works; corners are sampled).
-   Read sizes once (`python3 -c "from PIL import Image; print(Image.open(f).size)"`) into the
-   project's `common.js` size table.
-7. **Build:** short video → one `scene.html` from `projects/news_demo/scene.html`. Long video → one HTML
-   per section + `common.js` with the shared bug, small print, wipe and grade (pattern:
-   `projects/7dias_sin_cenar/common.js`, but news components). Every page loads
-   `news/fonts.css`, health-video `lib.js` + `kit.js`, then `news/news.js`.
-8. **Time to the voice:** `node .claude/skills/health-video/scripts/transcribe.mjs audio/voice.mp3 transcript --lang spanish`,
-   write `cues.txt`, run `cues.mjs` → `cues.js`. Graphics land 0.1–0.3 s before their word; hard cuts
-   land on the first word of the beat.
-9. **Sound design:** list `window.SFX` per page (`sourcing-and-sound.md` § Sound grammar).
-   **QA:** `node .claude/skills/health-video/scripts/qa_pages.mjs projects/<slug> 3 intro.html …` and look
-   at every contact sheet with the checks in `news-style.md` § QA, then the shared `qa-checklist.md`.
-10. **Render and deliver:** `render.mjs` (short) or `render_sections.mjs … --jobs 3` (long), then
-    `scripts/mix.py pages video.mp4 mixed.mp4 --voice audio/voice.mp3` for voice + music + effects.
-    Encode the delivery in Full HD at `-crf 18 -preset slow -tune grain` (`news-style.md` § Delivery
-    quality), then split anything over 30 MB into parts without re-encoding (`qa-checklist.md`).
-    CRF 26 is only for quick previews. Summarise in
-    Vietnamese, including any on-screen facts you changed. Commit scenes, cues and cut assets, never the
-    full render.
+## Workflow per video (target: ≤ 1 h 30 from script + voice to delivered MP4)
+Reference project: `projects/video1/` (10-min A1C video: `plan.js`, `cues.txt`, `index.html`).
+1. **Intake (5 min):** read the script and production file (Google Drive connector if linked), save the
+   voice to `projects/<slug>/audio/voice.mp3`. Start the transcription right away in the background:
+   `node .claude/skills/health-video/scripts/transcribe.mjs audio/voice.mp3 transcript --lang spanish`
+   (≈ 25 min CPU for 10 min of voice; install Whisper first if `~/.cache/health-video/asr` is missing).
+2. **Fact-check (10 min):** the production file usually has a source log; check the numbers you will
+   put on screen against it, and the faceless rules (no doctor credential, dramatisation labels).
+3. **Photos (15 min, parallel):** run all searches at once (`find_media.py search … --nosheet` or with
+   `--sheet`), look at the contact sheets, `get … --fast` the picks in parallel, check them at 1:1 for
+   watermarks and logos. Order only what stock can't cover (`order.md`, send it to the owner early);
+   `own('name', 'fallback')` in the plan swaps their photo in when it arrives.
+4. **Plan (20 min):** `cues.txt` (label | phrase), then `plan.js`: one line per shot, keyed to cues
+   (types in `news/engine.js`: photo, number, chapter, study, bars, checklist, warning, split, quote, clip,
+   end, custom). The engine adds the bug, small print, wipes and the sound design. Run
+   `python3 scripts/prep.py projects/<slug>` (photo sizes, voice length). Aim for a new picture or
+   graphic every 4–10 s; no shot under 1.5 s.
+5. **Cues + QA (10 min):** `cues.mjs transcript/words.json cues.txt cues.js`; check order and gaps; render
+   one frame per shot into contact sheets and look at all of them (overflow, faces under text, labels).
+6. **Render (≈ 10–15 min for 10 min of video):**
+   `node scripts/render_layers.mjs index.html out/video.mp4 --jobs 4 --grain 5 --crf 21 --maxrate 6M`
+   then `python3 scripts/mix.py index.html out/video.mp4 out/final.mp4 --voice audio/voice.mp3`.
+7. **Deliver:** split into parts under 30 MB without re-encoding (`qa-checklist.md`); summary in
+   Vietnamese. Commit plan, cues, assets and credits, never `out/`.
+
+Speed notes: `render_layers.mjs` captures the graphics only when they change (fast PNG, transparent)
+and composites the photos with OpenCV; the old `render.mjs` path (full page screenshots) is ~5× slower.
+Don't set `TMPDIR` for renders (Chromium crashes) and don't `pkill -f` a pattern that appears in your own
+command line.
 
 ## Files
 - `references/news-style.md`: palette, type, grid, pacing, transitions, sound, honesty rules, QA.
@@ -77,6 +69,7 @@ pills and stamps. Use the news components in `news/news.js` instead.
 - `references/sourcing-and-sound.md`: finding CC0 photos, watermark/people rules, credits, SFX and the mix.
 - `scripts/find_media.py`, `scripts/upscale.py`, `scripts/parallax.py`, `scripts/sfx.py`, `scripts/mix.py`: photo search/download (stock, Flickr, science/museum sources), Real-ESRGAN upscaling, 2.5D parallax clips from photos, synthesised effects + music bed, soundtrack mix.
 - `references/asset-order.md`: photo prompt templates (hero, 2×2 grid, item sheet), recurring characters, voice spec, delivery checks.
+- `news/engine.js`: plan-driven `Story(cfg, shots)`; `scripts/prep.py`, `scripts/render_layers.mjs` + `compose.py` (fast layered render).
 - `news/news.js`: components (`NewsStage`, `Grade`, `Photo`, `Bug`, `LowerThird`, `Headline`,
   `BigNumber`, `Chapter`, `StudyCard`, `Quote`, `Bars`, `Split`, `Callout`, `Checklist`, `Wipe`,
   `SmallPrint`, `EndCard`). `news/fonts.css`: Oswald, Source Serif 4, Inter.

@@ -119,6 +119,26 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
   trunk, hip and knee flexion strategies **[study]**
   ([fallers study](https://doaj.org/article/dd037966510c46499cb7d447e07392f2)). Seated knees ≈90°
   **[coach]**.
+- Muscles: quadriceps extend the knees, gluteus maximus extends the hips, trunk muscles stabilise.
+  Older adults use 27–125 % more EMG than young adults for the same rise; a higher seat lowers hip and
+  knee demand and muscle activity **[study]**
+  ([Hurley 2016](https://latam-cl.demo.elsevierpure.com/en/publications/the-effect-of-age-and-seat-height-on-sit-to-stand-transfer-biomec)).
+  So: a firm cushion = easier level; a lower seat = harder.
+- Setup **[coach]**: firm chair without wheels against a wall, sit near the front edge, feet flat
+  hip- to shoulder-width, slightly behind the knees; "nose over toes" lean from the hips with a
+  neutral back; arms crossed on the chest (level 2) or hands on armrests/thighs (level 1).
+- Tempo **[coach]**: ≈2 s up, ≈3 s down, no drop onto the seat. Hover variant: stop 2–3 cm above the
+  seat for ~1 s, then sit softly.
+- Test: the 30-s chair stand (Jones, Rikli & Beam 1999): 43 cm seat against a wall, arms crossed, count
+  full stands; more than halfway up at 30 s counts; needing the arms scores 0 (CDC STEADI)
+  ([SRALab](https://www.sralab.org/rehabilitation-measures/30-second-sit-stand-test)).
+- Training evidence **[study]**: a 4-min daily functional programme for 12 weeks in older adults with
+  mobility disability gave +4.2 chair stands over controls
+  ([PMC10738511](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10738511/)); 8 weeks of 5- or 10-rep
+  sit-to-stand sets improved STS power and muscle quality in sedentary adults
+  ([PeerJ 2023](https://peerj.com/articles/15665)). Trials are small.
+- Faults: knees caving in (valgus); heels lifting; dropping onto the seat; rocking/swinging the arms
+  for momentum; feet too far forward (can't get the weight over them).
 
 ### Heel / calf raise (front or side view)
 - Rise onto the balls of the feet and lower slowly. Bodyweight calf raises improved explosive

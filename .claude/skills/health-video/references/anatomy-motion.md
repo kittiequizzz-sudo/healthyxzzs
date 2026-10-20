@@ -123,3 +123,28 @@ at maximum flexion; the knees and feet have not moved.
 **Checklist:** chin tucked from pose 1 on; the curl comes before the hinge (never a stiff plank
 swinging up); the feet stay down; the arms stay crossed with no hands pulling the head; the
 movement reverses smoothly on the way down.
+
+## Sit-to-stand (chair, side view): drawing spec
+
+**Pose 1, seated:** sitting near the front edge of a firm chair, back neutral and upright, knees ≈90°
+directly above or slightly in front of the ankles, feet flat, slightly behind the knees, arms crossed
+on the chest.
+
+**Pose 2, lean ("nose over toes"):** trunk hinged forward from the hips ≈40–45° with a straight back
+(no rounding), head in line with the spine, shoulders above or just in front of the knees, hips still on
+the seat, heels down.
+
+**Pose 3, lift-off / mid-rise:** hips just off the seat (≈10–20 cm), knees ≈60–70°, trunk still leaning
+≈30–40°, weight over the mid-foot, knees in line with the toes, heels down. Thigh and buttock muscles
+visibly working.
+
+**Pose 4, standing:** fully upright, hips and knees extended (not locked back), trunk vertical, chin level,
+arms still crossed, feet unchanged.
+
+**Hover (level 3):** like pose 3 on the way down: hips 2–3 cm above the seat, trunk forward, heels down.
+
+**Locked across all poses:** the chair (same position and size) and the feet (same spot on the floor).
+
+**Checklist:** the lean comes before lift-off (never rising straight up from an upright trunk); the
+heels never lift; the knees track over the toes; the back stays straight (hinge at the hips); the feet
+never move.

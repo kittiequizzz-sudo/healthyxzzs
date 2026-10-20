@@ -141,3 +141,7 @@ Parts 2–3 orders: `order_parte2_3.md` (2A `p2_antonio`, 2B `p2_metaforas`, 2C 
 `levels_pose_sheet` → `lvl_0..3` (lvl_3 = hover) · `errores` → `f_rodillas f_talones f_caer f_bien` (f_bien is seated, front view) ·
 `p2_objetos` → `silla_brazos cojin huesos_pierna rodilla cerebro higado tortuga liebre` (`rodilla` cut by hand: open bone
 shafts at the sheet edge leaked; cream gaps inside the chair stay opaque, fine on cream).
+
+## Delivered assets (parte 3)
+`p3_antonio_a` → `a_desayuno a_descanso a_sofa_tv a_telefono` · `p3_antonio_b` → `a_miedo a_nietos_ok a_pareja a_compras` ·
+`p3_objetos` → `pierna_venas fibras reloj vaso telefono pesas`. All images for the 3 videos are in.

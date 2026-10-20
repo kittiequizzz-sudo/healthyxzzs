@@ -1,0 +1,213 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v1.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · PUNTO 1 — 10.000 pasos no bastan.
+window.START = at('p1') - 0.3;
+window.END = at('p2') - 0.6;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over the walk
+scene(svg, () => START, () => at('diezmil'), g => {
+  const st = panel(g, 'a_paseo', 'full', { focus: [0.5, 0.3] });
+  const k = Kicker(g, 'PUNTO 1', '10.000 PASOS NO BASTAN');
+  return t => { st.draw(t, START, at('diezmil')); show(k, t, START + 0.2); };
+});
+
+// 1. 10.000 steps a day
+scene(svg, () => at('diezmil'), () => at('beneficios'), g => {
+  cut(g, 'zapatillas', 960, 330, 420);
+  const n = CountUp(g, { x: 960, y: 640, size: 220, color: C.blueDark });
+  const cap = Caption(g, 'PASOS AL DÍA', { cy: 850, size: 56 });
+  return t => { n.draw(10000 * E.out(prog(t, at('diezmil'), at('diezmil') + 2))); show(cap, t, at('diezmil') + 0.8); };
+});
+
+// 2. walking's benefits
+scene(svg, () => at('beneficios'), () => at('problema'), g => {
+  const items = [['corazon', 'CORAZÓN', 'cardio'], ['pierna_venas', 'CIRCULACIÓN', 'circulacion'], ['zapatillas', 'ACTIVO', 'activos']].map(([n, s, k], i) => {
+    const c = el('g', {}, g), cx = 380 + i * 580;
+    Card(c, { x: cx - 240, y: 240, w: 480, h: 520, fill: C.white });
+    cut(c, n, cx, 450, 320);
+    Text(c, s, { x: cx, y: 690, size: 50 });
+    wrap(c, Icon.check, cx + 130, 200, 1.2);
+    return [c, k, cx];
+  });
+  const cap = Caption(g, 'ENORMES BENEFICIOS', { cy: 900, hi: 'BENEFICIOS' });
+  return t => { show(cap, t, at('beneficios')); items.forEach(([c, k, cx], i) => pop(c, t, i ? at(k) : at('beneficios') + 0.3, cx, 500)); };
+});
+
+// 3. the problem: steps up, strength down
+scene(svg, () => at('problema'), () => at('piensa'), g => {
+  const ch = el('g', {}, g);
+  Card(ch, { x: 260, y: 160, w: 1400, h: 640, fill: C.white });
+  el('line', { x1: 360, y1: 720, x2: 1580, y2: 720, stroke: C.ink, 'stroke-width': 8 }, ch);
+  el('line', { x1: 360, y1: 720, x2: 360, y2: 230, stroke: C.ink, 'stroke-width': 8 }, ch);
+  Text(ch, 'AÑOS →', { x: 1500, y: 760, size: 34, color: C.grey });
+  const up = el('path', { fill: 'none', stroke: C.blueDark, 'stroke-width': 16, 'stroke-linecap': 'round' }, ch);
+  const dn = el('path', { fill: 'none', stroke: C.red, 'stroke-width': 16, 'stroke-linecap': 'round' }, ch);
+  const lu = Text(ch, 'PASOS', { x: 1460, y: 300, size: 52, color: C.blueDark });
+  const ld = Text(ch, 'FUERZA', { x: 1460, y: 620, size: 52, color: C.red });
+  const cap = Caption(g, 'PERDIENDO FUERZA EN SILENCIO', { cy: 920, size: 52, hi: 'FUERZA' });
+  const curve = (f, u) => { let d = ''; for (let i = 0; i <= 40 * u; i++) { const x = i / 40; d += (i ? 'L' : 'M') + (380 + 1000 * x).toFixed(1) + ' ' + f(x).toFixed(1); } return d; };
+  return t => {
+    const u = E.inOut(prog(t, at('problema') + 0.3, at('perdiendo') + 2.5));
+    set(up, { d: curve(x => 330, u) }); set(dn, { d: curve(x => 330 + 260 * x * x, prog(t, at('perdiendo'), at('perdiendo') + 3)) });
+    show(lu, t, at('problema') + 1); show(ld, t, at('perdiendo') + 1.5); show(cap, t, at('perdiendo') + 0.8);
+  };
+});
+
+// 4. someone who walks every morning… can't get up from the sofa
+scene(svg, () => at('piensa'), () => at('manos'), g => {
+  const a = panel(g, 'a_paseo', 'full', { focus: [0.5, 0.3] });
+  const b = panel(g, 'a_sofa', 'full', { focus: [0.45, 0.25] });
+  const cap = Caption(g, '¿CAMINA… PERO NO SE LEVANTA?', { cy: 960, size: 52, hi: 'NO SE LEVANTA' });
+  return t => {
+    const k = E.inOut(prog(t, at('sofa') - 0.2, at('sofa') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('piensa'), at('sofa')); b.draw(t, at('sofa'), at('manos')); show(cap, t, at('sofa'));
+  };
+});
+
+// 5. pushing up with the hands from a low chair
+scene(svg, () => at('manos'), () => at('enfermo'), g => {
+  const st = panel(g, 'a_nietos', 'full', { focus: [0.3, 0.4], zoom: 0.14 });
+  const cap = Caption(g, 'IMPULSARTE CON LAS MANOS', { cy: 960, hi: 'LAS MANOS' });
+  return t => { st.draw(t, at('manos'), at('enfermo')); show(cap, t, at('manos') + 0.4); };
+});
+
+// 6. not ill — needs a different training: walking ≠ strength
+scene(svg, () => at('enfermo'), () => at('llano'), g => {
+  const a = Mark(g, 'NO SIGNIFICA ESTAR ENFERMO', true, { cx: 960, cy: 200, size: 50 });
+  const b = Chip(g, 'OTRO TIPO DE ENTRENAMIENTO', { cx: 960, cy: 360, size: 48, fill: C.amber });
+  const row = el('g', {}, g);
+  cut(row, 'zapatillas', 560, 700, 380); Text(row, 'CAMINAR', { x: 560, y: 900, size: 54 });
+  Text(row, '≠', { x: 960, y: 700, size: 220, color: C.red });
+  cut(row, 'pierna_musculos', 1360, 680, 420); Text(row, 'FUERZA', { x: 1360, y: 930, size: 54 });
+  return t => { show(a, t, at('enfermo')); show(b, t, at('diferente')); show(row, t, at('enfermo') + 0.4); punch(g, t, at('no_mismo'), 960, 700, 0.07); };
+});
+
+// 7. flat ground: moderate intensity → endurance, but short for the muscles that lift you
+scene(svg, () => at('llano'), () => at('sesenta1'), g => {
+  const st = panel(g, 'a_paseo', 'left', { focus: [0.5, 0.4] });
+  const ga = Gauge(g, { cx: 1500, cy: 520, r: 230, label: 'INTENSIDAD' });
+  const m = Chip(g, 'MODERADA', { cx: 1500, cy: 700, size: 50, fill: C.green, color: C.white });
+  const r = Mark(g, 'RESISTENCIA', true, { cx: 1500, cy: 820, size: 44 });
+  const tiles = [['a_sofa', 'LEVANTARTE', 'levantarte1'], ['a_escalera', 'ESCALONES', 'escalones'], ['a_tropiezo', 'EQUILIBRIO', 'pierdes']].map(([n, s, k], i) => [PanelTile(g, n, { x: 80 + i * 600, y: 260, w: 560, h: 380, label: s }), k]);
+  const cap = Caption(g, 'PUEDE QUEDARSE CORTO', { cy: 900, size: 58, hi: 'CORTO' });
+  const first = el('g', {}, g); [st.g, ga.g, m, r].forEach(e => first.appendChild(e));
+  return t => {
+    const off = prog(t, at('corto') - 0.2, at('corto') + 0.2);
+    first.setAttribute('opacity', 1 - off);
+    st.draw(t, at('llano'), at('corto'));
+    ga.draw(0.42 * E.out(prog(t, at('llano') + 0.5, at('moderada') + 0.6)));
+    show(m, t, at('moderada')); show(r, t, at('resistencia'));
+    show(cap, t, at('corto'));
+    tiles.forEach(([p, k]) => { show(p.g, t, at(k)); p.st.draw(t, at(k), at('sesenta1')); });
+  };
+});
+
+// 8. after 60: muscle mass and power fall → sarcopenia → strength vs speed
+scene(svg, () => at('sesenta1'), () => at('importante'), g => {
+  const leg = el('g', {}, g); cut(leg, 'pierna_musculos', 0, 0, 640);
+  const lab = Chip(g, 'MÁS DE 60', { cx: 480, cy: 160, size: 48, fill: C.ink, color: C.amber });
+  const st = Stamp(g, 'SARCOPENIA', { cx: 1250, cy: 300, size: 100 });
+  const sil = Chip(g, 'AVANZA EN SILENCIO', { cx: 1250, cy: 470, size: 44 });
+  const bars = el('g', {}, g);
+  [['FUERZA', 0.7, C.amber], ['RAPIDEZ', 0.45, C.red]].forEach(([s, v, col], i) => {
+    const y = 600 + i * 150;
+    Text(bars, s, { x: 1000, y: y + 40, size: 46, anchor: 'end' });
+    el('rect', { x: 1030, y, width: 600, height: 80, rx: 16, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, bars);
+    el('rect', { class: 'b', x: 1036, y: y + 6, width: 588 * v, height: 68, rx: 12, fill: col }, bars);
+    Text(bars, '↓', { x: 1680, y: y + 40, size: 70, color: col });
+  });
+  const srcl = Source(g, 'La rapidez (potencia) se pierde antes que la fuerza · Reid y Fielding 2012');
+  return t => {
+    const s = 1 - 0.2 * E.inOut(prog(t, at('masa'), at('masa') + 2.5));
+    leg.setAttribute('transform', `translate(480 600) scale(${s.toFixed(3)})`);
+    show(lab, t, at('sesenta1'));
+    st.draw(t, at('sarcopenia')); show(sil, t, at('silencio'));
+    show(bars, t, at('rapidos') - 1.5); show(srcl, t, at('rapidos'));
+  };
+});
+
+// 9. endurance for an hour is not enough: floor · bed · trip
+scene(svg, () => at('importante'), () => at('coche'), g => {
+  const top = el('g', {}, g);
+  const ck = Clock(top, { cx: 640, cy: 230, r: 110 });
+  Text(top, '1 HORA CAMINANDO', { x: 1110, y: 230, size: 60 });
+  const no = Text(g, 'NO BASTA', { x: 960, y: 420, size: 80, color: C.red });
+  const tiles = [['a_suelo', 'DEL SUELO', 'suelo'], ['a_cama', 'DE LA CAMA', 'cama'], ['a_tropiezo', 'SI TROPIEZAS', 'tropiezas']].map(([n, s, k], i) => [PanelTile(g, n, { x: 80 + i * 600, y: 540, w: 560, h: 380, label: s }), k]);
+  return t => {
+    show(top, t, at('importante')); ck.draw(9 + prog(t, at('una_hora'), at('una_hora') + 2));
+    show(no, t, at('una_hora') + 0.8);
+    tiles.forEach(([p, k]) => { show(p.g, t, at(k)); p.st.draw(t, at(k), at('coche')); });
+  };
+});
+
+// 10. the car: steady motor vs accelerating uphill
+scene(svg, () => at('coche'), () => at('paseos'), g => {
+  const a = panel(g, 'm_coche_llano', 'left', { focus: [0.5, 0.5] });
+  const b = panel(g, 'm_coche_subida', 'left', { focus: [0.6, 0.5] });
+  const ga = Gauge(g, { cx: 1510, cy: 470, r: 220, label: 'ESFUERZO' });
+  const la = Chip(g, 'CAMINAR = RITMO CONSTANTE', { cx: 1510, cy: 650, size: 34 });
+  const lb = Chip(g, 'LEVANTARTE = ACELERAR', { cx: 1510, cy: 650, size: 36, fill: C.amber });
+  const two = el('g', {}, g);
+  Chip(two, 'RESISTENCIA', { cx: 1270, cy: 860, size: 44, fill: C.blueFar });
+  Chip(two, 'FUERZA', { cx: 1660, cy: 860, size: 44, fill: C.amber });
+  const cap = Caption(g, 'CAPACIDADES DISTINTAS', { cx: 620, cy: 960, size: 46, hi: 'DISTINTAS' });
+  return t => {
+    const k = E.inOut(prog(t, at('pendiente') - 0.2, at('pendiente') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('coche'), at('pendiente')); b.draw(t, at('pendiente'), at('paseos'));
+    ga.draw(lerp(0.3 + 0.02 * Math.sin(t * 4), 0.85 + 0.02 * Math.sin(t * 6), k));
+    show(la, t, at('motor'), at('pendiente')); show(lb, t, at('pendiente') + 0.2);
+    show(two, t, at('distintas')); show(cap, t, at('distintas') + 0.3);
+  };
+});
+
+// 11. keep walking + add one simple movement
+scene(svg, () => at('paseos'), () => at('herramienta'), g => {
+  const st = panel(g, 'a_paseo', 'left', { focus: [0.5, 0.3] });
+  const ok = Mark(g, 'SIGUE CAMINANDO', true, { cx: 1500, cy: 260, size: 46 });
+  const plus = el('g', {}, g);
+  cut(plus, 'zapatillas', 1330, 560, 260); Text(plus, '+', { x: 1530, y: 560, size: 150, color: C.orange }); cut(plus, 'silla', 1700, 560, 300);
+  const cap = Chip(g, 'UN MOVIMIENTO SENCILLO', { cx: 1500, cy: 820, size: 40, fill: C.amber });
+  return t => { st.draw(t, at('paseos'), at('herramienta')); show(ok, t, at('paseos') + 0.3); show(plus, t, at('complementar')); show(cap, t, at('complementar') + 0.6); };
+});
+
+// 12. a stable chair: a tool for confidence
+scene(svg, () => at('herramienta'), () => at('comentarios'), g => {
+  const st = panel(g, 'a_salon', 'tall', { focus: [0.5, 0], zoom: 0.12 });
+  const cap = Caption(g, 'UNA HERRAMIENTA DE CONFIANZA', { cy: 960, size: 54, hi: 'CONFIANZA' });
+  return t => { st.draw(t, at('herramienta'), at('comentarios')); show(cap, t, at('confianza') - 0.4); };
+});
+
+// 13. comment: how many minutes do you walk?
+scene(svg, () => at('comentarios'), () => at('siguiente'), g => {
+  const st = panel(g, 'a_paseo', 'left', { focus: [0.5, 0.3] });
+  const b = el('g', {}, g);
+  Card(b, { x: 1230, y: 280, w: 620, h: 360, fill: C.white });
+  wrap(b, Icon.bubble, 1250, 300, 1.1);
+  Text(b, '¿CUÁNTOS', { x: 1560, y: 430, size: 60 }); Text(b, 'MINUTOS', { x: 1560, y: 500, size: 60, color: C.orange }); Text(b, 'CAMINAS AL DÍA?', { x: 1560, y: 570, size: 48 });
+  const cta = CTA(g, 'comment', 'COMENTA');
+  return t => { st.draw(t, at('comentarios'), at('siguiente')); show(b, t, at('minutos') - 0.3); show(cta, t, at('comentarios')); };
+});
+
+// 14. bridge: a 30-second test
+scene(svg, () => at('siguiente'), () => END + 1, g => {
+  const sw = Stopwatch(g, { cx: 960, cy: 470, r: 230 });
+  const cap = Caption(g, 'UNA PRUEBA DE 30 SEGUNDOS', { cy: 860, size: 56, hi: '30 SEGUNDOS' });
+  return t => { pop(sw.g, t, at('siguiente') + 1, 960, 470); sw.draw(30 * E.inOut(prog(t, at('siguiente') + 1.5, at('siguiente') + 6))); show(cap, t, at('siguiente') + 2); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

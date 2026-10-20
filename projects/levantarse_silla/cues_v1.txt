@@ -1,0 +1,122 @@
+# Video 1 (audio/voice_v1.mp3, words from transcript/words_v1.json). label | phrase from the voice, in order.
+# --- intro
+km | que los kilómetros que caminas
+casa | Ocurre en tu propia casa
+levantarte0 | decides levantarte
+facilidad | Lo haces con facilidad
+brazos | apoyarte en los brazos
+inclinarte | inclinarte demasiado hacia delante
+esfuerzo | un pequeño esfuerzo
+sesenta | Si tienes más de 60 años
+gesto | ese gesto aparentemente
+independencia | tu independencia futura
+caminar | Quizás sales a caminar
+pasos | completas miles de pasos
+fuertes | mantener tus piernas fuertes
+corazon | Caminar es excelente para tu corazón
+desconocen | muchas personas desconocen
+estimulo | Caminar no siempre proporciona
+al_levantarte | al levantarte
+escaleras | subir escaleras
+equilibrio0 | recuperar el equilibrio
+ejercicio | entra en juego un ejercicio
+salon | practicar en tu salón
+silla_firme | únicamente una silla firme
+pesas | No necesitas pesas
+maquinas | máquinas
+gimnasio | apuntarte a un gimnasio
+movimiento | solo aprender a realizar
+toda_vida | haciendo toda la vida
+porque | descubrirás por qué este ejercicio
+adaptarlo | como adaptarlo a tu capacidad
+errores | qué errores debes evitar
+tecnica | presta especial atención a la técnica
+detalle | un pequeño detalle
+quedate | Quédate hasta el final
+victoria | Tu próxima victoria física
+# --- punto 1
+p1 | Por qué caminar ya no es suficiente
+diezmil | caminar 10.000 pasos al día
+beneficios | enormes beneficios
+cardio | mejora la salud cardiovascular
+circulacion | favorece la circulación
+activos | ayuda a mantenernos activos
+problema | Pero existe un problema
+perdiendo | estar perdiendo lentamente la fuerza
+piensa | Piensa en algo muy sencillo
+pasear | alguien que sale a pasear
+sofa | levantarse del sofá
+manos | impulsarte con las manos
+enfermo | no significa necesariamente que estés enfermo
+diferente | un tipo de entrenamiento diferente
+no_mismo | no son exactamente lo mismo
+llano | Cuando caminas sobre terreno llano
+moderada | intensidad relativamente moderada
+resistencia | beneficioso para la resistencia
+corto | puede quedarse corto
+levantarte1 | encargados de levantarte
+escalones | subir escalones
+pierdes | cuando pierdes el equilibrio
+sesenta1 | Especialmente después de los 60
+masa | perder masa muscular y potencia
+sarcopenia | se conoce como sarcopenia
+silencio | avanzar silenciosamente
+rapidos | movimientos rápidos
+importante | algo especialmente importante
+una_hora | caminar durante una hora
+suelo | levantarte del suelo
+cama | incorporarte de la cama
+tropiezas | cuando tropiezas con una alfombra
+coche | compararlo con un coche
+motor | mantiene el motor funcionando
+pendiente | acelerar al subir una pendiente
+distintas | entrenan capacidades distintas
+paseos | no quiero que abandones tus paseos
+continua | continúa caminando
+complementar | complementar ese hábito
+herramienta | Una silla estable puede convertirse
+confianza | recuperar confianza
+comentarios | dime algo en los comentarios
+minutos | Cuántos minutos caminas
+respuesta | Tu respuesta puede ayudar
+siguiente | en el siguiente apartado
+# --- punto 2
+p2 | La prueba de la silla, el indicador
+treinta | 30 segundos. Eso es todo
+nogym | No necesitas acudir a un gimnasio
+pregunta | Basta con una silla firme
+cuantas | Cuántas veces puedes sentarte
+evaluacion | Esta sencilla evaluación
+valorar | para valorar la fuerza funcional
+mayores | especialmente en personas mayores
+diagnosticar | no permite diagnosticar
+util | puede aportar información útil
+antonio | Pensemos en Antonio
+orgulloso | Estaba orgulloso
+preocuparle | algo que empezaba a preocuparle
+empujarse | necesitaba empujarse con ambas manos
+nietos | Cuando visitaba a sus nietos
+resist_ant | Antonio tenía resistencia
+diferencia | esa diferencia es la que
+partida | conocer tu punto de partida
+pared | contra la pared
+resbale | superficie que no
+pies | Siéntate con los pies apoyados
+caderas | anchura de tus caderas
+erguido | levántate hasta quedar erguido
+repite | Repite el movimiento durante
+completas | únicamente las repeticiones completas
+cruzados | brazos cruzados sobre el pecho
+manos2 | Si necesitas utilizar las manos
+supervision | supervisión de un profesional
+competir | no es competir
+edad | según tu edad, sexo
+observar | Lo verdaderamente útil
+esperanza | una noticia esperanzadora
+mejorar | La fuerza muscular puede mejorar
+suscribete | suscríbete al canal
+semana | Cada semana compartimos
+interesante | porque ahora viene lo más interesante
+musculos | dentro de tus músculos
+informativo | Recuerda que este contenido
+artrosis | Si padeces artrosis grave

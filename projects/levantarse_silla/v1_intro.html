@@ -1,0 +1,210 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v1.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · INTRO (hook): hard cuts every 1.5–2.5 s for the first ~45 s.
+window.START = 0;
+window.END = at('p1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const H = { hard: true };
+
+// 0. cold open: Antonio pushing up from the armchair
+scene(svg, () => -1, () => at('km'), g => {
+  const st = panel(g, 'a_sofa', 'full', { focus: [0.45, 0.25], zoom: 0.14 });
+  return t => st.draw(t, 0, at('km'));
+}, H);
+
+// 1. "más que los kilómetros": walking + km counter
+scene(svg, () => at('km'), () => at('casa'), g => {
+  const st = panel(g, 'a_paseo', 'left', { focus: [0.6, 0.4] });
+  const c = el('g', {}, g);
+  Card(c, { x: 1250, y: 330, w: 560, h: 330, fill: C.white });
+  const n = CountUp(c, { x: 1530, y: 470, size: 150, color: C.blueDark, suffix: ' km' });
+  Text(c, 'CADA DÍA', { x: 1530, y: 590, size: 44, color: C.grey });
+  return t => { st.draw(t, at('km'), at('casa')); slideIn(c, t, at('km'), 'r'); n.draw(5 * E.out(prog(t, at('km'), at('km') + 1.2))); };
+}, H);
+
+// 2. "en tu propia casa"
+scene(svg, () => at('casa'), () => at('levantarte0'), g => {
+  const st = panel(g, 'a_salon', 'tall', { focus: [0.45, 0], zoom: 0.12 });
+  const cap = Caption(g, 'EN TU PROPIA CASA', { cy: 960, hi: 'CASA' });
+  return t => { st.draw(t, at('casa'), at('levantarte0')); show(cap, t, at('casa') + 0.3); };
+}, H);
+
+// 3. "decides levantarte": the four poses, fast
+scene(svg, () => at('levantarte0'), () => at('facilidad'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 960, floor: 1000, h: 900 });
+  return t => p.draw(Math.min(3, 3 * prog(t, at('levantarte0'), at('facilidad') - 0.3)));
+}, H);
+
+// 4. "¿con facilidad o con los brazos?"
+scene(svg, () => at('facilidad'), () => at('inclinarte'), g => {
+  const a = el('g', {}, g), b = el('g', {}, g);
+  const p = Poses(a, 'sts', 4, { cx: 470, floor: 900, h: 700 });
+  Mark(a, 'CON FACILIDAD', true, { cx: 480, cy: 980 });
+  const st = Still(b, src('a_sofa'), { x: 900, y: 190, w: 960, h: 640, iw: SZ.a_sofa[0], ih: SZ.a_sofa[1], focus: [0.4, 0.5] });
+  Mark(b, 'CON LOS BRAZOS', false, { cx: 1380, cy: 980 });
+  const q = Text(g, '¿CÓMO TE LEVANTAS?', { x: 960, y: 100, size: 80, color: C.orange });
+  return t => {
+    p.draw(3); show(a, t, at('facilidad')); show(b, t, at('brazos')); st.draw(t, at('brazos'), at('inclinarte'));
+    show(q, t, at('facilidad'));
+  };
+}, H);
+
+// 5. "inclinarte demasiado hacia delante"
+scene(svg, () => at('inclinarte'), () => at('esfuerzo'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 860, floor: 1000, h: 900 });
+  const ar = Arrow(g, 900, 300, 1180, 420, C.red, 18);
+  const cap = Caption(g, 'DEMASIADO HACIA DELANTE', { cx: 1300, cy: 180, size: 50, hi: 'DELANTE' });
+  return t => { p.draw(1); show(ar, t, at('inclinarte') + 0.2, 1e9, { dy: 0 }); show(cap, t, at('inclinarte') + 0.3); };
+}, H);
+
+// 6. "un pequeño esfuerzo que antes ni siquiera notabas"
+scene(svg, () => at('esfuerzo'), () => at('sesenta'), g => {
+  const st = panel(g, 'a_sofa', 'full', { focus: [0.45, 0.2], zoom: 0.3 });
+  const cap = Caption(g, 'UN ESFUERZO NUEVO', { cy: 960, hi: 'NUEVO' });
+  return t => { st.draw(t, at('esfuerzo'), at('sesenta')); show(cap, t, at('esfuerzo') + 0.4); };
+}, H);
+
+// 7. "más de 60 años, presta atención"
+scene(svg, () => at('sesenta'), () => at('gesto'), g => {
+  const big = Text(g, '60+', { x: 760, y: 470, size: 360, color: C.orange });
+  const p = Poses(g, 'sts', 4, { cx: 1450, floor: 980, h: 820 }); p.draw(0);
+  const cap = Caption(g, 'PRESTA ATENCIÓN', { cx: 760, cy: 800, size: 64, hi: 'ATENCIÓN' });
+  return t => { pop(big, t, at('sesenta'), 760, 470); show(cap, t, at('sesenta') + 1.2); };
+}, H);
+
+// 8. "ese gesto aparentemente insignificante" → the chair
+scene(svg, () => at('gesto'), () => at('independencia'), g => {
+  const c = cut(g, 'silla', 960, 520, 680);
+  const cap = Caption(g, 'UN GESTO PEQUEÑO', { cy: 960, hi: 'PEQUEÑO' });
+  return t => { pop(c, t, at('gesto'), 960, 520); show(cap, t, at('gesto') + 0.5); };
+}, H);
+
+// 9. "tu independencia futura"
+scene(svg, () => at('independencia'), () => at('caminar'), g => {
+  const st = panel(g, 'a_victoria', 'tall', { focus: [0.6, 0], zoom: 0.12 });
+  const cap = Caption(g, 'TU INDEPENDENCIA', { cy: 960, size: 64, hi: 'INDEPENDENCIA' });
+  return t => { st.draw(t, at('independencia'), at('caminar')); show(cap, t, at('independencia') + 0.2); };
+}, H);
+
+// 10. walking every morning + steps counter
+scene(svg, () => at('caminar'), () => at('fuertes'), g => {
+  const st = panel(g, 'a_paseo', 'left', { focus: [0.55, 0.4] });
+  const c = el('g', {}, g);
+  Card(c, { x: 1250, y: 300, w: 580, h: 400, fill: C.white });
+  cut(c, 'zapatillas', 1540, 420, 260);
+  const n = CountUp(c, { x: 1540, y: 600, size: 110, color: C.blueDark });
+  Text(c, 'PASOS', { x: 1540, y: 670, size: 36, color: C.grey });
+  return t => { st.draw(t, at('caminar'), at('fuertes')); show(c, t, at('pasos') - 0.2); n.draw(8000 * E.out(prog(t, at('pasos'), at('fuertes')))); };
+}, H);
+
+// 11. "mantener tus piernas fuertes"
+scene(svg, () => at('fuertes'), () => at('corazon'), g => {
+  const c = cut(g, 'pierna_musculos', 960, 500, 760);
+  const cap = Caption(g, '¿PIERNAS FUERTES?', { cy: 960, hi: 'FUERTES' });
+  return t => { pop(c, t, at('fuertes'), 960, 500); show(cap, t, at('fuertes') + 0.4); };
+}, H);
+
+// 12. "excelente para tu corazón… pero"
+scene(svg, () => at('corazon'), () => at('estimulo'), g => {
+  const h = cut(g, 'corazon', 760, 500, 560);
+  const ok = wrap(g, Icon.check, 1030, 300, 1.6);
+  const q = wrap(g, Icon.question, 1260, 560, 1.8);
+  const cap = Caption(g, 'BUENO PARA EL CORAZÓN', { cy: 960, hi: 'CORAZÓN' });
+  return t => {
+    pop(h, t, at('corazon'), 760, 500); pop(ok, t, at('corazon') + 0.6, 1110, 380); show(cap, t, at('corazon') + 0.3);
+    pop(q, t, at('desconocen'), 1350, 650);
+  };
+}, H);
+
+// 13. "caminar no siempre proporciona el estímulo suficiente" + 3 situations
+scene(svg, () => at('estimulo'), () => at('ejercicio'), g => {
+  const top = el('g', {}, g);
+  cut(top, 'zapatillas', 640, 230, 300);
+  Text(top, '≠', { x: 960, y: 230, size: 160, color: C.red });
+  cut(top, 'pierna_musculos', 1280, 240, 330);
+  const cap = Caption(g, 'CAMINAR NO ES SUFICIENTE', { cy: 470, size: 52, hi: 'NO ES SUFICIENTE' });
+  const tiles = [['a_sofa', 'LEVANTARTE', 'al_levantarte'], ['a_escalera', 'ESCALERAS', 'escaleras'], ['a_tropiezo', 'EQUILIBRIO', 'equilibrio0']]
+    .map(([n, s, k], i) => [PanelTile(g, n, { x: 80 + i * 600, y: 590, w: 560, h: 360, label: s }), k]);
+  return t => {
+    show(top, t, at('estimulo')); show(cap, t, at('estimulo') + 0.5);
+    tiles.forEach(([p, k]) => { show(p.g, t, at(k)); p.st.draw(t, at(k), at('ejercicio')); });
+  };
+}, H);
+
+// 14. "un ejercicio tan sencillo… en tu salón… una silla firme"
+scene(svg, () => at('ejercicio'), () => at('pesas'), g => {
+  const st = panel(g, 'a_salon', 'tall', { focus: [0.5, 0], zoom: 0.16 });
+  const cap = Caption(g, 'SOLO UNA SILLA', { cy: 960, size: 66, hi: 'SILLA' });
+  return t => { st.draw(t, at('ejercicio'), at('pesas')); show(cap, t, at('silla_firme')); punch(g, t, at('silla_firme'), 1100, 600, 0.06); };
+});
+
+// 15. no weights, no machines, no gym
+scene(svg, () => at('pesas'), () => at('movimiento'), g => {
+  const items = [
+    ['pesas', 'PESAS', 'pesas'], [null, 'MÁQUINAS', 'maquinas'], [null, 'GIMNASIO', 'gimnasio'],
+  ].map(([n, s, k], i) => {
+    const c = el('g', {}, g), cx = 380 + i * 580;
+    Card(c, { x: cx - 240, y: 260, w: 480, h: 440, fill: C.white });
+    if (n) cut(c, n, cx, 440, 300);
+    else if (s === 'MÁQUINAS') { Icon.gear(c, cx - 150, 330, 1.6, C.grey); Icon.gear(c, cx + 10, 410, 1.2, C.amber); }
+    else { el('path', { d: `M${cx - 150} 560 L${cx - 150} 420 L${cx} 330 L${cx + 150} 420 L${cx + 150} 560 Z`, fill: C.blueFar, stroke: C.ink, 'stroke-width': 8, 'stroke-linejoin': 'round' }, c); cut(c, 'pesas', cx, 500, 150); }
+    Text(c, s, { x: cx, y: 650, size: 48 });
+    const x = wrap(c, Icon.cross, cx + 120, 230, 1.3);
+    return [c, k, x, cx];
+  });
+  const cap = Caption(g, 'NO NECESITAS NADA MÁS', { cy: 900, hi: 'NADA MÁS' });
+  return t => { items.forEach(([c, k, x, cx]) => { pop(c, t, at(k), cx, 480); pop(x, t, at(k) + 0.35, cx + 185, 295); }); show(cap, t, at('gimnasio') + 0.6); };
+});
+
+// 16. "un movimiento que llevas haciendo toda la vida"
+scene(svg, () => at('movimiento'), () => at('porque'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 700, floor: 980, h: 860 });
+  const cap = Caption(g, 'UN MOVIMIENTO DE TODA LA VIDA', { cx: 1260, cy: 330, size: 46, hi: 'TODA LA VIDA' });
+  const ok = Text(g, 'HACERLO BIEN', { x: 1300, y: 560, size: 70, color: C.green });
+  return t => { p.draw(repPose(t, at('movimiento'))); show(ok, t, at('movimiento') + 0.6); show(cap, t, at('toda_vida') - 0.3); };
+});
+
+// 17. what's coming in this series: why · how to adapt · errors
+scene(svg, () => at('porque'), () => at('tecnica'), g => {
+  const tag = SeriesTag(g, 'SERIE · 3 VÍDEOS');
+  const items = [['pierna_musculos', 'POR QUÉ', 'porque', C.orange], ['lvl_1', 'CÓMO ADAPTARLO', 'adaptarlo', C.green], ['f_rodillas', 'ERRORES', 'errores', C.red]].map(([n, s, k, col], i) => {
+    const c = el('g', {}, g), cx = 360 + i * 600;
+    Card(c, { x: cx - 260, y: 200, w: 520, h: 600, fill: C.white });
+    el('rect', { x: cx - 260, y: 200, width: 520, height: 26, rx: 13, fill: col }, c);
+    cut(c, n, cx, 470, 400);
+    Text(c, s, { x: cx, y: 740, size: 52, color: col });
+    if (s === 'ERRORES') Icon.cross(c, cx + 140, 250, 1);
+    return [c, k, cx];
+  });
+  return t => { show(tag, t, at('porque')); items.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 500)); };
+});
+
+// 18. "presta especial atención a la técnica… un pequeño detalle"
+scene(svg, () => at('tecnica'), () => at('quedate'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 760, floor: 1000, h: 900 });
+  const r = Ring(g, 830, 700, 150, C.orange);
+  const q = wrap(g, Icon.question, 1000, 480, 1.5);
+  const cap = Caption(g, 'UN PEQUEÑO DETALLE', { cx: 1360, cy: 300, size: 58, hi: 'DETALLE' });
+  return t => { p.draw(2); r.draw(t, at('detalle')); pop(q, t, at('detalle') + 0.3, 1075, 555); show(cap, t, at('detalle')); };
+});
+
+// 19. "quédate hasta el final… tu próxima victoria"
+scene(svg, () => at('quedate'), () => END + 1, g => {
+  const st = panel(g, 'a_victoria', 'tall', { focus: [0.6, 0], zoom: 0.16 });
+  const cap = Caption(g, 'TU PRÓXIMA VICTORIA', { cy: 960, size: 66, hi: 'VICTORIA' });
+  return t => { st.draw(t, at('quedate'), END); show(cap, t, at('victoria')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

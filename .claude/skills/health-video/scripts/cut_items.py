@@ -25,11 +25,24 @@ def split_grid(im, cols, rows):
 
     def gaps(frac_axis, n, size):
         cuts = []
+        # panels are often unequal (ChatGPT grids), so look ±25 % around the even split for the
+        # contiguous near-white run (the gutter) closest to it
         for k in range(1, n):
             c = size * k // n
-            lo, hi = c - size // 10, c + size // 10
-            idx = [i for i in range(lo, hi) if frac_axis[i] > 0.85]
-            cuts.append((min(idx), max(idx) + 1) if idx else (c, c))
+            lo, hi = c - size // 4, c + size // 4
+            runs, st = [], None
+            for i in range(lo, hi + 1):
+                if i < hi and frac_axis[i] > 0.95:
+                    st = i if st is None else st
+                elif st is not None:
+                    if i - st >= 3:
+                        runs.append((st, i))
+                    st = None
+            if not runs:
+                idx = [i for i in range(c - size // 10, c + size // 10) if frac_axis[i] > 0.85]
+                cuts.append((min(idx), max(idx) + 1) if idx else (c, c))
+            else:
+                cuts.append(min(runs, key=lambda r: abs((r[0] + r[1]) / 2 - c)))
         return cuts
     cx = gaps(white.mean(0), cols, W)
     cy = gaps(white.mean(1), rows, H)

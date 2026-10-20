@@ -1,0 +1,198 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v1.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · PUNTO 2 — la prueba de la silla, then the end of video 1 (next video + disclaimer).
+window.START = at('p2') - 0.6;
+window.END = 500.5;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over Antonio ready for the test
+scene(svg, () => START, () => at('treinta'), g => {
+  const st = panel(g, 'a_prueba', 'full', { focus: [0.45, 0.3] });
+  const k = Kicker(g, 'PUNTO 2', 'LA PRUEBA DE LA SILLA');
+  return t => { st.draw(t, START, at('treinta')); show(k, t, START + 0.3); };
+});
+
+// 1. thirty seconds
+scene(svg, () => at('treinta'), () => at('nogym'), g => {
+  const sw = Stopwatch(g, { cx: 960, cy: 500, r: 280 });
+  const cap = Caption(g, 'SOLO 30 SEGUNDOS', { cy: 920, size: 60, hi: '30 SEGUNDOS' });
+  return t => { pop(sw.g, t, at('treinta'), 960, 500); sw.draw(30 * E.inOut(prog(t, at('treinta') + 0.3, at('nogym')))); show(cap, t, at('treinta') + 0.6); };
+});
+
+// 2. no gym, no devices, nothing complicated — just a chair and a question
+scene(svg, () => at('nogym'), () => at('evaluacion'), g => {
+  const no = el('g', {}, g);
+  [['GIMNASIO', 360], ['APARATOS', 960], ['COMPLICACIONES', 1560]].forEach(([s, cx]) => Mark(no, s, false, { cx, cy: 160, size: 40 }));
+  const ch = cut(g, 'silla', 700, 600, 560);
+  const q = wrap(g, Icon.question, 1050, 380, 2.4);
+  const cap = Caption(g, '¿CUÁNTAS VECES EN 30 s?', { cx: 1280, cy: 760, size: 52, hi: '30 s' });
+  return t => {
+    show(no, t, at('nogym')); pop(ch, t, at('nogym') + 0.4, 700, 600); pop(q, t, at('pregunta') + 0.8, 1170, 500);
+    show(cap, t, at('cuantas'));
+  };
+});
+
+// 3. what the test is: leg strength in older people; not a diagnosis
+scene(svg, () => at('evaluacion'), () => at('antonio'), g => {
+  const c = el('g', {}, g);
+  Card(c, { x: 160, y: 140, w: 1600, h: 220, fill: C.ink });
+  Text(c, 'PRUEBA DE LA SILLA · 30 s', { x: 960, y: 225, size: 76, color: C.amber });
+  Text(c, 'la usan profesionales de la salud', { x: 960, y: 305, size: 40, weight: 800, color: C.cream });
+  const leg = cut(g, 'pierna_musculos', 420, 680, 440);
+  const a = Mark(g, 'FUERZA DE LAS PIERNAS', true, { cx: 1180, cy: 520, size: 46 });
+  const b = Mark(g, 'PERSONAS MAYORES', true, { cx: 1180, cy: 660, size: 46 });
+  const d = Chip(g, 'NO DIAGNOSTICA ENFERMEDADES', { cx: 1180, cy: 800, size: 40, fill: C.amber });
+  const u = Chip(g, 'PISTAS SOBRE TU INDEPENDENCIA', { cx: 1180, cy: 930, size: 40, fill: C.green, color: C.white });
+  const s = Source(g, 'Prueba de 30 s: Jones, Rikli y Beam 1999');
+  return t => {
+    show(c, t, at('evaluacion')); show(leg, t, at('evaluacion') + 0.3); show(a, t, at('valorar')); show(b, t, at('mayores'));
+    show(d, t, at('diagnosticar')); show(u, t, at('util')); show(s, t, at('evaluacion') + 1);
+  };
+});
+
+// 4. Antonio's story: walker, proud — but needs both hands; avoids low chairs
+scene(svg, () => at('antonio'), () => at('resist_ant'), g => {
+  const a = panel(g, 'a_paseo', 'full', { focus: [0.5, 0.3] });
+  const b = panel(g, 'a_sofa', 'full', { focus: [0.45, 0.25], zoom: 0.12 });
+  const c = panel(g, 'a_nietos', 'full', { focus: [0.3, 0.35], zoom: 0.12 });
+  const name = Chip(g, 'ANTONIO · 67 AÑOS', { cx: 960, cy: 960, size: 50, fill: C.ink, color: C.amber });
+  const c1 = Caption(g, 'EMPUJA CON AMBAS MANOS', { cy: 960, size: 54, hi: 'AMBAS MANOS' });
+  const c2 = Caption(g, 'EVITA LAS SILLAS BAJAS', { cy: 960, size: 54, hi: 'SILLAS BAJAS' });
+  Drama(g);
+  return t => {
+    const kb = E.inOut(prog(t, at('empujarse') - 0.3, at('empujarse') + 0.2)), kc = E.inOut(prog(t, at('nietos') - 0.2, at('nietos') + 0.3));
+    a.g.setAttribute('opacity', 1 - kb); b.g.setAttribute('opacity', kb * (1 - kc)); c.g.setAttribute('opacity', kc);
+    a.draw(t, at('antonio'), at('empujarse')); b.draw(t, at('preocuparle'), at('nietos')); c.draw(t, at('nietos'), at('resist_ant'));
+    show(name, t, at('antonio') + 0.3, at('empujarse') - 0.2); show(c1, t, at('empujarse'), at('nietos')); show(c2, t, at('nietos') + 0.4);
+  };
+});
+
+// 5. endurance yes, strength no — that difference is what we look for
+scene(svg, () => at('resist_ant'), () => at('partida'), g => {
+  const l = PanelTile(g, 'a_paseo', { x: 100, y: 200, w: 820, h: 540 });
+  const r = PanelTile(g, 'a_sofa', { x: 1000, y: 200, w: 820, h: 540 });
+  const a = Mark(g, 'RESISTENCIA', true, { cx: 510, cy: 850, size: 50 });
+  const b = Mark(g, 'FUERZA', false, { cx: 1410, cy: 850, size: 50 });
+  const cap = Caption(g, 'ESA ES LA DIFERENCIA', { cy: 110, size: 56, hi: 'DIFERENCIA' });
+  Drama(g);
+  return t => {
+    show(l.g, t, at('resist_ant')); show(a, t, at('resist_ant') + 0.4); show(r.g, t, at('resist_ant') + 2); show(b, t, at('resist_ant') + 2.4);
+    l.st.draw(t, at('resist_ant'), at('partida')); r.st.draw(t, at('resist_ant'), at('partida'));
+    show(cap, t, at('diferencia'));
+  };
+});
+
+// 6. setup: chair against the wall, non-slip floor, feet flat hip-width
+scene(svg, () => at('partida'), () => at('erguido'), g => {
+  const wall = el('g', {}, g);
+  el('rect', { x: 360, y: 120, width: 60, height: 820, fill: '#D9CBB0', stroke: C.ink, 'stroke-width': 6 }, wall);
+  el('line', { x1: 300, y1: 940, x2: 1700, y2: 940, stroke: C.ink, 'stroke-width': 8 }, wall);
+  const p = Poses(g, 'sts', 4, { cx: 640, floor: 950, h: 800 }); p.draw(0);
+  const tags = [['CONTRA LA PARED', 'pared', 360], ['SUELO QUE NO RESBALE', 'resbale', 500], ['PIES EN EL SUELO', 'pies', 640], ['ANCHURA DE CADERAS', 'caderas', 780]]
+    .map(([s, k, y]) => [Mark(g, s, true, { cx: 1340, cy: y, size: 42 }), k]);
+  const head = Text(g, 'TU PUNTO DE PARTIDA', { x: 1340, y: 200, size: 64, color: C.orange });
+  return t => { show(head, t, at('partida')); tags.forEach(([c, k]) => show(c, t, at(k))); };
+});
+
+// 7. stand tall, sit softly, repeat for 30 s — count only full reps
+scene(svg, () => at('erguido'), () => at('manos2'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 600, floor: 1000, h: 860 });
+  const sw = Stopwatch(g, { cx: 1380, cy: 380, r: 190 });
+  const cnt = el('g', {}, g);
+  Card(cnt, { x: 1170, y: 640, w: 420, h: 200, fill: C.white });
+  const n = Text(cnt, '0', { x: 1300, y: 742, size: 120, color: C.orange });
+  Text(cnt, 'COMPLETAS', { x: 1460, y: 742, size: 34, weight: 900 });
+  const cap = Caption(g, 'BRAZOS CRUZADOS', { cx: 1380, cy: 940, size: 50, hi: 'CRUZADOS' });
+  const r = Ring(g, 650, 400, 110, C.orange);
+  return t => {
+    const t0 = at('erguido');
+    p.draw(repPose(t, t0, { up: 1.2, hold: 0.3, down: 1.5, rest: 0.3 }));
+    show(sw.g, t, at('repite')); sw.draw(30 * prog(t, at('repite'), at('manos2') - 0.5));
+    show(cnt, t, at('completas')); n.textContent = String(Math.max(0, repCount(t, at('completas') - 1, { up: 1.2, hold: 0.3, down: 1.5, rest: 0.3 })));
+    show(cap, t, at('cruzados')); r.draw(t, at('cruzados'));
+  };
+});
+
+// 8. safety: hands needed, pain, dizziness, balance → don't force it
+scene(svg, () => at('manos2'), () => at('competir'), g => {
+  const w = Warn(g, 'NO FUERCES LA PRUEBA', ['¿Necesitas las manos?', '¿Dolor o mareo?', '¿Problemas de equilibrio?'], { y: 160 });
+  const pt = PanelTile(g, 'a_parar', { x: 690, y: 640, w: 540, h: 330 });
+  const s = Chip(g, 'MEJOR CON UN PROFESIONAL', { cx: 960, cy: 1020, size: 40, fill: C.amber });
+  return t => { show(w, t, at('manos2')); show(pt.g, t, at('manos2') + 0.6); pt.st.draw(t, at('manos2'), at('competir')); show(s, t, at('supervision')); };
+});
+
+// 9. not a competition: age · sex · condition → watch how you move
+scene(svg, () => at('competir'), () => at('esperanza'), g => {
+  const a = Mark(g, 'NO ES UNA COMPETICIÓN', false, { cx: 960, cy: 150, size: 52 });
+  const chips = [['EDAD', 560], ['SEXO', 960], ['SITUACIÓN FÍSICA', 1360]].map(([s, cx]) => Chip(g, s, { cx, cy: 310, size: 42, fill: C.blueFar }));
+  const st = PanelTile(g, 'a_prueba', { x: 460, y: 420, w: 1000, h: 520 });
+  const cap = Caption(g, 'OBSERVA CÓMO TE MUEVES', { cy: 980, size: 50, hi: 'CÓMO' });
+  return t => {
+    show(a, t, at('competir')); chips.forEach(c => show(c, t, at('edad')));
+    show(st.g, t, at('observar') - 0.5); st.st.draw(t, at('observar'), at('esperanza')); show(cap, t, at('observar'));
+  };
+});
+
+// 10. good news: strength improves even at advanced ages
+scene(svg, () => at('esperanza'), () => at('suscribete'), g => {
+  const st = panel(g, 'a_victoria', { x: 150, y: 110, w: 960, h: 782 }, { focus: [0.6, 0] });
+  const c = el('g', {}, g);
+  Card(c, { x: 1230, y: 230, w: 620, h: 520, fill: C.white });
+  Text(c, '≈ 90 AÑOS', { x: 1540, y: 310, size: 48, color: C.blueDark });
+  Text(c, '8 SEMANAS DE FUERZA', { x: 1540, y: 370, size: 32, weight: 800 });
+  const n = CountUp(c, { x: 1540, y: 520, size: 150, color: C.green, suffix: ' %' }); // +174 % (mean gain, Fiatarone 1990)
+  Text(c, 'MÁS FUERZA', { x: 1540, y: 640, size: 40, color: C.green });
+  Text(c, 'estudio pequeño · 10 personas', { x: 1540, y: 705, size: 28, weight: 700, color: C.grey });
+  const cap = Caption(g, 'LA FUERZA PUEDE MEJORAR', { cx: 630, cy: 960, size: 50, hi: 'MEJORAR' });
+  const s = Source(g, 'Fiatarone y col. 1990 · JAMA');
+  return t => {
+    st.draw(t, at('esperanza'), at('suscribete')); show(cap, t, at('mejorar'));
+    show(c, t, at('mejorar') + 0.6); n.draw(174 * E.out(prog(t, at('mejorar') + 0.9, at('mejorar') + 2.6))); show(s, t, at('mejorar') + 0.9);
+  };
+});
+
+// 11. subscribe + bell
+scene(svg, () => at('suscribete'), () => at('interesante'), g => {
+  const st = panel(g, 'a_salon', 'tall', { focus: [0.5, 0] });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE');
+  const wk = Chip(g, 'CONSEJOS CADA SEMANA', { cx: 960, cy: 140, size: 46, fill: C.ink, color: C.amber });
+  return t => { st.draw(t, at('suscribete'), at('interesante')); show(cta, t, at('suscribete') - 0.3); show(wk, t, at('semana')); };
+});
+
+// 12. next video: what happens inside your muscles
+scene(svg, () => at('interesante'), () => at('informativo'), g => {
+  const leg = cut(g, 'pierna_musculos', 560, 540, 760);
+  const glow = el('circle', { cx: 560, cy: 420, r: 200, fill: C.amber, opacity: 0.25 }, g);
+  g.insertBefore(glow, leg);
+  const c = el('g', {}, g);
+  Card(c, { x: 1000, y: 300, w: 820, h: 420, fill: C.ink });
+  Text(c, 'PRÓXIMO VÍDEO · PARTE 2', { x: 1410, y: 390, size: 46, color: C.amber });
+  Text(c, '¿QUÉ PASA DENTRO', { x: 1410, y: 500, size: 64, color: C.cream });
+  Text(c, 'DE TUS MÚSCULOS?', { x: 1410, y: 580, size: 64, color: C.cream });
+  Text(c, '+ cómo hacerlo paso a paso', { x: 1410, y: 660, size: 36, weight: 800, color: C.blueFar });
+  return t => { set(glow, { r: 200 + 20 * Math.sin(t * 3) }); show(c, t, at('interesante') + 0.3); punch(g, t, at('musculos'), 560, 540, 0.06); };
+});
+
+// 13. disclaimer, held to the end
+scene(svg, () => at('informativo'), () => END + 1, g => {
+  const w = Warn(g, 'CONTENIDO INFORMATIVO', ['Artrosis grave · dolor intenso', 'Problemas de equilibrio', 'Recuperación de una operación'], { y: 140 });
+  const pt = PanelTile(g, 'a_descanso', { x: 210, y: 650, w: 520, h: 330 });
+  const s = Chip(g, 'CONSULTA A TU MÉDICO', { cx: 1270, cy: 720, size: 42, fill: C.amber });
+  const s2 = Chip(g, 'O FISIOTERAPEUTA', { cx: 1270, cy: 830, size: 42, fill: C.amber });
+  const tag = Chip(g, 'NOS VEMOS EN LA PARTE 2', { cx: 1270, cy: 960, size: 42, fill: C.ink, color: C.amber });
+  return t => { show(w, t, at('informativo')); show(pt.g, t, at('informativo') + 0.5); pt.st.draw(t, at('informativo'), END); show(s, t, at('artrosis') + 7); show(s2, t, at('artrosis') + 7.3); show(tag, t, END - 3); };
+}, { fade: 0.4 });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

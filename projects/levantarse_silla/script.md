@@ -1,7 +1,11 @@
 # El ejercicio de la silla: la fuerza que caminar no te da
 
+Se publica en **3 vídeos**: PARTE 1 = intro + punto 1 + punto 2 · PARTE 2 = punto 3 + punto 4 · PARTE 3 = punto 5 + punto 6 + conclusión. Las frases nuevas para unir los vídeos van marcadas con «(nuevo)» en `factcheck.md`.
+
 Versión para grabar. Los títulos "## …" no se leen (aparecen en pantalla). Cambios frente al original
 marcados en `factcheck.md` (4 frases; el resto es idéntico).
+
+# PARTE 1 (vídeo 1)
 
 ## INTRO (no leer)
 
@@ -37,7 +41,16 @@ Si puedes hacerlo con seguridad, intenta mantener los brazos cruzados sobre el p
 Lo importante no es competir con otras personas ni alcanzar una cifra determinada. Los resultados deben interpretarse según tu edad, sexo y situación física. Lo verdaderamente útil es observar cómo realizas el movimiento y detectar dificultades que merezcan atención.
 Y aquí llega una noticia esperanzadora: la fuerza muscular puede mejorar incluso a edades avanzadas cuando entrenas de manera progresiva y adecuada.
 Si quieres aprender ejercicios sencillos para conservar tu movilidad y sentirte más seguro en casa, suscríbete al canal y activa la campanita. Cada semana compartimos consejos pensados para ayudarte a mantener tu autonomía.
-Porque ahora viene lo más interesante: descubrir qué ocurre realmente dentro de tus músculos cada vez que te levantas de una silla.
+Y en el próximo vídeo viene lo más interesante: descubrirás qué ocurre realmente dentro de tus músculos cada vez que te levantas de una silla, y aprenderás a hacer este ejercicio paso a paso, desde el nivel más sencillo hasta el más exigente.
+Recuerda que este contenido es informativo. Si tienes dolor, mareos o problemas importantes de equilibrio, consulta con tu médico o fisioterapeuta antes de empezar.
+Nos vemos en el próximo vídeo.
+
+# PARTE 2 (vídeo 2)
+
+## INTRO PARTE 2 (no leer)
+
+¿Sabías que levantarte de una silla pone a trabajar más músculos de los que imaginas? En el vídeo anterior viste que caminar es excelente para tu corazón, pero no siempre basta para conservar la fuerza que necesitas al levantarte. Y descubriste una prueba de treinta segundos con una simple silla.
+Hoy verás qué ocurre dentro de tu cuerpo cada vez que te levantas, y aprenderás a hacer este ejercicio paso a paso, desde el nivel más sencillo hasta una variante más exigente. Presta atención a la técnica, porque un pequeño detalle puede cambiar completamente la forma en que trabajan tus piernas.
 
 ## PUNTO 3 — ¿QUÉ OCURRE DENTRO DE TU CUERPO? (no leer)
 
@@ -62,7 +75,16 @@ Y cuando este movimiento resulte cómodo, puedes probar una variante más exigen
 Ahora presta atención a tres errores frecuentes. El primero consiste en dejar que las rodillas se desplacen excesivamente hacia dentro. Intenta mantenerlas orientadas en la misma dirección que los pies. El segundo es levantar los talones, perdiendo estabilidad. El tercero, y quizá el más habitual, es dejarse caer sobre la silla sin controlar el descenso.
 Si aparece dolor intenso, mareo o sensación de inestabilidad, detén el ejercicio. Si tienes problemas articulares importantes, busca orientación profesional antes de progresar.
 No necesitas demostrar nada a nadie. Tu objetivo es conseguir que cada repetición sea segura, cómoda y un poquito más controlada que la anterior.
-Y ahora surge la pregunta que probablemente estabas esperando: ¿cuántas veces debes repetir este movimiento para fortalecer tus piernas sin terminar agotado? En el siguiente apartado descubrirás cómo organizar una rutina sencilla de cinco minutos adaptada a tu nivel.
+Y ahora surge la pregunta que probablemente estabas esperando: ¿cuántas veces debes repetir este movimiento para fortalecer tus piernas sin terminar agotado? En el próximo vídeo descubrirás cómo organizar una rutina sencilla de cinco minutos adaptada a tu nivel.
+Si este vídeo te ha resultado útil, suscríbete al canal para no perderte la siguiente parte. Recuerda que este contenido es informativo. Si tienes problemas articulares importantes, dolor o mareos, consulta con tu médico o fisioterapeuta.
+Nos vemos en el próximo vídeo.
+
+# PARTE 3 (vídeo 3)
+
+## INTRO PARTE 3 (no leer)
+
+¿Cuántos minutos necesitas de verdad para fortalecer tus piernas? Menos de los que imaginas. En los vídeos anteriores viste por qué caminar no siempre basta para conservar tu fuerza, y aprendiste a levantarte de una silla paso a paso, con la técnica correcta.
+Hoy organizaremos una rutina sencilla de cinco minutos, y descubrirás cómo este ejercicio también puede ayudar a tu circulación, tu equilibrio y tu confianza al moverte.
 
 ## PUNTO 5 — UNA RUTINA DE CINCO MINUTOS (no leer)
 

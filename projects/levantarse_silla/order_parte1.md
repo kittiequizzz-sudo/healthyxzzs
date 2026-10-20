@@ -43,5 +43,5 @@ Không được có chữ trong ảnh; nếu có, yêu cầu "remove all text".
 - 1D và 1E: nền kem phẳng một màu.
 
 ## Giọng đọc phần 1 (`voice_p1.mp3`)
-Đọc phần **INTRO + PUNTO 1 + PUNTO 2** trong `script.md` (dừng trước "## PUNTO 3"). Giọng ấm, chậm, rõ (khoảng 150 từ/phút),
+Đọc phần **"# PARTE 1"** trong `script.md` (từ đầu đến hết câu "Nos vemos en el próximo vídeo.", dừng trước "# PARTE 2"). Khoảng 1.180 từ, tầm 8 phút. Giọng ấm, chậm, rõ (khoảng 150 từ/phút),
 không nhạc nền, không đọc các tiêu đề "## …", ngừng khoảng 1 giây trước mỗi PUNTO.

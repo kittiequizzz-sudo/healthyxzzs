@@ -18,6 +18,15 @@ nhẹ đi trên màn hình, và vài điểm cần ghi chú trên hình.
 Tiêu đề PUNTO 5 gốc "LA DOSIS MÍNIMA EFICAZ": không có nghiên cứu nào chứng minh 5 phút là "liều tối thiểu hiệu quả".
 Trên màn hình tôi dùng **"UNA RUTINA DE 5 MINUTOS"**. Lời đọc không bị ảnh hưởng (tiêu đề không đọc).
 
+## Câu mới để chia thành 3 video (nuevo)
+Chủ kênh chọn đăng thành 3 video riêng. Tôi thêm vào `script.md` (không có khẳng định khoa học mới):
+- **Cuối video 1:** câu "Porque ahora viene lo más interesante…" đổi thành giới thiệu video sau, thêm 1 câu nhắc
+  an toàn ("contenido informativo… consulta con tu médico") và "Nos vemos en el próximo vídeo".
+- **Đầu video 2:** câu hỏi mở đầu + tóm tắt video 1 + lời hứa "un pequeño detalle" (lời hứa này được trả ở PUNTO 4: hạ người xuống trong 3 giây).
+- **Cuối video 2:** "En el siguiente apartado" → "En el próximo vídeo", thêm lời mời đăng ký, câu nhắc an toàn và lời chào.
+- **Đầu video 3:** câu hỏi mở đầu + tóm tắt video 1–2 + nội dung hôm nay.
+- Lời hứa "un pequeño detalle" ở intro video 1 giờ thuộc về video 2. Ở video 1 vẫn giữ nguyên câu đó vì nó dẫn sang video sau.
+
 ## Đã đối chiếu
 | Khẳng định | Kết quả | Nguồn |
 |---|---|---|

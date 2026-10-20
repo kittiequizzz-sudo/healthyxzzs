@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Cut a pose sheet (key poses side by side in one image) into aligned transparent PNGs.
 
-  cut_poses.py sheet.webp out_dir --name situp [--count 4] [--skin 58A9E4] [--floor auto]
+  cut_poses.py sheet.webp out_dir --name situp [--count 4] [--skin 58A9E4|none] [--floor auto]
 
 - Background colour is sampled from the image corners; poses are separated by empty columns.
 - Every pose is cropped to the same canvas, aligned on its planted feet (rightmost point at the floor),
   so poses swap in place without jumping.
-- Blue skin is recoloured to the house blue (keeps the shading).
+- Blue skin is recoloured to the house blue (keeps the shading). Use --skin none for natural-skin
+  characters (e.g. Antonio), or blue clothes would be recoloured.
 - Writes <name>_0.png … and <name>_poses.json (canvas size, floor y, per-pose bbox) for the scene.
 """
 import argparse
@@ -78,7 +79,7 @@ def main():
     tops = [int(np.nonzero(m.any(axis=1))[0].min()) for m in pose_masks]
     cw, top = max(widths) + 40, max(0, min(tops) - 20)
     ch = floor - top + 6
-    skin = np.array([int(a.skin[4:6], 16), int(a.skin[2:4], 16), int(a.skin[0:2], 16)], np.float32)
+    skin = None if a.skin == "none" else np.array([int(a.skin[4:6], 16), int(a.skin[2:4], 16), int(a.skin[0:2], 16)], np.float32)
     meta = {"canvas": [cw, ch], "floor_y": floor - top, "poses": []}
     for i, (s, b) in enumerate(segs):
         crop = im[top:floor + 6, s:b]
@@ -87,7 +88,7 @@ def main():
         hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
         sk = cv2.inRange(hsv, (95, 40, 60), (130, 255, 255)) > 0
         out = crop.astype(np.float32)
-        if sk.any():
+        if a.skin != "none" and sk.any():
             out[sk] = np.clip(out[sk] * (skin / out[sk].mean(axis=0)), 0, 255)
         rgba = np.dstack([out.astype(np.uint8), cv2.GaussianBlur(keep, (3, 3), 0)])
         canvas = np.zeros((ch, cw, 4), np.uint8)

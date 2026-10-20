@@ -3,6 +3,14 @@
 All numbers below were measured from the three reference cuts (`reference/demo_1..3.mp4`, 1920×1080,
 30 fps). Design space is 1920×1080; the renderer scales everything for drafts.
 
+## Character style update (Oct 2026, from `levantarse_silla`)
+The owner sent a new character style: `characters/antonio/style_ref.jpg`. Hand-drawn 2D cartoon, warm
+editorial comic look, thick dark outlines, **natural skin tones** (not blue), soft cel shading, muted
+desaturated colours, soft slate-blue backgrounds. Use it for new videos unless the owner says otherwise.
+Prompts must repeat "no text" (the reference has baked-in captions) and keep cut-out sheets on flat
+cream. Cut poses with `cut_poses.py --skin none` so blue clothes aren't recoloured. Example prompts:
+`projects/levantarse_silla/order.md`.
+
 ## Palette
 
 | Token  | Hex       | Use |

@@ -1,6 +1,6 @@
 # Scene plan: "El ejercicio de la silla" (levantarse de la silla, 60+)
 
-~2,900 spoken words → ~19–20 min. Sections = the script's parts: `intro`, `punto1` … `punto6`, `conclusion`.
+~2,900 spoken words → ~19–20 min. Built and delivered in 3 parts (owner's request): **parte 1** = intro + punto1 + punto2 (assets: `order_parte1.md`), **parte 2** = punto3 + punto4, **parte 3** = punto5 + punto6 + conclusion. Sections = the script's parts: `intro`, `punto1` … `punto6`, `conclusion`.
 Same build as `projects/7dias_sin_cenar` (one HTML per section, `common.js`, parallel render).
 
 Character: **Antonio** (new, 67, same blue-skin art style, ordinary build, NOT the bodybuilder senior_m:

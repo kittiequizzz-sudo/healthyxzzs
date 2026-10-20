@@ -1,5 +1,7 @@
 # Ảnh cần tạo cho "El ejercicio de la silla" (phong cách mới)
 
+> Video chia 3 phần. **Phần 1 dùng `order_parte1.md`** (đã gom lại các cảnh cần cho intro + PUNTO 1–2). File này là danh sách đầy đủ; phần 2 và 3 sẽ được tách thành file riêng khi đến lượt.
+
 Phong cách mới lấy từ ảnh mẫu `characters/antonio/style_ref.jpg` (ông bà ngồi bàn, trái tim trên máy tính bảng):
 hoạt hình 2D vẽ tay, nét viền đậm, **da người thật** (không còn da xanh), màu dịu, nền xanh xám.
 Ông trong ảnh mẫu rất hợp với vai **Antonio** (tóc bạc, ria mép), nên tôi dùng luôn ông ấy.

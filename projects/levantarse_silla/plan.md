@@ -118,10 +118,20 @@ H `silla silla_brazos cojin escalon alfombra zapatillas` · I `muslo cadera_hues
 Parts 2–3 orders: `order_parte2_3.md` (2A `p2_antonio`, 2B `p2_metaforas`, 2C `levels_pose_sheet`, 2D `errores`,
 2E `p2_objetos`, 3A `p3_antonio_a`, 3B `p3_antonio_b`, 3C `p3_objetos`). The owner wants all images first, then the videos.
 
-## Voice edit (from `transcript/lines.txt` of rimovoice3.mp3, read from the ORIGINAL script, headings read aloud)
-- Cut "El engaño de los 10.000 pasos." (104.94–107.20) and "La dosis mínima eficaz." (912.38–914.18).
-- Splice the 6 clips in `voice_extra.md`: fix_casa (replaces 267.38–272.54), fix_utilizan (334.30–347.14),
-  fin_v1 (replaces from "porque ahora viene…" inside 481.32–495.14 to the end of part 1), intro_v2 (before 495.56),
-  fin_v2 (replaces 903.70–910.74), intro_v3 (before 911.02).
-- Part boundaries on the original take: v1 = 0–495.1 s, v2 = 495.6–910.7 s, v3 = 911.0–1287.4 s.
-- Level 1 "manos sobre los muslos" was not recorded; show it as an on-screen chip only.
+## Voice edit (owner: no re-recording, fix it in the edit)
+`audio/rimovoice3.mp3` was read from the ORIGINAL script, headings read aloud. Times from `transcript/`.
+- Cut "El engaño de los 10.000 pasos." (104.94–107.20); keep "Punto 1. ¿Por qué caminar ya no es suficiente?".
+- Cut "La dosis mínima eficaz." (912.38–914.18).
+- "levantarte de casa": cut the whole sentence (267.38–272.54); "Una silla estable…" follows naturally.
+- "y se utiliza en profesionales de la salud": cut 339.32–342.22 → "…en 30 segundos para valorar la fuerza
+  funcional…". On screen keep a small chip "la usan profesionales de la salud".
+- "manos sobre los muslos" (level 1) was not recorded: on-screen chip only.
+- Video 1 = 0–495.1 s. End: after "…cada vez que te levantas de una silla." (495.14) append the reused clips
+  "Recuerda que este contenido es informativo." + "Si padeces artrosis grave… antes de comenzar." (1267.22–1280.54)
+  with an on-screen "PRÓXIMO VÍDEO · PARTE 2" card. Intro: add a small "SERIE · PARTE 1 DE 3" chip.
+- Video 2 = 495.6–910.7 s. Opens on "Punto 3. ¿Qué ocurre dentro de tu cuerpo…?" (a question hook), then the reused
+  intro line "Y presta especial atención a la técnica… trabajan tus piernas." (88.02–97.48) before 500.90, with a
+  "PARTE 2" kicker. Ends: "…En el siguiente apartado descubrirás…rutina de 5 minutos" (on screen "PRÓXIMO VÍDEO"),
+  then reused "Si este vídeo te ha resultado útil, suscríbete…" (1258.74–1266.94) + the disclaimer clip.
+- Video 3 = 911.0–1287.4 s. Opens "Punto 5. Una rutina de 5 minutos para fortalecer tus piernas." with a "PARTE 3"
+  kicker; already ends with subscribe + disclaimer + closing line.

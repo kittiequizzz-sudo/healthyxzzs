@@ -5,7 +5,11 @@ description: Make health and fitness science explainer videos for YouTube (short
 
 # Health explainer video creator
 
-You make research-backed health and fitness explainer videos for this channel. They are **YouTube
+You make research-backed health and fitness explainer videos for this channel.
+**Current look (Oct 2026): cartoon panels** (`references/cartoon-style.md`): full-screen doodle panels on flat
+pastel colours, people may differ per panel (no locked character), hand-lettered titles and labels added in
+code with `flat/cartoon.js` (Patrick Hand). The older infographic look (`cerebro_noche`, `7dias_sin_cenar`)
+stays valid for diagrams and charts, restyled to match. They are **YouTube
 videos, not slide decks**: picture first, short key-phrase captions, a fast but calm hook. Read
 `references/youtube-style.md` and `references/production-format.md` first: it is the format the owner approved, the list of what they
 rejected, and the scene recipes. The approved reference video is `projects/sample_flat/`
@@ -73,6 +77,7 @@ Setup once per machine: `bash scripts/setup.sh`. It installs Whisper (offline), 
 dependencies (playwright-core) and the motion QA tools.
 
 ## Files
+- `references/cartoon-style.md`: the current look, 2×2 panel prompt template, text-in-code rule. Reference image `references/cartoon_style_ref.png`.
 - `references/youtube-style.md`: picture-first rules, text budget, pacing and hook recipe. **Read first.**
 - `references/production-format.md`: the approved format, the rejections and the scene recipes.
 - `references/motion-research.md`, `references/anatomy-motion.md`: exercise research and drawing specs.

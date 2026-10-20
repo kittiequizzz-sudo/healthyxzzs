@@ -4,6 +4,14 @@ Dùng **cùng cuộc trò chuyện ChatGPT** đã tạo ảnh video 1 (để nh�
 đính kèm `antonio_sheet` + `p1_antonio_a` (ảnh 4 khung đầu tiên, để giữ đúng màu và nét vẽ đã đạt).
 Khổ ngang 3:2, không chữ.
 
+| Ảnh | Đính kèm |
+|---|---|
+| 2A, 3A, 3B (cảnh có Antonio) | ảnh 0 `antonio_sheet` + `p1_antonio_a` |
+| 2C (tư thế) | ảnh 0 + `sts_pose_sheet` |
+| 2D (lỗi sai) | ảnh 0 + `sts_pose_sheet` |
+| 2B (ẩn dụ, không có Antonio) | chỉ `p1_antonio_a` (để giữ nét vẽ) |
+| 2E, 3C (đồ vật) | chỉ `p1_objetos` |
+
 Video 1 đã xong ảnh (5 ảnh, đều cắt tốt). Tư thế đứng dậy, ghế, cơ đùi, trái tim từ video 1 được dùng lại.
 
 ## VIDEO 2 (PUNTO 3 + PUNTO 4), 5 ảnh

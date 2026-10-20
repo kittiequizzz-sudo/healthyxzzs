@@ -1,0 +1,25 @@
+{
+ "canvas": [
+  407,
+  777
+ ],
+ "floor_y": 771,
+ "poses": [
+  {
+   "file": "sts_0.png",
+   "x0": 20
+  },
+  {
+   "file": "sts_1.png",
+   "x0": 29
+  },
+  {
+   "file": "sts_2.png",
+   "x0": 30
+  },
+  {
+   "file": "sts_3.png",
+   "x0": 56
+  }
+ ]
+}

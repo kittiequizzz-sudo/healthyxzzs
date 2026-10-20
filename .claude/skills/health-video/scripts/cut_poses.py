@@ -3,7 +3,7 @@
 
   cut_poses.py sheet.webp out_dir --name situp [--count 4] [--skin 58A9E4|none] [--floor auto]
 
-- Background colour is sampled from the image corners; poses are separated by empty columns.
+- Background colour is sampled per row from the left/right margins (handles soft gradients); poses are separated by empty columns.
 - Every pose is cropped to the same canvas, aligned on its planted feet (rightmost point at the floor),
   so poses swap in place without jumping.
 - Blue skin is recoloured to the house blue (keeps the shading). Use --skin none for natural-skin
@@ -30,8 +30,11 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     im = cv2.imread(a.sheet)
     H, W = im.shape[:2]
-    corners = np.concatenate([im[:20, :20].reshape(-1, 3), im[:20, -20:].reshape(-1, 3), im[-20:, :20].reshape(-1, 3)])
-    bg = np.median(corners, axis=0)
+    # background per row from the left/right margins, so a soft vertical gradient (ChatGPT sheets) isn't foreground
+    edges = np.concatenate([im[:, :10], im[:, -10:]], axis=1).astype(int)
+    rowbg = np.median(edges, axis=1)
+    k = 30  # running median over ±30 rows, so a thin floor line drawn to the edge stays foreground
+    bg = np.array([np.median(rowbg[max(0, y - k):y + k + 1], axis=0) for y in range(H)])[:, None, :]
     fg = (np.abs(im.astype(int) - bg).max(axis=2) > a.tol).astype(np.uint8)
     # floor line: a row that is foreground across most of the width → remove it
     def longest_run(r):
@@ -41,7 +44,7 @@ def main():
             best = max(best, cur)
         return best
     # a floor line is one unbroken horizontal run across most of the image
-    floor_rows = [y for y in range(H // 3, H) if fg[y].sum() > 0.6 * W and longest_run(fg[y]) > 0.6 * W]
+    floor_rows = [y for y in range(H // 3, H) if fg[y].sum() > 0.85 * W or (fg[y].sum() > 0.6 * W and longest_run(fg[y]) > 0.6 * W)]
     floor = min(floor_rows) if floor_rows else H - 1
     fg[floor:] = 0
     # poses = large connected components (small islands like eyes/hair tufts join the nearest pose)
@@ -68,6 +71,18 @@ def main():
         cx = st[k, 0] + st[k, 2] / 2
         owner[k] = int(np.searchsorted(bounds, cx) - 1)
     pose_masks = [np.isin(lab, [k for k in range(1, n) if owner[k] == i and st[k, 4] > 40]).astype(np.uint8) for i in range(len(segs))]
+    def fill_holes(m):
+        # light parts (white sneakers, cream cushions) match the background; fill what the border can't reach
+        f = m.copy()
+        f[floor - 1:, :] = 0
+        mask = np.zeros((H + 2, W + 2), np.uint8)
+        cv2.floodFill(f, mask, (0, 0), 2)
+        out = ((f != 2) | (m > 0)).astype(np.uint8)
+        # soles touch the floor line, so their light parts leak; close small gaps in the bottom band
+        band = out[max(0, floor - 40):floor]
+        out[max(0, floor - 40):floor] = cv2.morphologyEx(band, cv2.MORPH_CLOSE, np.ones((11, 11), np.uint8))
+        return out
+    pose_masks = [fill_holes(m) for m in pose_masks]
     segs = []
     for m in pose_masks:
         xs = np.nonzero(m.any(axis=0))[0]
@@ -93,7 +108,7 @@ def main():
         rgba = np.dstack([out.astype(np.uint8), cv2.GaussianBlur(keep, (3, 3), 0)])
         canvas = np.zeros((ch, cw, 4), np.uint8)
         x0 = cw - 20 - (b - s)            # align right edge (feet) across poses
-        canvas[:, x0:x0 + (b - s)] = rgba[:ch]
+        canvas[:len(rgba[:ch]), x0:x0 + (b - s)] = rgba[:ch]
         cv2.imwrite(os.path.join(a.out, f"{a.name}_{i}.png"), canvas)
         meta["poses"].append({"file": f"{a.name}_{i}.png", "x0": x0})
     json.dump(meta, open(os.path.join(a.out, f"{a.name}_poses.json"), "w"), indent=1)

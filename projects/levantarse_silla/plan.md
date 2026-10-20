@@ -110,3 +110,10 @@ H `silla silla_brazos cojin escalon alfombra zapatillas` · I `muslo cadera_hues
 - Like / subscribe / share row.
 - Disclaimer card (hold ≥ 6 s): "INFORMACIÓN, NO UNA CONSULTA · artrosis grave · dolor · equilibrio · operación → médico o fisioterapeuta".
 - Closing quote on ink: "NO CUÁNTOS AÑOS CUMPLES, SINO CÓMO LOS VIVES".
+
+## Delivered assets (parte 1, Oct 2026, made in ChatGPT)
+`assets/p1_antonio_a` → `a_sofa a_paseo a_escalera a_nietos` · `p1_antonio_b` → `a_tropiezo a_cama a_suelo a_prueba` ·
+`p1_metaforas` → `m_coche_llano m_coche_subida a_salon a_victoria` · `sts_pose_sheet` → `sts_0..3` (cut with `--skin none`) ·
+`p1_objetos` → `silla escalon zapatillas alfombra corazon pierna_musculos`. Voice: `audio/rimovoice3.mp3` (21:27, whole video).
+Parts 2–3 orders: `order_parte2_3.md` (2A `p2_antonio`, 2B `p2_metaforas`, 2C `levels_pose_sheet`, 2D `errores`,
+2E `p2_objetos`, 3A `p3_antonio_a`, 3B `p3_antonio_b`, 3C `p3_objetos`). The owner wants all images first, then the videos.

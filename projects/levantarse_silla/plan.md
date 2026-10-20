@@ -117,3 +117,11 @@ H `silla silla_brazos cojin escalon alfombra zapatillas` · I `muslo cadera_hues
 `p1_objetos` → `silla escalon zapatillas alfombra corazon pierna_musculos`. Voice: `audio/rimovoice3.mp3` (21:27, whole video).
 Parts 2–3 orders: `order_parte2_3.md` (2A `p2_antonio`, 2B `p2_metaforas`, 2C `levels_pose_sheet`, 2D `errores`,
 2E `p2_objetos`, 3A `p3_antonio_a`, 3B `p3_antonio_b`, 3C `p3_objetos`). The owner wants all images first, then the videos.
+
+## Voice edit (from `transcript/lines.txt` of rimovoice3.mp3, read from the ORIGINAL script, headings read aloud)
+- Cut "El engaño de los 10.000 pasos." (104.94–107.20) and "La dosis mínima eficaz." (912.38–914.18).
+- Splice the 6 clips in `voice_extra.md`: fix_casa (replaces 267.38–272.54), fix_utilizan (334.30–347.14),
+  fin_v1 (replaces from "porque ahora viene…" inside 481.32–495.14 to the end of part 1), intro_v2 (before 495.56),
+  fin_v2 (replaces 903.70–910.74), intro_v3 (before 911.02).
+- Part boundaries on the original take: v1 = 0–495.1 s, v2 = 495.6–910.7 s, v3 = 911.0–1287.4 s.
+- Level 1 "manos sobre los muslos" was not recorded; show it as an on-screen chip only.

@@ -19,20 +19,7 @@ mũi to, mắt chấm, tóc xù, áo xanh nhạt, màu tươi. Các câu lệnh 
 - **AVOID**: đầu to kiểu chibi, mặt tròn trẻ con, mũi củ, mắt chấm, màu tươi, áo xanh nhạt, tóc xoăn, chữ.
 
 ## ORDER 0: nhân vật Antonio (`antonio_sheet`)
-**Cách 1 (khuyên dùng, tiết kiệm lượt):** sửa lại ảnh 3 góc bạn đã tạo. Trong cùng cuộc trò chuyện, đính kèm
-ảnh 3 góc đó **và** `antonio_ref_clean.png`, rồi dán:
-
-```
-I attached two images. Image 1 is a full-body character sheet with three views. Image 2 is the ORIGINAL reference man. Edit image 1: keep the three poses, the khaki trousers, the brown belt and the white sneakers, but redraw the head, face, hair, shirt and the rendering style so they match image 2 exactly.
-
-Head and face: long oval face with defined cheekbones (not round), strong straight nose with a slightly reddish tip (not bulbous), forehead wrinkles, crow's feet and soft bags under the eyes, real eyes with white sclera and grey irises (not dot eyes), arched expressive grey eyebrows, thick neat grey moustache, short grey hair combed back and slightly to the side, smooth (not curly or fluffy). Peach skin with rosy cheeks.
-
-Shirt: muted denim blue-grey plaid with darker blue check lines (not light baby blue), long sleeves rolled up to the forearm.
-
-Style: semi-realistic adult proportions, head about 1/7 of body height (make the head smaller than now), thick dark outlines, cel shading with one clear shadow tone, fine ink lines for wrinkles, muted desaturated colours like image 2. Keep the plain flat cream background #F5ECD7. No text, landscape 3:2.
-```
-
-**Cách 2:** tạo mới từ đầu. Chỉ đính kèm `antonio_ref_clean.png`, rồi dán:
+Đính kèm `antonio_ref_clean.png`, rồi dán:
 
 ```
 Create a full-body character turnaround of the man in the attached image. He must be clearly the same person, drawn in exactly the same illustration style.

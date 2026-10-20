@@ -1,6 +1,6 @@
 # Phần 1 (INTRO + PUNTO 1 + PUNTO 2): ảnh cần tạo
 
-Khoảng 1.130 từ, tức **7–8 phút** giọng đọc. Cần **22 hình** (12 cảnh + 4 tư thế + 6 đồ vật), gom thành 5 ảnh + ảnh
+Khoảng 1.180 từ, tức **khoảng 8 phút** giọng đọc. Cần **22 hình** (12 cảnh + 4 tư thế + 6 đồ vật), gom thành 5 ảnh + ảnh
 nhân vật. Phần còn lại (đồng hồ bấm giờ, bộ đếm bước, biểu đồ, đồng hồ tốc độ xe) tôi vẽ bằng code.
 
 **Cách làm:** tạo ORDER 0 trước, đính kèm ảnh mẫu (ông bà ngồi bàn). Các ảnh sau đính kèm ảnh ORDER 0.

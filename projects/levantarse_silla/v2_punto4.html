@@ -1,0 +1,195 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v2.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · PUNTO 4 — how to do it: level 1 → 2 → 3, three errors, safety; end of video 2.
+window.START = at('p4') - 0.3;
+window.END = 449.1;
+window.DURATION = window.END;
+const svg = Stage();
+const LV = [['lvl_1', 'NIVEL 1', C.green], ['sts_2', 'NIVEL 2', C.amber], ['lvl_3', 'NIVEL 3', C.orange]];
+// a level header pill at the top left
+const LevelTag = (g, i) => Chip(g, LV[i][1], { cx: 230, cy: 110, size: 50, fill: LV[i][2], color: C.white });
+
+// 0. kicker over the three levels as steps
+scene(svg, () => START, () => at('llega'), g => {
+  const steps = el('g', {}, g);
+  LV.forEach(([n, s, col], i) => {
+    const x = 260 + i * 480, y = 760 - i * 110;
+    el('rect', { x: x - 200, y, width: 420, height: 1080 - y, fill: col, stroke: C.ink, 'stroke-width': 6 }, steps);
+    cut(steps, n, x, y - 230, 440);
+  });
+  const k = Kicker(g, 'PUNTO 4', 'CÓMO HACERLO BIEN', { y: 180 });
+  return t => { show(steps, t, START); show(k, t, START + 0.3); };
+});
+
+// 1. not fast, not many: controlled
+scene(svg, () => at('llega'), () => at('nivel1'), g => {
+  const a = el('g', {}, g), b = el('g', {}, g);
+  cut(a, 'tortuga', 560, 470, 480); Mark(a, 'CONTROLADO', true, { cx: 560, cy: 760, size: 46 });
+  cut(b, 'liebre', 1360, 470, 460); Mark(b, 'RÁPIDO', false, { cx: 1360, cy: 760, size: 46 });
+  const cap = Caption(g, 'SIN MOVIMIENTOS BRUSCOS', { cy: 940, size: 52, hi: 'BRUSCOS' });
+  return t => { show(b, t, at('llega') + 0.3); show(a, t, at('llega') + 0.8); show(cap, t, at('diferencia2') - 1); };
+});
+
+// 2. level 1 setup: firm chair without wheels, against a wall, firm cushion if low
+scene(svg, () => at('nivel1'), () => at('borde'), g => {
+  const st = panel(g, 'a_cojin', 'right', { focus: [0.55, 0.45] });
+  const tag = LevelTag(g, 0);
+  const who = Text(g, 'si llevas tiempo sin ejercicio', { x: 380, y: 210, size: 34, weight: 800 });
+  const items = [['SILLA FIRME, SIN RUEDAS', 'firme'], ['CONTRA LA PARED', 'pared'], ['COJÍN SI ES BAJA', 'cojin']].map(([s, k], i) => [Mark(g, s, true, { cx: 380, cy: 380 + i * 160, size: 32 }), k]);
+  return t => { st.draw(t, at('nivel1'), at('borde')); show(tag, t, at('nivel1')); show(who, t, at('nivel1') + 0.6); items.forEach(([c, k]) => show(c, t, at(k))); };
+});
+
+// 3. level 1 steps with hands on the armrests
+scene(svg, () => at('borde'), () => at('fracasar'), g => {
+  const tag = LevelTag(g, 0);
+  const p = Poses(g, 'lvl', 4, { cx: 620, floor: 1010, h: 880 });
+  const steps = [['CERCA DEL BORDE', 'borde', 0], ['INCLINA EL TRONCO', 'inclina', 1], ['EMPUJA EL SUELO', 'empuja', 2], ['SIN DEJARTE CAER', 'sin_caer', 0]].map(([s, k, pose], i) => {
+    const c = el('g', {}, g), y = 230 + i * 170;
+    Card(c, { x: 1120, y, w: 700, h: 130, fill: C.white });
+    el('circle', { cx: 1190, cy: y + 65, r: 42, fill: C.orange, stroke: C.ink, 'stroke-width': 5 }, c);
+    Text(c, String(i + 1), { x: 1190, y: y + 67, size: 50, color: C.white });
+    Text(c, s, { x: 1260, y: y + 67, size: 40, anchor: 'start' });
+    return [c, k, pose];
+  });
+  const r = Ring(g, 660, 610, 80, C.orange);
+  const rl = Chip(g, 'REPOSABRAZOS', { cx: 330, cy: 610, size: 32, fill: C.orange, color: C.white });
+  return t => {
+    show(tag, t, at('borde'));
+    let pose = 0;
+    steps.forEach(([c, k, ps]) => { show(c, t, at(k)); c.setAttribute('opacity', +c.getAttribute('opacity') * (t >= at(k) ? 1 : 0)); if (t >= at(k)) pose = ps; });
+    if (t >= at('empuja') + 1.2 && t < at('sin_caer')) pose = 2;
+    p.draw(pose);
+    r.draw(t, at('reposabrazos')); show(rl, t, at('reposabrazos'));
+  };
+});
+
+// 4. using your hands is not failing
+scene(svg, () => at('fracasar'), () => at('nivel2'), g => {
+  const c = cut(g, 'lvl_1', 560, 560, 820);
+  const a = Mark(g, 'USAR LAS MANOS', true, { cx: 1300, cy: 400, size: 50 });
+  const b = Text(g, 'NO ES FRACASAR', { x: 1300, y: 540, size: 76, color: C.green });
+  const s = Chip(g, 'ES ADAPTAR CON SEGURIDAD', { cx: 1300, cy: 700, size: 40, fill: C.amber });
+  return t => { show(c, t, at('fracasar') - 0.3); show(a, t, at('fracasar')); show(b, t, at('fracasar') + 0.5); show(s, t, at('fracasar') + 4); };
+});
+
+// 5. level 2: feet shoulder-width, heels down, no arms; 2 s up · 3 s down — THE detail
+scene(svg, () => at('nivel2'), () => at('nivel3'), g => {
+  const tag = LevelTag(g, 1);
+  const p = Poses(g, 'sts', 4, { cx: 560, floor: 1010, h: 880 });
+  const items = [['PIES: ANCHO DE HOMBROS', 'hombros'], ['TALONES APOYADOS', 'talones'], ['SIN IMPULSO DE BRAZOS', 'talones']].map(([s, k], i) => [Mark(g, s, true, { cx: 1360, cy: 230 + i * 130, size: 34 }), k, i]);
+  const tempo = el('g', {}, g);
+  Card(tempo, { x: 1000, y: 620, w: 720, h: 170, fill: C.white });
+  el('rect', { x: 1030, y: 690, width: 264, height: 60, rx: 12, fill: C.blueFar, stroke: C.ink, 'stroke-width': 5 }, tempo);
+  el('rect', { x: 1294, y: 690, width: 396, height: 60, rx: 12, fill: C.amber, stroke: C.ink, 'stroke-width': 5 }, tempo);
+  Text(tempo, '2 s ↑ SUBIR', { x: 1162, y: 657, size: 32 }); Text(tempo, '3 s ↓ BAJAR', { x: 1492, y: 657, size: 32 });
+  const head = el('rect', { y: 680, width: 10, height: 80, fill: C.ink }, tempo);
+  const st = Stamp(g, 'EL DETALLE: BAJA EN 3 s', { cx: 1360, cy: 900, size: 56, color: C.orange });
+  const TP = { up: 2, hold: 0.4, down: 3, rest: 0.4 };
+  return t => {
+    show(tag, t, at('nivel2'));
+    const t0 = at('hombros');
+    p.draw(t < t0 ? 0 : repPose(t, t0, TP));
+    items.forEach(([c, k, i]) => show(c, t, at(k) + i * 1.5));
+    show(tempo, t, at('dos_tres'));
+    const x = Math.max(0, t - t0) % 5.8, u = x < 2 ? x / 2 * 0.4 : x < 2.4 ? 0.4 : x < 5.4 ? 0.4 + (x - 2.4) / 3 * 0.6 : 1;
+    set(head, { x: 1030 + 660 * u });
+    st.draw(t, at('bajada')); punch(g, t, at('bajada'), 1360, 900, 0.05);
+  };
+});
+
+// 6. level 3: pause just above the seat; not required; balance trouble → stay in 1–2
+scene(svg, () => at('nivel3'), () => at('errores'), g => {
+  const tag = LevelTag(g, 2);
+  const c = cut(g, 'lvl_3', 600, 560, 880);
+  const ps = Chip(g, '⏸ PAUSA ANTES DE SENTARTE', { cx: 1320, cy: 300, size: 40, fill: C.orange, color: C.white });
+  const more = Mark(g, 'MÁS TRABAJO MUSCULAR', true, { cx: 1320, cy: 460, size: 40 });
+  const opt = Chip(g, 'NO ES NECESARIA', { cx: 1320, cy: 600, size: 40, fill: C.amber });
+  const bal = el('g', {}, g);
+  Card(bal, { x: 960, y: 720, w: 720, h: 200, fill: C.white });
+  Text(bal, '¿EQUILIBRIO DIFÍCIL?', { x: 1320, y: 780, size: 44, color: C.red });
+  Text(bal, '→ QUÉDATE EN EL NIVEL 1 o 2', { x: 1320, y: 860, size: 40 });
+  return t => {
+    show(tag, t, at('nivel3')); show(c, t, at('nivel3') + 0.2);
+    show(ps, t, at('detente')); show(more, t, at('pausa')); show(opt, t, at('pausa') + 2); show(bal, t, at('dificultades'));
+  };
+});
+
+// 7. three common errors
+scene(svg, () => at('errores'), () => at('dolor'), g => {
+  const h = Text(g, '3 ERRORES FRECUENTES', { x: 960, y: 100, size: 70, color: C.red });
+  const cards = [['f_rodillas', 'RODILLAS HACIA DENTRO', 'RODILLAS = PIES', 'error1', 'orientadas'], ['f_talones', 'TALONES LEVANTADOS', 'TALONES ABAJO', 'error2', 'error2'], ['f_caer', 'DEJARSE CAER', 'BAJA CON CONTROL', 'error3', 'error3']].map(([n, bad, fix, k, kf], i) => {
+    const c = el('g', {}, g), x = 90 + i * 600;
+    Card(c, { x, y: 190, w: 540, h: 560, fill: C.white });
+    cut(c, n, x + 270, 430, 420);
+    wrap(c, Icon.cross, x + 430, 160, 1.2);
+    Text(c, bad, { x: x + 270, y: 700, size: bad.length > 18 ? 32 : 36 });
+    const f = Mark(g, fix, true, { cx: x + 270, cy: 850, size: 36 });
+    return [c, f, k, kf, x + 270];
+  });
+  return t => { show(h, t, at('errores')); cards.forEach(([c, f, k, kf, cx]) => { pop(c, t, at(k), cx, 470); show(f, t, at(kf) + (k === kf ? 2 : 0)); }); };
+});
+
+// 8. stop if: intense pain, dizziness, instability; joint problems → professional
+scene(svg, () => at('dolor'), () => at('demostrar'), g => {
+  const w = Warn(g, 'DETÉN EL EJERCICIO SI', ['Dolor intenso', 'Mareo', 'Sensación de inestabilidad'], { y: 120 });
+  const pt = PanelTile(g, 'a_parar', { x: 260, y: 640, w: 560, h: 360 });
+  const s = el('g', {}, g);
+  Card(s, { x: 900, y: 690, w: 760, h: 240, fill: C.amber });
+  Text(s, 'PROBLEMAS ARTICULARES', { x: 1280, y: 770, size: 44 });
+  Text(s, '→ ORIENTACIÓN PROFESIONAL', { x: 1280, y: 850, size: 40 });
+  return t => { show(w, t, at('dolor')); show(pt.g, t, at('dolor') + 0.5); pt.st.draw(t, at('dolor'), at('demostrar')); show(s, t, at('articulares')); };
+});
+
+// 9. nothing to prove: each rep a little more controlled
+scene(svg, () => at('demostrar'), () => at('pregunta'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 520, floor: 1010, h: 860 });
+  const a = Text(g, 'NADA QUE DEMOSTRAR', { x: 1300, y: 260, size: 64, color: C.blueDark });
+  const items = ['SEGURA', 'CÓMODA', 'MÁS CONTROLADA'].map((s, i) => Mark(g, s, true, { cx: 1300, cy: 420 + i * 140, size: 44 }));
+  return t => {
+    p.draw(repPose(t, at('demostrar'), { up: 2, hold: 0.4, down: 3, rest: 0.4 }));
+    show(a, t, at('demostrar')); items.forEach((c, i) => show(c, t, at('objetivo') + 2 + i * 0.9));
+  };
+});
+
+// 10. how many reps? → next video: a 5-minute routine
+scene(svg, () => at('pregunta'), () => at('util'), g => {
+  const ck = cut(g, 'reloj', 520, 500, 520);
+  const five = Text(g, "5'", { x: 520, y: 520, size: 200, color: C.orange });
+  const q = Caption(g, '¿CUÁNTAS REPETICIONES?', { cx: 1300, cy: 260, size: 50, hi: 'CUÁNTAS' });
+  const c = el('g', {}, g);
+  Card(c, { x: 920, y: 420, w: 800, h: 360, fill: C.ink });
+  Text(c, 'PRÓXIMO VÍDEO · PARTE 3', { x: 1320, y: 510, size: 44, color: C.amber });
+  Text(c, 'UNA RUTINA', { x: 1320, y: 610, size: 64, color: C.cream });
+  Text(c, 'DE 5 MINUTOS', { x: 1320, y: 690, size: 64, color: C.cream });
+  return t => { pop(ck, t, at('pregunta'), 520, 500); show(five, t, at('rutina')); show(q, t, at('cuantas')); show(c, t, at('rutina')); };
+});
+
+// 11. subscribe / like / share
+scene(svg, () => at('util'), () => at('informativo'), g => {
+  const st = panel(g, 'a_victoria', 'tall', { focus: [0.6, 0] });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE · ME GUSTA');
+  return t => { st.draw(t, at('util'), at('informativo')); show(cta, t, at('util')); };
+});
+
+// 12. disclaimer, held to the end
+scene(svg, () => at('informativo'), () => END + 1, g => {
+  const w = Warn(g, 'CONTENIDO INFORMATIVO', ['Artrosis grave · dolor intenso', 'Problemas de equilibrio', 'Recuperación de una operación'], { y: 140 });
+  const pt = PanelTile(g, 'a_descanso', { x: 210, y: 650, w: 520, h: 330 });
+  const s = Chip(g, 'CONSULTA A TU MÉDICO', { cx: 1270, cy: 720, size: 42, fill: C.amber });
+  const s2 = Chip(g, 'O FISIOTERAPEUTA', { cx: 1270, cy: 830, size: 42, fill: C.amber });
+  const tag = Chip(g, 'NOS VEMOS EN LA PARTE 3', { cx: 1270, cy: 960, size: 42, fill: C.ink, color: C.amber });
+  return t => { show(w, t, at('informativo')); show(pt.g, t, at('informativo') + 0.5); pt.st.draw(t, at('informativo'), END); show(s, t, at('artrosis') + 7); show(s2, t, at('artrosis') + 7.3); show(tag, t, END - 3); };
+}, { fade: 0.4 });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

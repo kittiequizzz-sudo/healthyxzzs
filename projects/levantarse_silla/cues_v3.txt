@@ -1,0 +1,80 @@
+# Video 3 (audio/voice_v3.mp3, words from transcript/words_v3.json). label | phrase from the voice, in order.
+# --- punto 5 (opens the video)
+rutina5 | Una rutina de 5 minutos
+llegados | Llegados a este punto
+mucho_tiempo | dedicar mucho tiempo
+mejor | no siempre se trata de entrenar más
+pocos | unos pocos minutos
+propuesta | La propuesta es sencilla
+reserva | reserva aproximadamente 5 minutos
+serie1 | realiza una primera serie
+despacio | levantándote despacio
+descansa | alrededor de un minuto
+observa | observa cómo responde
+serie2 | puedes completar una segunda serie
+tres_series | progresar hasta tres series
+sesenta_s | aproximadamente 60 segundos
+primer_dia | desde el primer día
+calidad | La calidad del movimiento
+dias | cuántos días debes practicarlo
+dos_tres | 2 o 3 días por semana
+recuperarte | dejando tiempo para recuperarte
+ajustar | podrás ajustar la frecuencia
+desayuno | después del desayuno
+constancia | mantener la constancia
+fundamental | recuerda algo fundamental
+paseos | No abandones tus paseos
+corazon | excelente para tu corazón
+fuerza | trabajar específicamente la fuerza
+complementarse | Ambos hábitos pueden complementarse
+proponerte | quiero proponerte algo
+comentarios | Escribe en los comentarios
+sin_manos | sin utilizar las manos
+apoyarte | todavía necesitas apoyarte
+no_importa | No importa cuál sea
+partida | reconocer tu punto de partida
+porque | fortalecer tus piernas no consiste
+proximo | En el próximo apartado
+# --- punto 6
+p6 | Punto 6
+hasta_ahora | Hasta ahora hemos hablado
+no_solo | no solo estás entrenando
+mecanismos | poniendo en funcionamiento mecanismos
+circulacion | Comencemos por la circulación
+contraen | se contraen
+venosa | la sangre venosa hacia el corazón
+bomba | bomba muscular
+gravedad | venciendo la gravedad
+frecuentes | realizar movimientos frecuentes
+sentado | evitar permanecer sentado
+equilibrio | otro beneficio que merece
+cerebro | tu cerebro debe coordinar
+desplazamiento | el desplazamiento del peso
+postura | una postura estable
+repeticion | Cada repetición practicada
+telefono | suena el teléfono
+fuerza_control | tienen fuerza y control
+debilidad | cuando existe debilidad
+confianza | aspecto fundamental, la confianza
+temen | porque temen caerse
+reducir | reducir excesivamente
+buena | La buena noticia
+no_sustituye | no sustituye un entrenamiento
+libertad | conservar la libertad
+anos | cumplir años es inevitable
+independencia | mantener tu independencia
+# --- conclusion
+despues | Después de todo lo que hemos
+idea | quiero que te quedes con una idea
+fortaleza | Tu verdadera fortaleza
+km | los kilómetros que caminas
+depender | sin depender constantemente
+edades | Cumplir 60, 70 u 80
+adaptandose | Tus músculos pueden seguir
+silla | una simple silla
+no_abandones | No abandones tus paseos. Complétalos
+poco | avanza poco a poco
+util | Si este vídeo te ha resultado útil
+informativo | Recuerda que este contenido
+artrosis | Si padeces artrosis grave
+final | lo importante no es cuántos años

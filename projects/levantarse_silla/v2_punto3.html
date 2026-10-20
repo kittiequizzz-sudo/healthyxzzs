@@ -1,0 +1,186 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v2.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · PUNTO 3 — what happens inside your body when you stand up (opens video 2).
+window.START = 0;
+window.END = at('p4') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. opening question over Antonio standing up, series tag
+scene(svg, () => -1, () => at('tecnica'), g => {
+  const st = panel(g, 'a_observa', 'full', { focus: [0.5, 0.25], zoom: 0.14 });
+  const k = Kicker(g, 'PARTE 2 · PUNTO 3', '¿QUÉ PASA EN TU CUERPO?');
+  return t => { st.draw(t, 0, at('tecnica')); show(k, t, 0.3); };
+}, { hard: true });
+
+// 1. "presta atención a la técnica… un pequeño detalle"
+scene(svg, () => at('tecnica'), () => at('extra'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 760, floor: 1000, h: 900 });
+  const r = Ring(g, 830, 700, 150, C.orange);
+  const q = wrap(g, Icon.question, 1000, 480, 1.5);
+  const a = Caption(g, 'LA TÉCNICA', { cx: 1380, cy: 260, size: 64, hi: 'TÉCNICA' });
+  const b = Caption(g, 'UN PEQUEÑO DETALLE', { cx: 1380, cy: 400, size: 56, hi: 'DETALLE' });
+  return t => { p.draw(2); show(a, t, at('tecnica')); r.draw(t, at('detalle')); pop(q, t, at('detalle') + 0.3, 1075, 555); show(b, t, at('detalle')); };
+}, { hard: true });
+
+// 2. many muscle groups at once: gravity, weight, balance — one of the most complete movements
+scene(svg, () => at('extra'), () => at('cuadriceps'), g => {
+  const st = panel(g, 'm_engranajes', 'left', { focus: [0.5, 0.4] });
+  const items = [['VENCER LA GRAVEDAD', 'gravedad'], ['SOSTENER TU PESO', 'peso'], ['MANTENER EL EQUILIBRIO', 'equilibrio']].map(([s, k], i) => [Chip(g, s, { cx: 1520, cy: 300 + i * 160, size: 34 }), k]);
+  const h = Text(g, 'VARIOS MÚSCULOS A LA VEZ', { x: 1520, y: 180, size: 40, color: C.orange });
+  const cap = Caption(g, 'UN MOVIMIENTO MUY COMPLETO', { cy: 960, size: 54, hi: 'COMPLETO' });
+  return t => { st.draw(t, at('extra'), at('cuadriceps')); show(h, t, at('grupos')); items.forEach(([c, k]) => show(c, t, at(k))); show(cap, t, at('completos')); };
+});
+
+// 3. the muscles at work: quadriceps, glutes, abs + back
+scene(svg, () => at('cuadriceps'), () => at('maquinaria'), g => {
+  const leg = cut(g, 'pierna_musculos', 480, 540, 820);
+  const p = Poses(g, 'sts', 4, { cx: 1500, floor: 1000, h: 820 }); p.draw(2);
+  const rq = Ring(g, 505, 420, 90), rg = Ring(g, 415, 235, 80), ra = Ring(g, 1550, 530, 100, C.orange);
+  const lq = Chip(g, 'CUÁDRICEPS', { cx: 860, cy: 360, size: 40, fill: C.red, color: C.white });
+  const lq2 = Text(g, 'extienden la rodilla', { x: 860, y: 440, size: 32, weight: 800 });
+  const lg = Chip(g, 'GLÚTEOS', { cx: 830, cy: 160, size: 40, fill: C.red, color: C.white });
+  const lg2 = Text(g, 'suben la cadera', { x: 830, y: 240, size: 32, weight: 800 });
+  const la = Chip(g, 'ABDOMEN Y ESPALDA', { cx: 1500, cy: 120, size: 38, fill: C.orange, color: C.white });
+  const la2 = Text(g, 'estabilizan el tronco', { x: 1500, y: 200, size: 32, weight: 800 });
+  return t => {
+    rq.draw(t, at('cuadriceps')); show(lq, t, at('cuadriceps')); show(lq2, t, at('extender'));
+    rg.draw(t, at('gluteos')); show(lg, t, at('gluteos')); show(lg2, t, at('gluteos') + 0.5);
+    ra.draw(t, at('abdominales')); show(la, t, at('abdominales')); show(la2, t, at('abdominales') + 0.5);
+  };
+});
+
+// 4. like the pieces of a machine
+scene(svg, () => at('maquinaria'), () => at('diferencia'), g => {
+  const st = panel(g, 'm_engranajes', 'full', { focus: [0.5, 0.45], zoom: 0.12 });
+  const cap = Caption(g, 'COMO UNA MAQUINARIA', { cy: 960, size: 60, hi: 'MAQUINARIA' });
+  return t => { st.draw(t, at('maquinaria'), at('diferencia')); show(cap, t, at('maquinaria') + 0.3); };
+});
+
+// 5. difference with walking: getting up asks for more force — a valuable stimulus, adapted to you
+scene(svg, () => at('diferencia'), () => at('no_terminan'), g => {
+  const h = Text(g, 'FUERZA QUE PIDEN TUS PIERNAS', { x: 960, y: 150, size: 56 });
+  const rows = [['zapatillas', 'CAMINAR EN LLANO', 0.4, C.blueFar, 'diferencia'], ['silla', 'LEVANTARTE', 0.85, C.orange, 'elevar']].map(([n, s, v, col, k], i) => {
+    const r = el('g', {}, g), y = 300 + i * 230;
+    cut(r, n, 300, y + 60, 180);
+    Text(r, s, { x: 430, y: y + 20, size: 40, anchor: 'start' });
+    el('rect', { x: 430, y: y + 60, width: 1200, height: 70, rx: 14, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, r);
+    const bar = el('rect', { x: 436, y: y + 66, height: 58, rx: 10, fill: col }, r);
+    return [r, bar, v, k];
+  });
+  const a = Mark(g, 'UN ESTÍMULO VALIOSO', true, { cx: 700, cy: 860, size: 44 });
+  const b = Chip(g, 'ADAPTADO A TI', { cx: 1360, cy: 860, size: 44, fill: C.amber });
+  const note = Text(g, 'comparación cualitativa', { x: 960, y: 1040, size: 26, weight: 700, color: '#7A7468' });
+  return t => {
+    show(h, t, at('diferencia'));
+    rows.forEach(([r, bar, v, k], i) => { k = i ? 'diferencia' : k; show(r, t, at(k) + i * 1.5); set(bar, { width: 1188 * v * E.out(prog(t, at(k) + i * 1.5 + 0.3, at(k) + i * 1.5 + 1.3)) }); });
+    show(a, t, at('estimulo')); show(b, t, at('adaptes')); show(note, t, at('diferencia') + 1);
+  };
+});
+
+// 6. beyond the legs: myokines (messengers) and glucose into the muscle
+scene(svg, () => at('no_terminan'), () => at('huesos'), g => {
+  const a = panel(g, 'm_mioquinas', 'left', { focus: [0.5, 0.45] });
+  const b = panel(g, 'm_glucosa', 'left', { focus: [0.45, 0.6] });
+  const c1 = Chip(g, 'METABOLISMO', { cx: 1510, cy: 260, size: 46, fill: C.ink, color: C.amber });
+  const c2 = Chip(g, 'MIOQUINAS', { cx: 1510, cy: 420, size: 50, fill: C.amber });
+  const c3 = Text(g, 'mensajeros entre órganos', { x: 1510, y: 520, size: 36, weight: 800 });
+  const c4 = Chip(g, 'USAN GLUCOSA', { cx: 1510, cy: 680, size: 46, fill: C.green, color: C.white });
+  const cap = Caption(g, 'MÁS ALLÁ DE LAS PIERNAS', { cx: 625, cy: 960, size: 46, hi: 'MÁS ALLÁ' });
+  return t => {
+    const k = E.inOut(prog(t, at('glucosa') - 0.2, at('glucosa') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('no_terminan'), at('glucosa')); b.draw(t, at('glucosa'), at('huesos'));
+    show(cap, t, at('no_terminan')); show(c1, t, at('metabolismo')); show(c2, t, at('mioquinas')); show(c3, t, at('organos')); show(c4, t, at('glucosa'));
+  };
+});
+
+// 7. bones get a stimulus from body weight — part of a routine, not a full programme
+scene(svg, () => at('huesos'), () => at('coordinacion'), g => {
+  const bone = cut(g, 'huesos_pierna', 560, 540, 820);
+  const glow = el('ellipse', { cx: 560, cy: 540, rx: 200, ry: 420, fill: C.amber, opacity: 0.2 }, g);
+  g.insertBefore(glow, bone);
+  const ar = Arrow(g, 1000, 200, 1000, 420, C.orange, 18);
+  const a = Chip(g, 'TU PESO = ESTÍMULO', { cx: 1320, cy: 320, size: 50, fill: C.white });
+  const b = Chip(g, 'NO SUSTITUYE UN PROGRAMA COMPLETO', { cx: 1300, cy: 640, size: 32, fill: C.amber });
+  const c = Mark(g, 'PARTE DE TU RUTINA', true, { cx: 1300, cy: 780, size: 40 });
+  return t => {
+    set(glow, { opacity: 0.15 + 0.1 * Math.sin(t * 3) });
+    show(ar, t, at('huesos') + 0.4); show(a, t, at('huesos') + 0.6); show(b, t, at('no_sustituye')); show(c, t, at('no_sustituye') + 2.5);
+  };
+});
+
+// 8. coordination: the brain computes feet, weight shift, muscle timing
+scene(svg, () => at('coordinacion'), () => at('confianza'), g => {
+  const st = panel(g, 'm_cerebro_torre', 'left', { focus: [0.5, 0.35] });
+  const h = Chip(g, 'COORDINACIÓN', { cx: 1510, cy: 220, size: 50, fill: C.ink, color: C.amber });
+  const items = [['¿DÓNDE ESTÁN TUS PIES?', 'pies'], ['¿CÓMO SE MUEVE TU PESO?', 'pies'], ['¿CUÁNDO ACTIVAR LOS MÚSCULOS?', 'pies']].map(([s, k], i) => [Chip(g, s, { cx: 1510, cy: 380 + i * 140, size: 30 }), k, i]);
+  const cap = Caption(g, 'MÁS SEGURIDAD AL MOVERTE', { cx: 625, cy: 960, size: 46, hi: 'SEGURIDAD' });
+  return t => {
+    st.draw(t, at('coordinacion'), at('confianza')); show(h, t, at('coordinacion'));
+    items.forEach(([c, k, i]) => show(c, t, at(k) + i * 1.6)); show(cap, t, at('seguridad'));
+  };
+});
+
+// 9. confidence: getting out of bed, sitting down to eat
+scene(svg, () => at('confianza'), () => at('importa'), g => {
+  const cap = Caption(g, 'RECUPERAR LA CONFIANZA', { cy: 130, size: 60, hi: 'CONFIANZA' });
+  const a = PanelTile(g, 'a_cama', { x: 100, y: 260, w: 820, h: 540, label: 'SALIR DE LA CAMA' });
+  const b = PanelTile(g, 'a_mesa', { x: 1000, y: 260, w: 820, h: 540, label: 'SENTARTE A COMER' });
+  return t => { show(cap, t, at('confianza')); show(a.g, t, at('confianza') + 0.5); show(b.g, t, at('confianza') + 1.2); a.st.draw(t, at('cama'), at('importa')); b.st.draw(t, at('comer'), at('importa')); };
+});
+
+// 10. technique matters: the chair doesn't remove knee load or protect the back by itself; adjust 3 things
+scene(svg, () => at('importa'), () => at('hoy'), g => {
+  const st = Stamp(g, 'LA TÉCNICA IMPORTA', { cx: 960, cy: 140, size: 76, color: C.orange });
+  const kn = cut(g, 'rodilla', 300, 470, 380);
+  const k1 = Chip(g, 'RODILLAS', { cx: 300, cy: 720, size: 40, fill: C.amber });
+  const k2 = Chip(g, 'ESPALDA', { cx: 640, cy: 720, size: 40, fill: C.amber });
+  const note = Text(g, 'la silla sola no las protege', { x: 470, y: 820, size: 32, weight: 800 });
+  const adj = [['cojin', 'ALTURA DEL ASIENTO', 'altura'], ['zapatillas', 'POSICIÓN DE LOS PIES', 'posicion_pies'], ['tortuga', 'CONTROL', 'control']].map(([n, s, k], i) => {
+    const c = el('g', {}, g), y = 290 + i * 230;
+    Card(c, { x: 960, y, w: 860, h: 190, fill: C.white });
+    cut(c, n, 1080, y + 95, 170);
+    Text(c, s, { x: 1200, y: y + 95, size: 40, anchor: 'start' });
+    return [c, k];
+  });
+  return t => {
+    st.draw(t, at('importa')); show(kn, t, at('importa') + 0.5); show(k1, t, at('rodillas')); show(k2, t, at('espalda')); show(note, t, at('espalda') + 0.6);
+    adj.forEach(([c, k]) => show(c, t, at(k)));
+  };
+});
+
+// 11. today: watch how you get up from your usual chair
+scene(svg, () => at('hoy'), () => at('siguiente'), g => {
+  const st = panel(g, 'a_observa', 'full', { focus: [0.5, 0.3], zoom: 0.12 });
+  const cap = Caption(g, 'HOY: OBSERVA CÓMO TE LEVANTAS', { cy: 960, size: 52, hi: 'OBSERVA' });
+  return t => { st.draw(t, at('hoy'), at('siguiente')); show(cap, t, at('hoy') + 0.3); };
+});
+
+// 12. next: step by step, from easy to harder, avoiding 3 errors
+scene(svg, () => at('siguiente'), () => END + 1, g => {
+  const h = Caption(g, 'PASO A PASO', { cy: 120, size: 64 });
+  const lv = [['lvl_1', 'NIVEL 1', C.green], ['sts_3', 'NIVEL 2', C.amber], ['lvl_3', 'NIVEL 3', C.orange]].map(([n, s, col], i) => {
+    const c = el('g', {}, g), cx = 360 + i * 600;
+    cut(c, n, cx, 470, 480);
+    Chip(c, s, { cx, cy: 760, size: 42, fill: col, color: C.white });
+    return [c, cx];
+  });
+  const err = el('g', {}, g);
+  [0, 1, 2].forEach(i => wrap(err, Icon.cross, 760 + i * 140, 870, 1.1));
+  Text(err, '3 ERRORES', { x: 1260, y: 925, size: 52, color: C.red, anchor: 'start' });
+  return t => { show(h, t, at('siguiente')); lv.forEach(([c, cx], i) => pop(c, t, at('siguiente') + 1.5 + i * 1.2, cx, 500)); show(err, t, at('tres_errores')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

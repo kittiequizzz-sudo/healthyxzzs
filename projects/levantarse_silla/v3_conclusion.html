@@ -1,0 +1,79 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v3.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · CONCLUSIÓN — the idea to keep, CTA, disclaimer, closing line.
+window.START = at('despues') - 0.4;
+window.END = 376.2;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. your real strength isn't measured in km
+scene(svg, () => START, () => at('edades'), g => {
+  const a = PanelTile(g, 'a_paseo', { x: 90, y: 260, w: 760, h: 500 });
+  const b = PanelTile(g, 'a_nietos_ok', { x: 1070, y: 260, w: 760, h: 500 });
+  const h = Caption(g, 'TU VERDADERA FORTALEZA', { cy: 130, size: 58, hi: 'FORTALEZA' });
+  const la = Chip(g, 'NO SOLO KILÓMETROS', { cx: 470, cy: 860, size: 44, fill: C.white });
+  const lb = Mark(g, 'LEVANTARTE · MOVERTE · VIVIR', true, { cx: 1450, cy: 860, size: 36 });
+  const d = Text(g, 'sin depender de otras personas', { x: 1450, y: 970, size: 36, weight: 800 });
+  return t => {
+    show(h, t, at('fortaleza')); show(a.g, t, at('idea')); a.st.draw(t, at('idea'), at('edades')); show(la, t, at('km'));
+    show(b.g, t, at('km') + 1.2); b.st.draw(t, at('km'), at('edades')); show(lb, t, at('km') + 1.6); show(d, t, at('depender'));
+  };
+});
+
+// 1. 60, 70 or 80: muscles keep adapting; a simple chair as a start
+scene(svg, () => at('edades'), () => at('no_abandones'), g => {
+  const ages = ['60', '70', '80'].map((s, i) => [Text(g, s, { x: 480 + i * 480, y: 290, size: 190, color: [C.green, C.amber, C.orange][i] }), i]);
+  const a = Caption(g, 'TUS MÚSCULOS SE SIGUEN ADAPTANDO', { cy: 520, size: 48, hi: 'SE SIGUEN ADAPTANDO' });
+  const ch = cut(g, 'silla', 960, 800, 360);
+  const b = Chip(g, 'UNA VIDA MÁS ACTIVA Y SEGURA', { cx: 1450, cy: 830, size: 38, fill: C.green, color: C.white });
+  return t => { ages.forEach(([e, i]) => pop(e, t, at('edades') + i * 0.7, 480 + i * 480, 290)); show(a, t, at('adaptandose')); pop(ch, t, at('silla'), 960, 800); show(b, t, at('silla') + 1); };
+});
+
+// 2. keep walking + add strength, little by little
+scene(svg, () => at('no_abandones'), () => at('util'), g => {
+  const row = el('g', {}, g);
+  cut(row, 'zapatillas', 470, 450, 380); Text(row, '+', { x: 960, y: 450, size: 200, color: C.orange }); cut(row, 'silla', 1450, 440, 420);
+  const a = Mark(g, 'SIGUE CAMINANDO', true, { cx: 470, cy: 720, size: 44 });
+  const b = Mark(g, 'AÑADE FUERZA', true, { cx: 1450, cy: 720, size: 44 });
+  const cap = Caption(g, 'POCO A POCO, CON TUS LÍMITES', { cy: 920, size: 52, hi: 'POCO A POCO' });
+  return t => { show(row, t, at('no_abandones')); show(a, t, at('no_abandones') + 0.3); show(b, t, at('no_abandones') + 1.8); show(cap, t, at('poco')); };
+});
+
+// 3. subscribe · like · share
+scene(svg, () => at('util'), () => at('informativo'), g => {
+  const st = panel(g, 'a_pareja', 'full', { focus: [0.45, 0.3] });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE · ME GUSTA');
+  const sh = Chip(g, 'COMPÁRTELO', { cx: 960, cy: 120, size: 50, fill: C.ink, color: C.amber });
+  return t => { st.draw(t, at('util'), at('informativo')); show(cta, t, at('util')); show(sh, t, at('util') + 4); };
+});
+
+// 4. disclaimer (held)
+scene(svg, () => at('informativo'), () => at('final'), g => {
+  const w = Warn(g, 'CONTENIDO INFORMATIVO', ['Artrosis grave · dolor intenso', 'Problemas de equilibrio', 'Recuperación de una operación'], { y: 140 });
+  const pt = PanelTile(g, 'a_descanso', { x: 210, y: 650, w: 520, h: 330 });
+  const s = Chip(g, 'CONSULTA A TU MÉDICO', { cx: 1270, cy: 760, size: 42, fill: C.amber });
+  const s2 = Chip(g, 'O FISIOTERAPEUTA', { cx: 1270, cy: 880, size: 42, fill: C.amber });
+  return t => { show(w, t, at('informativo')); show(pt.g, t, at('informativo') + 0.5); pt.st.draw(t, at('informativo'), at('final')); show(s, t, at('artrosis') + 7); show(s2, t, at('artrosis') + 7.3); };
+});
+
+// 5. closing quote on ink, with the three panels of a free life
+scene(svg, () => at('final'), () => END + 1, g => {
+  el('rect', { width: 1920, height: 1080, fill: C.ink }, g);
+  const a = Text(g, 'NO IMPORTA CUÁNTOS AÑOS CUMPLES,', { x: 960, y: 300, size: 64, color: C.cream });
+  const b = Text(g, 'SINO CÓMO LOS VIVES', { x: 960, y: 400, size: 90, color: C.amber });
+  const row = ['a_victoria', 'a_pareja', 'a_compras'].map((n, i) => [PanelTile(g, n, { x: 150 + i * 560, y: 560, w: 500, h: 340 }), i]);
+  return t => { show(a, t, at('final')); show(b, t, at('final') + 2.2); row.forEach(([p, i]) => { show(p.g, t, at('final') + 3 + i * 0.5); p.st.draw(t, at('final'), END); }); };
+}, { fade: 0.5 });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

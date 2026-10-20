@@ -1,0 +1,86 @@
+# Video 2 (audio/voice_v2.mp3, words from transcript/words_v2.json). label | phrase from the voice, in order.
+# --- punto 3 (opens the video)
+que_ocurre | Qué ocurre dentro de tu cuerpo
+tecnica | presta especial atención a la técnica
+detalle | un pequeño detalle
+extra | ocurre algo extraordinario
+grupos | varios grupos musculares
+gravedad | vencer la gravedad
+peso | sostener tu peso
+equilibrio | mantener el equilibrio
+completos | uno de los movimientos más completos
+cuadriceps | tus cuadriceps
+extender | para extender las rodillas
+gluteos | los glúteos ayudan
+abdominales | los músculos abdominales
+maquinaria | piezas de una maquinaria
+diferencia | una diferencia importante respecto a caminar
+elevar | suficiente fuerza para elevar tu cuerpo
+estimulo | un estímulo valioso
+adaptes | siempre que adaptes
+no_terminan | los beneficios no terminan
+metabolismo | relacionados con el metabolismo
+mioquinas | conocidas como mioquinas
+organos | entre diferentes órganos
+glucosa | la utilización de glucosa
+huesos | Tus huesos también reciben
+no_sustituye | no sustituye un programa completo
+coordinacion | pasan por alto, la coordinación
+cerebro | obliga a tu cerebro
+pies | dónde están tus pies
+seguridad | con mayor seguridad
+confianza | recuperar la confianza
+cama | salir de la cama
+bano | utilizar el baño
+comer | sentarte a comer
+importa | la técnica importa
+rodillas | la presión sobre las rodillas
+espalda | por completo la espalda
+altura | La altura del asiento
+posicion_pies | la posición de los pies
+control | el control del movimiento
+hoy | Haz algo sencillo hoy
+observa | Observa cómo te levantas
+mejorar | qué necesitas mejorar
+siguiente | en el siguiente apartado, aprenderás
+tres_errores | evitando tres errores
+# --- punto 4
+p4 | Punto 4
+llega | Ahora que conoces los beneficios
+rapido | lo más rápido posible
+controlada | de manera controlada
+diferencia2 | marcar la diferencia
+nivel1 | Comenzaremos con el primer nivel
+firme | Busca una silla firme
+pared | contra una pared
+cojin | un cojín firme
+borde | Siéntate cerca del borde
+inclina | inclina suavemente el tronco
+empuja | empuja el suelo con los pies
+reposabrazos | ayudarte con los reposabrazos
+sin_caer | vuelve a sentarte sin dejarte caer
+fracasar | no significa fracasar
+nivel2 | pasar al segundo nivel
+hombros | a la anchura de los hombros
+talones | Mantén los talones apoyados
+dos_tres | dos segundos en subir
+bajada | Esa bajada lenta
+nivel3 | una variante más exigente
+detente | detente un instante
+pausa | Esta pequeña pausa
+dificultades | Si tienes dificultades de equilibrio
+errores | presta atención a tres errores
+error1 | El primero consiste
+orientadas | Intenta mantenerlas orientadas
+error2 | El segundo es levantar los talones
+error3 | El tercero
+dolor | Si aparece dolor intenso
+articulares | problemas articulares importantes
+demostrar | No necesitas demostrar nada
+objetivo | Tu objetivo es conseguir
+pregunta | surge la pregunta
+cuantas | Cuántas veces debes repetir
+rutina | descubrirás cómo organizar una rutina
+util | Si este vídeo te ha resultado útil
+informativo | Recuerda que este contenido
+artrosis | Si padeces artrosis grave

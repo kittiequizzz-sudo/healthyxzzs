@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v3.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · PUNTO 6 — beyond the legs: circulation, balance, the brain, confidence.
+window.START = at('p6') - 0.3;
+window.END = at('despues') - 0.4;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over the brain control tower
+scene(svg, () => START, () => at('hasta_ahora'), g => {
+  const st = panel(g, 'm_cerebro_torre', 'full', { focus: [0.5, 0.35] });
+  const k = Kicker(g, 'PUNTO 6', 'MÁS ALLÁ DE LAS PIERNAS');
+  return t => { st.draw(t, START, at('hasta_ahora')); show(k, t, START + 0.3); };
+});
+
+// 1. not only the legs: circulation · balance · brain–muscle link
+scene(svg, () => at('hasta_ahora'), () => at('circulacion'), g => {
+  const h = Caption(g, 'NO SOLO ENTRENAS LAS PIERNAS', { cy: 130, size: 54, hi: 'NO SOLO' });
+  const items = [['pierna_venas', 'CIRCULACIÓN'], ['m_cerebro_torre', 'EQUILIBRIO'], ['cerebro', 'CEREBRO ↔ MÚSCULOS']].map(([n, s], i) => {
+    const c = el('g', {}, g), cx = 380 + i * 580;
+    Card(c, { x: cx - 250, y: 260, w: 500, h: 560, fill: C.white });
+    if (n.startsWith('m_')) Still(c, src(n), { x: cx - 210, y: 300, w: 420, h: 360, iw: SZ[n][0], ih: SZ[n][1] }).draw(0, 0, 1);
+    else cut(c, n, cx, 480, 360);
+    Text(c, s, { x: cx, y: 760, size: s.length > 12 ? 36 : 46 });
+    return [c, cx];
+  });
+  return t => { show(h, t, at('hasta_ahora')); items.forEach(([c, cx], i) => pop(c, t, at('hasta_ahora') + 1 + i * 1.6, cx, 540)); };
+});
+
+// 2. circulation: the muscle pump pushes venous blood back up to the heart
+scene(svg, () => at('circulacion'), () => at('equilibrio'), g => {
+  const leg = el('g', {}, g); cut(leg, 'pierna_venas', 0, 0, 760);
+  const heart = cut(g, 'corazon', 1500, 300, 300);
+  // dots travelling up the vein path toward the heart
+  const path = [[520, 900], [520, 620], [560, 360], [900, 260], [1360, 300]];
+  const dots = [];
+  for (let i = 0; i < 8; i++) dots.push(el('circle', { r: 16, fill: C.blueDark, stroke: C.ink, 'stroke-width': 4 }, g));
+  const along = u => { const n = path.length - 1, k = Math.min(n - 1, Math.floor(u * n)), f = u * n - k; return [lerp(path[k][0], path[k + 1][0], f), lerp(path[k][1], path[k + 1][1], f)]; };
+  const a = Chip(g, 'BOMBA MUSCULAR', { cx: 1350, cy: 560, size: 54, fill: C.ink, color: C.amber });
+  const b = Text(g, 'la sangre vuelve al corazón', { x: 1350, y: 660, size: 38, weight: 800 });
+  const c = Chip(g, 'CONTRA LA GRAVEDAD ↑', { cx: 1350, cy: 770, size: 40, fill: C.blueFar });
+  const d = Mark(g, 'MUÉVETE A MENUDO', true, { cx: 1350, cy: 880, size: 40 });
+  const e = Mark(g, 'MUCHO TIEMPO SENTADO', false, { cx: 1350, cy: 1000, size: 36 });
+  return t => {
+    const squeeze = 1 + 0.03 * Math.max(0, Math.sin(t * 2.4));
+    leg.setAttribute('transform', `translate(520 560) scale(${(2 - squeeze).toFixed(3)} ${squeeze.toFixed(3)})`);
+    const on = prog(t, at('contraen'), at('contraen') + 0.5);
+    dots.forEach((dt, i) => { const [x, y] = along(((t * 0.18 + i / 8) % 1)); set(dt, { cx: x, cy: y, opacity: on }); });
+    show(heart, t, at('venosa')); show(a, t, at('bomba')); show(b, t, at('bomba') + 0.6); show(c, t, at('gravedad'));
+    show(d, t, at('frecuentes')); show(e, t, at('sentado'));
+  };
+});
+
+// 3. balance after 60: the brain coordinates muscles, weight shift, stable posture
+scene(svg, () => at('equilibrio'), () => at('telefono'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 560, floor: 1000, h: 860 });
+  const com = el('circle', { r: 22, fill: C.orange, stroke: C.ink, 'stroke-width': 6 }, g);
+  const line = el('line', { stroke: C.orange, 'stroke-width': 5, 'stroke-dasharray': '14 10' }, g);
+  const h = Chip(g, 'EQUILIBRIO', { cx: 1360, cy: 200, size: 60, fill: C.ink, color: C.amber });
+  const items = [['COORDINAR MÚSCULOS', 'cerebro'], ['DESPLAZAR EL PESO', 'desplazamiento'], ['POSTURA ESTABLE', 'postura']].map(([s, k], i) => [Mark(g, s, true, { cx: 1360, cy: 370 + i * 140, size: 40 }), k]);
+  const cap = Caption(g, 'CADA REPETICIÓN ENTRENA', { cx: 1360, cy: 860, size: 46, hi: 'ENTRENA' });
+  const TP = { up: 2, hold: 0.5, down: 3, rest: 0.5 };
+  return t => {
+    const pose = repPose(t, at('equilibrio'), TP); p.draw(pose);
+    // centre of mass drifts from over the seat to over the feet as the trunk leans and rises
+    const u = clamp(pose / 2), cx = lerp(470, 610, u), cy = lerp(560, 450 - 80 * clamp(pose - 2), u);
+    set(com, { cx, cy }); set(line, { x1: cx, y1: cy, x2: cx, y2: 1000 });
+    show(h, t, at('equilibrio') + 0.4); items.forEach(([c, k]) => show(c, t, at(k))); show(cap, t, at('repeticion'));
+  };
+});
+
+// 4. the phone rings: strength + control = safer
+scene(svg, () => at('telefono'), () => at('confianza'), g => {
+  const st = panel(g, 'a_telefono', 'full', { focus: [0.6, 0.3], zoom: 0.14 });
+  const tel = cut(g, 'telefono', 1620, 200, 220);
+  const a = Caption(g, 'FUERZA + CONTROL = MÁS SEGURO', { cy: 960, size: 50, hi: 'MÁS SEGURO' });
+  const b = Caption(g, 'DEBILIDAD = INSEGURIDAD', { cy: 960, size: 50, hi: 'INSEGURIDAD', hiColor: '#FF7A6E' });
+  return t => {
+    st.draw(t, at('telefono'), at('confianza'));
+    const r = Math.sin(t * 40) * 6 * (prog(t, at('telefono'), at('telefono') + 0.2) - prog(t, at('telefono') + 2.5, at('telefono') + 2.8));
+    tel.setAttribute('transform', `rotate(${r.toFixed(2)} 1620 200)`);
+    show(a, t, at('fuerza_control'), at('debilidad')); show(b, t, at('debilidad'));
+  };
+});
+
+// 5. fear of falling → move less → lose more strength (loop), broken by gradual practice
+scene(svg, () => at('confianza'), () => at('libertad'), g => {
+  const st = panel(g, 'a_miedo', 'left', { focus: [0.45, 0.4] });
+  const loop = el('g', {}, g);
+  const cx = 1460, cy = 470, R = 230;
+  const ring = el('circle', { cx, cy, r: R, fill: 'none', stroke: C.red, 'stroke-width': 10, 'stroke-dasharray': '30 18' }, loop);
+  [['MIEDO A CAERSE', -90], ['MENOS MOVIMIENTO', 30], ['MENOS FUERZA', 150]].forEach(([s, a]) => {
+    const x = cx + R * Math.cos(rad(a)), y = cy + R * Math.sin(rad(a));
+    Chip(loop, s, { cx: x, cy: y, size: 30, fill: C.white });
+  });
+  const stamp = Stamp(g, 'POCO A POCO', { cx: 1460, cy: 470, size: 70, color: C.green });
+  const n = Chip(g, 'NO SUSTITUYE EL ENTRENAMIENTO DE EQUILIBRIO', { cx: 960, cy: 960, size: 30, fill: C.amber });
+  const cap = Caption(g, 'LA CONFIANZA', { cx: 625, cy: 960, size: 56, hi: 'CONFIANZA' });
+  return t => {
+    st.draw(t, at('confianza'), at('libertad')); show(cap, t, at('confianza'), at('no_sustituye'));
+    show(loop, t, at('temen')); ring.setAttribute('transform', `rotate(${(t * 12 % 360).toFixed(1)} ${cx} ${cy})`);
+    stamp.draw(t, at('buena') + 0.5); show(n, t, at('no_sustituye'));
+  };
+});
+
+// 6. the goal: freedom to get up, move and enjoy life — independence for longer
+scene(svg, () => at('libertad'), () => END + 1, g => {
+  const a = panel(g, 'a_compras', 'full', { focus: [0.5, 0.3], zoom: 0.12 });
+  const b = panel(g, 'a_pareja', 'full', { focus: [0.45, 0.3], zoom: 0.12 });
+  const c1 = Caption(g, 'LIBERTAD PARA MOVERTE', { cy: 960, size: 60, hi: 'LIBERTAD' });
+  const c2 = Caption(g, 'INDEPENDENCIA MÁS TIEMPO', { cy: 960, size: 58, hi: 'INDEPENDENCIA' });
+  return t => {
+    const k = E.inOut(prog(t, at('anos') - 0.2, at('anos') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('libertad'), at('anos')); b.draw(t, at('anos'), END);
+    show(c1, t, at('libertad'), at('anos')); show(c2, t, at('independencia'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

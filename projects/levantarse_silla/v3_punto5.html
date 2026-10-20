@@ -1,0 +1,148 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v3.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · PUNTO 5 — a 5-minute routine (opens video 3).
+window.START = 0;
+window.END = at('p6') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const Dot = (g, cx, cy, on) => el('circle', { cx, cy, r: 26, fill: on ? C.orange : C.white, stroke: C.ink, 'stroke-width': 6 }, g);
+
+// 0. opening: part 3 kicker over the breakfast routine
+scene(svg, () => -1, () => at('llegados'), g => {
+  const st = panel(g, 'a_desayuno', 'full', { focus: [0.45, 0.25], zoom: 0.14 });
+  const k = Kicker(g, 'PARTE 3 · PUNTO 5', 'UNA RUTINA DE 5 MINUTOS');
+  return t => { st.draw(t, 0, at('llegados')); show(k, t, 0.3); };
+}, { hard: true });
+
+// 1. no need for lots of time: train better, not more
+scene(svg, () => at('llegados'), () => at('propuesta'), g => {
+  const ck = cut(g, 'reloj', 520, 470, 520);
+  const five = Text(g, "5'", { x: 520, y: 490, size: 200, color: C.orange });
+  const a = Mark(g, 'ENTRENAR MÁS', false, { cx: 1300, cy: 330, size: 54 });
+  const b = Mark(g, 'ENTRENAR MEJOR', true, { cx: 1300, cy: 500, size: 54 });
+  const cap = Caption(g, 'POCOS MINUTOS BIEN APROVECHADOS', { cy: 900, size: 48, hi: 'BIEN APROVECHADOS' });
+  return t => { pop(ck, t, at('llegados'), 520, 470); show(five, t, at('llegados') + 0.4); show(a, t, at('mejor')); show(b, t, at('mejor') + 1.6); show(cap, t, at('pocos')); };
+});
+
+// 2. the routine builder: set 1 (5–8 reps) → rest 1 min → set 2 optional
+scene(svg, () => at('propuesta'), () => at('tres_series'), g => {
+  const p = Poses(g, 'sts', 4, { cx: 360, floor: 1000, h: 760 });
+  const h = Text(g, 'SI ESTÁS EMPEZANDO', { x: 1180, y: 150, size: 54, color: C.green });
+  const row = (y, label, n, col) => {
+    const r = el('g', {}, g);
+    Card(r, { x: 700, y, w: 1100, h: 170, fill: C.white });
+    Text(r, label, { x: 740, y: y + 55, size: 40, anchor: 'start', color: col });
+    const dots = []; for (let i = 0; i < n; i++) dots.push(Dot(r, 760 + i * 70, y + 120, false));
+    return { r, dots };
+  };
+  const s1 = row(240, 'SERIE 1 · 5 a 8 repeticiones', 8, C.ink);
+  const rest = el('g', {}, g);
+  Card(rest, { x: 700, y: 450, w: 1100, h: 150, fill: C.blueFar });
+  const sw = Stopwatch(rest, { cx: 800, cy: 525, r: 55, total: 60 });
+  Text(rest, 'DESCANSA 1 MINUTO', { x: 900, y: 510, size: 46, anchor: 'start' });
+  Text(rest, 'observa cómo responde tu cuerpo', { x: 900, y: 565, size: 30, weight: 800, anchor: 'start' });
+  const s2 = row(640, 'SERIE 2 · si te encuentras cómodo', 8, C.ink);
+  const TP = { up: 1.6, hold: 0.4, down: 2.2, rest: 0.4 };
+  return t => {
+    show(h, t, at('serie1') - 0.5);
+    const t0 = at('serie1');
+    p.draw(t < t0 ? 0 : repPose(t, t0, TP));
+    show(s1.r, t, at('reserva')); const n1 = repCount(t, t0, TP); s1.dots.forEach((d, i) => set(d, { fill: i < Math.min(n1, 8) ? C.orange : C.white }));
+    show(rest, t, at('descansa')); sw.draw(60 * prog(t, at('descansa'), at('serie2')));
+    show(s2.r, t, at('serie2')); const n2 = repCount(t, at('serie2'), TP); s2.dots.forEach((d, i) => set(d, { fill: i < n2 ? C.orange : C.white }));
+  };
+});
+
+// 3. later: 3 sets of 8–12, 60 s rest — not from day one; quality first
+scene(svg, () => at('tres_series'), () => at('dias'), g => {
+  const h = Text(g, 'CON EL TIEMPO', { x: 960, y: 140, size: 60, color: C.orange });
+  const sets = [0, 1, 2].map(i => {
+    const c = el('g', {}, g), x = 180 + i * 560;
+    Card(c, { x, y: 230, w: 460, h: 300, fill: C.white });
+    Text(c, 'SERIE ' + (i + 1), { x: x + 230, y: 290, size: 44 });
+    Text(c, '8 – 12', { x: x + 230, y: 400, size: 100, color: C.orange });
+    Text(c, 'repeticiones', { x: x + 230, y: 480, size: 32, weight: 800 });
+    return c;
+  });
+  const rest = Chip(g, 'DESCANSO: 60 SEGUNDOS', { cx: 960, cy: 620, size: 44, fill: C.blueFar });
+  const day = Chip(g, 'NO DESDE EL PRIMER DÍA', { cx: 960, cy: 760, size: 44, fill: C.amber });
+  const q = Caption(g, 'CALIDAD > NÚMERO', { cy: 920, size: 66, hi: 'CALIDAD' });
+  return t => { show(h, t, at('tres_series')); sets.forEach((c, i) => show(c, t, at('tres_series') + 0.8 + i * 0.4)); show(rest, t, at('sesenta_s')); show(day, t, at('primer_dia')); show(q, t, at('calidad')); };
+});
+
+// 4. how many days: 2–3 per week, with recovery days
+scene(svg, () => at('dias'), () => at('desayuno'), g => {
+  const h = Text(g, '¿CUÁNTOS DÍAS?', { x: 960, y: 140, size: 70 });
+  const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D'], on = [0, 2, 4];
+  const cal = days.map((d, i) => {
+    const c = el('g', {}, g), x = 230 + i * 215;
+    Card(c, { x, y: 280, w: 180, h: 220, fill: C.white });
+    Text(c, d, { x: x + 90, y: 340, size: 54 });
+    const ck = on.includes(i) ? wrap(c, Icon.check, x + 40, 380, 1) : null;
+    if (!on.includes(i)) Text(c, 'descanso', { x: x + 90, y: 440, size: 24, weight: 800, color: C.grey });
+    return [c, ck, x];
+  });
+  const a = Chip(g, '2 o 3 DÍAS POR SEMANA', { cx: 960, cy: 640, size: 52, fill: C.green, color: C.white });
+  const b = Chip(g, 'CON DÍAS PARA RECUPERARTE', { cx: 960, cy: 780, size: 42 });
+  const c3 = Chip(g, 'AJUSTA CON UN PROFESIONAL', { cx: 960, cy: 920, size: 40, fill: C.amber });
+  return t => {
+    show(h, t, at('dias')); cal.forEach(([c, ck, x], i) => { show(c, t, at('dias') + 0.4 + i * 0.12); if (ck) pop(ck, t, at('dos_tres') + 0.3 + on.indexOf(i) * 0.4, x + 90, 430); });
+    show(a, t, at('dos_tres')); show(b, t, at('recuperarte')); show(c3, t, at('ajustar'));
+  };
+});
+
+// 5. any time with energy, e.g. after breakfast — consistency
+scene(svg, () => at('desayuno'), () => at('fundamental'), g => {
+  const st = panel(g, 'a_desayuno', 'full', { focus: [0.45, 0.25], zoom: 0.12 });
+  const a = Caption(g, 'DESPUÉS DEL DESAYUNO… O CUANDO QUIERAS', { cy: 140, size: 44, hi: 'CUANDO QUIERAS' });
+  const b = Caption(g, 'LA CLAVE: CONSTANCIA', { cy: 960, size: 60, hi: 'CONSTANCIA' });
+  return t => { st.draw(t, at('desayuno'), at('fundamental')); show(a, t, at('desayuno')); show(b, t, at('constancia')); };
+});
+
+// 6. don't drop your walks: heart + strength, they complement each other
+scene(svg, () => at('fundamental'), () => at('proponerte'), g => {
+  const a = PanelTile(g, 'a_pareja', { x: 90, y: 200, w: 760, h: 500 });
+  const b = PanelTile(g, 'a_desayuno', { x: 1070, y: 200, w: 760, h: 500 });
+  const plus = Text(g, '+', { x: 960, y: 450, size: 200, color: C.orange });
+  const la = Mark(g, 'CORAZÓN', true, { cx: 470, cy: 790, size: 44 });
+  const lb = Mark(g, 'FUERZA', true, { cx: 1450, cy: 790, size: 44 });
+  const h = Caption(g, 'NO ABANDONES TUS PASEOS', { cy: 100, size: 54, hi: 'PASEOS' });
+  const cap = Caption(g, 'SE COMPLEMENTAN', { cy: 950, size: 58, hi: 'COMPLEMENTAN' });
+  return t => {
+    show(h, t, at('paseos')); show(a.g, t, at('paseos')); a.st.draw(t, at('paseos'), at('proponerte'));
+    show(la, t, at('corazon')); show(b.g, t, at('fuerza') - 0.6); b.st.draw(t, at('fuerza'), at('proponerte')); show(lb, t, at('fuerza'));
+    show(plus, t, at('complementarse') - 0.5); show(cap, t, at('complementarse'));
+  };
+});
+
+// 7. comment: can you get up without hands, or do you still need support?
+scene(svg, () => at('proponerte'), () => at('porque'), g => {
+  const h = el('g', {}, g);
+  wrap(h, Icon.bubble, 560, 90, 1.1);
+  Text(h, 'ESCRÍBELO EN LOS COMENTARIOS', { x: 690, y: 145, size: 50, anchor: 'start' });
+  const a = el('g', {}, g), b = el('g', {}, g);
+  Card(a, { x: 180, y: 250, w: 700, h: 600, fill: C.white }); cut(a, 'sts_3', 530, 520, 420); Chip(a, 'SIN LAS MANOS', { cx: 530, cy: 780, size: 44, fill: C.green, color: C.white });
+  Card(b, { x: 1040, y: 250, w: 700, h: 600, fill: C.white }); cut(b, 'lvl_1', 1390, 520, 420); Chip(b, 'CON APOYO', { cx: 1390, cy: 780, size: 44, fill: C.amber });
+  const ok = Caption(g, 'TODAS LAS RESPUESTAS VALEN', { cy: 960, size: 50, hi: 'VALEN' });
+  return t => { show(h, t, at('comentarios') - 0.4); pop(a, t, at('sin_manos'), 530, 550); pop(b, t, at('apoyarte'), 1390, 550); show(ok, t, at('no_importa')); };
+});
+
+// 8. bridge: more than walking better → balance, coordination, confidence
+scene(svg, () => at('porque'), () => END + 1, g => {
+  const items = [['m_cerebro_torre', 'EQUILIBRIO'], ['m_engranajes', 'COORDINACIÓN'], ['a_victoria', 'CONFIANZA']].map(([n, s], i) => [PanelTile(g, n, { x: 80 + i * 600, y: 300, w: 560, h: 380, label: s }), i]);
+  const h = Caption(g, 'MÁS QUE CAMINAR MEJOR', { cy: 140, size: 56, hi: 'MÁS' });
+  return t => { show(h, t, at('porque')); items.forEach(([p, i]) => { show(p.g, t, at('proximo') + 2 + i * 1.6); p.st.draw(t, at('proximo'), END); }); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

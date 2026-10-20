@@ -21,8 +21,8 @@ function HandTitle(g, str, { x = 70, y = 100, size = 96, sub = '' } = {}) {
   const h = el('g', {}, g);
   Hand(h, str, { x, y, size, bold: size * 0.05 });
   if (sub) {
-    const box = el('rect', { x: x, y: y + size * 0.55, height: size * 0.5, fill: K.paper, stroke: K.ink, 'stroke-width': 3 }, h);
-    const tx = Hand(h, sub, { x: x + 15, y: y + size * 0.8, size: size * 0.38 });
+    const box = el('rect', { x: x, y: y + size * 0.55, height: size * 0.56, fill: K.paper, stroke: K.ink, 'stroke-width': 3 }, h);
+    const tx = Hand(h, sub, { x: x + 15, y: y + size * 0.84, size: size * 0.44 });
     const fit = () => box.setAttribute('width', tx.getComputedTextLength() + 30);
     fit(); document.fonts.load(`40px Hand`).then(fit);   // re-measure once the hand font is in
   }

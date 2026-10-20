@@ -50,3 +50,13 @@ legs), and medical details (where the pain is, what the person holds) matching t
 > Flat doodle cartoon icon sheet, same style: thin uneven black ink outlines, flat colours. [N] objects
 > drawn separately and evenly spaced on a flat plain white background, not touching: 1) … 2) … . No text,
 > no labels, no logos, 16:9, high resolution.
+
+## "Less childish" variant (owner's note after the first sheets, Oct 2026)
+The first sheets came out cute (big heads, rosy cheeks, sparkles, wide grins). For a 60+ audience use this
+style block instead of the first two sentences of the template above:
+> Flat editorial health-magazine illustration, clean modern line art for adults: thin even black ink
+> outlines, flat muted natural colours, very light shading, realistic adult body proportions (head about
+> one seventh of body height), older people with believable faces, wrinkles and grey hair, calm subtle
+> expressions, no rosy cheeks, no sparkles, no chibi or kawaii features, no exaggerated grins.
+Keep the rest (one flat pastel background per panel, empty top-left, no text). Effects such as pain
+squiggles and motion lines stay, kept small.

@@ -1,0 +1,25 @@
+{
+ "canvas": [
+  419,
+  739
+ ],
+ "floor_y": 733,
+ "poses": [
+  {
+   "file": "lvl_0.png",
+   "x0": 27
+  },
+  {
+   "file": "lvl_1.png",
+   "x0": 20
+  },
+  {
+   "file": "lvl_2.png",
+   "x0": 67
+  },
+  {
+   "file": "lvl_3.png",
+   "x0": 43
+  }
+ ]
+}

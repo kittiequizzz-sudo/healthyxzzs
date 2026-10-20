@@ -135,3 +135,9 @@ Parts 2–3 orders: `order_parte2_3.md` (2A `p2_antonio`, 2B `p2_metaforas`, 2C 
   then reused "Si este vídeo te ha resultado útil, suscríbete…" (1258.74–1266.94) + the disclaimer clip.
 - Video 3 = 911.0–1287.4 s. Opens "Punto 5. Una rutina de 5 minutos para fortalecer tus piernas." with a "PARTE 3"
   kicker; already ends with subscribe + disclaimer + closing line.
+
+## Delivered assets (parte 2)
+`p2_antonio` → `a_mesa a_cojin a_observa a_parar` · `p2_metaforas` → `m_engranajes m_mioquinas m_glucosa m_cerebro_torre` ·
+`levels_pose_sheet` → `lvl_0..3` (lvl_3 = hover) · `errores` → `f_rodillas f_talones f_caer f_bien` (f_bien is seated, front view) ·
+`p2_objetos` → `silla_brazos cojin huesos_pierna rodilla cerebro higado tortuga liebre` (`rodilla` cut by hand: open bone
+shafts at the sheet edge leaked; cream gaps inside the chair stay opaque, fine on cream).

@@ -1,47 +1,156 @@
-# Phần 1 (INTRO + PUNTO 1 + PUNTO 2): ảnh cần tạo
+# Video 1 (INTRO + PUNTO 1 + PUNTO 2): câu lệnh cho ChatGPT
 
-Khoảng 1.180 từ, tức **khoảng 8 phút** giọng đọc. Cần **22 hình** (12 cảnh + 4 tư thế + 6 đồ vật), gom thành 5 ảnh + ảnh
-nhân vật. Phần còn lại (đồng hồ bấm giờ, bộ đếm bước, biểu đồ, đồng hồ tốc độ xe) tôi vẽ bằng code.
+Khoảng 1.180 từ, tức **khoảng 8 phút** giọng đọc. Cần 6 ảnh (22 hình). Câu lệnh viết riêng cho **ChatGPT**:
+- Mỗi câu lệnh lặp lại đầy đủ phong cách và mô tả Antonio. ChatGPT hay tự kéo về kiểu hoạt hình tròn trịa
+  của nó, nên cần liệt kê rõ những gì phải tránh.
+- ChatGPT không làm khổ 16:9 hay 21:9; dùng **khổ ngang 3:2** (1536×1024).
+- **Tạo tất cả trong cùng một cuộc trò chuyện**, để ChatGPT nhớ nhân vật.
+- **Mỗi lần tạo đều đính kèm** `antonio_ref_clean.png`, và sau khi có ảnh 0 đạt thì đính kèm thêm `antonio_sheet`.
 
-**Cách làm:** tạo ORDER 0 trước, đính kèm ảnh mẫu (ông bà ngồi bàn). Các ảnh sau đính kèm ảnh ORDER 0.
-Không được có chữ trong ảnh; nếu có, yêu cầu "remove all text".
+Lần thử đầu (`characters/antonio/try1_chatgpt_rejected.webp`) bị lệch so với ảnh mẫu: mặt tròn kiểu trẻ con,
+mũi to, mắt chấm, tóc xù, áo xanh nhạt, màu tươi. Các câu lệnh dưới đây chặn đúng những lỗi đó.
+
+## Khối mô tả dùng chung (đã có sẵn trong từng câu lệnh)
+- **STYLE**: tranh minh họa 2D kiểu tạp chí sức khỏe, tỉ lệ người thật (đầu ≈ 1/7 chiều cao), nét viền đậm,
+  tô bóng 1 tông, nếp nhăn bằng nét mực mảnh, màu dịu.
+- **ANTONIO**: mặt trái xoan dài, gò má rõ, mũi thẳng đầu hơi đỏ, nếp nhăn trán và đuôi mắt, bọng mắt, mắt có
+  lòng trắng và tròng xám, lông mày bạc cong, ria mép bạc dày gọn, tóc bạc ngắn chải ngược (mượt, không xù),
+  hơi có bụng. Áo sơ mi caro xanh jean xám, tay dài xắn đến cẳng tay, thắt lưng nâu, quần kaki, giày trắng.
+- **AVOID**: đầu to kiểu chibi, mặt tròn trẻ con, mũi củ, mắt chấm, màu tươi, áo xanh nhạt, tóc xoăn, chữ.
 
 ## ORDER 0: nhân vật Antonio (`antonio_sheet`)
-*Giải thích: bảng nhân vật Antonio ở 3 góc nhìn, lấy đúng ông trong ảnh mẫu. Dùng cho cả 3 phần.*
+**Cách 1 (khuyên dùng, tiết kiệm lượt):** sửa lại ảnh 3 góc bạn đã tạo. Trong cùng cuộc trò chuyện, đính kèm
+ảnh 3 góc đó **và** `antonio_ref_clean.png`, rồi dán:
 
-> Character reference sheet of the older man from the attached image, keeping exactly his face and the art style: hand-drawn 2D cartoon illustration, warm editorial comic style, clean thick dark outlines, natural warm skin tones with soft cel shading and fine wrinkle lines, expressive friendly face, muted desaturated colours. Antonio, 67 years old, ordinary slightly soft build (not muscular), short swept grey hair, bushy grey eyebrows, thick grey moustache. He wears the same blue-grey plaid button shirt with sleeves rolled to the elbow, comfortable khaki trousers and white sneakers. Show him full body, standing relaxed, in three views side by side: front view, side view facing right, three-quarter view, same size in every view. Plain flat light cream background #F5ECD7, no gradient, no shadows. No text, no letters, no logos, no watermark, 16:9, high resolution.
+```
+I attached two images. Image 1 is a full-body character sheet with three views. Image 2 is the ORIGINAL reference man. Edit image 1: keep the three poses, the khaki trousers, the brown belt and the white sneakers, but redraw the head, face, hair, shirt and the rendering style so they match image 2 exactly.
+
+Head and face: long oval face with defined cheekbones (not round), strong straight nose with a slightly reddish tip (not bulbous), forehead wrinkles, crow's feet and soft bags under the eyes, real eyes with white sclera and grey irises (not dot eyes), arched expressive grey eyebrows, thick neat grey moustache, short grey hair combed back and slightly to the side, smooth (not curly or fluffy). Peach skin with rosy cheeks.
+
+Shirt: muted denim blue-grey plaid with darker blue check lines (not light baby blue), long sleeves rolled up to the forearm.
+
+Style: semi-realistic adult proportions, head about 1/7 of body height (make the head smaller than now), thick dark outlines, cel shading with one clear shadow tone, fine ink lines for wrinkles, muted desaturated colours like image 2. Keep the plain flat cream background #F5ECD7. No text, landscape 3:2.
+```
+
+**Cách 2:** tạo mới từ đầu. Chỉ đính kèm `antonio_ref_clean.png`, rồi dán:
+
+```
+Create a full-body character turnaround of the man in the attached image. He must be clearly the same person, drawn in exactly the same illustration style.
+
+STYLE: hand-drawn 2D editorial cartoon, like a modern health-magazine illustration. Semi-realistic adult proportions, head about 1/7 of body height. Thick dark outlines, cel shading with one clear shadow tone, fine ink lines for wrinkles, muted desaturated colours.
+
+ANTONIO, 67 years old: long oval face with defined cheekbones, strong straight nose with a slightly reddish tip, forehead wrinkles, crow's feet and soft bags under the eyes, real eyes with white sclera and grey irises, arched expressive grey eyebrows, thick neat grey moustache, short grey hair combed back and slightly to the side, smooth. Peach skin with rosy cheeks. Ordinary build with a slight belly, not muscular. Muted denim blue-grey plaid button shirt with darker blue checks, long sleeves rolled up to the forearm, brown leather belt, khaki trousers, white sneakers.
+
+LAYOUT: three views side by side, same size, standing relaxed, feet on the same ground line: front view, side view facing right, three-quarter view. Plain flat cream background #F5ECD7, no shadows on the ground.
+
+AVOID: chibi or big-head proportions, round baby face, bulbous nose, dot eyes, curly or fluffy hair, light baby-blue shirt, bright saturated colours, any text, letters or logos. Landscape 3:2.
+```
+
+*Gửi ảnh cho tôi kiểm tra trước khi làm tiếp.*
+
+---
+
+> Từ ORDER 1A trở đi: đính kèm `antonio_sheet` (ảnh 0 đã đạt) **và** `antonio_ref_clean.png`.
 
 ## ORDER 1A: câu chuyện Antonio (`p1_antonio_a`)
-*Giải thích: ngồi ghế bành phải chống tay, đi bộ buổi sáng, leo cầu thang, ngại ghế thấp ở nhà cháu. Dùng ở intro và PUNTO 1–2.*
+*Nghĩa: 4 khung. Chống tay đứng dậy khỏi ghế bành · đi bộ buổi sáng · leo cầu thang · ngại ghế thấp ở nhà cháu.*
 
-> Illustration sheet, 2x2 grid of four separate panels with thin white gaps, the same Antonio as the attached reference (67-year-old man, short grey hair, grey moustache, blue-grey plaid shirt with rolled sleeves, khaki trousers, white sneakers). Art style exactly like the reference: hand-drawn 2D cartoon, warm editorial comic style, clean thick dark outlines, natural warm skin tones, soft cel shading, muted desaturated colours, simple cosy home or outdoor backgrounds in soft slate-blue and warm wood tones. Panel 1: Antonio in a low soft armchair in his living room, pushing hard on both armrests with his hands to get up, a small effortful expression. Panel 2: Antonio walking briskly and happily along a park path in the early morning sun. Panel 3: Antonio climbing indoor stairs slowly, holding the handrail, slightly tired. Panel 4: Antonio at his grandchildren's house looking hesitantly at a very low child-size chair while two small grandchildren play on the floor. No text, no letters, no speech bubbles, no signs, no logos, no watermark, 16:9, high resolution.
+```
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps. Every panel shows the same man, Antonio, from the attached character sheet; keep his face, hair, moustache and clothes identical.
+
+STYLE (match the attached reference exactly): hand-drawn 2D editorial cartoon, semi-realistic adult proportions (head about 1/7 of body height), thick dark outlines, cel shading with one shadow tone, fine ink wrinkle lines, muted desaturated colours, simple cosy backgrounds in soft slate blue and warm wood tones.
+
+ANTONIO: 67, long oval face, straight nose with a reddish tip, wrinkles, grey eyes, thick grey moustache, short grey hair combed back, slight belly. Muted denim blue-grey plaid shirt with sleeves rolled to the forearm, brown belt, khaki trousers, white sneakers.
+
+Panel 1 (top left): Antonio in a low, soft armchair in his living room, pushing hard on both armrests with his hands to get up, a small effortful expression.
+Panel 2 (top right): Antonio walking briskly and happily along a park path in early morning sunlight.
+Panel 3 (bottom left): Antonio climbing indoor stairs slowly, holding the handrail, a little tired.
+Panel 4 (bottom right): Antonio at his grandchildren's house, looking hesitantly at a very low child-size chair while two small grandchildren play on the floor.
+
+AVOID: chibi proportions, round baby face, dot eyes, bright colours, any text, letters, speech bubbles, signs or logos. Landscape 3:2.
+```
 
 ## ORDER 1B: những lúc cần sức mạnh (`p1_antonio_b`)
-*Giải thích: vấp tấm thảm, ngồi mép giường buổi sáng, đứng dậy từ sàn nhà, làm bài kiểm tra ghế 30 giây.*
+*Nghĩa: 4 khung. Vấp tấm thảm · ngồi mép giường buổi sáng · đứng dậy từ sàn nhà · ngồi ghế dựa tường chuẩn bị làm bài kiểm tra 30 giây.*
 
-> Illustration sheet, 2x2 grid of four separate panels with thin white gaps, the same Antonio as the attached reference (67-year-old man, short grey hair, grey moustache, blue-grey plaid shirt, khaki trousers, white sneakers). Art style exactly like the reference: hand-drawn 2D cartoon, warm editorial comic style, clean thick dark outlines, natural warm skin tones, soft cel shading, muted desaturated colours, simple cosy home backgrounds in soft slate-blue and warm wood tones. Panel 1: Antonio catching his foot on the edge of a rug in his living room, arms out, recovering his balance (not falling). Panel 2: Antonio in the morning sitting on the edge of his bed in pyjamas, about to stand up. Panel 3: Antonio getting up from the living-room floor, kneeling on one knee with one hand on the seat of a sturdy chair for support. Panel 4: Antonio sitting on a sturdy armless wooden chair placed against a wall, arms crossed on his chest, ready to stand, a simple stopwatch with a blank face on a small side table next to him. No text, no letters, no numbers, no speech bubbles, no signs, no logos, no watermark, 16:9, high resolution.
+```
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps. Every panel shows the same man, Antonio, from the attached character sheet; keep his face, hair, moustache and clothes identical.
+
+STYLE (match the attached reference exactly): hand-drawn 2D editorial cartoon, semi-realistic adult proportions (head about 1/7 of body height), thick dark outlines, cel shading with one shadow tone, fine ink wrinkle lines, muted desaturated colours, simple cosy home backgrounds in soft slate blue and warm wood tones.
+
+ANTONIO: 67, long oval face, straight nose with a reddish tip, wrinkles, grey eyes, thick grey moustache, short grey hair combed back, slight belly. Muted denim blue-grey plaid shirt with sleeves rolled to the forearm, brown belt, khaki trousers, white sneakers.
+
+Panel 1 (top left): Antonio catching his foot on the turned-up edge of a rug in his living room, arms out, recovering his balance (he does not fall).
+Panel 2 (top right): morning, Antonio in striped pyjamas sitting on the edge of his bed, about to stand up.
+Panel 3 (bottom left): Antonio getting up from the living-room floor, kneeling on one knee, one hand on the seat of a sturdy wooden chair for support.
+Panel 4 (bottom right): Antonio sitting on a sturdy armless wooden chair placed against a wall, arms crossed on his chest, ready to stand; a simple stopwatch with a blank face lies on a small side table next to him.
+
+AVOID: chibi proportions, round baby face, dot eyes, bright colours, any text, letters, numbers, speech bubbles, signs or logos. Landscape 3:2.
+```
 
 ## ORDER 1C: ẩn dụ chiếc xe + kết thúc có hậu (`p1_metaforas`)
-*Giải thích: xe chạy đều trên đường bằng (= đi bộ) và xe tăng tốc lên dốc (= đứng dậy khỏi ghế); Antonio tập trong phòng khách ("không cần ra khỏi nhà") và Antonio đứng dậy vui vẻ (lời hứa ở intro).*
+*Nghĩa: 4 khung. Xe chạy đều trên đường bằng (= đi bộ) · xe lên dốc (= đứng dậy khỏi ghế) · Antonio nhìn chiếc ghế trong phòng khách · Antonio đứng dậy vui vẻ.*
 
-> Illustration sheet, 2x2 grid of four separate panels with thin white gaps. Art style exactly like the attached reference: hand-drawn 2D cartoon, warm editorial comic style, clean thick dark outlines, natural warm skin tones, soft cel shading, muted desaturated colours, soft slate-blue and warm backgrounds. Panel 1: a small friendly rounded cartoon car (no brand) driving on a flat sunny road, calm. Panel 2: the same small car driving up a steep hill, small effort lines behind it. Panel 3: the same Antonio as the attached reference (grey hair, grey moustache, blue-grey plaid shirt, khaki trousers, white sneakers) in his cosy living room, standing beside a sturdy wooden chair placed against the wall, looking at it with a curious, motivated smile. Panel 4: the same Antonio standing up easily and confidently from a sturdy chair, smiling, one fist lightly raised in a small victory. No text, no letters, no numbers, no logos, no watermark, 16:9, high resolution.
+```
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps.
+
+STYLE (match the attached reference exactly): hand-drawn 2D editorial cartoon, thick dark outlines, cel shading with one shadow tone, muted desaturated colours, soft slate-blue and warm backgrounds.
+
+Panel 1 (top left): a small, friendly, rounded cartoon car (no brand, no face) driving calmly on a flat sunny road.
+Panel 2 (top right): the same small car driving up a steep hill, small effort lines behind it.
+Panel 3 (bottom left): Antonio from the attached character sheet (identical face, grey moustache, short grey hair combed back, denim blue-grey plaid shirt with rolled sleeves, khaki trousers, white sneakers) in his cosy living room, standing beside a sturdy wooden chair placed against the wall, looking at it with a curious, motivated smile.
+Panel 4 (bottom right): the same Antonio standing up easily and confidently from a sturdy chair, smiling, one fist lightly raised in a small victory.
+
+Antonio has semi-realistic adult proportions (head about 1/7 of body height). AVOID: chibi proportions, round baby face, dot eyes, bright colours, any text, letters, numbers or logos. Landscape 3:2.
+```
 
 ## ORDER 1D: tư thế đứng dậy khỏi ghế (`sts_pose_sheet`)
-*Giải thích: 4 tư thế đứng dậy, tay bắt chéo ngực. Dùng cho bài kiểm tra 30 giây ở PUNTO 2 (và lại dùng ở phần 2). Nền phải phẳng một màu để tôi cắt rời.*
+*Nghĩa: 1 hàng 4 tư thế nhìn nghiêng, tay bắt chéo ngực: ngồi → cúi tới trước → nhấc hông → đứng thẳng. Bàn chân và ghế không di chuyển. Nền kem phẳng để tôi cắt rời. Video 2 dùng lại ảnh này.*
 
-> Animation key-pose sheet of the same Antonio as the attached reference (67-year-old man, short grey hair, grey moustache, blue-grey plaid shirt with rolled sleeves, khaki trousers, white sneakers), same art style: hand-drawn 2D cartoon, clean thick dark outlines, natural warm skin tones, soft cel shading, muted colours. Side view facing right, one single row of 4 poses, identical size, same floor line, evenly spaced, showing one sit-to-stand from a sturdy armless wooden chair, step by step. The chair is identical and in the same place relative to the feet in every pose; the feet never move. Arms crossed on the chest in every pose. Pose 1: sitting near the front edge of the chair, back straight and upright, knees bent at 90 degrees, feet flat and slightly behind the knees. Pose 2: leaning the trunk forward from the hips about 45 degrees with a straight back, head in line with the spine, shoulders over the knees, still seated, heels down. Pose 3: hips lifted about a hand's width off the seat, knees half bent, trunk still leaning forward, weight over the feet, heels down. Pose 4: standing fully upright in front of the chair, hips and knees straight, chin level, arms still crossed. Plain flat cream background #F5ECD7, no gradient, no shadows, simple floor line. No labels, no numbers, no text, no watermark, wide 21:9 image.
+```
+Create one image: an exercise step-by-step pose sheet of Antonio from the attached character sheet (identical face, grey moustache, short grey hair combed back, denim blue-grey plaid shirt with sleeves rolled to the forearm, brown belt, khaki trousers, white sneakers).
+
+STYLE (match the attached reference exactly): hand-drawn 2D editorial cartoon, semi-realistic adult proportions, thick dark outlines, cel shading with one shadow tone, muted colours.
+
+LAYOUT: one single row of 4 poses, left to right, evenly spaced, all the same size, all on the same floor line. Side view, Antonio faces right. Each pose has its own identical sturdy armless wooden chair; the chair and the feet stay in exactly the same position relative to each other in all 4 poses. Arms crossed on the chest in every pose.
+
+Pose 1: sitting near the front edge of the chair, back straight and upright, knees bent at 90 degrees, feet flat on the floor, slightly behind the knees.
+Pose 2: still seated, leaning the trunk forward from the hips about 45 degrees with a straight back, head in line with the spine, shoulders above the knees, heels down.
+Pose 3: hips lifted about a hand's width above the seat, knees half bent, trunk still leaning forward, weight over the feet, heels down.
+Pose 4: standing fully upright in front of the chair, hips and knees straight, chin level, arms still crossed.
+
+BACKGROUND: plain flat cream #F5ECD7 everywhere, no gradient, no floor shadows, only a thin simple floor line.
+AVOID: chibi proportions, round baby face, feet moving between poses, heels lifting, rounded back, any text, numbers, arrows or labels. Landscape 3:2.
+```
 
 ## ORDER 1E: đồ vật + cơ đùi (`p1_objetos`)
-*Giải thích: các món tách rời để tôi cắt riêng: ghế, bậc thang, giày, tấm thảm, trái tim (đi bộ tốt cho tim), cơ đùi (sarcopenia).*
+*Nghĩa: 6 món vẽ tách rời: ghế · bậc thang · giày trắng · tấm thảm · trái tim · chân lộ cơ đùi. Nền kem phẳng để tôi cắt rời.*
+*Chỉ cần đính kèm ảnh mẫu gốc (ông bà ngồi bàn), để trái tim giống trái tim trên máy tính bảng.*
 
-> Illustration sheet in the same art style as the attached reference: hand-drawn 2D cartoon, clean thick dark outlines, soft cel shading, muted warm colours. Six items drawn SEPARATELY, well apart, evenly spaced in two rows on a plain flat cream #F5ECD7 background with no gradient and no shadows: 1) a sturdy armless wooden kitchen chair, side view, 2) a single indoor wooden stair step, 3) a pair of white sneakers, 4) a small living-room rug with one corner turned up, 5) a friendly anatomical human heart like the one on the tablet in the reference, 6) a human right leg, side view, skin removed, showing the red thigh muscles (quadriceps in front, gluteus maximus and hamstrings behind), anatomically correct. No text, no labels, no brands, no watermark, 16:9, high resolution.
+```
+Create one image: an illustration sheet of six separate objects, in the same hand-drawn 2D editorial cartoon style as the attached reference (thick dark outlines, cel shading with one shadow tone, muted warm colours).
+
+Draw the six items well apart, evenly spaced in two rows of three, none touching:
+1) a sturdy armless wooden kitchen chair, side view
+2) a single indoor wooden stair step
+3) a pair of white sneakers
+4) a small living-room rug with one corner turned up
+5) a friendly anatomical human heart, like the heart on the tablet in the reference
+6) a human right leg in side view with the skin removed, showing the red thigh muscles: quadriceps on the front, gluteus maximus and hamstrings at the back, anatomically correct
+
+BACKGROUND: plain flat cream #F5ECD7 everywhere, no gradient, no shadows.
+AVOID: any text, labels, numbers, brands or logos. Landscape 3:2.
+```
 
 ## Kiểm tra khi nhận ảnh
-- Antonio giống nhau ở mọi ảnh (ria mép, áo caro xanh, quần kaki, giày trắng), thân hình bình thường.
-- Không có chữ, số hay logo; đồng hồ bấm giờ ở 1B để mặt trống.
+- Antonio giống ảnh mẫu: mặt dài, mắt có tròng, tóc chải ngược mượt, áo caro xanh jean (không xanh nhạt),
+  tỉ lệ người thật.
+- Không có chữ, số hay logo. Đồng hồ bấm giờ ở 1B để mặt trống.
 - 1D: bàn chân không di chuyển, gót luôn chạm sàn, lưng thẳng khi cúi, nghiêng người trước rồi mới nhấc hông.
 - 1D và 1E: nền kem phẳng một màu.
+- Nếu một khung sai, sửa riêng khung đó trong cùng cuộc trò chuyện ("Edit only panel 3: …") thay vì tạo lại cả ảnh.
 
-## Giọng đọc phần 1 (`voice_p1.mp3`)
-Đọc phần **"# PARTE 1"** trong `script.md` (từ đầu đến hết câu "Nos vemos en el próximo vídeo.", dừng trước "# PARTE 2"). Khoảng 1.180 từ, tầm 8 phút. Giọng ấm, chậm, rõ (khoảng 150 từ/phút),
-không nhạc nền, không đọc các tiêu đề "## …", ngừng khoảng 1 giây trước mỗi PUNTO.
+## Giọng đọc video 1 (`voice_p1.mp3`)
+Đọc phần **"# PARTE 1"** trong `script.md` (từ đầu đến hết câu "Nos vemos en el próximo vídeo.", dừng trước "# PARTE 2").
+Khoảng 1.180 từ, tầm 8 phút. Giọng ấm, chậm, rõ (khoảng 150 từ/phút), không nhạc nền, không đọc các tiêu đề "## …",
+ngừng khoảng 1 giây trước mỗi PUNTO.

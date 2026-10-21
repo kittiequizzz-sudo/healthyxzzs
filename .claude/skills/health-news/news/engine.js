@@ -30,9 +30,9 @@ function Story(cfg, plan) {
     // default sound for the shot type (sourcing-and-sound.md § Sound grammar)
     const fx = { chapter: [[-0.9, 'riser', -6], [-0.25, 'whoosh', -2], [0.2, 'boom', -4]], number: [[0, 'impact', -4]],
       study: [[0.1, 'paper', -2]], split: [[0, 'whoosh', -10]], end: [[0, 'whoosh', -6], [0.6, 'pop', -4]],
-      warning: [[0, 'thunk', -10]], checklist: [[0, 'swish', -8]] }[s.type] || (s.i ? [[0, 'swish', -14]] : [[0, 'boom', -10]]);
+      warning: [[0, 'thunk', -10]], checklist: [[0, 'swish', -8]] }[s.type] || (s.i ? [] : [[0, 'boom', -10]]);   // plain cuts stay silent: a sound on every cut gets repetitive
     if (!s.quiet) for (const [dt, n, gdb] of fx) SFX.push([+(s.t0 + dt).toFixed(3), n, gdb]);
-    if (s.lt || s.head) SFX.push([+(s.t0 + 0.3).toFixed(3), 'swish', -8]);
+    if (s.head) SFX.push([+(s.t0 + 0.3).toFixed(3), 'swish', -10]);   // headlines only; lower thirds enter silently
   }
   const bug = Bug(svg, { name, section: 'INFORME' });   // after the shots, so they sit on top
   const sp = SmallPrint(svg);

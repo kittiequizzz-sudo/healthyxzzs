@@ -2,7 +2,7 @@
 """Build the soundtrack of a scene: voice + music bed (ducked under the voice) + sound effects placed at
 the times the scene lists in window.SFX = [[t, 'name', gainDb], …]. Then mux it onto the video.
 
-  mix.py <scene.html|events.json> <video.mp4> <out.mp4> [--voice voice.mp3] [--music bed.wav|auto]
+  mix.py <scene.html|events.json> <video.mp4> <out.mp4> [--voice voice.mp3] [--music track.mp3[,track2.mp3…]|auto]
          [--sfx-db -4] [--music-db -20] [--duck-db -10]
 
 --music auto generates the synthesised bed (sfx.py bed). Without a voice the bed plays at --music-db + 8.
@@ -42,6 +42,19 @@ def read_audio(path):
     return np.frombuffer(raw, np.float32).reshape(-1, 2).astype(np.float64)
 
 
+def level(x, target=-20.0):
+    """scale a track to a fixed RMS (dBFS) so different songs sit at the same level"""
+    r = np.sqrt((x ** 2).mean()) + 1e-9
+    return x * db(target - 20 * np.log10(r))
+
+
+def xfade(a, b, k):
+    """append b to a with an equal-power crossfade of k samples"""
+    k = min(k, len(a), len(b))
+    t = np.linspace(0, np.pi / 2, k)[:, None]
+    return np.concatenate([a[:-k], a[-k:] * np.cos(t) + b[:k] * np.sin(t), b[k:]])
+
+
 def db(x):
     return 10 ** (x / 20)
 
@@ -50,9 +63,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('events'); ap.add_argument('video'); ap.add_argument('out')
     ap.add_argument('--voice'); ap.add_argument('--music', default='auto')
-    ap.add_argument('--sfx-db', type=float, default=-4); ap.add_argument('--music-db', type=float, default=-20)
+    ap.add_argument('--sfx-db', type=float, default=-4); ap.add_argument('--music-db', type=float, default=None)
     ap.add_argument('--duck-db', type=float, default=-10)
     a = ap.parse_args()
+    if a.music_db is None:   # owner tracks are levelled to −20 dBFS RMS first; the synth bed is not
+        a.music_db = -20 if a.music == 'auto' else -10
 
     dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', a.video], capture_output=True, text=True).stdout)
     n = int(dur * SR) + SR
@@ -64,10 +79,20 @@ def main():
         mix[:len(voice)] += voice
 
     if a.music != 'none':
-        bed = sfx.bed(dur + 1) if a.music == 'auto' else read_audio(a.music)
-        if len(bed) < n:
-            bed = np.tile(bed, (n // len(bed) + 1, 1))
-        bed = bed[:n] * db(a.music_db + (0 if voice is not None else 8))
+        if a.music == 'auto':
+            bed = sfx.bed(dur + 1)
+        else:
+            # owner's tracks (comma-separated, played in order, looped if needed), joined with crossfades and
+            # levelled to the same loudness so the bed never jumps between tracks
+            tracks = [level(read_audio(f)) for f in a.music.split(',')]
+            bed = tracks[0]
+            k = 0
+            while len(bed) < n:
+                k += 1
+                bed = xfade(bed, tracks[k % len(tracks)], int(SR * 4))
+        bed = bed[:n].copy()
+        f = min(len(bed), int(SR * 3)); bed[-f:] *= np.linspace(1, 0, f)[:, None]   # fade out at the end
+        bed *= db(a.music_db + (0 if voice is not None else 8))
         if voice is not None:
             # duck: follow the voice envelope (50 ms window), smooth 300 ms
             e = np.sqrt(np.convolve((voice ** 2).mean(1), np.ones(2400) / 2400, 'same'))

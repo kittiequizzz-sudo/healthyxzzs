@@ -1,8 +1,11 @@
 # Scene plan: "7 alimentos para cuidar tu corazón" (~2,800 words → ~19 min, Spain, "tú")
 
 New rules (owner, Oct 21 2026): diverse cast, adult-animation faces, ~1 different picture per 15 s, each
-used at most twice. Sections: `intro`, `punto1`…`punto7`, `conclusion` (or 3 videos: intro+P1–2 · P3–5 ·
-P6–7+conclusion, if the owner wants them split again).
+used at most twice. Sections: `intro`, `punto1`…`punto7`, `conclusion`, published as **3 videos** (owner): v1 = intro+P1+P2
+(~1,040 words), v2 = P3+P4+P5 (~985), v3 = P6+P7+conclusion (~780). The voice is one take of the full
+script: split and bridge it in the edit like `levantarse_silla` (reuse the conclusion's disclaimer at the
+end of v1 and v2; open v2 on PUNTO 3's question, v3 on the reused intro line about «el séptimo»).
+Image checklist for the owner: `bang_anh.md`.
 
 Recurring visual: a **7-food progress strip** (top right, cut-outs from `alimentos_1/2`): AOVE · nueces ·
 sardina · lentejas · tomate · ajo · espinacas; the current one ringed orange. Kicker per section over the

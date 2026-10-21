@@ -66,3 +66,30 @@ with "same woman as in the attached photo". Dramatised scenes with them get "Rec
   the scripted time, no text/logos, devices look generic, nothing uncanny.
 - Grids: cut, then check every cell on a contact sheet (no white gap left on an edge).
 - Ask for a regeneration with exact fixes ("photo 3: left hand has 6 fingers; same scene, fix the hand").
+
+## Real photos the owner finds (preferred for people and key scenes)
+The owner can't fetch video, but **can search and download real photos** from Pexels, Unsplash and
+Pixabay (all free for commercial use, no attribution required) and send them. Use this whenever a
+beat needs a person, a place or a moment the CC0 search here doesn't cover well, and to avoid
+repeating the same picture. Stock repeats are the main thing that makes a video look cheap.
+
+Order file `photos.md` in Vietnamese, one line per photo, grouped by section, sent early (right after
+the plan), so the owner searches while you build:
+
+| File name | Beat (time) | What it must show | Search words (EN / ES) | Must avoid |
+|---|---|---|---|---|
+| `p_kitchen_morning.jpg` | Beat 2 · 1:05 | older Latin woman drinking water at a kitchen window, morning light | "senior latina kitchen water" / "abuela cocina agua" | logos, text, hospital beds |
+
+Rules to put at the top of every order:
+- Landscape, at least 1920 px wide (download the "Large" or "Original" size). Real photos only, no AI.
+- No watermark, no visible brand or logo, no readable text, no famous people.
+- Pexels / Unsplash / Pixabay only (their licences allow YouTube use without credit). Keep the page link
+  of each photo in a text file, in case a claim ever comes.
+- People: neutral or positive moments. Never a stock person shown as "the patient" with a disease;
+  for symptoms ask for hands, objects, silhouettes or back views.
+- 2–3 alternatives for the hero shots (hook, chapters, ending) so you can pick the best framing.
+- Send them with the ordered names (or numbered in the order of the list).
+
+How many: a 10-minute video looks rich with ~35–45 distinct pictures. Plan ≈ 20–25 from the owner
+(people, places, hero shots) + ≈ 15 CC0 from `find_media.py` (objects, science, food) + code graphics.
+No picture appears more than twice; the second time use a different crop or a parallax clip.

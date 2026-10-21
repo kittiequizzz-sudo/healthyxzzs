@@ -43,8 +43,11 @@ Reference project: `projects/video1/` (10-min A1C video: `plan.js`, `cues.txt`, 
    put on screen against it, and the faceless rules (no doctor credential, dramatisation labels).
 3. **Photos (15 min, parallel):** run all searches at once (`find_media.py search … --nosheet` or with
    `--sheet`), look at the contact sheets, `get … --fast` the picks in parallel, check them at 1:1 for
-   watermarks and logos. Order only what stock can't cover (`order.md`, send it to the owner early);
-   `own('name', 'fallback')` in the plan swaps their photo in when it arrives.
+   watermarks and logos. **Send the owner a real-photo order (`photos.md`, `asset-order.md` § Real photos
+   the owner finds) for people, places and hero shots: they search Pexels/Unsplash/Pixabay while you
+   build.** Plus AI images only for recurring characters (`order.md`). `own('name', 'fallback')` in the
+   plan swaps their photo in when it arrives. Goal: ~35–45 distinct pictures per 10 minutes, none used
+   more than twice; turn the hero shots into parallax clips.
 4. **Plan (20 min):** `cues.txt` (label | phrase), then `plan.js`: one line per shot, keyed to cues
    (types in `news/engine.js`: photo, number, chapter, study, bars, checklist, warning, split, quote, clip,
    end, custom). The engine adds the bug, small print, wipes and the sound design. Run

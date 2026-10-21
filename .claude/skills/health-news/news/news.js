@@ -625,3 +625,104 @@ function NumbersCard(p, { title = 'EMERGENCIAS', items }) {
   });
   return { g, draw(t, t0) { show(g, t, t0, 1e9, { dy: 20 }); } };
 }
+
+// Hub-and-spoke mechanism map: a centre (e.g. the GLP-1 "bell") and up to 4 effects that light up on cue.
+// items: [{ label, sub, color }]; draw(t, t0, [t per item])
+function MechanismMap(p, { center = 'GLP-1', centerSub = '', items }) {
+  const g = el('g', {}, p);
+  const cx = 960, cy = 560;
+  const pos = [[480, 300], [1440, 300], [480, 820], [1440, 820]];
+  const hub = el('g', {}, g);
+  el('circle', { cx, cy, r: 150, fill: N.panel2, stroke: N.gold, 'stroke-width': 8 }, hub);
+  // bell
+  el('path', { d: `M${cx - 60} ${cy + 10} q0 -80 60 -80 q60 0 60 80 l14 22 h-148 z`, fill: N.gold }, hub);
+  el('rect', { x: cx - 90, y: cy + 32, width: 180, height: 12, rx: 6, fill: N.gold }, hub);
+  el('circle', { cx, cy: cy - 78, r: 10, fill: N.gold }, hub);
+  NT(hub, center, { x: cx, y: cy + 100, size: 44, anchor: 'middle', ls: 2 });
+  if (centerSub) NT(hub, centerSub, { x: cx, y: cy + 210, size: 36, font: 'S', italic: true, anchor: 'middle', color: N.dim });
+  const nodes = items.map((it, i) => {
+    const [x, y] = pos[i], n = el('g', {}, g);
+    const line = el('line', { x1: cx + (x - cx) * 0.3, y1: cy + (y - cy) * 0.3, x2: cx + (x - cx) * 0.3, y2: cy + (y - cy) * 0.3, stroke: it.color || N.teal, 'stroke-width': 6, 'stroke-dasharray': '14 10' }, g);
+    el('rect', { x: x - 300, y: y - 90, width: 600, height: 180, rx: 18, fill: N.panel, stroke: it.color || N.teal, 'stroke-width': 5 }, n);
+    NT(n, String(i + 1), { x: x - 250, y, size: 80, font: 'S', anchor: 'middle', color: it.color || N.teal });
+    NT(n, it.label.toUpperCase(), { x: x - 190, y: y - 26, size: 44, ls: 1 });
+    NT(n, it.sub || '', { x: x - 190, y: y + 34, size: 34, font: 'S', italic: true, color: N.dim });
+    return { n, line, x, y };
+  });
+  return {
+    g,
+    draw(t, t0, ts) {
+      pop(hub, t, t0, cx, cy);
+      nodes.forEach((o, i) => {
+        const u = E.out(prog(t, ts[i], ts[i] + 0.5));
+        set(o.line, { x2: (cx + (o.x - cx) * lerp(0.3, 0.62, u)).toFixed(1), y2: (cy + (o.y - cy) * lerp(0.3, 0.62, u)).toFixed(1), opacity: u > 0 ? 1 : 0 });
+        show(o.n, t, ts[i] + 0.15, 1e9, { dy: 20 });
+      });
+    },
+  };
+}
+
+// Two funnels: wide (normal stomach) vs narrow (with the medicine); drops fall through at different rates.
+function Funnels(p, { left = 'NORMAL', right = 'CON LA MEDICINA', sub = 'El estómago se vacía más despacio' }) {
+  const g = el('g', {}, p);
+  const F = (x, neck) => {
+    const f = el('g', {}, g);
+    el('path', { d: `M${x - 230} 260 L${x + 230} 260 L${x + neck} 620 L${x + neck} 760 L${x - neck} 760 L${x - neck} 620 Z`, fill: N.panel2, stroke: N.white, 'stroke-width': 7, 'stroke-linejoin': 'round' }, f);
+    const drops = Array.from({ length: 14 }, (_, i) => el('ellipse', { cx: x, cy: 0, rx: 13, ry: 18, fill: '#4FA3D9', opacity: 0 }, f));
+    return { f, drops, x, neck };
+  };
+  const a = F(560, 70), b = F(1360, 22);
+  NT(g, left, { x: 560, y: 200, size: 50, anchor: 'middle', color: N.teal, ls: 2 });
+  NT(g, right, { x: 1360, y: 200, size: 50, anchor: 'middle', color: N.gold, ls: 2 });
+  const s = NT(g, sub, { x: 960, y: 880, size: 50, font: 'S', italic: true, anchor: 'middle' });
+  return {
+    g,
+    draw(t, t0) {
+      for (const [o, rate] of [[a, 1], [b, 0.35]]) {
+        o.drops.forEach((d, i) => {
+          const ph = ((t - t0) * rate * 0.7 + i / o.drops.length) % 1;
+          const y = 300 + ph * 600, inNeck = y > 620;
+          const xx = o.x + (inNeck ? 0 : Math.sin(i * 7.3) * (1 - (y - 300) / 320) * 160);
+          set(d, { cx: xx.toFixed(1), cy: y.toFixed(1), opacity: t >= t0 + i * 0.05 ? (y > 860 ? 0 : 0.9) : 0 });
+        });
+      }
+      g.setAttribute('opacity', clamp(prog(t, t0, t0 + 0.4)));
+      set(s, { opacity: clamp(prog(t, t0 + 1.2, t0 + 1.6)) });
+    },
+  };
+}
+
+// "De cada 100": two 10×10 grids of person icons; k of them highlighted on each side.
+function Per100(p, { title = '', left, right, note = '' }) {
+  const g = el('g', {}, p);
+  const head = NT(g, title.toUpperCase(), { x: 960, y: 150, size: 54, anchor: 'middle', color: N.gold, ls: 2 });
+  const grid = (x0, o, col) => {
+    const gg = el('g', {}, g), icons = [];
+    for (let i = 0; i < 100; i++) {
+      const x = x0 + (i % 10) * 62, y = 250 + Math.floor(i / 10) * 56;
+      const ic = el('g', {}, gg);
+      el('circle', { cx: x, cy: y - 12, r: 9, fill: N.dim }, ic);
+      el('path', { d: `M${x - 13} ${y + 22} q0 -24 13 -24 q13 0 13 24 z`, fill: N.dim }, ic);
+      icons.push(ic);
+    }
+    const num = NT(gg, '', { x: x0 + 280, y: 850, size: 96, font: 'S', anchor: 'middle', color: col });
+    NT(gg, o.label, { x: x0 + 280, y: 925, size: 40, anchor: 'middle', ls: 1 });
+    return { gg, icons, num, k: o.n, col };
+  };
+  const L = grid(240, left, N.white), R = grid(1060, right, N.gold);
+  const nt = NT(g, note, { x: 960, y: 990, size: 30, font: 'S', italic: true, anchor: 'middle', color: N.dim });
+  return {
+    g,
+    draw(t, t0, tR) {
+      set(head, { opacity: clamp(prog(t, t0, t0 + 0.3)) });
+      for (const [o, ts] of [[L, t0 + 0.3], [R, tR]]) {
+        const u = clamp(prog(t, ts, ts + 1.2));
+        set(o.gg, { opacity: clamp(prog(t, ts - 0.3, ts)) });
+        const lit = Math.round(o.k * u);
+        o.icons.forEach((ic, i) => ic.querySelectorAll('*').forEach(e => e.setAttribute('fill', i < lit ? (o === L ? N.red : N.gold) : N.dim)));
+        o.num.textContent = u > 0 ? `${lit} de 100` : '';
+      }
+      set(nt, { opacity: clamp(prog(t, tR + 1.2, tR + 1.6)) });
+    },
+  };
+}

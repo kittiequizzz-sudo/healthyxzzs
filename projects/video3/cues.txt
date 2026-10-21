@@ -1,0 +1,84 @@
+open | Doña Carmen llega a la consulta
+vecina | mi vecina se inyecta
+porque | Por qué usted no me lo da
+todos | Esta pregunta se escucha todos los días
+canal | En este canal le explico
+famosas | Ozempic, Mounjaro, Trulicity
+tele | Seguro los ha escuchado
+milagro | Para unos son medicinas milagro
+ninguna | No son ninguna de las dos
+hoy | Hoy le explico qué hacen
+final | Al final, como siempre
+creen | Lo primero que mucha gente cree
+moda | Eso es una moda
+cierto | Qué tienen de cierto
+obesidad | también se usan para la obesidad
+pero | Pero ni todo el mundo las necesita
+despues60 | Y después de los 60
+clave1 | Clave 1
+intestino | Cuando usted come, su intestino
+timbre | Es como un timbre
+cuatro | Ese timbre hace cuatro cosas
+uno | Uno: le avisa al páncreas
+fabrica | Se acuerda de la fábrica de llaves
+solo | solo funciona cuando el azúcar está alta
+dos | Dos: le dice al páncreas que suelte menos
+tres | Tres: hace que el estómago se vacíe
+cuatro2 | Y cuatro: le avisa al cerebro
+bajito | ese timbre suena más bajito
+copias | son copias de esa hormona
+semana | Por eso muchas se inyectan
+tirze | Y la tirzepatida
+oxido | Un detalle honesto
+clave2 | Clave 2
+surpass | En un estudio llamado SURPASS
+puntos | el A1C bajó unos 2 puntos
+importa | Pero lo que más les importa
+sustain | En el estudio SUSTAIN
+sustain2 | Con semaglutida, unas 7
+rewind | En el estudio REWIND
+rewind2 | Con dulaglutida, unas 12
+flow | Y en el estudio FLOW
+flow2 | Con semaglutida, unas 19
+fijese | Fíjese en algo
+pagaron | estos estudios los pagaron
+clave3 | Clave 3
+estomago | lo más común es el estómago
+nauseas | cerca de 1 de cada 5
+avisos | Hay avisos más serios
+animales | En animales de laboratorio
+ojos | Y los ojos
+naion | la agencia europea
+musculo | el riesgo del que casi nadie habla
+grasa | Cuando uno baja de peso, no solo pierde grasa
+estudio19 | la grasa bajó cerca de 19
+joven | En una persona joven
+caidas | Y menos músculo es menos puertas
+guias | Las guías de la Asociación
+mayores | Y en la sección de adultos mayores
+decision | Lo que esto quiere decir
+recuerde1 | esto es información para entender mejor
+porque_no | Entonces, por qué su médico podría no
+razones | Una: tal vez usted ya está en su meta
+delgado | Dos: tal vez usted es delgado
+pancreatitis | Tres: alguna historia de pancreatitis
+precio | Y cuatro: el precio
+mexico | En México, por ejemplo
+advertencia | Una advertencia importante
+senales | Las señales de azúcar baja
+urgencias | Vaya a urgencias
+justa | Para ser justa
+nosabemos | Pero hay cosas que todavía no sabemos
+vigilar | Por eso los expertos piden vigilar
+proteina | Si usted la usa, pregunte cómo cuidar
+carmen | Doña Carmen salió de la consulta
+vecina2 | A su vecina, con otro cuerpo
+famosa | La mejor medicina no es la más famosa
+anote | Anote estas tres preguntas
+p1 | Uno: Con mi corazón
+p2 | Dos: Si la uso
+p3 | Tres: Si ya uso insulina
+comentarios | Y una pregunta para usted
+miercoles | El miércoles
+comparta | Si este video le sirvió
+recuerde | Y recuerde: esto es información, no una consulta

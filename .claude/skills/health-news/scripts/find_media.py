@@ -131,7 +131,9 @@ def get(a):
     from PIL import Image
     im = Image.open(dst)
     cf = os.path.join(a.project, 'credits.json')
-    cr = json.load(open(cf)) if os.path.exists(cf) else {}
+    import fcntl
+    lock = open(cf + '.lock', 'w'); fcntl.flock(lock, fcntl.LOCK_EX)   # parallel `get`s share credits.json
+    cr = json.load(open(cf)) if os.path.exists(cf) and os.path.getsize(cf) else {}
     cr[a.name] = {k: r[k] for k in ('title', 'author', 'license', 'page')} | {'size': list(im.size)}
     json.dump(cr, open(cf, 'w'), indent=1, ensure_ascii=False)
     print(dst, im.size, r['license'], r['author'])

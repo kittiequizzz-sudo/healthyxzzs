@@ -44,10 +44,14 @@ Same rule as health-video: picture first, key phrases only.
 ## Pace and the edit
 | Part | Change every | How |
 |---|---|---|
-| Hook (first 30–40 s) | 2–3 s | hard cuts between hero photos, headline rising in, number slam, one callout |
-| Body | 4–6 s | camera drift on each photo, lower third or number entering on its word, study page, bars |
+| Hook (first 45 s) | 2.5–3 s | hard cuts between photos, headline rising in, number slam |
+| Body | ~4 s per picture, 5–6 s average with graphics | angle cuts of the same photo on spoken words (engine `cutTimes`), lower third or number on its word, study page, bars |
 | Chapter opener | 3–4 s | red wipe → darkened photo → chapter number + title |
-| Warnings / checklist | hold 8–12 s | still panel, items appear on their words, no camera move |
+| Animated graphics (glass, curves, film strip) | split on their key lines, ≤ ~20 s each | the animation itself carries the shot |
+| Warnings / checklists / emergency numbers | hold 10–22 s | items appear on their words; the only places allowed to be slow |
+
+Owner feedback (Oct 2026): the first A1C cut (~8.5 s per picture, a swish on every cut) felt slow and
+repetitive. Faster than that, but never frantic.
 
 - Calmer than health-video: no zoom punches except on one key number per section (`punch`, k ≤ 0.05),
   no flashes, no shakes, no fast whips. The fastest cut is 1.5 s.

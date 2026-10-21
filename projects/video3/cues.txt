@@ -8,34 +8,52 @@ tele | Seguro los ha escuchado
 milagro | Para unos son medicinas milagro
 ninguna | No son ninguna de las dos
 hoy | Hoy le explico qué hacen
+hoy2 | qué demostraron los estudios
+hoy3 | con números claros
 riesgo65 | Qué cambia después de los 65
 razonesmed | Y por qué su médico puede tener
 final | Al final, como siempre
 creen | Lo primero que mucha gente cree
 moda | Eso es una moda
 cierto | Qué tienen de cierto
+potentes | Estas medicinas sí son potentes
+bajan | Bajan el azúcar
+peso1 | y muchas veces el peso
 obesidad | también se usan para la obesidad
 pero | Pero ni todo el mundo las necesita
 despues60 | Y después de los 60
 clave1 | Para entenderlo, hay que saber
 intestino | Cuando usted come, su intestino
+glp1 | una hormona que se llama
 timbre | Es como un timbre
 cuatro | Ese timbre hace cuatro cosas
 uno | le avisa al pan
 fabrica | Se acuerda de la fábrica de llaves
+fab_tim | Este timbre le dice a la fábrica
+fab_sube | que subió el azúcar
 solo | solo funciona cuando el azúcar está alta
+solo_baja | el azúcar baja el timbre deja de sonar
 dos | Le dice al páncreas que suelte menos
+higado | una hormona que manda al hígado
 tres | Hace que el estómago se vacíe
 cuatro2 | Le avisa al cerebro
 bajito | ese timbre suena más bajito
+semag | Las medicinas como la semaglutida
+dula | o la dulaglutida
 copias | son copias de esa hormona
 semana | Por eso muchas se inyectan
+pastilla | La semaglutida también existe en pastilla
 tirze | Y la tirzepatida
+gip | y otra hormona del intestino
 oxido | Un detalle honesto
+oxpeso | pero si usted baja de peso
+oxmejor | muchas veces funciona un poco mejor
 clave2 | Cuánto bajan el azúcar
 surpass | estudio llamado Surpass
 puntos | el A1C bajó unos 2 puntos
 importa | Pero lo que más les importa
+imp_num | no es solo el número
+imp_cor | es el corazón y los riñones
 sustain | En el estudio Sustain
 sustain2 | Con semaglutida, unas 7
 rewind | En el estudio Rewind
@@ -46,21 +64,36 @@ fijese | Fíjese en algo
 pagaron | estos estudios los pagaron
 clave3 | Toda medicina tiene un precio
 estomago | lo más común es el estómago
+s_naus | Auseas
+s_vom | Bómito
+s_diar | diarrea
+s_estr | extrañimiento
 nauseas | cerca de uno de cada cinco
 avisos | Hay avisos más serios
 animales | En animales de laboratorio
+an_nose | No se sabe si pasa en personas
+an_med | un tipo raro de cáncer de tiroides
 familia | Por eso su médico le pregunta por su familia
 ojos | Y los ojos
+ojos_ret | las complicaciones de retina
+ojos_3 | fueron unas 3 de cada 100
+ojos_2 | y unas 2 de cada 100 con placebo
 naion | la Agencia Europea
 musculo | Ahora, el riesgo del que casi nadie habla
 grasa | Cuando uno baja de peso, no solo pierde grasa
 estudio19 | la grasa bajó cerca de 19
 joven | En una persona joven
+j_acuerda | se acuerda del primer video
+j_60 | Después de los 60 ya estamos perdiendo
 caidas | Y menos músculo es menos puertas
+c_caidas | y más caídas
 guias | Las guías de la Asociación
 mayores | en la sección de adultos mayores
 decision | Lo que esto quiere decir
 recuerde1 | Recuerde, esto es información para entender
+r_no1 | No empiece
+r_no2 | no deje
+r_no3 | y no cambia ninguna
 porque_no | Entonces, por qué su médico podría no
 razones | Tal vez usted ya está en su meta
 delgado | Tal vez usted es delgado
@@ -68,12 +101,18 @@ pancreatitis | Alguna historia de pancreatitis
 precio | El precio y el acceso
 mexico | En México, por ejemplo
 advertencia | Una advertencia importante
+adv_ins | Si usted usa insulina
+adv_agre | y le agregan una de estas
+adv_baja | el azúcar le puede bajar demasiado
 ajustar | Muchas veces hay que ajustar
 senales | Las señales de azúcar baja
 urgencias | Vaya a urgencias
 justa | Para ser justa
 nosabemos | Pero hay cosas que todavía no sabemos
 vigilar | Por eso los expertos piden vigilar
+v_comida | vigilar la comida
+v_fuerza | la fuerza
+v_peso | y el peso de cerca
 proteina | Si usted la usa, pregunte cómo cuidar
 carmen | Doña Carmen salió de la consulta
 buenrinon | Ella tiene buen riñón

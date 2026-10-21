@@ -52,7 +52,14 @@ Reference project: `projects/video1/` (10-min A1C video: `plan.js`, `cues.txt`, 
    (types in `news/engine.js`: photo, number, chapter, study, bars, checklist, warning, split, quote, clip,
    end, custom). The engine adds the bug, small print, wipes and the sound design. Run
    `python3 scripts/prep.py projects/<slug>` (photo sizes, voice length). Aim for a new picture or
-   graphic every 4–10 s; no shot under 1.5 s.
+   graphic every 4–10 s; no shot under 1.5 s. **Owner feedback (video 3): a photo-only edit is boring.**
+   Give every mechanism, number or list its own 2D animated scene (`news/anim.js`, `type: 'custom'`):
+   roughly one animated scene for every two photo shots, timed to inner cues (add `label | phrase` lines
+   to `cues.txt` for the words the animation reacts to). Order the organ/object illustrations from the
+   owner (`projects/video3/anim_assets.md` is the template: one object on white, no text, shared style
+   block, first image attached as style reference), cut them out with
+   `python3 scripts/art.py projects/<slug> <image> <name> …` into `assets/art/`, then re-run prep.py;
+   until they arrive anim.js draws vector stand-ins.
 5. **Cues + QA (10 min):** `cues.mjs transcript/words.json cues.txt cues.js`; check order and gaps; render
    one frame per shot into contact sheets and look at all of them (overflow, faces under text, labels).
 6. **Render (≈ 10–15 min for 10 min of video):**
@@ -76,4 +83,9 @@ command line.
 - `news/news.js`: components (`NewsStage`, `Grade`, `Photo`, `Bug`, `LowerThird`, `Headline`,
   `BigNumber`, `Chapter`, `StudyCard`, `Quote`, `Bars`, `Split`, `Callout`, `Checklist`, `Wipe`,
   `SmallPrint`, `EndCard`). `news/fonts.css`: Oswald, Source Serif 4, Inter.
+- `news/anim.js`: 2D animated scenes (`Agenda`, `TwoDown`, `GutGLP1`, `PancreasKeys`, `OnlyWhenHigh`,
+  `LiverTap`, `BrainFull`, `QuietBell`, `WeekCalendar`, `TwoBells`, `RustyLock`, `HeartKidneys`,
+  `StomachSymptoms`, `ThyroidWarn`, `EyeRetina`, `FatMuscleBlocks`, `MuscleCurve`, `MuscleDoors`, `ThreeNo`,
+  `SugarDrop`, `WatchThree`) and their parts (`AnimBG`, `Kicker`, `Pill`, `Art`, `Bell`, `Stream`, `Meter`,
+  `DrawLine`, `ICON`). Load it in index.html before engine.js. `scripts/art.py` cuts out owner illustrations.
 - `assets/fonts/`: Oswald and Source Serif 4 (SIL OFL); Inter comes from health-video.

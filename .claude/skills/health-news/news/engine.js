@@ -23,10 +23,14 @@ function Story(cfg, plan) {
   const shots = plan.map((p, i) => ({ ...p, t0: T(p.at), i }));
   shots.forEach((s, i) => { s.t1 = i + 1 < shots.length ? shots[i + 1].t0 : (end ?? window.VOICE_END ?? s.t0 + 6); });
   window.DURATION = shots.at(-1).t1;
+  window.SHOTS = shots;   // for QA (pacing report)
   for (const s of shots) {
     const g = el('g', {}, svg);
     s.g = g;
-    s.draw = (SHOT[s.type] || SHOT.photo)(g, s, sizes);
+    const inner = el('g', {}, g);
+    const d0 = (SHOT[s.type] || SHOT.photo)(inner, s, sizes);
+    const drift = ['custom', 'bars', 'quote'].includes(s.type) && !s.still;   // graphics lean in slowly, never frozen
+    s.draw = t => { d0(t); if (drift) { const k = 1 + 0.05 * E.inOut(prog(t, s.t0, s.t1)); inner.setAttribute('transform', `translate(960 540) scale(${k.toFixed(4)}) translate(-960 -540)`); } };
     // default sound for the shot type (sourcing-and-sound.md § Sound grammar)
     const fx = { chapter: [[-0.9, 'riser', -6], [-0.25, 'whoosh', -2], [0.2, 'boom', -4]], number: [[0, 'impact', -4]],
       study: [[0.1, 'paper', -2]], split: [[0, 'whoosh', -10]], end: [[0, 'whoosh', -6], [0.6, 'pop', -4]],
@@ -73,12 +77,55 @@ function overlays(g, s) {
   if (s.cap) { const c = Headline(g, [s.cap], { x: 960, y: 900, size: 76, anchor: 'middle', hi: 0, rule: false }); parts.push(t => c.draw(t, tt(s.capAt) ?? s.t0 + 0.3, s.t1)); }
   return t => parts.forEach(f => f(t));
 }
+// Pacing: a photo held longer than `hold` seconds is cut into "angles" of the same picture (wide move,
+// tight crop, medium pull), each cut on the start of a spoken word. Hook (first 45 s) ≈ 2.8 s per
+// picture, body ≈ 4.0 s. Set `hold` on a shot to change it, `hold: 99` to keep one angle.
+function cutTimes(s) {
+  const limit = s.hold ?? (s.t0 < 45 ? 2.8 : 4.0), dur = s.t1 - s.t0;
+  if (dur < limit * 1.35) return [];
+  const n = Math.round(dur / limit), W = window.WORDS || [], out = [];
+  for (let k = 1; k < n; k++) {
+    let c = s.t0 + dur * k / n;
+    const near = W.filter(w => Math.abs(w - c) < 0.8).sort((a, b) => Math.abs(a - c) - Math.abs(b - c))[0];
+    if (near !== undefined) c = near - 0.05;
+    if (c - (out.at(-1) ?? s.t0) > 1.5 && s.t1 - c > 1.5) out.push(c);
+  }
+  return out;
+}
+function segPhoto(g, s, sizes, o = {}) {
+  const sz = sizes[s.src] || [2112, 1408];
+  const cuts = s.callout ? [] : cutTimes(s);
+  const bounds = [s.t0, ...cuts, s.t1];
+  const fx = s.focus ? s.focus[0] : 0.5, fy = s.focus ? s.focus[1] : 0.45;
+  const segs = bounds.slice(0, -1).map((a, k) => {
+    const sg = el('g', {}, g);
+    let ph;
+    if (k === 0) ph = photoOf(sg, s, sizes, o);
+    else {
+      const side = (k % 4 === 1 ? -1 : 1) * 0.1;
+      const v = k % 2 ? [[1.34, fx + side, fy], [1.44, fx + side * 0.6, fy - 0.03]]      // tight angle
+                      : [[1.2, fx - side, fy + 0.03], [1.08, fx - side * 0.5, fy]];      // medium pull-out
+      ph = Photo(sg, 'assets/' + s.src + '.jpg', { iw: sz[0], ih: sz[1], from: v[0], to: v[1], dark: s.dark ?? 0.22, ...o });
+    }
+    return { sg, ph, a, b: bounds[k + 1] };
+  });
+  return {
+    map: (x, y) => segs[0].ph.map(x, y),
+    draw(t) {
+      for (const q of segs) {
+        const on = t >= q.a && t < q.b;
+        q.sg.style.display = on ? '' : 'none';
+        if (on) q.ph.draw(t, q.a, q.b);
+      }
+    },
+  };
+}
 SHOT.photo = (g, s, sizes) => {
-  const ph = photoOf(g, s, sizes);
+  const ph = segPhoto(g, s, sizes);
   let co = null;
   if (s.callout) co = Callout(g, { r: s.callout.r || 100, lx: s.callout.lx, ly: s.callout.ly, text: s.callout.text });
   const ov = overlays(g, s);
-  return t => { ph.draw(t, s.t0, s.t1); if (co) co.draw(t, tt(s.callout.at) ?? s.t0 + 0.6, s.t1, ph.map(s.callout.px, s.callout.py)); ov(t); };
+  return t => { ph.draw(t); if (co) co.draw(t, tt(s.callout.at) ?? s.t0 + 0.6, s.t1, ph.map(s.callout.px, s.callout.py)); ov(t); };
 };
 SHOT.clip = (g, s) => {
   const c = Clip(g, 'clips/' + s.src, { n: s.n || 180, dark: s.dark ?? 0.22 });
@@ -86,10 +133,10 @@ SHOT.clip = (g, s) => {
   return t => { c.draw(t, s.t0); ov(t); };
 };
 SHOT.number = (g, s, sizes) => {
-  const ph = s.src ? photoOf(g, { ...s, dark: s.dark ?? 0.66 }, sizes, { fade: false }) : null;
+  const ph = s.src ? segPhoto(g, { ...s, dark: s.dark ?? 0.66, hold: s.hold ?? 5 }, sizes, { fade: false }) : null;
   const n = BigNumber(g, { to: s.value, from: s.from || 0, dec: s.dec || 0, prefix: s.prefix || '', suffix: s.suffix || '', label: s.label || '', x: 960, y: 450, size: s.size || 230 });
   const ov = overlays(g, s);
-  return t => { if (ph) ph.draw(t, s.t0, s.t1); n.draw(t, s.t0 + 0.15); ov(t); };
+  return t => { if (ph) ph.draw(t); n.draw(t, s.t0 + 0.15); ov(t); };
 };
 SHOT.chapter = (g, s, sizes) => {
   const ph = photoOf(g, { ...s, dark: s.dark ?? 0.62 }, sizes);
@@ -97,9 +144,9 @@ SHOT.chapter = (g, s, sizes) => {
   return t => { ph.draw(t, s.t0, s.t1); c.draw(t, s.t0 + 0.25, s.t1 + 0.3); };
 };
 SHOT.study = (g, s, sizes) => {
-  const ph = s.src ? photoOf(g, { ...s, dark: s.dark ?? 0.3 }, sizes, { x: 0, w: 1000, fade: false }) : null;
+  const ph = s.src ? segPhoto(g, { ...s, dark: s.dark ?? 0.3, hold: s.hold ?? 5 }, sizes, { x: 0, w: 1000, fade: false }) : null;
   const c = StudyCard(g, { pub: s.pub, title: s.title, lines: s.lines, hi: s.hi || 0 });
-  return t => { if (ph) ph.draw(t, s.t0, s.t1); c.draw(t, s.t0 + 0.2, tt(s.hiAt) ?? s.t0 + 1.5, s.t1); };
+  return t => { if (ph) ph.draw(t); c.draw(t, s.t0 + 0.2, tt(s.hiAt) ?? s.t0 + 1.5, s.t1); };
 };
 SHOT.split = (g, s, sizes) => {
   const sz = n => sizes[n] || [2112, 1408];

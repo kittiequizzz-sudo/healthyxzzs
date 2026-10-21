@@ -10,5 +10,7 @@ sizes = {os.path.basename(f)[:-4]: list(Image.open(f).size) for f in sorted(glob
 voice = next(iter(sorted(glob.glob(os.path.join(d, 'audio', 'voice.*')))), None)
 end = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', voice],
                            capture_output=True, text=True).stdout) if voice else None
-open(os.path.join(d, 'assets.js'), 'w').write(f'window.SIZES = {json.dumps(sizes)};\nwindow.VOICE_END = {json.dumps(end)};\n')
+wf = os.path.join(d, 'transcript', 'words.json')
+words = [round(w['s'], 2) for w in json.load(open(wf))] if os.path.exists(wf) else []   # word starts: cut points snap to them
+open(os.path.join(d, 'assets.js'), 'w').write(f'window.SIZES = {json.dumps(sizes)};\nwindow.VOICE_END = {json.dumps(end)};\nwindow.WORDS = {json.dumps(words)};\n')
 print(len(sizes), 'photos; voice', end, 's')

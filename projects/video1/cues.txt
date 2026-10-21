@@ -16,6 +16,7 @@ mexico | Le doy un número
 idea | la idea central de este video
 clave1 | Clave 1
 foto | Cuando usted se pica el dedo
+acaba | Si acaba de comer, sale alta
 pelicula | El A1C es otra cosa
 globulos | En su sangre hay glóbulos rojos
 pega | Cuando hay azúcar en la sangre
@@ -26,12 +27,15 @@ semanas | Por eso no tiene sentido repetir
 clave2 | Clave 2
 adag | Un estudio internacional llamado
 tabla | Un A1C de 7 corresponde
+ocho | un A1C de 8 a unos 183
+cadapunto | Cada punto de A1C son
 ronda | O sea: un A1C de 8 quiere decir
 ernesto186 | Don Ernesto, con 8.1
 clave3 | Clave 3
 rinones | Sus riñones filtran la sangre
 limite | Pero tienen un límite
 encima | Por encima, el azúcar se derrama
+sed | Ahí aparecen las seds
 problema | Ve el problema
 edad | Y ese límite cambia con la edad
 vasos | Pero los vasos pequeñitos
@@ -44,9 +48,11 @@ mama | Si a su mamá o a su papá
 ukpds | Un estudio grande del Reino Unido
 riesgo37 | Cada punto menos de A1C se asoció
 relativo | Ojo con dos cosas
+observacion | y es un estudio de observación
 medicina | Este video no sustituya una consulta
 engana | Ahora, el A1C no es perfecto
 anemia | Por ejemplo: anemia
+casos | En esos casos
 historia | Si su A1C dice una cosa
 bajones | Y una advertencia importante
 caida | Después de los 65
@@ -55,6 +61,8 @@ promedio | Para ser justa
 otra | La otra sube muchísimo
 sensor | Por eso su médico a veces le pide
 aprox | Y otra cosa: la traducción
+adag2 | En el estudio ADAC
+guia | El número es una guía
 serio | Don Ernesto se fue de la consulta
 noticia | Sentirse bien es una buena noticia
 miden | No es poca cosa, pero sus ojos

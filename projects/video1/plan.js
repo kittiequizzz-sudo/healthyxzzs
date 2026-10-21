@@ -38,8 +38,14 @@ Story({ name: 'SALUD 60+' }, [
   { at: 'clave1', type: 'chapter', src: 'film_camera', n: 1, title: 'La foto y la película', sub: 'Glucómetro vs. A1C', sec: 'CLAVE 1' },
   { at: 'foto', type: 'custom', noNote: true, build: (g, s) => {
     const pv = PhotoVsFilm(g, {});
-    SFX.push([s.t0 + 0.1, 'shutter', -6], [STORY_T('pelicula'), 'swish', -8]);
-    return t => pv.draw(t, s.t0 + 0.1, STORY_T('pelicula'));
+    SFX.push([s.t0 + 0.1, 'shutter', -6]);
+    return t => pv.draw(t, s.t0 + 0.1, 1e9);
+  } },
+  { at: 'acaba', type: 'photo', src: own('glucometer_hands', 'notebook_phone'), move: 'in', lt: ['Una foto', 'Después de comer sale alta; en ayunas, más baja'], hold: 3.5 },
+  { at: 'pelicula', type: 'custom', noNote: true, build: (g, s) => {
+    const pv = PhotoVsFilm(g, {});
+    SFX.push([s.t0 + 0.2, 'swish', -8]);
+    return t => pv.draw(t, s.t0 - 5, s.t0 + 0.2);
   } },
   { at: 'globulos', type: 'photo', src: 'rbc_flow', move: 'in', lt: ['Glóbulos rojos', 'Llevan la hemoglobina'], source: 'Wellcome Collection (CC BY)' },
   { at: 'pega', type: 'photo', src: 'honey_spoon', move: 'out', cap: 'El azúcar se pega a la hemoglobina' },
@@ -55,17 +61,19 @@ Story({ name: 'SALUD 60+' }, [
   { at: 'adag', type: 'study', src: 'tube', pub: 'Estudio ADAG · Diabetes Care 2008',
     title: ['Translating the A1C assay into', 'estimated average glucose values'], lines: ['507 adultos · 3 meses', 'miles de mediciones por persona'], hi: 0, source: 'Nathan DM y col. · ADA Standards 2010, tabla 9' },
   { at: 'tabla', type: 'bars', title: 'A1C → azúcar promedio (aprox.)', unit: ' mg/dL', max: 230,
-    rows: [['A1C 6 %', 126], ['A1C 7 %', 154, N.gold], ['A1C 8 %', 183, N.gold], ['A1C 9 %', 212]], source: 'ADAG · ADA Standards 2010, tabla 9' },
+    rows: [['A1C 6 %', 126], ['A1C 7 %', 154, N.gold], ['A1C 8 %', 183, N.gold], ['A1C 9 %', 212]], ats: [undefined, undefined, 'ocho', 'ocho'], source: 'ADAG · ADA Standards 2010, tabla 9' },
+  { at: 'cadapunto', type: 'number', src: 'lab_rack', value: 29, prefix: '+', suffix: ' mg/dL', label: 'por cada punto de A1C', source: 'ADAG (PMC2797382)' },
   { at: 'ronda', type: 'number', src: 'water_glass', value: 183, suffix: ' mg/dL', label: 'A1C 8 % · de día y de noche', source: 'ADAG (PMC2797382)' },
   { at: 'ernesto186', type: 'number', src: own('ernesto_desk', 'walk_away'), value: 186, suffix: ' mg/dL', label: 'Don Ernesto · A1C 8,1 %', source: '28,7 × 8,1 − 46,7 ≈ 186 (fórmula ADAG)', note: REC },
 
   { at: 'clave3', type: 'chapter', src: 'water_glass', n: 3, title: 'Por qué no se siente', sub: 'El límite del riñón', sec: 'CLAVE 3' },
   { at: 'rinones', type: 'custom', noNote: true, source: 'Umbral renal de glucosa · varía con la edad y el riñón', build: (g, s) => {
     const gl = ThresholdGlass(g, {});
-    const k = [[s.t0 + 0.3, 110], [STORY_T('limite'), 150], [STORY_T('encima'), 175], [STORY_T('encima') + 3, 215], [STORY_T('problema'), 186], [STORY_T('problema') + 2, 170], [STORY_T('problema') + 4, 192]];
-    SFX.push([STORY_T('encima') + 2, 'whoosh', -14]);
+    const k = [[s.t0 + 0.3, 110], [STORY_T('limite'), 150], [STORY_T('encima'), 175], [STORY_T('encima') + 3, 215]];
     return t => gl.draw(t, k);
   } },
+  { at: 'sed', type: 'photo', src: 'water_glass', move: 'in', lt: ['Por encima del límite', 'Sed y ganas de orinar'] },
+  { at: 'problema', type: 'number', src: own('ernesto_walk', 'walk_away'), value: 186, suffix: ' mg/dL', label: 'Don Ernesto · justo en el límite', note: REC },
   { at: 'edad', type: 'photo', src: 'couple_coffee', move: 'in', lt: ['El límite cambia', 'con la edad y la salud del riñón'] },
   { at: 'vasos', type: 'photo', src: 'rbc', move: 'in', cap: 'Ojos · riñones · nervios', source: 'Wellcome Collection (CC BY)' },
 
@@ -80,17 +88,23 @@ Story({ name: 'SALUD 60+' }, [
   { at: 'ukpds', type: 'study', src: 'pills', pub: 'UKPDS 35 · BMJ 2000', title: ['Association of glycaemia with', 'complications of type 2 diabetes'], lines: ['1 % menos de A1C ≈ 37 % menos', 'riesgo relativo (vasos pequeños)'], hi: 0, source: 'Stratton IM y col. BMJ 2000;321:405' },
   { at: 'riesgo37', type: 'number', src: 'pills', value: 37, suffix: ' %', label: 'menos riesgo relativo por cada punto de A1C', source: 'UKPDS 35 · BMJ 2000 · observacional' },
   { at: 'relativo', type: 'custom', noNote: true, source: 'UKPDS 35 · estudio observacional', build: (g, s) => {
-    const h = Headline(g, ['RIESGO RELATIVO', 'ESTUDIO DE OBSERVACIÓN'], { x: 960, y: 450, size: 110, hi: 1 });
+    const h = Headline(g, ['RIESGO RELATIVO'], { x: 960, y: 420, size: 120, hi: 0 });
+    const c = NT(g, 'No quiere decir que 37 de cada 100 se salven', { x: 960, y: 640, size: 52, font: 'S', italic: true, anchor: 'middle', color: N.dim });
+    return t => { h.draw(t, s.t0 + 0.2, s.t1); show(c, t, s.t0 + 1.2); };
+  } },
+  { at: 'observacion', type: 'custom', noNote: true, source: 'UKPDS 35 · estudio observacional', build: (g, s) => {
+    const h = Headline(g, ['ESTUDIO DE OBSERVACIÓN', 'RELACIÓN, NO CAUSA'], { x: 960, y: 440, size: 110, hi: 1 });
     return t => h.draw(t, s.t0 + 0.2, s.t1);
   } },
   { at: 'medicina', type: 'photo', src: 'blister', move: 'in', lt: ['Información, no una consulta', 'Hable con su equipo médico antes de cambiar'] },
 
   // Beat 6 · cuándo engaña
   { at: 'engana', type: 'chapter', src: 'tube', n: 4, title: 'Cuándo el A1C engaña', sub: 'Depende de los glóbulos rojos', sec: 'CUÁNDO ENGAÑA' },
-  { at: 'anemia', type: 'checklist', title: 'Pueden mover el resultado', items: ['Anemia', 'Sangrado o transfusión reciente', 'Enfermedad avanzada del riñón', 'Variantes de la hemoglobina'], source: 'Revisión HbA1c (PMC1569985) · ADA' },
+  { at: 'anemia', type: 'checklist', title: 'Pueden mover el resultado', items: ['Anemia', 'Sangrado o transfusión reciente', 'Enfermedad avanzada del riñón', 'Variantes de la hemoglobina'], ats: [396.7, 397.9, 399.3, 401.9], source: 'Revisión HbA1c (PMC1569985) · ADA' },
+  { at: 'casos', type: 'photo', src: 'tube', move: 'out', cap: 'Puede salir más bajo o más alto de lo real' },
   { at: 'historia', type: 'photo', src: own('glucometer_hands', 'notebook_phone'), move: 'in', cap: '¿Cuentan la misma historia?' },
   { at: 'bajones', type: 'photo', src: 'blister', move: 'left', lt: ['Precaución', 'Insulina · glibenclamida · glimepirida'] },
-  { at: 'caida', type: 'warning', src: 'pills', title: 'Señales de azúcar baja (menos de 70)', items: ['Temblor', 'Sudor frío', 'Hambre de repente', 'Corazón acelerado · confusión'], source: 'ADA en español · hipoglucemia' },
+  { at: 'caida', type: 'warning', src: 'pills', title: 'Señales de azúcar baja (menos de 70)', items: ['Temblor', 'Sudor frío', 'Hambre de repente', 'Corazón acelerado · confusión'], ats: [439, 439.85, 440.9, 442.3], source: 'ADA en español · hipoglucemia' },
   { at: 'urgencias', type: 'custom', noNote: true, source: 'Verifique el número de su país', build: (g, s) => {
     const c = NumbersCard(g, { title: 'EMERGENCIAS', items: [['México', '911'], ['Colombia', '123'], ['Chile', '131'], ['Perú', '106'], ['Argentina', '107'], ['España', '112'], ['Rep. Dominicana', '911']] });
     SFX.push([s.t0, 'thunk', -10]);
@@ -103,11 +117,12 @@ Story({ name: 'SALUD 60+' }, [
     return t => c.draw(t, s.t0 + 0.4, STORY_T('otra'));
   } },
   { at: 'sensor', type: 'photo', src: own('glucometer_hands', 'notebook_phone'), move: 'in', lt: ['También', 'Lecturas del glucómetro o sensor continuo'] },
-  { at: 'aprox', type: 'custom', noNote: true, source: 'ADAG · PMC4455453', build: (g, s) => {
+  { at: 'aprox', type: 'photo', src: 'lab_rack', move: 'right', lt: ['La traducción', 'es aproximada'] },
+  { at: 'adag2', type: 'custom', noNote: true, source: 'ADAG · PMC4455453', build: (g, s) => {
     const h = Headline(g, ['A1C 8 %  →', '147 A 217 mg/dL'], { x: 960, y: 420, size: 120, hi: 1 });
-    const c = NT(g, 'El número es una guía, no una sentencia', { x: 960, y: 760, size: 52, font: 'S', italic: true, anchor: 'middle', color: N.dim });
-    return t => { h.draw(t, s.t0 + 0.2, s.t1); show(c, t, s.t0 + 1.5); };
+    return t => h.draw(t, s.t0 + 0.2, s.t1);
   } },
+  { at: 'guia', type: 'photo', src: 'doc_talk', move: 'in', cap: 'Una guía, no una sentencia' },
 
   // Beat 8 · la imagen completa
   { at: 'serio', type: 'photo', src: own('ernesto_desk', 'walk_away'), move: 'out', note: REC, sec: 'SU HISTORIA' },

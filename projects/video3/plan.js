@@ -24,6 +24,8 @@ Story({ name: 'SALUD 60+' }, [
   } },
   { at: 'ninguna', type: 'photo', src: own('p_doctora', 'doc_talk'), move: 'out', cap: 'Ninguna de las dos' },
   { at: 'hoy', type: 'photo', src: own('p_corazon_doctor', 'icu_monitor'), move: 'in', lt: ['Hoy', 'Qué hacen · qué demostraron · qué cambia después de los 65'] },
+  { at: 'riesgo65', type: 'photo', src: own('p_banda', 'senior_class'), move: 'in', cap: 'Después de los 65: un riesgo del que casi nadie habla' },
+  { at: 'razonesmed', type: 'photo', src: own('p_doctora', 'doc_worry'), move: 'left', cap: 'Su médico puede tener buenas razones… o no' },
   { at: 'final', type: 'photo', src: 'notebook', move: 'left', lt: ['Al final', '3 preguntas para su cita'] },
 
   // Beat 2 · el mito
@@ -116,6 +118,7 @@ Story({ name: 'SALUD 60+' }, [
   { at: 'nauseas', type: 'number', src: own('p_estomago', 'water_glass'), value: 1, suffix: ' de 5', label: 'tuvo náuseas en SURPASS-2', source: 'SURPASS-2 · náuseas 17–22 %' },
   { at: 'avisos', type: 'study', src: 'blister', pub: 'Prospecto · advertencias', title: ['Lo que dice', 'la ficha técnica'], lines: ['Pancreatitis · problemas de vesícula', 'Tumores de tiroides en animales'], hi: 0, source: 'Ozempic, información de prescripción (FDA 2026)' },
   { at: 'animales', type: 'photo', src: own('p_doctora', 'doc_talk'), move: 'in', lt: ['Por eso le preguntan por su familia', 'Cáncer medular de tiroides: no se recomienda'] },
+  { at: 'familia', type: 'photo', src: own('p_familia_sofa', 'couple_coffee'), move: 'in', cap: 'Por eso le preguntan por su familia' },
   { at: 'ojos', type: 'photo', src: own('p_ojos', 'doc_worry'), move: 'in', lt: ['Los ojos · SUSTAIN-6', 'Retina: 3 de 100 vs 2 de 100 con placebo'], source: 'SUSTAIN-6 · NEJM 2016' },
   { at: 'naion', type: 'number', src: own('p_ojos', 'rbc_flow'), value: 10000, prefix: '1 de cada ', label: 'NAION: muy raro', size: 170, source: 'EMA · PRAC, junio 2025' },
   { at: 'musculo', type: 'photo', src: own('p_pesas', 'senior_weights'), move: 'in', head: ['EL RIESGO DEL QUE', 'CASI NADIE HABLA'], hi: 1, headSize: 90 },
@@ -142,6 +145,7 @@ Story({ name: 'SALUD 60+' }, [
     items: ['Ya está en su meta, sin problemas del corazón ni del riñón', 'Es delgado, come poco o pierde fuerza', 'Pancreatitis o cáncer medular de tiroides en la familia', 'Precio y acceso'] },
   { at: 'mexico', type: 'photo', src: own('p_farmacia', 'pills'), move: 'in', lt: ['México · COFEPRIS', 'Tirzepatida aprobada para diabetes tipo 2 (nov. 2024)'], source: 'Aprobaciones y cobertura cambian por país' },
   { at: 'advertencia', type: 'photo', src: 'blister', move: 'left', lt: ['Precaución', 'Con insulina, glibenclamida o glimepirida'] },
+  { at: 'ajustar', type: 'photo', src: own('p_doctora', 'doc_talk'), move: 'in', lt: ['Ajustar las otras medicinas', 'Eso lo decide su médico'] },
   { at: 'senales', type: 'warning', src: 'pills', title: 'Azúcar baja: menos de 70', ats: [undefined, undefined, undefined, undefined],
     items: ['Temblor', 'Sudor frío', 'Hambre de repente', 'Corazón acelerado · confusión'], source: 'ADA en español · hipoglucemia' },
   { at: 'urgencias', type: 'custom', noNote: true, source: 'Dolor fuerte de estómago a la espalda · vómito sin retener agua · pérdida de la vista', build: (g, s) => {
@@ -158,6 +162,8 @@ Story({ name: 'SALUD 60+' }, [
 
   // Beat 8 · la imagen completa
   { at: 'carmen', type: 'photo', src: own('carmen_leave', 'walk_away'), move: 'in', lt: ['Doña Carmen', 'Salió sin Ozempic… y entendió por qué'], note: REC, sec: 'SU HISTORIA' },
+  { at: 'buenrinon', type: 'photo', src: own('p_jardin', 'garden_hose'), move: 'in', lt: ['Doña Carmen', 'Buen riñón · buen corazón · en su meta · delgadita'], note: REC },
+  { at: 'pesaba', type: 'photo', src: own('p_pesas', 'senior_weights'), move: 'left', cap: 'Perder músculo pesaba más que el beneficio' },
   { at: 'vecina2', type: 'photo', src: own('p_vecinas', 'couple_coffee'), move: 'left', cap: 'Otro cuerpo, otra historia' },
   { at: 'famosa', type: 'custom', noNote: true, build: (g, s) => {
     const h = Headline(g, ['LA MEJOR MEDICINA', 'NO ES LA MÁS FAMOSA'], { x: 960, y: 450, size: 120, hi: 1 });

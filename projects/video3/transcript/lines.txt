@@ -1,0 +1,144 @@
+[0.18 - 4.20] (w0-13) Doña Carmen llega a la consulta con una pregunta que trae desde la casa.
+[4.56 - 4.76] (w14-14) Dr.
+[4.90 - 10.44] (w15-30) A, mi vecina se inyecta a Osempic, bajó 10 kilos y el azúcar le salió perfecta.
+[10.60 - 12.10] (w31-39) ¿Por qué usted no me lo da a mí?
+[12.36 - 18.88] (w40-58) Esta pregunta se escucha todos los días, en las consultas, en el pasillo, en las fiestas de la familia.
+[19.04 - 21.12] (w59-64) Y es una muy buena pregunta.
+[21.28 - 27.22] (w65-84) En este canal, le explico la diabetes en palabras simples, con lo que dicen las guías médicas y los estudios.
+[27.42 - 31.44] (w85-95) Todo viene de fuentes oficiales, y siempre le digo de dónde.
+[31.60 - 34.16] (w96-98) Osempic, Monjaro, Trulicity.
+[34.30 - 38.84] (w99-116) Seguro los ha escuchado en la tele, en Facebook o en el grupo de Whatsapp de la familia.
+[38.98 - 44.72] (w117-130) Para unos son medicinas milagro, para otros medicinas de vanidad para bajar de peso.
+[44.94 - 46.86] (w131-137) No son ninguna de las dos cosas.
+[47.52 - 54.72] (w138-156) Hoy le explico qué hacen de verdad dentro de su cuerpo, qué demostraron los estudios grandes, con números claros.
+[54.76 - 57.10] (w157-162) ¿Qué cambia después de los 65?
+[57.12 - 59.80] (w163-172) ¿Por qué hay un riesgo del que casi nadie habla?
+[60.22 - 64.24] (w173-184) ¿Y por qué su médico puede tener muy buenas razones para recetarla?
+[64.46 - 65.10] (w185-186) O no.
+[65.28 - 69.54] (w187-196) Al final, como siempre, tres preguntas para su próxima cita.
+[69.66 - 74.38] (w197-212) Lo primero que mucha gente cree es, si a mi vecina le funcionó, a mí también.
+[74.52 - 77.84] (w213-223) O lo contrario, eso es una moda para bajar de peso.
+[77.88 - 79.28] (w224-227) ¿Qué tienen de cierto?
+[79.48 - 81.02] (w228-231) Las dos un poco.
+[81.18 - 83.40] (w232-236) Estas medicinas sí son potentes.
+[83.58 - 86.34] (w237-244) Bajan el azúcar y muchas veces el peso.
+[86.46 - 91.24] (w245-258) Y sí, también se usan para la obesidad, con otros nombres y otras dosis.
+[91.36 - 95.64] (w259-273) Pero ni todo el mundo las necesita, ni a todo el mundo le sientan igual.
+[95.76 - 100.08] (w274-286) Y después de los 60, hay cosas que su vecina quizás no sabe.
+[100.22 - 103.12] (w287-293) Para entenderlo, hay que saber qué imitan.
+[103.32 - 107.90] (w294-305) Cuando usted come, su intestino suelta una hormona que se llama GLP1.
+[108.14 - 109.14] (w306-309) Es como un timbre.
+[109.32 - 111.48] (w310-315) Le avisa al cuerpo, llegó comida.
+[111.78 - 113.86] (w316-320) Ese timbre hace cuatro cosas.
+[114.20 - 117.20] (w321-329) Uno, le avisa al pan, creas que suelta insulina.
+[117.52 - 119.96] (w330-339) ¿Se acuerda de la fábrica de llaves del primer video?
+[120.32 - 121.96] (w340-346) Este timbre le dice a la fábrica.
+[122.44 - 124.16] (w347-351) Ahora, que subió el azúcar.
+[124.38 - 125.80] (w352-356) Y aquí está lo bonito.
+[125.96 - 131.74] (w357-372) Sólo funciona cuando el azúcar está alta, cuando el azúcar baja, el timbre deja de sonar.
+[132.08 - 132.64] (w373-373) 2.
+[132.68 - 138.40] (w374-391) Le dice al páncreas que suelte menos glucagon, una hormona que manda al hígado a sacar más azúcar.
+[138.94 - 139.40] (w392-392) 3.
+[139.58 - 145.06] (w393-408) Hace que el estómago se vacíe más despacio, La comida pasa por un embudo más angosto.
+[145.22 - 145.88] (w409-410) Y 4.
+[146.04 - 148.88] (w411-419) Le avisa al cerebro que usted ya está lleno.
+[149.00 - 152.64] (w420-429) En la diabetes tipo 2, ese timbre suena más bajito.
+[152.74 - 162.00] (w430-456) Las medicinas como la semaglutida, que se vende como ocempic, o la dulaglutida, que se vende como trulicity, son copias de esa hormona que duran mucho más.
+[162.16 - 169.66] (w457-465) Por eso, muchas se inyectan una vez por semana.
+[165.12 - 169.76] (w466-477) La semaglutida también existe en pastilla diaria que se vende como ribelsus.
+[169.98 - 174.56] (w478-491) Y la tirsepatida, que se vende como monjaro, toca dos timbres a la vez.
+[174.82 - 179.00] (w492-503) El GLP -1 y otra hormona del intestino que se llama GIP.
+[179.30 - 180.50] (w504-506) Un detalle honesto.
+[180.66 - 189.66] (w507-531) Estas medicinas no le quitan el óxido a la cerradura directamente, pero si usted baja de peso, la cerradura muchas veces funciona un poco mejor.
+[189.68 - 190.92] (w532-535) ¿Cuánto bajan el azúcar?
+[191.50 - 212.96] (w536-590) Hegome estudio llamado Surpass 2, con unas 1900 personas que empezaban con un A1C de 8 .3 %, en 40 semanas el A1C bajó unos dos puntos con tirsepatida y casi 1 .9 con semaglutida, pero lo que más les importa a los médicos no es solo el número, es el corazón y los riñones.
+[213.08 - 226.56] (w591-626) En el estudio SustainSex, con unas 3300 personas con diabetes y alto riesgo del corazón, en unos dos años, con placebo, unas 9 de cada 100 tuvieron un infarto, un derrame o murieron por el corazón.
+[227.08 - 230.10] (w627-633) Con semaglutida, unas 7 de cada 100.
+[230.22 - 237.80] (w634-652) En el estudio Rewind, con casi 10 .000 personas de edad promedio 66 años, seguidas más de 5 años.
+[237.94 - 241.64] (w653-662) Con placebo, unas 13 de cada 100 tuvieron esos eventos.
+[241.82 - 243.82] (w663-666) Con dulaglutida, unas 12.
+[243.96 - 258.66] (w667-709) Y en el estudio Flow, en personas con diabetes y enfermedad de los riñones, en unos tres años y medio, con placebo, unas 23 de cada 100 tuvieron un problema grave de riñón o murieron por el corazón, con Sema Glutida unas 19.
+[258.74 - 267.14] (w710-735) Fíjese en algo, el beneficio es real, pero no es magia, y es mayor en personas que ya tienen el corazón o los riñones en riesgo.
+[267.28 - 277.30] (w736-760) Otro dato justo, estos estudios los pagaron los laboratorios que fabrican las medicinas, aunque se publicaron en revistas médicas serias, con revisión de otros expertos.
+[277.42 - 279.94] (w761-768) Toda medicina tiene un precio para el cuerpo.
+[280.08 - 282.48] (w769-776) Con estas, lo más común es el estómago.
+[282.58 - 286.08] (w777-781) en Auseas, Bómito, diarrea, extrañimiento.
+[286.20 - 291.04] (w782-793) En Surpass 2, cerca de uno de cada cinco personas tuvo náuseas.
+[291.18 - 294.90] (w794-804) Suelen ser peores al principio o cuando se sube la dosis.
+[295.06 - 297.40] (w805-811) Hay avisos más serios en el prospecto.
+[297.50 - 302.82] (w812-824) Puede haber inflamación del páncreas, que se llama pancreatitis y problemas de vesícula.
+[302.96 - 307.16] (w825-834) En animales de laboratorio, la semaglutida causó tumores de tiroides.
+[307.34 - 316.18] (w835-862) No se sabe si pasa en personas, pero no se recomienda a quien tiene o tiene en la familia un tipo raro de cáncer de tiroides llamado medular.
+[316.30 - 318.98] (w863-871) Por eso su médico le pregunta por su familia.
+[319.12 - 320.16] (w872-874) Y los ojos.
+[320.26 - 328.02] (w875-897) En Sustain Six, las complicaciones de retina fueron unas 3 de cada 100 con semaglutida y unas 2 de cada 100 con placebo.
+[328.16 - 339.76] (w898-927) Y la Agencia Europea de Medicamentos concluyó en 2025 que un problema del nervio del ojo llamado NION es un efecto muy raro, hasta uno de cada 10 .000 personas.
+[340.08 - 344.60] (w928-939) Ahora, el riesgo del que casi nadie habla después de los 65.
+[344.78 - 345.88] (w940-941) El músculo.
+[346.04 - 349.16] (w942-950) Cuando uno baja de peso, no solo pierde grasa.
+[349.28 - 361.06] (w951-984) En un estudio con adultos con obesidad, con semaglutida adosis para bajar de peso, la grasa bajó cerca de 19 % y la masa magra, que incluye el músculo, bajó cerca de 10 %.
+[361.48 - 364.60] (w985-993) En una persona joven, eso puede no importar mucho.
+[364.84 - 366.68] (w994-999) Pero ¿se acuerda del primer video?
+[367.00 - 375.14] (w1000-1019) Después de los 60, ya estamos perdiendo músculo, y menos músculo es menos puertas para el azúcar, y más caídas.
+[375.34 - 376.72] (w1020-1021) Bueno, sigamos.
+[376.86 - 391.66] (w1022-1061) Las guías de la Asociación Americana de Diabetes, edición 2026, recomiendan este tipo de medicinas, sobre todo para personas con diabetes tipo 2 que ya tienen enfermedad del corazón o alto riesgo, y para personas con enfermedad de los riñones.
+[391.96 - 401.82] (w1062-1088) Incluso las prefieren cuando los riñones están muy dañados, y en la sección de adultos mayores piden escoger medicinas con poco riesgo de bajar demasiado el azúcar.
+[402.00 - 405.28] (w1089-1095) Estas medicinas, solas, casi no causan bajones.
+[406.02 - 413.70] (w1096-1114) Lo que esto quiere decir, en palabras simples, la decisión no es quiero osempic, es ¿qué tiene mi corazón?
+[413.76 - 415.38] (w1115-1118) ¿qué tienen mis riñones?
+[415.50 - 417.90] (w1119-1124) ¿cuánto peso y cuánto músculo tengo?
+[418.12 - 421.34] (w1125-1131) Recuerde, esto es información para entender mejor.
+[421.48 - 426.56] (w1132-1146) No empiece, no deje y no cambia ninguna medicina sin hablar con su equipo médico.
+[427.46 - 430.80] (w1147-1154) Entonces, ¿por qué su médico podría no recetársela?
+[431.00 - 431.80] (w1155-1157) Hay buenas razones.
+[432.48 - 432.98] (w1158-1158) 1.
+[433.04 - 436.96] (w1159-1175) Tal vez usted ya está en su meta y no tiene problemas del corazón ni del riñón.
+[437.76 - 438.32] (w1176-1176) 2.
+[438.32 - 442.00] (w1177-1188) Tal vez usted es delgado, come poco o ya está perdiendo fuerza.
+[442.66 - 443.16] (w1189-1189) 3.
+[443.32 - 447.42] (w1190-1202) Alguna historia de pancreatitis o de ese cáncer de tiroides en la familia.
+[447.80 - 448.36] (w1203-1203) 4.
+[448.46 - 450.22] (w1204-1208) El precio y el acceso.
+[450.30 - 455.46] (w1209-1224) No en todos los países ni en todos los sistemas de salud están disponibles o cubiertas.
+[455.58 - 463.20] (w1225-1242) En México, por ejemplo, la autoridad sanitaria aprobó la tircepatida para diabetes tipo 2 en noviembre de 2024.
+[463.28 - 465.34] (w1243-1249) Pregunte qué hay disponible en su sistema.
+[466.02 - 467.78] (w1250-1252) Una advertencia importante.
+[467.84 - 476.88] (w1253-1277) Si usted usa insulina o pastillas como la glibenclamida o la glimepirida y le agregan una de estas medicinas, el azúcar le puede bajar demasiado.
+[477.34 - 480.06] (w1278-1285) Muchas veces hay que ajustar las otras medicinas.
+[480.34 - 481.60] (w1286-1290) Eso lo decide su médico.
+[482.40 - 484.40] (w1291-1295) Las señales de azúcar baja.
+[484.46 - 489.98] (w1296-1304) Temblor, sudor frío, hambre de repente, corazón acelerado, confusión.
+[490.24 - 505.48] (w1305-1353) Vaya urgencias, o llame al número de emergencias de su país, si tiene un dolor fuerte de estómago que se va a la espalda, si vomita y no puede retener ni agua, si pierde la vista de repente, o si el azúcar baja mucho y hay confusión o desmayo.
+[505.64 - 510.42] (w1354-1366) Para ser justa, para muchas personas mayores, estas medicinas son una gran ayuda.
+[510.56 - 515.72] (w1367-1382) Protegen el corazón y los riñones, y casi no causan bajoles de azúcar por sí solas.
+[515.82 - 518.42] (w1383-1390) Pero hay cosas que todavía no sabemos bien.
+[518.56 - 523.68] (w1391-1402) En los estudios grandes, participaron pocas personas muy mayores o muy frágiles.
+[523.88 - 528.68] (w1403-1417) Y los datos sobre el músculo vienen sobre todo de personas más jóvenes con obesidad.
+[528.86 - 536.88] (w1418-1439) Por eso los expertos piden vigilar la comida, la fuerza y el peso de cerca cuando una persona mayor usa estas medicinas.
+[537.02 - 549.98] (w1440-1461) Si usted la usa, pregunte cómo cuidar su músculo, cuanta proteína le conviene y qué ejercicio de fuerza es seguro para usted.
+[545.34 - 549.96] (w1462-1473) Doña Carmen salió de la consulta Sinocempic, pero salió con algo mejor.
+[550.16 - 551.46] (w1474-1476) Entendió por qué.
+[551.62 - 556.40] (w1477-1489) Ella tiene buen riñón, buen corazón, está en su meta y es delgadita.
+[556.52 - 560.64] (w1490-1501) Para ella, el riesgo de perder músculo pesaba más que el beneficio.
+[560.72 - 565.20] (w1502-1514) A su vecina, con otro cuerpo y otra historia, quizás sí le conviene.
+[565.32 - 570.44] (w1515-1530) La mejor medicina no es la más famosa, es la que tiene sentido para su cuerpo.
+[570.56 - 573.16] (w1531-1538) Anote estas tres preguntas para su próxima cita.
+[573.84 - 574.40] (w1539-1539) 1.
+[574.50 - 577.38] (w1540-1547) Con mi corazón, mis riñones y mi peso.
+[577.54 - 579.80] (w1548-1555) Una de estas medicinas tiene sentido para mi?
+[580.64 - 581.26] (w1556-1556) 2.
+[581.38 - 583.70] (w1557-1563) Si la uso, ¿cómo cuido mi músculo?
+[583.86 - 586.44] (w1564-1573) ¿Y qué hago si tengo náuseas o no puedo comer?
+[587.00 - 587.56] (w1574-1574) 3.
+[587.66 - 592.56] (w1575-1587) Si ya uso isulina o glibenclamida, ¿habría que ajustar algo para evitar bajones?
+[592.74 - 595.74] (w1588-1596) Y una pregunta para usted, aquí en los comentarios.
+[595.80 - 600.64] (w1597-1613) ¿Le han hablado de estas medicinas en su clínica o solo en la tele y en Whatsapp?
+[600.84 - 601.78] (w1614-1615) El miércoles.
+[601.94 - 604.68] (w1616-1620) Osempic genérico y osempic falso.
+[604.84 - 610.44] (w1621-1634) Ya llegaron versiones genéricas a algunos países y al mismo tiempo circulan plumas falsas.
+[610.52 - 613.02] (w1635-1639) Le enseño cómo no confundirse.
+[613.18 - 619.72] (w1640-1660) Si este video le sirvió, mándeselo a alguien de su familia que tenga diabetes o que esté pensando en estas medicinas.
+[619.88 - 623.78] (w1661-1671) Suscríbase para que usted entienda su diabetes y nadie lo engañe.
+[623.90 - 627.32] (w1672-1679) Y recuerde, esto es información, no una consulta.
+[627.46 - 630.58] (w1680-1688) Hable con su médico antes de cambiar cualquier cosa.
+[630.72 - 631.36] (w1689-1690) Cuídese mucho.

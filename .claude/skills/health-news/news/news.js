@@ -378,7 +378,8 @@ function Checklist(p, { title, items, x = 260, y = 220, w = 1400 }) {
     const r = el('g', {}, g), yy = y + 190 + i * 140;
     el('circle', { cx: x + 100, cy: yy, r: 42, fill: N.red }, r);
     NT(r, String(i + 1), { x: x + 100, y: yy + 3, size: 50, font: 'S', anchor: 'middle' });
-    NT(r, s, { x: x + 175, y: yy, size: 56, font: 'S' });
+    const fs = s.length > 44 ? 40 : s.length > 34 ? 46 : 56;   // long items shrink to stay inside the panel
+    NT(r, s, { x: x + 175, y: yy, size: fs, font: 'S' });
     return r;
   });
   return { g, draw(t, ts) { rows.forEach((r, i) => show(r, t, ts[i], 1e9, { dy: 24 })); } };

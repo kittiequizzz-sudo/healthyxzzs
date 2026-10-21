@@ -22,3 +22,14 @@ section's first panel. Colour logic: green = good habit, red = error, amber = ca
 | punto6 ajo (~1:45) | `s_ajo` ×4 | crush → alliinase → alicina; 10-min timer; quercetina "más estudios" amber; sal ↓ sabor ↑ |
 | punto7 hojas (~2:05) | `s_hojas` ×4, `m_boca` 1–3 | nitrato → nitrito → NO chain; mouthwash ✗ amber note (Kapil 2013); potasio/riñón warning; **Sintrom card** |
 | conclusion (~1:10) | `s_final` ×4, `m_boca` 4 | 7-food recap row; "ningún alimento limpia las arterias" stamp; diet + exercise + rest + check-ups; disclaimer held ≥ 8 s |
+
+## Voice check (rimovoice4 → audio/voice_full.mp3, 20:55)
+All 156 script sentences are read except the added Sintrom line (the take used the original script).
+Headings are read aloud ("Punto 1. Aceite de oliva virgen extra, el oro líquido…"): keep them, they
+match the kickers. Sintrom: show it as an on-screen amber card during the potassium/kidney sentence
+(PUNTO 7), held ≥ 6 s: «¿TOMAS SINTROM? NO LAS ELIMINES · CANTIDAD PARECIDA CADA DÍA · CONSULTA».
+
+## Delivered sheets
+`s_intro` → i_aceite i_humo i_tension i_domingo · `s_aove` → a_compara a_tostada a_reusa a_guarda ·
+`s_frutos` → f_salados f_punado f_yogur f_cambio · `m_arterias` → m_red m_sana m_placa m_ldl ·
+`s_pescado` → p_mercado p_espada p_horno p_frito.

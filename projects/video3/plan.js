@@ -162,7 +162,7 @@ Story({ name: 'SALUD 60+' }, [
 
   // Beat 8 · la imagen completa
   { at: 'carmen', type: 'photo', src: own('carmen_leave', 'walk_away'), move: 'in', lt: ['Doña Carmen', 'Salió sin Ozempic… y entendió por qué'], note: REC, sec: 'SU HISTORIA' },
-  { at: 'buenrinon', type: 'photo', src: own('p_jardin', 'garden_hose'), move: 'in', lt: ['Doña Carmen', 'Buen riñón · buen corazón · en su meta · delgadita'], note: REC },
+  { at: 'buenrinon', type: 'photo', src: own('p_jardin', 'garden_hose'), move: 'in', lt: ['En su caso', 'Buen riñón · buen corazón · en su meta · delgadita'] },
   { at: 'pesaba', type: 'photo', src: own('p_pesas', 'senior_weights'), move: 'left', cap: 'Perder músculo pesaba más que el beneficio' },
   { at: 'vecina2', type: 'photo', src: own('p_vecinas', 'couple_coffee'), move: 'left', cap: 'Otro cuerpo, otra historia' },
   { at: 'famosa', type: 'custom', noNote: true, build: (g, s) => {

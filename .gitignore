@@ -1,6 +1,6 @@
 __pycache__/
 node_modules/
-projects/*/qa/
+projects/*/qa*/
 *.f32
 projects/*/out/*.png
 projects/figtest/*.png
@@ -18,6 +18,6 @@ projects/azucar_sube/transcript.log
 projects/*/out_render.log
 projects/news_demo/out/
 projects/news_demo2/out/
-projects/*/qa/
+projects/*/qa*/
 projects/*/clips/
 projects/*/out/

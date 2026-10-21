@@ -197,6 +197,7 @@ function Bell(p, { x, y, w = 220, name = 'a_campana' }) {
     rings.push({ e: el('path', { d, fill: 'none', stroke: N.gold, 'stroke-width': w * 0.045, 'stroke-linecap': 'round', opacity: 0 }, waves), k });
   }
   const art = Art(g, name, { x: 0, y: 0, w }, ORG.bell);
+  const own = (window.ART || {})[name], top = own ? w * own[1] / own[0] / 2 : w * 0.45;   // swing from the handle
   return {
     g,
     draw(t, t0, amp = 1) {
@@ -204,8 +205,8 @@ function Bell(p, { x, y, w = 220, name = 'a_campana' }) {
       tr(g, x, y, Math.max(0.001, a));
       g.setAttribute('opacity', clamp(a * 2).toFixed(3));
       art.draw(t, -1, { k: 0 });
-      tr(art.g, 0, -w * 0.45, 1, amp * 9 * Math.sin(t * 15));
-      art.g.firstChild.setAttribute('transform', `translate(0 ${(w * 0.45).toFixed(1)})`);
+      tr(art.g, 0, -top, 1, amp * 9 * Math.sin(t * 15));
+      art.g.firstChild.setAttribute('transform', `translate(0 ${top.toFixed(1)})`);
       for (const o of rings) {
         const ph = frac(t * 1.6 - o.k * 0.33);
         set(o.e, { opacity: (amp * Math.sin(ph * Math.PI) * 0.9).toFixed(3) });
@@ -571,8 +572,9 @@ function TwoBells(p) {
 function RustyLock(p) {
   const g = el('g', {}, p), bg = AnimBG(g, { tint: '#C9783F' });
   const k = Kicker(g, 'Un detalle honesto', { y: 130 });
-  const rusty = Art(g, 'a_candado_oxido', { x: 820, y: 560, w: 520 }, ORG.lock(1));
-  const clean = Art(g, 'a_candado_limpio', { x: 820, y: 560, w: 520 }, ORG.lock(0.35));
+  const LW = (window.ART || {}).a_candado_oxido ? 900 : 520;   // the owner's locks keep their full canvas
+  const rusty = Art(g, 'a_candado_oxido', { x: 820, y: 560, w: LW }, ORG.lock(1));
+  const clean = Art(g, 'a_candado_limpio', { x: 820, y: 560, w: LW }, ORG.lock(0.35));
   const key = keyShape(el('g', {}, g), { s: 2.2 });
   const t1 = Pill(g, 'LA CERRADURA SIGUE CON ÓXIDO', { x: 820, y: 930, size: 46 });
   const sc = Placed(g, 1520, 470); ICON.scale(sc);
@@ -587,8 +589,8 @@ function RustyLock(p) {
       rusty.g.setAttribute('opacity', (clamp(prog(t, t0 + 0.1, t0 + 0.5)) * (1 - c)).toFixed(3));
       clean.g.setAttribute('opacity', (clamp(prog(t, t0 + 0.1, t0 + 0.5)) * c).toFixed(3));
       // the key tries again and again (jiggles at the keyhole)
-      const kx = lerp(260, 560, E.out(prog(t, t0 + 0.6, t0 + 1.4))) + 6 * Math.sin(t * 18) * (1 - c);
-      tr(key.parentNode, kx, 620, 1, 4 * Math.sin(t * 9) * (1 - c));
+      const kx = lerp(260, (window.ART || {}).a_candado_oxido ? 610 : 560, E.out(prog(t, t0 + 0.6, t0 + 1.4))) + 6 * Math.sin(t * 18) * (1 - c);
+      tr(key.parentNode, kx, LW > 520 ? 690 : 620, 1, 4 * Math.sin(t * 9) * (1 - c));
       key.parentNode.setAttribute('opacity', clamp(prog(t, t0 + 0.6, t0 + 0.9)).toFixed(3));
       t1.draw(t, t0 + 1.4, tW);
       popAt(sc, t, tW); arrow.setAttribute('opacity', clamp(prog(t, tW + 0.3, tW + 0.6)).toFixed(3));
@@ -603,7 +605,7 @@ function HeartKidneys(p) {
   const tag = Placed(g, 960, 520);
   el('rect', { x: -230, y: -110, width: 460, height: 220, rx: 30, fill: N.panel, stroke: N.gold, 'stroke-width': 6 }, tag);
   NT(tag, 'A1C', { x: 0, y: 0, size: 130, font: 'S', anchor: 'middle', color: N.gold });
-  const heart = Art(g, 'a_corazon', { x: 620, y: 520, w: 460 }, ORG.heart);
+  const heart = Art(g, 'a_corazon', { x: 620, y: 520, w: (window.ART || {}).a_corazon ? 340 : 460 }, ORG.heart);
   const kid = Art(g, 'a_rinones', { x: 1300, y: 520, w: 520 }, ORG.kidneys);
   const l1 = Pill(g, 'CORAZÓN', { x: 620, y: 860, size: 56, color: N.red, stroke: N.red });
   const l2 = Pill(g, 'RIÑONES', { x: 1300, y: 860, size: 56, color: N.gold, stroke: N.gold });
@@ -673,7 +675,7 @@ function EyeRetina(p) {
   const g = el('g', {}, p), bg = AnimBG(g, { tint: '#E0703C', x: 640 });
   const k = Kicker(g, 'Los ojos · la retina', { y: 130 });
   const eye = Art(g, 'a_ojo', { x: 620, y: 580, w: 640 }, ORG.eye);
-  const ret = el('path', { d: 'M713 324 A272 272 0 0 1 713 836', fill: 'none', stroke: N.gold, 'stroke-width': 26, 'stroke-linecap': 'round', opacity: 0 }, g);
+  const ret = el('path', { d: (window.ART || {}).a_ojo ? 'M650 394 A215 215 0 0 1 650 766' : 'M713 324 A272 272 0 0 1 713 836', fill: 'none', stroke: N.gold, 'stroke-width': 26, 'stroke-linecap': 'round', opacity: 0 }, g);
   const grid = (x, y, n, col, label) => {
     const o = el('g', {}, g), dots = [];
     for (let i = 0; i < 100; i++) dots.push(el('circle', { cx: x + (i % 10) * 34, cy: y + Math.floor(i / 10) * 34, r: 12, fill: N.panel2 }, o));

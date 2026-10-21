@@ -1,0 +1,127 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v1.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · PUNTO 2 — nueces y almendras; end of video 1 (next video + disclaimer).
+window.START = at('p2') - 0.3;
+window.END = 489.6;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over the handful of nuts
+scene(svg, () => START, () => at('despues'), g => {
+  const st = panel(g, 'f_punado', 'full', { focus: [0.45, 0.5] });
+  const k = Kicker(g, 'ALIMENTO 2', 'NUECES Y ALMENDRAS');
+  return t => { st.draw(t, START, at('despues')); show(k, t, START + 0.3); };
+});
+
+// 1. small, with fat… but good for the heart when they replace snacks
+scene(svg, () => at('despues'), () => at('ala'), g => {
+  const a = cut(g, 'nueces', 640, 480, 460), b = cut(g, 'almendras', 1280, 490, 440);
+  const c1 = Chip(g, 'PEQUEÑAS Y CON GRASA…', { cx: 960, cy: 170, size: 44 });
+  const c2 = Caption(g, 'EN LUGAR DE APERITIVOS', { cy: 880, size: 56, hi: 'APERITIVOS' });
+  return t => { pop(a, t, at('despues') + 0.5, 640, 480); pop(b, t, at('despues') + 1, 1280, 490); show(c1, t, at('curiosidad')); show(c2, t, at('aperitivos') - 0.5); };
+});
+
+// 2. walnuts: ALA omega-3 · almonds: MUFA, fibre, vit E · both: magnesium
+scene(svg, () => at('ala'), () => at('arginina'), g => {
+  const L = el('g', {}, g), R = el('g', {}, g);
+  Card(L, { x: 120, y: 160, w: 780, h: 640, fill: C.white }); cut(L, 'nueces', 510, 360, 300);
+  Chip(L, 'OMEGA-3 VEGETAL (ALA)', { cx: 510, cy: 620, size: 40, fill: C.blueFar });
+  Card(R, { x: 1020, y: 160, w: 780, h: 640, fill: C.white }); cut(R, 'almendras', 1410, 360, 300);
+  ['GRASAS MONOINSATURADAS', 'FIBRA', 'VITAMINA E'].forEach((s, i) => Chip(R, s, { cx: 1410, cy: 560 + i * 85, size: 30, fill: C.amber }));
+  const mg = Chip(g, '+ MAGNESIO EN AMBAS', { cx: 960, cy: 920, size: 46, fill: C.green, color: C.white });
+  return t => { show(L, t, at('ala')); show(R, t, at('almendras_c')); show(mg, t, at('magnesio')); };
+});
+
+// 3. L-arginine → nitric oxide → vessels relax (the hose analogy)
+scene(svg, () => at('arginina'), () => at('trampa'), g => {
+  const ch = Chain(g, [['L-ARGININA', C.amber], ['ÓXIDO NÍTRICO', C.white], ['VASOS SE RELAJAN', C.green]], { y: 200, x0: 380, x1: 1540, size: 40 });
+  const st = panel(g, 'm_manguera', { x: 410, y: 340, w: 1100, h: 600 }, { focus: [0.5, 0.5] });
+  const n = Chip(g, 'EL CUERPO ES MUCHO MÁS COMPLEJO', { cx: 960, cy: 1000, size: 34, fill: C.amber });
+  return t => { ch.forEach((c, i) => show(c, t, at('arginina') + i * 2.5)); show(st.g, t, at('arginina') + 3); st.draw(t, at('arginina') + 3, at('trampa')); show(n, t, at('complejo')); };
+});
+
+// 4. the trap: fried salted, caramelised, industrial mixes; salt raises blood pressure
+scene(svg, () => at('trampa'), () => at('recomendable'), g => {
+  const st = panel(g, 'f_salados', 'left', { focus: [0.45, 0.45] });
+  const h = Chip(g, 'LA TRAMPA', { cx: 1510, cy: 200, size: 56, fill: C.red, color: C.white });
+  const items = ['FRITAS CON SAL', 'CARAMELIZADAS', 'MEZCLAS INDUSTRIALES'].map((s, i) => [Mark(g, s, false, { cx: 1510, cy: 360 + i * 140, size: 38 }), i]);
+  const s = el('g', {}, g);
+  Card(s, { x: 1210, y: 770, w: 600, h: 170, fill: C.amber });
+  Text(s, 'SAL ↑ → PRESIÓN ↑', { x: 1510, y: 835, size: 46 });
+  Text(s, 'en personas sensibles al sodio', { x: 1510, y: 895, size: 28, weight: 800 });
+  return t => { st.draw(t, at('trampa'), at('recomendable')); show(h, t, at('trampa')); items.forEach(([c, i]) => show(c, t, at('fritas') + i * 1.6)); show(s, t, at('sal')); };
+});
+
+// 5. the best choice: natural, raw or toasted without salt; 30 g = a small handful; how to use them
+scene(svg, () => at('recomendable'), () => at('grandes'), g => {
+  const a = panel(g, 'f_punado', 'left', { focus: [0.45, 0.5] });
+  const b = panel(g, 'f_yogur', 'left', { focus: [0.5, 0.5] });
+  const c = panel(g, 'f_cambio', 'left', { focus: [0.5, 0.5] });
+  const ok = [Mark(g, 'NATURALES', true, { cx: 1510, cy: 220, size: 40 }), Mark(g, 'SIN SAL', true, { cx: 1510, cy: 340, size: 40 })];
+  const g30 = el('g', {}, g);
+  Card(g30, { x: 1250, y: 450, w: 520, h: 260, fill: C.white });
+  Text(g30, '30 g', { x: 1510, y: 560, size: 120, color: C.orange });
+  Text(g30, '= un pequeño puñado', { x: 1510, y: 660, size: 34, weight: 800 });
+  const c1 = Chip(g, 'EN EL DESAYUNO', { cx: 1510, cy: 800, size: 38, fill: C.green, color: C.white });
+  const c2 = Chip(g, 'EN VEZ DE PATATAS FRITAS', { cx: 1510, cy: 910, size: 34, fill: C.green, color: C.white });
+  return t => {
+    const kb = E.inOut(prog(t, at('desayuno') - 0.2, at('desayuno') + 0.3)), kc = E.inOut(prog(t, at('patatas') - 0.6, at('patatas') - 0.1));
+    a.g.setAttribute('opacity', 1 - kb); b.g.setAttribute('opacity', kb * (1 - kc)); c.g.setAttribute('opacity', kc);
+    a.draw(t, at('recomendable'), at('desayuno')); b.draw(t, at('desayuno'), at('patatas')); c.draw(t, at('patatas'), at('grandes'));
+    show(ok[0], t, at('naturales')); show(ok[1], t, at('naturales') + 1.5); show(g30, t, at('treinta')); show(c1, t, at('desayuno')); show(c2, t, at('patatas') - 0.5);
+  };
+});
+
+// 6. no need for big amounts: regularly, don't multiply the portions
+scene(svg, () => at('grandes'), () => at('suscribete'), g => {
+  const one = el('g', {}, g), three = el('g', {}, g);
+  cut(one, 'nueces', 560, 470, 300); Mark(one, '1 PUÑADO', true, { cx: 560, cy: 720, size: 46 });
+  [0, 1, 2].forEach(i => cut(three, 'nueces', 1220 + i * 150, 470 - (i % 2) * 60, 260)); Mark(three, 'RACIONES DOBLES', false, { cx: 1370, cy: 720, size: 42 });
+  const c = Caption(g, 'CON REGULARIDAD, SIN EXCESOS', { cy: 920, size: 52, hi: 'REGULARIDAD' });
+  return t => { show(one, t, at('grandes')); show(three, t, at('grandes') + 1.5); show(c, t, at('regularidad')); };
+});
+
+// 7. subscribe
+scene(svg, () => at('suscribete'), () => at('siguiente'), g => {
+  const st = panel(g, 'f_yogur', 'full', { focus: [0.5, 0.5] });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE');
+  const c = Chip(g, 'PEQUEÑOS CAMBIOS, GRAN DIFERENCIA', { cx: 960, cy: 130, size: 40, fill: C.ink, color: C.amber });
+  return t => { st.draw(t, at('suscribete'), at('siguiente')); show(cta, t, at('suscribete')); show(c, t, at('suscribete') + 0.5); };
+});
+
+// 8. next video: sardines, anchovies and mackerel
+scene(svg, () => at('siguiente'), () => at('informativo'), g => {
+  const fish = [['sardinas', 480], ['boquerones', 960], ['caballa', 1440]].map(([n, x]) => [cut(g, n, x, 650, 380), x]);
+  const c = el('g', {}, g);
+  Card(c, { x: 460, y: 140, w: 1000, h: 280, fill: C.ink });
+  Text(c, 'PRÓXIMO VÍDEO · PARTE 2', { x: 960, y: 225, size: 46, color: C.amber });
+  Text(c, 'PESCADO AZUL, LEGUMBRES', { x: 960, y: 310, size: 54, color: C.cream });
+  Text(c, 'Y TOMATE', { x: 960, y: 380, size: 54, color: C.cream });
+  return t => { show(c, t, at('siguiente')); fish.forEach(([e, x], i) => pop(e, t, at('siguiente') + 1 + i * 0.6, x, 650)); };
+});
+
+// 9. disclaimer, held to the end
+scene(svg, () => at('informativo'), () => END + 1, g => {
+  const w = Warn(g, 'INFORMACIÓN, NO CONSEJO MÉDICO', ['Enfermedad cardiovascular', 'Problemas renales', 'Medicación'], { y: 140 });
+  const pt = PanelTile(g, 'h_farmacia', { x: 210, y: 650, w: 520, h: 330 });
+  const s = Chip(g, 'CONSULTA A TU', { cx: 1270, cy: 720, size: 42, fill: C.amber });
+  const s2 = Chip(g, 'PROFESIONAL SANITARIO', { cx: 1270, cy: 830, size: 42, fill: C.amber });
+  const tag = Chip(g, 'NOS VEMOS EN LA PARTE 2', { cx: 1270, cy: 960, size: 42, fill: C.ink, color: C.amber });
+  return t => { show(w, t, at('informativo')); show(pt.g, t, at('informativo') + 0.5); pt.st.draw(t, at('informativo'), END); show(s, t, at('padeces') + 6); show(s2, t, at('padeces') + 6.3); show(tag, t, END - 3); };
+}, { fade: 0.4 });
+
+// food strip on top (after the kicker, until the end card)
+scene(svg, () => START + 2.5, () => at('informativo'), g => { FoodStrip(g, 1); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

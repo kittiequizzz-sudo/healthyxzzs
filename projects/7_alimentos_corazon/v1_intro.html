@@ -1,0 +1,135 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v1.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · INTRO (hook): hard cuts every 1.5–2.5 s for the first ~30 s.
+window.START = 0;
+window.END = at('p1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const H = { hard: true };
+
+// 0. cold open: olive oil in the kitchen
+scene(svg, () => -1, () => at('pescado'), g => {
+  const st = panel(g, 'i_aceite', 'full', { focus: [0.35, 0.3], zoom: 0.14 });
+  const c = Caption(g, 'ACEITE DE OLIVA ✓', { cy: 960, hi: '✓' });
+  return t => { st.draw(t, 0, at('pescado')); show(c, t, 0.4); };
+}, H);
+
+// 1. fish on Sundays
+scene(svg, () => at('pescado'), () => at('ensalada'), g => {
+  const st = panel(g, 'i_domingo', 'full', { focus: [0.5, 0.55], zoom: 0.14 });
+  const c = Caption(g, 'PESCADO LOS DOMINGOS ✓', { cy: 960, hi: '✓' });
+  return t => { st.draw(t, at('pescado'), at('ensalada')); show(c, t, at('pescado') + 0.2); };
+}, H);
+
+// 2. a salad every day
+scene(svg, () => at('ensalada'), () => at('errores'), g => {
+  const a = cut(g, 'rucula', 700, 480, 420), b = cut(g, 'tomates', 1220, 500, 380);
+  const c = Caption(g, 'ENSALADA CADA DÍA ✓', { cy: 880, hi: '✓' });
+  return t => { pop(a, t, at('ensalada'), 700, 480); pop(b, t, at('ensalada') + 0.3, 1220, 500); show(c, t, at('ensalada') + 0.2); };
+}, H);
+
+// 3. …and still silent errors
+scene(svg, () => at('errores'), () => at('contradiccion'), g => {
+  const st = panel(g, 'i_humo', 'full', { focus: [0.6, 0.35], zoom: 0.18 });
+  const c = Caption(g, 'ERRORES SILENCIOSOS', { cy: 960, size: 64, hi: 'SILENCIOSOS', hiColor: '#FF7A6E' });
+  return t => { st.draw(t, at('errores'), at('contradiccion')); show(c, t, at('errores') + 0.3); };
+}, H);
+
+// 4. a contradiction?
+scene(svg, () => at('contradiccion'), () => at('mediterranea'), g => {
+  const h = cut(g, 'corazon', 820, 500, 520);
+  const q = wrap(g, Icon.question, 1080, 260, 2);
+  const c = Caption(g, '¿UNA CONTRADICCIÓN?', { cy: 900, size: 64, hi: 'CONTRADICCIÓN' });
+  return t => { pop(h, t, at('contradiccion'), 820, 500); pop(q, t, at('contradiccion') + 0.4, 1180, 360); show(c, t, at('contradiccion') + 0.2); };
+}, H);
+
+// 5. the Mediterranean diet is ours… but do we use it well?
+scene(svg, () => at('mediterranea'), () => at('arterias'), g => {
+  const row = FOODS.map(([n], i) => [cut(g, n, 260 + i * 233, 470, 210), 260 + i * 233]);
+  const c = Caption(g, 'DIETA MEDITERRÁNEA', { cy: 200, size: 66, hi: 'MEDITERRÁNEA' });
+  const d = Caption(g, '¿LA APROVECHAMOS BIEN?', { cy: 800, size: 58, hi: 'BIEN' });
+  return t => { show(c, t, at('mediterranea')); row.forEach(([e, x], i) => pop(e, t, at('mediterranea') + 0.3 + i * 0.25, x, 470)); show(d, t, at('aprovechar')); };
+}, H);
+
+// 6. arteries as a road network
+scene(svg, () => at('arterias'), () => at('colesterol'), g => {
+  const st = panel(g, 'm_red', 'full', { focus: [0.5, 0.5], zoom: 0.16 });
+  const c = Caption(g, 'TUS ARTERIAS: UNA RED DE CAMINOS', { cy: 960, size: 52, hi: 'RED DE CAMINOS' });
+  return t => { st.draw(t, at('arterias'), at('colesterol')); show(c, t, at('caminos') - 0.3); };
+});
+
+// 7. cholesterol, hypertension and habits damage the walls
+scene(svg, () => at('colesterol'), () => at('sorprendente'), g => {
+  const st = panel(g, 'm_placa', 'left', { focus: [0.5, 0.5] });
+  const items = ['COLESTEROL ALTO', 'HIPERTENSIÓN', 'MALOS HÁBITOS'].map((s, i) => [Chip(g, s, { cx: 1510, cy: 300 + i * 150, size: 42, fill: C.red, color: C.white }), i]);
+  const c = Caption(g, 'DAÑAN LAS PAREDES', { cx: 625, cy: 960, size: 50, hi: 'PAREDES' });
+  return t => { st.draw(t, at('colesterol'), at('sorprendente')); items.forEach(([e, i]) => show(e, t, at('colesterol') + i * 1.4)); show(c, t, at('paredes')); };
+});
+
+// 8. some everyday foods help — no miracles, no impossible diets, no fortune
+scene(svg, () => at('sorprendente'), () => at('siete'), g => {
+  const st = panel(g, 'm_sana', 'left', { focus: [0.5, 0.5] });
+  const h = Chip(g, 'ALIMENTOS COTIDIANOS', { cx: 1510, cy: 220, size: 44, fill: C.green, color: C.white });
+  const items = ['SIN MILAGROS', 'SIN DIETAS IMPOSIBLES', 'SIN GASTAR UNA FORTUNA'].map((s, i) => [Mark(g, s, true, { cx: 1510, cy: 400 + i * 150, size: 34 }), i]);
+  return t => { st.draw(t, at('sorprendente'), at('siete')); show(h, t, at('sustancias')); items.forEach(([e, i]) => show(e, t, at('milagros') + i * 1.1)); };
+});
+
+// 9. seven foods from our kitchen — and how to prepare them
+scene(svg, () => at('siete'), () => at('quinto'), g => {
+  const n = Text(g, '7', { x: 960, y: 230, size: 260, color: C.orange });
+  const sub = Text(g, 'ALIMENTOS DE NUESTRA COCINA', { x: 960, y: 400, size: 56 });
+  const row = FOODS.map(([f, s], i) => {
+    const c = el('g', {}, g), x = 200 + i * 253;
+    cut(c, f, x, 620, 200);
+    Text(c, s, { x, y: 770, size: s.length > 10 ? 24 : 30 });
+    return [c, x];
+  });
+  const c = Caption(g, 'Y CÓMO PREPARARLOS', { cy: 940, size: 56, hi: 'PREPARARLOS' });
+  return t => { pop(n, t, at('siete'), 960, 230); show(sub, t, at('siete') + 0.5); row.forEach(([e, x], i) => pop(e, t, at('siete') + 1 + i * 0.6, x, 650)); show(c, t, at('prepararlos')); };
+});
+
+// 10. watch numbers 5 and 7
+scene(svg, () => at('quinto'), () => at('pregunta'), g => {
+  const items = [[4, 'tomates', 'Nº 5'], [6, 'espinacas', 'Nº 7']].map(([i, f, s], k) => {
+    const c = el('g', {}, g), x = 620 + k * 680;
+    el('circle', { cx: x, cy: 460, r: 230, fill: C.white, stroke: C.orange, 'stroke-width': 12 }, c);
+    cut(c, f, x, 460, 300);
+    Chip(c, s, { cx: x, cy: 740, size: 56, fill: C.orange, color: C.white });
+    return [c, x];
+  });
+  const st = Stamp(g, '¡ATENCIÓN!', { cx: 960, cy: 150, size: 80, color: C.red });
+  const c = Caption(g, 'HÁBITOS QUE RESTAN BENEFICIOS', { cy: 930, size: 50, hi: 'RESTAN' });
+  return t => { st.draw(t, at('quinto')); items.forEach(([e, x], k) => pop(e, t, at('quinto') + 0.4 + k * 0.6, x, 460)); show(c, t, at('habitos')); };
+});
+
+// 11. comment: which Mediterranean food never misses at your table?
+scene(svg, () => at('pregunta'), () => at('comenzamos'), g => {
+  const st = panel(g, 'i_domingo', 'left', { focus: [0.5, 0.5] });
+  const b = el('g', {}, g);
+  Card(b, { x: 1230, y: 260, w: 620, h: 380, fill: C.white });
+  wrap(b, Icon.bubble, 1250, 280, 1.1);
+  Text(b, '¿QUÉ ALIMENTO', { x: 1560, y: 420, size: 50 }); Text(b, 'NUNCA FALTA', { x: 1560, y: 490, size: 56, color: C.orange }); Text(b, 'EN TU MESA?', { x: 1560, y: 560, size: 50 });
+  const cta = CTA(g, 'comment', 'COMENTA');
+  return t => { st.draw(t, at('pregunta'), at('comenzamos')); show(b, t, at('mesa') - 0.3); show(cta, t, at('comentarios')); };
+});
+
+// 12. we start with extra virgin olive oil
+scene(svg, () => at('comenzamos'), () => END + 1, g => {
+  const glow = el('circle', { cx: 960, cy: 470, r: 260, fill: C.amber, opacity: 0.25 }, g);
+  const b = cut(g, 'aove', 960, 470, 560);
+  const c = Caption(g, 'ACEITE DE OLIVA VIRGEN EXTRA', { cy: 900, size: 56, hi: 'VIRGEN EXTRA' });
+  return t => { set(glow, { r: 260 + 20 * Math.sin(t * 3) }); pop(b, t, at('comenzamos') + 0.5, 960, 470); show(c, t, at('aove0') - 0.3); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

@@ -1,0 +1,86 @@
+# Video 1 (audio/voice_v1.mp3, transcript/words_v1.json). label | phrase from the voice, in order.
+# --- intro
+pescado | comer pescado los domingos
+ensalada | preparar una buena ensalada
+errores | estar cometiendo errores
+contradiccion | Parece una contradicción
+mediterranea | la dieta mediterránea
+aprovechar | sepamos aprovechar
+arterias | Piensa en tus arterias
+caminos | red de caminos
+colesterol | el colesterol elevado
+paredes | deteriorar sus paredes
+sorprendente | algo sorprendente
+sustancias | contienen sustancias
+milagros | sin milagros
+siete | Hoy descubrirás siete alimentos
+corazon | cuidar tu corazón
+prepararlos | aprender a prepararlos
+quinto | al quinto y al séptimo
+habitos | ciertos hábitos cotidianos
+pregunta | quiero preguntarte algo
+mesa | nunca falta en tu mesa
+comentarios | Escríbelo en los comentarios
+comenzamos | Comenzamos con un ingrediente
+aove0 | El aceite de oliva virgen extra
+# --- punto 1
+p1 | Punto 1
+detalle | Hay un detalle
+no_todos | No todos los aceites
+curioso | lo más curioso
+espana | En España
+refinado | aceite refinado
+aove | conocido como
+oleico | ácido oleico
+saturadas | sustituye a las grasas saturadas
+polifenoles | También aporta polifenoles
+lipidos | proteger los lípidos
+comprenderlo | Para comprenderlo
+endotelio | llamada endotelio
+correctamente | Cuando esta capa funciona
+hipertension | factores como la hipertensión
+beneficios | puede aportar beneficios
+oxidativo | combatir el estrés oxidativo
+ldl | colesterol LDL
+placas | placas de aterosclerosis
+ningun | ningún aceite elimina
+error | existe un error frecuente
+humear | hasta que empieza a humear
+temperaturas | las temperaturas excesivas
+crudo | añadirlo en crudo
+envases | elegir envases oscuros
+calorias | concentrada en calorías
+moderadas | cantidades moderadas
+utilizas | Utilizas aceite de oliva
+cuentamelo | Cuéntamelo en los comentarios
+nueces0 | las nueces y las almendras
+# --- punto 2
+p2 | Punto 2
+despues | Después del aceite de oliva
+hablamos | Hablamos de las nueces
+curiosidad | aparece una curiosidad
+aperitivos | aperitivos menos saludables
+ala | ácido alfa
+almendras_c | Las almendras, por su parte
+magnesio | como el magnesio
+arginina | la L arginina
+oxido | producción de óxido nítrico
+manguera | Piensa en una manguera
+presion | adaptarse correctamente a la presión
+complejo | mucho más complejo
+trampa | una trampa bastante habitual
+compran | compran frutos secos
+fritas | almendras fritas
+sal | El exceso de sal
+recomendable | la elección más recomendable
+naturales | Nueces naturales
+treinta | Una ración aproximada de 30
+desayuno | añadirlas al desayuno
+patatas | patatas fritas
+grandes | no necesitas comer grandes
+regularidad | consumirlos con regularidad
+suscribete | suscríbete al canal
+siguiente | Y ahora pasamos a un alimento
+sardinas | Las sardinas, los boquerones
+informativo | Este contenido es informativo
+padeces | Si padeces alguna enfermedad

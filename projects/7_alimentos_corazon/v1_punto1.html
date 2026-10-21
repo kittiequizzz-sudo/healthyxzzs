@@ -1,0 +1,135 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v1.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · PUNTO 1 — aceite de oliva virgen extra.
+window.START = at('p1') - 0.3;
+window.END = at('p2') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over the raw-oil toast
+scene(svg, () => START, () => at('detalle'), g => {
+  const st = panel(g, 'a_tostada', 'full', { focus: [0.5, 0.35] });
+  const k = Kicker(g, 'ALIMENTO 1', 'ACEITE DE OLIVA VIRGEN EXTRA');
+  return t => { st.draw(t, START, at('detalle')); show(k, t, START + 0.3); };
+});
+
+// 1. not all oils are the same
+scene(svg, () => at('detalle'), () => at('espana'), g => {
+  const st = panel(g, 'a_compara', 'full', { focus: [0.45, 0.35], zoom: 0.14 });
+  const c = Caption(g, 'NO TODOS SON IGUALES', { cy: 960, size: 60, hi: 'IGUALES' });
+  return t => { st.draw(t, at('detalle'), at('espana')); show(c, t, at('no_todos')); };
+});
+
+// 2. refined vs extra virgin
+scene(svg, () => at('espana'), () => at('aove'), g => {
+  const a = el('g', {}, g), b = el('g', {}, g);
+  cut(a, 'refinado', 600, 470, 520); Chip(a, 'REFINADO', { cx: 600, cy: 800, size: 48, fill: C.grey, color: C.white });
+  cut(b, 'aove', 1320, 470, 520); Chip(b, 'VIRGEN EXTRA', { cx: 1320, cy: 800, size: 48, fill: C.green, color: C.white });
+  const vs = Text(g, 'VS', { x: 960, y: 470, size: 90, color: C.orange });
+  const c = Caption(g, 'LA DIFERENCIA IMPORTA', { cy: 960, size: 54, hi: 'IMPORTA' });
+  return t => { show(a, t, at('espana') + 0.3); show(vs, t, at('espana') + 0.8); show(b, t, at('espana') + 1.3); show(c, t, at('refinado')); };
+});
+
+// 3. oleic acid (when replacing saturated fat) + polyphenols that protect blood lipids
+scene(svg, () => at('aove'), () => at('comprenderlo'), g => {
+  const glow = el('circle', { cx: 450, cy: 520, r: 260, fill: C.amber, opacity: 0.22 }, g);
+  cut(g, 'aove', 450, 520, 600);
+  const items = [['ÁCIDO OLEICO', 'oleico', C.amber], ['SI SUSTITUYE GRASAS SATURADAS', 'saturadas', C.white], ['POLIFENOLES · HIDROXITIROSOL', 'polifenoles', C.green], ['PROTEGEN LOS LÍPIDOS DE LA OXIDACIÓN', 'lipidos', C.white]]
+    .map(([s, k, col], i) => [Chip(g, s, { cx: 1260, cy: 240 + i * 170, size: s.length > 26 ? 30 : 38, fill: col, color: col === C.green ? C.white : C.ink }), k]);
+  const src2 = Source(g, 'Polifenoles del aceite de oliva y lípidos sanguíneos: declaración autorizada EFSA 2011');
+  return t => { set(glow, { opacity: 0.18 + 0.08 * Math.sin(t * 3) }); items.forEach(([c, k]) => show(c, t, at(k))); show(src2, t, at('lipidos')); };
+});
+
+// 4. the endothelium; hypertension, smoking and high cholesterol damage it
+scene(svg, () => at('comprenderlo'), () => at('beneficios'), g => {
+  const a = panel(g, 'm_sana', 'left', { focus: [0.5, 0.5] });
+  const b = panel(g, 'm_placa', 'left', { focus: [0.5, 0.5] });
+  const e = Chip(g, 'ENDOTELIO', { cx: 1510, cy: 230, size: 56, fill: C.ink, color: C.amber });
+  const e2 = Text(g, 'regula el flujo y la dilatación', { x: 1510, y: 330, size: 32, weight: 800 });
+  const ok = Mark(g, 'CIRCULACIÓN SALUDABLE', true, { cx: 1510, cy: 440, size: 34 });
+  const bad = ['HIPERTENSIÓN', 'TABACO', 'COLESTEROL ALTO'].map((s, i) => [Chip(g, s, { cx: 1510, cy: 590 + i * 130, size: 40, fill: C.red, color: C.white }), i]);
+  return t => {
+    const k = E.inOut(prog(t, at('hipertension') - 0.2, at('hipertension') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('comprenderlo'), at('hipertension')); b.draw(t, at('hipertension'), at('beneficios'));
+    show(e, t, at('endotelio')); show(e2, t, at('endotelio') + 0.8); show(ok, t, at('correctamente'));
+    bad.forEach(([c, i]) => show(c, t, at('hipertension') + i * 1.2));
+  };
+});
+
+// 5. oxidative stress, oxidised LDL and plaque — no oil removes plaques
+scene(svg, () => at('beneficios'), () => at('error'), g => {
+  const st = panel(g, 'm_ldl', 'left', { focus: [0.6, 0.5] });
+  const a = Chip(g, 'MENOS ESTRÉS OXIDATIVO', { cx: 1510, cy: 240, size: 40, fill: C.green, color: C.white });
+  const b = Chip(g, 'LDL OXIDADO → PLACA', { cx: 1510, cy: 400, size: 42, fill: C.amber });
+  const s = Stamp(g, 'NO ELIMINA LAS PLACAS', { cx: 1500, cy: 620, size: 46, color: C.red });
+  const m = Chip(g, 'NI SUSTITUYE TRATAMIENTOS', { cx: 1500, cy: 780, size: 36 });
+  const src2 = Source(g, 'Dieta mediterránea con AOVE: menos eventos cardiovasculares · PREDIMED, NEJM 2018');
+  return t => { st.draw(t, at('beneficios'), at('error')); show(src2, t, at('beneficios') + 0.5); show(a, t, at('oxidativo')); show(b, t, at('ldl')); s.draw(t, at('ningun')); show(m, t, at('ningun') + 1.5); };
+});
+
+// 6. the error: heating oil until it smokes, reusing it
+scene(svg, () => at('error'), () => at('crudo'), g => {
+  const a = panel(g, 'i_humo', 'full', { focus: [0.6, 0.35], zoom: 0.12 });
+  const b = panel(g, 'a_reusa', 'full', { focus: [0.4, 0.4], zoom: 0.12 });
+  const c1 = Caption(g, 'ERROR: CALENTAR HASTA HUMEAR', { cy: 960, size: 50, hi: 'HASTA HUMEAR', hiColor: '#FF7A6E' });
+  const c2 = Caption(g, 'CALOR EXCESIVO Y REUTILIZAR', { cy: 960, size: 50, hi: 'REUTILIZAR', hiColor: '#FF7A6E' });
+  return t => {
+    const k = E.inOut(prog(t, at('temperaturas') - 0.2, at('temperaturas') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('error'), at('temperaturas')); b.draw(t, at('temperaturas'), at('crudo'));
+    show(c1, t, at('humear') - 0.3, at('temperaturas')); show(c2, t, at('temperaturas') + 0.3);
+  };
+});
+
+// 7. better raw: salad, cooked vegetables, wholegrain toast with tomato
+scene(svg, () => at('crudo'), () => at('envases'), g => {
+  const st = panel(g, 'a_tostada', 'left', { focus: [0.5, 0.4] });
+  const h = Chip(g, 'MEJOR EN CRUDO', { cx: 1510, cy: 230, size: 54, fill: C.green, color: C.white });
+  const items = [['rucula', 'ENSALADA'], ['espinacas', 'VERDURAS COCIDAS'], ['tomates', 'TOSTADA CON TOMATE']].map(([n, s], i) => {
+    const c = el('g', {}, g), y = 400 + i * 190;
+    cut(c, n, 1290, y, 150); Text(c, s, { x: 1390, y, size: 36, anchor: 'start' });
+    return [c, i];
+  });
+  return t => { st.draw(t, at('crudo'), at('envases')); show(h, t, at('crudo')); items.forEach(([c, i]) => show(c, t, at('crudo') + 1.5 + i * 1.5)); };
+});
+
+// 8. dark bottles, away from heat, check "virgen extra"; still calories → moderate amounts
+scene(svg, () => at('envases'), () => at('utilizas'), g => {
+  const st = panel(g, 'a_guarda', 'left', { focus: [0.6, 0.4] });
+  const items = ['ENVASE OSCURO', 'LEJOS DEL CALOR', '«VIRGEN EXTRA» EN LA ETIQUETA'].map((s, i) => [Mark(g, s, true, { cx: 1510, cy: 240 + i * 140, size: s.length > 20 ? 30 : 38 }), i]);
+  const cal = el('g', {}, g);
+  Card(cal, { x: 1210, y: 680, w: 600, h: 200, fill: C.amber });
+  Text(cal, 'MUCHAS CALORÍAS', { x: 1510, y: 750, size: 44 });
+  Text(cal, 'cantidades moderadas', { x: 1510, y: 820, size: 36, weight: 800 });
+  return t => { st.draw(t, at('envases'), at('utilizas')); items.forEach(([c, i]) => show(c, t, at('envases') + i * 1.8)); show(cal, t, at('calorias')); };
+});
+
+// 9. comment + bridge to nuts
+scene(svg, () => at('utilizas'), () => END + 1, g => {
+  const b = cut(g, 'aove', 480, 470, 520);
+  const q = el('g', {}, g);
+  Card(q, { x: 880, y: 250, w: 900, h: 300, fill: C.white });
+  wrap(q, Icon.bubble, 900, 270, 1.1);
+  Text(q, '¿AOVE TODOS LOS DÍAS?', { x: 1350, y: 400, size: 54 });
+  Text(q, 'cuéntalo en los comentarios', { x: 1350, y: 480, size: 34, weight: 800 });
+  const nx = el('g', {}, g);
+  cut(nx, 'nueces', 1160, 760, 260); cut(nx, 'almendras', 1520, 760, 260);
+  return t => { show(b, t, at('utilizas')); show(q, t, at('utilizas') + 0.3); show(nx, t, at('nueces0') - 0.3); };
+});
+
+// food strip on top (after the kicker)
+scene(svg, () => START + 2.5, () => END + 1, g => { FoodStrip(g, 0); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

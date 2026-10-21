@@ -110,7 +110,7 @@ Story({ name: 'SALUD 60+' }, [
     const c = NT(g, 'Beneficio real, pero no es magia', { x: 960, y: 620, size: 60, font: 'S', italic: true, anchor: 'middle' });
     return t => { h.draw(t, s.t0 + 0.2, s.t1); show(c, t, s.t0 + 1.2); };
   } },
-  { at: 'pagaron', type: 'photo', src: 'lab_rack', move: 'left', lt: ['Dato justo', 'Estudios pagados por los fabricantes, con revisión de expertos'] },
+  { at: 'pagaron', type: 'photo', src: own('p_laboratorio', 'lab_rack'), move: 'left', lt: ['Dato justo', 'Estudios pagados por los fabricantes, con revisión de expertos'] },
 
   // Clave 3: el precio
   { at: 'clave3', type: 'chapter', src: own('p_estomago', 'water_glass'), n: 3, title: 'El precio', sub: 'Lo que cuesta al cuerpo', sec: 'CLAVE 3' },
@@ -156,7 +156,7 @@ Story({ name: 'SALUD 60+' }, [
 
   // Beat 7 · matices
   { at: 'justa', type: 'photo', src: own('p_jardin', 'garden_hose'), move: 'in', lt: ['Para ser justa', 'Una gran ayuda para muchas personas mayores'], sec: 'LO QUE NO SABEMOS' },
-  { at: 'nosabemos', type: 'photo', src: 'lab_rack', move: 'right', cap: 'Pocas personas muy mayores o frágiles en los estudios' },
+  { at: 'nosabemos', type: 'photo', src: own('p_laboratorio', 'lab_rack'), move: 'right', cap: 'Pocas personas muy mayores o frágiles en los estudios' },
   { at: 'vigilar', type: 'photo', src: own('p_banda', 'senior_class'), move: 'in', lt: ['Vigilar de cerca', 'Comida · fuerza · peso'], source: 'Consenso EASO/EFAD/ECPO 2026' },
   { at: 'proteina', type: 'photo', src: own('p_plato_proteina', 'beans_market'), move: 'in', lt: ['Pregunte', '¿Cuánta proteína? ¿Qué ejercicio de fuerza?'] },
 

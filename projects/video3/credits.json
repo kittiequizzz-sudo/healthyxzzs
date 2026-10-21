@@ -258,5 +258,155 @@
    2112,
    1408
   ]
+ },
+ "carmen_arrive": {
+  "title": "Owner-generated illustration (AI)",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1189
+  ]
+ },
+ "carmen_ask": {
+  "title": "Owner-generated illustration (AI)",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1189
+  ]
+ },
+ "carmen_leave": {
+  "title": "Owner-generated illustration (AI)",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1189
+  ]
+ },
+ "p_banda": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1406
+  ]
+ },
+ "p_bascula": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1408
+  ]
+ },
+ "p_laboratorio": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1408
+  ]
+ },
+ "p_fiesta": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1410
+  ]
+ },
+ "p_ojos": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1409
+  ]
+ },
+ "p_parque": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1408
+  ]
+ },
+ "p_pesas": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1408
+  ]
+ },
+ "p_plato_proteina": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1409
+  ]
+ },
+ "p_tele": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1408
+  ]
+ },
+ "p_timbre": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1409
+  ]
+ },
+ "p_vecinas": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1409
+  ]
+ },
+ "p_lleno": {
+  "title": "Owner-sourced stock photo",
+  "author": "channel owner",
+  "license": "own",
+  "page": "",
+  "size": [
+   2112,
+   1410
+  ]
  }
 }

@@ -33,3 +33,6 @@ match the kickers. Sintrom: show it as an on-screen amber card during the potass
 `s_intro` → i_aceite i_humo i_tension i_domingo · `s_aove` → a_compara a_tostada a_reusa a_guarda ·
 `s_frutos` → f_salados f_punado f_yogur f_cambio · `m_arterias` → m_red m_sana m_placa m_ldl ·
 `s_pescado` → p_mercado p_espada p_horno p_frito.
+`s_legumbres` → l_embutido l_verduras l_garbanzos l_compartir · `s_tomate` → t_sofrito t_quemado t_bote t_hierbas ·
+`m_mecanismos` → m_manguera m_fibra m_licopeno m_mercurio · `s_ajo` → j_mortero j_espera j_cebolla j_sal ·
+`s_hojas` → h_mercado h_enjuague h_rucula h_farmacia.

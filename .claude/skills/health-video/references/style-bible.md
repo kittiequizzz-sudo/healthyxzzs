@@ -11,6 +11,21 @@ Prompts must repeat "no text" (the reference has baked-in captions) and keep cut
 cream. Cut poses with `cut_poses.py --skin none` so blue clothes aren't recoloured. Example prompts:
 `projects/levantarse_silla/order.md`.
 
+## Characters: diverse cast, adult-animation look (owner's rule from Oct 21 2026, replaces the fixed-character rule)
+- **No locked main character.** Each scene can show a different senior. Vary sex, skin tone (light to
+  dark brown), body type (thin, heavy, short, tall), hair (bald, grey bun, curly, dyed), glasses, cane,
+  hearing aid and clothes. Spell each person out in the panel description. A named story character
+  (e.g. "Antonio") stays the same person inside that story only.
+- **Adult cartoon, not a kids' cartoon:** real adult proportions (head ≈ 1/7 of the height), angular
+  faces with visible age (wrinkles, sagging skin, age spots), bold ink outlines, flat cel shading with
+  one shadow tone, muted grown-up palette, film-like framing (close-ups, low angles, over-the-shoulder).
+- **Strong expressions:** every panel names the emotion and the face that shows it ("teeth gritted,
+  brows knitted, one hand pushing on the knee"; "eyes wide, mouth open, hand on chest"; "big proud grin,
+  chin up"). No neutral faces unless the beat is calm.
+- Exercise pose sheets keep ONE person per sheet (the cutter aligns poses), but different exercises or
+  videos can use different people.
+- Prompt blocks to paste: `prompt-blocks.md`.
+
 ## Palette
 
 | Token  | Hex       | Use |

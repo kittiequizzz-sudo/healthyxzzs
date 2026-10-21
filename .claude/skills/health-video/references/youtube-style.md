@@ -14,7 +14,9 @@ video from now on. Read them before planning scenes.
   a 2-word chip.
 - A claim becomes a visual metaphor or a diagram (key/lock, shop with doors, factory, battery, curve),
   with the key number large.
-- Order enough drawings for this. Budget **about 1 drawing per 15–20 s of voice**. For a 10-minute video
+- Order enough drawings for this. Budget **about 1 drawing per 15–20 s of voice**, counted as
+  *different* scene panels: each panel appears at most twice in a video (owner, Oct 2026: "too much
+  repetition"). Per ~7-minute video that is ~5 scene sheets (2×2) + 1 pose sheet + 1 item sheet. For a 10-minute video
   that means about 4 scene sheets (2×2) + 1–2 item sheets. List each planned panel against its beat in
   `plan.md` before writing the order.
 

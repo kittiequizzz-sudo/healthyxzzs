@@ -52,16 +52,40 @@ Reference project: `projects/video1/` (10-min A1C video: `plan.js`, `cues.txt`, 
    (types in `news/engine.js`: photo, number, chapter, study, bars, checklist, warning, split, quote, clip,
    end, custom). The engine adds the bug, small print, wipes and the sound design. Run
    `python3 scripts/prep.py projects/<slug>` (photo sizes, voice length). Aim for a new picture or
-   graphic every 4–10 s; no shot under 1.5 s. **Owner feedback (video 3): a photo-only edit is boring.**
-   Give every mechanism, number or list its own 2D animated scene (`news/anim.js`, `type: 'custom'`):
-   roughly one animated scene for every two photo shots, timed to inner cues (add `label | phrase` lines
-   to `cues.txt` for the words the animation reacts to). Order the organ/object illustrations from the
-   owner (`projects/video3/anim_assets.md` is the template: one object on white, no text, shared style
-   block, first image attached as style reference), cut them out with
-   `python3 scripts/art.py projects/<slug> <image> <name> …` into `assets/art/`, then re-run prep.py;
-   until they arrive anim.js draws vector stand-ins.
-5. **Cues + QA (10 min):** `cues.mjs transcript/words.json cues.txt cues.js`; check order and gaps; render
+   graphic every 4–10 s; no shot under 1.5 s.
+   **Owner feedback (video 3), both are rules:**
+   - **Photo-only edits are boring, and reused photos make it worse.** No photo in more than 2 shots, never
+     the same photo in two shots in a row (owner photos too: `p_doctora` ended up in 4 shots of video 3).
+     When a photo would come back a third time, or a beat explains a mechanism, a number, a list or a
+     cause → effect, make it a 2D animated scene instead (`news/anim.js`, `type: 'custom'`). Target at least
+     one animated scene for every two photo shots. Time each change to its word: add `label | phrase`
+     lines to `cues.txt` for the words the animation reacts to.
+   - **Order the 2D illustrations at the same time as the photo order** (step 3), not after the first
+     render: `projects/video3/anim_assets.md` is the template (one object on white, no text, the shared
+     style block, first image attached as style reference). Cut them out with
+     `python3 scripts/art.py projects/<slug> [--keep] [--holes] [--tol N] <image> <name> …` into
+     `assets/art/`, re-run prep.py; until they arrive anim.js draws vector stand-ins. Look at every cut-out
+     on navy (white objects need `--tol 5`, enclosed white needs `--holes`, crossfading pairs `--keep`).
+5. **Cues + QA (15 min):** `cues.mjs transcript/words.json cues.txt cues.js`; check order and gaps; render
    one frame per shot into contact sheets and look at all of them (overflow, faces under text, labels).
+   Then `node scripts/plan_check.mjs projects/<slug>/index.html projects/<slug>/qa_plan`: fix every photo it
+   flags for reuse, and go through `qa_plan/motion*.jpg` (a frame 0.6 s after every cue inside every
+   animated shot) with the **motion accuracy checklist** below. Re-check after the owner's art arrives
+   (overlays drawn for the stand-in must be re-aligned to the real drawing).
+
+   **Motion accuracy checklist** (each animated frame, read against its voice line):
+   - *Science:* the motion shows what the voice says, in the right direction and order: what goes up or
+     down, which organ sends what to which (gut → GLP-1, pancreas → insulin only while sugar is high, less
+     glucagon → the liver releases less sugar), what starts and what stops. Nothing extra the script
+     doesn't claim; no motion that implies a cure, a size of effect or a speed the source doesn't give.
+   - *Numbers:* every count, grid, bar and meter matches the on-screen source (3 of 100 lights 3 dots).
+     Curves without real data carry "Curva ilustrativa" and no axis numbers.
+   - *Anatomy and objects:* the right organ, the right way up, the highlight on the right part (retina
+     at the back of the eye, the key in the keyhole, the swing pivot at the bell's handle), flows starting
+     and ending on the organ that sends and the one that receives.
+   - *Timing:* each change lands on its word (±0.3 s), not before the voice names it; nothing important
+     still entering when the shot cuts.
+   - *Legibility:* labels don't cover the moving part or each other, ≥ 40 px, readable at phone size.
 6. **Render (≈ 10–15 min for 10 min of video):**
    `node scripts/render_layers.mjs index.html out/video.mp4 --jobs 4 --grain 5 --crf 21 --maxrate 6M`
    then `python3 scripts/mix.py index.html out/video.mp4 out/final.mp4 --voice audio/voice.mp3`.
@@ -83,6 +107,7 @@ command line.
 - `news/news.js`: components (`NewsStage`, `Grade`, `Photo`, `Bug`, `LowerThird`, `Headline`,
   `BigNumber`, `Chapter`, `StudyCard`, `Quote`, `Bars`, `Split`, `Callout`, `Checklist`, `Wipe`,
   `SmallPrint`, `EndCard`). `news/fonts.css`: Oswald, Source Serif 4, Inter.
+- `scripts/plan_check.mjs`: photo-reuse report + motion QA frames (run before every render).
 - `news/anim.js`: 2D animated scenes (`Agenda`, `TwoDown`, `GutGLP1`, `PancreasKeys`, `OnlyWhenHigh`,
   `LiverTap`, `BrainFull`, `QuietBell`, `WeekCalendar`, `TwoBells`, `RustyLock`, `HeartKidneys`,
   `StomachSymptoms`, `ThyroidWarn`, `EyeRetina`, `FatMuscleBlocks`, `MuscleCurve`, `MuscleDoors`, `ThreeNo`,

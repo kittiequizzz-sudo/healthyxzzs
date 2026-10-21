@@ -99,3 +99,7 @@ parts split without re-encoding (`qa-checklist.md`), never by crushing the quali
 - Hook: step through the first 40 s at 2 s; every step looks different.
 - Readability: view a frame at phone size (480 px wide); every label still readable.
 - Honesty: no real network look, no urgency banners, no named AI experts.
+- Variety (owner, video 3): no photo in more than 2 shots or twice in a row; at least one 2D animated
+  scene for every two photo shots (`scripts/plan_check.mjs` reports both).
+- Motion accuracy: every animated change matches its voice line in science, numbers, anatomy and timing
+  (checklist in SKILL.md step 5; `plan_check.mjs` renders a frame after every cue).

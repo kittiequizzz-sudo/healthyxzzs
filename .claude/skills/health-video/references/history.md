@@ -34,3 +34,8 @@ re-encoding (`qa-checklist.md`).
 
 Lesson: moving a drawn human in code always reads as a puppet. Don't propose another
 animated-figure method unless the owner asks for one explicitly.
+
+Feedback after `levantarse_silla` (3 videos delivered, Oct 2026): no fixed main character any more, a
+diverse cast; more expressive, adult-animation faces (not a kids' cartoon); fewer repeated pictures
+(~1 different panel per 15–20 s, each used at most twice). Applies from the next video on; the three
+`levantarse_silla` videos stay as delivered. → `style-bible.md` (Characters), `prompt-blocks.md`.

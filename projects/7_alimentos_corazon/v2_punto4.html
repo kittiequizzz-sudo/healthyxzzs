@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v2.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · PUNTO 4 — legumbres.
+window.START = at('p4') - 0.3;
+window.END = at('p5') - 0.8;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over the vegetable lentil stew
+scene(svg, () => START, () => at('humildes'), g => {
+  const st = panel(g, 'l_verduras', 'full', { focus: [0.5, 0.45] });
+  const k = Kicker(g, 'ALIMENTO 4', 'LEGUMBRES');
+  return t => { st.draw(t, START, at('humildes')); show(k, t, START + 0.3); };
+});
+
+// 1. lentils, chickpeas, beans — on Spanish tables for generations
+scene(svg, () => at('humildes'), () => at('fibra'), g => {
+  const items = [['lentejas', 'LENTEJAS', 400], ['garbanzos', 'GARBANZOS', 960], ['alubias', 'ALUBIAS', 1520]].map(([n, s, x]) => {
+    const c = el('g', {}, g); cut(c, n, x, 460, 380); Chip(c, s, { cx: x, cy: 720, size: 44, fill: C.amber }); return [c, x];
+  });
+  const h = Caption(g, 'HUMILDES… Y MUY INTERESANTES', { cy: 140, size: 52, hi: 'INTERESANTES' });
+  const g2 = Caption(g, 'DURANTE GENERACIONES', { cy: 900, size: 50, hi: 'GENERACIONES' });
+  return t => { show(h, t, at('humildes')); items.forEach(([e, x], i) => pop(e, t, at('humildes') + 1 + i * 0.7, x, 500)); show(g2, t, at('generaciones')); };
+});
+
+// 2. soluble fibre: a gel that traps cholesterol; bile acids loop → LDL ↓
+scene(svg, () => at('fibra'), () => at('no_terminan'), g => {
+  const st = panel(g, 'm_fibra', 'left', { focus: [0.5, 0.5] });
+  const h = Chip(g, 'FIBRA SOLUBLE', { cx: 1510, cy: 200, size: 52, fill: C.green, color: C.white });
+  const steps = [['FORMA UN GEL', 'gelatinosa'], ['MENOS COLESTEROL ABSORBIDO', 'gelatinosa'], ['SE ELIMINAN ÁCIDOS BILIARES', 'biliares'], ['EL HÍGADO USA COLESTEROL', 'biliares']].map(([s, k], i) => [Chip(g, s, { cx: 1510, cy: 330 + i * 110, size: 28 }), k, i]);
+  const res = el('g', {}, g);
+  Card(res, { x: 1220, y: 790, w: 580, h: 170, fill: C.white });
+  Text(res, 'LDL ↓ ≈ 5 %', { x: 1510, y: 860, size: 56, color: C.green });
+  Text(res, 'con ~1 ración de legumbres al día', { x: 1510, y: 920, size: 24, weight: 800 });
+  const s = Source(g, 'Metaanálisis de 26 ensayos · Ha y col., CMAJ 2014');
+  return t => { st.draw(t, at('fibra'), at('no_terminan')); show(h, t, at('fibra')); steps.forEach(([c, k, i]) => show(c, t, at(k) + (i % 2) * 2.5)); show(res, t, at('ldl')); show(s, t, at('ldl') + 0.5); };
+});
+
+// 3. plant protein, minerals, slow carbs; satiety and glucose control
+scene(svg, () => at('no_terminan'), () => at('error'), g => {
+  const st = panel(g, 'l_garbanzos', 'left', { focus: [0.5, 0.5] });
+  const items = ['PROTEÍNAS VEGETALES', 'MINERALES', 'CARBOHIDRATOS LENTOS'].map((s, i) => [Mark(g, s, true, { cx: 1510, cy: 220 + i * 140, size: 36 }), i]);
+  const a = Chip(g, 'MÁS SACIEDAD', { cx: 1510, cy: 680, size: 44, fill: C.green, color: C.white });
+  const b = Chip(g, 'MEJOR CONTROL DE LA GLUCOSA', { cx: 1510, cy: 810, size: 32, fill: C.green, color: C.white });
+  return t => { st.draw(t, at('no_terminan'), at('error')); items.forEach(([c, i]) => show(c, t, at('proteinas') + i * 1.2)); show(a, t, at('saciedad')); show(b, t, at('glucosa')); };
+});
+
+// 4. the error: lentils with chorizo, morcilla, panceta → too much salt and saturated fat
+scene(svg, () => at('error'), () => at('solucion'), g => {
+  const st = panel(g, 'l_embutido', 'left', { focus: [0.4, 0.55] });
+  const h = Chip(g, 'ERROR FRECUENTE', { cx: 1510, cy: 200, size: 50, fill: C.red, color: C.white });
+  const e = cut(g, 'embutido', 1510, 420, 320);
+  const a = Mark(g, 'DEMASIADA SAL', false, { cx: 1510, cy: 680, size: 40 });
+  const b = Mark(g, 'GRASAS SATURADAS', false, { cx: 1510, cy: 810, size: 40 });
+  return t => { st.draw(t, at('error'), at('solucion')); show(h, t, at('error')); pop(e, t, at('chorizo'), 1510, 420); show(a, t, at('sal')); show(b, t, at('sal') + 1); };
+});
+
+// 5. the solution: lentils with vegetables + a drizzle of AOVE; chickpea salad in summer
+scene(svg, () => at('solucion'), () => at('proponerte'), g => {
+  const a = panel(g, 'l_verduras', 'left', { focus: [0.5, 0.5] });
+  const b = panel(g, 'l_garbanzos', 'left', { focus: [0.5, 0.5] });
+  const h = Chip(g, 'NO ABANDONES TUS GUISOS', { cx: 1510, cy: 200, size: 38, fill: C.green, color: C.white });
+  const veg = el('g', {}, g);
+  [['tomates', 1320, 420], ['cebolla', 1520, 420], ['aove', 1720, 420]].forEach(([n, x, y]) => cut(veg, n, x, y, 170));
+  Text(veg, 'zanahoria · pimiento · cebolla', { x: 1510, y: 560, size: 30, weight: 800 }); Text(veg, 'tomate · chorrito de AOVE', { x: 1510, y: 605, size: 30, weight: 800 });
+  const v = Chip(g, 'VARIAS VECES POR SEMANA', { cx: 1510, cy: 800, size: 40, fill: C.ink, color: C.amber });
+  return t => {
+    const k = E.inOut(prog(t, at('garbanzos') - 0.2, at('garbanzos') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('solucion'), at('garbanzos')); b.draw(t, at('garbanzos'), at('proponerte'));
+    show(h, t, at('solucion')); show(veg, t, at('zanahoria')); show(v, t, at('varias'));
+  };
+});
+
+// 6. share this video with someone who overdoes the chorizo
+scene(svg, () => at('proponerte'), () => at('tomate0'), g => {
+  const st = panel(g, 'l_compartir', 'full', { focus: [0.45, 0.4], zoom: 0.12 });
+  const cta = CTA(g, 'comment', 'COMPARTE ESTE VÍDEO');
+  return t => { st.draw(t, at('proponerte'), at('tomate0')); show(cta, t, at('comparte')); };
+});
+
+// 7. bridge: tomato — better absorption when cooked well
+scene(svg, () => at('tomate0'), () => END + 1, g => {
+  const a = cut(g, 'tomates', 700, 480, 420), b = cut(g, 'sofrito', 1260, 500, 440);
+  const c = Caption(g, 'COCINADO CORRECTAMENTE', { cy: 860, size: 56, hi: 'CORRECTAMENTE' });
+  return t => { pop(a, t, at('tomate0') + 0.5, 700, 480); pop(b, t, at('absorcion'), 1260, 500); show(c, t, at('absorcion') + 1); };
+});
+
+scene(svg, () => START + 2.5, () => END + 1, g => { FoodStrip(g, 3); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

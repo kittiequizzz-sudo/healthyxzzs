@@ -1,0 +1,147 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v2.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · PUNTO 3 — pescado azul pequeño (opens video 2, quick cuts for the first ~25 s).
+window.START = 0;
+window.END = at('p4') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const H = { hard: true };
+
+// 0. part 2 kicker over the fish market
+scene(svg, () => -1, () => at('sabias'), g => {
+  const st = panel(g, 'p_mercado', 'full', { focus: [0.5, 0.5], zoom: 0.14 });
+  const k = Kicker(g, 'PARTE 2 · ALIMENTO 3', 'PESCADO AZUL PEQUEÑO');
+  return t => { st.draw(t, 0, at('sabias')); show(k, t, 0.3); };
+}, H);
+
+// 1. cheap fish, great allies
+scene(svg, () => at('sabias'), () => at('salmon'), g => {
+  const st = panel(g, 'p_mercado', 'full', { focus: [0.25, 0.4], zoom: 0.3 });
+  const c = Caption(g, 'BARATOS… Y GRANDES ALIADOS', { cy: 960, size: 56, hi: 'GRANDES ALIADOS' });
+  return t => { st.draw(t, at('sabias'), at('salmon')); show(c, t, at('sabias') + 1); };
+}, H);
+
+// 2. not expensive salmon or exotic products
+scene(svg, () => at('salmon'), () => at('tres'), g => {
+  const a = Mark(g, 'SALMÓN CARO', false, { cx: 600, cy: 420, size: 56 });
+  const b = Mark(g, 'PRODUCTOS EXÓTICOS', false, { cx: 1320, cy: 600, size: 56 });
+  const c = cut(g, 'sardinas', 960, 860, 320);
+  return t => { show(a, t, at('salmon')); show(b, t, at('salmon') + 1.2); pop(c, t, at('salmon') + 0.5, 960, 860); };
+}, H);
+
+// 3. sardines, anchovies and mackerel
+scene(svg, () => at('tres'), () => at('omega'), g => {
+  const fish = [['sardinas', 'SARDINAS', 400], ['boquerones', 'BOQUERONES', 960], ['caballa', 'CABALLA', 1520]].map(([n, s, x]) => {
+    const c = el('g', {}, g); cut(c, n, x, 470, 420); Chip(c, s, { cx: x, cy: 760, size: 44, fill: C.blueDark, color: C.white }); return [c, x];
+  });
+  const cap = Caption(g, 'PESCADOS PEQUEÑOS, GRANDES NUTRIENTES', { cy: 940, size: 46, hi: 'GRANDES' });
+  return t => { fish.forEach(([e, x], i) => pop(e, t, at('sardinas') + i * 0.7, x, 520)); show(cap, t, at('pequenos')); };
+}, H);
+
+// 4. omega-3 EPA and DHA, used directly — unlike the plant ALA in walnuts
+scene(svg, () => at('omega'), () => at('triglic'), g => {
+  const L = el('g', {}, g), R = el('g', {}, g);
+  Card(R, { x: 1000, y: 180, w: 780, h: 600, fill: C.white }); cut(R, 'sardinas', 1390, 380, 320);
+  Chip(R, 'EPA + DHA', { cx: 1390, cy: 620, size: 60, fill: C.blueDark, color: C.white });
+  Mark(R, 'USO DIRECTO', true, { cx: 1390, cy: 720, size: 38 });
+  Card(L, { x: 140, y: 180, w: 780, h: 600, fill: C.white }); cut(L, 'nueces', 530, 380, 280);
+  Chip(L, 'ALA (VEGETAL)', { cx: 530, cy: 620, size: 50, fill: C.blueFar });
+  Text(L, 'el cuerpo lo convierte poco', { x: 530, y: 720, size: 32, weight: 800 });
+  const h = Text(g, 'OMEGA-3', { x: 960, y: 110, size: 80, color: C.orange });
+  return t => { show(h, t, at('omega')); show(R, t, at('omega') + 0.5); show(L, t, at('vegetal')); };
+});
+
+// 5. triglycerides ↓, inflammation regulation
+scene(svg, () => at('triglic'), () => at('ventaja'), g => {
+  const ch = el('g', {}, g);
+  Card(ch, { x: 300, y: 180, w: 760, h: 620, fill: C.white });
+  Text(ch, 'TRIGLICÉRIDOS', { x: 680, y: 250, size: 48 });
+  el('line', { x1: 380, y1: 720, x2: 980, y2: 720, stroke: C.ink, 'stroke-width': 6 }, ch);
+  const b1 = el('rect', { x: 460, width: 180, rx: 10, fill: C.red, stroke: C.ink, 'stroke-width': 5 }, ch);
+  const b2 = el('rect', { x: 720, width: 180, rx: 10, fill: C.green, stroke: C.ink, 'stroke-width': 5 }, ch);
+  Text(ch, 'ALTOS', { x: 550, y: 760, size: 32 }); Text(ch, 'CON OMEGA-3', { x: 810, y: 760, size: 30 });
+  const r = Chip(g, '↑ RIESGO CARDIOVASCULAR', { cx: 1440, cy: 330, size: 40, fill: C.red, color: C.white });
+  const i = Chip(g, 'REGULA LA INFLAMACIÓN', { cx: 1440, cy: 530, size: 40, fill: C.green, color: C.white });
+  const note = Text(g, 'esquema, no cifras', { x: 680, y: 840, size: 26, weight: 700, color: '#7A7468' });
+  return t => {
+    const u = E.out(prog(t, at('triglic'), at('triglic') + 1.2)), d = E.inOut(prog(t, at('triglic') + 1.5, at('triglic') + 3));
+    set(b1, { y: 720 - 380 * u, height: 380 * u }); set(b2, { y: 720 - 240 * d, height: 240 * d });
+    show(ch, t, at('triglic')); show(note, t, at('triglic') + 1); show(r, t, at('riesgo')); show(i, t, at('inflamatorios'));
+  };
+});
+
+// 6. less mercury than swordfish
+scene(svg, () => at('ventaja'), () => at('importa'), g => {
+  const a = panel(g, 'p_espada', 'left', { focus: [0.5, 0.4] });
+  const b = panel(g, 'm_mercurio', 'left', { focus: [0.5, 0.5] });
+  const c1 = Chip(g, 'MENOS MERCURIO', { cx: 1510, cy: 300, size: 50, fill: C.green, color: C.white });
+  const c2 = Text(g, 'que el pez espada', { x: 1510, y: 400, size: 40, weight: 800 });
+  const c3 = Mark(g, 'PESCADO AZUL CON REGULARIDAD', true, { cx: 1510, cy: 600, size: 30 });
+  return t => {
+    const k = E.inOut(prog(t, at('espada') + 0.5, at('espada') + 1));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('ventaja'), at('espada') + 1); b.draw(t, at('espada') + 1, at('importa'));
+    show(c1, t, at('mercurio')); show(c2, t, at('espada')); show(c3, t, at('regularidad'));
+  };
+});
+
+// 7. how you cook it matters: oven with lemon vs battered and fried in reused oil
+scene(svg, () => at('importa'), () => at('semana'), g => {
+  const a = PanelTile(g, 'p_horno', { x: 90, y: 230, w: 820, h: 540 });
+  const b = PanelTile(g, 'p_frito', { x: 1010, y: 230, w: 820, h: 540 });
+  const ma = Mark(g, 'AL HORNO, CON LIMÓN', true, { cx: 500, cy: 860, size: 40 });
+  const mb = Mark(g, 'REBOZADO Y FRITO', false, { cx: 1420, cy: 860, size: 40 });
+  const h = Caption(g, 'LA PREPARACIÓN IMPORTA', { cy: 110, size: 56, hi: 'IMPORTA' });
+  const f = Chip(g, '+ CALORÍAS · GRASAS DAÑADAS · ACEITE REUTILIZADO', { cx: 1420, cy: 980, size: 26, fill: C.amber });
+  return t => {
+    show(h, t, at('importa')); show(a.g, t, at('horno')); show(ma, t, at('horno') + 0.4); show(b.g, t, at('rebozado')); show(mb, t, at('rebozado') + 0.4); show(f, t, at('fritura'));
+    a.st.draw(t, at('horno'), at('semana')); b.st.draw(t, at('rebozado'), at('semana'));
+  };
+});
+
+// 8. 2–3 times a week, including oily fish; oven mackerel, grilled sardines, anchovies with vegetables
+scene(svg, () => at('semana'), () => at('suscribete'), g => {
+  const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D'], on = [1, 3, 5];
+  const cal = days.map((d, i) => {
+    const c = el('g', {}, g), x = 230 + i * 215;
+    Card(c, { x, y: 150, w: 180, h: 200, fill: C.white });
+    Text(c, d, { x: x + 90, y: 200, size: 50 });
+    if (on.includes(i)) cut(c, 'sardinas', x + 90, 290, 120);
+    return c;
+  });
+  const a = Chip(g, '2 – 3 VECES POR SEMANA', { cx: 960, cy: 450, size: 52, fill: C.blueDark, color: C.white });
+  const ideas = [['caballa', 'CABALLA AL HORNO'], ['sardinas', 'SARDINAS A LA PLANCHA'], ['boquerones', 'BOQUERONES CON VERDURAS']].map(([n, s], i) => {
+    const c = el('g', {}, g), x = 360 + i * 600; cut(c, n, x, 680, 220); Text(c, s, { x, y: 850, size: 30 }); return c;
+  });
+  return t => { cal.forEach((c, i) => show(c, t, at('semana') + i * 0.1)); show(a, t, at('semana') + 0.6); ideas.forEach((c, i) => show(c, t, at('plancha') - 1 + i * 1.2)); };
+});
+
+// 9. subscribe + bell
+scene(svg, () => at('suscribete'), () => at('siguiente'), g => {
+  const st = panel(g, 'p_horno', 'full', { focus: [0.4, 0.4] });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE · CAMPANITA');
+  return t => { st.draw(t, at('suscribete'), at('siguiente')); show(cta, t, at('suscribete')); };
+});
+
+// 10. bridge: no need for meat every day — humble lentils
+scene(svg, () => at('siguiente'), () => END + 1, g => {
+  const a = Mark(g, 'CARNE TODOS LOS DÍAS', false, { cx: 960, cy: 220, size: 52 });
+  const b = cut(g, 'lentejas', 960, 560, 440);
+  const c = Caption(g, 'UNAS HUMILDES LENTEJAS', { cy: 900, size: 56, hi: 'LENTEJAS' });
+  return t => { show(a, t, at('carne')); pop(b, t, at('carne') + 1, 960, 560); show(c, t, at('lentejas0') + 0.5); };
+});
+
+scene(svg, () => at('sabias') + 0.3, () => END + 1, g => { FoodStrip(g, 2); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

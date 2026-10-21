@@ -1,0 +1,78 @@
+# Video 2 (audio/voice_v2.mp3, transcript/words_v2.json). label | phrase from the voice, in order.
+# --- punto 3 (opens the video)
+p3title | Pescado azul pequeño
+sabias | Sabías que algunos
+salmon | No hablamos del salmón
+tres | Hablamos de tres alimentos
+sardinas | Las sardinas, los boquerones
+pequenos | Pescados pequeños que esconden
+omega | Su principal ventaja
+epa | el EPA y el DHA
+vegetal | A diferencia de lo Omega
+directamente | pueden ser utilizadas directamente
+triglic | reducir los triglicéridos
+riesgo | puede aumentar el riesgo
+inflamatorios | procesos inflamatorios
+ventaja | Pero existe otra ventaja
+mercurio | acumular menos mercurio
+espada | como el pez espada
+regularidad | con regularidad
+importa | la forma de prepararlos importa
+horno | sardinas al horno
+rebozado | pescado rebozado
+fritura | La fritura puede aumentar
+reutilizamos | cuando reutilizamos
+semana | entre dos y tres veces por semana
+plancha | sardinas a la plancha
+suscribete | suscríbete al canal
+siguiente | Porque el siguiente alimento
+carne | No necesitas comer carne
+lentejas0 | unas humildes lentejas
+# --- punto 4
+p4 | Legumbres. El secreto
+humildes | Después de descubrir los beneficios
+hablamos | Hablamos de las lentejas
+generaciones | Durante generaciones
+fibra | la fibra soluble
+gelatinosa | sustancia gelatinosa
+biliares | fabricar nuevos ácidos biliares
+ldl | colesterol LDL
+no_terminan | Pero sus beneficios no terminan
+proteinas | proteínas vegetales
+saciedad | favorecen la saciedad
+glucosa | control de la glucosa
+error | existe un error muy frecuente
+chorizo | chorizo, morcilla
+sal | demasiada sal y grasas saturadas
+solucion | La solución no consiste
+zanahoria | lentejas con zanahoria
+garbanzos | ensalada de garbanzos
+varias | Incluir legumbres varias veces
+proponerte | quiero proponerte algo
+comparte | comparte este vídeo
+favorito | su plato favorito
+tomate0 | Porque nuestro siguiente protagonista
+absorcion | El tomate puede ofrecer
+# --- punto 5
+p5 | TOMATE COCINADO
+toda_vida | Puede que lleves toda la vida
+cocinado | el tomate cocinado permite
+sofrito | El sofrito
+licopeno | se llama licopeno
+carotenoides | Pertenece a la familia
+fascinante | algo fascinante
+calor | se deterioran con el calor
+liberacion | facilitar la liberación
+aceite | Y cuando añadimos una pequeña cantidad
+no_cura | Eso no significa
+ambos | Ambos tienen ventajas
+error5 | existe un error habitual
+quemen | los ingredientes se quemen
+industriales | salsas industriales
+alternativa | La alternativa es sencilla
+lentamente | Cocina lentamente
+hierbas | Añade hierbas aromáticas
+complemento | Así puedes convertir
+ajo | el ajo y la cebolla
+informativo | Este contenido es informativo
+padeces | Si padeces alguna enfermedad

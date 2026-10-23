@@ -1,0 +1,309 @@
+# One timeline: audio/voice_full.mp3, transcript/words.json. label | phrase from the voice, in order.
+# --- intro
+existe | Existe otro músculo
+piernas0 | escondido en tus piernas
+sorprendente | Y lo sorprendente
+silla0 | sin levantarte de la silla
+piensa | Piensa en lo que haces
+recoges | recojes la mesa
+sofa0 | te acomodas en el sofá
+descansar | el momento perfecto para descansar
+inmovil0 | Sin embargo, mientras permanece
+impulsar | apenas ayudan a impulsar
+organismo0 | tu organismo sigue trabajando
+cincuenta | A partir de los 50
+horas0 | pasar demasiadas horas sentado
+circ0 | para tu circulación
+interesante0 | Pero aquí viene lo interesante
+kilometros | salir a caminar kilómetros
+agotadores | ejercicios agotadores
+moverte0 | para empezar a moverte
+profundo0 | En lo más profundo
+soleo0 | se encuentra el músculo soleo
+segundo0 | una especie de segundo corazón
+investigaciones0 | Y determinadas investigaciones
+glucosa0 | el metabolismo de la glucosa
+hoy | Hoy descubrirás
+circ1 | tan interesante para tu circulación
+cerebro0 | con el bienestar de tu cerebro
+quedate | Quédate hasta el final
+correctamente0 | cómo hacerlo correctamente
+error0 | y el error que conviene evitar
+# --- punto 1
+p1 | Punto 1
+cada_noche | Cada noche, millones de personas
+terminan | Terminan de cenar
+dos_horas | una o dos horas
+encienden | Encienden la televisión
+movil | consultan el móvil
+cansancio | el cansancio del día
+desconocen | Lo que muchos desconocen
+circ_piernas | la circulación de las piernas
+gestiona | gestiona la glucosa
+comprenderlo | Para comprenderlo
+cuando_comes | Cuando comes
+mas_sangre | necesita más sangre
+hidratos | los hidratos de carbono
+glucosa1 | se transforman en glucosa
+torrente | al torrente sanguíneo
+pancreas | Tu páncreas libera insulina
+celulas | su entrada en las células
+energia1 | utilizarse como energía
+normal | Es un proceso completamente normal
+problema | El problema aparece
+resistencia | resistencia a la insulina
+detalle1 | Pero existe otro detalle
+sentado1 | Mientras permaneces sentado
+pantorrillas1 | los músculos de las pantorrillas
+regresar | La sangre debe regresar
+gravedad1 | venciendo la gravedad
+valvulas1 | unas válvulas dentro de las venas
+contracciones1 | de las contracciones
+mueves | Cuando mueves las piernas
+comprimen1 | esos músculos comprimen
+carretera | Piensa en una carretera
+fluidez | el tráfico avanza con fluidez
+desaparece | cuando desaparece parte del impulso
+lenta | puede volverse más lenta
+parecido | Algo parecido ocurre
+no_fallando | eso no significa que tu corazón
+pesadas | sensación de piernas pesadas
+no_siempre | No siempre indica una enfermedad
+hinchazon1 | una hinchazón persistente
+dolor1 | Si aparece dolor
+valoracion1 | necesitas valoración médica
+buena | La buena noticia
+sencillos1 | extraordinariamente sencillos
+uno_activa | Y uno de ellos activa
+fascinante1 | un papel fascinante
+comentarios1 | cuéntame en los comentarios
+sueles | Sueles quedarte sentado
+moverte1 | prefieres moverte un poco
+# --- punto 2
+p2 | Punto 2
+ahora2 | Ahora viene una de las partes
+debajo | Justo debajo de los músculos
+nombrar | escuchado nombrar
+soleo2 | el soleo
+desapercibido | Aunque pasa desapercibido
+de_pie | cuando permaneces de pie
+caminas | caminas
+pies2 | movimientos con los pies
+funcion2 | Y su función resulta
+circ2 | de circulación sanguínea
+metabolica2 | y salud metabólica
+recorrido | piensa en el recorrido
+impulsa | El corazón impulsa la sangre
+regresar2 | necesita regresar desde las piernas
+desafio | Y aquí aparece un desafío
+gravedad2 | Debe hacerlo venciendo la gravedad
+afortunadamente | Afortunadamente
+contraen | se contraen
+comprimen2 | comprimen las venas profundas
+valvulas2 | las válvulas venosas
+por_eso | Por eso
+segundo2 | como el segundo corazón
+no_porque | No porque puedan sustituir
+bomba | una bomba muscular auxiliar
+participa | Y el soleo participa
+tobillo2 | suaves del tobillo
+capacidad | Pero su capacidad no termina
+fibras | fibras musculares de contracción lenta
+tipo1 | fibras de tipo 1
+oxigeno | trabajar utilizando oxígeno
+fatigarse | sin fatigarse
+cientificos | los científicos han comenzado
+estudio | Un estudio publicado en 2022
+iscience | la revista científica iScience
+tecnica | una técnica específica
+controladas | bajo condiciones controladas
+mejorar | podía mejorar determinados indicadores
+aclarar | conviene aclarar algo importante
+cualquier | cualquier elevación de talones
+aun_asi | Aun así, el descubrimiento
+estando | Incluso estando sentado
+pequenas | pequeñas contracciones musculares
+pesas | No necesitas pesas
+maquinas | máquinas complicadas
+bruscos | ni movimientos bruscos
+basta | Basta con comprender
+silencio | trabajando silenciosamente por ti
+pregunta2 | Y todavía queda una pregunta
+azucar2 | el azúcar en sangre
+cerebro2 | el funcionamiento de tu cerebro
+respuesta | La respuesta merece
+suscribete | suscríbete al canal
+juntos | Aquí seguimos aprendiendo juntos
+# --- punto 3
+p3 | Punto 3
+ahora3 | Ahora que conoces el papel
+relacion3 | la relación que existe
+porque3 | Porque cuidar tu corazón no consiste
+mente | que tu mente funcione
+peso | representa aproximadamente el 2
+veinte | alrededor del 20
+suministro | Necesita un suministro constante
+recordar | recordar una conversación
+lees | concentrarte mientras lees
+palabras | encontrar las palabras
+sin_embargo3 | Sin embargo, existe un detalle
+envejecimiento | Con el envejecimiento
+vasos | los vasos sanguíneos
+control_glucosa | el control de la glucosa
+diabetes | La diabetes mal controlada
+hipertension | la hipertensión
+sedentarismo3 | y el sedentarismo mantenido
+riesgo | un mayor riesgo
+puntual | Esto no significa que una subida puntual
+acumulados | los hábitos acumulados
+musculo3 | Aquí es donde nuestro pequeño músculo
+contracciones3 | Cuando realizas contracciones musculares
+energia3 | tus células utilizan energía
+ademas | Además, durante la actividad física
+mioquinas | llamadas mioquinas
+organos | entre diferentes órganos
+distinguir | Pero debemos distinguir
+demostrado | un beneficio demostrado
+aunque3 | Aunque el ejercicio físico regular
+pruebas | todavía no existen pruebas suficientes
+elevar3 | que elevar los talones
+antonio | Piensa en Antonio
+cansado | Últimamente se sentía cansado
+lugar | En lugar de buscar
+descansos | pequeños descansos activos
+caminar3 | caminar cuando podía
+sueno3 | cuidar sus horarios de sueño
+historia | Su historia es un ejemplo
+garantia | no una garantía
+ensenanza | Porque la verdadera enseñanza
+benefician | se benefician de hábitos saludables
+mover3 | Y mover las piernas
+primer_paso | un primer paso sencillo
+conoces | Si conoces a alguien
+comparte | comparte este vídeo
+practico | vamos a lo más práctico
+# --- punto 4
+p4 | Punto 4
+llegado | Ha llegado el momento
+atencion4 | Y quiero que prestes mucha atención
+postura | la postura
+velocidad | la velocidad
+control4 | y el control del movimiento
+silla4 | Lo primero que necesitas
+respaldo | preferiblemente con respaldo
+ruedas | y sin ruedas
+sientate | Siéntate cómodamente
+espalda | la espalda erguida
+hombros | los hombros relajados
+rodillas | y las rodillas flexionadas
+coloca | Coloca ambos pies
+caderas | a la anchura de tus caderas
+accesorio | No necesitas ningún accesorio
+television4 | mientras ves la televisión
+musica | o escuchas música
+comienza | Ahora comienza el movimiento
+dedos | Mantén los dedos
+puntas | Sin levantar las puntas
+eleva | eleva lentamente ambos talones
+contraccion4 | Notarás una ligera contracción
+forzar | No necesitas forzar el tobillo
+natural | Lo importante es realizar
+manten | mantén la posición
+bajalos | Después, bájalos suavemente
+golpe | Evita dejarlos caer de golpe
+repite | Repite el movimiento
+contener | ni contener el aire
+primera | Si es la primera vez
+minutos12 | comienza con 1 o 2 minutos
+aumentar | puedes aumentar progresivamente
+cinco_min | hasta cinco minutos
+pausas4 | pequeñas pausas
+no_existe | No existe una cantidad exacta
+clave | La clave consiste
+probarlo | Puedes probarlo después de cenar
+cualquier_momento | en cualquier otro momento
+abundante | una comida abundante
+espera | Espera hasta sentirte preparado
+errores | Y atención a tres errores
+err1 | Levantar también las puntas
+err2 | realizar rebotes
+err3 | y tensar todo el cuerpo
+no_requiere | Este ejercicio no requiere
+problemas4 | Si tienes problemas circulatorios
+lesion | una lesión reciente
+cardiaca | una enfermedad cardíaca
+consulta4 | consulta primero
+ante | Ante dolor o hinchazón
+fundamental | Recuerda algo fundamental
+complementar | pueden complementar
+sustituyen | pero no sustituyen los paseos
+tres_habitos | Y todavía puedes mejorar
+# --- punto 5
+p5 | Punto 5
+ahora5 | Ahora que sabes cómo activar
+detalles5 | tres pequeños detalles
+sostenible | cómoda y sostenible
+un_dia | durante un solo día
+meses | durante meses y años
+primer_detalle | El primer detalle
+contienen | contienen el aire
+presion | aumentar innecesariamente la presión
+tension5 | de la tensión arterial
+mientras5 | Mientras levantas los talones
+inspirar | Puedes inspirar suavemente
+soltar | y soltar el aire
+relajarte | ayudarte a relajarte
+ritmo | siguiendo un ritmo complicado
+tensiones | evitar las tensiones
+segundo_detalle | El segundo detalle
+estimulantes | las bebidas estimulantes
+cafe | Tomar café
+dificultar | puede dificultar el sueño
+dormir_mal | Y dormir mal
+reducir | procura reducir la cafeína
+agua | beber un poco de agua
+grandes | grandes cantidades
+templada | El agua templada
+hidratacion | una hidratación adecuada
+tercer | Y llegamos al tercer detalle
+constancia | la constancia
+no_cometas | No cometas el error
+manana | de la noche a la mañana
+factores | dependen de muchos factores
+investigaciones5 | más investigaciones
+pausa_activa | una pequeña pausa activa
+empezar5 | Puedes empezar con unos minutos
+durante_dia | pequeñas pausas durante el día
+combina | combina este hábito
+fuerza5 | ejercicios de fuerza
+otras | y otras actividades
+reto | un pequeño reto
+siete | los próximos siete días
+cuentame5 | cuéntame en los comentarios
+secreto | el verdadero secreto
+dejar | sino en dejar de pasar
+# --- conclusión
+concl | Después de todo lo que hemos
+esfuerzos | grandes esfuerzos
+primer_paso2 | el primer paso consiste
+ese | Ese pequeño músculo
+regrese | ayudar a que la sangre regrese
+activar_c | mediante elevaciones de talón
+milagroso | no existe un ejercicio milagroso
+diferencia | La verdadera diferencia
+alimentacion | una alimentación equilibrada
+descanso_c | un descanso adecuado
+actividad_c | y actividad física regular
+esta_noche | Esta noche
+activas | Tus piernas pueden seguir activas
+preguntarte | Y ahora quiero preguntarte
+anos | Cuántos años tienes
+ciudad | desde qué ciudad
+escribelo | Escríbelo en los comentarios
+megusta | dale a Me gusta
+compartelo | compártelo con alguien
+suscribete_c | y suscríbete
+advertencia | Y una última advertencia
+educativo | Este contenido es educativo
+padeces | Si padeces enfermedades
+recuerda_final | Recuerda, cada pequeño movimiento

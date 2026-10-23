@@ -151,7 +151,7 @@ Story({ name: 'SALUD 60+' }, [
   { at: 'aurelio2', type: 'photo', src: own('aurelio_farmacia', 'p_farmacia'), move: 'in', lt: ['Don Aurelio', 'No contestó: fue a su farmacia y preguntó'], note: REC, sec: 'SU HISTORIA' },
   { at: 'borro', type: 'photo', src: own('aurelio_grupo', 'p_iglesia'), move: 'in', cap: 'Y avisó al grupo de la iglesia', note: REC },
   { at: 'andres3', type: 'photo', src: own('fidelina_farmacia', own('fidelina_medico', 'p_doctora')), move: 'in', lt: ['Doña Fidelina', 'Ahora lo recibe con receta, por su sistema de salud'], note: REC },
-  { at: 'llegar', type: 'photo', src: own('p_familia_mesa', 'p_fiesta'), move: 'out', head: ['LA MEJOR PROTECCIÓN:', 'SABER QUÉ PREGUNTAR'], hi: 1, headSize: 90 },
+  { at: 'llegar', type: 'photo', src: own('p_familia_mesa', 'p_fiesta'), move: 'out', cap: 'La mejor protección: saber qué preguntar' },
 
   // Beat 9 · 3 preguntas + cierre
   { at: 'anote', type: 'checklist', title: '3 preguntas', y: 200, ats: ['p1', 'p2', 'p3'], sec: 'SU PRÓXIMA CITA',

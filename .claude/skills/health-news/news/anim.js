@@ -63,10 +63,11 @@ function Pill(p, text, { x, y, size = 46, color = N.white, fill = N.panel, strok
 
 // ---------------------------------------------------------------- art (owner illustration or stand-in)
 // Centered at (x, y), w wide. `fallback(g)` draws the stand-in in a 400-wide box centered on 0,0.
-function Art(p, name, { x, y, w = 400 }, fallback) {
+function Art(p, name, { x, y, w = 400, hmax = 1e9 }, fallback) {
   const g = el('g', {}, p), inner = el('g', {}, g);
   const art = (window.ART || {})[name];
   if (art) {
+    w = Math.min(w, hmax * art[0] / art[1]);   // tall drawings (vial, phone) fit their slot by height
     const h = w * art[1] / art[0];
     el('image', { href: 'assets/art/' + name + '.png', x: -w / 2, y: -h / 2, width: w, height: h }, inner);
   } else {
@@ -937,13 +938,14 @@ const OBJ = {
   },
 };
 // A screen area of the owner's phone art (fraction of the art box) where code draws chat bubbles.
-const PHONE_SCREEN = { x: -0.43, y: -0.45, w: 0.86, h: 0.9 };
+const PHONE_SCREEN = { x: -0.44, y: -0.46, w: 0.88, h: 0.92 };
 
 // Phone with a mock chat: bubbles pop in on their cues. Label it "Mensaje de ejemplo" in the plan.
 function PhoneChat(p, { msgs, x = 620, y = 590, w = 560, title = '' }) {
   const g = el('g', {}, p), bg = AnimBG(g, { tint: '#25D366', x });
   const k = title ? Kicker(g, title, { y: 130 }) : null;
-  const ph = Art(g, 'a_celular', { x, y, w }, OBJ.phone);
+  const ph = Art(g, 'a_celular', { x, y, w, hmax: 800 }, OBJ.phone);
+  if ((window.ART || {}).a_celular) w = ph.w;
   // screen rectangle: the owner's phone art (PHONE_SCREEN fractions) or the stand-in's screen
   const own = (window.ART || {}).a_celular;
   const h = own ? w * own[1] / own[0] : 0;
@@ -988,7 +990,7 @@ function ThreeKinds(p) {
     { x: 1520, art: 'a_caja', fb: OBJ.box, label: ['FALSO', ''], col: N.red, mark: 'x' },
   ].map(c => {
     const o = el('g', {}, g);
-    const a = Art(o, c.art, { x: c.x, y: 520, w: 300 }, c.fb);
+    const a = Art(o, c.art, { x: c.x, y: 520, w: 300, hmax: 380 }, c.fb);
     NT(o, c.label[0], { x: c.x, y: 790, size: 56, anchor: 'middle', color: c.col, ls: 2 });
     if (c.label[1]) NT(o, c.label[1], { x: c.x, y: 850, size: 44, anchor: 'middle', ls: 2 });
     const m = Placed(o, c.x + 110, 380);

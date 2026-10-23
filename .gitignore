@@ -21,3 +21,4 @@ projects/*/out/*.mp4
 projects/*/out/*.log
 projects/levantarse_silla/out/
 projects/*/out/
+projects/*/transcribe.log

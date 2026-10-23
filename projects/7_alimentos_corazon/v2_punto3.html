@@ -19,7 +19,7 @@ const H = { hard: true };
 // 0. part 2 kicker over the fish market
 scene(svg, () => -1, () => at('sabias'), g => {
   const st = panel(g, 'p_mercado', 'full', { focus: [0.5, 0.5], zoom: 0.14 });
-  const k = Kicker(g, 'PARTE 2 · ALIMENTO 3', 'PESCADO AZUL PEQUEÑO');
+  const k = Kicker(g, 'ALIMENTO 3', 'PESCADO AZUL PEQUEÑO');
   return t => { st.draw(t, 0, at('sabias')); show(k, t, 0.3); };
 }, H);
 

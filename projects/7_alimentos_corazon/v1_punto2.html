@@ -103,7 +103,7 @@ scene(svg, () => at('siguiente'), () => at('informativo'), g => {
   const fish = [['sardinas', 480], ['boquerones', 960], ['caballa', 1440]].map(([n, x]) => [cut(g, n, x, 650, 380), x]);
   const c = el('g', {}, g);
   Card(c, { x: 460, y: 140, w: 1000, h: 280, fill: C.ink });
-  Text(c, 'PRÓXIMO VÍDEO · PARTE 2', { x: 960, y: 225, size: 46, color: C.amber });
+  Text(c, 'A CONTINUACIÓN', { x: 960, y: 225, size: 46, color: C.amber });
   Text(c, 'PESCADO AZUL, LEGUMBRES', { x: 960, y: 310, size: 54, color: C.cream });
   Text(c, 'Y TOMATE', { x: 960, y: 380, size: 54, color: C.cream });
   return t => { show(c, t, at('siguiente')); fish.forEach(([e, x], i) => pop(e, t, at('siguiente') + 1 + i * 0.6, x, 650)); };

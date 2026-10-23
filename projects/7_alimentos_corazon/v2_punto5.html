@@ -97,7 +97,7 @@ scene(svg, () => at('ajo'), () => at('informativo'), g => {
   const a = cut(g, 'ajo', 700, 620, 380), b = cut(g, 'cebolla', 1220, 620, 400);
   const c = el('g', {}, g);
   Card(c, { x: 460, y: 120, w: 1000, h: 260, fill: C.ink });
-  Text(c, 'PRÓXIMO VÍDEO · PARTE 3', { x: 960, y: 200, size: 46, color: C.amber });
+  Text(c, 'A CONTINUACIÓN', { x: 960, y: 200, size: 46, color: C.amber });
   Text(c, 'AJO, CEBOLLA Y', { x: 960, y: 280, size: 54, color: C.cream });
   Text(c, 'VERDURAS DE HOJA VERDE', { x: 960, y: 345, size: 46, color: C.cream });
   return t => { pop(a, t, at('ajo') + 0.5, 700, 620); pop(b, t, at('ajo') + 1, 1220, 620); show(c, t, at('ajo') + 2); };

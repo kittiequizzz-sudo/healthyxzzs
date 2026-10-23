@@ -28,15 +28,14 @@ scene(svg, () => at('pescado') + 1.5, () => at('errores'), g => {
   return t => { st.draw(t, at('pescado') + 1.5, at('errores')); show(c, t, at('pescado') + 1.7); };
 }, H);
 // 1. …and still errors: the last two foods
-scene(svg, () => at('errores'), () => at('p6') - 0.2, g => {
+scene(svg, () => at('errores'), () => 12.9, g => {
   const st = panel(g, 'j_sal', 'full', { focus: [0.45, 0.4], zoom: 0.16 });
   const c = Caption(g, 'Y AUN ASÍ, ERRORES', { cy: 960, size: 60, hi: 'ERRORES', hiColor: '#FF7A6E' });
-  const tag = SeriesTag(g, 'PARTE 3 DE 3');
-  return t => { st.draw(t, at('errores'), at('p6')); show(c, t, at('errores') + 0.3); show(tag, t, at('errores') + 1); };
+  return t => { st.draw(t, at('errores'), at('p6')); show(c, t, at('errores') + 0.3); };
 }, H);
 
 // 2. kicker
-scene(svg, () => at('p6') - 0.2, () => at('despues'), g => {
+scene(svg, () => 12.9, () => at('despues'), g => {
   const st = panel(g, 'j_cebolla', 'full', { focus: [0.45, 0.35] });
   const k = Kicker(g, 'ALIMENTO 6', 'AJO Y CEBOLLA');
   return t => { st.draw(t, at('p6'), at('despues')); show(k, t, at('p6')); };

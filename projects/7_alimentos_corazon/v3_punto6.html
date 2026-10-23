@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v3.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · opening hook (reused intro line) + PUNTO 6 — ajo y cebolla.
+window.START = 0;
+window.END = at('p7') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+const H = { hard: true };
+
+// 0. hook: olive oil, fish on Sundays…
+scene(svg, () => -1, () => at('pescado') + 1.5, g => {
+  const st = panel(g, 'i_aceite', 'full', { focus: [0.35, 0.3], zoom: 0.14 });
+  const c = Caption(g, 'ACEITE DE OLIVA ✓', { cy: 960, hi: '✓' });
+  return t => { st.draw(t, 0, at('pescado') + 1.5); show(c, t, 0.3); };
+}, H);
+scene(svg, () => at('pescado') + 1.5, () => at('errores'), g => {
+  const st = panel(g, 'h_rucula', 'full', { focus: [0.4, 0.4], zoom: 0.14 });
+  const c = Caption(g, 'ENSALADA CADA DÍA ✓', { cy: 960, hi: '✓' });
+  return t => { st.draw(t, at('pescado') + 1.5, at('errores')); show(c, t, at('pescado') + 1.7); };
+}, H);
+// 1. …and still errors: the last two foods
+scene(svg, () => at('errores'), () => at('p6') - 0.2, g => {
+  const st = panel(g, 'j_sal', 'full', { focus: [0.45, 0.4], zoom: 0.16 });
+  const c = Caption(g, 'Y AUN ASÍ, ERRORES', { cy: 960, size: 60, hi: 'ERRORES', hiColor: '#FF7A6E' });
+  const tag = SeriesTag(g, 'PARTE 3 DE 3');
+  return t => { st.draw(t, at('errores'), at('p6')); show(c, t, at('errores') + 0.3); show(tag, t, at('errores') + 1); };
+}, H);
+
+// 2. kicker
+scene(svg, () => at('p6') - 0.2, () => at('despues'), g => {
+  const st = panel(g, 'j_cebolla', 'full', { focus: [0.45, 0.35] });
+  const k = Kicker(g, 'ALIMENTO 6', 'AJO Y CEBOLLA');
+  return t => { st.draw(t, at('p6'), at('despues')); show(k, t, at('p6')); };
+});
+
+// 3. always in our kitchens; more than flavour → scientific interest
+scene(svg, () => at('despues'), () => at('azufrados'), g => {
+  const a = cut(g, 'ajo', 640, 480, 420), b = cut(g, 'cebolla', 1280, 480, 440);
+  const c1 = Chip(g, 'MÁS QUE SABOR', { cx: 960, cy: 150, size: 52, fill: C.white });
+  const c2 = Caption(g, 'INTERÉS CIENTÍFICO', { cy: 860, size: 58, hi: 'CIENTÍFICO' });
+  return t => { pop(a, t, at('despues') + 0.5, 640, 480); pop(b, t, at('despues') + 1, 1280, 480); show(c1, t, at('ajo_cebolla') + 1); show(c2, t, at('interes')); };
+});
+
+// 4. garlic: sulphur compounds when crushed → allicin; small BP reductions in some studies
+scene(svg, () => at('azufrados'), () => at('cebolla'), g => {
+  const st = panel(g, 'j_mortero', 'left', { focus: [0.5, 0.5] });
+  const ch = Chain(g, [['MACHACAR', C.white], ['ALICINA', C.amber]], { y: 220, x0: 1300, x1: 1720, size: 36 });
+  const a = Chip(g, 'COMPUESTOS AZUFRADOS', { cx: 1510, cy: 400, size: 34 });
+  const b = el('g', {}, g);
+  Card(b, { x: 1220, y: 500, w: 580, h: 200, fill: C.white });
+  Text(b, 'PRESIÓN ARTERIAL', { x: 1510, y: 560, size: 36 });
+  Text(b, 'pequeña bajada en algunos estudios', { x: 1510, y: 630, size: 26, weight: 800 });
+  const n = Chip(g, 'NO SUSTITUYE TRATAMIENTOS', { cx: 1510, cy: 800, size: 32, fill: C.amber });
+  const s = Source(g, 'Efecto observado con preparados de ajo, no con unas pocas comidas');
+  return t => { st.draw(t, at('azufrados'), at('cebolla')); show(a, t, at('azufrados')); ch.forEach((c, i) => show(c, t, at('machacamos') + i * 1.5)); show(b, t, at('presion')); show(s, t, at('presion') + 1); show(n, t, at('no_sustituye')); };
+});
+
+// 5. onion: quercetin, a flavonoid — more studies needed
+scene(svg, () => at('cebolla'), () => at('truco'), g => {
+  const st = panel(g, 'j_cebolla', 'left', { focus: [0.5, 0.45] });
+  const a = Chip(g, 'QUERCETINA', { cx: 1510, cy: 300, size: 64, fill: C.amber });
+  const b = Text(g, 'flavonoide antioxidante', { x: 1510, y: 410, size: 36, weight: 800 });
+  const c = Chip(g, 'FALTAN MÁS ESTUDIOS', { cx: 1510, cy: 580, size: 44, fill: C.white });
+  const q = wrap(g, Icon.question, 1460, 660, 1);
+  return t => { st.draw(t, at('cebolla'), at('truco')); show(a, t, at('cebolla') + 1); show(b, t, at('cebolla') + 2); show(c, t, at('estudios')); show(q, t, at('estudios') + 0.5); };
+});
+
+// 6. the trick: crush, let it rest 5–10 minutes, then cook without burning
+scene(svg, () => at('truco'), () => at('sabor'), g => {
+  const a = panel(g, 'j_mortero', 'left', { focus: [0.5, 0.5] });
+  const b = panel(g, 'j_espera', 'left', { focus: [0.6, 0.5] });
+  const h = Chip(g, 'EL TRUCO', { cx: 1510, cy: 180, size: 56, fill: C.ink, color: C.amber });
+  const ck = Clock(g, { cx: 1510, cy: 420, r: 130 });
+  const lab = Text(g, 'REPOSAR 5 – 10 MIN', { x: 1510, y: 620, size: 46, color: C.green });
+  const n = Mark(g, 'SIN QUEMARLO', true, { cx: 1510, cy: 760, size: 42 });
+  const s = Source(g, 'Machacado y en reposo antes del calor, el ajo conserva mejor su actividad (estudios de laboratorio)');
+  return t => {
+    const k = E.inOut(prog(t, at('reposar') - 0.2, at('reposar') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('truco'), at('reposar')); b.draw(t, at('reposar'), at('sabor'));
+    show(h, t, at('truco')); show(ck.g, t, at('picas')); ck.draw(12 + 10 / 60 * prog(t, at('reposar'), at('incorporarlo')));
+    show(lab, t, at('reposar')); show(s, t, at('reposar') + 1); show(n, t, at('quemarlo'));
+  };
+});
+
+// 7. lots of flavour with less salt — share the tip
+scene(svg, () => at('sabor'), () => at('septimo0'), g => {
+  const st = panel(g, 'j_sal', 'full', { focus: [0.45, 0.4], zoom: 0.12 });
+  const c = Caption(g, 'MÁS SABOR, MENOS SAL', { cy: 960, size: 60, hi: 'MENOS SAL' });
+  const cta = CTA(g, 'comment', 'COMPARTE ESTE CONSEJO');
+  return t => { st.draw(t, at('sabor'), at('septimo0')); show(c, t, at('sabor') + 0.5, at('sal')); show(cta, t, at('sal')); };
+});
+
+// 8. bridge: the seventh food starts in your mouth
+scene(svg, () => at('septimo0'), () => END + 1, g => {
+  const st = panel(g, 'b_lengua', 'full', { focus: [0.5, 0.5], zoom: 0.14 });
+  const c = Caption(g, 'EMPIEZA EN TU BOCA', { cy: 960, size: 60, hi: 'BOCA' });
+  return t => { st.draw(t, at('septimo0'), END); show(c, t, at('boca0') - 0.5); };
+});
+
+scene(svg, () => at('despues'), () => END + 1, g => { FoodStrip(g, 5); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

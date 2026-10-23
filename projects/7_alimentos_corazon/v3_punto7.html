@@ -1,0 +1,113 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v3.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · PUNTO 7 — verduras de hoja verde.
+window.START = at('p7') - 0.3;
+window.END = at('duermes') - 0.3;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. kicker over the market greens
+scene(svg, () => START, () => at('infravalorados'), g => {
+  const st = panel(g, 'h_mercado', 'full', { focus: [0.4, 0.4] });
+  const k = Kicker(g, 'ALIMENTO 7', 'VERDURAS DE HOJA VERDE');
+  return t => { st.draw(t, START, at('infravalorados')); show(k, t, START + 0.3); };
+});
+
+// 1. spinach, chard, rocket: simple, cheap, easy to find
+scene(svg, () => at('infravalorados'), () => at('nitratos'), g => {
+  const h = Caption(g, 'LAS MÁS INFRAVALORADAS', { cy: 130, size: 54, hi: 'INFRAVALORADAS' });
+  const items = [['espinacas', 'ESPINACAS', 400], ['acelgas', 'ACELGAS', 960], ['rucula', 'RÚCULA', 1520]].map(([n, s, x]) => {
+    const c = el('g', {}, g); cut(c, n, x, 470, 400); Chip(c, s, { cx: x, cy: 740, size: 44, fill: C.green, color: C.white }); return [c, x];
+  });
+  const b = Chip(g, 'SENCILLAS · BARATAS · FÁCILES DE ENCONTRAR', { cx: 960, cy: 910, size: 34 });
+  return t => { show(h, t, at('infravalorados')); items.forEach(([e, x], i) => pop(e, t, at('infravalorados') + 1 + i * 0.7, x, 500)); show(b, t, at('sencillas')); };
+});
+
+// 2. nitrates → nitric oxide → vessels relax and dilate, blood pressure regulation
+scene(svg, () => at('nitratos'), () => at('sorprendente'), g => {
+  const ch = Chain(g, [['NITRATOS', C.green], ['ÓXIDO NÍTRICO', C.white], ['VASOS SE RELAJAN', C.green]], { y: 180, x0: 380, x1: 1540, size: 40 });
+  const st = panel(g, 'b_vaso', { x: 410, y: 320, w: 1100, h: 620 }, { focus: [0.5, 0.5] });
+  const p = Chip(g, 'AYUDA A REGULAR LA PRESIÓN', { cx: 960, cy: 1010, size: 34, fill: C.amber });
+  return t => { ch.forEach((c, i) => show(c, t, at('nitratos') + i * 2.5)); show(st.g, t, at('nitratos') + 2); st.draw(t, at('nitratos') + 2, at('sorprendente')); show(p, t, at('relajar') + 3); };
+});
+
+// 3. surprise: it starts in your mouth — tongue bacteria turn nitrates into nitrites
+scene(svg, () => at('sorprendente'), () => at('habito2'), g => {
+  const st = panel(g, 'b_lengua', 'left', { focus: [0.5, 0.5] });
+  const h = Chip(g, 'EMPIEZA EN TU BOCA', { cx: 1510, cy: 220, size: 46, fill: C.ink, color: C.amber });
+  const ch = ['BACTERIAS DE LA LENGUA', 'NITRATOS → NITRITOS', '→ ÓXIDO NÍTRICO'].map((s, i) => [Chip(g, s, { cx: 1510, cy: 400 + i * 140, size: 34, fill: i === 1 ? C.green : C.white, color: i === 1 ? C.white : C.ink }), i]);
+  return t => { st.draw(t, at('sorprendente'), at('habito2')); show(h, t, at('boca')); ch.forEach(([c, i]) => show(c, t, at('bacterias') + i * 2.5)); };
+});
+
+// 4. the habit (number 7): frequent antibacterial mouthwash — but keep your oral hygiene
+scene(svg, () => at('habito2'), () => at('potasio'), g => {
+  const a = panel(g, 'h_enjuague', 'left', { focus: [0.4, 0.4] });
+  const b = panel(g, 'b_enjuague', 'left', { focus: [0.6, 0.45] });
+  const h = Chip(g, '¡ATENCIÓN AL Nº 7!', { cx: 1510, cy: 200, size: 46, fill: C.red, color: C.white });
+  const m = el('g', {}, g);
+  Card(m, { x: 1220, y: 300, w: 580, h: 230, fill: C.white });
+  Text(m, 'ENJUAGUE ANTIBACTERIANO', { x: 1510, y: 360, size: 32 });
+  Text(m, 'USO FRECUENTE', { x: 1510, y: 420, size: 40, color: C.red });
+  Text(m, 'puede frenar este proceso', { x: 1510, y: 480, size: 28, weight: 800 });
+  const ok = Mark(g, 'MANTÉN TU HIGIENE BUCAL', true, { cx: 1510, cy: 640, size: 34 });
+  const ok2 = Mark(g, 'SIGUE LO QUE DIGA TU DENTISTA', true, { cx: 1510, cy: 770, size: 30 });
+  const s = Source(g, 'Enjuague con clorhexidina 7 días: menos nitrito y presión algo más alta · Kapil y col. 2013 (19 personas)');
+  return t => {
+    const k = E.inOut(prog(t, at('enjuagues') + 2, at('enjuagues') + 2.5));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, at('habito2'), at('enjuagues') + 2.5); b.draw(t, at('enjuagues') + 2.5, at('potasio'));
+    show(h, t, at('habito2')); show(m, t, at('enjuagues')); show(s, t, at('enjuagues') + 1); show(ok, t, at('higiene')); show(ok2, t, at('higiene') + 3);
+  };
+});
+
+// 5. potassium, folate, fibre — kidney disease: ask; Sintrom card (added safety line)
+scene(svg, () => at('potasio'), () => at('consejo'), g => {
+  const row = ['POTASIO', 'FOLATO', 'FIBRA'].map((s, i) => [Chip(g, s, { cx: 560 + i * 400, cy: 150, size: 50, fill: C.green, color: C.white }), i]);
+  const k = el('g', {}, g);
+  Card(k, { x: 160, y: 300, w: 760, h: 300, fill: C.white });
+  Text(k, 'PRESIÓN ARTERIAL NORMAL', { x: 540, y: 380, size: 38, color: C.green });
+  Text(k, '¿ENFERMEDAD RENAL?', { x: 540, y: 470, size: 40, color: C.red });
+  Text(k, 'consulta la cantidad de potasio', { x: 540, y: 540, size: 30, weight: 800 });
+  const w = el('g', {}, g);
+  Card(w, { x: 1000, y: 300, w: 760, h: 420, fill: C.white });
+  el('rect', { x: 1000, y: 300, width: 760, height: 100, rx: 22, fill: C.amber }, w);
+  Text(w, '¿TOMAS SINTROM?', { x: 1380, y: 352, size: 48 });
+  Text(w, 'NO LAS ELIMINES', { x: 1380, y: 470, size: 42 });
+  Text(w, 'CANTIDAD PARECIDA CADA DÍA', { x: 1380, y: 550, size: 36 });
+  Text(w, 'su vitamina K influye · consulta', { x: 1380, y: 630, size: 30, weight: 800, color: C.blueDark });
+  const pt = PanelTile(g, 'h_farmacia', { x: 300, y: 660, w: 480, h: 300 });
+  return t => { row.forEach(([c, i]) => show(c, t, at('potasio') + i * 0.6)); show(k, t, at('potasio') + 3); show(w, t, at('renal')); show(pt.g, t, at('renal') + 0.5); pt.st.draw(t, at('renal'), at('consejo')); };
+}, { fade: 0.35 });
+
+// 6. advice: vary them — rocket salads, sautéed spinach, boiled chard
+scene(svg, () => at('consejo'), () => at('suscribete'), g => {
+  const st = panel(g, 'h_rucula', 'left', { focus: [0.45, 0.45] });
+  const h = Chip(g, 'VARÍA', { cx: 1510, cy: 220, size: 60, fill: C.green, color: C.white });
+  const items = [['rucula', 'ENSALADA DE RÚCULA'], ['espinacas', 'ESPINACAS SALTEADAS'], ['acelgas', 'ACELGAS COCIDAS']].map(([n, s], i) => {
+    const c = el('g', {}, g), y = 400 + i * 180; cut(c, n, 1290, y, 150); Text(c, s, { x: 1390, y, size: 32, anchor: 'start' }); return [c, i];
+  });
+  return t => { st.draw(t, at('consejo'), at('suscribete')); show(h, t, at('consejo')); items.forEach(([c, i]) => show(c, t, at('variadas') + 1 + i * 1.5)); };
+});
+
+// 7. subscribe; no miracle food — small daily decisions
+scene(svg, () => at('suscribete'), () => END + 1, g => {
+  const st = panel(g, 'h_mercado', 'full', { focus: [0.4, 0.4] });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE · CAMPANITA');
+  const c = Caption(g, 'PEQUEÑAS DECISIONES DIARIAS', { cy: 120, size: 50, hi: 'DIARIAS' });
+  return t => { st.draw(t, at('suscribete'), END); show(cta, t, at('suscribete'), at('milagroso')); show(c, t, at('milagroso')); };
+});
+
+scene(svg, () => START + 2.5, () => END + 1, g => { FoodStrip(g, 6); });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

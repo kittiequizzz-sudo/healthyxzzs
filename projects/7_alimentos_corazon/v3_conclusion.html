@@ -1,0 +1,77 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues_v3.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · CONCLUSIÓN — recap, no miracle food, comment, disclaimer.
+window.START = at('duermes') - 0.3;
+window.END = 348.0;
+window.DURATION = window.END;
+const svg = Stage();
+
+// 0. your heart works even while you sleep
+scene(svg, () => START, () => at('lista'), g => {
+  const a = panel(g, 'b_corazon', 'full', { focus: [0.5, 0.45], zoom: 0.12 });
+  const b = panel(g, 'z_dormir', 'full', { focus: [0.35, 0.4], zoom: 0.12 });
+  const c1 = Caption(g, 'TRABAJA SIN DESCANSO', { cy: 960, size: 60, hi: 'SIN DESCANSO' });
+  const c2 = Caption(g, 'TÚ DECIDES CADA DÍA', { cy: 960, size: 60, hi: 'CADA DÍA' });
+  return t => {
+    const k = E.inOut(prog(t, at('decisiones') - 0.2, at('decisiones') + 0.3));
+    a.g.setAttribute('opacity', 1 - k); b.g.setAttribute('opacity', k);
+    a.draw(t, START, at('decisiones')); b.draw(t, at('decisiones'), at('lista'));
+    show(c1, t, at('duermes') + 0.5, at('decisiones')); show(c2, t, at('decisiones') + 2);
+  };
+});
+
+// 1. recap of the 7 foods
+scene(svg, () => at('lista'), () => at('fundamental'), g => {
+  const h = Text(g, 'TUS 7 ALIADOS', { x: 960, y: 150, size: 80, color: C.orange });
+  const row = FOODS.map(([f, s], i) => {
+    const c = el('g', {}, g), x = 200 + i * 253;
+    el('circle', { cx: x, cy: 480, r: 115, fill: C.white, stroke: C.green, 'stroke-width': 8 }, c);
+    cut(c, f, x, 480, 170);
+    Text(c, s, { x, y: 650, size: s.length > 10 ? 26 : 32 });
+    return [c, x];
+  });
+  const c = Caption(g, 'ALIMENTACIÓN CARDIOPROTECTORA', { cy: 880, size: 50, hi: 'CARDIOPROTECTORA' });
+  return t => { show(h, t, at('lista')); row.forEach(([e, x], i) => pop(e, t, at('lista') + i * 1.4, x, 520)); show(c, t, at('lista') + 10.5); };
+});
+
+// 2. no food cleans arteries; real protection = diet + activity + rest + check-ups
+scene(svg, () => at('fundamental'), () => at('preguntarte'), g => {
+  const st = Stamp(g, 'NINGÚN ALIMENTO LIMPIA LAS ARTERIAS', { cx: 960, cy: 150, size: 54, color: C.red });
+  const tiles = [['z_familia', 'DIETA EQUILIBRADA'], ['z_caminar', 'ACTIVIDAD FÍSICA'], ['z_dormir', 'DESCANSO'], ['z_control', 'CONTROLES MÉDICOS']].map(([n, s], i) => [PanelTile(g, n, { x: 70 + i * 455, y: 360, w: 420, h: 300, label: s }), i]);
+  const c = Caption(g, 'LA VERDADERA PROTECCIÓN', { cy: 900, size: 54, hi: 'PROTECCIÓN' });
+  return t => { st.draw(t, at('ningun')); show(c, t, at('proteccion')); tiles.forEach(([p, i]) => { show(p.g, t, at('proteccion') + 1 + i * 1.3); p.st.draw(t, at('proteccion'), at('preguntarte')); }); };
+});
+
+// 3. comment: which do you eat, which do you need more? + subscribe and share
+scene(svg, () => at('preguntarte'), () => at('informativo'), g => {
+  const st = panel(g, 'z_familia', 'left', { focus: [0.5, 0.45] });
+  const b = el('g', {}, g);
+  Card(b, { x: 1230, y: 200, w: 620, h: 420, fill: C.white });
+  wrap(b, Icon.bubble, 1250, 220, 1.1);
+  Text(b, '¿CUÁL CONSUMES', { x: 1540, y: 370, size: 46 }); Text(b, 'YA?', { x: 1540, y: 430, size: 46, color: C.green });
+  Text(b, '¿CUÁL TE FALTA?', { x: 1540, y: 530, size: 46, color: C.orange });
+  const cta = CTA(g, 'sub', 'SUSCRÍBETE · COMPARTE');
+  return t => { st.draw(t, at('preguntarte'), at('informativo')); show(b, t, at('preguntarte') + 1); show(cta, t, at('comparte')); };
+});
+
+// 4. disclaimer, held to the end
+scene(svg, () => at('informativo'), () => END + 1, g => {
+  const w = Warn(g, 'INFORMACIÓN, NO CONSEJO MÉDICO', ['Enfermedad cardiovascular', 'Problemas renales', 'Medicación'], { y: 140 });
+  const pt = PanelTile(g, 'z_control', { x: 210, y: 650, w: 520, h: 330 });
+  const s = Chip(g, 'CONSULTA A TU', { cx: 1270, cy: 760, size: 42, fill: C.amber });
+  const s2 = Chip(g, 'PROFESIONAL SANITARIO', { cx: 1270, cy: 870, size: 42, fill: C.amber });
+  return t => { show(w, t, at('informativo')); show(pt.g, t, at('informativo') + 0.5); pt.st.draw(t, at('informativo'), END); show(s, t, at('padeces') + 6); show(s2, t, at('padeces') + 6.3); };
+}, { fade: 0.4 });
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

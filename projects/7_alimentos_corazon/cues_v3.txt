@@ -1,0 +1,57 @@
+# Video 3 (audio/voice_v3.mp3, transcript/words_v3.json). label | phrase from the voice, in order.
+# --- reused intro hook
+pescado | comer pescado los domingos
+errores | estar cometiendo errores
+# --- punto 6
+p6 | Ajo y Cebolla, dos aliados
+despues | Después del tomate
+ajo_cebolla | El ajo y la cebolla
+interes | enorme interés científico
+azufrados | compuestos azufrados
+machacamos | cortamos o machacamos
+alicina | la alicina
+presion | pequeñas reducciones de la presión
+no_sustituye | no sustituye ningún tratamiento
+cebolla | La cebolla, por su parte
+estudios | todavía necesitamos más estudios
+truco | un pequeño truco culinario
+picas | Cuando machacas o picas
+reposar | Dejarlo reposar
+incorporarlo | Después puedes incorporarlo
+quemarlo | evitando quemarlo
+sabor | Lo mejor, el ajo
+sal | demasiada sal a sus platos
+habito | Un cambio pequeño
+septimo0 | Y todavía nos queda el séptimo
+boca0 | en tu propia boca
+# --- punto 7
+p7 | Punto 7
+infravalorados | Llegamos al séptimo alimento
+espinacas | Hablamos de las espinacas
+sencillas | Verduras sencillas
+nitratos | los nitratos naturales
+relajar | Esta molécula ayuda a relajar
+sorprendente | algo verdaderamente sorprendente
+boca | Parte de este proceso comienza
+bacterias | Algunas bacterias beneficiosas
+habito2 | Y existe un hábito cotidiano
+enjuagues | El uso frecuente
+higiene | Esto no significa que debas
+potasio | aportan potasio
+renal | personas con enfermedad renal
+consejo | Mi consejo es sencillo
+variadas | Incorpora verduras variadas
+suscribete | suscríbete al canal
+milagroso | proteger tu corazón no depende
+# --- conclusion
+duermes | Tu corazón trabaja sin descanso
+decisiones | sí puedes mejorar muchas
+lista | El aceite de oliva virgen extra, los frutos
+fundamental | Pero recuerda algo fundamental
+ningun | Ningún alimento limpia
+proteccion | La verdadera protección
+preguntarte | Ahora quiero preguntarte
+comentarios | Escríbelo en los comentarios
+comparte | suscríbete, activa la campanita
+informativo | Este contenido es informativo
+padeces | Si padeces alguna enfermedad

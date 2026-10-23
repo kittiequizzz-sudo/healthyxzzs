@@ -181,3 +181,18 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
 - Faults: pulling on the neck with the hands; momentum swing with the feet lifting; jerking up with
   a flat back (no curl); arching the lower back; dropping back down.
 - Muscles: rectus abdominis + obliques (curl phase), hip flexors (hinge phase).
+
+### Seated heel raise / "soleus pushup" (side view, a senior favourite)
+- Setup **[coach]**: sturdy chair with a back, no wheels; upright trunk, shoulders relaxed, knees ≈90°,
+  feet flat hip-width apart.
+- Movement: forefoot and toes stay on the floor; the heel rises slowly (ankle plantar-flexion) as far as
+  comfortable, hold 1–2 s, lower softly without dropping. With the knee bent ≈90° the gastrocnemius is
+  slack, so the **soleus** does most of the work **[study]**.
+- The "soleus pushup" (SPU) of Hamilton, Hamilton & Zderic, *iScience* 2022 is a specific, slow,
+  continuous seated heel raise trained with EMG feedback and done for hours in the lab: ≈52 % smaller
+  post-glucose excursion and ≈60 % less insulin vs sitting still, in a small sample
+  ([PMC9404652](https://pmc.ncbi.nlm.nih.gov/articles/PMC9404652)). Don't claim the same effect for a few
+  minutes of casual heel raises.
+- Soleus ≈60–70 % slow (type I) fibres in human samples (Edgerton 1975 ≈70 %; other samples ≈62 %).
+- Faults: lifting the toes too, fast bouncing, breath-holding / bracing the whole body, forcing the ankle.
+- Safety: sudden pain, redness or swelling of one leg → medical assessment first (possible DVT).

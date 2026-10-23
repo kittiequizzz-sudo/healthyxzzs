@@ -21,3 +21,7 @@ elevación…", "todavía no existen pruebas suficientes…", "no una garantía"
 - Nguồn chữ nhỏ: «Hamilton y col. · iScience 2022 · técnica específica, en laboratorio, pocos participantes».
 - Thẻ cảnh báo (giữ ≥ 6 giây): «DOLOR · ENROJECIMIENTO · HINCHAZÓN EN UNA PIERNA → MÉDICO».
 - Không đưa con số 52%/60% lên hình như một lời hứa; nếu dùng thì kèm "en laboratorio".
+
+## Kiểm tra giọng đọc (rimovoice5 → audio/voice_full.mp3, 19:41)
+Đọc đủ 155/155 câu, đúng thứ tự. Có đọc tiêu đề PUNTO (giữ nguyên). Mốc: Punto 1 = 1:39 · Punto 2 = 4:40 ·
+Punto 3 = 8:06 · Punto 4 = 11:18 · Punto 5 = 14:35. Phần 1 = 0:00–8:06 · Phần 2 = 8:06–14:35 · Phần 3 = 14:35–19:41.

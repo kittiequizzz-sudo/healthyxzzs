@@ -1,0 +1,182 @@
+[0.18 - 4.60] (w0-13) Tu corazón no es lo único que trabaja para mantener la sangre en movimiento.
+[4.88 - 10.74] (w14-29) Existe otro músculo, escondido en tus piernas, que puede ayudarte mucho más de lo que imaginas.
+[11.00 - 15.78] (w30-41) Y lo sorprendente es que puedes activarlo sin levantarte de la silla.
+[15.98 - 18.00] (w42-48) Piensa en lo que haces cada noche.
+[18.26 - 23.70] (w49-64) Terminas de cenar, recojes la mesa y te acomodas en el sofá para ver la televisión.
+[24.02 - 26.70] (w65-70) Parece el momento perfecto para descansar.
+[26.90 - 39.02] (w71-102) Sin embargo, mientras permanece sin móvil, tus músculos apenas ayudan a impulsar la sangre de las piernas hacia el corazón, y tu organismo sigue trabajando para gestionar los nutrientes de la cena.
+[39.28 - 49.46] (w103-128) A partir de los 50 o 60 años, pasar demasiadas horas sentado puede convertirse en un hábito poco favorable para tu circulación y tu salud metabólica.
+[49.70 - 51.66] (w129-133) Pero aquí viene lo interesante.
+[51.80 - 57.84] (w134-147) No necesitas salir a caminar kilómetros ni realizar ejercicios agotadores para empezar a moverte.
+[58.02 - 67.44] (w148-174) En lo más profundo de tus pantorrillas se encuentra el músculo soleo, una especie de segundo corazón que colabora con el retorno de la sangre hacia arriba.
+[67.62 - 76.52] (w175-195) Y determinadas investigaciones han observado que activar lo de forma específica también puede influir favorablemente en el metabolismo de la glucosa.
+[76.96 - 89.86] (w196-226) Hoy descubrirás cómo realizar un sencillo movimiento sentado, por qué resulta tan interesante para tu circulación y qué relación podría tener una buena salud metabólica con el bienestar de tu cerebro.
+[90.00 - 99.00] (w227-248) Quédate hasta el final, porque te enseñaré cómo hacerlo correctamente y el error que conviene evitar para aprovecharlo sin forzar tus piernas.
+[99.18 - 100.24] (w249-250) Punto 1.
+[100.42 - 105.00] (w251-264) El error silencioso después de la cena, lo que ocurre dentro de tu cuerpo.
+[106.04 - 111.00] (w265-274) Cada noche, millones de personas repiten un gesto aparentemente inofensivo.
+[111.40 - 117.00] (w275-291) Terminan de cenar y se sientan en el sofá durante una o dos horas sin apenas moverse.
+[117.20 - 123.00] (w292-309) Encienden la televisión, consultan el móvil y dejan que el cansancio del día se apodere de su cuerpo.
+[123.78 - 135.64] (w310-343) Lo que muchos desconocen es que permanecer completamente inmóviles durante tanto tiempo puede afectar a la circulación de las piernas y a la manera en que el organismo gestiona la glucosa después de comer.
+[135.80 - 140.58] (w344-356) Para comprenderlo, primero debes saber qué sucede dentro de ti tras la cena.
+[140.80 - 147.44] (w357-372) Cuando comes, tu aparato digestivo necesita más sangre para procesar los alimentos y absorber sus nutrientes.
+[147.64 - 153.50] (w373-388) Al mismo tiempo, los hidratos de carbono se transforman en glucosa, que pasa al torrente sanguíneo.
+[153.66 - 159.94] (w389-404) Tu páncreas libera insulina para facilitar su entrada en las células, donde podrá utilizarse como energía.
+[160.14 - 162.68] (w405-409) Es un proceso completamente normal.
+[162.84 - 172.96] (w410-435) El problema aparece cuando el sedentarismo se convierte en una costumbre diaria, especialmente si ya tienes resistencia a la insulina o dificultades para controlar el azúcar.
+[173.22 - 176.94] (w436-445) Pero existe otro detalle que pocas personas tienen en cuenta.
+[177.10 - 188.58] (w446-473) Mientras permaneces sentado, con los pies apoyados en el suelo y las piernas prácticamente inmóviles, los músculos de las pantorrillas dejan de colaborar activamente con el retorno venoso.
+[188.78 - 199.62] (w474-505) La sangre debe regresar desde tus pies hasta el corazón, venciendo la gravedad, y para ello cuenta con unas válvulas dentro de las venas y con la ayuda de las contracciones musculares.
+[199.88 - 206.92] (w506-523) Cuando mueves las piernas, esos músculos comprimen las venas y favorecen el desplazamiento de la sangre hacia arriba.
+[207.14 - 210.92] (w524-534) Piensa en una carretera por la que circulan cientos de vehículos.
+[211.14 - 215.16] (w535-543) Cuando todo funciona correctamente, el tráfico avanza con fluidez.
+[215.36 - 223.10] (w544-562) Pero cuando desaparece parte del impulso que facilita el movimiento, la circulación puede volverse más lenta en determinadas zonas.
+[223.30 - 229.42] (w563-579) Algo parecido ocurre en las venas de tus piernas cuando pasas demasiado tiempo sin activar los músculos.
+[229.68 - 234.98] (w580-595) Aunque eso no significa que tu corazón esté fallando ni que la sangre deje de circular.
+[235.16 - 243.80] (w596-615) Quizá hayas experimentado esa sensación de piernas pesadas al final del día, especialmente después de permanecer sentado durante muchas horas.
+[244.06 - 250.48] (w616-629) No siempre indica una enfermedad, pero tampoco debe ignorar una hinchazón persistente o inexplicable.
+[250.68 - 257.98] (w630-643) Si aparece dolor, enrojecimiento o hinchazón repentina en una sola pierna, necesitas valoración médica.
+[258.18 - 264.96] (w644-658) La buena noticia es que puedes interrumpir esos periodos de inmovilidad con movimientos extraordinariamente sencillos.
+[265.24 - 272.08] (w659-677) Y uno de ellos activa un músculo profundo de la pantorrilla que desempeña un papel fascinante en tu circulación.
+[272.42 - 275.20] (w678-684) Antes de descubrirlo, cuéntame en los comentarios.
+[275.34 - 279.58] (w685-695) ¿Sueles quedarte sentado después de cenar o prefieres moverte un poco?
+[279.86 - 280.92] (w696-697) Punto 2.
+[281.12 - 283.80] (w698-704) El segundo corazón oculto en tus piernas.
+[284.00 - 286.64] (w705-709) El poder del músculo soleo.
+[286.88 - 290.96] (w710-720) Ahora viene una de las partes más sorprendentes de nuestro cuerpo.
+[291.12 - 301.04] (w721-742) Justo debajo de los músculos más visibles de tus pantorrillas se encuentra otro músculo que probablemente nunca hayas escuchado nombrar, el soleo.
+[301.28 - 309.86] (w743-759) Aunque pasa desapercibido, trabaja constantemente cuando permaneces de pie, caminas o realizas determinados movimientos con los pies.
+[310.10 - 317.02] (w760-773) Y su función resulta especialmente interesante cuando hablamos de circulación sanguínea y salud metabólica.
+[317.30 - 322.14] (w774-786) Para entender su importancia, piensa en el recorrido que debe realizar tu sangre.
+[322.28 - 331.28] (w787-809) El corazón impulsa la sangre hacia las distintas partes del organismo, pero después esa sangre necesita regresar desde las piernas hasta el pecho.
+[331.54 - 333.56] (w810-814) Y aquí aparece un desafío.
+[333.80 - 336.40] (w815-819) Debe hacerlo venciendo la gravedad.
+[336.64 - 340.36] (w820-828) Afortunadamente, tu cuerpo dispone de un mecanismo de ayuda.
+[340.56 - 351.10] (w829-855) Cuando los músculos de las pantorrillas se contraen, comprimen las venas profundas y favorecen que la sangre avance hacia arriba, mientras las válvulas venosas dificultan su retroceso.
+[351.56 - 357.34] (w856-871) Por eso, a los músculos de la pantorrilla se les conoce popularmente como el segundo corazón.
+[357.86 - 366.00] (w872-891) No porque puedan sustituir al corazón verdadero, sino porque funcionan como una bomba muscular auxiliar que facilita el retorno venoso.
+[366.26 - 374.00] (w892-909) Y el soleo participa de manera importante en ese mecanismo, especialmente durante movimientos repetidos y suaves del tobillo.
+[374.36 - 376.76] (w910-915) Pero su capacidad no termina aquí.
+[376.96 - 384.00] (w916-933) El soleo contiene una elevada proporción de fibras musculares de contracción lenta, conocidas como fibras de tipo 1.
+[384.48 - 394.36] (w934-953) Estas fibras están especialmente adaptadas para trabajar utilizando oxígeno y mantener actividades prolongadas sin fatigarse tan rápidamente como otros músculos.
+[394.64 - 402.04] (w954-969) Precisamente por esta característica, los científicos han comenzado a investigar su relación con el metabolismo energético.
+[402.20 - 418.32] (w970-1004) Un estudio publicado en 2022 en la revista científica iScience observó que una técnica específica de activación del sóleo realizada bajo condiciones controladas podía mejorar determinados indicadores del metabolismo de la glucosa después de comer.
+[418.68 - 421.86] (w1005-1010) Sin embargo, conviene aclarar algo importante.
+[422.04 - 429.22] (w1011-1024) Aquellos resultados no significan que cualquier elevación de talones produzca automáticamente los mismos beneficios.
+[429.46 - 433.50] (w1025-1032) Aun así, el descubrimiento plantea una idea fascinante.
+[433.76 - 443.18] (w1033-1051) Incluso estando sentado, puedes realizar pequeñas contracciones musculares que interrumpan la inmovilidad y contribuyan a mantener tus piernas activas.
+[443.36 - 447.74] (w1052-1059) No necesitas pesas, máquinas complicadas ni movimientos bruscos.
+[447.96 - 456.24] (w1060-1079) Basta con comprender cómo utilizar correctamente una parte de tu cuerpo que lleva toda la vida trabajando silenciosamente por ti.
+[456.46 - 460.28] (w1080-1086) Y todavía queda una pregunta especialmente interesante.
+[460.28 - 467.74] (w1087-1104) ¿Qué relación puede existir entre estos pequeños movimientos, el azúcar en sangre y el funcionamiento de tu cerebro?
+[468.00 - 472.36] (w1105-1113) La respuesta merece que prestes atención al siguiente apartado.
+[472.58 - 479.52] (w1114-1132) Si te gusta descubrir cómo cuidar tu corazón con explicaciones sencillas y basadas en la ciencia, suscríbete al canal.
+[479.80 - 485.96] (w1133-1147) Aquí seguimos aprendiendo juntos, paso a paso, a cuidar nuestra salud después de los 50.
+[486.38 - 487.46] (w1148-1149) Punto 3.
+[487.62 - 492.74] (w1150-1162) ¿Por qué este sencillo movimiento puede beneficiar a tu cerebro y tu memoria?
+[493.14 - 504.60] (w1163-1192) Ahora que conoces el papel del músculo sólido en la circulación, quiero que descubras algo todavía más interesante, la relación que existe entre tus piernas, tu metabolismo y tu cerebro.
+[504.98 - 509.64] (w1193-1204) Porque cuidar tu corazón no consiste únicamente en mantener una buena circulación.
+[510.26 - 516.70] (w1205-1222) También significa proteger las condiciones que permiten que tu mente funcione correctamente con el paso de los años.
+[517.18 - 527.32] (w1223-1248) Tu cerebro representa aproximadamente el 2 % de tu peso corporal, pero consume alrededor del 20 % de la energía que utiliza tu organismo en reposo.
+[527.60 - 539.88] (w1249-1277) Necesita un suministro constante de oxígeno y glucosa para mantener funciones tan importantes como recordar una conversación, concentrarte mientras lees o encontrar las palabras adecuadas cuando hablas con alguien.
+[540.66 - 544.72] (w1278-1286) Sin embargo, existe un detalle que muchas personas desconocen.
+[544.92 - 553.40] (w1287-1308) Con el envejecimiento, la salud de los vasos sanguíneos y el control de la glucosa adquieren especial importancia para el funcionamiento cerebral.
+[553.60 - 562.06] (w1309-1327) La diabetes mal controlada, la hipertensión y el sedentarismo mantenido se relacionan con un mayor riesgo de deterioro cognitivo.
+[562.40 - 573.00] (w1328-1356) Esto no significa que una subida puntual de azúcar después de cenar vaya a dañar tu memoria, sino que los hábitos acumulados durante años pueden influir en tu salud.
+[573.36 - 578.12] (w1357-1368) Aquí es donde nuestro pequeño músculo vuelve a despertar el interés científico.
+[578.28 - 585.00] (w1369-1383) Cuando realizas contracciones musculares, tus células utilizan energía y participan en la regulación del metabolismo.
+[585.86 - 596.00] (w1384-1406) Además, durante la actividad física, los músculos pueden liberar sustancias llamadas mioquinas que intervienen en la comunicación entre diferentes órganos, incluido el cerebro.
+[597.02 - 602.00] (w1407-1417) Pero debemos distinguir entre una posibilidad científica y un beneficio demostrado.
+[602.52 - 618.54] (w1418-1457) Aunque el ejercicio físico regular se asocia con una mejor salud cerebral, todavía no existen pruebas suficientes para afirmar que elevar los talones durante unos minutos después de cenar prevenga la pérdida de memoria o mejore directamente la circulación cerebral.
+[618.80 - 626.14] (w1458-1477) Piensa en Antonio, un hombre de 64 años que acostumbraba a terminar la cena y pasar toda la noche sentado.
+[626.34 - 630.34] (w1478-1485) Últimamente se sentía cansado y le costaba concentrarse.
+[630.52 - 639.90] (w1486-1506) En lugar de buscar una solución milagrosa, decidió introducir pequeños descansos activos, caminar cuando podía y cuidar sus horarios de sueño.
+[640.10 - 647.10] (w1507-1524) Su historia es un ejemplo ilustrativo de cómo empezar a cambiar una rutina, no una garantía de resultados.
+[647.46 - 650.08] (w1525-1530) Porque la verdadera enseñanza es esta.
+[650.20 - 655.56] (w1531-1546) Tu cerebro y tu corazón se benefician de hábitos saludables que se mantienen en el tiempo.
+[655.90 - 660.98] (w1547-1560) Y mover las piernas puede ser un primer paso sencillo para abandonar el sedentarismo.
+[661.16 - 666.66] (w1561-1575) Si conoces a alguien que pasa muchas horas sentado, comparte este vídeo con esa persona.
+[666.78 - 670.24] (w1576-1584) Quizá descubra una forma fácil de empezar a moverse.
+[670.54 - 672.86] (w1585-1591) Y ahora, vamos a lo más práctico.
+[672.92 - 677.00] (w1592-1601) ¿Cómo realizar correctamente este movimiento sin levantarte de la silla?
+[678.14 - 679.26] (w1602-1603) Punto 4.
+[679.36 - 682.30] (w1604-1609) ¿Cómo activar tu segundo corazón sentado?
+[682.44 - 684.00] (w1610-1614) El movimiento paso a paso.
+[685.20 - 689.24] (w1615-1625) Ha llegado el momento de descubrir cómo realizar este sencillo ejercicio.
+[689.84 - 706.00] (w1626-1666) Y quiero que prestes mucha atención, porque aunque parece tan fácil como levantar los talones, la postura, la velocidad y el control del movimiento marcan la diferencia entre activar correctamente tus pantorrillas y limitarte a mover los pies sin prestar atención.
+[706.94 - 712.00] (w1667-1680) Lo primero que necesitas es una silla estable, preferiblemente con respaldo y sin ruedas.
+[713.06 - 722.00] (w1681-1696) Siéntate cómodamente, manteniendo la espalda erguida, los hombros relajados y las rodillas flexionadas aproximadamente 90 grados.
+[722.40 - 728.12] (w1697-1711) Coloca ambos pies completamente apoyados en el suelo, separados a la anchura de tus caderas.
+[728.34 - 730.86] (w1712-1716) No necesitas ningún accesorio especial.
+[731.00 - 735.94] (w1717-1728) Puedes hacerlo mientras ves la televisión o escuchas música después de cenar.
+[736.26 - 738.30] (w1729-1732) Ahora comienza el movimiento.
+[738.44 - 742.72] (w1733-1747) Mantén los dedos y la parte delantera de los pies en contacto con el suelo.
+[742.92 - 749.28] (w1748-1762) Sin levantar las puntas, eleva lentamente ambos talones hasta donde puedas llegar sin sentir dolor.
+[749.60 - 752.48] (w1763-1769) Notarás una ligera contracción en las pantorrillas.
+[752.86 - 756.42] (w1770-1779) No necesitas forzar el tobillo ni buscar una altura exagerada.
+[756.72 - 761.20] (w1780-1790) Lo importante es realizar el movimiento de manera natural y controlada.
+[761.68 - 767.00] (w1791-1803) Cuando los talones estén elevados, mantén la posición durante 1 o 2 segundos.
+[767.38 - 771.62] (w1804-1813) Después, bájalos suavemente hasta recuperar el contacto con el suelo.
+[771.80 - 773.90] (w1814-1818) Evita dejarlos caer de golpe.
+[774.22 - 780.70] (w1819-1833) Repite el movimiento manteniendo una respiración tranquila, sin apretar el abdomen ni contener el aire.
+[780.90 - 787.00] (w1834-1853) Si es la primera vez que lo haces, comienza con 1 o 2 minutos y observa cómo responden tus piernas.
+[787.80 - 795.00] (w1854-1869) Si te encuentras cómodo, puedes aumentar progresivamente hasta cinco minutos, realizando pequeñas pausas cuando las necesites.
+[796.08 - 801.00] (w1870-1880) No existe una cantidad exacta de repeticiones que garantice beneficios cardiovasculares.
+[801.60 - 807.92] (w1881-1894) La clave consiste en moverte sin molestias y evitar permanecer inmóvil durante periodos prolongados.
+[808.08 - 813.72] (w1895-1910) Puedes probarlo después de cenar, cuando te encuentres cómodo, o en cualquier otro momento del día.
+[813.90 - 818.76] (w1911-1921) Si acabas de realizar una comida abundante, no necesitas empezar inmediatamente.
+[819.06 - 821.44] (w1922-1925) Espera hasta sentirte preparado.
+[821.64 - 824.52] (w1926-1931) Y atención a tres errores frecuentes.
+[824.70 - 833.48] (w1932-1951) Levantar también las puntas de los pies, realizar rebotes demasiado rápidos y tensar todo el cuerpo mientras aguantas la respiración.
+[833.80 - 837.80] (w1952-1961) Este ejercicio no requiere fuerza máxima ni debe producir dolor.
+[838.08 - 848.22] (w1962-1983) Si tienes problemas circulatorios importantes, una lesión reciente o una enfermedad cardíaca que limite tu actividad, consulta primero con un profesional sanitario.
+[848.56 - 855.36] (w1984-1999) Ante dolor o hinchazón repentina de una pierna, no realices el ejercicio hasta recibir valoración médica.
+[855.62 - 857.60] (w2000-2002) Recuerda algo fundamental.
+[857.78 - 868.46] (w2003-2026) Estas elevaciones de talón pueden complementar tu actividad física habitual, pero no sustituyen los paseos ni otros ejercicios recomendados para mantener un corazón saludable.
+[868.66 - 874.72] (w2027-2040) Y todavía puedes mejorar esta pequeña rutina incorporando tres hábitos que descubrirás a continuación.
+[875.46 - 876.74] (w2041-2042) Punto 5.
+[876.82 - 881.84] (w2043-2053) Tres pequeños hábitos para aprovechar mejor este ejercicio antes de dormir.
+[882.18 - 894.40] (w2054-2085) Ahora que sabes cómo activar el músculo soleo sin levantarte de la silla, quiero compartir contigo tres pequeños detalles que pueden ayudarte a convertir este movimiento en una rutina cómoda y sostenible.
+[894.68 - 905.10] (w2086-2111) Porque cuidar tu corazón no depende de realizar un ejercicio perfecto durante un solo día, sino de incorporar hábitos que puedas mantener durante meses y años.
+[905.36 - 908.96] (w2112-2120) El primer detalle es prestar atención a tu respiración.
+[909.22 - 914.60] (w2121-2133) Muchas personas, cuando realizan un ejercicio nuevo, contienen el aire sin darse cuenta.
+[914.88 - 923.56] (w2134-2153) Sin embargo, eso puede aumentar innecesariamente la presión dentro del pecho y provocar una elevación transitoria de la tensión arterial.
+[923.82 - 928.90] (w2154-2164) Mientras levantas los talones, intenta respirar de manera tranquila y natural.
+[929.12 - 935.14] (w2165-2177) Puedes inspirar suavemente por la nariz y soltar el aire lentamente, sin forzarte.
+[935.36 - 941.30] (w2178-2190) Una respiración pausada también puede ayudarte a relajarte después de una jornada estresante.
+[941.56 - 948.32] (w2191-2205) No necesitas respirar siguiendo un ritmo complicado ni coordinar cada movimiento con una inhalación exacta.
+[948.46 - 952.02] (w2206-2212) Lo importante es evitar las tensiones innecesarias.
+[952.18 - 957.38] (w2213-2228) El segundo detalle tiene que ver con lo que haces durante las horas anteriores a acostarte.
+[957.54 - 964.18] (w2229-2245) Si tu objetivo es cuidar tanto tu corazón como tu descanso, presta atención a las bebidas estimulantes.
+[964.30 - 965.24] (w2246-2248) Tomar café, ¿Qué?
+[965.38 - 972.64] (w2249-2266) ¿ té con cafeína o bebidas energéticas demasiado cerca de la noche puede dificultar el sueño en algunas personas.
+[972.84 - 977.78] (w2267-2279) Y dormir mal de forma habitual se relaciona con problemas de salud cardiovascular.
+[978.02 - 984.68] (w2280-2298) Por eso, procura reducir la cafeína durante las horas previas a dormir si notas que afecta a tu descanso.
+[985.02 - 991.76] (w2299-2317) También puedes beber un poco de agua si tienes sed, sin necesidad de consumir grandes cantidades antes de acostarte.
+[991.90 - 1000.80] (w2318-2339) El agua templada no posee propiedades especiales para activar el soleo, pero mantener una hidratación adecuada forma parte de una vida saludable.
+[1001.06 - 1007.14] (w2340-2350) Y llegamos al tercer detalle, posiblemente el más importante, la constancia.
+[1007.28 - 1014.98] (w2351-2374) No cometas el error de pensar que 5 minutos de elevaciones de talón van a transformar tu circulación de la noche a la mañana.
+[1015.10 - 1025.44] (w2375-2400) Los beneficios de interrumpir el sedentarismo dependen de muchos factores, y todavía necesitamos más investigaciones para conocer los efectos a largo plazo de este movimiento concreto.
+[1026.22 - 1034.06] (w2401-2418) Sin embargo, convertirlo en una pequeña pausa activa puede ayudarte a recordar que tu cuerpo necesita moverse regularmente.
+[1034.20 - 1039.80] (w2419-2433) Puedes empezar con unos minutos después de cenar y repetir pequeñas pausas durante el día.
+[1039.98 - 1049.08] (w2434-2456) Si tu salud y movilidad lo permiten, combina este hábito con paseos, ejercicios de fuerza y otras actividades adaptadas a tu condición física.
+[1049.34 - 1051.72] (w2457-2462) Y quiero proponerte un pequeño reto.
+[1051.92 - 1058.26] (w2463-2478) Durante los próximos siete días, intenta interrumpir tus ratos de sofá con movimientos suaves de piernas.
+[1058.70 - 1071.62] (w2479-2511) Después, cuéntame en los comentarios si te ha resultado fácil mantener esta costumbre, porque el verdadero secreto no está en encontrar un movimiento milagroso, sino en dejar de pasar tantas horas sin moverte.
+[1072.24 - 1077.32] (w2512-2525) Después de todo lo que hemos descubierto hoy, quiero que recuerdes una idea importante.
+[1077.44 - 1082.28] (w2526-2536) Cuidar tu corazón no siempre requiere grandes esfuerzos ni cambios radicales.
+[1082.48 - 1089.46] (w2537-2551) A veces, el primer paso consiste simplemente en dejar de permanecer inmóvil durante tantas horas.
+[1089.66 - 1100.56] (w2552-2579) Ese pequeño músculo escondido en tus pantorrillas, el soleo, participa cada día en una tarea fundamental, ayudar a que la sangre regrese desde tus piernas hacia el corazón.
+[1100.78 - 1109.30] (w2580-2601) Activar lo mediante elevaciones de talón sentado puede ser una manera sencilla de interrumpir el sedentarismo y mantener tus músculos en movimiento.
+[1109.60 - 1117.06] (w2602-2623) Pero recuerda que no existe un ejercicio milagroso capaz de proteger por sí solo tu corazón o evitar la pérdida de memoria.
+[1117.30 - 1126.36] (w2624-2643) La verdadera diferencia está en combinar pequeños movimientos diarios con una alimentación equilibrada, un descanso adecuado y actividad física regular.
+[1127.64 - 1133.34] (w2644-2660) Esta noche, cuando termines de cenar y te sientes en el sofá, recuerda lo que has aprendido.
+[1133.46 - 1137.78] (w2661-2668) Tus piernas pueden seguir activas incluso mientras descansas.
+[1138.08 - 1139.64] (w2669-2673) Y ahora quiero preguntarte algo.
+[1140.46 - 1144.18] (w2674-2683) ¿Cuántos años tienes y desde qué ciudad nos estás viendo?
+[1144.44 - 1149.78] (w2684-2697) Escríbelo en los comentarios y cuéntame si te animas a probar este sencillo movimiento.
+[1150.10 - 1160.16] (w2698-2724) Si este vídeo te ha resultado útil, dale a Me gusta, compártelo con alguien que pase muchas horas sentado y suscríbete para seguir cuidando juntos nuestra salud.
+[1160.58 - 1162.50] (w2725-2728) Y una última advertencia.
+[1162.72 - 1166.44] (w2729-2738) Este contenido es educativo y no sustituye el consejo médico.
+[1167.06 - 1177.12] (w2739-2760) Si padeces enfermedades cardíacas, problemas circulatorios importantes o limitaciones de movilidad, consulta con tu profesional sanitario antes de comenzar una nueva rutina.
+[1177.68 - 1180.52] (w2761-2765) Recuerda, cada pequeño movimiento cuenta.

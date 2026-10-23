@@ -35,7 +35,7 @@ video from now on. Read them before planning scenes.
 | Part | Visual change every | How |
 |---|---|---|
 | Hook (first 30–45 s) | **1.5–2.5 s** | hard cuts between panels, zoom punch on key words, number slams, quick slide-ins |
-| Body | **1.5–3 s** (owner, Oct 23 2026: "too slow, too static") | push-in on stills, cut-outs sliding in on their word, diagram steps |
+| Body | 3–5 s | push-in on stills, cut-outs sliding in on their word, diagram steps |
 | Warnings / 3 questions | hold (≥ 8 s) | calm, readable, no motion besides a gentle float |
 
 - "Change" = new picture, cut, punch-in, or something entering. No frame stays static for more than
@@ -47,22 +47,19 @@ video from now on. Read them before planning scenes.
   3 answers (3 pictures, ~1 s each) → "stay to the end" promise with a picture. No "EN ESTE VIDEO"
   menu of text cards.
 
-### Faster, more dynamic (owner feedback Oct 23 2026, applies from the next video)
-"Pictures and text come in too slowly; the video looks too static." Rules:
-- **Nothing waits for a far-away word.** A scene shows its first picture within 0.3 s of starting; list
-  items/chips enter 0.4–0.7 s apart right after the scene opens, not 3–5 s later on their own words.
-  No frame may be mostly empty cream for more than 1 s.
-- **Faster entrances:** chips/captions/cards enter in ~0.25 s (`show(..., { dur: 0.25 })`, `pop`,
-  `slideIn`) instead of 0.45 s fades.
-- **A panel holds ≤ 3–4 s.** Split long beats into 2–3 shots of the same panel (wide → close-up on the
-  face/hands with a different `focus`) or alternate two panels; the hook keeps 1.5–2.5 s cuts.
-- **Stronger camera on stills:** zoom 0.15–0.25 with a pan (focus moving), plus a `punch()` on the key
-  word of each scene.
-- **Everything idles:** every cut-out floats/bobs, rings pulse, arrows/dots move, numbers count up,
-  bars grow; diagrams animate their flow (dots moving along arrows).
-- **Scene changes:** short slides/wipes (0.2–0.3 s) instead of 0.35 s cross-fades through cream.
-- Calm holds remain only for warnings/disclaimers (still with a gentle float).
-- QA: scrub the body at 1 s steps; ≥ 1 visible change every 2 s, and no near-empty frames.
+### More motion, same timing (owner feedback Oct 23 2026, applies from the next video)
+"The video looks too static." The owner wants **more movement on screen, not faster cuts**: keep the
+pace above and keep every element landing on its spoken word. Add life inside each scene:
+- **Camera on every still:** a clear push-in *with* a slow pan (focus point travelling), zoom
+  0.12–0.2 over the shot; a gentle `punch()` on the scene's key word.
+- **Everything idles:** cut-outs float/bob and tilt slightly, rings and icons pulse, chips breathe
+  (tiny scale 1 ↔ 1.02), the food strip items bob in turn.
+- **Diagrams move:** dots/particles travel along arrows (blood cells, sugar, nitric-oxide bubbles),
+  bars grow, numbers count up, gauges wobble, clocks tick, check marks draw themselves.
+- **Small animated details** on stills: steam/smoke wisps over pans, sparkles on "good" items, a
+  shake on "error" stamps, drifting particles (salt, leaves, droplets) matching the topic.
+- **Entrances with motion:** slide/pop with a little overshoot instead of plain fades.
+- No frame with nothing moving. QA: scrub at 1 s steps and check that something moves in each frame.
 
 ## 4. Transitions and section breaks
 - Inside the hook: **hard cuts** (`cutVis`) and slide-ins. In the body: short 0.25 s cross-fades or

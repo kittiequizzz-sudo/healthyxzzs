@@ -45,7 +45,6 @@ published videos. Don't add part bridges ("Próximo vídeo · Parte 2", repeated
 tags, re-used hooks). Render each part from the continuous voice and deliver one joined MP4 (see
 `projects/7_alimentos_corazon/render_full.sh`). `levantarse_silla` was mistakenly built as 3 videos.
 
-Feedback after `7_alimentos_corazon` (Oct 23 2026): images and text appear too slowly; the video feels
-static. → `youtube-style.md` §3 "Faster, more dynamic" (body changes every 1.5–3 s, no waiting for
-far-away cue words, faster entrances, panels held ≤ 3–4 s with close-up re-crops, stronger camera,
-everything idles). The owner chose not to re-render `7_alimentos_corazon`; apply from the next video.
+Feedback after `7_alimentos_corazon` (Oct 23 2026): the video feels static. The owner wants **more
+movement inside scenes, still synced to the voice and not faster/denser cuts** → `youtube-style.md` §3
+"More motion, same timing". Not re-rendered; applies from the next video.

@@ -107,6 +107,9 @@ command line.
 - `news/news.js`: components (`NewsStage`, `Grade`, `Photo`, `Bug`, `LowerThird`, `Headline`,
   `BigNumber`, `Chapter`, `StudyCard`, `Quote`, `Bars`, `Split`, `Callout`, `Checklist`, `Wipe`,
   `SmallPrint`, `EndCard`). `news/fonts.css`: Oswald, Source Serif 4, Inter.
+- `scripts/map_paths.mjs` + `assets/geo/`: real country shapes (Natural Earth, offline) projected into SVG
+  paths for a view (`{name, box, extent, projection}`) → `maps.js` with `window.MAPS[name]` (paths, centroids,
+  bboxes). Use it for any country/map scene instead of drawing or AI-generating maps (AI maps get borders wrong).
 - `scripts/plan_check.mjs`: photo-reuse report + motion QA frames (run before every render).
 - `news/anim.js`: 2D animated scenes (`Agenda`, `TwoDown`, `GutGLP1`, `PancreasKeys`, `OnlyWhenHigh`,
   `LiverTap`, `BrainFull`, `QuietBell`, `WeekCalendar`, `TwoBells`, `RustyLock`, `HeartKidneys`,

@@ -856,3 +856,344 @@ function WatchThree(p, { items = [['plate', 'LA COMIDA'], ['dumbbell', 'LA FUERZ
     },
   };
 }
+
+// ================================================================ objects for access / fake-medicine stories
+// Stand-ins for the owner's object illustrations (a_celular, a_pluma, a_caja…), 400-wide box on 0,0.
+const OBJ = {
+  phone: g => {
+    el('rect', { x: -120, y: -230, width: 240, height: 460, rx: 34, fill: '#1B2230', stroke: '#3A4558', 'stroke-width': 8 }, g);
+    el('rect', { x: -104, y: -206, width: 208, height: 412, rx: 18, fill: '#0B0F16' }, g);
+    el('rect', { x: -30, y: -220, width: 60, height: 8, rx: 4, fill: '#3A4558' }, g);
+  },
+  pen: (body = '#F1F3F6', cap = '#8EC5E8') => g => {
+    el('rect', { x: -190, y: -26, width: 300, height: 52, rx: 24, fill: body, stroke: '#C9D0DA', 'stroke-width': 4 }, g);
+    el('rect', { x: -200, y: -30, width: 90, height: 60, rx: 26, fill: cap }, g);
+    el('rect', { x: -40, y: -14, width: 80, height: 28, rx: 8, fill: '#D6ECF7', stroke: '#9FB3C8', 'stroke-width': 3 }, g);
+    el('rect', { x: 110, y: -20, width: 60, height: 40, rx: 12, fill: '#C9D0DA' }, g);
+    el('rect', { x: 170, y: -14, width: 22, height: 28, rx: 6, fill: '#9FB3C8' }, g);
+  },
+  box: g => {
+    el('path', { d: 'M-120 -140 L60 -170 L150 -130 L-30 -100 Z', fill: '#F7F7F4' }, g);
+    el('path', { d: 'M-120 -140 L-30 -100 L-30 180 L-120 140 Z', fill: '#DADDE2' }, g);
+    el('path', { d: 'M-30 -100 L150 -130 L150 150 L-30 180 Z', fill: '#FFFFFF' }, g);
+  },
+  vial: g => {
+    el('rect', { x: -60, y: -110, width: 120, height: 230, rx: 26, fill: '#DDEFF7', stroke: '#B9D3E0', 'stroke-width': 6, opacity: 0.95 }, g);
+    el('rect', { x: -52, y: -20, width: 104, height: 132, rx: 20, fill: '#BFE3F2' }, g);
+    el('rect', { x: -48, y: -170, width: 96, height: 70, rx: 12, fill: '#9AA3AE' }, g);
+    el('rect', { x: -40, y: -150, width: 80, height: 30, rx: 6, fill: '#6F7884' }, g);
+  },
+  lupa: g => {
+    el('line', { x1: 60, y1: 60, x2: 170, y2: 170, stroke: '#3B2F2A', 'stroke-width': 40, 'stroke-linecap': 'round' }, g);
+    el('circle', { cx: -20, cy: -20, r: 120, fill: '#CFE8F5', 'fill-opacity': 0.35, stroke: '#B8C0CA', 'stroke-width': 22 }, g);
+  },
+  receta: g => {
+    el('rect', { x: -140, y: -180, width: 280, height: 360, rx: 10, fill: '#FFFFFF', stroke: '#D9DEE5', 'stroke-width': 4 }, g);
+    for (let i = 0; i < 7; i++) el('rect', { x: -110, y: -120 + i * 40, width: i === 6 ? 120 : 220, height: 6, rx: 3, fill: '#D6DCE4' }, g);
+    el('rect', { x: 20, y: 90, width: 170, height: 20, rx: 10, fill: '#2E5C8A', transform: 'rotate(-35 100 100)' }, g);
+  },
+  parcel: g => {
+    el('path', { d: 'M-160 -60 L0 -130 L160 -60 L0 10 Z', fill: '#D9A86C' }, g);
+    el('path', { d: 'M-160 -60 L0 10 L0 170 L-160 100 Z', fill: '#B9844B' }, g);
+    el('path', { d: 'M0 10 L160 -60 L160 100 L0 170 Z', fill: '#C99456' }, g);
+    el('path', { d: 'M-80 -95 L80 -25', stroke: '#EAD3A8', 'stroke-width': 24 }, g);
+  },
+  plane: g => {
+    el('path', { d: 'M-180 0 Q-170 -26 -120 -26 L150 -26 Q190 -24 196 0 Q190 24 150 26 L-120 26 Q-170 26 -180 0 Z', fill: '#F4F6F9' }, g);
+    el('path', { d: 'M-20 -20 L-80 -140 L-40 -140 L60 -20 Z', fill: '#DDE3EA' }, g);
+    el('path', { d: 'M-20 20 L-80 140 L-40 140 L60 20 Z', fill: '#C9D0DA' }, g);
+    el('path', { d: 'M-150 -20 L-180 -90 L-150 -90 L-110 -20 Z', fill: '#DDE3EA' }, g);
+    for (let i = 0; i < 6; i++) el('circle', { cx: -60 + i * 34, cy: -6, r: 6, fill: '#7FA6C9' }, g);
+  },
+  meter: g => {
+    el('rect', { x: -110, y: -170, width: 220, height: 320, rx: 50, fill: '#E8EEF4', stroke: '#B9C4D0', 'stroke-width': 6 }, g);
+    el('rect', { x: -80, y: -130, width: 160, height: 120, rx: 14, fill: '#CFD8C9' }, g);
+    el('circle', { cx: 0, cy: 70, r: 34, fill: '#B9C4D0' }, g);
+    el('rect', { x: -18, y: -230, width: 36, height: 70, rx: 4, fill: '#F2F2F2', stroke: '#C9D0DA', 'stroke-width': 3 }, g);
+  },
+  pharmacy: g => {
+    el('rect', { x: -170, y: -90, width: 340, height: 250, fill: '#F4EFE6' }, g);
+    el('rect', { x: -190, y: -120, width: 380, height: 40, rx: 8, fill: N.teal }, g);
+    el('rect', { x: -60, y: 0, width: 120, height: 160, fill: '#BFE3F2', stroke: '#9AA3AE', 'stroke-width': 6 }, g);
+    el('rect', { x: -150, y: 0, width: 70, height: 90, fill: '#BFE3F2' }, g); el('rect', { x: 80, y: 0, width: 70, height: 90, fill: '#BFE3F2' }, g);
+    const c = el('g', { transform: 'translate(0 -200)' }, g);
+    el('rect', { x: -60, y: -60, width: 120, height: 120, rx: 14, fill: '#2FA84F' }, c);
+    el('rect', { x: -14, y: -44, width: 28, height: 88, fill: '#fff' }, c); el('rect', { x: -44, y: -14, width: 88, height: 28, fill: '#fff' }, c);
+  },
+  factory: g => {
+    el('rect', { x: -180, y: -20, width: 360, height: 180, fill: '#DDE3EA' }, g);
+    el('path', { d: 'M-180 -20 L-120 -80 L-60 -20 L0 -80 L60 -20 L120 -80 L180 -20 Z', fill: '#C9D0DA' }, g);
+    el('rect', { x: 110, y: -190, width: 40, height: 130, fill: '#9AA3AE' }, g); el('rect', { x: 50, y: -160, width: 34, height: 100, fill: '#9AA3AE' }, g);
+    for (let i = 0; i < 4; i++) el('rect', { x: -150 + i * 85, y: 30, width: 50, height: 50, fill: '#8EC5E8' }, g);
+  },
+  coins: g => {
+    for (let i = 0; i < 6; i++) { el('ellipse', { cx: -40, cy: 120 - i * 34, rx: 110, ry: 34, fill: i % 2 ? '#D9A030' : N.gold, stroke: '#B57F1E', 'stroke-width': 4 }, g); }
+    for (let i = 0; i < 3; i++) { el('ellipse', { cx: 100, cy: 140 - i * 34, rx: 90, ry: 28, fill: '#C9D0DA', stroke: '#9AA3AE', 'stroke-width': 4 }, g); }
+  },
+  envelope: g => {
+    el('rect', { x: -170, y: -110, width: 340, height: 220, rx: 14, fill: '#FFFFFF', stroke: '#D9DEE5', 'stroke-width': 5 }, g);
+    el('path', { d: 'M-170 -100 L0 20 L170 -100', fill: 'none', stroke: '#D9DEE5', 'stroke-width': 8 }, g);
+    el('circle', { cx: 150, cy: -100, r: 44, fill: N.red }, g); el('rect', { x: 144, y: -126, width: 12, height: 34, rx: 5, fill: '#fff' }, g); el('circle', { cx: 150, cy: -78, r: 7, fill: '#fff' }, g);
+  },
+};
+// A screen area of the owner's phone art (fraction of the art box) where code draws chat bubbles.
+const PHONE_SCREEN = { x: -0.43, y: -0.45, w: 0.86, h: 0.9 };
+
+// Phone with a mock chat: bubbles pop in on their cues. Label it "Mensaje de ejemplo" in the plan.
+function PhoneChat(p, { msgs, x = 620, y = 590, w = 560, title = '' }) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: '#25D366', x });
+  const k = title ? Kicker(g, title, { y: 130 }) : null;
+  const ph = Art(g, 'a_celular', { x, y, w }, OBJ.phone);
+  // screen rectangle: the owner's phone art (PHONE_SCREEN fractions) or the stand-in's screen
+  const own = (window.ART || {}).a_celular;
+  const h = own ? w * own[1] / own[0] : 0;
+  const scr = own ? { x: x + PHONE_SCREEN.x * w, y: y + PHONE_SCREEN.y * h, w: PHONE_SCREEN.w * w, h: PHONE_SCREEN.h * h }
+                  : { x: x - 104 * w / 400, y: y - 206 * w / 400, w: 208 * w / 400, h: 412 * w / 400 };
+  const gap = Math.min(110, (scr.h - 60) / msgs.length);
+  const bubbles = msgs.map((m, i) => {
+    const b = el('g', {}, g), by = scr.y + 70 + i * gap, bw = scr.w - 36;
+    el('rect', { x: scr.x + 14, y: by - gap * 0.38, width: bw, height: gap * 0.76, rx: 16, fill: m.me ? '#D9FDD3' : '#FFFFFF' }, b);
+    const tx = NT(b, m.text, { x: scr.x + 32, y: by, size: Math.min(40, gap * 0.36), font: 'B', weight: 700, color: '#1B1A22' });
+    return { b, tx, bw, cx: scr.x + scr.w / 2, by };
+  });
+  // the latest message, big, beside the phone
+  const big = msgs.map(m => NT(g, '“' + m.text + '”', { x: 1360, y: 560, size: 84, font: 'S', italic: true, anchor: 'middle', color: N.gold }));
+  let fitted = false;
+  return {
+    g,
+    draw(t, t0, ts) {
+      bg.draw(t); if (k) k.draw(t, t0);
+      ph.draw(t, t0, { k: 0.006 });
+      if (!fitted && fontsOK()) {   // one text size for all bubbles: the size the longest one fits at
+        const k2 = Math.min(1, ...bubbles.map(o => (o.bw - 36) / tw(o.tx)));
+        bubbles.forEach(o => o.tx.setAttribute('font-size', (+o.tx.getAttribute('font-size') * k2).toFixed(1)));
+        big.forEach(e => { const L = tw(e); if (L > 1000) e.setAttribute('font-size', (84 * 1000 / L).toFixed(1)); });
+        fitted = true;
+      }
+      const at = bubbles.map((o, i) => ts[i] ?? t0 + 0.6 + i * 0.6);
+      bubbles.forEach((o, i) => pop(o.b, t, at[i], o.cx, o.by));
+      const cur = at.reduce((c, a, i) => (t >= a ? i : c), -1);
+      big.forEach((e, i) => { e.setAttribute('opacity', i === cur ? clamp(prog(t, at[i], at[i] + 0.25)).toFixed(3) : 0); });
+    },
+  };
+}
+// Genuine generic vs compounded vs fake: three objects with stamps, revealed on their cues.
+function ThreeKinds(p) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.gold });
+  const k = Kicker(g, 'No es lo mismo', { y: 130 });
+  const cols = [
+    { x: 400, art: 'a_caja', fb: OBJ.box, label: ['GENÉRICO', 'CON REGISTRO'], col: N.teal, mark: 'ok' },
+    { x: 960, art: 'a_vial', fb: OBJ.vial, label: ['“COMPUESTO”', 'O MAGISTRAL'], col: N.gold, mark: 'q' },
+    { x: 1520, art: 'a_caja', fb: OBJ.box, label: ['FALSO', ''], col: N.red, mark: 'x' },
+  ].map(c => {
+    const o = el('g', {}, g);
+    const a = Art(o, c.art, { x: c.x, y: 520, w: 300 }, c.fb);
+    NT(o, c.label[0], { x: c.x, y: 790, size: 56, anchor: 'middle', color: c.col, ls: 2 });
+    if (c.label[1]) NT(o, c.label[1], { x: c.x, y: 850, size: 44, anchor: 'middle', ls: 2 });
+    const m = Placed(o, c.x + 110, 380);
+    el('circle', { r: 56, fill: c.col }, m);
+    if (c.mark === 'ok') el('path', { d: 'M-24 2 L-6 22 L28 -18', fill: 'none', stroke: '#fff', 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, m);
+    else if (c.mark === 'x') { el('path', { d: 'M-20 -20 L20 20 M20 -20 L-20 20', stroke: '#fff', 'stroke-width': 14, 'stroke-linecap': 'round' }, m); }
+    else NT(m, '?', { x: 0, y: 4, size: 76, font: 'S', anchor: 'middle', color: N.ink });
+    return { o, a, m };
+  });
+  return {
+    g,
+    draw(t, t0, ts) {
+      bg.draw(t); k.draw(t, t0);
+      cols.forEach((c, i) => {
+        c.o.setAttribute('opacity', clamp(prog(t, ts[i], ts[i] + 0.3)).toFixed(3));
+        c.a.draw(t, ts[i], { k: 0.01 });
+        popAt(c.m, t, ts[i] + 0.5);
+        // a fake box shakes a little
+        if (i === 2) c.a.g.setAttribute('transform', c.a.g.getAttribute('transform') + ` rotate(${(2 * Math.sin(t * 9)).toFixed(2)})`);
+      });
+    },
+  };
+}
+// Real map: countries light up one by one, each with a dated status card. Needs maps.js (map_paths.mjs).
+function MapStatus(p, { view = 'latam', inset = 'iberia', items, insetBox = [1260, 330, 1820, 780] }) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.teal, x: 700 });
+  const draw = (M, clipBox) => {
+    const mg = el('g', {}, g), paths = {};
+    if (clipBox) {
+      const id = auid('mclip'), cp = el('clipPath', { id }, defs());
+      el('rect', { x: clipBox[0], y: clipBox[1], width: clipBox[2] - clipBox[0], height: clipBox[3] - clipBox[1], rx: 18 }, cp);
+      el('rect', { x: clipBox[0], y: clipBox[1], width: clipBox[2] - clipBox[0], height: clipBox[3] - clipBox[1], rx: 18, fill: '#0A1019', stroke: N.line, 'stroke-width': 4 }, mg);
+      mg.setAttribute('clip-path', `url(#${id})`);
+    }
+    for (const [n, d] of Object.entries(M.paths)) paths[n] = el('path', { d, fill: N.panel2, stroke: N.bg, 'stroke-width': 1.5 }, mg);
+    return { mg, paths, M };
+  };
+  const A1 = draw(window.MAPS[view]), B1 = inset ? draw(window.MAPS[inset], insetBox) : null;
+  // fade the top edge where the US is cut off
+  const fid = auid('mfade'), lg = el('linearGradient', { id: fid, x1: 0, y1: 0, x2: 0, y2: 1 }, defs());
+  el('stop', { offset: '0', 'stop-color': N.bg, 'stop-opacity': 1 }, lg); el('stop', { offset: '1', 'stop-color': N.bg, 'stop-opacity': 0 }, lg);
+  el('rect', { x: 0, y: 0, width: 1240, height: 260, fill: `url(#${fid})` }, g);
+  const cards = items.map(it => {
+    const src = (B1 && B1.M.paths[it.country]) ? B1 : A1;
+    const c = src.M.centroid[it.country];
+    const o = el('g', {}, g);
+    const dot = el('circle', { cx: c[0], cy: c[1], r: 12, fill: '#fff' }, o);
+    const cx = it.cx ?? c[0], cy = it.cy ?? c[1] - 120;
+    const line = el('line', { x1: c[0], y1: c[1], x2: cx, y2: cy, stroke: '#fff', 'stroke-width': 3 }, o);
+    const card = Placed(o, cx, cy);
+    const w = it.w || 420;
+    el('rect', { x: -w / 2, y: -70, width: w, height: 140, rx: 16, fill: N.panel, stroke: it.color, 'stroke-width': 5 }, card);
+    NT(card, it.name.toUpperCase(), { x: 0, y: -28, size: 44, anchor: 'middle', color: it.color, ls: 2 });
+    NT(card, it.status, { x: 0, y: 28, size: 34, font: 'S', italic: true, anchor: 'middle' });
+    return { o, card, src, it };
+  });
+  return {
+    g,
+    draw(t, t0, ts, t1 = 1e9) {
+      bg.draw(t);
+      A1.mg.setAttribute('opacity', clamp(prog(t, t0, t0 + 0.5)).toFixed(3));
+      if (B1) B1.mg.setAttribute('opacity', clamp(prog(t, t0 + 0.2, t0 + 0.7)).toFixed(3));
+      cards.forEach((c, i) => {
+        const on = clamp(prog(t, ts[i], ts[i] + 0.4));
+        const p0 = c.src.paths[c.it.country];
+        const active = t >= ts[i] && (i === cards.length - 1 || t < (ts[i + 1] ?? 1e9) + 99);
+        p0.setAttribute('fill', on > 0 ? c.it.color : N.panel2);
+        p0.setAttribute('opacity', (on > 0 ? 0.55 + 0.45 * on : 1).toFixed(3));
+        c.o.setAttribute('opacity', on.toFixed(3));
+        popAt(c.card, t, ts[i] + 0.15);
+      });
+    },
+  };
+}
+// Pen contents: original window full; fake pens may have nothing… or something else.
+function PenContents(p, { title = 'Lo que pueden traer', labels = ['ORIGINAL', 'SIN MEDICAMENTO', '¿OTRA COSA?'] } = {}) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.red });
+  const k = Kicker(g, title, { y: 130 });
+  const rows = [0, 1, 2].map(i => {
+    const y = 330 + i * 230, o = el('g', {}, g);
+    const a = Art(o, i === 0 ? 'a_pluma' : 'a_pluma_rara', { x: 700, y, w: 620 }, i === 0 ? OBJ.pen() : OBJ.pen('#D9DCE1', '#F2A86B'));
+    const lens = Placed(o, 700, y);
+    el('rect', { x: -70, y: -40, width: 140, height: 80, rx: 18, fill: N.bg, stroke: '#fff', 'stroke-width': 5 }, lens);
+    const liquid = el('rect', { x: -60, y: -30, width: 120, height: 60, rx: 12, fill: [N.teal, 'none', N.red][i] }, lens);
+    const q = NT(lens, i === 1 ? '∅' : i === 2 ? '?' : '', { x: 0, y: 4, size: 60, font: 'S', anchor: 'middle', color: i === 1 ? N.dim : '#fff' });
+    const lab = NT(o, labels[i], { x: 1110, y, size: 52, color: [N.teal, N.dim, N.red][i], ls: 2 });
+    return { o, a, lens, liquid, lab, y };
+  });
+  return {
+    g,
+    draw(t, t0, ts) {
+      bg.draw(t); k.draw(t, t0);
+      rows.forEach((r, i) => {
+        r.o.setAttribute('opacity', clamp(prog(t, ts[i], ts[i] + 0.3)).toFixed(3));
+        r.a.draw(t, ts[i], { k: 0 });
+        popAt(r.lens, t, ts[i] + 0.4);
+        if (i === 2) r.liquid.setAttribute('opacity', (0.6 + 0.4 * Math.sin(t * 5)).toFixed(3));
+      });
+    },
+  };
+}
+// Five signs: a row of five icons, each lit on its cue; the current one is big.
+const SIGN_ART = [['a_receta', OBJ.receta, 'RECETA'], ['a_lupa', OBJ.lupa, 'REGISTRO'], ['a_caja', OBJ.box, 'EMPAQUE'], ['a_pluma', OBJ.pen(), 'LOTE'], ['a_celular', OBJ.phone, 'PRECIO']];
+function FiveSigns(p, { notes = [] } = {}) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.teal });
+  const k = Kicker(g, '5 señales para no caer', { y: 120 });
+  const items = SIGN_ART.map(([art, fb, label], i) => {
+    const x = 260 + i * 350, o = el('g', {}, g);
+    el('circle', { cx: x, cy: 820, r: 120, fill: N.panel, stroke: N.line, 'stroke-width': 4 }, o);
+    const a = Art(o, art, { x, y: 820, w: 150 }, fb);
+    NT(o, String(i + 1), { x: x - 100, y: 720, size: 56, font: 'S', color: N.gold });
+    const lab = NT(o, label, { x, y: 990, size: 46, anchor: 'middle', ls: 2 });
+    return { o, a, lab, x };
+  });
+  const big = items.map(({ x }, i) => {
+    const o = el('g', {}, g);
+    const a = Art(o, SIGN_ART[i][0], { x: 660, y: 430, w: 360 }, SIGN_ART[i][1]);
+    NT(o, SIGN_ART[i][2], { x: 1000, y: 360, size: 96, color: N.gold, ls: 3 });
+    if (notes[i]) NT(o, notes[i], { x: 1000, y: 470, size: 46, font: 'S', italic: true });
+    return { o, a };
+  });
+  return {
+    g,
+    draw(t, t0, ts) {
+      bg.draw(t); k.draw(t, t0);
+      items.forEach((it, i) => {
+        const on = t >= ts[i];
+        it.o.setAttribute('opacity', (clamp(prog(t, t0 + 0.2 + i * 0.08, t0 + 0.5 + i * 0.08)) * (on ? 1 : 0.35)).toFixed(3));
+        it.a.draw(t, t0 + 0.2 + i * 0.08, { k: on ? 0.03 : 0, rate: 4 });
+        it.lab.setAttribute('fill', on ? N.gold : N.white);
+      });
+      big.forEach((b, i) => {
+        const a = ts[i], z = ts[i + 1] ?? 1e9;
+        const v = clamp(prog(t, a, a + 0.35)) * (1 - clamp(prog(t, z - 0.25, z)));
+        b.o.setAttribute('opacity', v.toFixed(3));
+        b.a.draw(t, a, { k: 0.015 });
+      });
+    },
+  };
+}
+// Buying online from abroad: laptop → plane → parcel, crossed out; then the local pharmacy, ticked.
+function AbroadNo(p) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.red });
+  const k = Kicker(g, 'Ayudar desde lejos', { y: 130 });
+  const pl = Art(g, 'a_avion', { x: 700, y: 360, w: 320 }, OBJ.plane);
+  const pk = Art(g, 'a_paquete', { x: 1150, y: 560, w: 260 }, OBJ.parcel);
+  const path = el('path', { d: 'M300 600 C500 300 900 280 1150 480', fill: 'none', stroke: N.dim, 'stroke-width': 6, 'stroke-dasharray': '16 14' }, g);
+  const lap = Placed(g, 300, 600); el('rect', { x: -110, y: -80, width: 220, height: 140, rx: 10, fill: '#1B2230', stroke: '#3A4558', 'stroke-width': 6 }, lap); el('rect', { x: -140, y: 60, width: 280, height: 20, rx: 8, fill: '#3A4558' }, lap);
+  const cross = Placed(g, 760, 560); el('path', { d: 'M-90 -90 L90 90 M90 -90 L-90 90', stroke: N.red, 'stroke-width': 26, 'stroke-linecap': 'round' }, cross);
+  const l1 = Pill(g, 'COMPRAR POR INTERNET: NO', { x: 760, y: 820, size: 50, fill: N.red });
+  const ph = Art(g, 'a_farmacia', { x: 1600, y: 520, w: 340 }, OBJ.pharmacy);
+  const ok = Placed(g, 1720, 360); el('circle', { r: 50, fill: N.teal }, ok); el('path', { d: 'M-22 2 L-6 20 L24 -16', fill: 'none', stroke: '#fff', 'stroke-width': 12, 'stroke-linecap': 'round' }, ok);
+  const l2 = Pill(g, 'CON RECETA, EN SU PAÍS', { x: 1600, y: 820, size: 46, color: N.teal, stroke: N.teal });
+  return {
+    g,
+    draw(t, t0, tNo, tYes) {
+      bg.draw(t); k.draw(t, t0);
+      popAt(lap, t, t0 + 0.2);
+      path.setAttribute('opacity', clamp(prog(t, t0 + 0.4, t0 + 0.8)).toFixed(3));
+      path.setAttribute('stroke-dashoffset', (-t * 40).toFixed(1));
+      pl.draw(t, t0 + 0.5, { k: 0 }); tr(pl.g, lerp(450, 950, E.inOut(prog(t, t0 + 0.5, t0 + 3))), 380 - 60 * Math.sin(prog(t, t0 + 0.5, t0 + 3) * Math.PI), 1, -4);
+      pk.draw(t, t0 + 2.4, { k: 0.01 });
+      popAt(cross, t, tNo); l1.draw(t, tNo + 0.2);
+      ph.draw(t, tYes, { k: 0.01 }); popAt(ok, t, tYes + 0.5); l2.draw(t, tYes + 0.4);
+    },
+  };
+}
+// Glucose meter reading below 70 + the threshold line.
+function MeterLow(p, { value = 64 } = {}) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.red });
+  const k = Kicker(g, 'Si tiene glucómetro, mídase', { y: 130 });
+  const m = Art(g, 'a_glucometro', { x: 700, y: 560, w: 420 }, OBJ.meter);
+  const own = (window.ART || {}).a_glucometro;
+  const scr = Placed(g, 700, own ? 470 : 470);
+  const num = NT(scr, '', { x: 0, y: 0, size: 110, font: 'S', anchor: 'middle', color: N.ink });
+  NT(scr, 'mg/dL', { x: 0, y: 70, size: 34, anchor: 'middle', color: '#3B4048' });
+  const big = NT(g, 'MENOS DE 70', { x: 1360, y: 470, size: 100, anchor: 'middle', color: N.red, ls: 2 });
+  const sub = NT(g, '= azúcar baja', { x: 1360, y: 580, size: 64, font: 'S', italic: true, anchor: 'middle' });
+  return {
+    g,
+    draw(t, t0) {
+      bg.draw(t); k.draw(t, t0); m.draw(t, t0 + 0.1, { k: 0 });
+      const v = Math.round(lerp(98, value, E.inOut(prog(t, t0 + 0.8, t0 + 2.4))));
+      num.textContent = t > t0 + 0.6 ? String(v) : '';
+      num.setAttribute('fill', v < 70 ? N.red : N.ink);
+      show(big, t, t0 + 2.4); show(sub, t, t0 + 2.8);
+    },
+  };
+}
+// Cost to make vs price: factory → coins, with the honest notes.
+function MakeCost(p) {
+  const g = el('g', {}, p), bg = AnimBG(g, { tint: N.gold });
+  const k = Kicker(g, 'Cuánto cuesta fabricarla', { y: 130 });
+  const f = Art(g, 'a_fabrica', { x: 480, y: 520, w: 460 }, OBJ.factory);
+  const c = Art(g, 'a_monedas', { x: 1440, y: 560, w: 360 }, OBJ.coins);
+  const arrow = DrawLine(g, 'M760 520 L1200 520', { color: N.gold, width: 12 });
+  const num = NT(g, 'US$ 28 – 140', { x: 980, y: 420, size: 96, font: 'S', anchor: 'middle', color: N.gold });
+  const per = NT(g, 'al año (estimación)', { x: 980, y: 620, size: 46, font: 'S', italic: true, anchor: 'middle' });
+  const n1 = Pill(g, 'COSTO DE FABRICAR, NO PRECIO EN FARMACIA', { x: 960, y: 820, size: 42, stroke: N.red });
+  const n2 = Pill(g, 'ESTUDIO AÚN NO PUBLICADO EN REVISTA', { x: 960, y: 930, size: 38, color: N.dim });
+  return {
+    g,
+    draw(t, t0, tNote, tPub) {
+      bg.draw(t); k.draw(t, t0); f.draw(t, t0 + 0.1); c.draw(t, t0 + 0.9);
+      arrow.draw(prog(t, t0 + 0.5, t0 + 1.2)); show(num, t, t0 + 1.0); show(per, t, t0 + 1.4);
+      n1.draw(t, tNote); n2.draw(t, tPub);
+    },
+  };
+}

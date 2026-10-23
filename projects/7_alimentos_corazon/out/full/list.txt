@@ -1,0 +1,3 @@
+file '/home/user/healthyxzzs/projects/7_alimentos_corazon/out/full/00_v1_intro.mp4'
+file '/home/user/healthyxzzs/projects/7_alimentos_corazon/out/full/01_v1_punto1.mp4'
+file '/home/user/healthyxzzs/projects/7_alimentos_corazon/out/full/02_v1_punto2.mp4'

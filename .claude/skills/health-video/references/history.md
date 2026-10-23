@@ -39,3 +39,8 @@ Feedback after `levantarse_silla` (3 videos delivered, Oct 2026): no fixed main 
 diverse cast; more expressive, adult-animation faces (not a kids' cartoon); fewer repeated pictures
 (~1 different panel per 15–20 s, each used at most twice). Applies from the next video on; the three
 `levantarse_silla` videos stay as delivered. → `style-bible.md` (Characters), `prompt-blocks.md`.
+
+Owner clarification (Oct 23 2026): "chia 3 phần" means **3 parts of ONE video** (for checking), not 3
+published videos. Don't add part bridges ("Próximo vídeo · Parte 2", repeated disclaimers, "Parte 3 de 3"
+tags, re-used hooks). Render each part from the continuous voice and deliver one joined MP4 (see
+`projects/7_alimentos_corazon/render_full.sh`). `levantarse_silla` was mistakenly built as 3 videos.

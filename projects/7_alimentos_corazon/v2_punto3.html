@@ -103,8 +103,8 @@ scene(svg, () => at('importa'), () => at('semana'), g => {
   const h = Caption(g, 'LA PREPARACIÓN IMPORTA', { cy: 110, size: 56, hi: 'IMPORTA' });
   const f = Chip(g, '+ CALORÍAS · GRASAS DAÑADAS · ACEITE REUTILIZADO', { cx: 1420, cy: 980, size: 26, fill: C.amber });
   return t => {
-    show(h, t, at('importa')); show(a.g, t, at('horno')); show(ma, t, at('horno') + 0.4); show(b.g, t, at('rebozado')); show(mb, t, at('rebozado') + 0.4); show(f, t, at('fritura'));
-    a.st.draw(t, at('horno'), at('semana')); b.st.draw(t, at('rebozado'), at('semana'));
+    show(h, t, at('importa')); show(a.g, t, at('importa') + 0.6); show(ma, t, at('horno')); show(b.g, t, at('importa') + 1.4); show(mb, t, at('rebozado') + 0.4); show(f, t, at('fritura'));
+    a.st.draw(t, at('importa'), at('semana')); b.st.draw(t, at('importa'), at('semana'));
   };
 });
 
@@ -137,7 +137,7 @@ scene(svg, () => at('siguiente'), () => END + 1, g => {
   const a = Mark(g, 'CARNE TODOS LOS DÍAS', false, { cx: 960, cy: 220, size: 52 });
   const b = cut(g, 'lentejas', 960, 560, 440);
   const c = Caption(g, 'UNAS HUMILDES LENTEJAS', { cy: 900, size: 56, hi: 'LENTEJAS' });
-  return t => { show(a, t, at('carne')); pop(b, t, at('carne') + 1, 960, 560); show(c, t, at('lentejas0') + 0.5); };
+  return t => { show(a, t, at('siguiente') + 0.4); pop(b, t, at('siguiente') + 1.2, 960, 560); show(c, t, at('lentejas0') + 0.5); };
 });
 
 scene(svg, () => at('sabias') + 0.3, () => END + 1, g => { FoodStrip(g, 2); });

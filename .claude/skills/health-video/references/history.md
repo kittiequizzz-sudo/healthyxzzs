@@ -48,3 +48,11 @@ tags, re-used hooks). Render each part from the continuous voice and deliver one
 Feedback after `7_alimentos_corazon` (Oct 23 2026): the video feels static. The owner wants **more
 movement inside scenes, still synced to the voice and not faster/denser cuts** → `youtube-style.md` §3
 "More motion, same timing". Not re-rendered; applies from the next video.
+
+`soleo_segundo_corazon` (Oct 23 2026), first video with the new rules: ONE page (`video.html` + one
+`s*_*.js` per section) on one cue file for the whole voice; rendered in parallel chunks and the 3 check
+parts cut from the joined MP4 (`render_full.sh`). Motion kit in its `common.js`: `Live()` (entrance +
+idle on everything), `Shot` (push-in + pan), `flow()` (cells/sugar along paths), `CalfPump` (animated
+muscle pump), `heelRaise()` (rep loop from the pose sheet with calf glow). Reuse it for the next video.
+Pose sheet of a person on a chair: `cut_poses.py` lost the legs and chair; cut by connected components
+on the flat background (drop the floor line, clear the enclosed background under the seat).

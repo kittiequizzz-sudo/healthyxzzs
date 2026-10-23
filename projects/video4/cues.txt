@@ -56,6 +56,9 @@ bogota | En Colombia en 2024 el INVIMA encontró
 austria | Y lo más peligroso pasó en Europa
 insulina | Se sospechaba que traían insulina
 oms | La Organización Mundial de la Salud también
+oms_br | detectados en Brasil
+oms_uk | Reino Unido
+oms_us | Estados Unidos
 # Clave 4
 clave4 | Clave 4 cinco señales
 s1 | Una receta y farmacia formal
@@ -63,6 +66,11 @@ s2 | Dos el registro sanitario
 s3 | Tres el empaque del país
 s4 | Cuatro el lote y la caducidad
 s5 | Cinco el precio y el canal
+f_mitad | Mitad de precio sin receta
+f_sin | sin receta Envío
+f_envio | Envío por WhatsApp
+f_frasco | en frasco con
+f_b12 | con vitamina B12
 frases | Cada una de esas frases
 # Beat 4–5
 sigamos | Bueno sigamos
@@ -72,20 +80,30 @@ invima2 | El INVIMA pide verificar
 oms2 | Y la Organización Mundial de la Salud pide
 lugar | el lugar donde usted compra es parte
 recuerde | Recuerde esto es información
+no1 | No empiece no deje
+no2 | no deje y no
+no3 | y no cambien ninguna
 # Beat 6
 dira | Usted dirá
 familia | Pero piense en su familia
 andres2 | Andrés desde Miami quería ayudar
 reglas | comprar por internet y mandar medicinas
+autpiden | Las autoridades piden que el paciente
 cali | Lo más seguro para Doña Fidelina
 advertencia | Ahora una advertencia importante
+w_temblor | siente temblor
+w_hambre | hambre de repente
+w_cor | el corazón acelerado
+w_conf | o confusión puede
 glucometro | Si tiene glucómetro mídase
 urgencias | Vaya a urgencias
 avise | Si ya usó una pluma de la que sospecha
 guarde | Guarde la pluma y la caja
+avise_aut | y avise a la autoridad sanitaria
 # Beat 7
 justa | Para ser justa
 fabricar | estimó que fabricar semaglutida
+f28 | costar entre 28
 nopublicado | ese análisis todavía no se había publicado
 realistas | También hay que ser realistas
 barato | Y un detalle más barato
@@ -98,7 +116,7 @@ llegar | Los genéricos van a llegar
 # Beat 9
 anote | Anote estas tres preguntas
 p1 | Uno en la farmacia
-p2 | Dos en la farmacia
+p2 | Dos en la farmacia ya hay un genérico
 p3 | Tres con su médico
 comentarios | Y una pregunta para usted
 sabado | El sábado cambiamos de tema

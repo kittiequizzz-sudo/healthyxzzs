@@ -964,11 +964,12 @@ function PhoneChat(p, { msgs, x = 620, y = 590, w = 560, title = '' }) {
     draw(t, t0, ts) {
       bg.draw(t); if (k) k.draw(t, t0);
       ph.draw(t, t0, { k: 0.006 });
-      if (!fitted && fontsOK()) {   // one text size for all bubbles: the size the longest one fits at
+      if (!fitted) {   // one text size for all bubbles: the size the longest one fits at (re-measured until fonts are in)
+        bubbles.forEach(o => o.tx.setAttribute('font-size', o.base ??= +o.tx.getAttribute('font-size')));
         const k2 = Math.min(1, ...bubbles.map(o => (o.bw - 36) / tw(o.tx)));
-        bubbles.forEach(o => o.tx.setAttribute('font-size', (+o.tx.getAttribute('font-size') * k2).toFixed(1)));
-        big.forEach(e => { const L = tw(e); if (L > 1000) e.setAttribute('font-size', (84 * 1000 / L).toFixed(1)); });
-        fitted = true;
+        bubbles.forEach(o => o.tx.setAttribute('font-size', (o.base * k2).toFixed(1)));
+        big.forEach(e => { e.setAttribute('font-size', 84); const L = tw(e); if (L > 1000) e.setAttribute('font-size', (84 * 1000 / L).toFixed(1)); });
+        fitted = fontsOK() && document.fonts.check('700 30px Inter');
       }
       const at = bubbles.map((o, i) => ts[i] ?? t0 + 0.6 + i * 0.6);
       bubbles.forEach((o, i) => pop(o.b, t, at[i], o.cx, o.by));
@@ -1002,8 +1003,9 @@ function ThreeKinds(p) {
     draw(t, t0, ts) {
       bg.draw(t); k.draw(t, t0);
       cols.forEach((c, i) => {
-        c.o.setAttribute('opacity', clamp(prog(t, ts[i], ts[i] + 0.3)).toFixed(3));
-        c.a.draw(t, ts[i], { k: 0.01 });
+        const intro = clamp(prog(t, t0 + 0.2 + i * 0.15, t0 + 0.5 + i * 0.15)), on = clamp(prog(t, ts[i], ts[i] + 0.3));
+        c.o.setAttribute('opacity', (intro * (0.3 + 0.7 * on)).toFixed(3));
+        c.a.draw(t, t0 + 0.2 + i * 0.15, { k: on ? 0.01 : 0 });
         popAt(c.m, t, ts[i] + 0.5);
         // a fake box shakes a little
         if (i === 2) c.a.g.setAttribute('transform', c.a.g.getAttribute('transform') + ` rotate(${(2 * Math.sin(t * 9)).toFixed(2)})`);
@@ -1063,7 +1065,8 @@ function MapStatus(p, { view = 'latam', inset = 'iberia', items, insetBox = [126
   };
 }
 // Pen contents: original window full; fake pens may have nothing… or something else.
-function PenContents(p, { title = 'Lo que pueden traer', labels = ['ORIGINAL', 'SIN MEDICAMENTO', '¿OTRA COSA?'] } = {}) {
+// lens[i] = false: no contents window on that row (the alert only says the pen looks different).
+function PenContents(p, { title = 'Lo que pueden traer', labels = ['ORIGINAL', 'SIN MEDICAMENTO', '¿OTRA COSA?'], lens: showLens = [true, true, true] } = {}) {
   const g = el('g', {}, p), bg = AnimBG(g, { tint: N.red });
   const k = Kicker(g, title, { y: 130 });
   const rows = [0, 1, 2].map(i => {
@@ -1083,7 +1086,7 @@ function PenContents(p, { title = 'Lo que pueden traer', labels = ['ORIGINAL', '
       rows.forEach((r, i) => {
         r.o.setAttribute('opacity', clamp(prog(t, ts[i], ts[i] + 0.3)).toFixed(3));
         r.a.draw(t, ts[i], { k: 0 });
-        popAt(r.lens, t, ts[i] + 0.4);
+        if (showLens[i]) popAt(r.lens, t, ts[i] + 0.4); else r.lens.setAttribute('opacity', 0);
         if (i === 2) r.liquid.setAttribute('opacity', (0.6 + 0.4 * Math.sin(t * 5)).toFixed(3));
       });
     },
@@ -1096,10 +1099,10 @@ function FiveSigns(p, { notes = [] } = {}) {
   const k = Kicker(g, '5 señales para no caer', { y: 120 });
   const items = SIGN_ART.map(([art, fb, label], i) => {
     const x = 260 + i * 350, o = el('g', {}, g);
-    el('circle', { cx: x, cy: 820, r: 120, fill: N.panel, stroke: N.line, 'stroke-width': 4 }, o);
-    const a = Art(o, art, { x, y: 820, w: 150 }, fb);
-    NT(o, String(i + 1), { x: x - 100, y: 720, size: 56, font: 'S', color: N.gold });
-    const lab = NT(o, label, { x, y: 990, size: 46, anchor: 'middle', ls: 2 });
+    el('circle', { cx: x, cy: 770, r: 110, fill: N.panel, stroke: N.line, 'stroke-width': 4 }, o);
+    const a = Art(o, art, { x, y: 770, w: 140 }, fb);
+    NT(o, String(i + 1), { x: x - 96, y: 676, size: 56, font: 'S', color: N.gold });
+    const lab = NT(o, label, { x, y: 935, size: 46, anchor: 'middle', ls: 2 });
     return { o, a, lab, x };
   });
   const big = items.map(({ x }, i) => {
@@ -1190,9 +1193,9 @@ function MakeCost(p) {
   const n2 = Pill(g, 'ESTUDIO AÚN NO PUBLICADO EN REVISTA', { x: 960, y: 930, size: 38, color: N.dim });
   return {
     g,
-    draw(t, t0, tNote, tPub) {
-      bg.draw(t); k.draw(t, t0); f.draw(t, t0 + 0.1); c.draw(t, t0 + 0.9);
-      arrow.draw(prog(t, t0 + 0.5, t0 + 1.2)); show(num, t, t0 + 1.0); show(per, t, t0 + 1.4);
+    draw(t, t0, tNote, tPub, tNum = t0 + 1.0) {
+      bg.draw(t); k.draw(t, t0); f.draw(t, t0 + 0.1); c.draw(t, tNum - 0.1);
+      arrow.draw(prog(t, tNum - 0.5, tNum + 0.2)); show(num, t, tNum); show(per, t, tNum + 1.8);
       n1.draw(t, tNote); n2.draw(t, tPub);
     },
   };

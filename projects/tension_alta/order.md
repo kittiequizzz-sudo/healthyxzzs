@@ -1,6 +1,6 @@
 # Ảnh cần tạo cho "¿Por qué sigue alta tu tensión si tomas medicación?" (1 video, làm theo 3 phần)
 
-**15 ảnh**: 10 tấm cảnh 2×2 + 4 tấm ẩn dụ 2×2 (+ ảnh 16 đồ vật). Video này **không có bài tập** nên không cần tấm tư thế.
+**15 ảnh**: 10 tấm cảnh 2×2 + 4 tấm ẩn dụ 2×2 + ảnh 15 đồ vật. Video này **không có bài tập** nên không cần tấm tư thế.
 Hoạt hình người lớn, mỗi khung một người khác (trừ ảnh 4 cùng một bà), biểu cảm rõ.
 Màu **đậm nhưng hài hòa** như video giấc ngủ (dòng `COLOR:` có sẵn trong mọi prompt).
 
@@ -9,9 +9,9 @@ Màu **đậm nhưng hài hòa** như video giấc ngủ (dòng `COLOR:` có s�
 - Các ảnh sau **đính kèm ảnh 1**.
 - Ảnh có chữ → "remove all text". Sai một khung → "Edit only panel 3: …". Ám vàng → "Less yellow, no golden glow, neutral white balance".
 - Màn hình máy đo **để trống** (số đo mình vẽ bằng code).
-- Ảnh 16 (đồ vật): **nền kem phẳng một màu**.
+- Ảnh 15 (đồ vật): **nền kem phẳng một màu**.
 
-Phân phần: Phần 1 = 0:00–8:17 (ảnh 1–6, 16) · Phần 2 = 8:17–14:44 (ảnh 7–10) · Phần 3 = 14:44–20:17 (ảnh 11–14). Bảng note: `bang_anh.md`.
+Phân phần: Phần 1 = 0:00–8:17 (ảnh 1–6, 15) · Phần 2 = 8:17–14:44 (ảnh 7–10) · Phần 3 = 14:44–20:17 (ảnh 11–14). Bảng note: `bang_anh.md`.
 
 ---
 
@@ -97,7 +97,7 @@ Panel 4 (bottom right): a cup of herbal tea and a liquorice root next to a warni
 AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landscape 3:2.
 ```
 
-### Ảnh 16 · `objetos`: Đồ vật (đính kèm ảnh 1) · **nền kem phẳng**
+### Ảnh 15 · `objetos`: Đồ vật (đính kèm ảnh 1) · **nền kem phẳng**
 *16 món tách rời: máy đo huyết áp (màn hình trống) · hộp chia thuốc · vỉ thuốc (không chữ) · bình xịt mũi · que cam thảo · đùi jamón · chorizo · miếng phô mai · hộp đồ hộp (không nhãn) · ổ bánh mì · lọ muối · chuối · bó rau thơm · quả thận · trái tim · mặt nạ CPAP.*
 ```
 Create one image: an illustration sheet of sixteen separate items in the same drawing style as the attached image (bold ink outlines, flat cel shading, deep harmonious colours, NO yellow cast). Draw them SEPARATELY, well apart, evenly spaced in four rows of four, none touching:

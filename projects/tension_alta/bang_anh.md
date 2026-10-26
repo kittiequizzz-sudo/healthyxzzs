@@ -11,7 +11,7 @@ Màu đậm nhưng hài hòa, **không ám vàng**. **Màn hình máy đo để 
 | ☐ | 4 | `s_ansiedad` | 1 | **cùng 1 bà**: hoảng khi thấy số · đo lại tay run · tim đập mạnh · thở chậm bình tĩnh | cảnh |
 | ☐ | 5 | `s_botiquin` | 1 | uống thuốc giảm đau · xịt thông mũi · ăn cam thảo · đưa danh sách cho dược sĩ | cảnh |
 | ☐ | 6 | `m_rinon` | 1 | thận lọc nước muối · viên thuốc chặn bộ lọc · mạch phồng vì nước · trà thảo mộc + cảnh báo | ẩn dụ |
-| ☐ | 16 | `objetos` | cả video | 16 đồ vật: máy đo · hộp thuốc · vỉ thuốc · xịt mũi · cam thảo · jamón · chorizo · phô mai · đồ hộp · bánh mì · lọ muối · chuối · rau thơm · thận · tim · mặt nạ CPAP | **kem phẳng** |
+| ☐ | 15 | `objetos` | cả video | 16 đồ vật: máy đo · hộp thuốc · vỉ thuốc · xịt mũi · cam thảo · jamón · chorizo · phô mai · đồ hộp · bánh mì · lọ muối · chuối · rau thơm · thận · tim · mặt nạ CPAP | **kem phẳng** |
 | ☐ | 7 | `s_sal` | 2 | bánh mì jamón · đọc nhãn · nấu với rau thơm · đẩy đĩa chorizo | cảnh |
 | ☐ | 8 | `m_manguera` | 2 | vòi nước nhẹ · vòi mạnh ống phồng · muối kéo nước vào mạch · thận đổ mồ hôi | ẩn dụ |
 | ☐ | 9 | `s_apnea` | 2 | ngáy, vợ thức · đau đầu khô miệng · ngủ gật ban ngày · ngủ với CPAP | cảnh |

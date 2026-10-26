@@ -57,7 +57,7 @@ scene(svg, at('aqui_aparece1'), at('por_que'), g => {
   const L = Live(g, { t0: at('diez'), cx: ch.X(27), cy: ch.Y(0.6), enter: 'pop', idle: 'breathe' });
   Arrow(L.g, ch.X(27), ch.Y(0.74), ch.X(27), ch.Y(0.5), '#2F5F9E', 12);
   Chip(L.g, '−10 a −20 %', { cx: ch.X(27) - 10, cy: ch.Y(0.88), size: 46, fill: C.amber });
-  chip(g, 'EN MUCHAS PERSONAS SANAS', at('sanas'), { cx: 960, cy: 960, size: 36 });
+  chip(g, 'EN MUCHAS PERSONAS SANAS', at('sanas'), { cx: 960, cy: 960, size: 36, t1: at('no_ocurre') });
   chip(g, 'NO ES IGUAL EN TODOS', at('no_ocurre'), { cx: 620, cy: 960, size: 34, fill: C.white, t1: 1e9 });
   chip(g, 'RESPUESTA FISIOLÓGICA', at('fisiologica'), { cx: 1320, cy: 960, size: 34, fill: TEAL, color: C.white });
   source(g, 'Patrón «dipper»: descenso nocturno del 10–20 % en la monitorización de 24 h (guías ESH)', at('diez') + 1);

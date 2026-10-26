@@ -56,3 +56,7 @@ idle on everything), `Shot` (push-in + pan), `flow()` (cells/sugar along paths),
 muscle pump), `heelRaise()` (rep loop from the pose sheet with calf glow). Reuse it for the next video.
 Pose sheet of a person on a chair: `cut_poses.py` lost the legs and chair; cut by connected components
 on the flat background (drop the floor line, clear the enclosed background under the seat).
+
+Owner feedback (Oct 26 2026, `sueno_corazon`): the drawings look too yellow and garish ("vàng chói"). Keep
+strong colours but make them harmonious → COLOR block in `prompt-blocks.md` (navy, teal, forest green,
+burgundy, terracotta; no golden cast; cool moonlight at night). Applies from `sueno_corazon` on.

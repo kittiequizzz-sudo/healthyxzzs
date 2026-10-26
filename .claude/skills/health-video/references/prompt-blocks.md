@@ -7,7 +7,14 @@ ChatGPT gives landscape 3:2 only; Gemini also does 16:9. Always end with "no tex
 > STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions,
 > head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots),
 > bold clean ink outlines, flat cel shading with one shadow tone, muted grown-up palette, film-like
-> framing with close-ups and varied camera angles, simple warm backgrounds.
+> framing with close-ups and varied camera angles, simple uncluttered backgrounds.
+
+## COLOR (owner, Oct 26 2026: "too yellow/glaring; deep colours but harmonious")
+> COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm
+> grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring
+> lamp light, no oversaturated warm filter; night scenes lit by cool soft blue moonlight with only one
+> small, soft warm accent.
+Don't attach images from the older (yellow) videos as style references.
 
 ## EXPRESSION (one per panel, pick and adapt)
 - effort: teeth gritted, brows knitted, veins on the forehead, one hand pushing on the knee

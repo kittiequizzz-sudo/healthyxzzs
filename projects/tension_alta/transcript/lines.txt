@@ -1,0 +1,180 @@
+[0.26 - 4.20] (w0-8) Hay algo especialmente frustrante cuando intentas cuidar tu corazón.
+[4.86 - 11.34] (w9-26) Hacer exactamente lo que te ha recomendado el médico y descubrir que tu tensión arterial sigue demasiado alta.
+[12.00 - 17.92] (w27-42) Tomas tu pastilla cada día, respetas los horarios y confías en que el tratamiento está funcionando.
+[18.64 - 24.78] (w43-59) Pero una mañana te colocas el tensiómetro, pulsas el botón y aparece una cifra que no esperabas.
+[25.40 - 28.34] (w60-62) 155 sobre 95.
+[28.96 - 31.46] (w63-67) Entonces surge una pregunta inquietante.
+[31.50 - 35.40] (w68-77) ¿Por qué sigue subiendo mi tensión si estoy tomando medicación?
+[35.82 - 39.90] (w78-89) Lo sorprendente es que la respuesta no siempre está en la pastilla.
+[40.08 - 51.86] (w90-121) A veces, el verdadero problema se esconde en un hábito aparentemente inofensivo, en un medicamento que utilizas para otro dolor o incluso en algo que ocurre dentro de tu cuerpo mientras duermes.
+[52.10 - 54.10] (w122-126) Y aquí viene lo importante.
+[54.22 - 61.84] (w127-144) Tener la tensión elevada a pesar del tratamiento no significa necesariamente que los medicamentos hayan dejado de funcionar.
+[62.06 - 69.74] (w145-159) Existen distintas explicaciones, y algunas pueden identificarse con cambios sencillos y una revisión médica adecuada.
+[69.96 - 76.50] (w160-176) Hoy vamos a descubrir cinco posibles razones por las que tu tensión sigue alta, aunque tomes medicación.
+[76.72 - 83.68] (w177-193) Presta especial atención a la cuarta, porque está relacionada con un problema nocturno que muchas personas desconocen.
+[83.94 - 87.12] (w194-200) Y antes de empezar, recuerda algo fundamental.
+[87.48 - 91.08] (w201-209) Nunca cambies ni suspendas tu tratamiento por tu cuenta.
+[91.18 - 101.06] (w210-234) Quédate hasta el final, porque comprender estas cinco causas puede ayudarte a formular las preguntas adecuadas en tu próxima consulta y proteger mejor tu corazón.
+[101.38 - 102.46] (w235-236) Punto 1.
+[102.58 - 104.56] (w237-241) ¿Estás midiendo bien tu tensión?
+[104.82 - 107.36] (w242-246) El error que puede engañarte.
+[107.52 - 113.12] (w247-262) Puede que estés preocupándote por una cifra que no refleja realmente cómo está tu tensión arterial.
+[113.86 - 121.06] (w263-285) Y lo más curioso es que el problema podría no estar en tu corazón, ni en tus arterias, ni siquiera en la medicación.
+[121.32 - 127.10] (w286-301) Podría encontrarse en esos pequeños detalles que pasas por alto cada vez que utilizas el tensiómetro.
+[127.42 - 136.88] (w302-327) Porque medir la tensión parece tan sencillo como colocarse un manquito y pulsar un botón, pero nuestro organismo es mucho más sensible de lo que pensamos.
+[137.06 - 146.06] (w328-346) Cada vez que te sientes nervioso, preocupado o simplemente anticipas un resultado negativo, tu sistema nervioso simpático puede activarse.
+[146.26 - 154.28] (w347-365) El corazón comienza a latir con más fuerza, algunos vasos sanguíneos se contraen y la presión arterial aumenta temporalmente.
+[154.48 - 158.42] (w366-376) Es una respuesta natural del organismo ante una situación de alerta.
+[158.58 - 166.28] (w377-393) El problema aparece cuando esa alerta se produce precisamente mientras estás intentando comprobar si tu tratamiento funciona.
+[166.74 - 171.04] (w394-402) Existe un fenómeno conocido como hipertensión de bata blanca.
+[171.24 - 180.46] (w403-425) Algunas personas presentan cifras elevadas durante la consulta médica porque se sienten nerviosas, aunque fuera de ese entorno su presión sea más baja.
+[180.62 - 185.26] (w426-436) Algo parecido puede ocurrir en casa cuando desarrollas miedo al tensiómetro.
+[185.44 - 193.70] (w437-454) Ves una cifra elevada, te preocupas, repites inmediatamente la medición y el nerviosismo puede mantener la presión alta.
+[194.00 - 198.58] (w455-465) Así comienza un círculo de ansiedad que dificulta interpretar los resultados.
+[199.22 - 202.54] (w466-473) Pero las emociones no son las únicas responsables.
+[202.84 - 213.72] (w474-501) Medirte justo después de subir las escaleras, cruzar las piernas, hablar durante la medición o mantener el brazo por debajo del nivel del corazón puede alterar las cifras.
+[214.06 - 217.98] (w502-511) También influye utilizar un manquito demasiado pequeño para tu brazo.
+[218.24 - 224.92] (w512-527) Incluso tener la vejiga llena o haber tomado café poco antes puede modificar temporalmente el resultado.
+[225.10 - 231.82] (w528-543) Por eso, antes de concluir que tu medicación no funciona, conviene revisar cómo te estás midiendo.
+[232.02 - 240.98] (w544-566) Siéntate tranquilamente durante 5 minutos, con la espalda apoyada, los pies en el suelo y el brazo descansando a la altura del corazón.
+[241.16 - 245.80] (w567-579) Evita el ejercicio, el tabaco y la cafeína durante los 30 minutos anteriores.
+[246.70 - 251.76] (w580-592) Utiliza preferiblemente un tensiómetro validado de brazo y un manquito de tamaño adecuado.
+[252.66 - 257.68] (w593-604) Realiza dos mediciones separadas aproximadamente por un minuto y anota los resultados.
+[258.74 - 266.26] (w605-624) Repite este procedimiento por la mañana y por la noche durante siete días, siguiendo las indicaciones de tu profesional sanitario.
+[266.48 - 271.34] (w625-636) Ese registro puede ofrecer información mucho más útil que una cifra aislada.
+[271.56 - 277.28] (w637-648) Y recuerda, una lectura elevada no debe ignorarse, especialmente si se repite.
+[277.42 - 281.44] (w649-655) Si aparecen síntomas preocupantes, busca atención médica.
+[281.70 - 289.12] (w656-670) Ahora bien, si estás midiendo correctamente y las cifras continúan elevadas, debemos investigar otra posibilidad.
+[289.36 - 293.74] (w671-680) Algunos medicamentos cotidianos pueden dificultar el control de tu tensión.
+[293.96 - 295.60] (w681-683) ¿Conocías estos errores?
+[295.76 - 299.28] (w684-692) Cuéntame en los comentarios cuál te has sorprendido más.
+[299.46 - 300.54] (w693-694) Punto 2.
+[300.74 - 305.28] (w695-706) Los medicamentos que pueden estar saboteando tu tensión sin que lo sepas.
+[305.54 - 314.20] (w707-734) Y y si el problema no fuera que tu medicamento para la tensión ha dejado de funcionar, sino que otro producto que tomas habitualmente está dificultando su efecto?
+[315.16 - 328.78] (w735-766) Esta posibilidad sorprende a muchas personas, especialmente a quienes siguen su tratamiento con disciplina y no comprenden por qué sus cifras continúan elevadas, porque no todos los medicamentos actúan de forma independiente.
+[329.06 - 333.78] (w767-778) Algunos pueden interferir entre sí y modificar la respuesta de nuestro organismo.
+[333.96 - 341.30] (w779-795) Uno de los ejemplos más conocidos son los antiinflamatorios no esteroideos, como el ibuprofeno o el naproxeno.
+[341.48 - 347.74] (w796-806) Se utilizan frecuentemente para aliviar dolores musculares, molestias articulares o inflamaciones.
+[348.02 - 360.30] (w807-837) Sin embargo, cuando se toman de manera continuada, pueden favorecer la retención de sodio y agua, alterar la función renal y dificultar el control de la presión arterial en determinadas personas.
+[360.60 - 369.34] (w838-860) Para comprenderlo, piensa en tus riñones como dos filtros que regulan constantemente la cantidad de agua y sal que circula por tu organismo.
+[369.62 - 384.18] (w861-887) Algunos medicamentos para la hipertensión ayudan a controlar precisamente estos mecanismos, pero determinados antiinflamatorios pueden interferir en ese equilibrio, haciendo que el tratamiento antihipertensivo resulte menos eficaz.
+[384.58 - 391.72] (w888-905) Esto no significa que una dosis ocasional de ibuprofeno vaya a provocar necesariamente una subida peligrosa de tensión.
+[392.28 - 400.92] (w906-927) El riesgo depende de distintos factores, como la dosis, la duración del tratamiento, la función renal y los medicamentos que estés utilizando.
+[401.34 - 404.00] (w928-934) Y los antiinflamatorios no son los únicos.
+[404.54 - 412.36] (w935-950) Algunos descongestionantes nasales que contienen pseudoefedrina pueden estrechar los vasos sanguíneos y aumentar la presión arterial.
+[412.58 - 417.04] (w951-959) Determinados corticoides también pueden favorecer la retención de líquidos.
+[417.34 - 425.72] (w960-980) Incluso algunos productos naturales, como el regaliz consumido en cantidades importantes, pueden elevar la tensión y alterar los niveles de potasio.
+[426.90 - 437.12] (w981-1006) Aquí aparece un error muy frecuente, pensar que, por tratarse de un producto comprado sin receta o de origen natural, necesariamente es seguro para el corazón.
+[437.38 - 444.32] (w1007-1019) Pero natural no significa inocuo, especialmente cuando ya estás siguiendo un tratamiento médico.
+[444.38 - 445.84] (w1020-1022) ¿Qué puedes hacer?
+[446.12 - 451.12] (w1023-1031) Revisa los medicamentos, suplementos e infusiones que utilizas habitualmente.
+[451.26 - 455.16] (w1032-1041) Anota sus nombres y coméntalos con tu médico o farmacéutico.
+[455.34 - 463.94] (w1042-1060) No suspendas por tu cuenta ningún tratamiento prescrito, pero tampoco añadas nuevos productos sin comprobar antes sus posibles interacciones.
+[464.16 - 473.00] (w1061-1082) Si llevas semanas observando cifras elevadas, esta revisión puede aportar una pista importante para recuperar un mejor control de tu presión arterial.
+[473.22 - 480.46] (w1083-1102) Y si quieres seguir comprendiendo cómo proteger tus arterias y cuidar tu corazón después de los 40, suscríbete al canal.
+[480.68 - 488.10] (w1103-1120) Aquí explicamos la salud cardiovascular de forma sencilla, sin alarmismos y con información útil para tu vida cotidiana.
+[488.46 - 496.48] (w1121-1140) Porque el siguiente posible obstáculo no está necesariamente en tu botequín, sino en algo que comes prácticamente todos los días.
+[496.72 - 497.72] (w1141-1142) Punto 3.
+[497.92 - 499.86] (w1143-1147) El exceso de sal oculta.
+[500.06 - 503.98] (w1148-1156) Cuando tu alimentación dificulta el efecto de los medicamentos.
+[504.00 - 514.20] (w1157-1179) Puedes tomar correctamente tu medicación, evitar los alimentos demasiado salados y, aun así, estar consumiendo mucho más sodio del que tu corazón necesita.
+[514.56 - 524.02] (w1180-1203) Parece contradictorio, pero existe un enemigo silencioso que puede estar escondido en tu desayuno, en tu comida e incluso en productos que consideras saludables.
+[524.22 - 531.92] (w1204-1224) Y lo más preocupante es que muchas personas no descubren este problema hasta que su tensión arterial lleva semanas sin mejorar.
+[532.18 - 537.14] (w1225-1235) Para comprenderlo, debemos observar qué sucede dentro de tus vasos sanguíneos.
+[537.38 - 548.28] (w1236-1259) El sodio es un mineral necesario para el funcionamiento del organismo, pero cuando consumimos cantidades excesivas, nuestros riñones pueden tener dificultades para eliminarlo adecuadamente.
+[548.58 - 556.58] (w1260-1280) Esto favorece la retención de agua, aumenta el volumen de sangre circulante y puede elevar la presión sobre las paredes arteriales.
+[556.72 - 559.26] (w1281-1288) Piensa en una manguera conectada a un grifo.
+[559.42 - 564.24] (w1289-1302) Si aumenta la cantidad de agua que circula por ella, la presión puede incrementarse.
+[564.44 - 571.76] (w1303-1321) Algo parecido puede suceder en nuestro sistema circulatorio, aunque la regulación de la tensión arterial es mucho más compleja.
+[572.08 - 581.16] (w1322-1341) Por eso, una alimentación excesivamente rica en sodio puede dificultar el control de la hipertensión, incluso cuando estás tomando medicamentos.
+[581.42 - 584.90] (w1342-1350) Pero aquí viene la parte que probablemente te sorprenda.
+[585.06 - 589.26] (w1351-1364) El mayor problema no siempre está en la sal que añades con el salero.
+[589.44 - 602.20] (w1365-1390) En España encontramos cantidades importantes de sal en alimentos cotidianos como el jamón curado, el chorizo, determinados quesos, las conservas, algunos panes y las salsas industriales.
+[602.24 - 607.50] (w1391-1404) Puedes cocinar sin añadir apenas sal y seguir consumiendo demasiado sodio durante el día.
+[607.98 - 610.00] (w1405-1409) ¿Qué puedes hacer para cambiarlo?
+[610.40 - 613.00] (w1410-1414) Empieza leyendo las etiquetas nutricionales.
+[613.30 - 621.00] (w1415-1436) Como referencia, un alimento que contiene más de 1 ,5 gramos de sal por cada 100 gramos se considera alto en sal.
+[621.44 - 629.50] (w1437-1452) Prioriza alimentos frescos, utiliza hierbas aromáticas para dar sabor y reduce gradualmente los productos muy procesados.
+[629.98 - 635.62] (w1453-1468) También merece atención el potasio, un mineral que participa en la regulación de la presión arterial.
+[635.84 - 641.18] (w1469-1480) Las verduras, las legumbres y determinadas frutas aportan potasio de manera natural.
+[641.48 - 653.64] (w1481-1507) Sin embargo, si tienes enfermedad renal o tomas ciertos medicamentos anti -ipertencivos, aumentar mucho su consumo o utilizar sustitutos de sal ricos en potasio puede resultar peligroso.
+[653.98 - 655.98] (w1508-1512) Consulta antes con tu médico.
+[656.04 - 660.14] (w1513-1523) No necesitas transformar toda tu alimentación de un día para otro.
+[660.32 - 666.60] (w1524-1538) Pequeños cambios sostenidos pueden complementar el tratamiento y favorecer un mejor control de la tensión.
+[666.86 - 672.18] (w1539-1553) Pero existe otra posible explicación que no encontrarás en tu plato ni en tu botiquín.
+[672.40 - 681.76] (w1554-1573) Puede aparecer cada noche, mientras duermes, sin que seas consciente de ello, y precisamente por eso merece toda tu atención.
+[681.94 - 683.08] (w1574-1575) Punto 4.
+[683.34 - 689.18] (w1576-1588) La apnea del sueño, el enemigo nocturno que puede mantener tu tensión elevada.
+[689.26 - 693.62] (w1589-1599) Tu corazón debería encontrar durante la noche un momento de descanso.
+[693.76 - 700.28] (w1600-1614) Mientras duermes, la frecuencia cardíaca suele disminuir y la presión arterial desciende de forma natural.
+[700.62 - 711.68] (w1615-1644) Sin embargo, ¿qué ocurriría si, en lugar de descansar, tu organismo tuviera que enfrentarse a pequeñas situaciones de alarma una y otra vez sin que tú llegaras a darte cuenta?
+[712.12 - 718.92] (w1645-1661) Esto es precisamente lo que puede suceder cuando existe un problema conocido como apnea obstructiva del sueño.
+[719.16 - 725.36] (w1662-1679) Se trata de una alteración en la que las vías respiratorias se estrechan o bloquean repetidamente mientras duermes.
+[726.16 - 735.02] (w1680-1698) Durante esos episodios, la respiración se interrumpe o disminuye considerablemente, provocando en ocasiones descensos del oxígeno en la sangre.
+[735.28 - 741.74] (w1699-1712) Aunque normalmente no recuerdes estos acontecimientos al despertar, tu cerebro sí reacciona ante ellos.
+[741.90 - 750.04] (w1713-1730) Cada interrupción puede activar el sistema nervioso simpático, responsable de preparar al organismo para responder ante una amenaza.
+[750.18 - 759.36] (w1731-1750) El corazón recibe señales que aumentan su actividad, los vasos sanguíneos pueden contraerse y la presión arterial experimenta elevaciones transitorias.
+[759.58 - 766.32] (w1751-1768) Cuando esto sucede decenas de veces durante la noche, sus efectos pueden extenderse mucho más allá del sueño.
+[766.58 - 770.06] (w1769-1774) Aquí aparece una consecuencia especialmente importante.
+[770.28 - 778.36] (w1775-1792) Algunas personas con apnea obstructiva pierden el descenso fisiológico de la presión arterial que normalmente ocurre mientras descansan.
+[778.58 - 781.40] (w1793-1799) Este patrón se conoce como non -deeper.
+[781.52 - 790.62] (w1800-1819) En otros casos, la tensión puede mantenerse elevada al despertar, incluso cuando la persona está tomando correctamente su medicación antipertensiva.
+[790.92 - 794.56] (w1820-1828) Pero, ¿cómo puedes sospechar que tienes apnea del sueño?
+[794.80 - 803.76] (w1829-1849) Una de las señales más conocidas son los ronquidos fuertes, especialmente cuando van acompañados de pausas respiratorias observadas por otra persona.
+[804.18 - 813.08] (w1850-1870) También puedes despertar con dolor de cabeza, sentir la boca seca, experimentar cansancio durante el día o tener dificultades para concentrarte.
+[813.28 - 821.16] (w1871-1887) Sin embargo, no todas las personas presentan los mismos síntomas, y roncar no significa necesariamente padecer apnea.
+[821.34 - 827.10] (w1888-1902) Lo importante es comprender que este trastorno no afecta únicamente a la calidad del descanso.
+[827.50 - 835.84] (w1903-1922) También se relaciona con un mayor riesgo cardiovascular y aparece con frecuencia en personas cuya hipertensión resulta difícil de controlar.
+[835.98 - 839.92] (w1923-1932) Si reconoces varias de estas señales, coméntalas con tu médico.
+[840.02 - 845.20] (w1933-1946) Puede valorar la necesidad de realizar un estudio del sueño para confirmar el diagnóstico.
+[845.44 - 858.58] (w1947-1977) Cuando está indicado, el tratamiento con presión positiva continua, conocido como C -PAP, puede mejorar la respiración nocturna y contribuir a reducir la presión arterial, aunque su efecto varía entre personas.
+[859.00 - 861.24] (w1978-1982) Y ahora quiero preguntarte algo.
+[861.32 - 865.04] (w1983-1990) ¿Te despiertas cansado aunque hayas dormido suficientes horas?
+[865.16 - 869.68] (w1991-2001) Cuéntamelo en los comentarios, porque muchas personas desconocen esta posible relación.
+[870.56 - 878.76] (w2002-2021) Pero todavía nos falta una quinta explicación, especialmente importante cuando las cifras siguen elevadas pese a revisar todos estos factores.
+[879.58 - 883.84] (w2022-2031) Quizás tu tratamiento necesita una evaluación y un ajuste individualizado.
+[885.08 - 885.90] (w2032-2032) .5.
+[886.30 - 888.50] (w2033-2049) Cuando tu tratamiento necesita un ajuste, ¿por qué una sola pasta Cuando tu tratamiento necesita un ajuste.
+[888.92 - 892.10] (w2050-2058) ¿Por qué una sola pastilla puede no ser suficiente?
+[893.18 - 896.00] (w2059-2066) Existe una idea que puede generar mucha frustración.
+[896.60 - 905.76] (w2067-2093) Pensar que, si un medicamento no consigue bajar suficientemente la tensión, significa que tu cuerpo se ha acostumbrado a él o que el tratamiento ya no sirve.
+[906.56 - 909.34] (w2094-2099) Pero la realidad es bastante diferente.
+[909.44 - 917.52] (w2100-2121) La hipertensión arterial es una enfermedad compleja, y controlar sus mecanismos puede requerir algo más que tomar una única pastilla cada mañana.
+[918.30 - 923.92] (w2122-2135) Para entenderlo, debemos recordar que la presión arterial no depende de un solo órdeno.
+[924.04 - 935.12] (w2136-2161) Tus riñones regulan la cantidad de agua y sodio que retienes, tus arterias modifican su grado de contracción y diferentes hormonas participan constantemente en este equilibrio.
+[935.30 - 945.00] (w2162-2186) Uno de los sistemas más importantes es el sistema renina angiotensina aldosterona, que interviene en la regulación del volumen sanguíneo y de la resistencia vascular.
+[946.02 - 950.92] (w2187-2196) Cada familia de medicamentos anti -hipertensivos actúa sobre mecanismos diferentes.
+[951.20 - 963.00] (w2197-2226) Algunos favorecen la relajación de los vasos sanguíneos, otros ayudan a eliminar el exceso de sodio y agua, y otros bloquean determinadas señales hormonales que contribuyen a elevar la presión.
+[963.44 - 971.60] (w2227-2246) Por eso, un medicamento puede estar funcionando correctamente y, aun así, no conseguir por sí sólo el control que necesitas.
+[971.92 - 979.28] (w2247-2265) Aquí es donde aparece una estrategia habitual en el tratamiento moderno de la hipertensión, combinar medicamentos de distintas familias.
+[980.08 - 989.98] (w2266-2288) En determinados pacientes, utilizar dos o tres principios activos complementarios permite controlar mejor la tensión que depender exclusivamente de dosis elevadas de ...
+[985.90 - 991.62] (w2289-2302) controlar mejor la tensión que depender exclusivamente de dosis elevadas de un único fármaco.
+[991.80 - 997.14] (w2303-2314) Sin embargo, esto no significa que todas las personas necesiten tres medicamentos.
+[997.34 - 1005.52] (w2315-2335) La elección depende de la edad, la función renal, las enfermedades asociadas, los efectos secundarios y las cifras de presión arterial.
+[1006.46 - 1009.92] (w2336-2345) También debemos considerar que nuestras arterias cambian con los años.
+[1010.64 - 1021.40] (w2346-2371) La pérdida progresiva de elasticidad vascular, el exceso de peso y determinados trastornos metabólicos pueden hacer más difícil mantener la atención dentro de los objetivos recomendados.
+[1022.22 - 1030.22] (w2372-2385) Pero atención, tener cifras elevadas mientras tomas medicación no significa automáticamente padecer hipertensión resistente.
+[1030.52 - 1040.42] (w2386-2407) Antes de establecer ese diagnóstico, el médico debe comprobar las mediciones, valorar la adherencia al tratamiento y descartar factores que estén interferiendo.
+[1040.64 - 1044.90] (w2408-2419) Por eso, tu mejor herramienta es un registro fiable de tus cifras.
+[1045.04 - 1049.20] (w2420-2433) Llévalo a la consulta junto con una lista de todos los medicamentos que tomas.
+[1049.84 - 1061.60] (w2434-2457) Esta información puede ayudar a decidir si necesitas modificar horarios, ajustar dosis, combinar tratamientos o investigar causas secundarias, como determinados problemas renales o hormonales.
+[1062.52 - 1067.26] (w2458-2467) Nunca aumentes, reduzcas ni suspendas la medicación por tu cuenta.
+[1067.46 - 1073.62] (w2468-2479) Un cambio inadecuado podría provocar descensos excesivos de presión o complicaciones importantes.
+[1073.94 - 1082.78] (w2480-2502) Recuerda que la solución no siempre consiste en tomar más medicación, sino en encontrar la combinación y el seguimiento adecuados para tu situación.
+[1082.88 - 1091.24] (w2503-2522) Tu tratamiento puede necesitar ajustes, pero eso no significa que hayas fracasado ni que tu hipertensión sea imposible de controlar.
+[1091.58 - 1097.50] (w2523-2535) Y después de conocer estas cinco posibles explicaciones, quédate con una idea fundamental.
+[1097.70 - 1104.70] (w2536-2546) Una tensión persistentemente elevada merece una evaluación médica, no decisiones precipitadas.
+[1105.08 - 1107.40] (w2547-2551) referencia médica para la elaboración.
+[1107.64 - 1114.62] (w2552-2564) Recomendaciones de la sociedad europea de cardiología sobre tratamiento combinado e hipertensión resistente.
+[1114.84 - 1118.52] (w2565-2573) Llegados a este punto, quiero que recuerdes algo importante.
+[1118.70 - 1126.20] (w2574-2593) Tener la tensión elevada a pesar de tomar medicación no significa que tu corazón esté condenado a sufrir las consecuencias.
+[1126.50 - 1130.34] (w2594-2602) Significa que existe una situación que debemos comprender mejor.
+[1130.56 - 1138.26] (w2603-2621) Y muchas veces, encontrar la explicación adecuada puede marcar una diferencia importante en el control de tu salud cardiovascular.
+[1138.50 - 1141.36] (w2622-2627) Hoy hemos descubierto cinco posibles causas.
+[1141.60 - 1154.36] (w2628-2658) Errores al medir la tensión, medicamentos que interfieren con el tratamiento, exceso de sal oculta en la alimentación, apnea obstructiva del sueño y la necesidad de revisar tu tratamiento anti -hipertensivo.
+[1154.54 - 1164.02] (w2659-2681) La clave no consiste en obsesionarte con cada cifra del tensiómetro, sino en identificar patrones, mantener hábitos saludables y colaborar con tu médico.
+[1164.28 - 1171.84] (w2682-2699) Recuerda que una medición aislada no cuenta toda la historia, pero unas cifras persistentemente elevadas tampoco deben ignorarse.
+[1172.78 - 1175.56] (w2700-2705) Y aquí va una advertencia fundamental.
+[1175.70 - 1180.56] (w2706-2715) Nunca suspendas, aumentes ni modifiques tus medicamentos sin supervisión médica.
+[1181.30 - 1191.28] (w2716-2742) Si tu tensión alcanza los 180 de systólica o 120 de diastólica, repite la medición tras un minuto de reposo y busca orientación médica inmediata si persiste.
+[1192.00 - 1221.94] (w2743-2761) Si además experimentas dolor torácico, dificultad para respirar, debilidad repentina o alteraciones del habla, llama al 1 -1 -2.

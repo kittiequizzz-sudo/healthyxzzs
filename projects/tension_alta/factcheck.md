@@ -42,3 +42,13 @@
 - Thẻ «NUNCA CAMBIES TU TRATAMIENTO POR TU CUENTA» xuất hiện mỗi lần kịch bản nhắc.
 - Nguồn chữ nhỏ: «ESH 2023 · ESC 2024 · AHA 2019 (medición)».
 - Âm thanh: nhạc nền tự soạn (không bản quyền) + hiệu ứng nhẹ (theo quyết định mới của chủ kênh).
+
+## Kiểm tra giọng đọc (rimovoice7 → audio/voice_raw.mp3 → audio/voice_full.mp3, 20:17)
+Đọc đủ 176/176 câu, đúng thứ tự, không có khoảng lặng dài. Có đọc tiêu đề PUNTO (giữ nguyên).
+- **Đã cắt** câu «Referencia médica para la elaboración… hipertensión resistente» (lỡ đọc, 10 s) bằng
+  `edit_voice.py` (`voice_edit.json`); nguồn này hiện thành chữ nhỏ trên hình.
+- Ngưỡng muối đọc **"1,5 g"** → trên hình ghi «≥ 1,25 g/100 g en España · 1,5 g en otras guías».
+- Whisper nghe "Punto 5" thành "1.5" và bỏ sót 30 s cuối: đã chép lại đoạn cuối riêng; voice không thiếu gì.
+Mốc (sau khi cắt): Punto 1 = 1:41 · Punto 2 = 4:59 · Punto 3 = 8:17 · Punto 4 = 11:22 · Punto 5 = 14:44 ·
+Kết = 18:25. Chia 3 phần (1 video): **Phần 1 = 0:00–8:17** (Intro + P1 + P2) · **Phần 2 = 8:17–14:44**
+(P3 + P4) · **Phần 3 = 14:44–20:17** (P5 + kết).

@@ -11,7 +11,7 @@ Màu **đậm nhưng hài hòa** như video giấc ngủ (dòng `COLOR:` có s�
 - Màn hình máy đo **để trống** (số đo mình vẽ bằng code).
 - Ảnh 16 (đồ vật): **nền kem phẳng một màu**.
 
-Phân phần: xem bảng trong `bang_anh.md`.
+Phân phần: Phần 1 = 0:00–8:17 (ảnh 1–6, 16) · Phần 2 = 8:17–14:44 (ảnh 7–10) · Phần 3 = 14:44–20:17 (ảnh 11–14). Bảng note: `bang_anh.md`.
 
 ---
 
@@ -214,4 +214,4 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ```
 
 ## Giọng đọc
-Đã nhận (rimovoice7). Kiểm tra giọng: xem `factcheck.md`.
+Đã nhận (rimovoice7, 20:17 sau khi cắt câu nguồn lỡ đọc). Chi tiết: `factcheck.md`.

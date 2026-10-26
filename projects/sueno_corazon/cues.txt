@@ -1,0 +1,330 @@
+# One timeline: audio/voice_full.mp3, transcript/words_clean.json. label | phrase from the voice, in order.
+# --- intro
+inquietante | Y lo más inquietante
+manana0 | hasta la mañana siguiente
+tres | Son las tres de la madrugada
+reloj0 | miras el reloj
+vueltas | empiezas a dar vueltas
+cuerpo | Tu cuerpo está tumbado
+cerebro0 | tu cerebro sigue despierto
+mientras0 | Mientras intentas recuperar
+alerta0 | mantenerse en alerta
+elevada0 | puede permanecer elevada
+pierde | tu corazón pierde parte
+porque0 | Porque dormir no consiste
+noche_sana | Durante una noche de sueño
+frecuencia0 | reducir la frecuencia cardíaca
+regular0 | regular la presión arterial
+recuperacion0 | favorecer la recuperación
+pero_que | Pero qué sucede cuando
+noche_tras | noche tras noche
+respuesta0 | La respuesta va mucho
+hormonas0 | alterar las hormonas del estrés
+arterias0 | afectar al funcionamiento de las arterias
+riesgo0 | aumentar el riesgo
+detalle0 | Y existe un detalle
+creen | Algunas personas creen
+interrupciones0 | interrupciones del descanso
+en_este | En este vídeo descubrirás
+senales0 | que señales merecen atención
+tres_cambios0 | y tres cambios sencillos
+quedate | Quédate hasta el final
+esta_noche0 | esta misma noche
+# --- punto 1
+p1 | Punto 1
+cada_noche1 | Cada noche, cuando consigues
+cambio1 | un cambio que pocas personas
+no_deja | No deja de trabajar
+condiciones | en condiciones diferentes
+es_como | Es como si
+motor | un motor pudiera reducir
+mismo_esfuerzo | sin soportar el mismo esfuerzo
+ese_cambio | Ese cambio es fundamental
+durante_dia | Durante el día
+caminar1 | Caminar
+trabajar1 | trabajar
+escaleras | subir escaleras
+discutir | discutir
+preocuparte | preocuparte por algo
+aumentar1 | puede aumentar temporalmente
+sin_embargo1 | Sin embargo, cuando llega la noche
+reducir1 | reducir esa actividad
+aqui_aparece1 | Aquí aparece un mecanismo
+descenso1 | descenso nocturno de la presión
+sanas | En muchas personas sanas
+diez | entre un 10 y un 20
+no_ocurre | No ocurre exactamente igual
+fisiologica | respuesta fisiológica importante
+por_que | Por qué
+profundo1 | especialmente en el sueño profundo
+simpatico1 | sistema nervioso simpático
+al_mismo | Al mismo tiempo
+parasimpatico | sistema parasimpático
+ritmo1 | disminuir el ritmo cardíaco
+como_consecuencia | Como consecuencia, el corazón
+resistencia1 | con menos resistencia
+menor_presion | una menor presión
+pausa | Es una especie de pausa
+verdadero | Pero aquí comienza el verdadero
+pocas_horas | Cuando duermes pocas horas
+repetidamente1 | te despiertas repetidamente
+fragmentado | demasiado fragmentado
+alterado | puede verse alterado
+tu_organismo | Tu organismo continúa
+esto_no | Esto no significa
+riesgo1 | El riesgo aparece
+semanas | durante semanas
+anos1 | o incluso años
+hipertension1 | como hipertensión
+sedentarismo1 | sedentarismo
+estres1 | o estrés crónico
+piensa_persona | Piensa en una persona
+acostumbrado | ya se ha acostumbrado
+funcional | relativamente funcional
+no_garantiza | no garantiza que su sistema
+todavia1 | Y todavía queda algo
+quimicas | señales químicas de alerta
+vasos1 | sobre los vasos sanguíneos
+si_esta | Si esta explicación
+me_gusta | deja un me gusta
+porque_ahora | porque ahora vamos a descubrir
+estres_nocturno | el estrés nocturno
+# --- punto 2
+p2 | Punto 2
+lo_mas | Lo más peligroso
+interpretar | puede interpretar esas interrupciones
+uno_prot | Uno de los protagonistas
+cuando_activa | Cuando se activa
+adrenalina | como la adrenalina
+acelerar | pueden acelerar el corazón
+ademas2 | Además, la falta de sueño
+cortisol2 | regulación del cortisol
+el_cortisol | El cortisol no es perjudicial
+imprescindible | resulta imprescindible
+normalmente | Normalmente sigue un ritmo
+despertarnos | aumentar antes de despertarnos
+disminuir_noche | y disminuir durante la noche
+sin_embargo2 | Sin embargo, cuando el descanso
+alterarse | ese equilibrio puede alterarse
+piensa2 | Piensa en lo siguiente
+cuando_sistema | Cuando el sistema de alerta
+contraerse | pueden contraerse
+mayor_resistencia | mayor resistencia
+como_consec2 | Como consecuencia, el corazón necesita
+javier | conoce el caso de Javier
+camina2 | Camina diariamente
+ultraprocesados | evita los alimentos ultraprocesados
+peso | un peso saludable
+sin_embargo_j | Sin embargo, lleva meses
+algunas_mananas | Algunas mañanas
+pulso | el pulso acelerado
+agotamiento | sensación de agotamiento
+javier_piensa | Javier piensa que todo
+trabajo | preocupaciones del trabajo
+fragmentacion2 | la fragmentación del sueño
+sus_sintomas | Sus síntomas no permiten
+consultar2 | consultar si se repiten
+aqui_aparece2 | Aquí aparece otro fenómeno
+algunas_personas2 | Algunas personas no experimentan
+este_patron | Este patrón
+monitorizacion | monitorización ambulatoria
+mayor_riesgo2 | mayor riesgo cardiovascular
+pero_todavia | Pero todavía existe
+inflamatorios2 | procesos inflamatorios
+y_precisamente | Y precisamente ahí
+si_quieres | Si quieres aprender
+suscribete | suscríbete al canal
+campanita | activa la campanita
+# --- punto 3
+p3 | Punto 3
+hay_algo | Hay algo que ocurre
+sin_ruido | sin hacer ruido
+sin_senal | sin provocar ninguna señal
+es_un_proceso | Es un proceso
+bajo_grado | la inflamación crónica de bajo grado
+para_comprenderlo | Para comprenderlo
+endotelio | Se llama endotelio
+fina_capa | es una fina capa
+aunque_grosor | Aunque apenas tiene grosor
+dilatacion | regular la dilatación
+coagulacion | control de la coagulación
+circulacion3 | una circulación saludable
+podriamos | Podríamos compararlo
+tuberia | una tubería
+pero_que3 | Pero qué sucede cuando acumulas
+cinco_horas3 | durmiendo cinco horas
+despertandote | despertándote constantemente
+hora_diferente | a una hora diferente
+diversas | Diversas investigaciones
+proteina | la proteína C
+citocinas | ciertas citocinas
+el_problema3 | El problema aparece
+otros_factores | otros factores de riesgo
+relajarse | para relajarse adecuadamente
+aqui_entra | Aquí entra en juego
+oxido | el óxido nítrico
+dilatacion2 | facilitar su dilatación
+cuando_existe | Cuando existe disfunción
+comprometida | puede verse comprometida
+y_esto | Y esto tiene consecuencias
+aterosclerosis | de la aterosclerosis
+grasa | depósitos de grasa
+sin_embargo3 | Sin embargo, conviene recordar
+inevitablemente | estén deteriorándose
+muchos_factores | El riesgo depende
+colesterol | el colesterol
+tabaquismo | el tabaquismo
+predisposicion | la predisposición
+tampoco | Tampoco puedes identificar
+toracicas | molestias torácicas
+falta_aire | falta de aire
+capacidad | una reducción inexplicable
+valoracion3 | necesitas una valoración médica
+un_dolor | Un dolor intenso en el pecho
+y_ahora3 | Y ahora quiero preguntarte
+cuantas3 | Cuántas horas duermes habitualmente
+cuentamelo | Cuéntamelo en los comentarios
+porque_todavia3 | Porque todavía debemos hablar
+interrumpir_resp | interrumpir tu respiración
+# --- punto 4
+p4 | Punto 4
+existe4 | Existe un problema
+acostarte | Puedes acostarte temprano
+ocho | ocho horas en la cama
+agotado | completamente agotado
+la_explicacion | La explicación
+respiracion4 | con tu respiración
+hablamos | Hablamos de la apnea
+estrechan | se estrecha no bloquean
+cuando_ocurre | Cuando esto ocurre
+segundos4 | durante varios segundos
+musculos4 | aunque los músculos respiratorios
+y_aqui4 | Y aquí comienza una reacción
+cuando_resp | Cuando la respiración se interrumpe
+oxigeno4 | el oxígeno en sangre
+el_cerebro | El cerebro detecta
+como_resp | Como respuesta
+subidas | subidas bruscas
+acelerar4 | puede acelerar sus latidos
+lo_mas_preoc | Lo más preocupante
+decenas | decenas de veces
+cada_episodio | Cada episodio
+ni_siquiera | ni siquiera lo recuerdes
+por_eso4 | Por eso algunas personas
+con_el_tiempo | Con el tiempo
+fragmentacion4 | fragmentación del sueño
+activacion4 | activación nerviosa
+hipertension4 | hipertensión arterial
+ademas4 | Además, la apnea obstructiva
+fibrilacion | fibrilación auricular
+pero_como | Pero cómo puedes sospechar
+ronquidos | los ronquidos fuertes
+pausas_resp | pausas respiratorias
+jadeos | seguidas de jadeos
+tambien4 | También pueden aparecer
+somnolencia | somnolencia durante el día
+cabeza | dolor de cabeza matutino
+concentracion | dificultades de concentración
+asfixia | sensación de asfixia
+sin_embargo4 | Sin embargo, no todas
+apenas_roncan | algunas personas con apnea
+si_reconoces | Si reconoces varias
+estudio | un estudio del sueño
+cpap | la presión positiva continua
+y_recuerda4 | Y recuerda algo fundamental
+no_soluciona | La apnea no se soluciona
+antes4 | acostándote antes
+ejercicios_resp | ni realizando ejercicios
+la_buena | La buena noticia
+habitos4 | podemos modificar ciertos hábitos
+# --- punto 5
+p5 | Punto 5
+despues5 | Después de conocer todo
+que_puedo | Qué puedo hacer esta misma noche
+la_buena5 | La buena noticia es que no necesitas
+dispositivos | dispositivos especiales
+transformar | ni transformar completamente
+algunos_cambios | Algunos cambios sencillos
+el_primer | El primer cambio
+cena5 | Presta atención a la cena
+temperatura | la temperatura de tu dormitorio
+comer | Comer demasiado
+digestivas | las molestias digestivas
+ademas5 | Además, consumir demasiada sal
+sodio | sensibles al sodio
+procura | Procura cenar
+moderadas | cantidades moderadas
+despues5b | Después, prepara un dormitorio
+oscuro | oscuro
+silencioso | silencioso
+fresco | ligeramente fresco
+estas_condiciones | Estas condiciones facilitan
+no_frio | No necesitas pasar frío
+caluroso | excesivamente caluroso
+segundo_cambio | El segundo cambio
+movil5 | el teléfono móvil
+revisar | Revisar noticias
+mensajes | responder mensajes
+redes | las redes sociales
+estimulado | tu cerebro estimulado
+ademas_luz | Además, la exposición intensa
+melatonina | liberación de melatonina
+prueba | Prueba a reducir
+treinta | los 30 o 60 minutos
+puede_sustituir | Puede sustituirlo
+lectura | una lectura tranquila
+musica | música suave
+conversacion | una conversación relajada
+tercer | Pero el tercer cambio
+sin_levantarte | sin levantarte de la cama
+respirar5 | Respirar lentamente
+coloca | Coloca una mano
+inspira | Inspira suavemente
+seis | durante 6 segundos
+repite | Repite este ritmo
+la_resp | La respiración lenta
+relajacion | favorecer la relajación
+estres5 | asociada al estrés
+no_es_necesario | No es necesario aguantar
+inmediatos | resultados inmediatos
+mareo | Si notas mareo
+y_recuerda5 | Y recuerda que este ejercicio
+tratamientos | no sustituye los tratamientos
+ahora_te | Ahora te propongo
+siete | los próximos siete días
+cuentame5 | cuéntame en los comentarios
+porque5 | Porque cuidar tu corazón no consiste
+cada_noche5 | para recuperarse cada noche
+# --- conclusión
+concl | Esta noche, cuando apagues
+mientras_tu | Mientras tú descansas
+pero_calidad | Pero la calidad de tu sueño
+hoy | Hoy hemos descubierto
+durante_c | Durante un descanso saludable
+presion_c | la presión arterial suele disminuir
+nervioso_c | el sistema nervioso reduce
+mecanismos_c | activa mecanismos fundamentales
+tambien_c | También hemos comprendido
+hormonas_c | alterar las hormonas
+inflamatorios_c | favorecer procesos inflamatorios
+arterias_c | funcionamiento de las arterias
+y_que | Y que problemas como la apnea
+pero_quiero | Pero quiero que te quedes
+nunca | Nunca es demasiado tarde
+perfecta | conseguir una noche perfecta
+constancia | mantenerlos con constancia
+ahora_c | Ahora quiero hacerte
+cuantas_c | Cuántas horas duermes normalmente
+descansado | Te despiertas descansado
+escribelo | Escríbelo en los comentarios
+si_este | Si este vídeo
+suscribete_c | suscríbete al canal
+compartelo | compártelo con alguien
+recuerda_c | Recuerda que esta información
+palpitaciones | palpitaciones persistentes
+apnea_c | sospechas que tienes apnea
+cansancio_c | cansancio inexplicable
+ante_c | Ante dolor torácico
+porque_c | Porque proteger tu corazón
+tambien_noche | También comienza cada noche
+oportunidad | la oportunidad de descansar

@@ -60,3 +60,12 @@ on the flat background (drop the floor line, clear the enclosed background under
 Owner feedback (Oct 26 2026, `sueno_corazon`): the drawings look too yellow and garish ("vàng chói"). Keep
 strong colours but make them harmonious → COLOR block in `prompt-blocks.md` (navy, teal, forest green,
 burgundy, terracotta; no golden cast; cool moonlight at night). Applies from `sueno_corazon` on.
+
+`sueno_corazon` (Oct 26 2026): approved by the owner as delivered ("oke rồi"). New harmonious COLOR block
+worked first time (no yellow cast). New code diagrams in its `common.js`, reusable for heart/sleep topics:
+`ECG` (scrolling strip, bpm(t), irregular=AF), `Chart24` (24-h chart with night band; `BP_DIP`,
+`BP_FLAT`, `CORT` curves), `Seesaw` (sympathetic vs parasympathetic), `Vessel` (flowing cells,
+narrow(t)), `NightBar` (awakenings), `gauge`, `breathing` (lying pose sheet, 4–6 s counter).
+Whisper's chunk overlap can duplicate a few words with earlier timestamps: drop them before cues
+(`words_clean.json`); it is not a misread in the voice. Waiting on a re-render: don't `pgrep -f` a
+name that appears in your own wait loop (it matches itself and never ends).

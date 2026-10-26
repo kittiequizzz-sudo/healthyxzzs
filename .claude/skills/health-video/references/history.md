@@ -69,3 +69,14 @@ narrow(t)), `NightBar` (awakenings), `gauge`, `breathing` (lying pose sheet, 4�
 Whisper's chunk overlap can duplicate a few words with earlier timestamps: drop them before cues
 (`words_clean.json`); it is not a misread in the voice. Waiting on a re-render: don't `pgrep -f` a
 name that appears in your own wait loop (it matches itself and never ends).
+
+Owner decisions (Oct 26 2026), from the next video on:
+- **Sound effects:** yes, synthesized in code (no downloaded samples): soft whoosh on scene changes, pop on
+  chips/checks, thud on crosses/stamps, heartbeat with ECG/heart beats, tick with clocks, a soft alarm on
+  "alarm" scenes. Quiet and sparse (audience 60+), triggered from the same cues as the picture.
+- **Background music:** composed by us in code (soft piano/pad, original, no samples) so there is no
+  YouTube copyright/Content ID risk. Never use third-party tracks. Mix ≈ 20–25 dB under the voice with
+  ducking under speech; match the mood per section (calm night tones, slightly brighter for solutions).
+- **Intro:** the owner will supply their own channel intro later; until then, none. When it arrives, place
+  it right after the hook (first ~20–30 s), 3–4 s max.
+- No test sample wanted; apply directly on the next video.

@@ -34,3 +34,10 @@ Người dẫn không xưng bác sĩ. **Không cần sửa câu nào.** 2.693 t�
   không cần đọc).
 - Số 10–20% đưa lên hình kèm chữ "en muchas personas sanas".
 - Phần PUNTO 5 có bài thở 4 giây – 6 giây: sẽ làm vòng tròn thở đếm giây khớp lời đọc.
+
+## Kiểm tra giọng đọc (rimovoice6 → audio/voice_full.mp3, 20:26)
+Đọc đủ 178/178 câu, đúng thứ tự, không đọc lặp, không có khoảng lặng dài (> 1,6 s). Có đọc tiêu đề PUNTO
+(giữ nguyên, khớp với thẻ tiêu đề trên hình). Mốc: Punto 1 = 1:41 · Punto 2 = 5:07 · Punto 3 = 8:25 ·
+Punto 4 = 11:49 · Punto 5 = 15:00 · Kết = 18:18.
+Chia 3 phần (1 video): **Phần 1 = 0:00–8:25** (Intro + P1 + P2) · **Phần 2 = 8:25–15:00** (P3 + P4) ·
+**Phần 3 = 15:00–20:26** (P5 + kết). Không cần cắt hay sửa voice.

@@ -18,9 +18,9 @@ dịu** và chỉ một điểm sáng ấm nhỏ. Khối này đã có sẵn tro
 
 | Phần | Nội dung | Ảnh |
 |---|---|---|
-| **1** | Intro + PUNTO 1 (huyết áp giảm về đêm) + PUNTO 2 (cortisol, Javier) | 1–7 + 16 |
-| **2** | PUNTO 3 (viêm, nội mạc) + PUNTO 4 (ngưng thở khi ngủ) | 8–12 |
-| **3** | PUNTO 5 (3 thay đổi) + kết | 13, 14, 15 (+ dùng lại 4, 12) |
+| **1** (0:00–8:25) | Intro + PUNTO 1 (huyết áp giảm về đêm) + PUNTO 2 (cortisol, Javier) | 1–7 + 16 |
+| **2** (8:25–15:00) | PUNTO 3 (viêm, nội mạc) + PUNTO 4 (ngưng thở khi ngủ) | 8–12 |
+| **3** (15:00–20:26) | PUNTO 5 (3 thay đổi) + kết | 13, 14, 15 (+ dùng lại 4, 12) |
 
 Khối dùng chung (đã chèn sẵn vào từng prompt):
 ```
@@ -241,4 +241,4 @@ AVOID: any text, letters, numbers, labels or logos. Landscape 3:2.
 ```
 
 ## Giọng đọc
-Đã nhận (rimovoice6). Kiểm tra giọng: xem `factcheck.md`.
+Đã nhận (rimovoice6, 20:26): đọc đủ, không cần sửa. Chi tiết: `factcheck.md`.

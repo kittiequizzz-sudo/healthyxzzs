@@ -1,0 +1,184 @@
+[0.16 - 5.46] (w0-13) Tu corazón puede estar trabajando más de lo que debería mientras tú intentas descansar.
+[5.68 - 11.98] (w14-28) Y lo más inquietante es que quizá no notes absolutamente nada hasta la mañana siguiente.
+[12.26 - 14.08] (w29-34) Son las tres de la madrugada.
+[14.32 - 19.12] (w35-48) Abres los ojos, miras el reloj y empiezas a dar vueltas en la cama.
+[19.32 - 23.20] (w49-57) Tu cuerpo está tumbado, pero tu cerebro sigue despierto.
+[23.40 - 34.78] (w58-84) Mientras intentas recuperar el sueño, tu sistema nervioso puede mantenerse en alerta, tu presión arterial puede permanecer elevada y tu corazón pierde parte del descanso que necesita.
+[35.14 - 38.90] (w85-93) Porque dormir no consiste simplemente en cerrar los ojos.
+[39.14 - 50.16] (w94-119) Durante una noche de sueño saludable, el organismo activa mecanismos que ayudan a reducir la frecuencia cardíaca, regular la presión arterial y favorecer la recuperación cardiovascular.
+[50.52 - 55.32] (w120-130) Pero ¿qué sucede cuando ese proceso se interrumpe noche tras noche?
+[55.62 - 59.12] (w131-138) La respuesta va mucho más allá del cansancio.
+[59.28 - 69.98] (w139-165) Dormir mal de forma habitual puede alterar las hormonas del estrés, afectar al funcionamiento de las arterias y aumentar el riesgo de problemas cardiovasculares a largo plazo.
+[70.16 - 73.48] (w166-171) Y existe un detalle especialmente sorprendente.
+[73.72 - 82.90] (w172-191) Algunas personas creen que duermen suficientes horas, cuando en realidad su corazón está soportando interrupciones del descanso que apenas recuerdan.
+[83.08 - 94.62] (w192-219) En este vídeo descubrirás qué ocurre dentro de tu sistema cardiovascular cuando duermes mal, que señales merecen atención y tres cambios sencillos que pueden ayudarte a descansar mejor.
+[94.72 - 101.00] (w220-235) Quédate hasta el final, porque uno de esos cambios puedes empezar a aplicarlo esta misma noche.
+[101.22 - 102.28] (w236-237) Punto 1.
+[102.46 - 108.04] (w238-249) El descanso nocturno, lo que debería ocurrir en tus arterias mientras duermes.
+[108.18 - 115.36] (w250-264) Cada noche, cuando consigues dormir profundamente, tu corazón experimenta un cambio que pocas personas conocen.
+[115.68 - 123.82] (w265-284) No deja de trabajar, porque necesita seguir enviando sangre a todos tus órganos, pero comienza a funcionar en condiciones diferentes.
+[123.98 - 133.92] (w285-309) Es como si, después de recorrer cientos de kilómetros por carretera, un motor pudiera reducir sus revoluciones y continuar funcionando sin soportar el mismo esfuerzo.
+[134.48 - 138.26] (w310-318) Ese cambio es fundamental para proteger tu sistema cardiovascular.
+[139.08 - 143.42] (w319-328) Durante el día, tu corazón responde constantemente a diferentes exigencias.
+[143.96 - 154.36] (w329-348) Caminar, trabajar, subir escaleras, discutir o simplemente preocuparte por algo puede aumentar temporalmente tu frecuencia cardíaca y tu presión arterial.
+[154.60 - 162.64] (w349-371) Sin embargo, cuando llega la noche y entras en las fases adecuadas del sueño, el organismo tiene la oportunidad de reducir esa actividad.
+[162.98 - 168.12] (w372-383) Aquí aparece un mecanismo conocido como descenso nocturno de la presión arterial.
+[168.30 - 177.72] (w384-406) En muchas personas sanas, la tensión disminuye aproximadamente entre un 10 y un 20 % durante el sueño respecto a los valores diurnos.
+[177.94 - 184.28] (w407-420) No ocurre exactamente igual en todo el mundo, pero constituye una respuesta fisiológica importante.
+[184.32 - 185.00] (w421-424) ¿Por qué ¿Qué sucede?
+[185.96 - 198.00] (w425-461) Porque durante el descanso, especialmente en el sueño profundo, suele Porque durante el descanso, especialmente en el sueño profundo, suele reducirse la actividad del sistema nervioso simpático, responsable de preparar tu organismo para reaccionar ante situaciones exigentes.
+[198.86 - 208.82] (w462-482) Al mismo tiempo, aumenta relativamente la influencia del sistema parasimpático, que favorece la recuperación y contribuye a disminuir el ritmo cardíaco.
+[209.02 - 218.28] (w483-504) Como consecuencia, el corazón puede bombear sangre con menos resistencia, mientras las arterias experimentan una menor presión durante parte de la noche.
+[218.56 - 225.22] (w505-521) Es una especie de pausa funcional que ayuda a equilibrar el esfuerzo cardiovascular acumulado durante el día.
+[225.42 - 227.96] (w522-527) Pero aquí comienza el verdadero problema.
+[228.20 - 237.42] (w528-546) Cuando duermes pocas horas, te despiertas repetidamente o tu descanso resulta demasiado fragmentado, ese descenso natural puede verse alterado.
+[237.54 - 243.56] (w547-560) Tu organismo continúa respondiendo a estímulos que dificultan mantener un estado de recuperación estable.
+[243.88 - 249.18] (w561-575) Esto no significa que una sola noche de insomnio vaya a provocar una enfermedad cardíaca.
+[249.36 - 262.88] (w576-604) El riesgo aparece especialmente cuando las alteraciones del sueño se repiten durante semanas, meses o incluso años, y se combinan con otros factores como hipertensión, sedentarismo o estrés crónico.
+[263.02 - 269.18] (w605-623) Piensa en una persona que duerme cinco horas cada noche y considera que su cuerpo ya se ha acostumbrado.
+[269.36 - 278.76] (w624-642) Puede sentirse relativamente funcional durante el día, pero esa sensación no garantiza que su sistema cardiovascular esté recuperándose adecuadamente.
+[278.90 - 281.48] (w643-648) Y todavía queda algo más importante.
+[281.66 - 291.14] (w649-669) Cuando el descanso se interrumpe repetidamente, el organismo puede activar señales químicas de alerta que influyen directamente sobre los vasos sanguíneos.
+[291.34 - 306.12] (w670-709) Si esta explicación te está ayudando a comprender mejor tu corazón, deja un me gusta para que llegue a más personas, porque ahora vamos a descubrir cómo el estrés nocturno puede mantener tu organismo en alerta incluso mientras intentas dormir.
+[306.72 - 307.94] (w710-711) Punto 2.
+[308.00 - 313.12] (w712-721) La trampa del cortisol, cuando tu corazón no consigue desconectar.
+[313.28 - 322.74] (w722-748) Lo más peligroso de dormir mal no siempre es lo que sientes al despertar, sino lo que puede estar ocurriendo dentro de tu organismo mientras intentas descansar.
+[323.04 - 335.26] (w749-776) Porque cuando el sueño se interrumpe repetidamente, tu cerebro puede interpretar esas interrupciones como señales de alerta, activando mecanismos que normalmente deberían reducir su actividad durante la noche.
+[335.44 - 344.80] (w777-799) Uno de los protagonistas de este proceso es el sistema nervioso simpático, encargado de preparar tu cuerpo para responder ante situaciones de estrés.
+[345.00 - 352.80] (w800-820) Cuando se activa, favorece la liberación de sustancias como la adrenalina, que pueden acelerar el corazón y aumentar la presión arterial.
+[353.58 - 362.32] (w821-841) Además, la falta de sueño habitual puede alterar la regulación del cortisol, una hormona fundamental para controlar nuestra respuesta al estrés.
+[363.34 - 369.42] (w842-854) El cortisol no es perjudicial por naturaleza, de hecho, resulta imprescindible para vivir.
+[369.62 - 376.98] (w855-872) Normalmente sigue un ritmo diario, con niveles que suelen aumentar antes de despertarnos y disminuir durante la noche.
+[377.16 - 386.32] (w873-891) Sin embargo, cuando el descanso es insuficiente o irregular, ese equilibrio puede alterarse y afectar a diferentes funciones cardiovasculares.
+[386.60 - 393.84] (w892-909) Piensa en lo siguiente, tus arterias necesitan adaptarse constantemente a la cantidad de sangre que circula por ellas.
+[393.94 - 402.80] (w910-931) Cuando el sistema de alerta permanece demasiado activo, los vasos sanguíneos pueden contraerse y ofrecer mayor resistencia al paso de la sangre.
+[402.98 - 409.56] (w932-944) Como consecuencia, el corazón necesita generar más presión para mantener una circulación adecuada.
+[409.90 - 415.58] (w945-960) Ahora conoce el caso de Javier, un hombre de 52 años que intenta cuidar su salud.
+[415.74 - 422.16] (w961-972) Camina diariamente, evita los alimentos ultraprocesados y procura mantener un peso saludable.
+[422.36 - 427.22] (w973-982) Sin embargo, lleva meses despertándose varias veces durante la madrugada.
+[427.48 - 433.64] (w983-996) Algunas mañanas nota el pulso acelerado y una sensación de agotamiento difícil de explicar.
+[433.86 - 437.54] (w997-1007) Javier piensa que todo se debe a las preocupaciones del trabajo.
+[437.78 - 446.94] (w1008-1030) Y aunque el estrés puede influir, también es posible que la fragmentación del sueño esté contribuyendo a mantener su sistema nervioso demasiado activo.
+[447.10 - 455.46] (w1031-1050) Sus síntomas no permiten establecer un diagnóstico, pero sí justifican prestar atención a su descanso y consultar si se repiten.
+[455.84 - 458.28] (w1051-1055) Aquí aparece otro fenómeno importante.
+[458.52 - 463.94] (w1056-1069) Algunas personas no experimentan el descenso habitual de la presión arterial durante la noche.
+[464.20 - 475.00] (w1070-1093) Este patrón, conocido como non -dipping, puede identificarse mediante una monitorización ambulatoria de la presión arterial y se relaciona con un mayor riesgo cardiovascular.
+[475.60 - 478.66] (w1094-1100) Pero todavía existe una consecuencia menos visible.
+[478.92 - 486.74] (w1101-1118) La falta de descanso también puede favorecer procesos inflamatorios que afectan al delicado revestimiento interior de tus arterias.
+[487.00 - 492.08] (w1119-1128) Y precisamente ahí comienza una historia que merece especial atención.
+[492.38 - 504.88] (w1129-1158) Si quieres aprender a proteger tu corazón con explicaciones científicas sencillas, suscríbete al canal y activa la campanita, porque comprender estas señales puede ayudarte a cuidar mejor tu salud cardiovascular.
+[505.02 - 506.24] (w1159-1160) Punto 3.
+[506.28 - 508.18] (w1161-1162) Inflamación silenciosa.
+[508.28 - 511.62] (w1163-1170) Cómo dormir mal puede afectar a tus arterias.
+[512.00 - 520.94] (w1171-1192) Hay algo que ocurre dentro de tus arterias sin producir dolor, sin hacer ruido y, muchas veces, sin provocar ninguna señal evidente.
+[521.18 - 531.74] (w1193-1219) Es un proceso que puede desarrollarse lentamente durante años y que tiene una relación importante con la calidad de tu descanso, la inflamación crónica de bajo grado.
+[532.06 - 537.66] (w1220-1231) Para comprenderlo, necesitas conocer una estructura diminuta pero fundamental para tu corazón.
+[537.92 - 544.88] (w1232-1250) Se llama endotelio, y es una fina capa de células que recubre el interior de todos tus vasos sanguíneos.
+[545.12 - 548.62] (w1251-1257) Aunque apenas tiene grosor, cumple funciones esenciales.
+[548.82 - 556.90] (w1258-1277) Ayuda a regular la dilatación arterial, participa en el control de la coagulación y contribuye a mantener una circulación saludable.
+[557.10 - 562.90] (w1278-1288) Podríamos compararlo con el revestimiento interior de una tubería extraordinariamente delicada.
+[563.10 - 571.62] (w1289-1308) Cuando funciona correctamente, favorece que la sangre circule y que los vasos sanguíneos respondan adecuadamente a las necesidades del organismo.
+[572.02 - 581.36] (w1309-1327) Pero ¿qué sucede cuando acumulas semanas durmiendo cinco horas, despertándote constantemente o acostándote cada noche a una hora diferente?
+[581.52 - 588.32] (w1328-1342) Diversas investigaciones han relacionado la falta de sueño habitual con alteraciones en los procesos inflamatorios.
+[588.50 - 600.08] (w1343-1366) En determinadas circunstancias pueden aumentar algunos marcadores, como la proteína C -reactiva y ciertas citocinas, sustancias que intervienen en la comunicación del sistema inmunitario.
+[600.26 - 606.66] (w1367-1382) El problema aparece cuando esa inflamación persiste y se combina con otros factores de riesgo cardiovascular.
+[607.08 - 615.70] (w1383-1403) Con el tiempo, puede contribuir a deteriorar el funcionamiento del endotelio y dificultar la capacidad de las arterias para relajarse adecuadamente.
+[616.24 - 620.76] (w1404-1413) Aquí entra en juego otra sustancia fundamental, el óxido nítrico.
+[621.08 - 626.00] (w1414-1427) Tus vasos sanguíneos lo producen para facilitar su dilatación y regular el flujo sanguíneo.
+[626.78 - 631.08] (w1428-1436) Cuando existe disfunción endotelial, esta respuesta puede verse comprometida.
+[631.92 - 634.62] (w1437-1441) Y esto tiene consecuencias importantes.
+[634.74 - 646.80] (w1442-1473) Un endotelio alterado puede favorecer las condiciones que participan en el desarrollo de la aterosclerosis, un proceso en el que se acumulan depósitos de grasa y otras sustancias en las paredes arteriales.
+[647.08 - 650.12] (w1474-1479) Sin embargo, conviene recordar algo esencial.
+[650.36 - 655.40] (w1480-1489) Dormir mal no significa que tus arterias estén deteriorándose inevitablemente.
+[655.60 - 664.08] (w1490-1507) El riesgo depende de muchos factores, incluida la presión arterial, el colesterol, el tabaquismo y la predisposición individual.
+[664.26 - 669.60] (w1508-1518) Tampoco puedes identificar una inflamación arterial simplemente porque te levantes cansado.
+[669.78 - 678.76] (w1519-1537) Si experimentas molestias torácicas, falta de aire o una reducción inexplicable de tu capacidad física, necesitas una valoración médica.
+[678.94 - 685.34] (w1538-1550) Un dolor intenso en el pecho o dificultad respiratoria importante requiere atención urgente.
+[685.56 - 687.94] (w1551-1555) Y ahora quiero preguntarte algo.
+[687.98 - 692.46] (w1556-1565) ¿Cuántas horas duermes habitualmente y cómo te encuentras al despertar?
+[692.62 - 694.24] (w1566-1569) Cuéntamelo en los comentarios.
+[694.34 - 699.46] (w1570-1583) Tu experiencia puede ayudar a otras personas a prestar más atención a su descanso.
+[699.92 - 708.28] (w1584-1603) Porque todavía debemos hablar de un problema que puede interrumpir tu respiración mientras duermes, incluso sin que llegues a recordarlo.
+[708.58 - 709.80] (w1604-1605) Punto 4.
+[710.04 - 715.98] (w1606-1617) Apnea del sueño, cuando tu corazón recibe señales de alarma mientras duermes.
+[716.22 - 722.44] (w1618-1635) Existe un problema que puede estar afectando a tu corazón cada noche sin que seas consciente de ello.
+[722.56 - 729.40] (w1636-1648) Puedes acostarte temprano, permanecer ocho horas en la cama y despertar completamente agotado.
+[729.60 - 737.56] (w1649-1668) La explicación, en algunos casos, no está en cuanto duermes, sino en lo que sucede con tu respiración mientras descansas.
+[737.68 - 740.36] (w1669-1675) Hablamos de la apnea obstructiva del sueño.
+[740.50 - 746.54] (w1676-1691) Un trastorno en el que las vías respiratorias se estrecha no bloquean repetidamente durante la noche.
+[746.76 - 757.16] (w1692-1715) Cuando esto ocurre, el aire deja de circular con normalidad durante varios segundos, aunque los músculos respiratorios continúen intentando introducir oxígeno en los pulmones.
+[757.44 - 762.56] (w1716-1726) Y aquí comienza una reacción especialmente importante para tu sistema cardiovascular.
+[762.90 - 767.46] (w1727-1737) Cuando la respiración se interrumpe, el oxígeno en sangre puede disminuir.
+[767.62 - 774.12] (w1738-1752) El cerebro detecta esa alteración y activa mecanismos de emergencia para recuperar una respiración adecuada.
+[774.34 - 784.42] (w1753-1775) Como respuesta, aumenta la actividad del sistema nervioso simpático, pueden producirse subidas bruscas de presión arterial y el corazón puede acelerar sus latidos.
+[784.62 - 790.84] (w1776-1791) Lo más preocupante es que este proceso puede repetirse decenas de veces durante una misma noche.
+[791.00 - 798.88] (w1792-1811) Cada episodio puede provocar un breve despertar cerebral, tan corto que probablemente ni siquiera lo recuerdes a la mañana siguiente.
+[799.02 - 806.82] (w1812-1827) Por eso algunas personas aseguran dormir profundamente cuando, en realidad, su descanso está siendo interrumpido constantemente.
+[807.60 - 817.56] (w1828-1850) Con el tiempo, la combinación de descensos repetidos de oxígeno, fragmentación del sueño y activación nerviosa puede contribuir al desarrollo de hipertensión arterial.
+[817.90 - 826.44] (w1851-1869) Además, la apnea obstructiva se relaciona con un mayor riesgo de determinadas alteraciones del ritmo cardíaco, especialmente fibrilación auricular.
+[827.26 - 830.84] (w1870-1878) Pero ¿cómo puedes sospechar que algo así está ocurriendo?
+[831.04 - 841.26] (w1879-1901) Una señal frecuente son los ronquidos fuertes y habituales, especialmente cuando otra persona observa pausas respiratorias seguidas de jadeos o sonidos de aogo.
+[841.68 - 851.04] (w1902-1921) También pueden aparecer somnolencia durante el día, dolor de cabeza matutino, dificultades de concentración y despertares con sensación de asfixia.
+[851.22 - 858.28] (w1922-1938) Sin embargo, no todas las personas que roncan tienen apnea, y algunas personas con apnea apenas roncan.
+[858.50 - 863.06] (w1939-1949) Si reconoces varias de estas señales, conviene consultar con tu médico.
+[863.26 - 874.22] (w1950-1975) En determinados casos, puede recomendarse un estudio del sueño para confirmar el diagnóstico y valorar tratamientos eficaces, como la presión positiva continua en las vías respiratorias.
+[874.42 - 876.54] (w1976-1979) Y recuerda algo fundamental.
+[876.72 - 883.14] (w1980-1991) La apnea no se soluciona necesariamente acostándote antes ni realizando ejercicios respiratorios.
+[883.36 - 889.00] (w1992-2009) La buena noticia es que puedes empezar a mejorar otros aspectos de tu descanso desde esta misma noche.
+[889.94 - 899.00] (w2010-2033) Porque, aunque no podemos controlar todo lo que sucede mientras dormimos, sí podemos modificar ciertos hábitos que influyen en la recuperación de nuestro corazón.
+[899.68 - 900.86] (w2034-2035) Punto 5.
+[900.94 - 905.12] (w2036-2048) Tres cambios sencillos antes de dormir que pueden ayudar a proteger tu corazón.
+[906.26 - 915.00] (w2049-2071) Después de conocer todo lo que puede suceder en tus arterias durante una noche de mal descanso, probablemente te estés preguntando algo importante.
+[915.00 - 918.66] (w2072-2082) ¿Qué puedo hacer esta misma noche para ayudar a mi corazón?
+[919.00 - 925.68] (w2083-2097) La buena noticia es que no necesitas comprar dispositivos especiales ni transformar completamente tu vida.
+[925.90 - 933.86] (w2098-2114) Algunos cambios sencillos, mantenidos con regularidad, pueden mejorar la calidad del sueño y favorecer tu salud cardiovascular.
+[934.02 - 937.76] (w2115-2125) El primer cambio comienza mucho antes de meterte en la cama.
+[937.92 - 941.74] (w2126-2137) Presta atención a la cena y a la temperatura de tu dormitorio.
+[941.90 - 952.04] (w2138-2158) Comer demasiado, especialmente alimentos muy grasos o abundantes justo antes de acostarte, puede favorecer las molestias digestivas y dificultar el descanso.
+[952.34 - 960.80] (w2159-2176) Además, consumir demasiada sal habitualmente puede contribuir a elevar la presión arterial, especialmente en personas sensibles al sodio.
+[960.98 - 967.32] (w2177-2189) Procura cenar con suficiente antelación, eligiendo alimentos fáciles de digerir y cantidades moderadas.
+[967.78 - 972.32] (w2190-2198) Después, prepara un dormitorio oscuro, silencioso y ligeramente fresco.
+[973.10 - 977.54] (w2199-2208) Estas condiciones facilitan los mecanismos naturales que regulan el sueño.
+[977.72 - 984.40] (w2209-2222) No necesitas pasar frío, simplemente evitar un ambiente excesivamente caluroso que provoque despertares innecesarios.
+[985.28 - 989.98] (w2223-2238) El segundo cambio tiene que ver con algo que probablemente sostienes entre tus manos cada noche.
+[985.32 - 992.38] (w2239-2257) El segundo cambio tiene que ver con algo que probablemente sostienes entre tus manos cada noche, el teléfono móvil.
+[992.54 - 1003.00] (w2258-2278) Revisar noticias, responder mensajes o desplazarte interminablemente por las redes sociales puede mantener tu cerebro estimulado cuando debería prepararse para descansar.
+[1003.30 - 1013.44] (w2279-2307) Además, la exposición intensa a la luz de las pantallas durante la noche puede retrasar la liberación de melatonina, una hormona que ayuda a regular el ciclo del sueño.
+[1013.84 - 1018.88] (w2308-2321) Prueba a reducir su uso durante los 30 o 60 minutos anteriores a acostarte.
+[1019.28 - 1025.50] (w2322-2333) Puede sustituirlo por una lectura tranquila, música suave o una conversación relajada.
+[1025.82 - 1032.08] (w2334-2348) Pero el tercer cambio es especialmente interesante porque puedes practicarlo sin levantarte de la cama.
+[1032.34 - 1036.12] (w2349-2353) Respirar lentamente durante 5 minutos.
+[1036.30 - 1038.42] (w2354-2359) Coloca una mano sobre el abdomen.
+[1038.66 - 1046.22] (w2360-2377) Inspira suavemente por la nariz durante 4 segundos y deja salir el aire durante 6 segundos, sin forzarlo.
+[1046.54 - 1049.32] (w2378-2383) Repite este ritmo de manera cómoda.
+[1049.48 - 1057.88] (w2384-2401) La respiración lenta puede favorecer la relajación y ayudar a reducir temporalmente la activación fisiológica asociada al estrés.
+[1058.14 - 1062.50] (w2402-2411) No es necesario aguantar la respiración ni buscar resultados inmediatos.
+[1062.76 - 1066.56] (w2412-2420) Si notas mareo o incomodidad, vuelve a respirar normalmente.
+[1067.24 - 1075.16] (w2421-2439) Y recuerda que este ejercicio no sustituye los tratamientos para la hipertensión, las arritmias o la apnea del sueño.
+[1075.42 - 1077.62] (w2440-2444) Ahora te propongo algo sencillo.
+[1077.66 - 1082.78] (w2445-2457) Elige uno de estos tres hábitos y práctícalo durante los próximos siete días.
+[1083.14 - 1088.20] (w2458-2470) Después, cuéntame en los comentarios si has notado alguna diferencia en tu descanso.
+[1088.48 - 1098.04] (w2471-2494) Porque cuidar tu corazón no consiste únicamente en lo que haces durante el día, también importa cómo preparas tu cuerpo para recuperarse cada noche.
+[1098.32 - 1105.52] (w2495-2512) Esta noche, cuando apagues la luz y fierres los ojos, recuerda algo que probablemente nunca te habías planteado.
+[1105.78 - 1111.02] (w2513-2523) Mientras tú descansas, tu corazón continúa trabajando para mantenerte con vida.
+[1111.26 - 1116.64] (w2524-2540) Pero la calidad de tu sueño puede marcar una diferencia importante en el esfuerzo que necesita realizar.
+[1117.70 - 1123.44] (w2541-2555) Hoy hemos descubierto que dormir bien no consiste simplemente en acumular horas en la cama.
+[1123.58 - 1135.46] (w2556-2581) Durante un descanso saludable, la presión arterial suele disminuir, el sistema nervioso reduce su estado de alerta, y el organismo activa mecanismos fundamentales para su recuperación.
+[1135.84 - 1146.22] (w2582-2606) También hemos comprendido que dormir mal de forma habitual puede alterar las hormonas del estrés, favorecer procesos inflamatorios y afectar al funcionamiento de las arterias.
+[1146.48 - 1155.94] (w2607-2628) Y que problemas como la apnea del sueño merecen especial atención, porque pueden interrumpir repetidamente la respiración sin que llegues a recordarlo.
+[1156.36 - 1158.78] (w2629-2636) Pero quiero que te quedes con una idea.
+[1159.06 - 1162.80] (w2637-2646) Nunca es demasiado tarde para empezar a cuidar tu descanso.
+[1163.02 - 1165.58] (w2647-2652) No necesitas conseguir una noche perfecta.
+[1165.74 - 1171.20] (w2653-2662) Lo importante es construir hábitos saludables y mantenerlos con constancia.
+[1171.50 - 1173.70] (w2663-2667) Ahora quiero hacerte una pregunta.
+[1173.80 - 1176.02] (w2668-2671) ¿Cuántas horas duermes normalmente?
+[1176.14 - 1181.80] (w2672-2684) ¿Te despiertas descansado o sientes que necesitas varias horas para recuperar tu energía?
+[1182.00 - 1183.58] (w2685-2688) Escríbelo en los comentarios.
+[1183.72 - 1186.14] (w2689-2693) ¡Me encantará conocer tu experiencia.
+[1186.32 - 1194.12] (w2694-2714) Si este vídeo te ha resultado útil, suscríbete al canal, activa la campanita y compártelo con alguien que suele dormir poco.
+[1194.36 - 1199.02] (w2715-2726) Recuerda que esta información es educativa y no sustituye una valoración médica.
+[1199.18 - 1208.08] (w2727-2745) Si experimentas palpitaciones persistentes, sospechas que tienes apnea del sueño o sufres cansancio inexplicable, consulta con un profesional sanitario.
+[1208.30 - 1213.76] (w2746-2756) Ante dolor torácico intenso o dificultad respiratoria importante, busca atención urgente.
+[1214.08 - 1219.66] (w2757-2770) Porque proteger tu corazón no empieza únicamente con una alimentación saludable o haciendo ejercicio.
+[1220.06 - 1221.88] (w2771-2774) También comienza cada noche.
+[1222.10 - 1225.44] (w2775-2784) Cuando decides darle a tu cuerpo, la oportunidad de descansar.

@@ -1,0 +1,291 @@
+# One timeline: audio/voice_full.mp3 (edited), transcript/words_edit.json. label | phrase, in order.
+# --- intro
+frustrante | especialmente frustrante
+medico0 | lo que te ha recomendado el médico
+sigue_alta | sigue demasiado alta
+pastilla0 | Tomas tu pastilla cada día
+horarios | respetas los horarios
+confias | confías en que el tratamiento
+una_manana | Pero una mañana
+boton | pulsas el botón
+cifra0 | aparece una cifra
+c155 | 155 sobre 95
+pregunta0 | Entonces surge una pregunta
+porque0 | Por qué sigue subiendo
+sorprendente | Lo sorprendente es que
+habito0 | un hábito aparentemente inofensivo
+otro_dolor | otro dolor
+duermes0 | mientras duermes
+importante0 | Y aquí viene lo importante
+no_significa0 | no significa necesariamente
+explicaciones | Existen distintas explicaciones
+revision0 | una revisión médica adecuada
+hoy | Hoy vamos a descubrir cinco
+cuarta | Presta especial atención a la cuarta
+nocturno0 | un problema nocturno
+antes | Y antes de empezar
+nunca0 | Nunca cambies ni suspendas
+quedate | Quédate hasta el final
+consulta0 | en tu próxima consulta
+# --- punto 1
+p1 | Punto 1
+preocupandote | Puede que estés preocupándote
+curioso | Y lo más curioso
+ni_corazon | ni en tus arterias
+detalles | pequeños detalles
+sencillo | tan sencillo como colocarse
+sensible | mucho más sensible
+nervioso | Cada vez que te sientes nervioso
+simpatico | sistema nervioso simpático
+latir | comienza a latir con más fuerza
+contraen | se contraen
+aumenta | aumenta temporalmente
+natural1 | Es una respuesta natural
+problema1 | El problema aparece
+bata | hipertensión de bata blanca
+consulta1 | durante la consulta médica
+fuera | aunque fuera de ese entorno
+casa | Algo parecido puede ocurrir en casa
+miedo | miedo al tensiómetro
+ves | Ves una cifra elevada
+repites | repites inmediatamente
+circulo | Así comienza un círculo
+emociones | Pero las emociones
+escaleras | subir las escaleras
+piernas | cruzar las piernas
+hablar | hablar durante la medición
+brazo | mantener el brazo
+manguito | También influye utilizar
+vejiga | tener la vejiga llena
+cafe1 | haber tomado café
+por_eso1 | Por eso, antes de concluir
+sientate | Siéntate tranquilamente
+cinco_min | durante 5 minutos
+espalda | la espalda apoyada
+pies | los pies en el suelo
+altura | a la altura del corazón
+evita | Evita el ejercicio
+treinta | los 30 minutos
+validado | tensiómetro validado
+dos | Realiza dos mediciones
+minuto | aproximadamente por un minuto
+anota | anota los resultados
+manana_noche | por la mañana y por la noche
+siete | durante siete días
+registro | Ese registro
+aislada | una cifra aislada
+recuerda1 | Y recuerda
+sintomas1 | Si aparecen síntomas
+ahora_bien | Ahora bien
+medicamentos1 | Algunos medicamentos cotidianos
+conocias | Conocías estos errores
+cuentame1 | Cuéntame en los comentarios
+# --- punto 2
+p2 | Punto 2
+y_si | Y si el problema
+otro_producto | sino que otro producto
+sorprende2 | Esta posibilidad sorprende
+disciplina | con disciplina
+independiente | de forma independiente
+interferir | Algunos pueden interferir
+aines | antiinflamatorios no esteroideos
+ibuprofeno | como el ibuprofeno
+naproxeno | o el naproxeno
+dolores | aliviar dolores musculares
+continuada | de manera continuada
+retencion | la retención de sodio
+renal2 | alterar la función renal
+filtros | piensa en tus riñones
+agua_sal | la cantidad de agua y sal
+algunos_med | Algunos medicamentos para la hipertensión
+interferir2 | pueden interferir en ese
+menos_eficaz | menos eficaz
+ocasional | una dosis ocasional
+depende2 | El riesgo depende
+dosis | como la dosis
+no_unicos | Y los antiinflamatorios no son
+pseudo | pseudoefedrina
+estrechar | pueden estrechar los vasos
+corticoides | Determinados corticoides
+regaliz | como el regaliz
+potasio2 | los niveles de potasio
+error2 | Aquí aparece un error
+sin_receta | comprado sin receta
+natural2 | Pero natural no significa
+que_hacer | Qué puedes hacer
+revisa | Revisa los medicamentos
+anota2 | Anota sus nombres
+farmaceutico | o farmacéutico
+no_suspendas2 | No suspendas por tu cuenta
+interacciones | sus posibles interacciones
+semanas2 | Si llevas semanas
+suscribete | suscríbete al canal
+sencilla | de forma sencilla
+botiquin | Porque el siguiente posible
+comes | algo que comes
+# --- punto 3
+p3 | Punto 3
+puedes3 | Puedes tomar correctamente
+mas_sodio | mucho más sodio
+enemigo | un enemigo silencioso
+desayuno | en tu desayuno
+preocupante3 | Y lo más preocupante
+comprender3 | Para comprenderlo, debemos observar
+sodio3 | El sodio es un mineral
+excesivas | cantidades excesivas
+rinones3 | nuestros riñones
+favorece3 | Esto favorece la retención
+volumen | aumenta el volumen
+paredes | sobre las paredes
+manguera | Piensa en una manguera
+aumenta3 | Si aumenta la cantidad
+compleja | mucho más compleja
+por_eso3 | Por eso, una alimentación
+sorprenda | Pero aquí viene la parte
+salero | con el salero
+espana | En España encontramos
+jamon | el jamón curado
+chorizo | el chorizo
+quesos | determinados quesos
+conservas | las conservas
+panes | algunos panes
+salsas | las salsas industriales
+cocinar | Puedes cocinar sin añadir
+que_hacer3 | Qué puedes hacer para cambiarlo
+etiquetas | leyendo las etiquetas
+referencia | Como referencia
+frescos | Prioriza alimentos frescos
+hierbas | hierbas aromáticas
+procesados | los productos muy procesados
+potasio3 | También merece atención el potasio
+verduras | Las verduras
+renal3 | si tienes enfermedad renal
+sustitutos | sustitutos de sal
+consulta3 | Consulta antes con tu médico
+no_necesitas3 | No necesitas transformar
+pequenos3 | Pequeños cambios sostenidos
+otra_exp | Pero existe otra posible
+noche3 | Puede aparecer cada noche
+# --- punto 4
+p4 | Punto 4
+debería | Tu corazón debería encontrar
+disminuir4 | la frecuencia cardíaca suele disminuir
+desciende | desciende de forma natural
+sin_embargo4 | Sin embargo, qué ocurriría
+alarma4 | situaciones de alarma
+apnea4 | conocido como apnea obstructiva
+vias | las vías respiratorias
+bloquean | o bloquean repetidamente
+episodios | Durante esos episodios
+oxigeno4 | descensos del oxígeno
+aunque4 | Aunque normalmente no recuerdes
+cerebro4 | tu cerebro sí reacciona
+cada4 | Cada interrupción
+corazon4 | El corazón recibe señales
+contraerse4 | pueden contraerse
+elevaciones | elevaciones transitorias
+decenas | decenas de veces
+consecuencia4 | Aquí aparece una consecuencia
+pierden | pierden el descenso
+nondipper | Este patrón se conoce
+al_despertar | elevada al despertar
+sospechar | cómo puedes sospechar
+ronquidos | los ronquidos fuertes
+pausas | pausas respiratorias
+cabeza4 | dolor de cabeza
+boca | sentir la boca seca
+cansancio4 | experimentar cansancio
+concentrarte | dificultades para concentrarte
+no_todas4 | Sin embargo, no todas
+roncar | y roncar no significa
+lo_importante4 | Lo importante es comprender
+riesgo4 | un mayor riesgo cardiovascular
+dificil4 | difícil de controlar
+reconoces | Si reconoces varias
+estudio | un estudio del sueño
+cpap | presión positiva continua
+varia | aunque su efecto varía
+pregunta4 | Y ahora quiero preguntarte
+despiertas | Te despiertas cansado
+cuentamelo | Cuéntamelo en los comentarios
+quinta | Pero todavía nos falta
+ajuste4 | un ajuste individualizado
+# --- punto 5
+p5 | Punto 5
+una_sola | por qué una sola
+idea5 | Existe una idea
+acostumbrado | se ha acostumbrado
+realidad | Pero la realidad
+compleja5 | es una enfermedad compleja
+unica | una única pastilla
+un_organo | no depende de un solo
+rinones5 | Tus riñones regulan
+arterias5 | tus arterias modifican
+hormonas | diferentes hormonas
+renina | sistema renina
+familia | Cada familia de medicamentos
+relajacion | Algunos favorecen la relajación
+eliminar | otros ayudan a eliminar
+bloquean5 | y otros bloquean
+por_eso5 | Por eso, un medicamento
+estrategia | Aquí es donde aparece
+combinar | combinar medicamentos
+dos_tres | utilizar dos o tres
+unico | de un único fármaco
+no_todas5 | Sin embargo, esto no significa
+eleccion | La elección depende
+edad | de la edad
+efectos | los efectos secundarios
+anos5 | nuestras arterias cambian
+elasticidad | La pérdida progresiva
+peso | el exceso de peso
+metabolicos | trastornos metabólicos
+atencion5 | Pero atención
+resistente | padecer hipertensión resistente
+antes5 | Antes de establecer
+comprobar | comprobar las mediciones
+adherencia | valorar la adherencia
+descartar | y descartar factores
+herramienta | tu mejor herramienta
+llevalo | Llévalo a la consulta
+lista | una lista de todos
+decidir | Esta información puede ayudar
+horarios5 | modificar horarios
+ajustar | ajustar dosis
+combinar5 | combinar tratamientos
+secundarias | causas secundarias
+nunca5 | Nunca aumentes, reduzcas
+inadecuado | Un cambio inadecuado
+solucion | Recuerda que la solución
+combinacion | la combinación y el seguimiento
+fracasado | no significa que hayas fracasado
+idea_fund | Y después de conocer
+evaluacion | merece una evaluación médica
+# --- conclusión
+llegados | Llegados a este punto
+condenado | esté condenado
+comprender_c | debemos comprender mejor
+explicacion_c | encontrar la explicación adecuada
+cinco_c | Hoy hemos descubierto cinco
+errores_c | Errores al medir
+medicamentos_c | medicamentos que interfieren
+sal_c | exceso de sal oculta
+apnea_c | apnea obstructiva del sueño
+revisar_c | la necesidad de revisar
+clave | La clave no consiste
+patrones | identificar patrones
+habitos_c | mantener hábitos saludables
+colaborar | colaborar con tu médico
+aislada_c | una medición aislada
+advertencia | Y aquí va una advertencia
+nunca_c | Nunca suspendas, aumentes
+c180 | Si tu tensión alcanza
+repite_c | repite la medición
+ademas_c | Si además experimentas
+llama | llama al 1
+educativo | Este vídeo tiene fines
+suscribete_c | suscríbete al canal
+comparte_c | y comparte el vídeo
+cuentame_c | Y cuéntame en los comentarios
+alguna | Alguna vez has tenido
+recuerda_final | Recuerda, cuidar tu corazón

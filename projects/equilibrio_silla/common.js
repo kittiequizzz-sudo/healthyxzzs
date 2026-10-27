@@ -1,4 +1,5 @@
-// Shared pieces for "¿Por qué sigue alta tu tensión?". Needs lib.js, kit.js, sizes.js, cues.js.
+// Shared pieces for "4 ejercicios con una silla". Needs lib.js, kit.js, sizes.js, cues.js.
+// Started from tension_alta/common.js; exercise pose loops (Poses, RepCounter, CYCLE) at the end.
 // Motion kit from sueno_corazon + sound-effect events: every helper below records its SFX in window.SFX
 // ([time, kind]); render_full.sh reads them and soundtrack.py mixes music + SFX under the voice.
 // ONE continuous video on one voice timeline (t = seconds into audio/voice_full.mp3).
@@ -577,4 +578,73 @@ function Moon(g, cx, cy, fit) {
   el('circle', { cx: cx + r * 0.45, cy: cy - r * 0.25, r: r * 0.85, fill: 'black' }, mk);
   el('circle', { cx, cy, r, fill: '#F2E6B8', stroke: C.ink, 'stroke-width': 4, mask: `url(#${id})` }, m);
   return m;
+}
+
+// ---------------------------------------------------------------- chair exercises (Elena pose sheets)
+// Pose sequence from a cut pose sheet (<name>_0.png … share one canvas, aligned on the floor).
+// idx(t) → pose index; a pose change cross-fades over `fade` s and the body eases up/down by `lift`
+// px while it changes, so a 2-image move reads as a movement, not a cut.
+function Poses(g, name, t0, { cx = 560, cy = 560, h = 780, idx = () => 0, fade = 0.35, t1 = 1e9, enter = 'fade', floor = true } = {}) {
+  const [iw, ih] = SZ[name + '_0'], s = h / ih, w = iw * s, x = cx - w / 2, y = cy - h / 2;
+  const L = Live(g, { t0, t1, cx, cy, enter, idle: 'none' });
+  if (floor) el('ellipse', { cx, cy: y + h - 4, rx: w * 0.62, ry: 16, fill: C.ink, opacity: 0.12 }, L.g);
+  const n = Object.keys(SZ).filter(k => k.startsWith(name + '_')).length;
+  const ims = [...Array(n)].map((_, i) => el('image', { href: src(name + '_' + i), x, y, width: w, height: h, opacity: 0 }, L.g));
+  anim(t => {
+    const N = 6, acc = new Array(n).fill(0);
+    for (let k = 0; k < N; k++) acc[idx(t - fade * k / (N - 1))] += 1 / N;
+    ims.forEach((im, j) => im.setAttribute('opacity', acc[j].toFixed(3)));
+  });
+  return Object.assign(L, { x, y, w, h });
+}
+// Looping sequence: seq = [[pose, seconds], …]; returns idx(t) for Poses (pose seq[0][0] before t0).
+const CYCLE = (t0, seq) => {
+  const per = seq.reduce((a, [, d]) => a + d, 0);
+  return t => {
+    if (t < t0) return seq[0][0];
+    let q = (t - t0) % per;
+    for (const [p, d] of seq) { if (q < d) return p; q -= d; }
+    return seq[0][0];
+  };
+};
+// One-off keyframes [[time, pose], …] (absolute times): the last key at or before t wins.
+const KEYS = keys => t => { let p = keys[0][1]; for (const [k, v] of keys) if (t >= k) p = v; return p; };
+// Repetition counter card: big number = reps done since t0 (one per period), "/ total" underneath.
+function RepCounter(g, t0, { cx = 1500, cy = 300, period = 6, total = '15–20', label = 'REPETICIONES', t1 = 1e9, max = 99 } = {}) {
+  const L = Live(g, { t0, t1, cx, cy, enter: 'pop', idle: 'none' });
+  el('circle', { cx: cx + 8, cy: cy + 10, r: 140, fill: C.ink }, L.g);
+  el('circle', { cx, cy, r: 140, fill: C.white, stroke: C.ink, 'stroke-width': 9 }, L.g);
+  const arc = el('path', { fill: 'none', stroke: TEAL, 'stroke-width': 20, 'stroke-linecap': 'round' }, L.g);
+  const num = Text(L.g, '1', { x: cx, y: cy - 12, size: 120, color: C.ink });
+  Text(L.g, '/ ' + total, { x: cx, y: cy + 72, size: 38, weight: 800, color: '#56604F' });
+  Chip(L.g, label, { cx, cy: cy + 200, size: 30, fill: TEAL, color: C.white });
+  anim(t => {
+    const k = Math.max(0, t - t0), u = (k % period) / period, rr = 112, a = u * 2 * Math.PI - 1e-4;
+    num.textContent = String(Math.min(max, 1 + Math.floor(k / period)));
+    set(arc, { d: `M${cx} ${cy - rr} A${rr} ${rr} 0 ${u > 0.5 ? 1 : 0} 1 ${(cx + rr * Math.sin(a)).toFixed(1)} ${(cy - rr * Math.cos(a)).toFixed(1)}` });
+  });
+  return L;
+}
+// Cue card that swaps its text with the movement phase: phase(t) → index into texts/colours.
+function PhaseCue(g, t0, texts, phase, { cx = 1500, cy = 760, size = 40, colors = [C.green, '#2F5F9E'], t1 = 1e9 } = {}) {
+  const L = Live(g, { t0, t1, cx, cy, enter: 'up', idle: 'none' });
+  const cards = texts.map((s, i) => { const c = Chip(L.g, s, { cx, cy, size, fill: colors[i % colors.length], color: C.white }); c.setAttribute('opacity', 0); return c; });
+  anim(t => { const p = phase(t); cards.forEach((c, i) => c.setAttribute('opacity', i === p ? 1 : 0)); });
+  return L;
+}
+// Exercise badge: numbered white circle with a pose drawing inside (for overviews / recaps).
+function ExBadge(g, n, pose, t0, { cx, cy, r = 150, label = '', hl = null } = {}) {
+  const L = Live(g, { t0, cx, cy, enter: 'pop', idle: 'bob', phase: n * 0.25 });
+  el('circle', { cx, cy, r, fill: C.white, stroke: C.ink, 'stroke-width': 7 }, L.g);
+  const id = 'exb' + Math.random().toString(36).slice(2), cp = el('clipPath', { id }, L.g);
+  el('circle', { cx, cy, r: r - 5 }, cp);
+  Cutout(el('g', { 'clip-path': `url(#${id})` }, L.g), src(pose), { cx, cy: cy + r * 0.1, iw: SZ[pose][0], ih: SZ[pose][1], fit: r * 2.05 });
+  Text(L.g, String(n), { x: cx - r * 0.78, y: cy - r * 0.72, size: 60, color: C.red });
+  if (label) Chip(L.g, label, { cx, cy: cy + r + 52, size: 28, fill: C.amber });
+  if (hl != null) {
+    const ring = el('circle', { cx, cy, r: r + 22, fill: 'none', stroke: C.amber, 'stroke-width': 12, opacity: 0 }, L.g);
+    anim(t => set(ring, { opacity: t < hl ? 0 : 1, r: r + 22 + 6 * Math.sin(t * 4) }));
+  }
+  sfx(t0, 'pop');
+  return L;
 }

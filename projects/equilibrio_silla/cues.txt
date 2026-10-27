@@ -1,0 +1,301 @@
+# One timeline: audio/voice_full.mp3, transcript/words_clean.json. label | phrase, in order.
+# --- intro
+empieza0 | Empieza unos segundos antes
+levantas0 | cuando te levantas de una silla
+tiemblan0 | notas que las piernas te tiemblan
+mesa0 | Una mesa, una pared
+pared0 | una pared, el respaldo
+sofa0 | el respaldo de un sofá
+apoyo0 | Cualquier apoyo sirve
+inquietante0 | Y lo más inquietante
+fuerza0 | todavía tienes fuerza suficiente
+sabias0 | Sabías que esa sensación
+piernas0 | no siempre comienza en tus piernas
+circulacion0 | la circulación sanguínea
+presion0 | regula la presión arterial
+corazon0 | Cuando te levantas, tu corazón
+vasos0 | tus vasos sanguíneos
+musculos0 | y tus músculos deben
+falla0 | Si esa respuesta falla
+sorprendente0 | Pero aquí viene algo sorprendente
+pantorrillas0 | en tus pantorrillas tienes
+bomba0 | una auténtica bomba auxiliar
+devolver0 | devolver la sangre hacia el corazón
+sencillos0 | movimientos muy sencillos
+hoy0 | Hoy descubrirás cuatro ejercicios
+cinco0 | en apenas cinco minutos
+silla0 | utilizando una silla como apoyo
+fortalecer0 | para fortalecer tus piernas
+equilibrio0 | entrenar el equilibrio
+circ0 | y favorecer la circulación
+tercero0 | presta especial atención al tercer
+pierden0 | muchas personas pierden progresivamente
+quedate0 | Quédate hasta el final
+errores0 | tres errores cotidianos
+porque0 | Porque recuperar confianza
+# --- punto 1
+p1 | Punto 1 Elevaciones de gemelos
+musculo1 | Hay un músculo en tu cuerpo
+caminas1 | cada vez que caminas
+escalon1 | subes un escalón
+de_pie1 | simplemente te mantienes de pie
+diferencia1 | puede marcar una diferencia
+refiero1 | Me refiero a los músculos
+gemelos1 | conocidos como gemelos
+soleo1 | y sóleo
+segundo1 | el segundo corazón
+sentado1 | piensa en lo que sucede
+gravedad1 | Por efecto de la gravedad
+acumularse1 | tiende a acumularse en las piernas
+moverte1 | Cuando comienzas a moverte
+comprimen1 | comprimen las venas profundas
+impulsar1 | ayudando a impulsar esa sangre
+retorno1 | contribuye al retorno venoso
+sencillo1 | un ejercicio extremadamente sencillo
+sesenta1 | después de los 60 años
+horas1 | pasar demasiadas horas sentado
+fuerza1 | perder fuerza muscular
+eficacia1 | reducir la eficacia de esta bomba
+activar1 | Por eso, activar regularmente
+tobillos1 | la movilidad de los tobillos
+favorecer1 | favorecer la circulación de las piernas
+control1 | mejorar el control de tus movimientos
+practicar1 | Vamos a practicarlo
+firme1 | Coloca una silla firme
+pared1 | apoyada contra una pared
+detras1 | Ponte de pie detrás de ella
+caderas1 | a la anchura de las caderas
+respaldo1 | sujeta suavemente el respaldo
+espalda1 | Mantén la espalda erguida
+mirada1 | la mirada dirigida hacia delante
+eleva1 | Ahora eleva lentamente los talones
+exagerada1 | No necesitas alcanzar una altura
+sentir1 | Lo importante es sentir
+manten1 | Mantén esa posición durante dos segundos
+baja1 | baja los talones de manera controlada
+hasta_tres1 | contando mentalmente hasta tres
+repite1 | Repite el movimiento entre quince
+subes1 | Mientras subes, suelta el aire
+bajas1 | mientras bajas, vuelve a inspirar
+nunca1 | Nunca contengas la respiración
+hipertension1 | especialmente si tienes hipertensión
+seguro1 | Y si todavía no te sientes seguro
+mismo1 | exactamente el mismo movimiento sentado
+puntas1 | manteniendo las puntas en contacto
+estabilizan1 | Este ejercicio también entrena
+corregir1 | corregir pequeños desequilibrios
+eso_si1 | Eso sí, no elimina
+sustituye1 | ni sustituye una evaluación médica
+cuestion1 | Y aquí aparece una cuestión importante
+comienzo1 | es solo el comienzo
+otros1 | necesitas otros músculos
+siguiente1 | En el siguiente ejercicio
+util1 | Si este primer movimiento te parece útil
+firmes1 | escribe piernas firmes
+# --- punto 2
+p2 | Punto 2 Sentadilla asistida
+momento2 | Existe un momento cotidiano
+brazos2 | sin tener que impulsarte con los brazos
+intentos2 | necesitar varios intentos
+rodillas2 | cuando tus rodillas tiemblan
+mesa2 | buscas inmediatamente una mesa
+avisando2 | podría estar avisándote
+realidad2 | Y aquí aparece una realidad
+caminar2 | caminar todos los días es beneficioso
+suficiente2 | no siempre resulta suficiente
+cuadriceps2 | Los cuádriceps
+gluteos2 | y los glúteos desempeñan
+pierden2 | Cuando pierden fuerza
+esfuerzo2 | un esfuerzo cada vez mayor
+segundo2 | nuestro segundo ejercicio
+sentarte2 | sentarte y levantarte de una silla
+busca2 | Busca una silla estable
+respaldo2 | preferiblemente con respaldo
+ruedas2 | que no tenga ruedas
+pared2 | apoyada contra una pared
+sientate2 | Siéntate con la espalda erguida
+pies2 | coloca ambos pies
+hombros2 | a la anchura de los hombros
+alineadas2 | Las rodillas deben quedar alineadas
+inclina2 | Ahora inclina ligeramente el tronco
+pecho2 | acercar el pecho hacia las rodillas
+presiona2 | Presiona el suelo con los pies
+despacio2 | levántate despacio
+muslos2 | la fuerza de los muslos
+manten2 | mantén la posición durante un segundo
+importante2 | Después viene la parte más importante
+lentamente2 | vuelve a sentarte lentamente
+caer2 | No te dejes caer
+controla2 | Controla el descenso
+escalones2 | para subir escalones
+irregulares2 | caminar por superficies irregulares
+tropiezos2 | ante pequeños tropiezos
+reps2 | Intenta realizar entre 8 y 10
+reposabrazos2 | utiliza los reposabrazos
+apoyo2 | No pasa nada por comenzar con apoyo
+prisas2 | sin dolor ni prisas
+cardio2 | Desde el punto de vista cardiovascular
+grupos2 | moviliza grandes grupos musculares
+oxigeno2 | aumenta moderadamente las necesidades
+condicion2 | puede contribuir a mejorar
+tratamiento2 | no debes considerarlo un tratamiento
+respirar2 | Recuerda respirar con naturalidad
+notas2 | Si notas mareo
+piensa2 | Y ahora piensa en algo
+desequilibrio2 | corregir un pequeño desequilibrio
+tercero2 | Precisamente eso trabajaremos
+seguir2 | Si quieres seguir descubriendo
+suscribete2 | suscríbete al canal
+libertad2 | tu libertad para moverte
+# --- punto 3
+p3 | Desplazamiento de peso Enseña a tu cuerpo
+fuertes3 | Puedes tener unas piernas fuertes
+acera3 | caminas por una acera irregular
+giras3 | giras demasiado rápido
+atras3 | das un paso hacia atrás
+porque3 | Por qué ocurre esto
+depende3 | no depende únicamente
+reconocer3 | la capacidad de reconocer
+nombre3 | Esta capacidad tiene un nombre
+propio3 | Propiocepción
+sistema3 | Se trata de un sistema
+sin_mirar3 | sin necesidad de mirarlos
+gracias3 | Gracias a ella
+pasa3 | cuando alguien pasa cerca
+suelo3 | cuando el suelo cambia
+sesenta3 | después de los 60 años, la sensibilidad
+receptores3 | Los receptores situados
+integrar3 | el cerebro necesita integrar
+vista3 | con la vista
+vestibular3 | y el sistema vestibular
+automaticamente3 | que antes realizabas automáticamente
+buena3 | La buena noticia
+aparatos3 | ni utilizar aparatos
+colocate3 | Colócate de pie detrás
+respaldo3 | Sujeta el respaldo con ambas manos
+rodillas3 | Mantén las rodillas ligeramente
+punto3 | hacia un punto fijo
+desplaza3 | Ahora desplaza lentamente el peso
+presion3 | Notarás cómo cambia la presión
+manten3 | Mantén esa posición durante
+talones3 | lleva suavemente el peso hacia los talones
+puntas3 | levantando apenas las puntas
+repite3 | Repite este movimiento hacia delante
+pendulo3 | un péndulo que se mueve
+inclinarte3 | No necesitas inclinarte mucho
+pequeno3 | cuanto más pequeño y controlado
+interesante3 | Lo interesante es que cada
+activar3 | activar diferentes músculos
+postural3 | mejorar el control postural
+fundamental3 | Y recuerda algo fundamental
+confundir3 | no debes confundir ese síntoma
+valoracion3 | Los mareos frecuentes necesitan
+medicamentos3 | especialmente si tomas medicamentos
+pregunta3 | Antes de continuar, quiero preguntarte
+terrenos3 | cuando caminas por terrenos irregulares
+cuentamelo3 | Cuéntamelo en los comentarios
+cuarto3 | Y ahora vamos con el cuarto
+# --- punto 4
+p4 | Punto 4 Marcha estática
+diferencia4 | Hay una diferencia enorme
+quieto4 | completamente seguro cuando estás quieto
+levantar4 | basta con levantar un pie
+direccion4 | cambiar de dirección
+desafio4 | uno de los mayores desafíos
+situacion4 | Piensa en una situación cotidiana
+fraccion4 | Durante una fracción de segundo
+cadera4 | los músculos de la cadera
+tobillos4 | los tobillos y el abdomen
+control4 | sensación de perder el control
+apoyo4 | cambia constantemente de apoyo
+marcha4 | Vamos a practicar una marcha
+sitio4 | caminar sin desplazarte del sitio
+fuerza4 | fuerza muscular, coordinación
+coordinacion4 | coordinación y equilibrio
+dinamico4 | equilibrio dinámico
+coloca4 | Coloca una silla resistente
+manos4 | apoya ambas manos sobre el respaldo
+mirada4 | dirige la mirada hacia delante
+suelo4 | Evita mirar continuamente al suelo
+levanta4 | Ahora levanta lentamente una rodilla
+comoda4 | una altura que te resulte cómoda
+baja4 | baja el pie de manera controlada
+otra4 | repite el movimiento con la otra pierna
+alternando4 | Continúa alternando ambos lados
+sesenta4 | Realiza este movimiento durante
+descansar4 | Si necesitas descansar antes
+seguro4 | sea seguro, estable y consciente
+respira4 | Respira con naturalidad durante
+practicas4 | Mientras practicas
+ojos4 | procedente de los ojos
+articulaciones4 | las articulaciones y el oído
+oido4 | el oído interno
+caminar4 | especialmente importante al caminar
+ademas4 | Además, al mover repetidamente
+venoso4 | ayuda al retorno venoso
+cardio4 | aumentas ligeramente el trabajo
+rutina4 | puede formar parte de una rutina
+garantiza4 | aunque no garantiza
+dificultades4 | Si tienes dificultades importantes
+supervision4 | únicamente con supervisión
+detente4 | Si aparecen mareos
+conoces4 | Y ahora que conoces los cuatro
+perfectamente4 | no necesitas hacerlos perfectamente
+constancia4 | una versión segura
+comparte4 | Si conoces a alguien
+confianza4 | puede ser el comienzo de una mayor
+antes4 | Pero antes de terminar
+# --- punto 5
+p5 | Punto 5 Tres errores
+practicar5 | Puedes practicar los cuatro ejercicios
+habitos5 | si mantienes ciertos hábitos
+inofensivos5 | parecen completamente inofensivos
+mareos5 | aumentar el riesgo de mareos
+primer5 | El primer error
+manana5 | especialmente por la mañana
+acostado5 | Después de pasar varias horas
+sangre5 | parte de la sangre se desplaza
+responden5 | Si los mecanismos que regulan
+vision5 | mareo o visión borrosa
+reducir5 | Para reducir ese riesgo
+borde5 | siéntate primero al borde
+tobillos5 | mueve suavemente los tobillos
+espera5 | espera unos instantes
+consulta5 | Si esto te ocurre repetidamente
+segundo5 | El segundo error
+sin_darse5 | Muchas personas lo hacen
+bruscos5 | cambios bruscos en la presión
+solucion5 | La solución es sencilla
+suelta5 | suelta el aire durante
+tercer5 | El tercer error
+excelente5 | Caminar es una actividad excelente
+fortalecer5 | también necesitas fortalecer
+complementan5 | complementan tus paseos
+objetivo5 | Recuerda que el objetivo
+seguridad5 | moverte con mayor seguridad
+dosis5 | nunca modifiques las dosis
+independencia5 | conservar tu independencia
+evitar5 | los errores que decides evitar
+# --- conclusión
+llegar_c | Llegar a los 60
+resignarte_c | tengas que resignarte
+capacidad_c | Tu cuerpo conserva una capacidad
+piernas_c | fortalecer las piernas
+estabilidad_c | mejorar la estabilidad
+cardio_c | cuidar tu salud cardiovascular
+hoy_c | Hoy has descubierto
+talones_c | elevar los talones
+silla_c | levantarte de una silla
+peso_c | desplazar el peso
+sitio_c | caminar sobre el mismo sitio
+cinco_c | minutos al día pueden
+cual_c | Ahora quiero preguntarte algo
+ciudad_c | desde qué ciudad de España
+gusta_c | dale a Me gusta
+suscribete_c | suscríbete al canal y compártelo
+comparte_c | y compártelo con alguien
+orientativos_c | estos ejercicios son orientativos
+consulta_c | consulta con un profesional sanitario
+dolor_c | Si aparece dolor torácico
+equilibrio_c | Tu equilibrio merece cuidados
+caida_c | cuando llegue la primera caída

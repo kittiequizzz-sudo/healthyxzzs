@@ -150,6 +150,30 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
 - Older adults: cadence ≈119–125 steps/min (≈2 steps/s), peak hip flexion ≈30–34°, speed
   ≈1.26–1.29 m/s **[study]** (older-adult gait norms above). Arms swing opposite to the legs.
 
+### Standing calf raise behind a chair (side view)
+- Stand behind a sturdy chair (against a wall), hands lightly on the backrest, feet hip-width; rise onto
+  the balls of the feet ≈5–8 cm, hold 1–2 s, lower over ≈3 s **[coach]**; 15–20 reps if comfortable.
+  Breathe out on the way up. Part of strength/balance programmes such as Otago **[study]**
+  ([Otago review, PMC9631473](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9631473/)). Seated version =
+  the card above. Faults: leaning on the chair with straight arms, rolling to the outer foot, bouncing.
+
+### Anterior–posterior weight shift (side view)
+- Same set-up behind the chair, knees soft. Shift the body weight slowly toward the forefoot (heels stay
+  down or barely lift), hold 1–2 s, then back toward the heels (toes may lift slightly), like a slow
+  pendulum, ≈1 min. Movement happens at the ankles; the body stays straight **[coach]**.
+- Evidence: visually guided A/P and M/L weight-shift training in older women (Hatzitaki 2009,
+  Gerontology); VR weight-shift trial (de Rond 2023, Sci Rep): small trials, specific to the trained task
+  **[study]** ([search summary](https://doaj.org/article/dcc225709c4c482182b2943b92efede2)).
+  Claims must stay at "can help postural control".
+- Draw: 3 poses — neutral, body leaned forward ≈5–8° from the ankles (heels down), leaned back ≈5° with
+  toes slightly up. Hands stay on the backrest.
+
+### Marching in place with support (side view)
+- Hands on the chair backrest, upright trunk, eyes forward; lift one knee to a comfortable height
+  (≈hip flexion 45–70°), lower with control, alternate, ≈60 s **[coach]**. Single-leg stance phases
+  train dynamic balance; Otago-style programmes include supported marching/walking variations.
+- Faults: leaning back, looking at the feet, stamping the foot down, holding the breath.
+
 ## Adding a new exercise (checklist)
 1. Search for kinematics studies (joint angles, phase durations) and EMG studies (which muscles).
    Prefer PubMed or PMC sources.

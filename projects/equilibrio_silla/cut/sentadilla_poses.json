@@ -1,0 +1,25 @@
+{
+ "canvas": [
+  401,
+  913
+ ],
+ "floor_y": 907,
+ "poses": [
+  {
+   "file": "sentadilla_0.png",
+   "x0": 20
+  },
+  {
+   "file": "sentadilla_1.png",
+   "x0": 23
+  },
+  {
+   "file": "sentadilla_2.png",
+   "x0": 34
+  },
+  {
+   "file": "sentadilla_3.png",
+   "x0": 38
+  }
+ ]
+}

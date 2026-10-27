@@ -1,0 +1,25 @@
+{
+ "canvas": [
+  395,
+  921
+ ],
+ "floor_y": 915,
+ "poses": [
+  {
+   "file": "talones_0.png",
+   "x0": 20
+  },
+  {
+   "file": "talones_1.png",
+   "x0": 22
+  },
+  {
+   "file": "talones_2.png",
+   "x0": 31
+  },
+  {
+   "file": "talones_3.png",
+   "x0": 73
+  }
+ ]
+}

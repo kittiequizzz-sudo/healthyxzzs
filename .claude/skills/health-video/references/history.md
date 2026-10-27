@@ -84,3 +84,11 @@ Owner decisions (Oct 26 2026), from the next video on:
 Owner feedback (Oct 27 2026, after `tension_alta`): the SFX sounded harsh and off-key. `soundtrack.py`
 now makes every tonal SFX a soft felt-mallet/marimba note in the current section's key (pentatonic),
 low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the voice (whoosh ≈ −25 dB). Owner then asked for a bit louder → ≈ 9–11 dB under the voice (whoosh ≈ −20 dB).
+
+- **Oct 27, 2026 (owner, before equilibrio_silla):** (1) Effects were fine in level but got lost in the
+  music → soundtrack.py: effects moved an octave above the music, glass/marimba timbre (2.76× partial),
+  music darker (k=15) and dipping ~5 dB for 0.5 s under each effect. (2) Pictures swayed too much; there
+  must be still moments → common.js (from equilibrio_silla on): no idle rotation, bob 6→3 px, breathe
+  1.8%→1%, all idle on a shared CALM gate (~5 s moving / ~5 s still), scene drift 0.03→0.018, pan zoom
+  0.16→0.09 (tile 0.12→0.07) and pans travel over the first 70 % of a scene, then hold. No test video
+  needed for such notes — apply them in the next video.

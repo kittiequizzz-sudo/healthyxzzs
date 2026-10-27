@@ -85,7 +85,7 @@ for (t0, root, deg) in bars:
         nn = min(int(2.2 * SR), N - j)
         if nn > 0: music[j:j + nn] += pluck(note_hz(m), nn) * 0.06
 # soft low-pass by moving average (mellow tone)
-k = 9
+k = 15                                         # darker than the SFX so effects sit clearly on top
 music = np.convolve(music, np.ones(k) / k, mode='same').astype(np.float32)
 
 # ---------------------------------------------------------------- sfx
@@ -101,13 +101,17 @@ def lowpass(x, k): return np.convolve(x, np.ones(k) / k, mode='same').astype(np.
 # soft attack; no noise clicks, no pitch sweeps, no square-ish alarms.
 def soft_lp(x, k=24):
     return lowpass(lowpass(x, k), k)
+# Oct 27 (owner: the effects blended into the music): effects sit an octave above the music, use a
+# glass/marimba timbre (inharmonic 2.76x partial the music never has), and the music dips ~5 dB for
+# half a second under each effect, so every effect reads clearly without being louder or harsher.
 def mallet(m, dur=0.9, bright=0.15):
     n = int(dur * SR); t = np.arange(n) / SR; f = note_hz(m)
     x = np.sin(2 * np.pi * f * t) + bright * np.sin(2 * np.pi * 2 * f * t) * np.exp(-t * 18)
+    x += 0.22 * np.sin(2 * np.pi * 2.76 * f * t) * np.exp(-t * 9)
     return (x * np.minimum(1, t / 0.008) * np.exp(-t / (dur / 4))).astype(np.float32)
 def key_at(t):
     i = max(0, np.searchsorted(sections, t, side='right') - 1)
-    return roots[i % len(roots)] + 12          # one octave above the music root (mid register)
+    return roots[i % len(roots)] + 24          # two octaves above the music root: above the pad and plucks
 PENTA = [0, 2, 4, 7, 9]
 def whoosh(t):
     n = int(0.7 * SR); tt = np.arange(n) / SR
@@ -116,7 +120,7 @@ def whoosh(t):
 def pop(t):                                    # soft marimba note, in key, cycling through the pentatonic
     k = key_at(t); return mallet(k + PENTA[int(t * 7) % 5], 0.7)
 def thud(t):                                   # low felt note (root, an octave down), no click
-    return mallet(key_at(t) - 12, 1.0, 0.05) * 1.2
+    return mallet(key_at(t) - 24, 1.0, 0.05) * 1.2
 def heart(t):
     n = int(0.6 * SR); out = np.zeros(n, np.float32)
     for off, g in ((0, 1), (int(0.22 * SR), 0.6)):
@@ -124,7 +128,7 @@ def heart(t):
         out[off:off + m] += g * np.sin(2 * np.pi * 48 * tt) * np.minimum(1, tt / 0.01) * np.exp(-tt / 0.05)
     return out
 def tick(t):
-    return mallet(key_at(t) + 24, 0.12, 0) * 0.4
+    return mallet(key_at(t) + 12, 0.12, 0) * 0.4
 def alarm(t):                                  # gentle two-note "attention" (5th → root), not a siren
     k = key_at(t); a = mallet(k + 7, 0.6); b = mallet(k, 0.9)
     out = np.zeros(int(1.2 * SR), np.float32); out[:len(a)] += a; o = int(0.28 * SR); out[o:o + len(b)] += b[:len(out) - o]
@@ -135,12 +139,17 @@ def chime(t):                                  # soft rolled major triad in key
         o = int(i * 0.09 * SR); x = mallet(m, 1.4, 0.08); out[o:o + len(x)] += x[:n - o] * 0.5
     return out
 def bell(t):
-    k = key_at(t); out = mallet(k + 12, 1.2, 0.1) * 0.7; o = int(0.16 * SR); x = mallet(k + 19, 1.0, 0.1) * 0.5
+    k = key_at(t); out = mallet(k, 1.2, 0.1) * 0.7; o = int(0.16 * SR); x = mallet(k + 7, 1.0, 0.1) * 0.5
     out[o:o + len(x)] += x[:len(out) - o]; return out
 GEN = dict(whoosh=whoosh, pop=pop, thud=thud, heart=heart, tick=tick, alarm=alarm, chime=chime, bell=bell)
 GAIN = dict(whoosh=0.06, pop=0.046, thud=0.041, heart=0.06, tick=0.08, alarm=0.044, chime=0.07, bell=0.075)   # ≈ −9…−11 dB under the voice (owner: a bit louder, still soft)
+sfx_dip = np.ones(N, np.float32)
 for t, kind in json.load(open(sfx_path)):
-    add(int(t * SR), soft_lp(GEN[kind](t).astype(np.float32), 6), GAIN[kind])
+    add(int(t * SR), soft_lp(GEN[kind](t).astype(np.float32), 3), GAIN[kind])
+    i0 = int((t - 0.05) * SR); n = int(0.6 * SR); u = np.arange(n) / n
+    if 0 <= i0 < N:
+        d = 1 - 0.44 * np.sin(np.pi * u) ** 0.5            # ≈ −5 dB dip, smooth in and out
+        sfx_dip[i0:i0 + n] = np.minimum(sfx_dip[i0:i0 + n], d[:N - i0])
 
 # ---------------------------------------------------------------- mix: duck music under speech
 v = np.zeros(N, np.float32); v[:len(voice)] = voice
@@ -153,7 +162,7 @@ vr = np.sqrt(np.mean(v[v != 0] ** 2)) if np.any(v) else 0.1
 mr = np.sqrt(np.mean(music ** 2)) + 1e-9
 music *= (vr * 10 ** (-22 / 20)) / mr                                               # ≈ 22 dB under voice
 fade = np.minimum(1, np.arange(N) / (2 * SR)) * np.minimum(1, (N - np.arange(N)) / (2.5 * SR))
-mix = v + music * duck * fade + sfx * vr / 0.1
+mix = v + music * duck * sfx_dip * fade + sfx * vr / 0.1
 mix /= max(1.0, np.max(np.abs(mix)) / 0.97)
 pcm16 = (mix * 32767).astype(np.int16).tobytes()
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 's16le', '-ar', str(SR), '-ac', '1', '-i', '-', out_path],

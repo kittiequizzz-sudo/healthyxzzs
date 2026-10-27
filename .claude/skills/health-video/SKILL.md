@@ -63,7 +63,9 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
    Long videos (10+ min): one HTML per script section, each setting `window.START`/`window.END` on the
    shared voice timeline, then `node scripts/render_sections.mjs projects/<slug> voice.mp3 out/final.mp4
    intro.html punto1.html … --jobs 3` (parallel, frame-snapped joins, voice added once; ~3× real time
-   per job). Shared pieces for a video go in its `common.js` (see `projects/7dias_sin_cenar/`).
+   per job). Shared pieces for a video go in its `common.js` (start from the latest project's, now
+   `projects/equilibrio_silla/`: calm motion with regular still moments, SFX events for `scripts/soundtrack.py`,
+   which adds original code-made music + soft effects that sit above the music; see `references/history.md`).
 10. **Deliver** the MP4 with a short Vietnamese summary of what's in it and any changes made to on-screen
     facts. Files over 30 MB can't be uploaded to the app: split without re-encoding into ~280 s parts
     (command in `qa-checklist.md`) and send them in order. Never commit full renders (GitHub's 100 MB limit);

@@ -79,8 +79,6 @@ AVOID: any text, letters, numbers, arrows, symbols or labels. Landscape 3:2.
 ```
 
 
-## PHẦN 2
-
 ### Ảnh 6 · `s_levantarse`: Khó đứng dậy và đứng dậy tự tin (đính kèm ảnh 1)
 *Ông cố nhiều lần mới đứng lên được, đầu gối run · bà chống tay đẩy mạnh lên tay vịn · ông leo cầu thang · bà tự tin đứng dậy, mỉm cười.*
 ```
@@ -105,6 +103,8 @@ Panel 3 (bottom left): a weak thigh muscle drawn as a slack, droopy rubber band,
 Panel 4 (bottom right): a strong thigh muscle drawn as a springy coiled spring ready to push up, confident face.
 AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landscape 3:2.
 ```
+
+## PHẦN 2
 
 ### Ảnh 8 · `s_inestable`: Những lúc mất thăng bằng (đính kèm ảnh 1)
 *Bà đi trên vỉa hè gồ ghề · ông quay người quá nhanh · bà lùi một bước · ông giật mình khi có người đi lướt qua.*

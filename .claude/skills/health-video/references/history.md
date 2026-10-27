@@ -103,3 +103,6 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   Topic video (no exercises): new Food() (cut-out in a circle, label, optional red X / check) and Sign()
   ("≠", "→") helpers in its common.js. Cue check: compare each cue's transcript word with the phrase's
   first word — fuzzy matching can land a cue one word early, and once (despues_c) ~1.5 s early.
+- **Delivery (owner, Oct 27):** put all pieces of a video in one folder `out/entrega/` numbered straight
+  through (`<slug>_01.mp4` … `_NN.mp4`, parts 1→3 in order) and send them in ONE message, so the owner can
+  select all and merge in order. A single full file can't be sent (app limit 30 MB per file).

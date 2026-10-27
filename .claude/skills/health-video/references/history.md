@@ -98,3 +98,8 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   (pose-sheet loops with cross-fade), RepCounter, PhaseCue (breath cue tied to the movement), ExBadge.
   Pose sheets: trim cut_poses canvases to the union bbox (else the figure renders small and the floor
   shadow floats); clear the cream holes under chair seats only where the ring is brown wood.
+
+- **Oct 27, 2026 — huevo_colesterol rendered** (19:40, parts at 7:39 / 14:09; 16 files under 30 MB).
+  Topic video (no exercises): new Food() (cut-out in a circle, label, optional red X / check) and Sign()
+  ("≠", "→") helpers in its common.js. Cue check: compare each cue's transcript word with the phrase's
+  first word — fuzzy matching can land a cue one word early, and once (despues_c) ~1.5 s early.

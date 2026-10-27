@@ -1,0 +1,21 @@
+{
+ "canvas": [
+  502,
+  965
+ ],
+ "floor_y": 959,
+ "poses": [
+  {
+   "file": "peso_0.png",
+   "x0": 53
+  },
+  {
+   "file": "peso_1.png",
+   "x0": 20
+  },
+  {
+   "file": "peso_2.png",
+   "x0": 29
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "canvas": [
+  399,
+  925
+ ],
+ "floor_y": 919,
+ "poses": [
+  {
+   "file": "marcha_0.png",
+   "x0": 26
+  },
+  {
+   "file": "marcha_1.png",
+   "x0": 20
+  },
+  {
+   "file": "marcha_2.png",
+   "x0": 36
+  },
+  {
+   "file": "marcha_3.png",
+   "x0": 26
+  }
+ ]
+}

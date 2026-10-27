@@ -80,3 +80,7 @@ Owner decisions (Oct 26 2026), from the next video on:
 - **Intro:** the owner will supply their own channel intro later; until then, none. When it arrives, place
   it right after the hook (first ~20–30 s), 3–4 s max.
 - No test sample wanted; apply directly on the next video.
+
+Owner feedback (Oct 27 2026, after `tension_alta`): the SFX sounded harsh and off-key. `soundtrack.py`
+now makes every tonal SFX a soft felt-mallet/marimba note in the current section's key (pentatonic),
+low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the voice (whoosh ≈ −25 dB).

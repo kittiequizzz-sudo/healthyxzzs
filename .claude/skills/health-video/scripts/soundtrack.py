@@ -96,48 +96,51 @@ def add(i, x, g):
 def noise(n): return rng.standard_normal(n).astype(np.float32)
 def lowpass(x, k): return np.convolve(x, np.ones(k) / k, mode='same').astype(np.float32)
 
-def whoosh():
-    n = int(0.55 * SR); t = np.arange(n) / SR
-    x = noise(n)
-    out = np.zeros(n, np.float32)
-    for a, b, kk in ((0, n // 3, 40), (n // 3, 2 * n // 3, 14), (2 * n // 3, n, 6)):
-        out[a:b] = lowpass(x, kk)[a:b]
-    return out * np.sin(np.pi * t / t[-1]) ** 2 * 0.9
-def pop():
-    n = int(0.09 * SR); t = np.arange(n) / SR
-    f = 900 * np.exp(-t * 18) + 420
-    return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(n, 0.002, 0.03)
-def thud():
-    n = int(0.3 * SR); t = np.arange(n) / SR
-    return (np.sin(2 * np.pi * (110 * np.exp(-t * 6) + 45) * t) * env(n, 0.002, 0.09)
-            + 0.15 * lowpass(noise(n), 30) * env(n, 0.001, 0.03))
-def heart():
+# Soft, in-tune SFX (owner, Oct 27 2026: the first set sounded harsh and off-key). Every tonal effect is a
+# mellow sine/felt-mallet tone on a note of the current section's key (pentatonic), low-passed, with a
+# soft attack; no noise clicks, no pitch sweeps, no square-ish alarms.
+def soft_lp(x, k=24):
+    return lowpass(lowpass(x, k), k)
+def mallet(m, dur=0.9, bright=0.15):
+    n = int(dur * SR); t = np.arange(n) / SR; f = note_hz(m)
+    x = np.sin(2 * np.pi * f * t) + bright * np.sin(2 * np.pi * 2 * f * t) * np.exp(-t * 18)
+    return (x * np.minimum(1, t / 0.008) * np.exp(-t / (dur / 4))).astype(np.float32)
+def key_at(t):
+    i = max(0, np.searchsorted(sections, t, side='right') - 1)
+    return roots[i % len(roots)] + 12          # one octave above the music root (mid register)
+PENTA = [0, 2, 4, 7, 9]
+def whoosh(t):
+    n = int(0.7 * SR); tt = np.arange(n) / SR
+    x = soft_lp(noise(n), 60)
+    return x * np.sin(np.pi * tt / tt[-1]) ** 3 * 0.6
+def pop(t):                                    # soft marimba note, in key, cycling through the pentatonic
+    k = key_at(t); return mallet(k + PENTA[int(t * 7) % 5], 0.7)
+def thud(t):                                   # low felt note (root, an octave down), no click
+    return mallet(key_at(t) - 12, 1.0, 0.05) * 1.2
+def heart(t):
     n = int(0.6 * SR); out = np.zeros(n, np.float32)
-    for off, g in ((0, 1), (int(0.22 * SR), 0.7)):
-        m = int(0.16 * SR); t = np.arange(m) / SR
-        out[off:off + m] += g * np.sin(2 * np.pi * 52 * t) * env(m, 0.004, 0.05)
+    for off, g in ((0, 1), (int(0.22 * SR), 0.6)):
+        m = int(0.18 * SR); tt = np.arange(m) / SR
+        out[off:off + m] += g * np.sin(2 * np.pi * 48 * tt) * np.minimum(1, tt / 0.01) * np.exp(-tt / 0.05)
     return out
-def tick():
-    n = int(0.03 * SR); return lowpass(noise(n), 2) * env(n, 0.0005, 0.006)
-def alarm():
-    n = int(1.2 * SR); t = np.arange(n) / SR
-    f = np.where((t * 2.5) % 1 < 0.5, 660, 520)
-    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.minimum(1, t / 0.05) * np.minimum(1, (t[-1] - t) / 0.2) * 0.5
-def chime():
-    n = int(1.4 * SR); out = np.zeros(n, np.float32)
-    for i, m in enumerate((76, 79, 84)):
-        o = int(i * 0.07 * SR)
-        out[o:] += pluck(note_hz(m), n - o) * 0.6
+def tick(t):
+    return mallet(key_at(t) + 24, 0.12, 0) * 0.4
+def alarm(t):                                  # gentle two-note "attention" (5th → root), not a siren
+    k = key_at(t); a = mallet(k + 7, 0.6); b = mallet(k, 0.9)
+    out = np.zeros(int(1.2 * SR), np.float32); out[:len(a)] += a; o = int(0.28 * SR); out[o:o + len(b)] += b[:len(out) - o]
     return out
-def bell():
-    n = int(1.2 * SR); t = np.arange(n) / SR
-    return (np.sin(2 * np.pi * 880 * t) + 0.5 * np.sin(2 * np.pi * 1320 * t)) * env(n, 0.002, 0.35) * 0.6
+def chime(t):                                  # soft rolled major triad in key
+    k = key_at(t); n = int(1.6 * SR); out = np.zeros(n, np.float32)
+    for i, m in enumerate((k, k + 4, k + 7, k + 12)):
+        o = int(i * 0.09 * SR); x = mallet(m, 1.4, 0.08); out[o:o + len(x)] += x[:n - o] * 0.5
+    return out
+def bell(t):
+    k = key_at(t); out = mallet(k + 12, 1.2, 0.1) * 0.7; o = int(0.16 * SR); x = mallet(k + 19, 1.0, 0.1) * 0.5
+    out[o:o + len(x)] += x[:len(out) - o]; return out
 GEN = dict(whoosh=whoosh, pop=pop, thud=thud, heart=heart, tick=tick, alarm=alarm, chime=chime, bell=bell)
-GAIN = dict(whoosh=0.10, pop=0.10, thud=0.16, heart=0.18, tick=0.10, alarm=0.07, chime=0.10, bell=0.10)
-cache = {}
+GAIN = dict(whoosh=0.035, pop=0.026, thud=0.023, heart=0.037, tick=0.05, alarm=0.025, chime=0.042, bell=0.044)   # ≈ −14…−16 dB under the voice
 for t, kind in json.load(open(sfx_path)):
-    if kind not in cache: cache[kind] = GEN[kind]().astype(np.float32)
-    add(int(t * SR), cache[kind], GAIN[kind])
+    add(int(t * SR), soft_lp(GEN[kind](t).astype(np.float32), 6), GAIN[kind])
 
 # ---------------------------------------------------------------- mix: duck music under speech
 v = np.zeros(N, np.float32); v[:len(voice)] = voice

@@ -138,7 +138,7 @@ def bell(t):
     k = key_at(t); out = mallet(k + 12, 1.2, 0.1) * 0.7; o = int(0.16 * SR); x = mallet(k + 19, 1.0, 0.1) * 0.5
     out[o:o + len(x)] += x[:len(out) - o]; return out
 GEN = dict(whoosh=whoosh, pop=pop, thud=thud, heart=heart, tick=tick, alarm=alarm, chime=chime, bell=bell)
-GAIN = dict(whoosh=0.035, pop=0.026, thud=0.023, heart=0.037, tick=0.05, alarm=0.025, chime=0.042, bell=0.044)   # ≈ −14…−16 dB under the voice
+GAIN = dict(whoosh=0.06, pop=0.046, thud=0.041, heart=0.06, tick=0.08, alarm=0.044, chime=0.07, bell=0.075)   # ≈ −9…−11 dB under the voice (owner: a bit louder, still soft)
 for t, kind in json.load(open(sfx_path)):
     add(int(t * SR), soft_lp(GEN[kind](t).astype(np.float32), 6), GAIN[kind])
 

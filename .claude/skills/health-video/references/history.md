@@ -83,4 +83,4 @@ Owner decisions (Oct 26 2026), from the next video on:
 
 Owner feedback (Oct 27 2026, after `tension_alta`): the SFX sounded harsh and off-key. `soundtrack.py`
 now makes every tonal SFX a soft felt-mallet/marimba note in the current section's key (pentatonic),
-low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the voice (whoosh ≈ −25 dB).
+low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the voice (whoosh ≈ −25 dB). Owner then asked for a bit louder → ≈ 9–11 dB under the voice (whoosh ≈ −20 dB).

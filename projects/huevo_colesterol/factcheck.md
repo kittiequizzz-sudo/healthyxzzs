@@ -32,3 +32,10 @@ bánh mì trắng). Lần sau có thể viết "huevos fritos con chorizo, pance
 - «HASTA 1 HUEVO AL DÍA · ADULTOS SANOS», ghi nguồn chữ nhỏ: «American Heart Association, 2020».
 - Thẻ cuối: «CONTENIDO EDUCATIVO · NO SUSTITUYE AL MÉDICO».
 - Nhạc nền tự soạn + hiệu ứng âm thanh nhẹ; chuyển động êm, có lúc đứng yên (như video ghế).
+
+## Kiểm tra giọng đọc (rimovoice9 → audio/voice_full.mp3, 19:40)
+Đọc đủ toàn bộ kịch bản, đúng thứ tự (so từng từ với bản chép lời: không thiếu, không lặp đoạn nào quá 2 từ),
+không có khoảng lặng dài (dài nhất 1,7 s). Có đọc tiêu đề PUNTO (giữ nguyên).
+Mốc: Punto 1 = 1:34 · Punto 2 = 4:27 · Punto 3 = 7:39 · Punto 4 = 10:59 · Punto 5 = 14:09 · Kết = 17:36.
+Chia 3 phần (1 video): **Phần 1 = 0:00–7:39** (mở đầu + P1 + P2) · **Phần 2 = 7:39–14:09** (P3 + P4) ·
+**Phần 3 = 14:09–19:40** (P5 + kết). Không cần cắt hay sửa giọng.

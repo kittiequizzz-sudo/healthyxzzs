@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// "Huevos y colesterol": ONE continuous video on audio/voice_full.mp3.
+// Sections live in s*.js (built and checked in 3 parts: 0–P3, P3–P5, P5–end).
+window.START = 0;
+window.END = 1181.2;
+window.DURATION = window.END;
+const svg = Stage();
+</script>
+<script src="s0_intro.js"></script>
+<script src="s1_punto1.js"></script>
+<script src="s2_punto2.js"></script>
+<script src="s3_punto3.js"></script>
+<script src="s4_punto4.js"></script>
+<script src="s5_punto5.js"></script>
+<script src="s6_conclusion.js"></script>
+<script>window.draw = t => drawScenes(t);</script>
+</body></html>

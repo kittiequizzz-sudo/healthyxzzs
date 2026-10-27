@@ -1,0 +1,279 @@
+# One timeline: audio/voice_full.mp3, transcript/words_clean.json. label | phrase, in order.
+# --- intro
+problema0 | no sea el verdadero problema
+sorprendente0 | Y lo más sorprendente
+sustituyendo0 | podrías estar sustituyéndolo
+perjudican0 | que perjudican mucho más
+hablo0 | Hablo del huevo
+advertencias0 | rodeado de advertencias
+contradicciones0 | contradicciones y consejos
+consejos0 | consejos que parecen cambiar
+quiza0 | Quizá alguna vez te has preguntado
+dos0 | Si desayuno dos huevos
+subira0 | me subirá el colesterol
+acumulando0 | Se estarán acumulando grasas
+tension0 | Y si además tienes la tensión alta
+analitica0 | alguna analítica alterada
+normal0 | es normal que estas dudas
+interesante0 | Pero aquí viene lo interesante
+sangre0 | circula por tu sangre
+higado0 | Tu hígado interviene
+persona0 | de una persona a otra
+video0 | En este vídeo descubrirás
+ciencia0 | qué dice realmente la ciencia
+cuidado0 | por qué algunas personas necesitan
+error0 | qué error al prepararlos
+cuarta0 | presta atención especialmente a la cuarta
+combinacion0 | una combinación muy habitual
+antes0 | Antes de empezar, cuéntame
+semana0 | cuántos huevos comes normalmente
+vamos0 | Vamos a descubrir qué merece
+temer0 | qué puedes dejar de temer
+# --- punto 1
+p1 | Punto 1 El gran mito
+anos1 | Durante años nos hicieron creer
+pegada1 | terminaba directamente pegada
+tuberia1 | fuera una tubería
+complejo1 | Pero el cuerpo humano es mucho más complejo
+conceptos1 | Lo primero que debes saber
+alimentario1 | el colesterol alimentario
+sanguineo1 | y el colesterol sanguíneo
+relacionados1 | Aunque están relacionados
+necesita1 | tu organismo necesita colesterol
+hormonas1 | para fabricar hormonas
+vitamina1 | producir vitamina D
+membranas1 | mantener las membranas
+eliminarlo1 | No se trata de eliminarlo
+protagonista1 | Y aquí aparece un protagonista
+higado1 | el hígado. Este órgano
+fabrica1 | fabrica gran parte del colesterol
+fabrica_int1 | Piensa en él como una fábrica
+recibes1 | Cuando recibes más colesterol
+menos1 | Cuando consumes menos
+sin_embargo1 | Sin embargo, este mecanismo no funciona
+pequenos1 | Algunas experimentan cambios pequeños
+importantes1 | otras pueden presentar aumentos
+genetica1 | una predisposición genética
+nunca1 | afirmar que los huevos nunca elevan
+siempre1 | siempre perjudican al corazón
+saturadas1 | Existe además otro detalle fundamental
+influir1 | suelen influir más en el aumento
+yemas1 | eliminar las yemas
+embutidos1 | consumo elevado de embutidos
+bolleria1 | bollería industrial
+mantequilla1 | o mantequilla puede
+mejora1 | no producir la mejora
+conjunto1 | La salud cardiovascular depende del conjunto
+pregunta1 | Pero todavía queda una pregunta
+placas1 | desarrollan placas que estrechan
+respuesta1 | La respuesta nos lleva
+gusta1 | Si esta explicación te ha sorprendido
+megusta1 | dale a Me gusta
+# --- punto 2
+p2 | Punto 2 La verdad sobre tus arterias
+obstruyen2 | Tus arterias no se obstruyen
+particulas2 | determinadas partículas que transportan
+acumulacion2 | favorecen su acumulación
+distinguir2 | debemos distinguir dos protagonistas
+ldl2 | el colesterol LDL y
+hdl2 | el colesterol HDL
+malo2 | El LDL suele conocerse
+transportar2 | encargada de transportar colesterol
+demasiadas2 | cuando existen demasiadas partículas
+atravesar2 | algunas pueden atravesar la capa
+retenidas2 | quedar retenidas
+inflamatoria2 | una respuesta inflamatoria
+silencioso2 | Así comienza un proceso silencioso
+placas2 | formación de placas de aterosclerosis
+hdl_2 | El HDL, por su parte
+tejidos2 | desde los tejidos hacia el hígado
+bueno2 | colesterol bueno
+garantiza2 | tener el HDL elevado no garantiza
+ldl_alto2 | especialmente cuando el LDL
+encajan2 | Y dónde encajan los huevos
+estudios2 | Algunos estudios han observado
+tamano2 | cambios en el tamaño
+grandes2 | que esas partículas sean más grandes
+cantidad2 | La cantidad de partículas
+tension2 | Ahora añade otro factor
+paredes2 | las paredes de los vasos sanguíneos
+ambos2 | Si además tienes el colesterol LDL alto
+desarrollo2 | contribuir al desarrollo
+hipertension2 | Esto no significa que comer huevos
+evidencia2 | no existe evidencia sólida
+habitualmente2 | observar qué comes habitualmente
+analisis2 | cómo tienes tus análisis
+controlada2 | si mantienes controlada tu tensión
+alguien2 | Piensa en alguien que elimina
+bolleria2 | comienza a consumir bollería
+creer2 | Puede creer que está protegiendo
+descuidando2 | está descuidando factores
+cuestion2 | Y ahora viene una cuestión
+diferente2 | pueden responder de manera diferente
+siguiente2 | En el siguiente punto
+# --- punto 3
+p3 | Punto 3 No todos respondemos igual
+dos3 | Dos personas pueden desayunar
+estable3 | Una mantiene el colesterol
+aumento3 | la otra experimenta un aumento
+como3 | Cómo es posible
+metabolismo3 | nuestro metabolismo no funciona igual
+grupo3 | Existe un grupo de personas
+hiper3 | hiperrespondedoras
+pronunciados3 | cambios más pronunciados
+intestino3 | la capacidad del intestino
+higado3 | y la respuesta del hígado
+variantes3 | Algunas variantes genéticas
+comprender3 | Pero hay algo importante que debes comprender
+automaticamente3 | no significa automáticamente
+analiticos3 | prestar atención a tus resultados
+ldl3 | especialmente al colesterol LDL
+apob3 | a la apolipoproteína B
+situaciones3 | Ahora bien, existen situaciones
+familiar3 | hipercolesterolemia familiar
+infarto3 | has sufrido un infarto
+ictus3 | un ictus
+padeces3 | o ya padeces
+consultar3 | sin consultar antes
+diabetes3 | Algo parecido ocurre cuando tienes diabetes
+presentas3 | especialmente si también presentas
+eliminar3 | No significa que debas eliminar
+plan3 | dentro de un plan adaptado
+recomendacion3 | Y aquí llega una recomendación
+vecino3 | Que tu vecino coma huevos
+garantiza3 | no garantiza que tu organismo
+antecedentes3 | Tus antecedentes, tus resultados
+dieta3 | y el conjunto de tu dieta
+universal3 | que cualquier regla universal
+prohibirte3 | antes de prohibirte un alimento
+revisar3 | revisar periódicamente
+interesa3 | Si te interesa aprender
+suscribete3 | suscríbete al canal
+sencilla3 | de manera sencilla
+porque3 | Porque ahora que sabes quién
+lado3 | sino en lo que ponemos
+# --- punto 4
+p4 | Punto 4 El error que muchos
+peligro4 | El verdadero peligro de un desayuno
+normal4 | considerando completamente normal
+proteinas4 | por su contenido en proteínas
+sal4 | demasiada sal
+saturadas4 | grasas saturadas y calorías
+curioso4 | Y lo más curioso
+acompana4 | todo lo que lo acompaña
+habitual4 | Piensa en un desayuno habitual
+fritos4 | dos huevos fritos
+beicon4 | varias lonchas de beicon
+salchichas4 | unas salchichas
+pan4 | y pan blanco
+primera4 | A primera vista
+embutidos4 | Los embutidos y las carnes procesadas
+sodio4 | cantidades importantes de sodio
+frecuentemente4 | Consumidos frecuentemente
+ldl4 | y del colesterol LDL
+exceso4 | El exceso de sodio
+sensibilidad4 | sensibilidad a la sal
+grasas4 | Por su parte, una alimentación abundante
+anos4 | Cuando ambos factores se mantienen
+aceite4 | Pero existe otro error menos evidente
+oxidacion4 | productos de degradación
+reutilizar4 | reutilizar constantemente
+humear4 | si empieza a humear
+buena4 | Ahora viene la buena noticia
+cocerlos4 | Puedes cocerlos
+escalfarlos4 | escalfarlos
+plancha4 | hacerlos a la plancha
+tortilla4 | También puedes preparar una tortilla
+espinacas4 | con espinacas
+champinones4 | champiñones
+calabacin4 | o calabacín
+antiadherente4 | una sartén antiadherente
+mediterraneo4 | Y si te gusta desayunar
+tomate4 | con tomate natural
+integral4 | una rebanada de pan integral
+chorrito4 | un chorrito de aceite
+fibra4 | Así incorporas fibra
+diferencia4 | Fíjate en esta diferencia
+enemigo4 | No se trata de convertir
+combinarlo4 | aprender a combinarlo
+preguntar4 | Y quiero preguntarte algo
+cocidos4 | prefieres los huevos cocidos
+tortilla4q | en tortilla o fritos
+escribelo4 | Escríbelo en los comentarios
+errores4 | Ahora que conoces estos errores
+cuantos4 | cuántos huevos puedes comer
+# --- punto 5
+p5 | Punto 5 Cuántos huevos
+llegamos5 | Llegamos a la pregunta
+seguro5 | es seguro comer huevos todos
+perfecta5 | no existe una cantidad perfecta
+contar5 | Lo importante no es únicamente
+sanos5 | Para muchos adultos sanos
+equilibrada5 | compatible con una dieta equilibrada
+sin_embargo5 | Sin embargo, esto no significa
+adicionales5 | beneficios adicionales
+necesidades5 | Las necesidades individuales
+caracteristicas5 | El huevo tiene características
+proteinas5 | proteínas de alta calidad
+masa5 | conservar la masa muscular
+b12_5 | También contiene vitamina
+colina5 | colina y luteína
+compensar5 | Pero ningún alimento
+mediterranea5 | Aquí es donde entra en juego
+verduras5 | acompañado de verduras
+legumbres5 | legumbres
+cereales5 | cereales integrales
+aceite5 | y aceite de oliva virgen extra
+ultra5 | un desayuno cargado de embutidos
+aliado5 | Además, existe un aliado
+soluble5 | la fibra soluble
+avena5 | como la avena
+lentejas5 | las lentejas
+garbanzos5 | los garbanzos
+manzanas5 | las manzanas
+verduras5b | y determinadas verduras
+absorcion5 | Esta fibra contribuye a reducir
+biliares5 | la eliminación de ácidos biliares
+mejorar5 | ayudando así a mejorar
+ejemplo5 | Por ejemplo, puedes preparar
+ensalada5 | con una ensalada de garbanzos
+escalfados5 | unos huevos escalfados
+saciedad5 | aportan saciedad
+ahora5 | Ahora bien, si tienes el colesterol
+diabetes5 | diabetes, hipercolesterolemia
+antecedentes5 | o antecedentes de enfermedad
+individualizar5 | conviene individualizar
+claras5 | utilizar más claras
+recuerda5 | Recuerda también que los resultados
+comprobar5 | comprobar nuevamente
+idea5 | Y quédate con esta idea
+miedo5 | no consiste en tener miedo
+habitos5 | sino en construir hábitos
+martes5 | no es el huevo que desayunas
+cada_dia5 | que repites cada día
+# --- conclusión
+despues_c | Después de todo lo que hemos descubierto
+miedo_c | no significa vivir con miedo
+decisiones_c | sino aprender a tomar decisiones
+anos_c | Durante años, muchas personas dejaron
+compleja_c | es mucho más compleja
+enemigo_c | El huevo no es automáticamente
+tampoco_c | pero tampoco es un alimento
+ldl_c | conocer tus niveles de colesterol
+tension_c | controlar tu tensión arterial
+dieta_c | prestar atención a los alimentos
+cambios_c | Recuerda también que pequeños cambios
+aove_c | elegir aceite de oliva
+embutidos_c | reducir los embutidos
+verduras_c | incorporar más verduras
+fibra_c | consumir suficiente fibra
+pregunta_c | Y ahora quiero hacerte una pregunta
+seguiras_c | seguirás comiendo huevos
+cuentamelo_c | Cuéntamelo en los comentarios
+util_c | Si este vídeo te ha resultado útil
+gusta_c | dale a Me gusta
+suscribete_c | suscríbete al canal y activa
+terminar_c | Antes de terminar, recuerda
+colesterol_c | Si tienes colesterol elevado
+porque_c | Porque proteger tu corazón
+habitos_c | sino de muchos pequeños hábitos

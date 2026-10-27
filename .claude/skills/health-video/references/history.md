@@ -92,3 +92,9 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   1.8%→1%, all idle on a shared CALM gate (~5 s moving / ~5 s still), scene drift 0.03→0.018, pan zoom
   0.16→0.09 (tile 0.12→0.07) and pans travel over the first 70 % of a scene, then hold. No test video
   needed for such notes — apply them in the next video.
+
+- **Oct 27, 2026 — equilibrio_silla rendered** (20:33, 3 parts at 9:00 / 16:43; 13 files under 30 MB).
+  First video with the calmer motion + effects above the music. New in common.js: Poses / CYCLE / KEYS
+  (pose-sheet loops with cross-fade), RepCounter, PhaseCue (breath cue tied to the movement), ExBadge.
+  Pose sheets: trim cut_poses canvases to the union bbox (else the figure renders small and the floor
+  shadow floats); clear the cream holes under chair seats only where the ring is brown wood.

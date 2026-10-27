@@ -24,3 +24,9 @@ nhiều lời nhắc an toàn. Câu «Me refiero a…» chỉ là cách người
 - Thẻ cảnh báo giữ ≥ 6 giây ở cuối: «DOLOR TORÁCICO · DESMAYO · AHOGO → 112».
 - Bài 3 có "Dramatización"? Không cần (không có nhân vật có tên).
 - Nhạc nền tự soạn + hiệu ứng âm thanh nhẹ (như video huyết áp). Nguồn chữ nhỏ: «Programa Otago».
+
+## Kiểm tra giọng đọc (rimovoice8 → audio/voice_full.mp3, 20:33)
+Đọc đủ 185/185 câu, đúng thứ tự, không đọc lặp, không có khoảng lặng dài. Có đọc tiêu đề PUNTO (giữ nguyên).
+Mốc: Punto 1 = 1:42 · Punto 2 = 5:20 · Punto 3 = 9:00 · Punto 4 = 12:34 · Punto 5 = 16:44 · Kết = 19:00.
+Chia 3 phần (1 video): **Phần 1 = 0:00–9:00** (Intro + P1 + P2) · **Phần 2 = 9:00–16:44** (P3 + P4) ·
+**Phần 3 = 16:44–20:33** (P5 + kết). Không cần cắt hay sửa voice.

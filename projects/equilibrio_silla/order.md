@@ -8,6 +8,7 @@ Hoạt hình người lớn, màu **đậm nhưng hài hòa** (dòng `COLOR:` c�
 - **4 tấm tư thế (ảnh 4, 5, 10, 12): cùng một bà Elena**, cùng ghế, nhìn nghiêng, nền kem phẳng. Làm ảnh 4 trước; ảnh 5, 10, 12 **đính kèm thêm ảnh 4** để giữ đúng người.
 - Ảnh có chữ → "remove all text". Sai một khung → "Edit only panel 3: …". Ám vàng → "Less yellow, no golden glow, neutral white balance".
 - Ảnh 15 (đồ vật): nền kem phẳng, 12 món tách xa nhau.
+- Chia phần: **Phần 1 = 0:00–9:00** (ảnh 1–7) · **Phần 2 = 9:00–16:44** (ảnh 8–12) · **Phần 3 = 16:44–20:33** (ảnh 13–14). Ảnh 15 dùng cả video.
 
 ---
 

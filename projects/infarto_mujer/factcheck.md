@@ -29,3 +29,11 @@ Lưu ý khi dựng:
 - Mỗi Punto có thẻ «TAMBIÉN PUEDE SER…» (nguyên nhân khác) để không gây hoảng sợ.
 - Nguồn chữ nhỏ: «American Heart Association, 2016».
 - Nhạc nền tự soạn + hiệu ứng âm thanh nhẹ, chuyển động êm, có lúc đứng yên.
+
+## Kiểm tra giọng đọc (rimovoice10 → audio/voice_full.mp3, 20:54)
+Đọc đủ toàn bộ kịch bản, đúng thứ tự (so từng từ: chỉ khác cách viết số "112", "68"…), không có khoảng lặng
+dài. Có đọc tiêu đề PUNTO. Bản chép lời bị lặp một câu đầu Punto 6 và nghe "Punto 6" thành ".6." — đã sửa
+trong `transcript/words_clean.json` (lỗi của máy chép lời, giọng đọc không có lỗi).
+Mốc: Punto 1 = 1:43 · Punto 2 = 4:57 · Punto 3 = 7:56 · Punto 4 = 10:39 · Punto 5 = 13:29 · Punto 6 = 16:37 · Kết = 19:39.
+Chia 3 phần (1 video): **Phần 1 = 0:00–7:56** (mở đầu + P1 + P2) · **Phần 2 = 7:56–13:29** (P3 + P4) ·
+**Phần 3 = 13:29–20:54** (P5 + P6 + kết). Không cần cắt hay sửa giọng.

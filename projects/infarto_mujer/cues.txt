@@ -1,0 +1,238 @@
+# One timeline: audio/voice_full.mp3, transcript/words_clean.json. label | phrase, in order.
+# --- intro
+pense0 | Pensé que era algo normal de la edad
+errores0 | uno de los errores más peligrosos
+insoportable0 | un dolor insoportable en el pecho
+cansancio0 | con un cansancio extraño
+mandibula0 | una molestia en la mandíbula
+indigestion0 | una sensación de indigestión
+preocupante0 | Y lo más preocupante
+tareas0 | continúan con sus tareas cotidianas
+saber0 | Pero hay algo que debes saber
+toracico0 | aunque el dolor torácico sigue
+evidentes0 | señales menos evidentes
+seis0 | vamos a descubrir seis síntomas
+envejecimiento0 | con el envejecimiento, el estrés
+quinto0 | Presta especial atención al quinto
+bajada0 | una bajada de tensión
+suscribete0 | suscríbete a este canal
+educativo0 | Recuerda: este contenido es educativo
+llama0 | llama inmediatamente al 112
+esperes0 | No esperes a terminar el vídeo
+cansada0 | Estoy cansada porque me hago mayor
+# --- punto 1
+p1 | Punto 1 El agotamiento extremo
+diferencia1 | Existe una diferencia enorme
+responde1 | tu cuerpo ya no responde como antes
+reconocen1 | no reconocen esa diferencia
+inofensivo1 | aquel agotamiento aparentemente inofensivo
+carmen1 | Imagina a Carmen
+activa1 | Siempre ha sido activa
+extrano1 | ha comenzado a notar algo extraño
+cama1 | Hacer la cama le exige descansar
+escalones1 | Subir unos pocos escalones
+dormir1 | Incluso después de dormir
+envejeciendo1 | Carmen piensa que simplemente
+atencion1 | ese cambio merece atención médica
+porque1 | Por qué puede suceder esto
+oxigeno1 | sangre rica en oxígeno
+coronarias1 | Cuando las arterias coronarias se estrechan
+sufrir1 | el músculo cardíaco puede sufrir
+fatiga1 | una fatiga desproporcionada
+opresivo1 | sin el clásico dolor opresivo
+habitual1 | no hablamos del cansancio habitual
+nueva1 | Hablamos de una sensación nueva
+compra1 | antes hacía la compra
+duchar1 | ducharse o vestirse
+debilidad1 | una debilidad tan profunda
+atencion1b | Pero atención: el agotamiento
+anemia1 | puede deberse a anemia
+tiroideas1 | alteraciones tiroideas
+infecciones1 | infecciones, problemas del sueño
+automaticamente1 | no significa automáticamente
+alerta1 | La verdadera señal de alerta
+repentino1 | ese agotamiento es repentino
+acompanado1 | especialmente si viene acompañado
+brusca1 | Si estos síntomas aparecen de forma brusca
+llama1 | llama inmediatamente al 112
+conduzcas1 | No conduzcas ni esperes
+dias1 | Y si llevas varios días
+valoracion1 | solicita una valoración médica
+pregunta1 | Ahora quiero preguntarte algo
+cuentamelo1 | Cuéntamelo en los comentarios
+# --- punto 2
+p2 | Punto 2 Dolor en la
+desconcertante2 | un síntoma todavía más desconcertante
+pecho2 | imaginamos inmediatamente un dolor intenso
+lugares2 | en lugares donde jamás
+mandibula2 | la mandíbula, el cuello
+mercedes2 | Piensa en Mercedes
+presion2 | una presión extraña cerca
+dental2 | cree que tiene un problema dental
+postura2 | ha dormido en una postura incómoda
+detalle2 | Pero hay un detalle
+camina2 | cuando camina deprisa
+disminuye2 | disminuye cuando se detiene
+porque2 | Por qué puede ocurrir algo así
+nervioso2 | cómo nuestro sistema nervioso
+vias2 | comparte ciertas vías nerviosas
+interpretar2 | el cerebro puede interpretar
+referido2 | se conoce como dolor referido
+confusion2 | una confusión peligrosa
+cervicales2 | padecen molestias cervicales
+contractura2 | a una contractura o al envejecimiento
+diferencia2 | existe una diferencia que merece
+esfuerzo2 | aparece durante un esfuerzo físico
+reposo2 | mejora con el reposo
+riego2 | falta de riego sanguíneo
+rapida2 | requiere una valoración médica rápida
+persistente2 | dolor persistente en estas zonas
+repentina2 | Si aparece una molestia repentina
+llama2 | llama inmediatamente al 112
+fundamental2 | Y recuerda algo fundamental
+tipico2 | también pueden presentar el dolor típico
+ausencia2 | La ausencia de ese dolor
+suscribete2 | suscríbete ahora al canal
+vida2 | puede cambiar una vida
+# --- punto 3
+p3 | Punto 3 Malestar digestivo
+error3 | Hay un error especialmente peligroso
+estomago3 | molestia en la boca del estómago
+mayoria3 | la mayoría de las veces
+manifestarse3 | también puede manifestarse mediante náuseas
+teresa3 | Imagina a Teresa
+cenar3 | acaba de cenar tranquilamente
+hora3 | Una hora después
+infusion3 | prepararse una infusión
+continuan3 | Pero las molestias continúan
+nauseas3 | Poco después aparecen náuseas
+sudor3 | gotas de sudor frío
+emergencias3 | una llamada inmediata a emergencias
+porque3 | Por qué el corazón puede provocar
+ubicacion3 | la ubicación del corazón
+regiones3 | Cuando determinadas regiones
+abdomen3 | en la parte superior del abdomen
+vomitos3 | náuseas e incluso vómitos
+reconocer3 | Lo más importante es reconocer
+intensa3 | Una molestia intensa
+serio3 | debe tomarse muy en serio
+acidez3 | cada episodio de acidez
+reflujo3 | El reflujo, la gastritis
+antiacidos3 | únicamente con antiácidos
+llama3 | llama inmediatamente al 112
+infusion3b | No esperes a que una infusión
+comparte3 | comparte este vídeo con una mujer
+madre3 | Puede ser tu madre
+tiempo3 | sin perder tiempo
+# --- punto 4
+p4 | Punto 4 Falta de aire
+situacion4 | Hay una situación que debería
+aire4 | sentir que nos falta el aire
+sin_dolor4 | puede aparecer sin ningún dolor
+relacionan4 | no relacionan este síntoma
+dolores4 | Imagina a Dolores
+plantas4 | cuidando las plantas de su terraza
+riega4 | mientras riega unas macetas
+detiene4 | Se detiene, intenta recuperar
+pasillo4 | al caminar por el pasillo
+senal4 | podría estar enviándole una señal
+musculo4 | Cuando el músculo cardíaco no recibe
+bombear4 | la capacidad del corazón para bombear
+pulmones4 | en los vasos sanguíneos de los pulmones
+ahogo4 | una sensación de ahogo
+llenar4 | no pudieran llenar completamente
+aclaracion4 | Pero aquí debemos hacer una aclaración
+respiratorias4 | enfermedades respiratorias, anemia
+preocupante4 | Lo preocupante es que aparezca
+diabetes4 | mujeres mayores con diabetes
+evidentes4 | síntomas cardíacos menos evidentes
+emergencia4 | una emergencia cardiovascular
+sentada4 | si de pronto te falta el aire
+llama4 | llama inmediatamente al 112
+resistencia4 | No intentes comprobar tu resistencia
+suscribete4 | suscríbete a nuestro canal
+respirar4 | Porque respirar con tranquilidad
+# --- punto 5
+p5 | Punto 5 Sudor frío mareos
+rapidamente5 | Hay señales que aparecen tan rápidamente
+sudar5 | comenzar a sudar de forma repentina
+vueltas5 | la cabeza da vueltas
+debilidad5 | una debilidad tan intensa
+atribuyen5 | Muchas mujeres atribuyen
+grave5 | un problema cardíaco grave
+pilar5 | Imagina a Pilar
+revista5 | leyendo una revista
+temperatura5 | La temperatura de la habitación
+frio5 | comienza a notar un sudor frío
+humedas5 | Sus manos se vuelven húmedas
+apoyarse5 | necesita apoyarse
+baja5 | piensa que tiene la tensión baja
+semejante5 | nunca había experimentado
+porque5 | Por qué puede ocurrir esto durante
+peligro5 | mecanismos de respuesta ante el peligro
+simpatico5 | El sistema nervioso simpático
+ritmo5 | una alteración del ritmo cardíaco
+cerebro5 | el flujo sanguíneo hacia el cerebro
+desmayos5 | mareos, debilidad o desmayos
+enganoso5 | Lo especialmente engañoso
+deshidratacion5 | por deshidratación
+oido5 | problemas del oído interno
+glucosa5 | alteraciones de la glucosa
+medicamentos5 | determinados medicamentos
+clave5 | La clave está en prestar
+experimentas5 | Si experimentas sudor frío
+llama5 | Llama inmediatamente al 112
+mientras5 | Mientras llega la ayuda
+evita5 | evita caminar, conducir
+sientate5 | Siéntate o colócate
+tronco5 | mantener el tronco incorporado
+mejoren5 | aunque los síntomas mejoren
+suscribirte5 | te invito a suscribirte
+miedo5 | no significa vivir con miedo
+# --- punto 6
+p6 | Punto 6 Sensación de angustia
+dificil6 | Existe una señal de alarma que resulta
+angustia6 | una sensación de angustia tan intensa
+terrible6 | algo terrible está a punto
+describen6 | describen precisamente esta experiencia
+concha6 | Imagina a Concha
+noticia6 | No ha recibido ninguna mala noticia
+inquietud6 | una inquietud extraña
+latir6 | Su corazón parece latir
+nervios6 | serán los nervios
+problema6 | Pero aquí aparece un problema importante
+retrasar6 | puede retrasar la atención médica
+porque6 | Por qué puede aparecer esta sensación
+adrenalina6 | hormonas como la adrenalina
+palpitaciones6 | puede producir palpitaciones
+agudo6 | un problema cardiovascular agudo
+ansiedad6 | sentir ansiedad no significa
+panico6 | Los ataques de pánico
+diferenciarlas6 | no siempre es posible diferenciarlas
+angustia_rep6 | si aparece una angustia repentina
+llama6 | llama inmediatamente al 112
+psicologico6 | todo es psicológico
+idea6 | Y quiero que recuerdes una idea
+escuchar6 | escuchar las señales de tu cuerpo
+comparte6 | Si conoces a una mujer
+conversacion6 | una conversación oportuna
+palabras6 | Porque cuidar el corazón también
+# --- conclusión
+hoy_c | Hoy hemos descubierto
+dolor_c | no siempre comienza con un dolor
+cansancio_c | como un cansancio inexplicable
+mandibula_c | molestias en la mandíbula
+nauseas_c | náuseas, dificultad para respirar
+sudor_c | sudor frío o una angustia
+causas_c | estos síntomas pueden tener muchas causas
+inesperada_c | aparecen de forma inesperada
+ignorarlos_c | Nunca debemos ignorarlos
+pregunta_c | Ahora quiero hacerte una pregunta
+escribela_c | Escríbela en los comentarios
+util_c | Si este vídeo te ha resultado útil
+suscribete_c | suscríbete al canal, deja tu me gusta
+comparte_c | compártelo con tus familiares
+advertencia_c | Y una última advertencia
+llama_c | llama inmediatamente al 112
+conduzcas_c | No conduzcas ni esperes
+tiempo_c | Porque conocer las señales

@@ -99,13 +99,15 @@ const anim = f => { if (CUR) CUR.push({ draw: f }); };
 function Shot(svg, href, { x, y, w, h, iw, ih, r = 28, from = [0.5, 0.5], to = [0.5, 0.45], zoom = 0.09, base = 1.06 }) {
   const id = 'clip' + Math.random().toString(36).slice(2);
   const g = el('g', {}, svg);
-  el('rect', { x: x + 12, y: y + 14, width: w, height: h, rx: r, fill: C.ink }, g);
+  if (C.frame) el('rect', { x: x - 10, y: y - 10, width: w + 20, height: h + 20, rx: r + 8, fill: C.frame, opacity: 0.35, filter: 'url(#panelGlow)' }, g);
+  else el('rect', { x: x + 12, y: y + 14, width: w, height: h, rx: r, fill: C.ink }, g);
   const cp = el('clipPath', { id }, g);
   el('rect', { x, y, width: w, height: h, rx: r }, cp);
   const inner = el('g', { 'clip-path': `url(#${id})` }, g);
   const s0 = Math.max(w / iw, h / ih);
   const img = el('image', { href, width: iw, height: ih, preserveAspectRatio: 'none' }, inner);
-  el('rect', { x, y, width: w, height: h, rx: r, fill: 'none', stroke: C.ink, 'stroke-width': 7 }, g);
+  if (C.frame) img.setAttribute('filter', 'url(#grade)');
+  el('rect', { x, y, width: w, height: h, rx: r, fill: 'none', stroke: C.frame || C.ink, 'stroke-width': 7 }, g);
   return {
     g, inner,
     draw(t, a, b) {

@@ -9,11 +9,17 @@ ChatGPT gives landscape 3:2 only; Gemini also does 16:9. Always end with "no tex
 > bold clean ink outlines, flat cel shading with one shadow tone, muted grown-up palette, film-like
 > framing with close-ups and varied camera angles, simple uncluttered backgrounds.
 
-## COLOR (owner, Oct 26 2026: "too yellow/glaring; deep colours but harmonious")
-> COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm
-> grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring
-> lamp light, no oversaturated warm filter; night scenes lit by cool soft blue moonlight with only one
-> small, soft warm accent.
+## COLOR (owner, Oct 30 2026: the Oct 26 "deep but harmonious" look came out too neutral and didn't
+## attract views → vivid, high-contrast, still NO yellow/golden cast)
+> COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink
+> and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue
+> rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out;
+> neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
+Metaphor panels: "each panel on its own bold, saturated gradient background (deep cobalt, teal, plum or
+crimson)" with "COLOR: vibrant, saturated, high-contrast colours: crimson and coral for the heart and
+blood, cobalt and bright teal for nerves and air, emerald and fuchsia accents; glowing highlights and crisp
+shading…; NO yellow, orange or sepia cast". Item sheets keep the flat cream #F5ECD7 (needed for cutting).
+Old (Oct 26, retired): "rich, deep but harmonious palette of deep navy, teal, forest green, burgundy…".
 Don't attach images from the older (yellow) videos as style references.
 
 ## EXPRESSION (one per panel, pick and adapt)

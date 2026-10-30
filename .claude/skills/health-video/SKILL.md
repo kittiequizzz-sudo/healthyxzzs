@@ -66,6 +66,7 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
    per job). Shared pieces for a video go in its `common.js` (start from the latest project's, now
    `projects/equilibrio_silla/`: calm motion with regular still moments, SFX events for `scripts/soundtrack.py`,
    which adds original code-made music + soft effects that sit above the music; see `references/history.md`).
+   Load `flat/theme_vivid.js` right after `common.js` in `video.html` (vivid look, owner Oct 30).
 10. **Deliver** the MP4 with a short Vietnamese summary of what's in it and any changes made to on-screen
     facts. Files over 30 MB can't be uploaded to the app: split without re-encoding into ~280 s parts
     (command in `qa-checklist.md`) and send them in order. Never commit full renders (GitHub's 100 MB limit);

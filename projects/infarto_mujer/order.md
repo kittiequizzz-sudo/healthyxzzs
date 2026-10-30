@@ -1,7 +1,7 @@
 # Ảnh cần tạo cho "6 síntomas de infarto en mujeres" (1 video, làm theo 3 phần)
 
 **15 ảnh**: 6 tấm câu chuyện (mỗi tấm **một bà, 4 khung**) + 4 tấm cảnh + 4 tấm ẩn dụ + 1 tấm đồ vật (nền kem phẳng).
-Hoạt hình người lớn, màu **đậm nhưng hài hòa**, không ám vàng.
+Hoạt hình người lớn, **màu rực, tương phản mạnh, nổi bật** (bản mới 30/10: kênh cần màu bứt phá hơn), vẫn **không ám vàng**.
 
 **Cách làm (ChatGPT, cùng một cuộc trò chuyện, khổ ngang 3:2):**
 - **Ảnh 1:** không đính kèm (hoặc đính kèm 1 ảnh video trước để giữ màu). Các ảnh sau **đính kèm ảnh 1**.
@@ -17,7 +17,7 @@ Hoạt hình người lớn, màu **đậm nhưng hài hòa**, không ám vàng.
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 Each panel shows a DIFFERENT older woman (aged 62–75), in a Spanish home, each brushing off a symptom as 'normal for her age'.
 Panel 1 (top left): a woman of about 66 with olive skin and a grey bob leans on the ironing board, exhausted, eyes half closed, but keeps ironing.
 Panel 2 (top right): a woman of about 71 with light skin and white hair in a bun rubs her jaw with a puzzled, uneasy face while folding towels.
@@ -31,7 +31,7 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 The SAME woman in all four panels: Carmen, about 68, olive skin, short wavy grey hair, small round glasses, teal cardigan over a cream blouse, navy trousers. Keep her face, hair and clothes identical in every panel, in her Spanish home.
 Panel 1 (top left): Carmen, smiling and energetic, cooks a big pot of food for her two grandchildren who sit at the kitchen table.
 Panel 2 (top right): Carmen has to sit on the edge of the half-made bed to rest, holding a pillow, surprised at how tired she is.
@@ -43,8 +43,8 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ### Ảnh 3 · `m_corazon`: Tim thiếu oxy và mệt (đính kèm ảnh 1)
 *động mạch vành hẹp, ít máu đỏ tới tim · tim như cục pin cạn · vùng cơ tim mờ đi khi gắng sức · các nguyên nhân khác: giọt máu, tuyến giáp, nhiệt kế, mặt trăng.*
 ```
-Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading, deep harmonious colours), as friendly medical explainer metaphors on soft cream backgrounds.
-COLOR: deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow.
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading), as friendly medical explainer metaphors, each panel on its own bold, saturated gradient background (deep cobalt, teal, plum or crimson).
+COLOR: vibrant, saturated, high-contrast colours: crimson and coral for the heart and blood, cobalt and bright teal for nerves and air, emerald and fuchsia accents; glowing highlights and crisp shading so every shape pops; never muted or washed-out; NO yellow, orange or sepia cast, no golden glow.
 Panel 1 (top left): a cartoon heart with its coronary arteries on the surface; one artery is narrowed and only a few red oxygen bubbles get through.
 Panel 2 (top right): a cartoon heart drawn as a nearly empty battery, the charge bar very low (no numbers), tired face.
 Panel 3 (bottom left): a calm heart muscle where one patch turns pale and dim while a small figure climbs stairs beside it.
@@ -57,7 +57,7 @@ AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landsca
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 The SAME woman in all four panels: Mercedes, about 72, light skin, white hair in a neat bun, pearl earrings, burgundy coat over a floral dress. Keep her face, hair and clothes identical in every panel, in her Spanish home.
 Panel 1 (top left): Mercedes looks in the bathroom mirror pressing her jaw, thinking it is a tooth problem.
 Panel 2 (top right): Mercedes sits on the edge of her bed rubbing the side of her neck, thinking she slept in a bad position.
@@ -69,8 +69,8 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ### Ảnh 5 · `m_referido`: Đau lan (dolor referido) (đính kèm ảnh 1)
 *tim gửi tín hiệu sáng lên hàm, cổ, vai, lưng · não như tổng đài lẫn tín hiệu · đốt sống cổ, khớp (đau cũ) · leo cầu thang tim đỏ, ngồi nghỉ tim dịu.*
 ```
-Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading, deep harmonious colours), as friendly medical explainer metaphors on soft cream backgrounds.
-COLOR: deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow.
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading), as friendly medical explainer metaphors, each panel on its own bold, saturated gradient background (deep cobalt, teal, plum or crimson).
+COLOR: vibrant, saturated, high-contrast colours: crimson and coral for the heart and blood, cobalt and bright teal for nerves and air, emerald and fuchsia accents; glowing highlights and crisp shading so every shape pops; never muted or washed-out; NO yellow, orange or sepia cast, no golden glow.
 Panel 1 (top left): a simple side-view outline of an older woman's upper body with a red heart; soft glowing nerve lines run from the heart up to the jaw, neck, left shoulder and upper back.
 Panel 2 (top right): a cartoon brain drawn as an old telephone switchboard, with two cables (one from the heart, one from the jaw) plugged into the same socket, confused face.
 Panel 3 (bottom left): a cartoon neck spine and shoulder joint with mild wear, a small heat-pack beside it — ordinary aches of age.
@@ -85,7 +85,7 @@ AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landsca
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 The SAME woman in all four panels: Teresa, about 69, dark brown skin, short grey curls, gold hoop earrings, forest-green cardigan over a lilac blouse. Keep her face, hair and clothes identical in every panel, in her Spanish home.
 Panel 1 (top left): Teresa finishes a quiet dinner alone at her kitchen table, content.
 Panel 2 (top right): an hour later Teresa sits on the sofa pressing a hand on her upper abdomen, uncomfortable pressure.
@@ -97,8 +97,8 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ### Ảnh 7 · `m_digestivo`: Tim nằm sát dạ dày (đính kèm ảnh 1)
 *mặt cắt thân người: tim ngay trên dạ dày · tín hiệu thần kinh từ tim chạy xuống bụng trên · lọ thuốc dạ dày và tách trà (không giải quyết được) · bà gọi điện khẩn cấp.*
 ```
-Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading, deep harmonious colours), as friendly medical explainer metaphors on soft cream backgrounds.
-COLOR: deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow.
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading), as friendly medical explainer metaphors, each panel on its own bold, saturated gradient background (deep cobalt, teal, plum or crimson).
+COLOR: vibrant, saturated, high-contrast colours: crimson and coral for the heart and blood, cobalt and bright teal for nerves and air, emerald and fuchsia accents; glowing highlights and crisp shading so every shape pops; never muted or washed-out; NO yellow, orange or sepia cast, no golden glow.
 Panel 1 (top left): a simple cut-away of an older woman's torso showing the heart sitting just above the stomach, separated only by the thin diaphragm.
 Panel 2 (top right): a glowing nerve signal travelling from the bottom of the heart down to the upper abdomen, drawn as small light pulses.
 Panel 3 (bottom left): a cup of herbal tea and a plain unlabelled antacid bottle on a small table, drawn in faded tones as if they are not the answer.
@@ -111,7 +111,7 @@ AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landsca
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 The SAME woman in all four panels: Dolores, about 74, tan skin, silver hair in a short bob, navy gardening apron over a white shirt. Keep her face, hair and clothes identical in every panel, in her Spanish home.
 Panel 1 (top left): Dolores happily waters flower pots on her sunny Spanish terrace with a watering can.
 Panel 2 (top right): Dolores stops watering, out of breath, one hand on the terrace railing, no hand on the chest.
@@ -123,8 +123,8 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ### Ảnh 9 · `m_pulmon`: Tim bơm yếu → phổi ứ dịch (đính kèm ảnh 1)
 *tim bơm yếu như máy bơm chậm · phổi như miếng bọt biển thấm nước · tiểu đường làm chuông báo của tim nhỏ đi · các nguyên nhân khác: phổi, giọt máu, nhiệt kế, bình xịt.*
 ```
-Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading, deep harmonious colours), as friendly medical explainer metaphors on soft cream backgrounds.
-COLOR: deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow.
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading), as friendly medical explainer metaphors, each panel on its own bold, saturated gradient background (deep cobalt, teal, plum or crimson).
+COLOR: vibrant, saturated, high-contrast colours: crimson and coral for the heart and blood, cobalt and bright teal for nerves and air, emerald and fuchsia accents; glowing highlights and crisp shading so every shape pops; never muted or washed-out; NO yellow, orange or sepia cast, no golden glow.
 Panel 1 (top left): a cartoon heart drawn as a tired water pump, pumping slowly, with blood backing up in the pipes behind it.
 Panel 2 (top right): a pair of cartoon lungs drawn like sponges slowly soaking up water from below, heavy.
 Panel 3 (bottom left): a small round alarm bell on a heart that is muffled by a soft sugar-cube blanket — diabetes can make heart warning signs quieter.
@@ -139,7 +139,7 @@ AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landsca
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 The SAME woman in all four panels: Pilar, about 67, light skin, chin-length auburn-grey hair, teal blouse with a small brooch, grey trousers. Keep her face, hair and clothes identical in every panel, in her Spanish home.
 Panel 1 (top left): Pilar sits calmly in an armchair reading a magazine (no readable text) in a pleasant living room.
 Panel 2 (top right): close-up of Pilar with sudden cold sweat on her forehead and damp hands, alarmed.
@@ -151,8 +151,8 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ### Ảnh 11 · `m_alarma`: Hệ giao cảm báo động (đính kèm ảnh 1)
 *chuông báo động trong não, giọt mồ hôi · tuyến thượng thận phóng tia chớp adrenaline · nhịp tim lộn xộn trên dải nhịp · não nhận ít máu, mờ đi.*
 ```
-Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading, deep harmonious colours), as friendly medical explainer metaphors on soft cream backgrounds.
-COLOR: deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow.
+Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading), as friendly medical explainer metaphors, each panel on its own bold, saturated gradient background (deep cobalt, teal, plum or crimson).
+COLOR: vibrant, saturated, high-contrast colours: crimson and coral for the heart and blood, cobalt and bright teal for nerves and air, emerald and fuchsia accents; glowing highlights and crisp shading so every shape pops; never muted or washed-out; NO yellow, orange or sepia cast, no golden glow.
 Panel 1 (top left): a cartoon brain ringing a big alarm bell, with cold sweat drops flying off a nearby forehead outline.
 Panel 2 (top right): two small adrenal glands on top of cartoon kidneys releasing a lightning-bolt shaped burst (adrenaline), energetic.
 Panel 3 (bottom left): a heart next to a simple heartbeat line that turns irregular and jumpy (no grid numbers).
@@ -165,7 +165,7 @@ AVOID: gore, scary realism, any text, letters, numbers, labels or logos. Landsca
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 The SAME woman in all four panels: Concha, about 69, olive skin, long black-and-grey hair in a low ponytail, burgundy cardigan over a cream top. Keep her face, hair and clothes identical in every panel, in her Spanish home.
 Panel 1 (top left): Concha rests peacefully on the sofa after lunch, a cushion behind her.
 Panel 2 (top right): Concha suddenly sits up with a deep, unexplained fear in her eyes, a hand pressed on her chest, heart pounding.
@@ -179,7 +179,7 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 Each panel shows a DIFFERENT older woman.
 Panel 1 (top left): a woman of about 70 with light skin sits upright on a chair calling emergency services on a mobile phone (blank screen), calm and focused.
 Panel 2 (top right): close-up of car keys left on a hallway table while a woman of about 66 with dark brown skin sits down instead of leaving.
@@ -193,7 +193,7 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in exactly the same drawing style and colour palette as the attached image.
 STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions, head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots), bold clean ink outlines, flat cel shading with one shadow tone, film-like framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring lamp light, no oversaturated warm filter.
+COLOR: vibrant, saturated, high-contrast palette: cobalt blue, emerald green, crimson red, coral, fuchsia-pink and bright teal accents over deep navy shadows; crisp cinematic lighting with strong contrast and a cool blue rim light so the people pop off the background; rich clean colours, never muted, grey or washed-out; neutral-to-cool white balance with NO yellow, orange or sepia cast and no golden glow.
 Each panel shows DIFFERENT older women, in Spain.
 Panel 1 (top left): four older women friends of mixed skin tones share coffee at a café table, one showing the others something on her phone (blank screen).
 Panel 2 (top right): an adult daughter warmly hugs her mother of about 70 in a sunny kitchen.
@@ -207,7 +207,7 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ### Ảnh 15 · `objetos`: Đồ vật và cơ quan (đính kèm ảnh 1) · **nền kem phẳng**
 *12 món: tim · động mạch vành bị hẹp · phổi · não · dạ dày · pin cạn · điện thoại (màn hình trống) · tách trà · chìa khóa xe · máy đo đường huyết (màn trống) · nhiệt kế · ghế bành.*
 ```
-Create one image: an item sheet of 12 separate illustrations on a plain flat cream background #F5ECD7, in the same drawing style as the attached image (bold ink outlines, flat cel shading, deep harmonious colours, NO yellow cast). Three rows of four, each item alone with generous empty space around it, nothing touching, no shadows on the background:
+Create one image: an item sheet of 12 separate illustrations on a plain flat cream background #F5ECD7, in the same drawing style as the attached image (bold ink outlines, flat cel shading, vibrant saturated colours, NO yellow cast). Three rows of four, each item alone with generous empty space around it, nothing touching, no shadows on the background:
 a realistic human heart; a short narrowed coronary artery segment with a fatty plaque; a pair of lungs; a human brain; a human stomach; a nearly empty battery; a mobile phone with a blank dark screen; a cup of herbal tea; a set of car keys; a blood glucose meter with a blank screen; a thermometer; a comfortable armchair.
 AVOID: any text, letters, numbers, labels, brand marks, screens showing digits, overlapping items. Landscape 3:2.
 ```

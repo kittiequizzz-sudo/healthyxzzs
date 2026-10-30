@@ -1,6 +1,6 @@
 # Bảng tạo ảnh: "6 síntomas de infarto en mujeres" (1 video, làm theo 3 phần)
 
-Câu lệnh đầy đủ: `order.md`. ChatGPT, cùng một cuộc trò chuyện, khổ ngang 3:2. **Ảnh 1 không đính kèm; các ảnh sau đính kèm ảnh 1.** Màu đậm, hài hòa, **không ám vàng**.
+Câu lệnh đầy đủ: `order.md`. ChatGPT, cùng một cuộc trò chuyện, khổ ngang 3:2. **Ảnh 1 không đính kèm; các ảnh sau đính kèm ảnh 1.** **Màu rực, tương phản mạnh** (bản mới), vẫn **không ám vàng**.
 
 | ☐ | Ảnh | Tên file | Phần | Nội dung | Loại |
 |---|---|---|---|---|---|

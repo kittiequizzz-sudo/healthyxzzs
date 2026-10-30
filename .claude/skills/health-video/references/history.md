@@ -106,3 +106,10 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
 - **Delivery (owner, Oct 27):** put all pieces of a video in one folder `out/entrega/` numbered straight
   through (`<slug>_01.mp4` … `_NN.mp4`, parts 1→3 in order) and send them in ONE message, so the owner can
   select all and merge in order. A single full file can't be sent (app limit 30 MB per file).
+
+- **Oct 30, 2026 (owner):** videos weren't getting many views — colours too neutral, no punch. New look:
+  `flat/theme_vivid.js` (load after common.js): deep navy stage with a soft glow that changes colour per
+  section, cobalt heading chips, brighter crimson/emerald/teal accents, colour grade on every drawing
+  (+25 % saturation, +10 % contrast, no warm shift), white glowing frames on panels (common.js `Shot` uses
+  `C.frame` when set). Prompts: new vivid COLOR block (prompt-blocks.md), metaphor panels on saturated
+  gradient backgrounds. Still no yellow/golden cast. Before/after compared on huevo_colesterol frames.

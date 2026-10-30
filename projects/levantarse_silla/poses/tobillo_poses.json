@@ -1,0 +1,21 @@
+{
+ "canvas": [
+  582,
+  817
+ ],
+ "floor_y": 816,
+ "poses": [
+  {
+   "file": "tobillo_0.png",
+   "x0": 20
+  },
+  {
+   "file": "tobillo_1.png",
+   "x0": 29
+  },
+  {
+   "file": "tobillo_2.png",
+   "x0": 95
+  }
+ ]
+}

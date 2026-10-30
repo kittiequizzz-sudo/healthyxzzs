@@ -78,13 +78,22 @@ def main():
     widths = [b - s for s, b in segs]
     tops = [int(np.nonzero(m.any(axis=1))[0].min()) for m in pose_masks]
     cw, top = max(widths) + 40, max(0, min(tops) - 20)
-    ch = floor - top + 6
+    bot = min(floor + 6, H)            # no drawn floor line → floor = H-1
+    ch = bot - top
     skin = None if a.skin == "none" else np.array([int(a.skin[4:6], 16), int(a.skin[2:4], 16), int(a.skin[0:2], 16)], np.float32)
     meta = {"canvas": [cw, ch], "floor_y": floor - top, "poses": []}
     for i, (s, b) in enumerate(segs):
-        crop = im[top:floor + 6, s:b]
-        keep = (pose_masks[i][top:floor + 6, s:b] * 255).astype(np.uint8)
+        crop = im[top:bot, s:b]
+        keep = (pose_masks[i][top:bot, s:b] * 255).astype(np.uint8)
         keep = cv2.morphologyEx(keep, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+        # fill small enclosed holes (white hair/beard highlights close to the cream background);
+        # large enclosed gaps (between arm and body, chair rails) stay transparent
+        hn, hl, hst, _ = cv2.connectedComponentsWithStats((keep == 0).astype(np.uint8), connectivity=4)
+        for k in range(1, hn):
+            x, y, w, h, area = hst[k]
+            touches = x == 0 or y == 0 or x + w >= keep.shape[1] or y + h >= keep.shape[0]
+            if not touches and area < 0.004 * keep.size:
+                keep[hl == k] = 255
         hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
         sk = cv2.inRange(hsv, (95, 40, 60), (130, 255, 255)) > 0
         out = crop.astype(np.float32)

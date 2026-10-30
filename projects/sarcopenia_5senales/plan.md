@@ -110,3 +110,14 @@ has no "pregunta" promise, and the end says "cuántas respuestas has acertado". 
 - Parte 1 = intro + Señal 1 + Señal 2: 0:00 → 8:39 ("Señal 3" at 519.5 s).
 - Parte 2 = Señal 3 + Señal 4: 8:39 → 15:56 ("Señal 5" at 956.1 s).
 - Parte 3 = Señal 5 + conclusión: 15:56 → 21:39.
+
+## Pastel restyle (owner, 30 Oct) — supersedes the blue-skin cast above
+- Style: warm pastel 2D cartoon **for adults** (adult proportions, expressive faces), in the line and palette of
+  `characters/mascot_pastel/sheet.jpg`. Code theme from `characters/mascot_pastel/README.md`.
+- **Diverse cast** (`order_pastel.md`, sheet 0 `reparto`): the owner's main character + Pilar, José, Lola, Mercedes,
+  Antonio (Señal 1 story), Rafael (Señal 2 story), Lucía (physio). No single locked character.
+- **No repeated panels:** each drawn panel is used once. Part 1 = 6 scene sheets (24 panels) + P0 hands (3) +
+  P1 sit-to-stand (4, Pilar) + H + I.
+- **A colour per section** (background tint · accent): intro cream `#FCEDCE` · amber; Señal 1 peach `#FCE3D3` · coral
+  `#E8735F`; Señal 2 mint `#E1F1E4` · green `#5FAE7B`; Señal 3 sky `#E0EEF8` · blue `#5E9CC8`; Señal 4 lilac
+  `#ECE4F5` · violet `#9A7CC8`; Señal 5 apricot `#FDE6CC` · orange `#F4A340`; conclusión warm cream with all accents.

@@ -13,3 +13,11 @@ Prompt style line (put at the start of every sheet prompt and attach `sheet.jpg`
 "Warm pastel 2D round-head mascot explainer style, same character design language as the attached reference:
 big round head, simple dot-and-line face, round glasses, rosy cheeks, thick soft dark-brown outlines, flat pastel
 colours with minimal shading, cute and friendly, no text."
+
+Update (30 Oct): the owner wants a **diverse cast** (no single locked character), **more expressive faces** and an
+**adult cartoon** look (adult proportions, head ≈ 1/6 of height, older faces with grey hair and wrinkles), and
+**no repeated scenes**. New style line:
+"Warm pastel 2D cartoon for adults, same line and colour style as the attached reference (thick soft dark-brown
+outlines, flat pastel colours, minimal shading, rosy cheeks, simple round eyes) but with ADULT proportions (head about
+one sixth of body height, realistic older bodies) and expressive faces." Generate a cast lineup sheet first and attach
+it to every scene sheet. Give each section its own pastel tint.

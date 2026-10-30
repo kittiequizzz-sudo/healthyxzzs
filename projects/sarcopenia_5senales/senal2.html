@@ -1,0 +1,194 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E1F1E4;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Señal 2 — you need your hands to get up from a chair.
+window.START = at('h2') - 0.3;
+window.END = at('h3') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('s2');
+
+// 1. kicker
+stillScene(svg, 's1d', () => START, () => at('bascula2'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const k = Kicker(g, 2, 'LA SILLA'); Progress(g, 1);
+  return t => slideIn(k, t, START + 0.2, 'l', 600);
+});
+// 2. the chair shows what the scale doesn't
+scene(svg, () => at('bascula2'), () => at('recuerda2'), g => {
+  const b = el('g', {}, g); cut(b, 'bascula', 620, 480, 380);
+  const x = icon(g, 'cross', 740, 250, 1.2);
+  const ch = IconTile(g, 'chair', 'TU SILLA', 1300, 480, { w: 400, h: 420 });
+  const ok = icon(g, 'check', 1420, 250, 1.2);
+  const cal = Chip(g, 'UN GESTO DE TODOS LOS DÍAS', { cx: 960, cy: 900, fill: ACC, color: C.white, size: 48 });
+  sfx('pop', at('bascula2')); sfx('ding', at('bascula2') + 1.2); sfx('pop', at('curioso2') + 1.5, 0.7);
+  return t => { pop(b, t, at('bascula2'), 620, 480); pop(x, t, at('bascula2') + 0.6, 800, 310); pop(ch, t, at('bascula2') + 1.2, 1300, 480); pop(ok, t, at('bascula2') + 1.6, 1480, 310); show(cal, t, at('curioso2') + 1.5); };
+});
+// 3–4. ten years ago vs now
+stillScene(svg, 's1a', () => at('recuerda2'), () => at('ahora2'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const c = Chip(g, 'HACE 10 AÑOS', { cx: 960, cy: 120, fill: C.ink, color: C.white, size: 50 });
+  const a = CAP(g, 'INCLINARTE Y LISTO', { hi: 'LISTO' });
+  return t => { show(c, t, at('recuerda2')); show(a, t, at('inclinar')); };
+});
+stillScene(svg, 's1c', () => at('ahora2'), () => at('familiar'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const c = Chip(g, 'AHORA', { cx: 960, cy: 120, fill: C.red, color: C.white, size: 50 });
+  const a = CAP(g, 'APOYO · BALANCEO · ESFUERZO', { hi: 'ESFUERZO' });
+  return t => { show(c, t, at('ahora2')); show(a, t, at('balancearte')); };
+});
+// 5. familiar? inevitable?
+scene(svg, () => at('familiar'), () => at('cuadriceps'), g => {
+  const host = Host(g, 'three_q', { cx: 520, cy: 600, fit: 800 });
+  const b = Bubble(g, '¿Te resulta familiar?', { cx: 1250, cy: 300, size: 56 });
+  const s = Stamp(g, '¿INEVITABLE?', { cx: 1250, cy: 560, size: 80, color: C.red, rot: -5 });
+  const c = CAP(g, 'MÚSCULOS QUE TE SOSTIENEN', { hi: 'SOSTIENEN' });
+  sfx('pop', at('familiar') + 0.2); sfx('stamp', at('inevitable'));
+  return t => { host(t, at('familiar')); pop(b, t, at('familiar') + 0.2, 1250, 300); s.draw(t, at('inevitable')); show(c, t, at('sostener')); };
+});
+// 6. quadriceps and glutes
+scene(svg, () => at('cuadriceps'), () => at('compensar'), g => {
+  const m = el('g', {}, g); const cm = cut(m, 'muslo_lado', 760, 540, 760);
+  const s = 760 / 462, x0 = 760 - 166 * s, y0 = 540 - 231 * s;
+  const lab = [['CUÁDRICEPS', 'cuadriceps', 80, 250, 1380, 420], ['GLÚTEOS', 'gluteos', 240, 120, 1380, 660]].map(([txt, k, px, py, lx, ly]) => {
+    const c = el('g', {}, g), x = x0 + px * s, y = y0 + py * s;
+    el('line', { x1: x, y1: y, x2: lx - 160, y2: ly, stroke: C.ink, 'stroke-width': 4, 'stroke-dasharray': '10 10' }, c);
+    el('circle', { cx: x, cy: y, r: 18, fill: ACC, stroke: C.ink, 'stroke-width': 4 }, c);
+    Chip(c, txt, { cx: lx, cy: ly, fill: C.white, size: 52 });
+    sfx('pop', at(k), 0.8); return [c, k];
+  });
+  const cap = CAP(g, 'LEVANTAN Y ESTABILIZAN', { hi: 'LEVANTAN' });
+  return t => { float(cm, t, 760, 540, { amp: 5 }); show(m, t, at('cuadriceps') - 0.2); lab.forEach(([c, k]) => show(c, t, at(k))); show(cap, t, at('gluteos') + 1.5); };
+});
+// 7. the body compensates
+scene(svg, () => at('compensar'), () => at('problema2'), g => {
+  const h = Text(g, 'EL CUERPO COMPENSA', { x: 960, y: 170, size: 80, color: ACC });
+  const ts = [['hand', 'USAS LOS\nBRAZOS', 'brazos2'], ['walk', 'INCLINAS\nEL TRONCO', 'tronco'], ['question', 'VARIOS\nINTENTOS', 'intentos']].map(([ic, s, k], i) => {
+    sfx('pop', at(k), 0.8); return [IconTile(g, ic, s, 960 + (i - 1) * 470, 540, { w: 400, h: 420 }), k, 960 + (i - 1) * 470];
+  });
+  return t => { show(h, t, at('compensar')); ts.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 540)); };
+});
+// 8. vicious circle
+scene(svg, () => at('problema2'), () => at('rafael'), g => {
+  const c = el('g', {}, g);
+  const ring = el('g', {}, c);
+  el('circle', { cx: 960, cy: 540, r: 280, fill: 'none', stroke: ACC, 'stroke-width': 18, 'stroke-dasharray': '40 30' }, ring);
+  const a = Chip(c, 'MENOS USO', { cx: 960, cy: 260, fill: C.white, size: 56 });
+  const b = Chip(c, 'MÁS DEBILIDAD', { cx: 960, cy: 820, fill: C.red, color: C.white, size: 56 });
+  const ar1 = el('g', {}, c); Arrow(ar1, 1260, 420, 1260, 660, C.ink, 12);
+  const ar2 = el('g', {}, c); Arrow(ar2, 660, 660, 660, 420, C.ink, 12);
+  sfx('pop', at('menos')); sfx('pop', at('menos') + 1.2);
+  return t => { show(c, t, at('problema2')); ring.setAttribute('transform', `rotate(${((t * 12) % 360).toFixed(1)} 960 540)`); pop(a, t, at('menos'), 960, 260); pop(b, t, at('menos') + 1.2, 960, 820); };
+});
+// 9–13. Rafael (dramatisation)
+stillScene(svg, 's2a', () => at('rafael'), () => at('sillon'), { focus: [0.4, 0.4], zoom: 0.12 }, g => {
+  const id = Chip(g, 'RAFAEL · 69 AÑOS · VALENCIA', { cx: 960, cy: 120, fill: C.ink, color: C.amber, size: 46 }); Drama(g);
+  return t => show(id, t, at('rafael') + 0.3);
+});
+stillScene(svg, 's2b', () => at('sillon'), () => at('bajas'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'CADA VEZ MÁS DIFÍCIL', { hi: 'DIFÍCIL' });
+  const b = CAP(g, 'APOYO EN LAS RODILLAS', { hi: 'RODILLAS' });
+  const c = CAP(g, '…Y EN LOS REPOSABRAZOS', { hi: 'REPOSABRAZOS' }); Drama(g);
+  return t => { show(a, t, at('sillon') + 0.4, at('rodillas')); show(b, t, at('rodillas'), at('reposabrazos')); show(c, t, at('reposabrazos')); };
+});
+stillScene(svg, 's2c', () => at('bajas'), () => at('revision'), { focus: [0.45, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'EVITA LAS SILLAS BAJAS', { hi: 'BAJAS' });
+  const b = Bubble(g, '«Son los años»', { cx: 1400, cy: 200, size: 58 }); Drama(g);
+  sfx('pop', at('anos2'));
+  return t => { show(a, t, at('bajas') + 0.3); pop(b, t, at('anos2'), 1400, 200); };
+});
+scene(svg, () => at('revision'), () => at('ejercicios2'), g => {
+  const host = Host(g, 'front', { cx: 400, cy: 600, fit: 760 });
+  const c = el('g', {}, g); Card(c, { x: 820, y: 220, w: 980, h: 560 });
+  Text(c, 'REVISIÓN', { x: 1310, y: 300, size: 60, color: ACC });
+  cut(c, 'muslo_lado', 1100, 560, 380);
+  const ar = el('g', {}, c); Arrow(ar, 1500, 420, 1500, 640, C.red, 22);
+  Text(c, 'FUERZA EN', { x: 1520, y: 700, size: 40, anchor: 'middle' }); Text(c, 'LAS PIERNAS', { x: 1520, y: 745, size: 40 });
+  const cap = CAP(g, 'TRABAJO PROGRESIVO', { hi: 'PROGRESIVO' });
+  sfx('pop', at('revision') + 0.3);
+  return t => { host(t, at('revision')); pop(c, t, at('revision') + 0.3, 1310, 500); show(cap, t, at('revision') + 5); };
+});
+stillScene(svg, 's2d', () => at('ejercicios2'), () => at('test'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'RECUPERA LA CONFIANZA', { hi: 'CONFIANZA' });
+  const s = Stamp(g, 'NO TE RESIGNES', { cx: 1400, cy: 220, size: 70, color: C.green, rot: -6 }); Drama(g);
+  sfx('stamp', at('resignarnos'));
+  return t => { show(a, t, at('ejercicios2') + 0.4, at('resignarnos')); s.draw(t, at('resignarnos')); };
+});
+// 14. the Sit-to-Stand test
+scene(svg, () => at('test'), () => at('mejorar'), g => {
+  const s1 = Still(g, 'cut/sts1.png', { x: 120, y: 120, w: 520, h: 860, iw: SZ.sts1[0], ih: SZ.sts1[1], zoom: 0 });
+  const s4 = Still(g, 'cut/sts4.png', { x: 120, y: 120, w: 520, h: 860, iw: SZ.sts4[0], ih: SZ.sts4[1], zoom: 0 });
+  const h = Text(g, 'PRUEBA «SIT-TO-STAND»', { x: 1250, y: 200, size: 64, color: ACC });
+  const cnt = Counter(g, { cx: 1050, cy: 440, label: 'VECES' });
+  const ch = Chip(g, 'SIN USAR LOS BRAZOS', { cx: 1500, cy: 440, fill: C.white, size: 40 });
+  const src = Source(g, 'Prueba usada en el consenso europeo de sarcopenia (EWGSOP2)');
+  const w = Warn(g, '¿TE CUESTA MUCHO?', ['Consulta: músculo, articulaciones', 'o equilibrio'], { y: 600, w: 1080 });
+  w.setAttribute('transform', 'translate(290 0)');
+  sfx('pop', at('cincoveces')); sfx('pop', at('sinbrazos'), 0.7); sfx('alert_soft', at('dificil2'));
+  return t => {
+    const n = Math.min(5, Math.max(0, Math.floor((t - at('cincoveces')) / 1.4) + 1));
+    const up = t > at('cincoveces') && ((t - at('cincoveces')) % 1.4) > 0.7;
+    s1.g.setAttribute('opacity', up ? 0 : 1); s4.g.setAttribute('opacity', up ? 1 : 0); s1.draw(t, 0, 1); s4.draw(t, 0, 1);
+    show(h, t, at('test')); show(cnt.g, t, at('cincoveces')); cnt.set(n + ' / 5');
+    show(ch, t, at('sinbrazos')); show(src, t, at('test') + 1);
+    const ww = show(w, t, at('dificil2')); w.setAttribute('transform', `translate(290 ${(1 - ww) * 40})`);
+  };
+});
+// 15. exercise: step by step
+scene(svg, () => at('mejorar'), () => at('dolor2'), g => {
+  const h = Chip(g, 'EJERCICIO · LEVÁNTATE DE LA SILLA', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['sts1', 'sts2', 'sts3', 'sts4'], [], { y: 170, h: 640 });
+  const steps = [['SILLA FIRME CONTRA LA PARED', 'pared'], ['PIES A LO ANCHO DE LAS CADERAS', 'pies2'], ['INCLÍNATE Y LEVÁNTATE DESPACIO', 'inclina'], ['SIÉNTATE CON CONTROL', 'sientate']]
+    .map(([s, k]) => [CAP(g, s, { cy: 920, size: 52 }), k]);
+  const cnt = Counter(g, { cx: 1690, cy: 920 }); cnt.set('5 ×');
+  const ch = Chip(g, 'PUEDES USAR LAS MANOS', { cx: 960, cy: 1010, fill: C.white, size: 34 });
+  const up = Chip(g, '+ POCO A POCO', { cx: 230, cy: 920, fill: C.green, color: C.white, size: 40 });
+  ['pared', 'pies2', 'inclina', 'sientate', 'cincorep'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('mejorar'));
+    const keys = [at('pared'), at('pies2'), at('inclina'), at('inclina') + 2];
+    if (t < at('pared')) row.forEach(({ c, st }) => { c.setAttribute('opacity', 0.25 + 0.75 * prog(t, at('mejorar'), at('mejorar') + 0.5)); st.draw(t, 0, 1); });
+    else if (t < at('cincorep')) lightRow(row, t, keys);
+    else { const i = Math.floor((t - at('cincorep')) / 0.9) % 4; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === [0, 2, 3, 1][i] ? 1 : 0.4); st.draw(t, 0, 1); }); }
+    steps.forEach(([c, k], i) => show(c, t, at(k), i < 3 ? at(steps[i + 1][1]) : at('cincorep')));
+    show(cnt.g, t, at('cincorep')); show(ch, t, at('manosapoyo')); show(up, t, at('aumentar2'));
+  };
+});
+// 16. stop if pain, dizziness or instability
+scene(svg, () => at('dolor2'), () => at('suscribe2'), g => {
+  const w = Warn(g, '¿DOLOR, MAREO O INESTABILIDAD?', ['Detente', 'y consulta con un profesional sanitario'], { y: 300 });
+  const ic = icon(g, 'chair', 880, 110, 1.6);
+  sfx('alert_soft', at('dolor2'));
+  return t => { show(w, t, at('dolor2')); pop(ic, t, at('dolor2') + 0.3, 960, 190); };
+});
+// 17. subscribe
+scene(svg, () => at('suscribe2'), () => at('recuperar2'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const c = CTA(w, 'sub', 520);
+  const s = Text(g, 'CADA PEQUEÑO HÁBITO CUENTA', { x: 1260, y: 700, size: 44 });
+  sfx('click', at('suscribe2') + 0.3);
+  return t => { host(t, at('suscribe2')); pop(c, t, at('suscribe2') + 0.3, 960, 520); show(s, t, at('habito2')); };
+});
+// 18. bridge: shorter steps (before / now)
+scene(svg, () => at('recuperar2'), () => END + 1, g => {
+  const rows = [['ANTES', 300, 5, 330], ['AHORA', 640, 9, 170]].map(([lab, y, n, step]) => {
+    const r = el('g', {}, g);
+    Chip(r, lab, { cx: 190, cy: y + 60, fill: lab === 'AHORA' ? C.red : C.white, color: lab === 'AHORA' ? C.white : C.ink, size: 42 });
+    const ps = []; for (let i = 0; i < n; i++) ps.push(icon(r, 'feet', 380 + i * step, y + (i % 2 ? 30 : -10), 1.5));
+    return [r, ps];
+  });
+  const c = CAP(g, 'TERCERA SEÑAL: TUS PASOS', { hi: 'TUS PASOS' });
+  sfx('pop', at('tercera')); sfx('pop', at('cortos'));
+  return t => {
+    rows.forEach(([r, ps], j) => { const t0 = j ? at('cortos') - 0.5 : at('recuperar2') + 0.5; show(r, t, t0); ps.forEach((p, i) => p.setAttribute('opacity', prog(t, t0 + i * 0.22, t0 + i * 0.22 + 0.2))); });
+    show(c, t, at('tercera'));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

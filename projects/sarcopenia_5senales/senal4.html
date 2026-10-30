@@ -1,0 +1,201 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#ECE4F5;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Señal 4 — looser clothes, same weight on the scale.
+window.START = at('h4') - 0.3;
+window.END = at('h5') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('s4');
+
+// 1. kicker + the scale's lie
+stillScene(svg, 'b1a', () => START, () => at('pensalo'), { focus: [0.4, 0.6], zoom: 0.12 }, g => {
+  const k = Kicker(g, 4, 'LA BÁSCULA'); Progress(g, 3);
+  const s = Stamp(g, 'LA MENTIRA DE LA BÁSCULA', { cx: 1250, cy: 300, size: 62, color: C.red, rot: -5 });
+  const c = CAP(g, 'UN CAMBIO SILENCIOSO', { hi: 'SILENCIOSO' });
+  sfx('stamp', at('mentira'));
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); s.draw(t, at('mentira')); show(c, t, at('silenciosa')); };
+});
+// 2. years at the same weight
+scene(svg, () => at('pensalo'), () => at('pantalones'), g => {
+  const b = el('g', {}, g); const cb = cut(b, 'bascula', 650, 520, 520);
+  const cal = icon(g, 'calendar', 1150, 230, 2.6);
+  const a = Chip(g, 'AÑOS PESANDO LO MISMO', { cx: 1350, cy: 620, fill: C.white, size: 46 });
+  const r = el('g', {}, g); Chip(r, 'RESPIRAS TRANQUILO', { cx: 1350, cy: 780, fill: C.green, color: C.white, size: 46 });
+  sfx('pop', at('pensalo') + 0.6); sfx('ding', at('cadamanana') + 2);
+  return t => { float(cb, t, 650, 520); pop(b, t, at('pensalo'), 650, 520); pop(cal, t, at('pensalo') + 0.6, 1280, 360); show(a, t, at('pensalo') + 1.2); show(r, t, at('cadamanana') + 2); };
+});
+// 3–4. looser trousers, softer arms, waist changes
+stillScene(svg, 'b1b', () => at('pantalones'), () => at('brazos4'), { focus: [0.6, 0.55], zoom: 0.14 }, g => {
+  const c = CAP(g, 'PANTALONES MÁS HOLGADOS', { hi: 'HOLGADOS' });
+  return t => show(c, t, at('pantalones') + 0.3);
+});
+stillScene(svg, 'b1c', () => at('brazos4'), () => at('como4'), { focus: [0.55, 0.4], zoom: 0.12 }, g => {
+  const c = CAP(g, 'BRAZOS MENOS FIRMES', { hi: 'FIRMES' });
+  const w = Chip(g, 'LA CINTURA CAMBIA', { cx: 1500, cy: 140, fill: C.white, size: 46 });
+  sfx('pop', at('cintura'));
+  return t => { show(c, t, at('brazos4')); pop(w, t, at('cintura'), 1500, 140); };
+});
+// 5. same weight, different body: body composition
+scene(svg, () => at('como4'), () => at('cincuenta4'), g => {
+  const body = el('g', {}, g); cut(body, 'cuerpo', 470, 560, 820);
+  const q = Bubble(g, '¿Mismo peso, otro cuerpo?', { cx: 1250, cy: 220, size: 54 });
+  const h = Text(g, 'COMPOSICIÓN CORPORAL', { x: 1250, y: 200, size: 60, color: ACC });
+  const bar = el('g', {}, g);
+  Card(bar, { x: 980, y: 280, w: 540, h: 640 });
+  const segs = [['MÚSCULO', C.red, 0.42, 0.30], ['GRASA', C.amber, 0.24, 0.36], ['HUESO', '#EFE3CC', 0.14, 0.14], ['AGUA', C.blue, 0.20, 0.20]].map(([s, col, a, b]) => {
+    const r = el('rect', { x: 1010, width: 230, fill: col, stroke: C.ink, 'stroke-width': 3 }, bar);
+    const tx = Text(bar, s, { x: 1260, y: 0, size: 36, anchor: 'start' });
+    return [r, tx, a, b];
+  });
+  const note = Text(g, 'ejemplo ilustrativo · mismo peso total', { x: 1250, y: 960, size: 26, weight: 700, color: C.grey });
+  sfx('pop', at('como4') + 0.3); sfx('pop', at('formado'), 0.7); sfx('swish', at('proporciones'), 0.7);
+  return t => {
+    show(body, t, at('como4'));
+    pop(q, t, at('como4') + 0.3, 1250, 220); q.style.display = t < at('composicion') ? '' : 'none';
+    show(h, t, at('composicion')); show(bar, t, at('formado') - 0.3); show(note, t, at('proporciones'));
+    const u = E.inOut(prog(t, at('proporciones'), at('proporciones') + 2.5));
+    let y = 300;
+    segs.forEach(([r, tx, a, b]) => { const hh = 600 * lerp(a, b, u); set(r, { y, height: hh }); set(tx, { y: y + hh / 2 }); y += hh; });
+  };
+});
+// 6. thigh cross-sections: less muscle, more fat
+scene(svg, () => at('cincuenta4'), () => at('obesidad'), g => {
+  const a = el('g', {}, g); cut(a, 'corte_joven', 560, 500, 560); Chip(a, 'MÁS JOVEN · ACTIVO', { cx: 560, cy: 850, size: 40 });
+  const b = el('g', {}, g); cut(b, 'corte_mayor', 1360, 500, 560); Chip(b, 'MAYOR · SEDENTARIO', { cx: 1360, cy: 850, fill: C.red, color: C.white, size: 40 });
+  const c = CAP(g, 'MENOS MÚSCULO, MÁS GRASA', { hi: 'MÁS GRASA' });
+  sfx('pop', at('cincuenta4')); sfx('pop', at('cincuenta4') + 1.5);
+  return t => { pop(a, t, at('cincuenta4'), 560, 500); pop(b, t, at('cincuenta4') + 1.5, 1360, 500); show(c, t, at('grasa4')); };
+});
+// 7. sarcopenic obesity
+scene(svg, () => at('obesidad'), () => at('atencion4'), g => {
+  const h = Text(g, 'OBESIDAD SARCOPÉNICA', { x: 960, y: 300, size: 96, color: ACC });
+  const a = Chip(g, '+ GRASA', { cx: 700, cy: 560, fill: C.amber, size: 70 });
+  const b = Chip(g, '– MÚSCULO O FUNCIÓN', { cx: 1250, cy: 560, fill: C.red, color: C.white, size: 60 });
+  const n = Text(g, 'Término de los especialistas', { x: 960, y: 760, size: 36, weight: 700, color: C.grey });
+  sfx('pop', at('obesidad')); sfx('pop', at('obesidad') + 3); sfx('pop', at('obesidad') + 4.5);
+  return t => { pop(h, t, at('obesidad'), 960, 300); pop(a, t, at('obesidad') + 3, 700, 560); pop(b, t, at('obesidad') + 4.5, 1250, 560); show(n, t, at('obesidad') + 1); };
+});
+// 8. not necessarily the problem; same weight ≠ same muscle health
+scene(svg, () => at('atencion4'), () => at('consecuencia'), g => {
+  const w = Warn(g, 'NO SIGNIFICA NECESARIAMENTE…', ['…que padezcas este problema'], { y: 240 });
+  const c = el('g', {}, g); Card(c, { x: 210, y: 640, w: 1500, h: 220, fill: ACC });
+  Text(c, 'MISMO PESO ≠ MISMA SALUD MUSCULAR', { x: 960, y: 750, size: 56, color: C.white });
+  sfx('alert_soft', at('atencion4')); sfx('ding', at('importante4'));
+  return t => { show(w, t, at('atencion4')); pop(c, t, at('importante4'), 960, 750); };
+});
+// 9. muscle and glucose
+scene(svg, () => at('consecuencia'), () => at('kilos'), g => {
+  const h = Text(g, 'UNA CONSECUENCIA POCO CONOCIDA', { x: 960, y: 150, size: 60, color: ACC });
+  const mus = el('g', {}, g);
+  const mrect = el('rect', { rx: 120, fill: C.red, stroke: C.ink, 'stroke-width': 5 }, mus);
+  const mtx = Text(mus, 'MÚSCULO', { x: 1250, y: 540, size: 64, color: C.white });
+  const dots = []; for (let i = 0; i < 10; i++) dots.push(el('circle', { r: 20, fill: C.amber, stroke: C.ink, 'stroke-width': 4 }, g));
+  const gl = Chip(g, 'GLUCOSA', { cx: 300, cy: 300, fill: C.amber, size: 46 });
+  const chips = [['FUERZA', 760], ['ACTIVIDADES DIARIAS', 1250]].map(([s, cx]) => Chip(g, s, { cx, cy: 900, fill: C.white, size: 42 }));
+  const less = Chip(g, 'MENOS MÚSCULO = MÁS DIFÍCIL', { cx: 960, cy: 900, fill: C.ink, color: C.white, size: 46 });
+  sfx('pop', at('glucosa')); sfx('pop', at('disminuyen'));
+  return t => {
+    show(h, t, at('consecuencia')); show(mus, t, at('consecuencia') + 0.5); show(gl, t, at('glucosa'));
+    const k = 1 - 0.35 * E.inOut(prog(t, at('disminuyen'), at('disminuyen') + 2));
+    const w = 640 * k, hh = 340 * k; set(mrect, { x: 1250 - w / 2, y: 540 - hh / 2, width: w, height: hh });
+    dots.forEach((d, i) => {
+      const per = 2.4 / (t > at('disminuyen') ? 0.6 : 1), u = (((t - at('glucosa')) + i * per / 10) % per) / per;
+      const ok = t > at('glucosa') && (t < at('disminuyen') || i % 2 === 0);
+      set(d, { cx: lerp(300, 1250 - w / 2 + 60, u), cy: 360 + 150 * Math.sin(i * 1.7) * (1 - u) + 160 * u, opacity: ok ? Math.min(1, 4 * (1 - u)) : 0 });
+    });
+    chips.forEach((c, i) => show(c, t, at('glucosa') + 2 + i * 0.6, at('disminuyen')));
+    show(less, t, at('disminuyen') + 0.5);
+  };
+});
+// 10. losing kilos at all costs, very restrictive diets
+stillScene(svg, 'b1d', () => at('kilos'), () => at('proteger4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SOLO PERDER KILOS', { hi: 'KILOS' });
+  const x = icon(g, 'cross', 1640, 100, 1.6);
+  const b = CAP(g, 'DIETAS DEMASIADO ESTRICTAS', { hi: 'ESTRICTAS', fill: C.red });
+  sfx('pop', at('restrictivas'));
+  return t => { show(a, t, at('kilos'), at('restrictivas')); show(b, t, at('restrictivas')); pop(x, t, at('restrictivas'), 1720, 180); };
+});
+// 11. protect yourself: food first
+stillScene(svg, 'b2a', () => at('proteger4'), () => at('huevos'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const c = CAP(g, 'REVISA TU ALIMENTACIÓN', { hi: 'ALIMENTACIÓN' });
+  return t => show(c, t, at('alimentacion'));
+});
+scene(svg, () => at('huevos'), () => at('aminoacidos'), g => {
+  const h = Text(g, 'PROTEÍNAS DE CALIDAD', { x: 960, y: 150, size: 70, color: ACC });
+  const foods = [['huevos', 'HUEVOS', 'huevos'], ['pescado', 'PESCADO', 'pescado'], ['lentejas', 'LEGUMBRES', 'legumbres'], ['lacteos', 'LÁCTEOS', 'lacteos'], ['pollo', 'CARNES MAGRAS', 'carnes']].map(([n, s, k], i) => {
+    const c = el('g', {}, g), cx = 960 + (i - 2) * 350;
+    Card(c, { x: cx - 160, y: 230, w: 320, h: 360 }); cut(c, n, cx, 380, 250); Text(c, s, { x: cx, y: 555, size: s.length > 10 ? 30 : 36 });
+    sfx('pop', at(k), 0.6); return [c, k, cx];
+  });
+  const meals = ['DESAYUNO', 'COMIDA', 'CENA'].map((s, i) => { const c = el('g', {}, g), cx = 960 + (i - 1) * 420; IC.plate(c, cx - 60, 660, 1.2); Text(c, s, { x: cx, y: 820, size: 36 }); return [c, cx]; });
+  const d = CAP(g, 'REPARTIDAS EN LAS COMIDAS', { hi: 'REPARTIDAS' });
+  sfx('ding', at('distribuidas'));
+  return t => { show(h, t, at('huevos') - 0.3); foods.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 410)); meals.forEach(([c, cx], i) => pop(c, t, at('distribuidas') + i * 0.3, cx, 730)); show(d, t, at('distribuidas')); };
+});
+stillScene(svg, 'b2b', () => at('aminoacidos'), () => at('nobasta'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const c = CAP(g, 'REPARAN Y MANTIENEN EL MÚSCULO', { hi: 'MÚSCULO' });
+  return t => show(c, t, at('aminoacidos') + 0.3);
+});
+// 12. protein alone is not enough → strength work
+scene(svg, () => at('nobasta'), () => at('fuerza4'), g => {
+  const a = IconTile(g, 'plate', 'PROTEÍNA', 620, 480, { w: 380, h: 400 });
+  const plus = Text(g, '+', { x: 960, y: 480, size: 160, color: ACC });
+  const b = IconTile(g, 'dumbbell', 'FUERZA', 1300, 480, { w: 380, h: 400 });
+  const c = CAP(g, 'COMER PROTEÍNAS NO BASTA', { hi: 'NO BASTA' });
+  sfx('pop', at('nobasta')); sfx('ding', at('nobasta') + 1.6);
+  return t => { pop(a, t, at('nobasta'), 620, 480); show(plus, t, at('nobasta') + 1.2); pop(b, t, at('nobasta') + 1.6, 1300, 480); show(c, t, at('nobasta') + 0.3); };
+});
+scene(svg, () => at('fuerza4'), () => at('renal'), g => {
+  const st = still(g, 'b2c', { ...LEFT, focus: [0.5, 0.55], zoom: 0.1 });
+  const items = [['chair', null, 'LEVANTARTE DE UNA SILLA', 'levantarte4'], [null, 'banda', 'BANDAS ELÁSTICAS', 'bandas'], [null, 'pesas', 'PEQUEÑAS CARGAS', 'cargas']].map(([ic, n, s, k], i) => {
+    const c = el('g', {}, g), y = 140 + i * 250;
+    Card(c, { x: 1310, y, w: 560, h: 220 });
+    if (ic) IC[ic](c, 1330, y + 50, 1.2); else cut(c, n, 1400, y + 110, 150);
+    Text(c, s, { x: 1660, y: y + 110, size: s.length > 16 ? 28 : 34 });
+    sfx('pop', at(k), 0.6); return [c, k];
+  });
+  return t => { st.draw(t, at('fuerza4'), at('renal')); items.forEach(([c, k]) => slideIn(c, t, at(k), 'r', 400)); };
+});
+// 13. kidney disease: ask first
+scene(svg, () => at('renal'), () => at('comentarios4'), g => {
+  const k = el('g', {}, g); cut(k, 'rinones', 960, 240, 320);
+  const w = Warn(g, '¿ENFERMEDAD RENAL U OTRA RESTRICCIÓN?', ['Consulta antes de aumentar las proteínas'], { y: 470, w: 1500 });
+  sfx('alert_soft', at('renal'));
+  return t => { pop(k, t, at('renal'), 960, 240); show(w, t, at('renal') + 0.3); };
+});
+// 14. comment: «Voy a cuidar mis músculos»
+stillScene(svg, 'b2d', () => at('comentarios4'), () => at('objetivo'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const b = Bubble(g, '«Voy a cuidar mis músculos»', { cx: 1250, cy: 180, size: 50 });
+  const c = CTA(g, 'comment', 960);
+  sfx('pop', at('comentarios4') + 0.5);
+  return t => { pop(b, t, at('comentarios4') + 0.5, 1250, 180); show(c, t, at('compromiso')); };
+});
+// 15. the goal: keep your strength, not just weigh less
+scene(svg, () => at('objetivo'), () => at('quinta'), g => {
+  const a = IconTile(g, 'scale', 'PESAR MENOS', 620, 470, { w: 400, h: 420 });
+  const x = icon(g, 'cross', 720, 250, 1.2);
+  const b = IconTile(g, 'dumbbell', 'CONSERVAR\nLA FUERZA', 1300, 470, { w: 400, h: 420 });
+  const ok = icon(g, 'check', 1400, 250, 1.2);
+  const c = CAP(g, 'PARA VIVIR CON INDEPENDENCIA', { hi: 'INDEPENDENCIA' });
+  sfx('pop', at('objetivo') + 0.5); sfx('ding', at('objetivo') + 2.5);
+  return t => { pop(a, t, at('objetivo'), 620, 470); pop(x, t, at('objetivo') + 0.5, 780, 310); pop(b, t, at('objetivo') + 2.2, 1300, 470); pop(ok, t, at('objetivo') + 2.5, 1460, 310); show(c, t, at('objetivo') + 3.5); };
+});
+// 16. bridge: the stairs
+scene(svg, () => at('quinta'), () => END + 1, g => {
+  const st = icon(g, 'stairs', 700, 220, 5);
+  const c = CAP(g, 'QUINTA SEÑAL: LAS ESCALERAS', { hi: 'ESCALERAS' });
+  sfx('pop', at('quinta') + 0.3);
+  return t => { pop(st, t, at('quinta') + 0.3, 950, 470); show(c, t, at('escalones')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

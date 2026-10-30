@@ -1,0 +1,119 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — hook: losing strength without noticing; five signs; comment/subscribe.
+window.START = 0;
+window.END = at('h1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('intro');
+
+// 1–5. cold open, hard cuts
+stillScene(svg, 'g2a', () => -1, () => at('sofa'), { focus: [0.6, 0.4], zoom: 0.12 }, g => {
+  const c = CAP(g, 'PERDIENDO FUERZA', { hi: 'FUERZA' });
+  return t => show(c, t, at('fuerza0'));
+}, true);
+stillScene(svg, 'g1a', () => at('sofa'), () => at('caminar0'), { focus: [0.45, 0.35], zoom: 0.14 }, g => {
+  const a = CAP(g, 'LEVANTARSE: UN ESFUERZO', { hi: 'ESFUERZO' });
+  const b = CAP(g, 'NO OCURRE DE REPENTE', { hi: 'DE REPENTE' });
+  return t => { show(a, t, at('sofa') + 0.4, at('derepente')); show(b, t, at('derepente')); };
+}, true);
+stillScene(svg, 'g1c', () => at('caminar0'), () => at('bolsas0'), { focus: [0.5, 0.7], zoom: 0.14 }, g => {
+  const c = CAP(g, 'PASOS MÁS CORTOS', { hi: 'CORTOS' });
+  return t => show(c, t, at('caminar0') + 0.3);
+}, true);
+stillScene(svg, 'g1b', () => at('bolsas0'), () => at('apoyarte0'), { focus: [0.45, 0.6], zoom: 0.14 }, g => {
+  const c = CAP(g, 'BOLSAS MÁS PESADAS', { hi: 'PESADAS' });
+  return t => show(c, t, at('bolsas0') + 0.3);
+}, true);
+stillScene(svg, 's1b', () => at('apoyarte0'), () => at('edad0'), { focus: [0.5, 0.4], zoom: 0.14 }, g => {
+  const c = CAP(g, 'APOYARTE PARA LEVANTARTE', { hi: 'APOYARTE' });
+  return t => show(c, t, at('apoyarte0') + 0.3);
+}, true);
+// 6. just age?
+stillScene(svg, 'g2b', () => at('edad0'), () => at('cincuenta'), { focus: [0.5, 0.4], zoom: 0.1 }, g => {
+  const c = CAP(g, '¿ES SOLO LA EDAD?', { hi: 'EDAD' });
+  const s = Stamp(g, 'NO NECESARIAMENTE', { cx: 1350, cy: 240, size: 70, color: C.red, rot: -6 });
+  sfx('stamp', at('necesariamente'));
+  return t => { show(c, t, at('edad0')); s.draw(t, at('necesariamente')); };
+}, true);
+
+// 7. after 50: strength and volume can decline → sarcopenia
+scene(svg, () => at('cincuenta'), () => at('noticia'), g => {
+  const host = Host(g, 'three_q', { cx: 340, cy: 600, fit: 780 });
+  const box = el('g', {}, g); Card(box, { x: 680, y: 170, w: 1150, h: 560 });
+  const bars = [50, 60, 70, 80].map((a, i) => {
+    const x = 790 + i * 250, hMax = 360 - i * 70;
+    const r = el('rect', { x, width: 150, rx: 18, fill: C.red, stroke: C.ink, 'stroke-width': 4 }, box);
+    Text(box, '+' + a, { x: x + 75, y: 690, size: 40 });
+    return [r, hMax, i];
+  });
+  Text(box, 'FUERZA Y MÚSCULO', { x: 1255, y: 225, size: 40, color: C.ink });
+  Text(box, 'ejemplo ilustrativo', { x: 1255, y: 265, size: 24, weight: 700, color: C.grey });
+  const w = Text(g, 'SARCOPENIA', { x: 1255, y: 840, size: 110, color: C.red });
+  const chips = [['EQUILIBRIO', 'equilibrio', 820], ['MOVILIDAD', 'movilidad0', 1255], ['INDEPENDENCIA', 'movilidad0', 1690]].map(([s, k, cx], i) => [Chip(g, s, { cx, cy: 975, size: 38 }), k, i]);
+  sfx('pop', at('sarcopenia')); sfx('pop', at('equilibrio'), 0.7); sfx('pop', at('movilidad0'), 0.7);
+  return t => {
+    host(t, at('cincuenta') + 0.1);
+    show(box, t, at('cincuenta') + 0.2);
+    bars.forEach(([r, hMax, i]) => { const u = E.out(prog(t, at('fuerzavol') + i * 0.35, at('fuerzavol') + 0.6 + i * 0.35)); set(r, { y: 640 - hMax * u, height: Math.max(0, hMax * u) }); });
+    pop(w, t, at('sarcopenia'), 1255, 840);
+    chips.forEach(([c, k, i]) => show(c, t, at(k) + i * 0.25));
+  };
+});
+// 8. good news, even after 70
+stillScene(svg, 'g2c', () => at('noticia'), () => at('cinco'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'UNA BUENA NOTICIA', { hi: 'BUENA', hiColor: '#9EE0B0' });
+  const b = Chip(g, '+70: AÚN PUEDES', { cx: 1500, cy: 170, fill: C.green, color: C.white, size: 56 });
+  sfx('ding', at('setenta0'));
+  return t => { show(a, t, at('noticia')); pop(b, t, at('setenta0'), 1500, 170); };
+});
+// 9. five signs; attention to the fourth
+scene(svg, () => at('cinco'), () => at('comenta0'), g => {
+  const h = Text(g, '5 SEÑALES', { x: 960, y: 150, size: 110, color: C.ink });
+  const tiles = SIGNS.map(([ic, s], i) => [IconTile(g, ic, s, 960 + (i - 2) * 340, 430, { w: 290, h: 300 }), 960 + (i - 2) * 340, i]);
+  const ring = el('rect', { x: 960 + 340 - 165, y: 260, width: 330, height: 340, rx: 44, fill: 'none', stroke: C.red, 'stroke-width': 10, opacity: 0 }, g);
+  const s4 = still(g, 'g1d', { x: 560, y: 650, w: 800, h: 380, r: 28, focus: [0.6, 0.6], zoom: 0.06 });
+  const c = Chip(g, '¡ATENCIÓN A LA 4!', { cx: 960, cy: 150, fill: C.red, color: C.white, size: 60 });
+  tiles.forEach(([, , i]) => sfx('pop', at('cinco') + 0.4 + i * 0.3, 0.7));
+  sfx('ding', at('cuarta'));
+  return t => {
+    show(h, t, at('cinco'), at('cuarta'));
+    tiles.forEach(([tile, cx, i]) => { pop(tile, t, at('cinco') + 0.4 + i * 0.3, cx, 430); if (t > at('cuarta')) tile.setAttribute('opacity', i === 3 ? 1 : 0.35); });
+    ring.setAttribute('opacity', prog(t, at('cuarta'), at('cuarta') + 0.3));
+    show(s4.g, t, at('mismo0') - 0.3); s4.draw(t, at('mismo0'), at('comenta0'));
+    pop(c, t, at('cuarta'), 960, 150);
+  };
+});
+// 10. comment where you watch from and your age
+stillScene(svg, 'g2d', () => at('comenta0'), () => at('suscribe0'), { focus: [0.5, 0.4], zoom: 0.1 }, g => {
+  const b = Bubble(g, '¿Desde qué ciudad? ¿Cuántos años?', { cx: 1180, cy: 170, size: 46 });
+  const c = CTA(g, 'comment', 960);
+  sfx('pop', at('comenta0') + 0.3);
+  return t => { pop(b, t, at('comenta0') + 0.3, 1180, 170); show(c, t, at('comenta0') + 1); };
+});
+// 11. subscribe (host mascot)
+scene(svg, () => at('suscribe0'), () => at('manos0'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const c = CTA(w, 'sub', 520);
+  const sub = Text(g, 'CUIDA TU FUERZA Y AUTONOMÍA', { x: 1260, y: 700, size: 44, color: C.ink });
+  sfx('click', at('suscribe0') + 0.6);
+  return t => { host(t, at('suscribe0')); pop(c, t, at('suscribe0') + 0.5, 960, 520); show(sub, t, at('suscribe0') + 0.8); };
+});
+// 12. first: your hands
+scene(svg, () => at('manos0'), () => END + 1, g => {
+  const b = el('g', {}, g); const fl = cut(b, 'antebrazo', 960, 470, 900);
+  const c = CAP(g, 'EMPEZAMOS POR TUS MANOS', { hi: 'MANOS' });
+  return t => { float(fl, t, 960, 470, { amp: 8 }); pop(b, t, at('manos0'), 960, 470); show(c, t, at('manos0') + 0.6); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

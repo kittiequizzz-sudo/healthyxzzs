@@ -17,3 +17,5 @@ projects/azucar_sube/out/
 projects/azucar_sube/transcript.log
 projects/*/out_render.log
 projects/*/out/*.mp4
+projects/*/sound/*.wav
+projects/*/sound/*.m4a

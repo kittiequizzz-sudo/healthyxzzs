@@ -1,0 +1,220 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCE3D3;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Señal 1 — your hands are losing strength.
+window.START = at('h1') - 0.3;
+window.END = at('h2') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('s1');
+
+// 1. kicker: hands before legs
+scene(svg, () => START, () => at('espejo'), g => {
+  const k = Kicker(g, 1, 'TUS MANOS'); Progress(g, 0);
+  const a = el('g', {}, g); const ca = cut(a, 'antebrazo', 760, 560, 900);
+  const b = el('g', { opacity: 0.5 }, g); cut(b, 'muslo_lado', 1550, 600, 420);
+  const c = Chip(g, 'ANTES QUE EN LAS PIERNAS', { cx: 960, cy: 960, fill: ACC, color: C.white, size: 50 });
+  sfx('pop', at('piernas1'));
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); float(ca, t, 760, 560, { amp: 6 }); pop(a, t, START + 0.4, 760, 560); show(b, t, at('antes1')); pop(c, t, at('piernas1'), 960, 960); };
+});
+// 2. no mirror needed: look at your hands
+scene(svg, () => at('espejo'), () => at('cotidiano'), g => {
+  const m = IconTile(g, 'mirror', 'ESPEJO', 640, 470, { w: 380, h: 400 });
+  const x = icon(g, 'cross', 740, 260, 1.2);
+  const h = IconTile(g, 'hand', 'TUS MANOS', 1280, 470, { w: 380, h: 400 });
+  const ok = icon(g, 'check', 1380, 260, 1.2);
+  const c = CAP(g, 'BASTA CON MIRAR TUS MANOS', { hi: 'MANOS' });
+  sfx('pop', at('espejo') + 0.6, 0.7); sfx('ding', at('utilizas'));
+  return t => { pop(m, t, at('espejo'), 640, 470); pop(x, t, at('espejo') + 0.6, 800, 320); pop(h, t, at('utilizas') - 0.3, 1280, 470); pop(ok, t, at('utilizas'), 1440, 320); show(c, t, at('utilizas')); };
+});
+// 3. before: jar, bags, frying pan
+scene(svg, () => at('cotidiano'), () => at('ahora1'), g => {
+  const st = still(g, 'm1c', { ...LEFT, focus: [0.5, 0.5], zoom: 0.08 });
+  const a = Chip(g, 'ANTES…', { cx: 660, cy: 930, fill: C.ink, color: C.white, size: 50 });
+  const its = [['bote', 'bote'], ['bolsas', 'bolsas1'], ['sarten', 'sarten']].map(([n, k], i) => {
+    const c = el('g', {}, g); Card(c, { x: 1340, y: 130 + i * 250, w: 500, h: 220 }); cut(c, n, 1590, 240 + i * 250, 180);
+    sfx('pop', at(k), 0.7); return [c, k, 240 + i * 250];
+  });
+  Drama(g);
+  return t => { st.draw(t, at('cotidiano'), at('ahora1')); show(a, t, at('cotidiano') + 0.5); its.forEach(([c, k, cy]) => slideIn(c, t, at(k), 'r', 400)); };
+});
+// 4–6. now it is harder
+stillScene(svg, 'm1a', () => at('ahora1'), () => at('dosmanos'), { focus: [0.45, 0.45], zoom: 0.14 }, g => {
+  const c = CAP(g, 'AHORA CUESTA MÁS', { hi: 'CUESTA' });
+  return t => show(c, t, at('ahora1') + 0.3);
+});
+stillScene(svg, 'm1b', () => at('dosmanos'), () => at('ayuda1'), { focus: [0.55, 0.45], zoom: 0.14 }, g => {
+  const c = CAP(g, 'LAS DOS MANOS', { hi: 'DOS' });
+  return t => show(c, t, at('dosmanos') + 0.2);
+});
+stillScene(svg, 'm1d', () => at('ayuda1'), () => at('habitual'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const c = CAP(g, 'PIDES AYUDA', { hi: 'AYUDA' });
+  return t => show(c, t, at('ayuda1') + 0.2);
+});
+// 7. "objects weigh more"? → loss of muscle strength
+scene(svg, () => at('habitual'), () => at('prension'), g => {
+  const b = el('g', {}, g); const cb = cut(b, 'bolsas', 700, 520, 620);
+  const q = Bubble(g, '¿Pesan más?', { cx: 1300, cy: 300, size: 60 });
+  const arrow = el('g', {}, g);
+  el('rect', { x: 1180, y: 460, width: 240, height: 380, rx: 30, fill: C.white, stroke: C.ink, 'stroke-width': 4 }, arrow);
+  const bar = el('rect', { x: 1210, width: 180, rx: 20, fill: C.red }, arrow);
+  Text(arrow, 'FUERZA', { x: 1300, y: 890, size: 40 });
+  const c = CAP(g, 'PÉRDIDA DE FUERZA MUSCULAR', { hi: 'FUERZA' });
+  sfx('pop', at('habitual') + 1);
+  return t => {
+    float(cb, t, 700, 520); show(b, t, at('habitual'));
+    pop(q, t, at('habitual') + 1, 1300, 300); q.setAttribute('opacity', +q.getAttribute('opacity') * (1 - prog(t, at('sinembargo1'), at('sinembargo1') + 0.4)));
+    show(arrow, t, at('sinembargo1'));
+    const h = 320 * (1 - 0.55 * E.inOut(prog(t, at('sinembargo1') + 0.6, at('sinembargo1') + 3)));
+    set(bar, { y: 810 - h, height: h });
+    show(c, t, at('sinembargo1') + 0.8);
+  };
+});
+// 8. grip strength: a clue, not a diagnosis
+scene(svg, () => at('prension'), () => at('porque1'), g => {
+  const host = Host(g, 'front', { cx: 330, cy: 600, fit: 760 });
+  const c = el('g', {}, g); Card(c, { x: 720, y: 170, w: 1120, h: 600 });
+  Text(c, 'FUERZA DE PRENSIÓN', { x: 1280, y: 250, size: 60 });
+  const cx = 1280, cy = 640, R = 230;
+  const arc = (a0, a1, col) => el('path', { d: `M${cx + R * Math.cos(a0)} ${cy + R * Math.sin(a0)} A${R} ${R} 0 0 1 ${cx + R * Math.cos(a1)} ${cy + R * Math.sin(a1)}`, fill: 'none', stroke: col, 'stroke-width': 50, 'stroke-linecap': 'round' }, c);
+  arc(Math.PI, Math.PI * 1.32, C.red); arc(Math.PI * 1.36, Math.PI * 1.64, C.amber); arc(Math.PI * 1.68, Math.PI * 2, C.green);
+  const needle = el('line', { x1: cx, y1: cy, stroke: C.ink, 'stroke-width': 14, 'stroke-linecap': 'round' }, c);
+  el('circle', { cx, cy, r: 22, fill: C.ink }, c);
+  const src = Source(g, 'Indicador del consenso europeo de sarcopenia (EWGSOP2)');
+  const p = Chip(g, 'UNA PISTA, NO UN DIAGNÓSTICO', { cx: 1280, cy: 900, fill: C.amber, size: 50 });
+  sfx('pop', at('nosignifica1'));
+  return t => {
+    host(t, at('prension')); show(c, t, at('prension') + 0.2);
+    const a = Math.PI * (1.2 + 0.6 * (0.5 + 0.5 * Math.sin((t - at('prension')) * 0.9)));
+    set(needle, { x2: cx + 190 * Math.cos(a), y2: cy + 190 * Math.sin(a) });
+    show(src, t, at('especialistas1')); pop(p, t, at('nosignifica1'), 1280, 900);
+  };
+});
+// 9. why: smaller muscle fibres, weaker nerve–muscle signals
+scene(svg, () => at('porque1'), () => at('antonio'), g => {
+  const h = Text(g, '¿POR QUÉ?', { x: 960, y: 160, size: 100, color: ACC });
+  const m = el('g', {}, g); const cm = cut(m, 'fibra', 1150, 520, 760);
+  const lab1 = Chip(g, 'MENOS TAMAÑO Y FUERZA', { cx: 1150, cy: 860, fill: C.white, size: 44 });
+  const nerve = el('g', {}, g);
+  el('path', { d: 'M150 900 C 380 820, 520 700, 800 560', fill: 'none', stroke: C.amber, 'stroke-width': 16, 'stroke-linecap': 'round' }, nerve);
+  el('path', { d: 'M150 900 C 380 820, 520 700, 800 560', fill: 'none', stroke: C.ink, 'stroke-width': 3, 'stroke-dasharray': '2 14' }, nerve);
+  const spark = el('circle', { r: 20, fill: '#FFF2A8', stroke: C.ink, 'stroke-width': 4 }, nerve);
+  Text(nerve, 'NERVIO', { x: 200, y: 970, size: 40 });
+  const lab2 = Chip(g, 'SEÑAL MÁS DÉBIL', { cx: 470, cy: 600, fill: C.white, size: 40 });
+  sfx('pop', at('tamano'), 0.7); sfx('pop', at('nervios'), 0.7);
+  return t => {
+    show(h, t, at('porque1'));
+    const k = 1 - 0.22 * E.inOut(prog(t, at('tamano'), at('tamano') + 2.5));
+    pop(m, t, at('porque1') + 0.3, 1150, 520);
+    if (t > at('porque1') + 0.7) m.setAttribute('transform', `translate(1150 520) scale(${k.toFixed(3)}) translate(-1150 -520)`);
+    float(cm, t, 1150, 520, { amp: 5 });
+    show(lab1, t, at('tamano'));
+    show(nerve, t, at('nervios')); show(lab2, t, at('nervios') + 1);
+    const u = ((t - at('nervios')) % 1.6) / 1.6;
+    set(spark, { cx: lerp(150, 800, u), cy: lerp(900, 560, u) - 40 * Math.sin(u * Math.PI), opacity: 1 - 0.7 * u, r: 22 * (1 - 0.55 * prog(t, at('nervios') + 2, at('nervios') + 6)) });
+  };
+});
+// 10–13. Antonio (dramatisation)
+stillScene(svg, 'm2a', () => at('antonio'), () => at('atribuyo'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const id = Chip(g, 'ANTONIO · 66 AÑOS · SEVILLA', { cx: 960, cy: 120, fill: C.ink, color: C.amber, size: 46 });
+  const c = CAP(g, 'LOS DEDOS NO AGUANTAN', { hi: 'DEDOS' }); Drama(g);
+  return t => { show(id, t, at('antonio') + 0.2); show(c, t, at('portal')); };
+});
+stillScene(svg, 'm2b', () => at('atribuyo'), () => at('consultar1'), { focus: [0.45, 0.35], zoom: 0.12 }, g => {
+  const b = Bubble(g, '«Es la edad»', { cx: 1350, cy: 200, size: 60 }); Drama(g);
+  sfx('pop', at('atribuyo') + 0.3);
+  return t => pop(b, t, at('atribuyo') + 0.3, 1350, 200);
+});
+stillScene(svg, 'm2c', () => at('consultar1'), () => at('limitarse'), { focus: [0.55, 0.45], zoom: 0.12 }, g => {
+  const c = CAP(g, 'CONSULTÓ A UN PROFESIONAL', { hi: 'PROFESIONAL' }); Drama(g);
+  return t => show(c, t, at('consultar1') + 0.3);
+});
+stillScene(svg, 'm2d', () => at('limitarse'), () => at('fundamental1'), { focus: [0.5, 0.35], zoom: 0.12 }, g => {
+  const c = CAP(g, 'CAMINAR NO BASTA', { hi: 'NO BASTA' }); Drama(g);
+  return t => show(c, t, at('limitarse'));
+});
+// 14. walking + strength
+scene(svg, () => at('fundamental1'), () => at('hoy1'), g => {
+  const a = IconTile(g, 'walk', 'CAMINAR', 620, 470, { w: 400, h: 420 });
+  const plus = Text(g, '+', { x: 960, y: 470, size: 160, color: ACC });
+  const b = IconTile(g, 'dumbbell', 'FUERZA', 1300, 470, { w: 400, h: 420 });
+  const c = CAP(g, 'LAS DOS COSAS', { hi: 'DOS' });
+  sfx('pop', at('fundamental1') + 0.3); sfx('ding', at('caminar1') + 3);
+  return t => { pop(a, t, at('fundamental1') + 0.3, 620, 470); show(plus, t, at('caminar1') + 2.6); pop(b, t, at('caminar1') + 3, 1300, 470); show(c, t, at('caminar1') + 3.5); };
+});
+// 15. exercise 1: squeeze a soft ball
+scene(svg, () => at('hoy1'), () => at('bolsaligera'), g => {
+  const h = Chip(g, 'EJERCICIO · PELOTA BLANDA', { cx: 660, cy: 110, fill: ACC, color: C.white, size: 46 });
+  const s1 = Still(g, 'cut/agr1.png', { ...LEFT, y: 190, h: 700, iw: SZ.agr1[0], ih: SZ.agr1[1], zoom: 0.04 });
+  const s2 = Still(g, 'cut/agr2.png', { ...LEFT, y: 190, h: 700, iw: SZ.agr2[0], ih: SZ.agr2[1], zoom: 0.04 });
+  const labA = Chip(g, 'APRIETA 5 SEGUNDOS', { cx: 660, cy: 960, fill: C.ink, color: C.white, size: 46 });
+  const labB = Chip(g, 'RELAJA LA MANO', { cx: 660, cy: 960, fill: C.green, color: C.white, size: 46 });
+  const ring = TimerRing(g, { cx: 1590, cy: 300, r: 120, dur: 5, label: 'APRIETA' });
+  const cnt = Counter(g, { cx: 1590, cy: 600 }); cnt.set('8–10 ×');
+  const ch1 = Chip(g, 'AMBAS MANOS', { cx: 1590, cy: 820, size: 40 });
+  const ch2 = Chip(g, 'SIN DOLOR', { cx: 1590, cy: 940, fill: C.green, color: C.white, size: 40 });
+  [at('aprieta'), at('relaja'), at('repite1'), at('ambas')].forEach((x, i) => sfx(i === 0 ? 'squeeze' : 'pop', x, 0.7));
+  return t => {
+    show(h, t, at('hoy1'));
+    const sq = t > at('aprieta') && ((t - at('aprieta')) % 6) < 5;
+    s1.g.setAttribute('opacity', sq ? 0 : prog(t, at('pelota') - 0.3, at('pelota'))); s2.g.setAttribute('opacity', sq ? 1 : 0);
+    s1.draw(t, at('pelota'), at('bolsaligera')); s2.draw(t, at('pelota'), at('bolsaligera'));
+    show(labA, t, at('aprieta')); show(labB, t, at('relaja'));
+    labA.style.display = sq ? '' : 'none'; labB.style.display = sq ? 'none' : '';
+    show(ring.g, t, at('aprieta')); ring.draw(t, at('aprieta'));
+    show(cnt.g, t, at('repite1')); show(ch1, t, at('ambas')); show(ch2, t, at('ambas') + 1.2);
+  };
+});
+// 16. hold a light bag
+scene(svg, () => at('bolsaligera'), () => at('artritis'), g => {
+  const st = Still(g, 'cut/agr3.png', { ...LEFT, y: 190, h: 700, iw: SZ.agr3[0], ih: SZ.agr3[1], focus: [0.6, 0.5], zoom: 0.06 });
+  const ch = [['BOLSA LIGERA', 'bolsaligera'], ['MUÑECA RECTA', 'muneca'], ['HOMBROS RELAJADOS', 'muneca'], ['AUMENTA POCO A POCO', 'gradual1']].map(([s, k], i) => [Chip(g, s, { cx: 1585, cy: 260 + i * 190, fill: i === 3 ? ACC : C.white, color: i === 3 ? C.white : C.ink, size: 38 }), k, i]);
+  ch.forEach(([, k, i]) => sfx('pop', at(k) + (i === 2 ? 1.2 : 0), 0.6));
+  return t => { st.draw(t, at('bolsaligera'), at('artritis')); ch.forEach(([c, k, i]) => slideIn(c, t, at(k) + (i === 2 ? 1.2 : 0), 'r', 400)); };
+});
+// 17. arthritis or pain: adapt with a professional
+scene(svg, () => at('artritis'), () => at('recuerda1'), g => {
+  const w = Warn(g, '¿ARTRITIS O DOLOR EN LAS MANOS?', ['Adapta estos movimientos', 'con ayuda profesional'], { y: 300 });
+  const hnd = icon(g, 'hand', 860, 120, 1.6);
+  sfx('alert_soft', at('artritis'));
+  return t => { show(w, t, at('artritis')); pop(hnd, t, at('artritis') + 0.3, 940, 200); };
+});
+// 18. hands help, but also legs, arms and back
+scene(svg, () => at('recuerda1'), () => at('megusta'), g => {
+  const b = el('g', {}, g); const cb = cut(b, 'cuerpo', 960, 560, 820);
+  const marks = [['BRAZOS', 800, 560, 560, 420], ['ESPALDA', 960, 420, 1290, 300], ['PIERNAS', 940, 800, 1290, 820]].map(([s, x, y, lx, ly], i) => {
+    const c = el('g', {}, g);
+    el('line', { x1: x, y1: y, x2: lx, y2: ly, stroke: C.ink, 'stroke-width': 4, 'stroke-dasharray': '10 10' }, c);
+    el('circle', { cx: x, cy: y, r: 16, fill: ACC, stroke: C.ink, 'stroke-width': 4 }, c);
+    Chip(c, s, { cx: lx, cy: ly, fill: C.white, size: 44 });
+    sfx('pop', at('piernasbe') + i * 0.6, 0.6); return [c, i];
+  });
+  const cap = CAP(g, 'NO SOLO LAS MANOS', { hi: 'MANOS' });
+  return t => { show(b, t, at('recuerda1')); marks.forEach(([c, i]) => show(c, t, at('piernasbe') + i * 0.6)); show(cap, t, at('recuerda1') + 0.6); };
+});
+// 19. like
+scene(svg, () => at('megusta'), () => at('advertencia1'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const c = CTA(w, 'like', 540);
+  sfx('click', at('megusta') + 0.3);
+  return t => { host(t, at('megusta')); pop(c, t, at('megusta') + 0.3, 960, 540); };
+});
+// 20. bridge: the chair
+scene(svg, () => at('advertencia1'), () => END + 1, g => {
+  const ch = icon(g, 'chair', 760, 300, 4);
+  const q = icon(g, 'question', 1180, 260, 1.6);
+  const c = CAP(g, 'SIGUIENTE SEÑAL: LA SILLA', { hi: 'LA SILLA' });
+  sfx('pop', at('silla1'));
+  return t => { pop(ch, t, at('advertencia1') + 0.3, 960, 500); pop(q, t, at('silla1'), 1260, 340); show(c, t, at('siguiente1')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

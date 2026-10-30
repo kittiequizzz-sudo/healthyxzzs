@@ -1,0 +1,99 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Conclusión — recap, warning, quiz, goodbye.
+window.START = at('c0') - 0.3;
+window.END = 1300.5;
+window.DURATION = window.END;
+const svg = Stage('end');
+
+// 1. title card
+scene(svg, () => START, () => at('cuesta'), g => {
+  el('rect', { width: 1920, height: 1080, fill: '#5A4234' }, g);
+  const a = Text(g, 'CONCLUSIÓN', { x: 960, y: 330, size: 60, color: C.amber });
+  const b = Text(g, 'TUS MÚSCULOS PUEDEN', { x: 960, y: 470, size: 96, color: C.cream });
+  const c = Text(g, 'RECUPERAR FUERZA', { x: 960, y: 590, size: 96, color: C.cream });
+  const d = Chip(g, 'NO TE RESIGNES', { cx: 960, cy: 780, fill: C.amber, size: 56 });
+  sfx('pop', at('resignarte') + 1);
+  return t => { show(a, t, START + 0.2); show(b, t, START + 0.5); show(c, t, START + 0.8); pop(d, t, at('resignarte') + 1, 960, 780); };
+});
+// 2. recap of the five signs; no sign alone is a diagnosis
+scene(svg, () => at('cuesta'), () => at('buena'), g => {
+  const keys = ['cuesta', 'apoyartec', 'pasosc', 'ropac', 'agotadoc'];
+  const tiles = SIGNS.map(([ic, s], i) => [IconTile(g, ic, s, 960 + (i - 2) * 340, 420, { w: 290, h: 300 }), 960 + (i - 2) * 340, keys[i]]);
+  tiles.forEach(([, , k]) => sfx('pop', at(k), 0.6));
+  const w = Chip(g, 'NINGUNA SEÑAL SOLA ES UN DIAGNÓSTICO', { cx: 960, cy: 760, fill: C.amber, size: 50 });
+  const c = CAP(g, 'PERO TODAS MERECEN ATENCIÓN', { hi: 'ATENCIÓN' });
+  sfx('pop', at('ninguna'));
+  return t => { tiles.forEach(([tile, cx, k]) => pop(tile, t, at(k), cx, 420)); pop(w, t, at('ninguna'), 960, 760); show(c, t, at('ninguna') + 3.5); };
+});
+// 3. good news: +70, +80 — exercise, food, consistency
+scene(svg, () => at('buena'), () => at('advertencia'), g => {
+  const h = Chip(g, 'TAMBIÉN DESPUÉS DE LOS 70 U 80', { cx: 960, cy: 170, fill: C.green, color: C.white, size: 56 });
+  const ts = [['dumbbell', 'FUERZA\nADAPTADA', 'resistencia'], ['plate', 'ALIMENTACIÓN\nSUFICIENTE', 'alimentacionc'], ['calendar', 'CONSTANCIA', 'constanciac']].map(([ic, s, k], i) => { sfx('pop', at(k), 0.7); return [IconTile(g, ic, s, 960 + (i - 1) * 460, 560, { w: 400, h: 420 }), k, 960 + (i - 1) * 460]; });
+  sfx('ding', at('buena'));
+  return t => { pop(h, t, at('buena'), 960, 170); ts.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 560)); };
+});
+// 4. warning: never ignore… one side → urgent
+scene(svg, () => at('advertencia'), () => at('pregunta'), g => {
+  const c = el('g', {}, g);
+  Card(c, { x: 260, y: 120, w: 1400, h: 640, fill: C.white });
+  el('rect', { x: 260, y: 120, width: 1400, height: 110, rx: 36, fill: C.amber }, c);
+  el('rect', { x: 260, y: 180, width: 1400, height: 50, fill: C.amber }, c);
+  Text(c, 'NUNCA IGNORES', { x: 960, y: 177, size: 60 });
+  const ls = [['Una debilidad repentina', 'repentina'], ['Una dificultad nueva para caminar', 'nueva'], ['Una fatiga inexplicable', 'inexplicable'], ['Una pérdida de peso involuntaria', 'involuntaria']].map(([s, k], i) => {
+    const r = el('g', {}, c); el('circle', { cx: 365, cy: 305 + i * 115, r: 32, fill: C.orange, stroke: C.ink, 'stroke-width': 4 }, r); Text(r, '!', { x: 365, y: 308 + i * 115, size: 44, color: C.white }); Text(r, s, { x: 430, y: 305 + i * 115, size: 50, anchor: 'start' }); sfx('pop', at(k), 0.5); return [r, k];
+  });
+  const u = Chip(g, '¿UN LADO DEL CUERPO? → URGENTE', { cx: 960, cy: 900, fill: C.red, color: C.white, size: 56 });
+  sfx('alert', at('bruscamente'));
+  return t => { show(c, t, at('advertencia')); ls.forEach(([r, k]) => show(r, t, at(k))); pop(u, t, at('bruscamente'), 960, 900); };
+});
+// 5. quiz
+scene(svg, () => at('pregunta'), () => at('cuentame'), g => {
+  const h = Text(g, '¿QUÉ AYUDA MÁS A RECUPERAR FUERZA?', { x: 960, y: 140, size: 62, color: C.ink });
+  const opts = [['qa', 'A', 'CAMINAR DESPACIO', 'qa'], ['qb', 'B', 'PESOS ADECUADOS', 'qb'], ['qc', 'C', 'SENTADO DESCANSANDO', 'qc']].map(([n, L, s, k], i) => {
+    const c = el('g', {}, g), x = 70 + i * 610;
+    const st = still(c, n, { x, y: 240, w: 560, h: 420, r: 28, zoom: 0.06 });
+    const lab = el('g', {}, c); Card(lab, { x, y: 690, w: 560, h: 130, fill: C.white });
+    Text(lab, L, { x: x + 60, y: 757, size: 70, color: ACC }); Text(lab, s, { x: x + 320, y: 757, size: s.length > 16 ? 31 : 36 });
+    sfx('pop', at(k), 0.7); return [c, st, k, x, i];
+  });
+  const ok = icon(g, 'check', 920, 560, 1.6);
+  const walk = Chip(g, 'CAMINAR TAMBIÉN SUMA', { cx: 960, cy: 950, fill: C.green, color: C.white, size: 48 });
+  const ch = Chip(g, 'FUERZA ADAPTADA Y PROGRESIVA', { cx: 960, cy: 950, fill: C.ink, color: C.white, size: 48 });
+  sfx('ding', at('correcta'));
+  return t => {
+    show(h, t, at('pregunta'));
+    opts.forEach(([c, st, k, x, i]) => { pop(c, t, at(k), x + 280, 530); st.draw(t, at(k), at('cuentame')); if (t > at('correcta')) c.setAttribute('opacity', i === 1 ? 1 : 0.35); });
+    pop(ok, t, at('correcta'), 1000, 640); show(ch, t, at('correcta') + 1, at('tambienc')); show(walk, t, at('tambienc'));
+  };
+});
+// 6. comment + subscribe + bell
+scene(svg, () => at('cuentame'), () => at('final'), g => {
+  const host = Host(g, 'waving', { cx: 400, cy: 580, fit: 720 });
+  const b = Bubble(g, '¿Acertaste? ¿Qué señal reconoces?', { cx: 1180, cy: 230, size: 48 });
+  const w1 = el('g', { transform: 'translate(220 0)' }, g); const c1 = CTA(w1, 'comment', 480);
+  const w2 = el('g', { transform: 'translate(220 0)' }, g); const c2 = CTA(w2, 'sub', 660);
+  const w3 = el('g', { transform: 'translate(220 0)' }, g); const c3 = CTA(w3, 'bell', 840);
+  sfx('pop', at('cuentame') + 0.3); sfx('click', at('suscribec')); sfx('ding', at('campanita'));
+  return t => { host(t, at('cuentame')); pop(b, t, at('cuentame') + 0.3, 1180, 230); show(c1, t, at('cuentame') + 1); pop(c2, t, at('suscribec'), 960, 660); pop(c3, t, at('campanita'), 960, 840); };
+});
+// 7. goodbye
+stillScene(svg, 'qd', () => at('final'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.08 }, g => {
+  const c = CAP(g, 'FUERZA · MOVILIDAD · LIBERTAD', { hi: 'LIBERTAD' });
+  const v = Chip(g, '¡NOS VEMOS!', { cx: 960, cy: 130, fill: C.red, color: C.white, size: 64 });
+  sfx('ding', at('vemos'));
+  return t => { show(c, t, at('libertadc') - 1.5); pop(v, t, at('vemos'), 960, 130); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

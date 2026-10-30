@@ -126,6 +126,27 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
   ([calf-raise training in elderly men](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5583613/)). No study range in degrees
   was found; show a clearly visible heel lift of ≈5–8 cm **[coach]**.
 
+### Grip squeeze with a soft ball (hand close-up, palm side)
+- Squeeze a soft rubber ball with all fingers, hold ≈5 s, relax fully, 8–10 reps per hand, no pain
+  **[coach]** (no study prescribes these exact numbers). 8-week handgrip programmes counteracted the
+  age-related decline in grip strength and endurance in older adults **[study]**
+  ([Hand Surg Rehabil 2020](https://ir.lib.uth.gr/xmlui/handle/11615/72223?show=full)).
+- Grip strength is the main strength measure in EWGSOP2 (< 27 kg men, < 16 kg women) **[study]**
+  ([Tromsø 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7654146/)).
+- Draw: pose 1 open relaxed hand holding the ball; pose 2 fingers wrapped and pressed, ball visibly
+  dented, forearm flexors (inner forearm) highlighted; wrist straight in both.
+
+### Supported standing knee raise / march (side view)
+- Stand tall holding a stable chair back or counter; lift one knee to about hip height or lower (thigh
+  ≤ 90°), lower with control, alternate **[coach]**. Trunk stays upright, standing knee soft, no lean back.
+- Muscles: hip flexors of the lifting leg; hip abductors (gluteus medius) of the standing leg stabilise
+  the pelvis **[coach]**.
+
+### Stair climbing with the handrail (side view)
+- Whole foot on the step, push through the heel, hand on the rail, upright trunk; one step at a time,
+  rest when needed **[coach]**. Quadriceps and glutes lift the body; calves push off **[coach]**.
+- Older adults use more trunk lean and rail support; never draw them without the rail.
+
 ### Walking (side view)
 - Older adults: cadence ≈119–125 steps/min (≈2 steps/s), peak hip flexion ≈30–34°, speed
   ≈1.26–1.29 m/s **[study]** (older-adult gait norms above). Arms swing opposite to the legs.

@@ -19,6 +19,8 @@ motion graphics).
 | 10 | Rig from the owner's flat parts sheet | Rejected | "Looks creepy af": rigid parts rotating at pins. |
 | 11 | **Infographics + illustrated step sequences of real drawings** | **APPROVED** ("that's what I'm talking about") | Every frame is a real drawing; motion is explained with steps, arrows and callouts. |
 | 13 | 10-min diabetes video (`projects/azucar_sube/`) from a full brief (.docx) written for an on-camera doctor | Delivered (awaiting feedback) | Narrator rewrite (no fake credential); new character Doña Carmen (blue-skin style, two 2×2 sheets), metaphor panels (muscle shop, key factory), object sheet; voice sent in 3 parts and joined. |
+| 14 | 22-min stroke first-aid video (`projects/ictus_6pasos/`): 9 scene sheets ordered, A–E delivered first | Part 1 (intro + Puntos 1–3, 10:32) delivered | Voice read the short "Punto n" aloud, so sections start on that cue. Rendering at ~13× real time per job; deliver a re-encode at CRF 22 split into ~160 s parts (<30 MB). |
+| 15 | 20-min sarcopenia video (`projects/sarcopenia_5senales/`) | Intake, fact-check, plan, order | First topic video with exercise step sequences inside (two pose sheets) next to 2×2 scene sheets. |
 | 12 | Same format for a 22-min organ topic video (`projects/7dias_sin_cenar/`): organ sheet + 2×2 scene panels + food sheet, ~300 voice cues, sections rendered in parallel | **APPROVED** ("right, tốt") | First full video delivered. Scene panels with push-in replace any character animation. |
 
 What worked from the start: the infographic scenes (titles, spine diagram with force counter, EMG bar

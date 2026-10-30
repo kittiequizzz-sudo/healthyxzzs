@@ -123,3 +123,22 @@ at maximum flexion; the knees and feet have not moved.
 **Checklist:** chin tucked from pose 1 on; the curl comes before the hinge (never a stiff plank
 swinging up); the feet stay down; the arms stay crossed with no hands pulling the head; the
 movement reverses smoothly on the way down.
+
+## Sit-to-stand (chair against the wall, side view): drawing spec
+- Pose 1 seated: back upright, hips and knees ≈90°, feet flat hip-width apart slightly behind the knees,
+  arms crossed on the chest (or hands on thighs for the assisted version).
+- Pose 2 lean: trunk flexed forward ≈30–40° from the hips with a straight back, nose over the toes,
+  hips still on the seat, weight shifting onto the feet.
+- Pose 3 lift-off: buttocks just off the seat, knees over the feet (not past the toes much), trunk still
+  leaning, thighs (quadriceps) and glutes highlighted.
+- Pose 4 standing: hips and knees fully extended, upright, heels down, looking ahead.
+- Must stay still: chair, foot position. Faults to avoid in correct poses: knees caving in, heels lifting,
+  pushing on armrests (that is the "sign" picture, not the exercise).
+
+## Heel raise + supported knee raise (behind a chair, side view): drawing spec
+- Pose 1: standing tall behind a chair, both hands on the backrest, feet hip-width, heels down.
+- Pose 2: same, heels lifted ≈5–8 cm onto the balls of the feet, knees straight but not locked, body
+  vertical (no forward lean), calf highlighted.
+- Pose 3: back to flat feet, standing tall.
+- Pose 4: one knee lifted to about hip height or a bit lower, standing leg soft, both hands on the chair,
+  trunk upright.

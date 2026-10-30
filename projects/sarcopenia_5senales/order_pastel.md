@@ -66,5 +66,61 @@ Gemini thường in một dấu lấp lánh nhỏ ở góc dưới bên phải; 
 2. A1, A2, B1, B2, C1, C2, P1: đính kèm **tấm 0**.
 3. P0, H, I: không cần đính kèm.
 
-# PHẦN 2 và PHẦN 3
-Tôi sẽ viết theo cùng cách (dàn nhân vật này, mỗi khung dùng một lần, mỗi Señal một tông màu) khi bạn làm tới.
+# PHẦN 2: Señal 3 (bước chân) + Señal 4 (cái cân)
+Tông màu: Señal 3 **xanh da trời**, Señal 4 **tím nhạt**. Các tấm có nhân vật đều đính kèm **tấm 0**.
+
+## D1 · `pasos1`: Señal 3
+*Pilar soi đế giày mòn mũi; nhân vật chính vấp mép vỉa hè; Rafael bước nhiều bước ngắn; nhân vật chính đi chậm ra siêu thị, nhìn đồng hồ.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, sky-blue and soft aqua pastel tones, no text, no numbers. Panel 1: Pilar sitting on a bench holding up one of her old shoes and looking at the worn-out toe of the sole, curious frown. Panel 2: the main character tripping on an uneven pavement edge, arms out, catching his balance, startled face. Panel 3: Rafael walking along a street with many small short steps, concentrating, a little tired. Panel 4: the main character walking slowly toward a small neighbourhood supermarket, checking his wristwatch, puzzled. 16:9, high resolution.
+
+## D2 · `pasos2`: Señal 3
+*Lucía bấm giờ Pilar đi giữa hai vạch trong hành lang phòng khám; nhân vật chính đi bộ nhanh nhẹn trong công viên; Pilar đi chợ vui vẻ; Rafael ngồi cà phê vỉa hè cười với bạn bè.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, sky-blue and soft aqua pastel tones, no text, no numbers. Panel 1: in a bright clinic corridor with two tape marks on the floor, the physiotherapist Lucía holding a stopwatch while Pilar walks between the marks, both focused. Panel 2: the main character walking briskly and confidently in a sunny park, arms swinging, big smile. Panel 3: Pilar at a colourful street market choosing fruit, carrying a basket, happy. Panel 4: Rafael sitting at a café terrace laughing with friends over coffee, relaxed. 16:9, high resolution.
+
+## P2 · `talones`: nhón gót + nâng gối, vịn ghế (đính kèm tấm 0)
+*Nhân vật chính làm mẫu, 4 tư thế nhìn ngang: đứng thẳng → nhón gót → hạ gót → nâng một gối.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style as the attached cast sheet (adult proportions, thick soft dark-brown outlines, flat pastel colours). Key-pose sheet of the main character (salt-and-pepper curly hair, round glasses, mustard-yellow T-shirt, beige trousers, brown shoes), calm focused expression. Side view facing right, one single row of 4 poses, identical size, same floor line, evenly spaced, the man standing behind the backrest of the same sturdy wooden chair in every pose, both hands resting on top of the backrest, body upright. Pose 1: standing tall, feet flat, hip-width apart. Pose 2: heels lifted clearly off the floor, standing on the balls of the feet, knees straight but soft, body still vertical. Pose 3: heels back down, standing tall like pose 1. Pose 4: one knee lifted forward to just below hip height, standing leg slightly soft, trunk upright, both hands still on the chair. Flat cream background #FCEDCE, simple floor line, no labels, no numbers, no text, wide 21:9 image.
+
+## E1 · `bascula1`: Señal 4
+*Nhân vật chính bước lên cân buổi sáng, thản nhiên; Pilar soi gương thấy quần rộng ở đùi; nhân vật chính gồng tay thấy bắp tay nhỏ đi; Antonio ăn kiêng quá khắt khe với đĩa salad tí hon, buồn.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, lilac and lavender pastel tones, no text, no numbers. Panel 1: the main character stepping onto a bathroom scale with a blank display in the morning, relaxed, sipping coffee. Panel 2: Pilar in front of a full-length mirror pinching loose fabric of her trousers at the thighs, surprised. Panel 3: the main character flexing his upper arm and seeing only a small, soft muscle, disappointed pout. Panel 4: Antonio at a table looking sadly at a tiny diet plate with three lettuce leaves, hungry and weak. 16:9, high resolution.
+
+## E2 · `bascula2`: Señal 4
+*Pilar nấu bữa giàu protein; nhân vật chính ăn bữa cân đối; Rafael tập kéo dây kháng lực khi ngồi; Pilar giơ nắm tay quyết tâm khi gõ bình luận trên máy tính bảng.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, lilac and lavender pastel tones, no text. Panel 1: Pilar cooking in her kitchen: eggs in a pan, grilled fish and a pot of lentils, cheerful. Panel 2: the main character at a table enjoying a balanced lunch with fish, vegetables, lentils and a glass of milk, satisfied smile. Panel 3: Rafael sitting on a chair doing a seated row with a red elastic resistance band around his feet, determined face. Panel 4: Pilar on a sofa typing on a tablet (blank screen) and raising her other fist, determined and motivated. 16:9, high resolution.
+
+## J · `alimentos`: thực phẩm (không cần đính kèm)
+*Các món giàu protein, đĩa ăn kiêng quá ít, đôi thận (cho lưu ý bệnh thận), và hình cơ thể trơn để tôi làm sơ đồ thành phần cơ thể.*
+
+> Warm pastel 2D flat illustration sheet, cartoon explainer style for adults, thick soft dark-brown outlines, flat pastel colours, minimal shading, consistent style and scale. Eight items drawn SEPARATELY and evenly spaced in two rows on a flat cream #FCEDCE background: 1) two eggs, one fried and one boiled cut in half, 2) a grilled fish fillet on a small plate, 3) a bowl of lentils, 4) a glass of milk with a small piece of cheese and a yogurt cup, 5) a grilled chicken breast on a small plate, 6) a nearly empty plate with only three lettuce leaves, 7) a pair of human kidneys, anatomically correct, friendly colours, 8) a plain adult human body silhouette, front view, solid soft beige, no face details. No text, no labels, no numbers, no logos, no brands, 16:9, high resolution.
+
+---
+
+# PHẦN 3: Señal 5 (cầu thang) + kết bài
+Tông màu: Señal 5 **cam mơ**, kết bài **kem ấm**. Các tấm có nhân vật đều đính kèm **tấm 0**.
+
+## F1 · `escaleras1`: Señal 5
+*Pilar đứng dưới chân cầu thang thở dài, cạnh thang máy; nhân vật chính dừng giữa chừng vịn tay, chân nặng; Antonio phẩy tay "bình thường thôi, tôi già rồi"; Rafael leo chậm, vịn tay vịn, bình tĩnh.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, apricot and warm orange pastel tones, apartment building stairwell, no text, no numbers. Panel 1: Pilar at the bottom of a staircase looking up with a long sigh, an elevator door right next to her. Panel 2: the main character stopped halfway up the stairs, one hand on the handrail and the other on his thigh, heavy tired legs, out of breath. Panel 3: Antonio on a stair landing waving his hand dismissively with a resigned smile, as if saying "it's normal, I'm old". Panel 4: Rafael climbing the stairs slowly and safely, one hand on the handrail, upright and calm. 16:9, high resolution.
+
+## F2 · `escaleras2`: Señal 5
+*Pilar đi khám, bác sĩ nghe tim phổi; nhân vật chính ngồi nghỉ trên bậc thang uống nước; Antonio tập đứng lên ngồi xuống ở nhà; nhân vật chính, Pilar và Rafael cùng leo cầu thang vui vẻ, khỏe khoắn.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, apricot and warm orange pastel tones, no text, no numbers. Panel 1: Pilar sitting in a doctor's office while a friendly doctor (same style, plain white coat, no logos) listens to her chest with a stethoscope. Panel 2: the main character sitting on a stair step resting, drinking from a water bottle, recovering with a small smile. Panel 3: Antonio at home doing chair rises from a sturdy chair, arms crossed on his chest, concentrating. Panel 4: the main character, Pilar and Rafael climbing the stairs together holding the handrail, laughing, strong and happy. 16:9, high resolution.
+
+## G · `final`: kết bài + câu đố
+*3 đáp án câu đố: nhân vật chính đi bộ chậm (A), Pilar ngồi nâng tạ nhẹ (B – đúng), Rafael ngồi nghỉ trên sofa (C); và cả 5 nhân vật vẫy tay tạm biệt.*
+
+> Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, each panel a different warm pastel background (cream, peach, mint, lilac), no text, no numbers. Panel 1: the main character strolling very slowly in a park, hands behind his back. Panel 2: Pilar sitting on a sturdy chair lifting a pair of small light dumbbells in a biceps curl, proud smile. Panel 3: Rafael resting on a sofa under a blanket watching TV, sleepy. Panel 4: all five characters (the main character, Pilar, Antonio, Rafael and Lucía) standing together smiling and waving goodbye. 16:9, high resolution.
+
+---
+
+## Thứ tự tạo phần 2 và phần 3
+- Đính kèm **tấm 0**: D1, D2, P2, E1, E2, F1, F2, G.
+- Không cần đính kèm: J.

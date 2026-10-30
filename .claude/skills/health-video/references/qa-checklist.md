@@ -45,3 +45,13 @@
 - GitHub rejects files over 100 MB: don't commit full renders (`out/*.mp4`, `out/parts/` are ignored).
   Commit the scenes, cues, transcript and cut assets instead, so the video can be re-rendered.
 - The container is temporary: remind the user to download the parts.
+
+## Sound effects and background music (owner request, Oct 2026)
+- Never download music or SFX (licences, Content ID). Everything is synthesised by `scripts/mix_audio.py`:
+  a soft pastel pad + plucked arpeggio + bass (F–Dm–Bb–C, ~72 bpm) and short SFX (pop, swish, cut, ding, stamp,
+  click, tick, squeeze, alert, alert_soft).
+- Scenes register SFX with `sfx(kind, time, vol)` (see `projects/sarcopenia_5senales/common.js`; each `scene()`
+  adds a soft swish). `scripts/collect_sfx.mjs <project> sound/sfx.json pages…` gathers them, then
+  `python3 scripts/mix_audio.py audio/voice.mp3 sound/sfx.json sound` writes `sound/mix.m4a`: music ducked under the
+  voice (sidechain), music ≈ 13 LU under the voice before ducking, SFX thinned to ≥ 0.3 s apart, −14 LUFS.
+- Mux: `ffmpeg -i out/video_voz.mp4 -i sound/mix.m4a -map 0:v -map 1:a -c copy -shortest out/final.mp4`.

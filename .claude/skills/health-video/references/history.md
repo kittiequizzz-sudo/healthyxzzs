@@ -21,6 +21,7 @@ motion graphics).
 | 13 | 10-min diabetes video (`projects/azucar_sube/`) from a full brief (.docx) written for an on-camera doctor | Delivered (awaiting feedback) | Narrator rewrite (no fake credential); new character Doña Carmen (blue-skin style, two 2×2 sheets), metaphor panels (muscle shop, key factory), object sheet; voice sent in 3 parts and joined. |
 | 14 | 22-min stroke first-aid video (`projects/ictus_6pasos/`): 9 scene sheets ordered, A–E delivered first | Part 1 (intro + Puntos 1–3, 10:32) delivered | Voice read the short "Punto n" aloud, so sections start on that cue. Rendering at ~13× real time per job; deliver a re-encode at CRF 22 split into ~160 s parts (<30 MB). |
 | 15 | 20-min sarcopenia video (`projects/sarcopenia_5senales/`) | Intake, fact-check, plan, order | First topic video with exercise step sequences inside (two pose sheets) next to 2×2 scene sheets. |
+| 16 | Sarcopenia video in the owner's **warm pastel adult-cartoon** style (cast of 5, colour per section, no repeated panels, owner's original mascot as host) + synthesised music and SFX | Rendered, delivered | Style and sound requested by the owner on 30 Oct. |
 | 12 | Same format for a 22-min organ topic video (`projects/7dias_sin_cenar/`): organ sheet + 2×2 scene panels + food sheet, ~300 voice cues, sections rendered in parallel | **APPROVED** ("right, tốt") | First full video delivered. Scene panels with push-in replace any character animation. |
 
 What worked from the start: the infographic scenes (titles, spine diagram with force counter, EMG bar

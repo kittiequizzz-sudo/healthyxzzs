@@ -103,3 +103,10 @@ I `musculos` (mano_musculos, pierna_cuadriceps, gemelo, muslo_joven, muslo_mayor
 - Quiz: three cards **q2** (caminar despacio), **q3** (pesas), **q1** (sentado). 3‑2‑1 during the pause, then the
   middle one turns green. Note "Caminar también suma".
 - Comment, subscribe + bell CTA; final **q4** "FUERZA · MOVILIDAD · LIBERTAD"; "¡Nos vemos!".
+
+## Voice take (audio/voice.mp3, 21:39) and the three parts
+The voice reads the **original** script: the man in Señal 2 is **Rafael** (on-screen chip follows the voice), the intro
+has no "pregunta" promise, and the end says "cuántas respuestas has acertado". The short "Señal n" is read aloud.
+- Parte 1 = intro + Señal 1 + Señal 2: 0:00 → 8:39 ("Señal 3" at 519.5 s).
+- Parte 2 = Señal 3 + Señal 4: 8:39 → 15:56 ("Señal 5" at 956.1 s).
+- Parte 3 = Señal 5 + conclusión: 15:56 → 21:39.

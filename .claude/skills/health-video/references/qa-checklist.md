@@ -38,9 +38,10 @@
   final contact sheet.
 
 ## Delivery
-- The app's file upload limit is **30 MB**. A 20-minute 1080p video is ~100 MB. Don't crush it into one
-  small file; split without re-encoding:
-  `ffmpeg -i final.mp4 -c copy -map 0 -f segment -segment_time 280 -reset_timestamps 1 parts/name_parte%d.mp4`
+- The app's file upload limit is **30 MB**. A 20-minute 1080p video is ~140 MB. Split with
+  `python3 scripts/split_parts.py video.mkv voice.mp3 out/parts name` (owner heard clicks and A/V drift at
+  the joins of `-f segment -c copy` parts; this cuts in voice pauses with keyframes forced at the cuts and
+  25 ms audio fades). Feed it the silent render + `sound/mix.m4a` muxed into an .mkv.
   and send the parts in order (the user joins them in CapCut). Tell the user the full file's path too.
 - GitHub rejects files over 100 MB: don't commit full renders (`out/*.mp4`, `out/parts/` are ignored).
   Commit the scenes, cues, transcript and cut assets instead, so the video can be re-rendered.

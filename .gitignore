@@ -19,3 +19,4 @@ projects/*/out_render.log
 projects/*/out/*.mp4
 projects/*/sound/*.wav
 projects/*/sound/*.m4a
+projects/*/out/*.mkv

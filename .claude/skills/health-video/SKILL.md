@@ -28,6 +28,26 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
   signs it. Fictional patients (e.g. Doña Carmen) are fine when labelled "Dramatización" on screen.
 - **No logos** of organisations or brands, and never AI-drawn ones; cite sources as text.
 
+## STANDARD PROCESS (owner, 30 Oct 2026) — the default for every new script
+The sarcopenia video (`projects/sarcopenia_5senales/`) is the reference build. Unless the owner says otherwise:
+- **Style: warm pastel 2D cartoon for adults** in the line/palette of `characters/mascot_pastel/sheet.jpg`
+  (README there has the style line and the code theme). Not the blue-skin style.
+- **Small cast (~5):** order a cast lineup sheet `0 · reparto` first (main character + 2–3 recurring people +
+  one per story in the script + a physio/doctor), attach it to every scene sheet. Not too many characters.
+- **No repeated panels:** each drawn panel is used once. ~1 panel per 20 s of voice (≈ 6 sheets per 8 min),
+  plus pose sheets for exercises, 1–3 item sheets (objects, anatomy, food) on cream `#FCEDCE`.
+- **A pastel tint + accent per section** (`TINTS` in the reference `common.js`), each scene sheet prompt
+  names its tint.
+- **Owner's original mascot as host** (cut poses in `characters/mascot_pastel/cut/`) for CTAs, questions and
+  bridges; the adult cast for the stories.
+- **Give ALL prompts at once** (every part of the video), copy-paste ready in chat, in `order_pastel.md`. The
+  owner generates everything, then sends the voice; build only when all sheets are in.
+- **Sound:** synthesised background music + SFX, never downloaded (`scripts/collect_sfx.mjs` +
+  `scripts/mix_audio.py`, see `qa-checklist.md`).
+- **Delivery:** split with `scripts/split_parts.py` (cuts in voice pauses, keyframes forced at cuts,
+  25 ms audio fades) — never `-f segment -c copy`, which made clicks and A/V drift at the joins.
+- Build by copying `projects/sarcopenia_5senales/common.js` and its section HTMLs as the template.
+
 ## Workflow per video
 1. **Intake:** save the script (any language, .docx is fine: unzip `word/document.xml`) and source log to
    `projects/<slug>/`.
@@ -65,8 +85,9 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
    intro.html punto1.html … --jobs 3` (parallel, frame-snapped joins, voice added once; ~3× real time
    per job). Shared pieces for a video go in its `common.js` (see `projects/7dias_sin_cenar/`).
 10. **Deliver** the MP4 with a short Vietnamese summary of what's in it and any changes made to on-screen
-    facts. Files over 30 MB can't be uploaded to the app: split without re-encoding into ~280 s parts
-    (command in `qa-checklist.md`) and send them in order. Never commit full renders (GitHub's 100 MB limit);
+    facts. Files over 30 MB can't be uploaded to the app: split with
+    `python3 scripts/split_parts.py video.mkv voice.mp3 out/parts <name>` (~170 s parts, clean joins) and
+    send them in order. Never commit full renders (GitHub's 100 MB limit);
     commit the scenes, cues and assets so the video can be re-rendered.
 
 Setup once per machine: `bash scripts/setup.sh`. It installs Whisper (offline), the flat renderer

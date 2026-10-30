@@ -1,13 +1,16 @@
 # Scene plan: "Levantarte de la silla: 4 ejercicios"
 
-~2,650 spoken words → ~17–18 min at 150 wpm. Built like `projects/7dias_sin_cenar/` (one HTML per section on
+~2,650 spoken words; the delivered voice runs 19:09. Built like `projects/7dias_sin_cenar/` (one HTML per section on
 the shared voice timeline, `common.js`, `render_sections.mjs`). Sections: `intro`, `tobillo`, `gluteos`,
 `cuadriceps`, `sentadilla`, `cierre`. Rules: `youtube-style.md` (picture on every beat, ≤ 6-word captions,
 ≤ 2 captions on screen, hook cut every 1.5–2.5 s).
 
-Character: `senior_m` (blue skin, grey hair and beard, dark grey shorts, barefoot: bare feet show the ankle work
-well). Same sturdy wooden chair with backrest and armrests, no wheels, in every drawing. Exercise poses face
-**left** so the right leg (the one the script lifts) is nearest the camera.
+Character: **Don Manuel** (new, v2 order): 72, light-tan skin, white hair and short beard, average build, sage-green
+t-shirt + charcoal shorts, barefoot for exercises; cardigan + trousers in the home scenes. Drawn in a polished 2D
+film style with soft painterly shading and warm light (owner asked for a nicer character and scenes than `senior_m`).
+Cut poses with `cut_poses.py --skin none` (no blue recolour). Same light-oak chair with armrests and a sage cushion
+in every drawing. Exercise poses face **left** so the right leg (the one the script lifts) is nearest the camera.
+Voice: `audio/voice.mp3`, 19:09; the narrator reads the "Apartado n" headings, so each kicker lands on them.
 
 Recurring device: a **4-step progress strip** at the top right (tobillo · glúteo · cuádriceps · levantarse), the
 current step ringed orange, plus a **leg "chain" diagram** (item `cadena`): the working muscle lights red as each

@@ -1,0 +1,200 @@
+[0.26 - 6.66] (w0-18) Hay un momento en la vida en el que una simple silla empieza a convertirse en un pequeño desafío.
+[6.94 - 12.08] (w19-31) Nadie lo nota, nadie te pregunta por ello, pero tú sí lo sabes.
+[12.28 - 20.92] (w32-49) Lo descubres cuando estás sentado tranquilamente, decides levantarte y, sin pensarlo, buscas con las manos algo donde apoyarte.
+[21.08 - 26.62] (w50-61) Quizá necesitas impulsarte dos veces, quizá tus piernas tiemblan durante un instante.
+[26.94 - 30.18] (w62-67) Y entonces aparece una pregunta incómoda.
+[30.30 - 32.50] (w68-73) ¿Será que me estoy haciendo mayor?
+[32.76 - 37.82] (w74-90) Pero escucha esto, porque puede cambiar tu manera de entender lo que le ocurre a tu cuerpo.
+[38.00 - 42.84] (w91-104) Cumplir años no significa que tengas que resignarte a perder fuerza en las piernas.
+[43.10 - 50.72] (w105-122) Detrás de ese pequeño esfuerzo pueden esconderse músculos que llevan demasiado tiempo trabajando por debajo de sus posibilidades.
+[50.86 - 60.40] (w123-147) Y lo más curioso es que caminar todos los días, aunque sea saludable, no siempre basta para recuperar la fuerza necesaria para levantarte con seguridad.
+[60.62 - 69.54] (w148-170) Existe una diferencia enorme entre tener piernas que te permiten caminar y tener piernas capaces de levantar todo tu cuerpo desde una silla.
+[69.86 - 79.30] (w171-191) Hoy vamos a trabajar precisamente esa diferencia con cuatro ejercicios sencillos que puedes realizar en casa utilizando únicamente una silla firme.
+[79.56 - 89.98] (w192-222) Empezaremos por un movimiento que casi nadie relaciona con la fuerza de las piernas y terminaremos con el ejercicio que reúne todo lo aprendido para ayudarte a levantarte con mayor control.
+[85.24 - 90.86] (w223-236) el ejercicio que reúne todo lo aprendido para ayudarte a levantarte con mayor control.
+[91.24 - 94.02] (w237-243) Antes de comenzar, dime en los comentarios.
+[94.10 - 96.90] (w244-250) ¿Necesitas apoyarte con las manos para levantarte?
+[97.26 - 106.60] (w251-270) Y si quieres seguir cuidando tu autonomía, suscríbete al canal, porque conservar tu independencia empieza con pequeños movimientos como estos.
+[107.08 - 108.34] (w271-272) Apartado 1.
+[108.48 - 110.24] (w273-276) El despertar del tobillo.
+[110.38 - 114.74] (w277-286) El pequeño movimiento que puede cambiar tu forma de levantarte.
+[115.08 - 121.00] (w287-299) Imagina que intentas abrir una puerta pesada, pero las bisagras están completamente rígidas.
+[121.24 - 125.02] (w300-309) Por mucha fuerza que hagas, la puerta apenas se moverá.
+[125.22 - 129.82] (w310-322) Algo parecido puede ocurrir con tus piernas cuando intentas levantarte de una silla.
+[130.04 - 135.40] (w323-339) Y lo sorprendente es que el problema no siempre comienza en las rodillas ni en los muslos.
+[135.58 - 144.92] (w340-362) A veces, una parte de la dificultad se encuentra mucho más abajo, en una articulación que probablemente lleva años sin prestar demasiada atención.
+[145.12 - 146.34] (w363-364) El tobillo.
+[146.42 - 149.48] (w365-373) Piensa en lo que sucede justo antes de levantarte.
+[149.60 - 160.78] (w374-402) Tu cuerpo necesita inclinarse ligeramente hacia delante, tus pies deben permanecer firmes sobre el suelo y tus tobillos tienen que permitir que el peso se desplace de manera controlada.
+[160.98 - 168.46] (w403-419) Si esa movilidad está limitada, levantarte puede resultar más incómodo y exigir compensaciones al resto del cuerpo.
+[168.72 - 174.16] (w420-433) Por eso, nuestro primer ejercicio no consiste en levantar pesas ni en hacer sentadillas.
+[174.52 - 178.34] (w434-446) Vamos a comenzar despertando la base sobre la que descansa todo tu cuerpo.
+[179.12 - 185.36] (w447-462) Este movimiento se llama váscula de tobillo, aunque puedes recordarlo con un nombre mucho más sencillo.
+[185.56 - 187.08] (w463-465) Punta y talón.
+[187.28 - 192.94] (w466-477) Para realizarlo, busca una silla estable, preferiblemente con respaldo y sin ruedas.
+[193.14 - 202.42] (w478-501) Síéntate con la espalda erguida, sin ponerte rígido, y coloca ambos pies apoyados en el suelo, separados aproximadamente a la anchura de las caderas.
+[202.64 - 208.08] (w502-517) Procura que las rodillas formen un ángulo cómodo y que puedas mover los tobillos sin dificultad.
+[208.52 - 210.24] (w518-522) Ahora viene la primera parte.
+[210.54 - 220.92] (w523-549) Manteniendo los talones apoyados, levanta lentamente las puntas de ambos pies hacia el techo, como si quisieras enseñar la suela de tus zapatos a alguien situado delante.
+[221.24 - 224.92] (w550-560) Notarás una ligera tensión en la parte delantera de las piernas.
+[225.28 - 231.38] (w561-574) Mantén esa posición durante dos segundos y baja las puntas suavemente, sin dejarlas caer.
+[231.54 - 234.80] (w575-580) A continuación, realiza el movimiento contrario.
+[234.96 - 244.32] (w581-602) Deja las puntas de los pies apoyadas y eleva los talones lentamente, como si estuvieras intentando ponerte de puntillas mientras permaneces sentado.
+[244.62 - 248.06] (w603-610) Observa cómo trabajan los músculos de las pantorrillas.
+[248.28 - 252.12] (w611-621) Mantén un instante y vuelve a apoyar los talones con cuidado.
+[252.34 - 254.78] (w622-626) Acabas de completar una repetición.
+[254.96 - 260.64] (w627-637) Intenta realizar quince, manteniendo una respiración tranquila y un ritmo cómodo.
+[260.88 - 263.56] (w638-643) Y aquí aparece un detalle importante.
+[263.68 - 267.60] (w644-652) No necesitas mover los pies rápidamente para obtener beneficios.
+[267.80 - 276.62] (w653-675) Lo que buscamos es mejorar el control del movimiento, movilizar los tobillos y activar los músculos que participan en la estabilidad del pie.
+[276.84 - 280.20] (w676-683) Si notas rigidez, reduce la amplitud sin forzar.
+[280.40 - 283.02] (w684-687) Si aparece dolor, detente.
+[283.26 - 291.74] (w688-706) Este ejercicio puede parecer demasiado sencillo, pero recuerda que una casa necesita buenos cimientos antes de sostener cualquier peso.
+[291.88 - 298.66] (w707-722) Tus tobillos cumplen una función parecida cuando caminas, mantienes el equilibrio o te preparas para levantarte.
+[298.86 - 303.20] (w723-732) Si te están resultando útiles estas explicaciones, suscríbete al canal.
+[303.36 - 310.16] (w733-748) Cada semana compartimos ejercicios sencillos para ayudarte a mantener unas piernas fuertes y conservar tu autonomía.
+[310.46 - 316.16] (w749-763) Y ahora que hemos comenzado a preparar la base, llega una pregunta todavía más interesante.
+[316.36 - 320.84] (w764-775) ¿Qué músculo ayuda a impulsar tu cuerpo hacia arriba cuando te levantas?
+[321.02 - 326.00] (w776-788) La respuesta nos lleva directamente a los glúteos, protagonistas de nuestro segundo ejercicio.
+[327.50 - 328.60] (w789-790) Apartado 2.
+[328.90 - 333.00] (w791-804) Activa tus glúteos, el motor oculto que te ayuda a levantarte de la silla.
+[334.08 - 339.04] (w805-819) Hay algo curioso que sucede cuando una persona empieza a perder fuerza en las piernas.
+[339.26 - 346.78] (w820-840) Muchas veces culpa a sus rodillas, se preocupa por sus articulaciones, o piensa que sus músculos ya no responden como antes.
+[347.08 - 355.78] (w841-861) Sin embargo, existe un grupo muscular que suele pasar desapercibido y que desempeña un papel fundamental cada vez que intentas levantarte.
+[355.94 - 357.12] (w862-863) Los glúteos.
+[357.38 - 365.76] (w864-888) Sí, esos músculos sobre los que permaneces sentado durante buena parte del día pueden marcar una gran diferencia en tu capacidad para ponerte de pie.
+[366.82 - 368.98] (w889-893) Piensa en una situación cotidiana.
+[369.20 - 371.10] (w894-901) Estás sentado en el sofá después de comer.
+[371.88 - 381.90] (w902-924) Suena el teléfono y quieres levantarte rápidamente, pero notas que necesitas inclinarte demasiado hacia adelante, empujarte con las manos o hacer varios intentos.
+[382.08 - 385.48] (w925-933) Tal vez tus rodillas no sean las únicas responsables.
+[385.64 - 393.18] (w934-953) Es posible que los músculos de tus caderas necesiten recuperar parte de la fuerza que antes utilizabas sin darte cuenta.
+[393.42 - 401.16] (w954-973) Los glúteos, especialmente el glúteo mayor, ayudan a extender la cadera cuando pasas de estar sentado a permanecer de pie.
+[401.30 - 406.60] (w974-990) Trabajan junto con los músculos de los muslos para elevar el cuerpo y mantener una postura estable.
+[406.88 - 415.78] (w991-1008) Pero cuando pasamos muchas horas sentados y realizamos pocas actividades que exijan fuerza, estos músculos pueden debilitarse progresivamente.
+[416.00 - 423.68] (w1009-1028) La buena noticia es que podemos empezar a entrenar su activación con un movimiento sencillo, sin necesidad de levantarnos todavía.
+[423.94 - 428.64] (w1029-1039) Vamos a realizar un ejercicio llamado empuje isométrico de caderas sentado.
+[429.48 - 435.60] (w1040-1055) Busca una silla firme, sin ruedas, y siéntate con ambos pies completamente apoyados en el suelo.
+[435.78 - 440.88] (w1056-1068) Colócalos aproximadamente debajo de las rodillas, separados a la anchura de las caderas.
+[441.12 - 444.68] (w1069-1076) Mantén la espalda alargada y los hombros relajados.
+[445.00 - 452.24] (w1077-1093) Ahora, inclinline ligeramente el tronco hacia adelante, moviéndote desde las caderas y evitando redondear excesivamente la espalda.
+[452.98 - 463.40] (w1094-1120) Desde esa posición, presiona suavemente los talones contra el suelo y contrae los glúteos, como si estuvieras preparándote para levantarte, pero sin separar las nalgas del asiento.
+[464.20 - 468.96] (w1121-1130) Mantén esa contracción durante 5 segundos mientras respiras con normalidad.
+[469.32 - 474.46] (w1131-1139) Después, relaja completamente los músculos durante otros cinco segundos.
+[474.72 - 480.92] (w1140-1157) Repite el movimiento entre ocho y diez veces, sin hacer fuerza hasta el punto de contener la respiración.
+[481.14 - 483.00] (w1158-1162) Aquí tienes un pequeño truco.
+[483.28 - 489.44] (w1163-1179) Imagina que alguien ha colocado un objeto delicado debajo de tus pies y debes presionarlo sin aplastarlo.
+[489.58 - 491.92] (w1180-1186) La fuerza debe ser firme, pero controlada.
+[492.56 - 494.72] (w1187-1191) No necesitas apretar al máximo.
+[494.78 - 500.72] (w1192-1205) Lo importante es reconocer qué músculos participan y aprender a activarlos de manera consciente.
+[500.88 - 507.52] (w1206-1224) Si estás siguiendo el ejercicio conmigo, cuéntame en los comentarios si has conseguido notar la contracción en los gluteos.
+[507.64 - 513.66] (w1225-1240) Tu experiencia puede animar a otras personas que también están intentando recuperar fuerza en sus piernas.
+[513.94 - 519.90] (w1241-1256) Recuerda que este movimiento es una preparación, no un sustituto completo de los ejercicios de fuerza.
+[520.00 - 523.94] (w1257-1265) Poco a poco iremos avanzando hacia movimientos más funcionales.
+[524.30 - 539.52] (w1266-1304) Porque ahora que los tobillos tienen mayor movilidad y los glúteos empiezan a participar, necesitamos despertar a otro protagonista fundamental, los cuádriceps, los músculos que ayudan a tus rovillas a sostener el cuerpo cuando llega el momento de levantarte.
+[539.78 - 541.14] (w1305-1306) Apartado 3.
+[541.48 - 546.20] (w1307-1317) Despierta tus cuádriceps, los músculos que sostienen tu cuerpo al levantarte.
+[547.08 - 551.00] (w1318-1330) Imagina por un momento que tus piernas son las columnas de una casa.
+[551.34 - 561.00] (w1331-1356) Durante años han soportado tu peso, te han permitido subir escaleras, caminar por la calle y levantarte cientos de veces sin que siquiera pensaras en ello.
+[561.62 - 566.08] (w1357-1366) Pero, ¿qué ocurre cuando esas columnas empiezan a perder resistencia?
+[566.28 - 571.54] (w1367-1378) La casa sigue en pie, aunque cada movimiento exige un esfuerzo mayor.
+[571.68 - 583.16] (w1379-1407) Algo parecido puede suceder con los cuadriceps, los grandes músculos situados en la parte delantera de los muslos, cuya fuerza resulta fundamental para levantarte de una silla con seguridad.
+[583.36 - 597.34] (w1408-1438) Quizá hayas observado que últimamente necesitas apoyar las manos sobre las rodillas para incorporarte, o que, después de permanecer sentado durante bastante tiempo, tus piernas parecen tardar unos segundos en responder.
+[597.54 - 604.44] (w1439-1455) Estas sensaciones pueden tener diferentes causas, pero una de ellas es la pérdida progresiva de fuerza muscular.
+[604.60 - 616.28] (w1456-1480) Con el paso de los años, especialmente cuando disminuye nuestra actividad física, los cuádriceps pueden debilitarse y hacer que tareas aparentemente sencillas resulten más exigentes.
+[616.48 - 624.58] (w1481-1499) Estos músculos cumplen una función esencial, extender las rodillas y ayudar a controlar su flexión cuando soportan nuestro peso.
+[624.82 - 630.88] (w1500-1509) Son especialmente importantes al levantarnos, subir escalones o sentarnos lentamente.
+[631.08 - 642.16] (w1510-1534) Por eso, fortalecerlos no es solamente una cuestión de tener piernas más musculosas, sino de conservar la capacidad de realizar actividades cotidianas con mayor confianza.
+[642.48 - 648.24] (w1535-1548) Vamos a trabajar con un ejercicio muy sencillo llamado Extensión de rodilla con pausa.
+[648.56 - 654.30] (w1549-1564) Siéntate en una silla estable, mantén la espalda erguida y coloca ambos pies en el suelo.
+[654.50 - 659.28] (w1565-1576) Puedes sujetarte ligeramente a los lados del asiento para mantener el equilibrio.
+[659.80 - 669.36] (w1577-1599) Ahora, levanta lentamente el pie derecho mientras extiendes la rodilla, hasta que la pierna quede casi horizontal, siempre que puedas hacerlo sin dolor.
+[669.62 - 677.98] (w1600-1621) Cuando alcances esa posición, dirige la punta del pie suavemente hacia arriba y contrae los músculos de la parte delantera del muslo.
+[678.14 - 683.20] (w1622-1633) Mantén la pierna elevada durante 3 o 4 segundos, respirando con normalidad.
+[683.66 - 687.46] (w1634-1640) Después, bájala lentamente mientras cuentas hasta tres.
+[687.68 - 689.64] (w1641-1645) Evita dejarla caer de golpe.
+[689.88 - 694.12] (w1646-1657) Repite el movimiento entre diez y doce veces y cambia de pierna.
+[694.28 - 699.26] (w1658-1668) Si te resulta demasiado exigente, comienza con cinco repeticiones por lado.
+[699.44 - 701.68] (w1669-1675) Hay un detalle que quiero que recuerdes.
+[701.86 - 708.64] (w1676-1693) La parte más importante no es levantar la pierna lo más alto posible, sino controlar todo el recorrido.
+[708.88 - 718.28] (w1694-1717) Cuando subes despacio, mantienes la posición y bajas sin perder el control, estás dando a tus músculos una oportunidad de trabajar de manera consciente.
+[718.60 - 720.42] (w1718-1722) Y ahora te propongo algo.
+[720.64 - 725.24] (w1723-1734) Antes de continuar, observa cómo se siente cada muslo después del ejercicio.
+[725.58 - 728.44] (w1735-1745) ¿Has notado más esfuerzo en una pierna que en la otra?
+[728.74 - 730.76] (w1746-1750) Puedes compartirlo en los comentarios.
+[731.28 - 739.36] (w1751-1772) Si quieres aprender a cuidar tus piernas con rutinas adaptables a tu capacidad, suscríbete al canal y acompáñanos en nuestros próximos vídeos.
+[739.84 - 751.24] (w1773-1798) Aquí queremos ayudarte a mantener tu movilidad con ejercicios prácticos y explicaciones sencillas, porque ya hemos preparado los tobillos, activado los glúteos y trabajado los cuadriceps.
+[751.52 - 762.82] (w1799-1825) Ahora llega el momento de reunirlo todo en el movimiento más importante de esta rutina, aprender a levantarte de la silla con mayor fuerza, equilibrio y control.
+[762.88 - 764.24] (w1826-1827) Apartado 4.
+[764.44 - 770.00] (w1828-1842) La sentadilla controlada con silla, el ejercicio que une toda la fuerza de tus piernas.
+[770.84 - 774.00] (w1843-1852) Ahora quiero que imagines una escena que quizá recuerdes perfectamente.
+[775.14 - 781.68] (w1853-1870) Hace algunos años estabas sentado en una silla, alguien llamaba a la puerta y te levantabas sin pensarlo.
+[781.92 - 788.96] (w1871-1887) No necesitabas preparar las manos, balancear el cuerpo, ni buscar un apoyo, simplemente te ponías de pie.
+[789.12 - 792.70] (w1888-1897) Era un movimiento tan natural que nunca le prestabas atención.
+[793.18 - 801.20] (w1898-1914) Sin embargo, cuando empieza a resultar difícil, descubres cuánto depende tu independencia de algo aparentemente tan pequeño.
+[801.70 - 809.98] (w1915-1939) Y aquí llegamos al ejercicio más importante de nuestra rutina, porque hasta ahora hemos trabajado los tobillos, los glúteos y los cuadriceps para el cuerpo.
+[809.22 - 809.98] (w1940-1942) y los cuadríceps.
+[806.10 - 811.26] (w1943-1955) hasta ahora hemos trabajado los tobillos, los glúteos y los cuadriceps por separado.
+[811.46 - 816.00] (w1956-1967) Pero en la vida cotidiana, estos músculos no funcionan de manera independiente.
+[816.24 - 819.96] (w1968-1974) Necesitan coordinarse para realizar un movimiento completo.
+[820.14 - 824.34] (w1975-1986) Levantar tu cuerpo desde una silla y volver a sentarte con seguridad.
+[824.60 - 831.88] (w1987-2000) Este ejercicio se llama sentadilla controlada con silla, también conocido como levantarse y sentarse.
+[832.06 - 841.52] (w2001-2025) Es uno de los movimientos funcionales más útiles para entrenar la fuerza de las piernas porque reproduce exactamente una acción que realizamos todos los días.
+[841.66 - 847.32] (w2026-2042) Y lo mejor es que puedes adaptarlo a tu capacidad actual, sin exigirte más de lo necesario.
+[847.54 - 849.44] (w2043-2047) Comencemos con el primer nivel.
+[849.58 - 853.70] (w2048-2059) Coloca una silla firme contra una pared para evitar que se deslice.
+[853.86 - 859.72] (w2060-2073) Siéntate cerca de la parte delantera del asiento, manteniendo suficiente apoyo para estar seguro.
+[859.92 - 868.76] (w2074-2095) Separa los pies aproximadamente a la anchura de las caderas y cólócalos ligeramente hacia atrás, siempre que puedas mantener los talones apoyados.
+[869.10 - 877.32] (w2096-2116) Ahora inclinas suavemente el tronco hacia adelante, llevando el pecho en dirección a las rodillas, pero sin encorvar excesivamente la espalda.
+[877.54 - 881.14] (w2117-2126) Empuja el suelo con ambos pies y comienza a levantarte.
+[881.32 - 887.00] (w2127-2141) Si necesitas utilizar las manos sobre los reposabrazos, hazlo sin sentir que estás haciendo trampa.
+[887.40 - 891.00] (w2142-2149) Lo importante es realizar el movimiento con seguridad.
+[891.24 - 894.86] (w2150-2159) Una vez de pie, mantén el equilibrio durante un instante.
+[895.34 - 900.00] (w2160-2170) Después, lleva las caderas hacia atrás y empieza a asentarte lentamente.
+[900.38 - 904.00] (w2171-2181) Imagina que quieres tocar el asiento con delicadeza, sin dejarte caer.
+[904.70 - 905.96] (w2182-2182) Cuentamente.
+[906.64 - 909.04] (w2183-2185) 1, 2, 3.
+[909.58 - 909.20] (w2186-2191) Este de estén 1, 2, 3.
+[909.58 - 917.50] (w2192-2210) Este descenso controlado hace trabajar los músculos mientras se alargan y puede ayudarte a desarrollar mayor control al sentarte.
+[917.88 - 923.30] (w2211-2221) Cuando consigas realizar varias repeticiones cómodamente, puedes probar el segundo nivel.
+[923.78 - 932.32] (w2222-2242) Mantén los brazos cruzados delante del pecho y levántate sin impulsarte con las manos, siempre que tengas suficiente fuerza y equilibrio.
+[932.54 - 936.56] (w2243-2250) Si todavía no puedes hacerlo, continúa utilizando apoyo.
+[936.66 - 940.78] (w2251-2259) No existe ninguna obligación de alcanzar este nivel inmediatamente.
+[941.00 - 946.40] (w2260-2271) Empieza con cinco repeticiones y, según tu tolerancia, progreso gradualmente hasta diez.
+[947.18 - 952.16] (w2272-2284) Puedes realizar una o dos series, dejando tiempo de recuperación cuando lo necesites.
+[952.98 - 958.78] (w2285-2296) Es preferible practicar con buena técnica que acumular repeticiones mientras pierdes estabilidad.
+[958.96 - 961.74] (w2297-2302) Y quiero proponerte un pequeño compromiso.
+[961.92 - 966.68] (w2303-2314) Durante los próximos días, observa cómo te levantas de tu silla habitual.
+[966.88 - 969.10] (w2315-2319) No busques hacerlo más rápido.
+[969.36 - 971.68] (w2320-2324) Busca hacerlo con mayor control.
+[971.84 - 976.72] (w2325-2336) Si decides probar esta rutina, escribe en piezo hoy en los comentarios.
+[976.84 - 981.12] (w2337-2348) Quizá tu decisión anime a otra persona a cuidar también sus piernas.
+[981.36 - 983.22] (w2349-2351) Recuerda algo fundamental.
+[983.46 - 988.16] (w2352-2360) Recuperar fuerza requiere paciencia, constancia y una progresión adecuada.
+[988.84 - 991.32] (w2361-2366) Si necesitas ayuda para levantarte, úsala.
+[991.96 - 997.76] (w2367-2383) Lo importante no es demostrar que puedes hacerlo sin manos, sino conservar tu seguridad y tu autonomía.
+[998.62 - 1003.28] (w2384-2397) Porque cada vez que entrenas este movimiento, estás trabajando mucho más que tus músculos.
+[1003.98 - 1010.62] (w2398-2413) Estás practicando una habilidad que puede ayudarte a seguir desenvolviéndote con confianza en tu propia casa.
+[1010.74 - 1013.24] (w2414-2421) Quiero que te quedes con una idea importante.
+[1013.40 - 1021.24] (w2422-2446) El día que empiezas a necesitar las manos para levantarte de una silla, no significa que hayas perdido para siempre la fuerza de tus piernas.
+[1021.46 - 1028.56] (w2447-2470) Puede ser una señal de que necesitas prestar más atención a tus músculos, a tu equilibrio y a la manera en que te mueves.
+[1028.72 - 1037.52] (w2471-2491) Y aunque el envejecimiento produce cambios naturales en nuestro cuerpo, eso no significa que debamos renunciar a mejorar nuestra capacidad física.
+[1037.92 - 1041.02] (w2492-2497) Hoy hemos recorrido cuatro pasos fundamentales.
+[1041.26 - 1045.50] (w2498-2509) Primero, hemos movilizado los tobillos para preparar la base de nuestro equilibrio.
+[1046.28 - 1052.34] (w2510-2525) Después, hemos activado los glúteos, esos músculos que nos ayudan a impulsar las caderas hacia arriba.
+[1052.70 - 1059.54] (w2526-2543) También hemos trabajado los cuadriceps, responsables de buena parte de la fuerza que necesitamos para extender las rodillas.
+[1059.82 - 1065.74] (w2544-2558) Finalmente, hemos reunido todos esos movimientos en un ejercicio tan sencillo como valioso, como valioso.
+[1065.98 - 1069.34] (w2559-2566) Levantarnos y sentarnos de una silla con control.
+[1069.56 - 1074.76] (w2567-2580) Pero recuerda que los resultados no aparecen por hacer 20 repeticiones una sola mañana.
+[1075.04 - 1079.88] (w2581-2592) La verdadera diferencia puede llegar cuando conviertes el movimiento en una costumbre.
+[1080.08 - 1084.48] (w2593-2600) Respetas tus límites y aumentas progresivamente la dificultad.
+[1084.88 - 1086.82] (w2601-2605) Ahora quiero hacerte una pregunta.
+[1086.96 - 1092.56] (w2606-2623) ¿De los cuatro ejercicios que hemos practicado, cuál crees que te ayudará más a levantarte de la silla?
+[1092.70 - 1097.26] (w2624-2635) El de tobillos, el de glúteos, el de cuadriceps o el último?
+[1097.42 - 1100.12] (w2636-2641) Escríbeme tu respuesta en los comentarios.
+[1100.28 - 1108.72] (w2642-2667) Si este vídeo te ha resultado útil, dale a me gusta, suscríbete al canal y compártelo con alguien que necesite cuidar la fuerza de sus piernas.
+[1108.86 - 1115.82] (w2668-2687) En nuestro próximo vídeo hablaremos de cómo mejorar la movilidad de los pies y aliviar la sensación de piernas pesadas.
+[1116.12 - 1117.98] (w2688-2691) Y una advertencia importante.
+[1118.18 - 1122.30] (w2692-2701) Este contenido es educativo y no sustituye una valoración médica.
+[1122.46 - 1133.44] (w2702-2726) Si tienes dolor intenso, mareos, problemas importantes de equilibrio o te estás recuperando de una operación, consulta con tu médico o fisioterapeuta antes de empezar.
+[1133.62 - 1138.08] (w2727-2736) Si la debilidad aparece de repente, busca atención médica urgente.
+[1138.54 - 1149.12] (w2737-2762) Porque el verdadero objetivo no es levantarte sin utilizar las manos a cualquier precio, y no seguir levantándote con seguridad, confianza e independencia durante muchos años.

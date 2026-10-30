@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Style test: warm pastel round-head mascot theme (colours sampled from characters/mascot_pastel/sheet.jpg).
+Object.assign(C, { cream: '#FCEDCE', ink: '#4A3428', white: '#FFFDF7', orange: '#F4A340', amber: '#FBB533',
+  red: '#E8735F', green: '#79B98A', blue: '#8EC5E8', blueDark: '#5E9CC8', grey: '#BBA994' });
+const SHADOW = '#EBD3A8';
+// soft card: warm shadow, thin brown outline, big radius
+Card = function (svg, { x, y, w, h, fill = C.white, r = 36 }) {
+  const g = el('g', {}, svg);
+  el('rect', { x: x + 6, y: y + 10, width: w, height: h, rx: r, fill: SHADOW }, g);
+  el('rect', { x, y, width: w, height: h, rx: r, fill, stroke: C.ink, 'stroke-width': 4 }, g);
+  return g;
+};
+const svg = document.getElementById('s');
+el('rect', { width: 1920, height: 1080, fill: C.cream }, svg);
+// soft blobs behind the mascot
+el('circle', { cx: 520, cy: 600, r: 360, fill: '#FBE2B4' }, svg);
+el('circle', { cx: 300, cy: 300, r: 60, fill: '#F9D9C9' }, svg);
+el('circle', { cx: 820, cy: 900, r: 40, fill: '#D9ECD9' }, svg);
+// kicker
+const k = el('g', {}, svg); Card(k, { x: 70, y: 60, w: 640, h: 100, fill: C.amber, r: 50 });
+Text(k, 'SEÑAL 1 · TUS MANOS', { x: 390, y: 112, size: 52, color: C.ink });
+// progress: 5 signs
+['✋', '🪑', '👣', '⚖️', '🪜'].forEach((s, i) => {
+  const x = 1430 + i * 96, on = i === 0;
+  el('circle', { cx: x, cy: 110, r: 40, fill: on ? C.amber : C.white, stroke: C.ink, 'stroke-width': on ? 5 : 3, opacity: on ? 1 : 0.7 }, svg);
+  Text(svg, s, { x, y: 113, size: 38 });
+});
+// mascot
+const m = el('g', {}, svg);
+Cutout(m, 'cut/waving.png', { cx: 520, cy: 620, iw: 215, ih: 369, fit: 640 });
+// right: grip gauge card
+const c = el('g', {}, svg); Card(c, { x: 1000, y: 250, w: 820, h: 520 });
+Text(c, 'FUERZA DE PRENSIÓN', { x: 1410, y: 330, size: 56 });
+const cx = 1410, cy = 640, R = 210;
+const arc = (a0, a1, col) => el('path', { d: `M${cx + R * Math.cos(a0)} ${cy + R * Math.sin(a0)} A${R} ${R} 0 0 1 ${cx + R * Math.cos(a1)} ${cy + R * Math.sin(a1)}`, fill: 'none', stroke: col, 'stroke-width': 46, 'stroke-linecap': 'round' }, c);
+arc(Math.PI, Math.PI * 1.33, C.red); arc(Math.PI * 1.36, Math.PI * 1.64, C.amber); arc(Math.PI * 1.67, Math.PI * 2, C.green);
+el('line', { x1: cx, y1: cy, x2: cx + 170 * Math.cos(Math.PI * 1.22), y2: cy + 170 * Math.sin(Math.PI * 1.22), stroke: C.ink, 'stroke-width': 14, 'stroke-linecap': 'round' }, c);
+el('circle', { cx, cy, r: 20, fill: C.ink }, c);
+Text(c, 'Consenso europeo EWGSOP2', { x: 1410, y: 735, size: 28, weight: 700, color: C.grey });
+// caption
+Caption(svg, 'UNA PISTA, NO UN DIAGNÓSTICO', { cy: 960, size: 58, fill: C.ink, color: C.white, hi: 'PISTA', hiColor: C.amber });
+window.DURATION = 1; window.draw = () => {};
+</script>
+</body></html>

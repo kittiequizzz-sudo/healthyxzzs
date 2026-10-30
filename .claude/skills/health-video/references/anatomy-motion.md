@@ -123,3 +123,21 @@ at maximum flexion; the knees and feet have not moved.
 **Checklist:** chin tucked from pose 1 on; the curl comes before the hinge (never a stiff plank
 swinging up); the feet stay down; the arms stay crossed with no hands pulling the head; the
 movement reverses smoothly on the way down.
+
+## Chair routine (levantarse_silla): drawing specs, side view facing LEFT
+Same sturdy wooden chair (backrest, armrests, no wheels) in every pose; barefoot so the ankle is readable.
+
+**Toe/heel raise:** locked: trunk, arms, thighs, knees ≈90°. Pose 1 feet flat. Pose 2 heels down, forefoot up
+(sole visible, shin muscle tight). Pose 3 forefoot down, heel up ≈5–8 cm (calf bunched). Check: knees do not
+rise in pose 2; toes stay on the floor in pose 3.
+
+**Isometric hip push:** pose 1 upright; pose 2 hip hinge 20–30°, straight back, neck in line; pose 3 = pose 2
+with glute tension and heels pressing, **buttocks on the seat**. Check: no rounded back, no lift-off.
+
+**Knee extension:** left leg locked at 90°, hands on the seat sides. Pose 2 right knee ≈45° extended; pose 3
+near straight, ankle dorsiflexed, quads contracted. Check: the thigh stays on the seat, no lean back, the moving
+leg is the one nearest the viewer.
+
+**Sit-to-stand (arms crossed):** pose 1 front edge, feet behind the knees; pose 2 trunk ≈40° forward, nose over
+toes, buttocks just off; pose 3 upright, knees soft; pose 4 hips back, knees ≈60°, just above the seat.
+Check: heels down in every pose, back straight (hinge, not slump), knees over the feet.

@@ -161,3 +161,43 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
 - Faults: pulling on the neck with the hands; momentum swing with the feet lifting; jerking up with
   a flat back (no curl); arching the lower back; dropping back down.
 - Muscles: rectus abdominis + obliques (curl phase), hip flexors (hinge phase).
+
+### Seated toe raise + heel raise ("punta y talón", side view, chair)
+- Setup: sitting upright on a stable chair, knees ≈90°, feet hip-width, flat **[coach]**.
+- Phase 1, toes up: heels stay down, ankle dorsiflexes (forefoot lifts toward the shin), hold ≈2 s, lower
+  slowly. Muscle: tibialis anterior (front of the shin). Phase 2, heels up: forefoot stays down, ankle
+  plantarflexes, heel lift ≈5–8 cm **[coach]**. Muscles: calf; with the knee bent the soleus does most of
+  the work (standard anatomy).
+- Why it matters: weight-bearing dorsiflexion range predicted dynamic balance in 88 older adults
+  ([PMC7932177](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7932177/)); ankle ROM and knee strength were
+  linked to the 5× sit-to-stand in 95 older women
+  ([PMC5214953](https://pmc.ncbi.nlm.nih.gov/articles/PMC5214953)) **[study, association only]**.
+- Tempo slow (≈1–2 s each way). Nothing moves but the feet. Faults: slapping the toes down; lifting the knees
+  with the hip flexors instead of moving at the ankle.
+
+### Seated isometric hip push ("empuje isométrico de cadera sentado", side view)
+- Setup: feet flat under the knees, hip-width; trunk hinged ≈20–30° forward from the hips with a neutral
+  back **[coach]**.
+- Action: press the heels into the floor and squeeze the glutes as if about to stand, buttocks stay on the
+  seat; 5 s on / 5 s off, 8–10 reps, keep breathing (no Valsalva) **[coach]**.
+- Muscles: gluteus maximus (hip extensor), with the quads co-contracting. In sit-to-stand, glute max and the
+  thigh muscles all exceeded 40% of max in 24 older adults
+  ([IES 2018](https://journals.sagepub.com/doi/abs/10.3233/IES-182115)) **[study]**.
+- No visible joint motion; only tension. Faults: rounding the back, holding the breath, lifting off the seat.
+
+### Seated knee extension with pause (side view)
+- Setup: upright, hands on the sides of the seat; the thigh stays on the seat throughout **[coach]**.
+- Knee goes from ≈90° flexion to near full extension (leg ≈horizontal), ankle dorsiflexed at the top, hold
+  3–4 s, lower over ≈3 s; 10–12 reps per leg, start with 5 **[coach]**.
+- Muscles: quadriceps. Seated/home quadriceps programmes improved strength in small trials of older adults
+  ([Baker 2001](https://www.jrheum.org/content/jrheum/28/7/1655.full.pdf);
+  [PMC6342874](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6342874/)) **[study]**.
+- Faults: leaning back, lifting the thigh off the seat, kicking up fast, dropping the leg.
+
+### Sit-to-stand, training version (add-on to the card above)
+- Level 1: chair against a wall, sitting near the front edge, feet slightly behind the knees, heels down,
+  hands on armrests allowed. Level 2: arms crossed on the chest (the 30-s chair-stand test posture).
+- Lean the trunk forward (≈40° in our drawing, **[coach]**; no measured older-adult value found), push the
+  floor, stand, pause, then sit with the hips back over a 3-count (eccentric). 5→10 reps, 1–2 sets.
+- Repeated sit-to-stand training raised knee-extensor strength in frail older adults (Fujita 2019, Exp
+  Gerontol) **[study]**.

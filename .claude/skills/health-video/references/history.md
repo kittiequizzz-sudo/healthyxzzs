@@ -113,3 +113,8 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   (+25 % saturation, +10 % contrast, no warm shift), white glowing frames on panels (common.js `Shot` uses
   `C.frame` when set). Prompts: new vivid COLOR block (prompt-blocks.md), metaphor panels on saturated
   gradient backgrounds. Still no yellow/golden cast. Before/after compared on huevo_colesterol frames.
+
+- **Oct 30, 2026 — infarto_mujer rendered** (20:54, first video in the vivid look; 17 files in out/entrega/).
+  The vivid theme (SVG filters) renders ~2× slower: ~2 h 15 min for 21 min of video on 4 jobs, which hits
+  the 2-hour background-task limit. render_full.sh skips finished chunks, so just re-run it to finish;
+  better: split into two runs, or `chmod +x render_full.sh` before the first run (it failed once on that).

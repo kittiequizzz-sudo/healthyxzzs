@@ -121,7 +121,7 @@ AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D look
 ```
 
 ### Ảnh 9 · `m_pulmon`: Tim bơm yếu → phổi ứ dịch (đính kèm ảnh 1)
-*tim bơm yếu như máy bơm chậm · phổi như miếng bọt biển thấm nước · giường/ghế ngồi thẳng · tiểu đường làm 'chuông báo' của tim nhỏ đi.*
+*tim bơm yếu như máy bơm chậm · phổi như miếng bọt biển thấm nước · tiểu đường làm chuông báo của tim nhỏ đi · các nguyên nhân khác: phổi, giọt máu, nhiệt kế, bình xịt.*
 ```
 Create one image: a 2x2 grid of four separate illustration panels with thin white gaps, in the same drawing style and colour palette as the attached image (bold ink outlines, flat cel shading, deep harmonious colours), as friendly medical explainer metaphors on soft cream backgrounds.
 COLOR: deep navy, teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow.

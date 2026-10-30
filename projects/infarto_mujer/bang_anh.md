@@ -12,7 +12,7 @@ Câu lệnh đầy đủ: `order.md`. ChatGPT, cùng một cuộc trò chuyện,
 | ☐ | 6 | `s_teresa` | 2 | cùng một bà Teresa: ăn tối xong · đặt tay lên bụng trên · pha trà thảo mộc · mồ hôi lạnh trên trán, buồn nôn | câu chuyện (1 bà) |
 | ☐ | 7 | `m_digestivo` | 2 | mặt cắt thân người: tim ngay trên dạ dày · tín hiệu thần kinh từ tim chạy xuống bụng trên · lọ thuốc dạ dày và tách trà (không giải quyết được) · bà gọi điện khẩn cấp | ẩn dụ |
 | ☐ | 8 | `s_dolores` | 2 | cùng một bà Dolores: tưới cây trên sân thượng · dừng lại thở dốc · đi trong hành lang lại khó thở · ngồi xuống cố hít thở | câu chuyện (1 bà) |
-| ☐ | 9 | `m_pulmon` | 2 | tim bơm yếu như máy bơm chậm · phổi như miếng bọt biển thấm nước · giường/ghế ngồi thẳng · tiểu đường làm 'chuông báo' của tim nhỏ đi | ẩn dụ |
+| ☐ | 9 | `m_pulmon` | 2 | tim bơm yếu như máy bơm chậm · phổi như miếng bọt biển thấm nước · tiểu đường làm chuông báo của tim nhỏ đi · các nguyên nhân khác: phổi, giọt máu, nhiệt kế, bình xịt | ẩn dụ |
 | ☐ | 10 | `s_pilar` | 3 | cùng một bà Pilar: đọc tạp chí trong ghế bành · mồ hôi lạnh trên trán · chóng mặt, vịn bàn · ngồi an toàn, ngả lưng, gọi điện | câu chuyện (1 bà) |
 | ☐ | 11 | `m_alarma` | 3 | chuông báo động trong não, giọt mồ hôi · tuyến thượng thận phóng tia chớp adrenaline · nhịp tim lộn xộn trên dải nhịp · não nhận ít máu, mờ đi | ẩn dụ |
 | ☐ | 12 | `s_concha` | 3 | cùng một bà Concha: nghỉ trên sofa sau bữa trưa · đột ngột lo sợ, tay đặt lên ngực · người nhà xua tay 'chắc tại căng thẳng' · Concha gọi khẩn cấp, người nhà lo lắng | câu chuyện (1 bà) |

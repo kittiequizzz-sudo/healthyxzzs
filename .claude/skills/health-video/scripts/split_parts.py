@@ -6,8 +6,8 @@
 Why: `ffmpeg -f segment -c copy` cuts at the nearest video keyframe while the AAC audio is cut on its own
 frame grid, so each part starts with a few ms of drift and the cut lands mid-word / mid-waveform (a click).
 Here: (1) every cut is placed in the middle of a pause in the VOICE (silencedetect) near each target time,
-(2) the video is re-encoded once (no B-frames, 30 fps) with a keyframe forced exactly at every cut, and each
-part takes an exact frame count, so video and audio of every part have the same length, (3) each part's audio is decoded from one lossless WAV and re-encoded with a 25 ms fade in and
+(2) each part is encoded straight from the source with an accurate seek and an exact frame count, so
+video and audio of every part have the same length and nothing is lost or repeated, (3) each part gets a 25 ms audio fade in and
 out, so the joins are silent and sample-aligned.
 """
 import argparse, re, subprocess, os
@@ -36,21 +36,20 @@ while t < dur - a.target * 0.4:
     cuts.append(c); t = c + a.target
 print('cuts at', ', '.join(f'{c:.2f}' for c in cuts))
 
-# 2. one re-encode with keyframes exactly at the cuts; audio kept as lossless PCM
-master = os.path.join(a.out, '_master.mkv')
-run('ffmpeg', '-v', 'error', '-y', '-i', a.video, '-c:v', 'libx264', '-crf', a.crf, '-preset', 'medium',
-    '-pix_fmt', 'yuv420p', '-bf', '0', '-r', '30', '-force_key_frames', ','.join(f'{c:.3f}' for c in cuts), '-c:a', 'pcm_s16le', master)
-
-# 3. parts: video copied between keyframes, audio re-encoded with short fades
+# 2. each part is encoded straight from the source with an accurate seek (no stream copy, no keyframe snapping):
+#    exact frame count for the video, exact duration and 25 ms fades for the audio.
 bounds = [0.0] + cuts + [dur]
+total = 0.0
 for i in range(len(bounds) - 1):
     s, e = bounds[i], bounds[i + 1]; d = e - s
     out = os.path.join(a.out, f'{a.name}_parte{i}.mp4')
-    nf = round(e * 30) - round(s * 30)  # exact frame count, so video and audio end together
-    run('ffmpeg', '-v', 'error', '-y', '-ss', f'{s:.3f}', '-i', master, '-t', f'{d:.3f}', '-map', '0:v', '-map', '0:a',
-        '-frames:v', str(nf), '-c:v', 'copy', '-af', f'afade=in:d=0.025,afade=out:st={max(0, d - 0.025):.3f}:d=0.025',
+    nf = round(e * 30) - round(s * 30)
+    run('ffmpeg', '-v', 'error', '-y', '-ss', f'{s:.3f}', '-i', a.video, '-t', f'{nf / 30:.4f}', '-map', '0:v', '-map', '0:a',
+        '-r', '30', '-frames:v', str(nf), '-c:v', 'libx264', '-crf', a.crf, '-preset', 'medium', '-bf', '0', '-pix_fmt', 'yuv420p',
+        '-af', f'aresample=48000,afade=in:d=0.025,afade=out:st={max(0, nf / 30 - 0.025):.3f}:d=0.025,apad,atrim=0:{nf / 30:.4f}',
         '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out)
     vd = float(run('ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=duration', '-of', 'csv=p=0', out).stdout)
     ad = float(run('ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=duration', '-of', 'csv=p=0', out).stdout)
+    total += vd
     print(f'{os.path.basename(out)}: {s:.2f}→{e:.2f}  video {vd:.3f}s audio {ad:.3f}s  {os.path.getsize(out)/1e6:.1f} MB')
-os.remove(master)
+print(f'total video {total:.2f}s of {dur:.2f}s')

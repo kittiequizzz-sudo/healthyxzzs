@@ -1,0 +1,139 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCE3D3;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 1 — sarcopenia; slow vs fast fibres; strength sends a new message; chair rise.
+window.START = at('h1') - 0.3;
+window.END = at('h2') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p1');
+
+stillScene(svg, 'f1a', () => START, () => at('silla1'), { focus: [0.45, 0.4], zoom: 0.1 }, g => {
+  const k = Kicker(g, 1, 'EL ENEMIGO SILENCIOSO'); Progress(g, 0);
+  const ch = [['SIN DOLOR', 0], ['SIN AVISAR', 1.5]].map(([s, d], i) => [Chip(g, s, { cx: 1560, cy: 260 + i * 130, fill: C.white, size: 44 }), d]);
+  const c = CAP(g, 'MIENTRAS CAMINAS TRANQUILO…', { hi: 'TRANQUILO' });
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); show(c, t, at('parque1'), at('dolor1')); ch.forEach(([c, d]) => slideIn(c, t, at('dolor1') + d, 'r', 400)); };
+});
+stillScene(svg, 'f1b', () => at('silla1'), () => at('apoyarte1'), { focus: [0.5, 0.6], zoom: 0.14 }, g => {
+  const c = CAP(g, 'LAS PIERNAS TIEMBLAN', { hi: 'TIEMBLAN' });
+  return t => show(c, t, at('tiemblan'));
+});
+stillScene(svg, 'f1c', () => at('apoyarte1'), () => at('sarcopenia'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const c = CAP(g, 'NECESITAS APOYARTE', { hi: 'APOYARTE' });
+  return t => show(c, t, at('apoyarte1'));
+});
+// sarcopenia: thigh cross-sections
+scene(svg, () => at('sarcopenia'), () => at('diferencia1'), g => {
+  const h = Text(g, 'SARCOPENIA', { x: 960, y: 160, size: 110, color: ACC });
+  const a = el('g', {}, g); cut(a, 'corte_joven', 600, 520, 480);
+  const b = el('g', {}, g); cut(b, 'corte_mayor', 1320, 520, 480);
+  const ar = el('g', {}, g); Arrow(ar, 880, 520, 1060, 520, C.ink, 14);
+  const c = CAP(g, 'MENOS MASA Y FUERZA', { hi: 'MASA Y FUERZA' });
+  const d = Chip(g, 'DESDE LOS 50 PUEDE ACELERARSE', { cx: 960, cy: 860, fill: C.white, size: 42 });
+  sfx('pop', at('sarcopenia')); sfx('pop', at('sarcopenia') + 2);
+  return t => { pop(h, t, at('sarcopenia'), 960, 160); pop(a, t, at('sarcopenia') + 1, 600, 520); show(ar, t, at('sarcopenia') + 2); pop(b, t, at('sarcopenia') + 2.3, 1320, 520); show(c, t, at('sarcopenia') + 3, at('cincuenta1')); show(d, t, at('cincuenta1')); };
+});
+// walking ≠ strength training
+scene(svg, () => at('diferencia1'), () => at('otro1'), g => {
+  const a = IconTile(g, 'walk', 'CAMINAR', 620, 460, { w: 400, h: 420 });
+  const neq = Text(g, '≠', { x: 960, y: 460, size: 170, color: C.red });
+  const b = IconTile(g, 'dumbbell', 'FUERZA', 1300, 460, { w: 400, h: 420 });
+  const ch = ['RESISTENCIA', 'CIRCULACIÓN', 'CORAZÓN'].map((s, i) => Chip(g, s, { cx: 620, cy: 760 + i * 95, fill: C.white, size: 34 }));
+  sfx('pop', at('diferencia1') + 0.5); sfx('pop', at('noiguales'));
+  return t => { pop(a, t, at('diferencia1') + 0.5, 620, 460); show(neq, t, at('noiguales')); pop(b, t, at('noiguales') + 0.4, 1300, 460); ch.forEach((c, i) => show(c, t, at('resistencia1') + i * 0.8)); };
+});
+// slow vs fast fibres
+scene(svg, () => at('otro1'), () => at('aunque1'), g => {
+  const h = Text(g, 'DOS TIPOS DE FIBRAS', { x: 960, y: 140, size: 70, color: ACC });
+  const a = el('g', {}, g); cut(a, 'fib_lenta', 560, 470, 420); Chip(a, 'LENTAS · RESISTENCIA', { cx: 560, cy: 760, fill: C.white, size: 38 });
+  const b = el('g', {}, g); cut(b, 'fib_rapida', 1360, 470, 460); Chip(b, 'RÁPIDAS · FUERZA', { cx: 1360, cy: 760, fill: ACC, color: C.white, size: 38 });
+  const uses = [['LEVANTARTE', 'otro1', 0], ['ESCALÓN ALTO', 'escalon1', 0], ['REACCIONAR', 'tropiezas1', 0]].map(([s, k], i) => [Chip(g, s, { cx: 1000 + i * 300, cy: 900, fill: C.white, size: 32 }), k]);
+  const down = el('g', {}, g); Arrow(down, 1640, 300, 1640, 560, C.red, 18);
+  const w = CAP(g, 'SE DETERIORAN CON LOS AÑOS', { hi: 'DETERIORAN', cy: 1000, size: 50 });
+  sfx('pop', at('otro1') + 0.6); sfx('pop', at('rapidas')); sfx('swish', at('deteriorarse'), 0.6);
+  return t => {
+    show(h, t, at('otro1')); pop(a, t, at('otro1') + 0.6, 560, 470); pop(b, t, at('rapidas'), 1360, 470);
+    uses.forEach(([c, k], i) => show(c, t, at('rapidas') + 1 + i * 0.4, at('deteriorarse')));
+    if (t > at('deteriorarse')) { const s = 1 - 0.25 * E.inOut(prog(t, at('deteriorarse'), at('deteriorarse') + 2)); b.setAttribute('transform', `translate(1360 470) scale(${s}) translate(-1360 -470)`); }
+    show(down, t, at('deteriorarse')); show(w, t, at('deteriorarse') + 0.5);
+  };
+});
+stillScene(svg, 'c1d', () => at('aunque1'), () => at('buena1'), { focus: [0.5, 0.4], zoom: 0.12 }, g => {
+  const c = CAP(g, 'CAMINAR NO LAS ENTRENA', { hi: 'NO' });
+  return t => show(c, t, at('aunque1') + 1);
+});
+// good news: muscles adapt; exercises send a new message
+scene(svg, () => at('buena1'), () => at('respuesta1'), g => {
+  const host = Host(g, 'waving', { cx: 380, cy: 600, fit: 760 });
+  const h = Chip(g, 'TUS MÚSCULOS SE ADAPTAN', { cx: 1200, cy: 170, fill: C.green, color: C.white, size: 52 });
+  const ts = [['chair', 'SILLA', 'silla_r1'], ['hand', 'PARED', 'pared_r1'], ['dumbbell', 'BANDA', 'banda_r1']].map(([ic, s, k], i) => { sfx('pop', at(k), 0.7); return [IconTile(g, ic, s, 830 + i * 340, 520, { w: 290, h: 300 }), k, 830 + i * 340]; });
+  const m = Bubble(g, '«¡Todavía necesito fuerza!»', { cx: 1200, cy: 870, size: 50 });
+  sfx('ding', at('mensaje1'));
+  return t => { host(t, at('buena1')); pop(h, t, at('buena1') + 0.6, 1200, 170); ts.forEach(([c, k, cx]) => pop(c, t, at(k), cx, 520)); pop(m, t, at('mensaje1'), 1200, 870); };
+});
+stillScene(svg, 'f2d', () => at('practica1'), () => at('timbre'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const ch = [['LEVANTARTE', 0], ['CARGAR', 1], ['ESTABILIDAD', 2]].map(([s, i]) => Chip(g, s, { cx: 1580, cy: 200 + i * 140, fill: C.white, size: 42 }));
+  const c = CAP(g, 'MÁS FÁCIL CADA DÍA', { hi: 'MÁS FÁCIL' });
+  return t => { show(c, t, at('practica1')); ch.forEach((x, i) => slideIn(x, t, at('practica1') + 1.5 + i * 1.2, 'r', 400)); };
+});
+stillScene(svg, 'f2c', () => at('respuesta1'), () => at('practica1'), { focus: [0.4, 0.5], zoom: 0.12 }, g => {
+  const c = CAP(g, 'EL CUERPO RESPONDE', { hi: 'RESPONDE' });
+  return t => show(c, t, at('respuesta1') + 0.3);
+});
+// doorbell
+stillScene(svg, 'f1d', () => at('timbre'), () => at('empezar1'), { focus: [0.55, 0.45], zoom: 0.14 }, g => {
+  const a = Chip(g, 'ANTES: SIN PENSARLO', { cx: 1450, cy: 140, fill: C.white, size: 44 });
+  const b = Chip(g, 'AHORA: CON LOS DOS BRAZOS', { cx: 1350, cy: 270, fill: C.red, color: C.white, size: 44 });
+  const c = CAP(g, 'UNA SEÑAL PARA TRABAJAR LA FUERZA', { size: 52, hi: 'FUERZA' });
+  sfx('ding', at('timbre') + 1.5, 0.6); sfx('pop', at('antes1')); sfx('pop', at('ahora1'));
+  return t => { slideIn(a, t, at('antes1'), 'r', 400); slideIn(b, t, at('ahora1'), 'r', 400); show(c, t, at('senal1')); };
+});
+// exercise: chair rise
+scene(svg, () => at('empezar1'), () => at('suscribe1'), g => {
+  const h = Chip(g, 'EJERCICIO · LEVÁNTATE DE LA SILLA', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['sts1', 'sts2', 'sts3', 'sts4'], [], { y: 170, h: 640 });
+  const steps = [['SILLA FIRME CONTRA LA PARED', 'pared1'], ['PIES APOYADOS EN EL SUELO', 'sientate1'], ['LEVÁNTATE DESPACIO', 'levantate1'], ['SIÉNTATE CON CONTROL', 'vuelve1']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 52 }), k]);
+  const cnt = Counter(g, { cx: 1690, cy: 920 }); cnt.set('5–8 ×');
+  const ok = Chip(g, 'SIN DOLOR NI MAREOS', { cx: 230, cy: 920, fill: C.green, color: C.white, size: 34 });
+  ['pared1', 'sientate1', 'levantate1', 'vuelve1', 'reps1'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('empezar1'));
+    const keys = [at('sientate1'), at('levantate1'), at('levantate1') + 1.2, at('levantate1') + 2.4];
+    if (t < at('sientate1')) row.forEach(({ c, st }) => { c.setAttribute('opacity', 0.3); st.draw(t, 0, 1); });
+    else if (t < at('reps1')) lightRow(row, t, keys);
+    else { const i = Math.floor((t - at('reps1')) / 0.9) % 4; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === [0, 2, 3, 1][i] ? 1 : 0.4); st.draw(t, 0, 1); }); }
+    steps.forEach(([c, k], i) => show(c, t, at(k), i < 3 ? at(steps[i + 1][1]) : at('reps1')));
+    show(cnt.g, t, at('reps1')); show(ok, t, at('reps1') + 2);
+  };
+});
+// subscribe
+scene(svg, () => at('suscribe1'), () => at('complementar'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const c = CTA(w, 'sub', 520);
+  sfx('click', at('suscribe1') + 0.3);
+  return t => { host(t, at('suscribe1')); pop(c, t, at('suscribe1') + 0.3, 960, 520); };
+});
+// complement, not replace
+stillScene(svg, 'f2b', () => at('complementar'), () => at('huesos1'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'NO ABANDONES TUS PASEOS: COMPLÉTALOS', { size: 50, hi: 'COMPLÉTALOS' });
+  const b = CAP(g, 'FUERZA = HACERLO POR TI MISMO', { size: 52, hi: 'POR TI MISMO' });
+  return t => { show(a, t, at('complementar'), at('fuerza1')); show(b, t, at('fuerza1')); };
+});
+// bridge: bones
+scene(svg, () => at('huesos1'), () => END + 1, g => {
+  const b = el('g', {}, g); const cb = cut(b, 'hueso_sano', 960, 470, 520);
+  const c = CAP(g, 'Y TAMBIÉN PROTEGE TUS HUESOS', { hi: 'HUESOS' });
+  sfx('pop', at('huesos1'));
+  return t => { float(cb, t, 960, 470); pop(b, t, at('huesos1'), 960, 470); show(c, t, at('huesos1') + 0.3); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Conclusión — strength, not just steps; weekly plan; warning; question; CTAs.
+window.START = at('c0') - 0.3;
+window.END = 1344.6;
+window.DURATION = window.END;
+const svg = Stage('end');
+
+scene(svg, () => START, () => at('corazon_c'), g => {
+  el('rect', { width: 1920, height: 1080, fill: '#5A4234' }, g);
+  const a = Text(g, 'CONCLUSIÓN', { x: 960, y: 300, size: 60, color: C.amber });
+  const b = Text(g, 'NO SOLO PASOS:', { x: 960, y: 450, size: 100, color: C.cream });
+  const c = Text(g, 'FUERZA', { x: 960, y: 590, size: 130, color: C.amber });
+  const d = Chip(g, 'PARA TU INDEPENDENCIA', { cx: 960, cy: 790, fill: C.amber, size: 52 });
+  sfx('pop', at('pasos_c')); sfx('ding', at('fuerza_c'));
+  return t => { show(a, t, START + 0.2); show(b, t, at('pasos_c')); pop(c, t, at('fuerza_c'), 960, 590); show(d, t, at('fuerza_c') + 2); };
+});
+scene(svg, () => at('corazon_c'), () => at('gimnasio_c'), g => {
+  const a = IconTile(g, 'walk', 'CAMINAR\nCORAZÓN', 640, 450, { w: 420, h: 440 });
+  const plus = Text(g, '+', { x: 960, y: 450, size: 160, color: ACC });
+  const b = IconTile(g, 'dumbbell', 'FUERZA\nAUTONOMÍA', 1280, 450, { w: 420, h: 440 });
+  const ch = ['SILLA', 'ESCALERAS', 'EQUILIBRIO'].map((s, i) => Chip(g, s, { cx: 640 + i * 320, cy: 900, fill: C.white, size: 40 }));
+  sfx('pop', at('corazon_c')); sfx('pop', at('anades_c'));
+  return t => { pop(a, t, at('corazon_c'), 640, 450); show(plus, t, at('anades_c')); pop(b, t, at('anades_c') + 0.3, 1280, 450); ch.forEach((c, i) => show(c, t, at('anades_c') + 3 + i * 1)); };
+});
+// weekly plan
+scene(svg, () => at('gimnasio_c'), () => at('aliados'), g => {
+  const h = Text(g, 'TU SEMANA', { x: 960, y: 130, size: 80, color: ACC });
+  const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D'], str = [0, 2, 4];
+  const cols = days.map((d, i) => {
+    const c = el('g', {}, g), x = 300 + i * 220;
+    Card(c, { x: x - 90, y: 230, w: 180, h: 520, fill: C.white, r: 26 });
+    Text(c, d, { x, y: 290, size: 56, color: C.ink });
+    IC.walk(c, x - 45, 360, 0.9);
+    if (str.includes(i)) IC.dumbbell(c, x - 45, 520, 0.9); else Text(c, 'descanso', { x, y: 580, size: 24, weight: 700, color: C.grey });
+    return [c, x, i];
+  });
+  const a = Chip(g, 'CAMINAR 20–30 MIN', { cx: 620, cy: 880, fill: C.white, size: 44 });
+  const b = Chip(g, 'FUERZA 2–3 DÍAS', { cx: 1300, cy: 880, fill: ACC, color: C.white, size: 44 });
+  const s = Chip(g, 'SIN GIMNASIO', { cx: 960, cy: 1000, fill: C.green, color: C.white, size: 40 });
+  cols.forEach(([, , i]) => sfx('tick', at('plan_c') + i * 0.25, 0.4));
+  return t => { show(h, t, at('gimnasio_c')); show(s, t, at('gimnasio_c') + 0.3); cols.forEach(([c, x, i]) => pop(c, t, at('plan_c') + i * 0.25, x, 490)); show(a, t, at('plan_c') + 2); show(b, t, at('plan_c') + 5); };
+});
+stillScene(svg, 'qa', () => at('aliados'), () => at('advertencia_c'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'UNA SILLA, UNA PARED Y CONSTANCIA', { size: 52, hi: 'CONSTANCIA' });
+  return t => show(a, t, at('aliados') + 0.3);
+});
+// warning
+scene(svg, () => at('advertencia_c'), () => at('pecho_c'), g => {
+  const w = Warn(g, 'ANTES DE CAMBIAR TU RUTINA, CONSULTA SI TIENES', ['Problemas cardíacos · osteoporosis avanzada', 'Mal equilibrio · enfermedad crónica'], { y: 300, w: 1600 });
+  sfx('alert_soft', at('advertencia_c'));
+  return t => show(w, t, at('advertencia_c'));
+});
+scene(svg, () => at('pecho_c'), () => at('resultados'), g => {
+  const st = still(g, 'qb', { ...LEFT, focus: [0.5, 0.45], zoom: 0.1 });
+  const w = el('g', {}, g); Card(w, { x: 1310, y: 160, w: 560, h: 700, fill: C.white });
+  el('rect', { x: 1310, y: 160, width: 560, height: 120, rx: 36, fill: C.red }, w);
+  Text(w, 'DETENTE', { x: 1590, y: 222, size: 60, color: C.white });
+  ['Dolor en el pecho', 'Mareo importante', 'Falta de aire inusual'].forEach((s, i) => Text(w, s, { x: 1590, y: 380 + i * 90, size: 42 }));
+  Text(w, '→ ATENCIÓN MÉDICA', { x: 1590, y: 700, size: 44, color: C.red });
+  Text(w, 'Nunca entrenes con dolor intenso', { x: 1590, y: 790, size: 30, weight: 700, color: C.grey });
+  sfx('alert', at('pecho_c'));
+  return t => { st.draw(t, at('pecho_c'), at('resultados')); show(w, t, at('pecho_c') - 1.5); };
+});
+stillScene(svg, 'f2a', () => at('resultados'), () => at('pregunta_c'), { focus: [0.45, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'CONSTANCIA > INTENSIDAD', { hi: 'CONSTANCIA' });
+  return t => show(a, t, at('constancia_c'));
+});
+// question
+scene(svg, () => at('pregunta_c'), () => at('megusta_c'), g => {
+  const h = Text(g, '¿QUÉ TE CUESTA MÁS?', { x: 960, y: 140, size: 76, color: ACC });
+  const ts = [['stairs', 'SUBIR\nESCALERAS'], ['chair', 'LEVANTARTE\nDE LA SILLA'], ['walk', 'CAMINAR\nMUCHO TIEMPO']].map(([ic, s], i) => [IconTile(g, ic, s, 960 + (i - 1) * 460, 470, { w: 400, h: 420 }), 960 + (i - 1) * 460, i]);
+  const c = el('g', {}, g); const q = still(c, 'qc', { x: 560, y: 720, w: 800, h: 330, r: 26, focus: [0.4, 0.45], zoom: 0.05 });
+  const city = Bubble(g, '¿Desde qué ciudad de España?', { cx: 1560, cy: 880, size: 38 });
+  ts.forEach(([, , i]) => sfx('pop', at('opciones') + i * 1.2, 0.7)); sfx('pop', at('cuentamelo') + 2);
+  return t => { show(h, t, at('pregunta_c')); ts.forEach(([x, cx, i]) => pop(x, t, Math.min(at('opciones'), at('pregunta_c') + 1.5) + i * 1.2, cx, 470)); show(c, t, at('cuentamelo')); q.draw(t, at('cuentamelo'), at('megusta_c')); pop(city, t, at('cuentamelo') + 2, 1560, 880); };
+});
+scene(svg, () => at('megusta_c'), () => at('inevitable'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 720 });
+  const w1 = el('g', { transform: 'translate(260 0)' }, g); const c1 = CTA(w1, 'like', 330);
+  const w2 = el('g', { transform: 'translate(260 0)' }, g); const c2 = CTA(w2, 'sub', 540);
+  const w3 = el('g', { transform: 'translate(260 0)' }, g); const c3 = CTA(w3, 'bell', 750);
+  sfx('click', at('megusta_c')); sfx('click', at('megusta_c') + 1.2); sfx('ding', at('megusta_c') + 2.4);
+  return t => { host(t, at('megusta_c')); pop(c1, t, at('megusta_c'), 960, 330); pop(c2, t, at('megusta_c') + 1.2, 960, 540); pop(c3, t, at('megusta_c') + 2.4, 960, 750); };
+});
+stillScene(svg, 'qd', () => at('inevitable'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.08 }, g => {
+  const a = CAP(g, 'FUERZA · EQUILIBRIO · AUTONOMÍA', { hi: 'AUTONOMÍA' });
+  const b = Chip(g, 'EMPIEZA HOY', { cx: 960, cy: 130, fill: C.red, color: C.white, size: 64 });
+  sfx('ding', at('inevitable') + 4);
+  return t => { show(a, t, at('inevitable') + 1); pop(b, t, at('inevitable') + 4, 960, 130); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

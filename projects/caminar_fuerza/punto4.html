@@ -1,0 +1,121 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#ECE4F5;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 4 — brain: forgetfulness, muscle–brain messages (myokines, irisin, BDNF), walk + strength, honest limits.
+window.START = at('h4') - 0.3;
+window.END = at('h5') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p4');
+
+scene(svg, () => START, () => at('llaves'), g => {
+  const k = Kicker(g, 4, 'EL MENSAJE AL CEREBRO'); Progress(g, 3);
+  const m = el('g', {}, g); cut(m, 'muslo_lado', 560, 560, 520);
+  const b = el('g', {}, g); const cb = cut(b, 'cerebro', 1360, 520, 520);
+  const ar = el('g', {}, g); Arrow(ar, 820, 560, 1080, 520, ACC, 16, '4 22');
+  const c = CAP(g, 'MÚSCULOS Y MEMORIA, CONECTADOS', { size: 54, hi: 'CONECTADOS' });
+  sfx('pop', at('fortaleces4')); sfx('ding', at('extrano') + 2);
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); show(m, t, START + 0.5); show(ar, t, START + 1.5); pop(b, t, START + 2.2, 1360, 520); float(cb, t, 1360, 520); show(c, t, at('extrano') + 2); };
+});
+stillScene(svg, 'c1a', () => at('llaves'), () => at('habitacion'), { focus: [0.45, 0.5], zoom: 0.14 }, g => {
+  const c = CAP(g, '¿DÓNDE ESTÁN LAS LLAVES?', { hi: 'LLAVES' });
+  return t => show(c, t, at('llaves'));
+});
+stillScene(svg, 'c1b', () => at('habitacion'), () => at('palabra4'), { focus: [0.5, 0.35], zoom: 0.14 }, g => {
+  const c = CAP(g, '¿A QUÉ VENÍA?', { hi: 'VENÍA' });
+  return t => show(c, t, at('habitacion'));
+});
+stillScene(svg, 'c1c', () => at('palabra4'), () => at('despistes'), { focus: [0.4, 0.4], zoom: 0.14 }, g => {
+  const c = CAP(g, 'LA PALABRA NO SALE', { hi: 'NO SALE' });
+  return t => show(c, t, at('palabra4'));
+});
+scene(svg, () => at('despistes'), () => at('obedecian'), g => {
+  const host = Host(g, 'three_q', { cx: 400, cy: 600, fit: 780 });
+  const a = Chip(g, 'DESPISTES ≠ ENFERMEDAD', { cx: 1250, cy: 330, fill: C.amber, size: 52 });
+  const b = Chip(g, 'CUIDA TU CEREBRO', { cx: 1250, cy: 520, fill: ACC, color: C.white, size: 52 });
+  const c = Chip(g, 'OTRA RAZÓN PARA COMBINAR', { cx: 1250, cy: 710, fill: C.white, size: 46 });
+  sfx('pop', at('enfermedad4')); sfx('pop', at('cuidar4')); sfx('pop', at('razon4'));
+  return t => { host(t, at('despistes')); pop(a, t, at('enfermedad4'), 1250, 330); pop(b, t, at('cuidar4'), 1250, 520); pop(c, t, at('razon4'), 1250, 710); };
+});
+// two-way communication: myokines
+scene(svg, () => at('obedecian'), () => at('aprendizaje'), g => {
+  const b = el('g', {}, g); const cb = cut(b, 'cerebro', 1440, 430, 480);
+  const m = el('g', {}, g); cut(m, 'muslo_lado', 460, 560, 520);
+  const down = el('g', {}, g); Arrow(down, 1200, 380, 720, 380, C.grey, 12, '6 18'); Text(down, 'ÓRDENES', { x: 960, y: 340, size: 34, color: C.grey });
+  const up = el('g', {}, g); Arrow(up, 720, 640, 1200, 520, ACC, 14);
+  const dots = []; for (let i = 0; i < 6; i++) dots.push(el('circle', { r: 16, fill: '#FFE07A', stroke: C.ink, 'stroke-width': 4 }, g));
+  const amb = Chip(g, 'EN AMBAS DIRECCIONES', { cx: 960, cy: 140, fill: C.ink, color: C.white, size: 46 });
+  const myo = Chip(g, 'MIOQUINAS', { cx: 960, cy: 760, fill: ACC, color: C.white, size: 54 });
+  const ir = Chip(g, 'IRISINA · EN ESTUDIO', { cx: 700, cy: 900, fill: C.white, size: 40 });
+  const bd = Chip(g, 'BDNF · APOYO A LAS NEURONAS', { cx: 1300, cy: 900, fill: C.white, size: 40 });
+  sfx('pop', at('ambas4')); sfx('ding', at('mioquinas')); sfx('pop', at('irisina')); sfx('pop', at('bdnf'));
+  return t => {
+    show(b, t, at('obedecian')); float(cb, t, 1440, 430); show(m, t, at('obedecian')); show(down, t, at('obedecian') + 0.5);
+    show(amb, t, at('ambas4')); show(up, t, at('mioquinas') - 0.5); pop(myo, t, at('mioquinas'), 960, 760);
+    dots.forEach((d, i) => { const u = ((t * 0.5 + i / 6) % 1); set(d, { cx: lerp(720, 1200, u), cy: lerp(640, 520, u) - 30 * Math.sin(u * Math.PI), opacity: t > at('mioquinas') ? 1 - 0.6 * u : 0 }); });
+    show(ir, t, at('irisina')); show(bd, t, at('bdnf'));
+  };
+});
+stillScene(svg, 'c2c', () => at('aprendizaje'), () => at('investigando'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const c = CAP(g, 'APRENDIZAJE Y MEMORIA', { hi: 'MEMORIA' });
+  return t => show(c, t, at('aprendizaje') + 0.2);
+});
+scene(svg, () => at('investigando'), () => at('combinar4'), g => {
+  const b = el('g', {}, g); const cb = cut(b, 'cerebro', 960, 460, 560);
+  const c = CAP(g, 'TODAVÍA SE INVESTIGA', { hi: 'SE INVESTIGA' });
+  return t => { float(cb, t, 960, 460); show(b, t, at('investigando')); show(c, t, at('investigando') + 0.5); };
+});
+// walking + strength for the brain
+stillScene(svg, 'c1d', () => at('combinar4'), () => at('fuerza4'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'BUEN RITMO = MÁS OXÍGENO AL CEREBRO', { size: 50, hi: 'OXÍGENO' });
+  return t => show(a, t, at('ritmo4'));
+});
+stillScene(svg, 'c2a', () => at('fuerza4'), () => at('complicados'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'FUERZA: AUTONOMÍA Y COORDINACIÓN', { size: 52, hi: 'COORDINACIÓN' });
+  const b = Chip(g, 'UN CUIDADO COMPLETO', { cx: 1500, cy: 140, fill: ACC, color: C.white, size: 46 });
+  sfx('ding', at('completa4'));
+  return t => { show(a, t, at('fuerza4') + 0.5); pop(b, t, at('completa4'), 1500, 140); };
+});
+// simple plan
+scene(svg, () => at('complicados'), () => at('coordinacion4'), g => {
+  const a = IconTile(g, 'walk', 'CAMINAR\n20–30 MIN', 640, 480, { w: 420, h: 440 });
+  const b = IconTile(g, 'chair', 'SILLA O\nBANDA', 1280, 480, { w: 420, h: 440 });
+  const c = CAP(g, 'NADA COMPLICADO', { hi: 'NADA' });
+  sfx('pop', at('treinta4')); sfx('pop', at('dias4'));
+  return t => { show(c, t, at('complicados')); pop(a, t, at('complicados') + 0.4, 640, 480); pop(b, t, at('dias4'), 1280, 480); };
+});
+stillScene(svg, 'c2b', () => at('coordinacion4'), () => at('fundamental4'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'COORDINACIÓN, SIEMPRE CON APOYO', { size: 54, hi: 'CON APOYO' });
+  const b = CAP(g, 'CONSTANCIA: SEMANAS Y MESES', { size: 54, hi: 'CONSTANCIA' });
+  return t => { show(a, t, at('coordinacion4'), at('constancia4')); show(b, t, at('constancia4')); };
+});
+// honest limit
+scene(svg, () => at('fundamental4'), () => at('suscribe4'), g => {
+  const w = Warn(g, 'EL EJERCICIO NO GARANTIZA', ['evitar el Alzheimer ni la demencia', 'pero ayuda a un envejecimiento cerebral sano'], { y: 470, w: 1500 });
+  const b = el('g', {}, g); cut(b, 'cerebro', 960, 260, 300);
+  sfx('alert_soft', at('fundamental4'));
+  return t => { show(b, t, at('fundamental4')); show(w, t, at('fundamental4') + 0.3); };
+});
+stillScene(svg, 'c2d', () => at('suscribe4'), () => at('rodillas4'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const c = CTA(g, 'sub', 880);
+  const s = Chip(g, 'COMPARTE ESTE VÍDEO', { cx: 1450, cy: 140, fill: C.white, size: 46 });
+  sfx('click', at('suscribe4') + 3);
+  return t => { pop(c, t, at('suscribe4') + 3, 960, 880); pop(s, t, at('suscribe4') + 5, 1450, 140); };
+});
+scene(svg, () => at('rodillas4'), () => END + 1, g => {
+  const k = el('g', {}, g); const ck = cut(k, 'rodilla', 960, 460, 520);
+  const c = CAP(g, 'Y AHORA: TUS RODILLAS', { hi: 'RODILLAS' });
+  sfx('pop', at('rodillas4'));
+  return t => { float(ck, t, 960, 460); pop(k, t, at('rodillas4'), 960, 460); show(c, t, at('rodillas4') + 0.3); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

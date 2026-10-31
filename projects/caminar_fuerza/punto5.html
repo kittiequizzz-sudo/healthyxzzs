@@ -1,0 +1,128 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FDE6CC;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 5 — knees: stiffness, quadriceps, cartilage nutrition, strength for knee OA, heel raise, cramps note.
+window.START = at('h5') - 0.3;
+window.END = at('c0') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p5');
+
+scene(svg, () => START, () => at('familiar5'), g => {
+  const k = Kicker(g, 5, 'PROTEGE TUS RODILLAS'); Progress(g, 4);
+  const kn = el('g', {}, g); const ck = cut(kn, 'rodilla', 760, 560, 560);
+  const a = Chip(g, '¿DENTRO DE LA RODILLA?', { cx: 1400, cy: 420, fill: C.white, size: 46 });
+  const b = Chip(g, 'O EN LOS MÚSCULOS', { cx: 1400, cy: 580, fill: ACC, color: C.white, size: 50 });
+  const e = CAP(g, 'MÁS ESFUERZO DEL NECESARIO', { hi: 'ESFUERZO' });
+  sfx('pop', START + 0.5); sfx('pop', at('dentro5')); sfx('ding', at('dentro5') + 3);
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); float(ck, t, 760, 560); pop(kn, t, START + 0.5, 760, 560); show(e, t, at('casa5') - 3, at('dentro5')); show(a, t, at('dentro5')); pop(b, t, at('dentro5') + 3, 1400, 580); };
+});
+stillScene(svg, 'r1a', () => at('familiar5'), () => at('rigidez'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const c = CAP(g, 'AL PRINCIPIO, TODO BIEN', { hi: 'TODO BIEN' });
+  return t => show(c, t, at('manana5'));
+});
+stillScene(svg, 'r1b', () => at('rigidez'), () => at('bajar5'), { focus: [0.5, 0.6], zoom: 0.14 }, g => {
+  const c = CAP(g, 'RIGIDEZ AL VOLVER', { hi: 'RIGIDEZ' });
+  return t => show(c, t, at('rigidez'));
+});
+stillScene(svg, 'r1c', () => at('bajar5'), () => at('agarrotadas'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const c = CAP(g, 'BAJAR ESCALERAS CUESTA', { hi: 'CUESTA' });
+  return t => show(c, t, at('bajar5'));
+});
+stillScene(svg, 'r1d', () => at('agarrotadas'), () => at('duda'), { focus: [0.5, 0.55], zoom: 0.14 }, g => {
+  const c = CAP(g, 'PIERNAS AGARROTADAS', { hi: 'AGARROTADAS' });
+  return t => show(c, t, at('agarrotadas') + 0.5);
+});
+scene(svg, () => at('duda'), () => at('solas'), g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 780 });
+  const b = Bubble(g, 'Si caminar es tan sano… ¿por qué?', { cx: 1250, cy: 330, size: 50 });
+  const c = Chip(g, 'MOVIMIENTO + FUERZA', { cx: 1250, cy: 640, fill: ACC, color: C.white, size: 56 });
+  sfx('pop', at('duda') + 0.5); sfx('ding', at('equilibrio5'));
+  return t => { host(t, at('duda')); pop(b, t, at('duda') + 0.5, 1250, 330); pop(c, t, at('equilibrio5'), 1250, 640); };
+});
+// knees don't work alone: quadriceps
+stillScene(svg, 'r2a', () => at('solas'), () => at('fascinante5'), { focus: [0.4, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LA RODILLA NO TRABAJA SOLA', { hi: 'NO TRABAJA SOLA' });
+  const b = CAP(g, 'CUÁDRICEPS DÉBILES = MÁS DOLOR', { hi: 'MÁS DOLOR' });
+  const q = Chip(g, 'CUÁDRICEPS', { cx: 1500, cy: 140, fill: ACC, color: C.white, size: 52 });
+  sfx('pop', at('cuadriceps5'));
+  return t => { show(a, t, at('solas'), at('debilitados5')); pop(q, t, at('cuadriceps5'), 1500, 140); show(b, t, at('debilitados5')); };
+});
+// cartilage nutrition: compress / release
+scene(svg, () => at('fascinante5'), () => at('nosuficiente5'), g => {
+  const kn = el('g', {}, g); const ck = cut(kn, 'rodilla', 700, 520, 640);
+  const s = 640 / 469, x0 = 700 - 167.5 * s, y0 = 520 - 162.5 * s;
+  const glow = el('ellipse', { cx: x0 + 160 * s, cy: y0 + 180 * s, rx: 110, ry: 46, fill: '#9FD3F2', opacity: 0 }, g);
+  const a = Chip(g, 'CARTÍLAGO: SIN VASOS SANGUÍNEOS', { cx: 1400, cy: 320, fill: C.white, size: 40 });
+  const b = Chip(g, 'SE NUTRE AL MOVERSE', { cx: 1400, cy: 480, fill: ACC, color: C.white, size: 48 });
+  const sp = el('g', {}, g); Text(sp, 'COMPRIMIR', { x: 1400, y: 640, size: 44, color: C.ink }); Text(sp, '↕', { x: 1400, y: 710, size: 70, color: ACC }); Text(sp, 'SOLTAR', { x: 1400, y: 780, size: 44, color: C.ink });
+  const m = CAP(g, 'MOVIMIENTO MODERADO', { hi: 'MODERADO' });
+  sfx('pop', at('cartilago')); sfx('pop', at('sinovial')); sfx('ding', at('moderado'));
+  return t => {
+    show(kn, t, at('fascinante5'));
+    const sq = 1 - 0.04 * (0.5 + 0.5 * Math.sin(t * 3)); if (t > at('compresion')) kn.setAttribute('transform', `translate(700 520) scale(1 ${sq.toFixed(3)}) translate(-700 -520)`);
+    set(glow, { opacity: t > at('sinovial') ? 0.35 + 0.25 * Math.sin(t * 3) : 0 });
+    show(a, t, at('cartilago')); show(b, t, at('sinovial')); show(sp, t, at('compresion')); show(m, t, at('moderado'));
+  };
+});
+// walking may not be enough → strength: quads, glutes, calves
+scene(svg, () => at('nosuficiente5'), () => at('sencillo5'), g => {
+  const h = Chip(g, 'CAMINAR NO SIEMPRE BASTA', { cx: 960, cy: 140, fill: C.amber, size: 52 });
+  const ms = [['muslo_lado', 'CUÁDRICEPS Y GLÚTEOS', 560], ['gemelo', 'PANTORRILLAS', 1360]].map(([n, s, cx]) => { const c = el('g', {}, g); cut(c, n, cx, 470, 440); Chip(c, s, { cx, cy: 760, fill: C.white, size: 40 }); return [c, cx]; });
+  const a = CAP(g, 'ARTROSIS: MENOS DOLOR, MÁS MOVILIDAD', { size: 50, hi: 'MENOS DOLOR' });
+  const sub = Chip(g, 'ENTRENAMIENTO DE RESISTENCIA', { cx: 960, cy: 880, fill: ACC, color: C.white, size: 44 });
+  sfx('pop', at('resistencia5')); sfx('pop', at('fortaleces5')); sfx('ding', at('artrosis'));
+  return t => { pop(h, t, at('nosuficiente5'), 960, 140); show(sub, t, at('resistencia5'), at('artrosis')); ms.forEach(([c, cx], i) => pop(c, t, at('nosuficiente5') + 1 + i * 1.2, cx, 470)); show(a, t, at('artrosis')); };
+});
+// exercise: heel raise
+scene(svg, () => at('sencillo5'), () => at('calambres'), g => {
+  const h = Chip(g, 'EJERCICIO · PONTE DE PUNTILLAS', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['tal1', 'tal2', 'tal3'], [], { y: 170, h: 640, x0: 210, x1: 1710 });
+  const steps = [['DETRÁS DE UNA SILLA FIRME', 'silla5'], ['SUBE LOS TALONES DESPACIO', 'talones5'], ['AGUANTA 1–2 SEGUNDOS Y BAJA', 'aguanta5']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 52 }), k]);
+  const cnt = Counter(g, { cx: 1690, cy: 920 }); cnt.set('8–12 ×');
+  const tob = Chip(g, 'PANTORRILLAS · TOBILLOS', { cx: 960, cy: 920, fill: C.white, size: 44 });
+  const ven = Chip(g, 'AYUDA A LA CIRCULACIÓN DE VUELTA', { cx: 960, cy: 920, fill: C.green, color: C.white, size: 44 });
+  ['silla5', 'talones5', 'aguanta5', 'reps5'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('sencillo5'));
+    const keys = [at('silla5'), at('talones5'), at('aguanta5') + 1.2];
+    if (t < at('silla5')) row.forEach(({ c, st }) => { c.setAttribute('opacity', 0.3); st.draw(t, 0, 1); });
+    else if (t < at('reps5')) lightRow(row, t, keys);
+    else { const i = Math.floor((t - at('reps5')) / 1.1) % 2; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === (i ? 1 : 0) ? 1 : 0.4); st.draw(t, 0, 1); }); }
+    steps.forEach(([c, k], i) => show(c, t, at(k), i < 2 ? at(steps[i + 1][1]) : at('reps5')));
+    show(cnt.g, t, at('reps5')); show(tob, t, at('tobillos'), at('venoso')); show(ven, t, at('venoso'));
+  };
+});
+// cramps: many causes
+stillScene(svg, 'r2c', () => at('calambres'), () => at('intensos5'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'CALAMBRES: MUCHAS CAUSAS', { hi: 'MUCHAS CAUSAS' });
+  const b = Chip(g, 'LA FUERZA NO LOS GARANTIZA', { cx: 1450, cy: 140, fill: C.white, size: 42 });
+  sfx('pop', at('garantiza5'));
+  return t => { show(a, t, at('calambres') + 0.3); pop(b, t, at('garantiza5'), 1450, 140); };
+});
+scene(svg, () => at('intensos5'), () => at('recuerda5'), g => {
+  const w = Warn(g, '¿DOLOR INTENSO O MUCHA INFLAMACIÓN?', ['¿Calambres que no se van?', 'Consulta con un profesional sanitario'], { y: 300, w: 1500 });
+  sfx('alert_soft', at('intensos5'));
+  return t => show(w, t, at('intensos5'));
+});
+stillScene(svg, 'r2d', () => at('recuerda5'), () => at('semana5'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'MOVER + FORTALECER = MÁS SEGURIDAD', { size: 52, hi: 'SEGURIDAD' });
+  return t => show(a, t, at('recuerda5') + 0.5);
+});
+scene(svg, () => at('semana5'), () => END + 1, g => {
+  const host = Host(g, 'front', { cx: 420, cy: 600, fit: 760 });
+  const q = Bubble(g, '¿Cómo combinarlo en la semana?', { cx: 1250, cy: 420, size: 52 });
+  sfx('pop', at('semana5') + 0.5);
+  return t => { host(t, at('semana5')); pop(q, t, at('semana5') + 0.5, 1250, 420); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

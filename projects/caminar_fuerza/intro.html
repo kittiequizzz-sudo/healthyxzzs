@@ -1,0 +1,111 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — walking every day, yet losing strength; five changes; the goal.
+window.START = 0;
+window.END = at('h1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('intro');
+
+stillScene(svg, 'i1a', () => -1, () => at('km'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const c = CAP(g, 'CAMINAS TODOS LOS DÍAS…', { hi: 'TODOS LOS DÍAS' });
+  return t => show(c, t, 0.3);
+}, true);
+stillScene(svg, 'r1a', () => at('km'), () => at('fuerza0') - 3, { focus: [0.45, 0.4], zoom: 0.14 }, g => {
+  const c = CAP(g, 'VARIOS KILÓMETROS', { hi: 'KILÓMETROS' });
+  return t => show(c, t, at('km'));
+}, true);
+stillScene(svg, 'f1a', () => at('fuerza0') - 3, () => at('fuerza0'), { focus: [0.45, 0.4], zoom: 0.14 }, g => {
+  const c = CAP(g, '…Y AUN ASÍ PIERDES ALGO', { hi: 'PIERDES' });
+  return t => show(c, t, at('fuerza0') - 2.9);
+}, true);
+scene(svg, () => at('fuerza0'), () => at('pasear0'), g => {
+  const m = el('g', {}, g); const cm = cut(m, 'muslo_lado', 960, 480, 620);
+  const s = Stamp(g, 'TU FUERZA MUSCULAR', { cx: 960, cy: 880, size: 76, color: C.red, rot: -4 });
+  sfx('stamp', at('fuerza0') + 0.2);
+  return t => { float(cm, t, 960, 480); pop(m, t, at('fuerza0'), 960, 480); s.draw(t, at('fuerza0') + 0.2); };
+}, true);
+stillScene(svg, 'c1d', () => at('pasear0'), () => at('sofa0'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const c = CAP(g, 'AÑOS PASEANDO', { hi: 'PASEANDO' });
+  return t => show(c, t, at('pasear0') + 0.2);
+}, true);
+stillScene(svg, 'i1b', () => at('sofa0'), () => at('escaleras0'), { focus: [0.5, 0.4], zoom: 0.14 }, g => {
+  const c = CAP(g, 'LEVANTARTE DEL SOFÁ', { hi: 'SOFÁ' });
+  return t => show(c, t, at('sofa0'));
+}, true);
+stillScene(svg, 'i1c', () => at('escaleras0'), () => at('bolsas0'), { focus: [0.4, 0.4], zoom: 0.14 }, g => {
+  const c = CAP(g, 'SUBIR ESCALERAS', { hi: 'ESCALERAS' });
+  return t => show(c, t, at('escaleras0'));
+}, true);
+scene(svg, () => at('bolsas0'), () => at('pregunta0'), g => {
+  const b = el('g', {}, g); const cb = cut(b, 'bolsas', 960, 500, 640);
+  const c = CAP(g, 'CARGAR LAS BOLSAS', { hi: 'BOLSAS' });
+  return t => { float(cb, t, 960, 500); pop(b, t, at('bolsas0'), 960, 500); show(c, t, at('bolsas0')); };
+}, true);
+stillScene(svg, 'i1d', () => at('pregunta0'), () => at('mejores'), { focus: [0.5, 0.35], zoom: 0.12 }, g => {
+  const q = Bubble(g, '¿Por qué, si nunca dejé de caminar?', { cx: 1250, cy: 170, size: 46 });
+  const s = Chip(g, 'LA RESPUESTA TE SORPRENDERÁ', { cx: 960, cy: 975, fill: ACC, color: C.white, size: 46 });
+  sfx('pop', at('como0')); sfx('ding', at('sorprenderte'));
+  return t => { pop(q, t, at('como0'), 1250, 170); show(s, t, at('sorprenderte')); };
+}, true);
+// walking is great… but after 60 it may not be enough
+scene(svg, () => at('mejores'), () => at('interesante0'), g => {
+  const host = Host(g, 'three_q', { cx: 380, cy: 600, fit: 780 });
+  const a = IconTile(g, 'walk', 'CAMINAR', 1050, 430, { w: 380, h: 400 });
+  const ok = icon(g, 'check', 1150, 210, 1.2);
+  const n = Chip(g, '+60: PUEDE NO BASTAR', { cx: 1250, cy: 800, fill: C.red, color: C.white, size: 52 });
+  sfx('pop', at('mejores') + 0.5); sfx('pop', at('suficiente0'));
+  return t => { host(t, at('mejores')); pop(a, t, at('mejores') + 0.3, 1050, 430); pop(ok, t, at('mejores') + 1, 1210, 270); pop(n, t, at('suficiente0'), 1250, 800); };
+});
+// walk + strength
+scene(svg, () => at('interesante0'), () => at('cinco0'), g => {
+  const a = IconTile(g, 'walk', 'PASEOS', 620, 480, { w: 400, h: 420 });
+  const plus = Text(g, '+', { x: 960, y: 480, size: 160, color: ACC });
+  const b = IconTile(g, 'dumbbell', 'FUERZA', 1300, 480, { w: 400, h: 420 });
+  const c = CAP(g, 'LA COMBINACIÓN', { hi: 'COMBINACIÓN' });
+  sfx('pop', at('interesante0') + 0.3); sfx('ding', at('combinas') + 1.5);
+  return t => { pop(a, t, at('interesante0') + 0.3, 620, 480); show(plus, t, at('combinas')); pop(b, t, at('combinas') + 1.5, 1300, 480); show(c, t, at('combinas') + 1.5); };
+});
+// five changes
+scene(svg, () => at('cinco0'), () => at('hoy0'), g => {
+  const h = Text(g, '5 CAMBIOS', { x: 960, y: 150, size: 110 });
+  const keys = ['musculos0', 'huesos0', 'circulacion0', 'cerebro0', 'articulaciones0'];
+  const tiles = SIGNS.map(([ic, s], i) => [IconTile(g, ic, s, 960 + (i - 2) * 340, 450, { w: 290, h: 300 }), 960 + (i - 2) * 340, keys[i], i]);
+  const ring = el('rect', { x: 960 + 680 - 165, y: 280, width: 330, height: 340, rx: 44, fill: 'none', stroke: C.red, 'stroke-width': 10, opacity: 0 }, g);
+  const k = still(g, 'i2c', { x: 560, y: 660, w: 800, h: 380, r: 28, focus: [0.4, 0.6], zoom: 0.06 });
+  const c = Chip(g, '¡ATENCIÓN AL ÚLTIMO!', { cx: 960, cy: 150, fill: C.red, color: C.white, size: 60 });
+  keys.forEach(kk => sfx('pop', at(kk), 0.7)); sfx('ding', at('ultimo0'));
+  return t => {
+    show(h, t, at('cinco0'), at('ultimo0'));
+    tiles.forEach(([tile, cx, kk, i]) => { pop(tile, t, at(kk), cx, 450); if (t > at('ultimo0')) tile.setAttribute('opacity', i === 4 ? 1 : 0.35); });
+    ring.setAttribute('opacity', prog(t, at('ultimo0'), at('ultimo0') + 0.3));
+    show(k.g, t, at('rodilla0') - 0.3); k.draw(t, at('rodilla0'), at('hoy0'));
+    pop(c, t, at('ultimo0'), 960, 150);
+  };
+});
+// no gym needed
+stillScene(svg, 'i2a', () => at('hoy0'), () => at('objetivo0'), { focus: [0.45, 0.4], zoom: 0.1 }, g => {
+  const a = CAP(g, 'QUÉ PASA DENTRO DE TU CUERPO', { hi: 'DENTRO' });
+  const b = Chip(g, 'SIN GIMNASIO', { cx: 1550, cy: 150, fill: C.green, color: C.white, size: 54 });
+  sfx('pop', at('gimnasio0'));
+  return t => { show(a, t, at('hoy0') + 0.3, at('gimnasio0')); pop(b, t, at('gimnasio0'), 1550, 150); };
+});
+// the goal: keep strength for your freedom
+stillScene(svg, 'i2d', () => at('objetivo0'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'NO CAMINAR MÁS: CONSERVAR FUERZA', { size: 54, hi: 'CONSERVAR FUERZA' });
+  const b = Chip(g, 'TU LIBERTAD', { cx: 960, cy: 140, fill: ACC, color: C.white, size: 60 });
+  sfx('ding', at('libertad0'));
+  return t => { show(a, t, at('objetivo0') + 0.3); pop(b, t, at('libertad0'), 960, 140); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

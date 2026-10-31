@@ -1,0 +1,153 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E1F1E4;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 2 — bones: remodelling, walking stimulus, strength stimulus, falls; wall push-up.
+window.START = at('h2') - 0.3;
+window.END = at('h3') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p2');
+
+stillScene(svg, 'i2b', () => START, () => at('silencio2'), { focus: [0.4, 0.45], zoom: 0.1 }, g => {
+  const k = Kicker(g, 2, 'EL ESCUDO INVISIBLE'); Progress(g, 1);
+  const c = CAP(g, 'PIERNAS FUERTES, HUESOS FRÁGILES', { size: 54, hi: 'FRÁGILES' });
+  return t => { slideIn(k, t, START + 0.2, 'l', 600); show(c, t, at('fragiles') - 2); };
+});
+// bone loss in silence → fall → fracture
+scene(svg, () => at('silencio2'), () => at('sesenta2'), g => {
+  const a = el('g', {}, g); cut(a, 'hueso_sano', 600, 470, 520);
+  const b = el('g', {}, g); cut(b, 'hueso_poroso', 1320, 470, 520);
+  const ar = el('g', {}, g); Arrow(ar, 860, 470, 1060, 470, C.ink, 14);
+  const s = Chip(g, 'EN SILENCIO, SIN DOLOR', { cx: 960, cy: 830, fill: C.white, size: 46 });
+  const r = Chip(g, '+60: MÁS ATENCIÓN', { cx: 960, cy: 960, fill: ACC, color: C.white, size: 48 });
+  sfx('pop', at('silencio2')); sfx('pop', at('silencio2') + 1.5);
+  return t => { pop(a, t, at('silencio2'), 600, 470); show(ar, t, at('silencio2') + 1.2); pop(b, t, at('silencio2') + 1.5, 1320, 470); show(s, t, at('silencio2') + 2); };
+});
+stillScene(svg, 'h1b', () => at('sesenta2'), () => at('calcio'), { focus: [0.6, 0.4], zoom: 0.12 }, g => {
+  const r = CAP(g, '+60: MÁS ATENCIÓN', { hi: '+60' });
+  return t => show(r, t, at('sesenta2') + 0.2);
+});
+stillScene(svg, 'h1d', () => at('calcio'), () => at('vivos'), { focus: [0.5, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SOLO CALCIO', { hi: 'CALCIO' });
+  const b = CAP(g, 'TAMBIÉN MOVIMIENTO Y FUERZA', { hi: 'FUERZA' });
+  return t => { show(a, t, at('calcio'), at('estimulos2')); show(b, t, at('estimulos2')); };
+});
+// living bone: remodelling
+scene(svg, () => at('vivos'), () => at('paso2'), g => {
+  const h = Text(g, 'TUS HUESOS ESTÁN VIVOS', { x: 960, y: 140, size: 74, color: ACC });
+  const b = el('g', {}, g); cut(b, 'hueso_sano', 960, 560, 640);
+  const cells = [];
+  for (let i = 0; i < 6; i++) { const rm = i % 2 === 0; const c = el('g', {}, g); el('circle', { cx: 0, cy: 0, r: 26, fill: rm ? C.red : C.green, stroke: C.ink, 'stroke-width': 4 }, c); Text(c, rm ? '−' : '+', { x: 0, y: 3, size: 36, color: C.white }); cells.push([c, rm, i]); }
+  const la = Chip(g, '− RETIRAN HUESO VIEJO', { cx: 420, cy: 900, fill: C.red, color: C.white, size: 38 });
+  const lb = Chip(g, '+ FORMAN HUESO NUEVO', { cx: 1500, cy: 900, fill: C.green, color: C.white, size: 38 });
+  const r = CAP(g, 'REMODELACIÓN ÓSEA', { hi: 'REMODELACIÓN', cy: 1000, size: 52 });
+  sfx('pop', at('celulas2')); sfx('pop', at('nuevo2')); sfx('ding', at('remodelacion'));
+  return t => {
+    show(h, t, at('vivos')); show(b, t, at('vivos') + 0.3);
+    cells.forEach(([c, rm, i]) => { const a = t * 0.6 + i * 1.05, x = 960 + 230 * Math.cos(a), y = 560 + 200 * Math.sin(a); c.setAttribute('transform', `translate(${x} ${y})`); c.setAttribute('opacity', prog(t, rm ? at('celulas2') : at('nuevo2'), (rm ? at('celulas2') : at('nuevo2')) + 0.4)); });
+    show(la, t, at('celulas2')); show(lb, t, at('nuevo2')); show(r, t, at('remodelacion'));
+  };
+});
+// each step stimulates the bone
+scene(svg, () => at('paso2'), () => at('detalle2'), g => {
+  const leg = el('g', {}, g); cut(leg, 'cuerpo', 700, 560, 820);
+  const waves = [0, 1, 2].map(i => el('path', { fill: 'none', stroke: ACC, 'stroke-width': 8, 'stroke-linecap': 'round' }, g));
+  const c = Chip(g, 'CADA PASO = UN PEQUEÑO ESTÍMULO', { cx: 1320, cy: 420, fill: C.white, size: 42 });
+  const ok = icon(g, 'check', 1260, 560, 1.4);
+  sfx('pop', at('paso2') + 0.5);
+  return t => { show(leg, t, at('paso2')); waves.forEach((w, i) => { const u = ((t * 0.9 + i / 3) % 1); set(w, { d: `M${620 - 60 * u} ${950 - 10 * u} Q700 ${930 - 40 * u} ${780 + 60 * u} ${950 - 10 * u}`, opacity: 1 - u }); }); show(c, t, at('paso2') + 0.5); pop(ok, t, at('paso2') + 4, 1330, 630); };
+});
+// same route for years → already used to it
+stillScene(svg, 'h1c', () => at('detalle2'), () => at('adicional'), { focus: [0.4, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SIEMPRE EL MISMO RITMO', { hi: 'MISMO' });
+  const b = CAP(g, 'EL CUERPO SE ACOSTUMBRA', { hi: 'SE ACOSTUMBRA' });
+  return t => { show(a, t, at('mismo2'), at('acostumbrado')); show(b, t, at('acostumbrado')); };
+});
+// strength: muscle pulls on bone through tendons
+stillScene(svg, 'h2b', () => at('adicional'), () => at('adicional') + 5.5, { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const h = CAP(g, 'LA FUERZA: UN ESTÍMULO EXTRA', { hi: 'ESTÍMULO EXTRA' });
+  return t => show(h, t, at('adicional') + 0.2);
+});
+stillScene(svg, 'h2c', () => at('adicional') + 5.5, () => at('contraen2'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const h = CAP(g, 'PARED · SILLA · BANDA', { hi: 'BANDA' });
+  return t => show(h, t, at('adicional') + 5.7);
+});
+scene(svg, () => at('contraen2'), () => at('nosignifica2'), g => {
+  const h = Chip(g, 'LA FUERZA: UN ESTÍMULO EXTRA', { cx: 960, cy: 140, fill: ACC, color: C.white, size: 52 });
+  const m = el('g', {}, g); cut(m, 'muslo_lado', 620, 560, 620);
+  const b = el('g', {}, g); cut(b, 'hueso_sano', 1320, 560, 480);
+  const pull = el('g', {}, g); Arrow(pull, 900, 560, 1120, 560, C.red, 18); Text(pull, 'TENDONES', { x: 1010, y: 510, size: 36, color: C.red });
+  const ex = ['PARED', 'SILLA', 'BANDA'].map((s, i) => Chip(g, s, { cx: 640 + i * 320, cy: 930, fill: C.white, size: 40 }));
+  sfx('pop', at('adicional')); sfx('swish', at('tendones'), 0.6);
+  return t => { pop(h, t, at('contraen2'), 960, 140); ex.forEach((c, i) => show(c, t, at('contraen2') + 0.5 + i * 0.4)); show(m, t, at('contraen2')); show(b, t, at('contraen2') + 0.3); show(pull, t, at('tendones')); const u = Math.sin(t * 4) * 8; pull.setAttribute('transform', `translate(${u} 0)`); };
+});
+scene(svg, () => at('nosignifica2'), () => at('caidas2'), g => {
+  const w = Warn(g, 'NO ES MAGIA', ['No recupera de golpe la densidad perdida', 'Pero puede ayudar a frenar el deterioro'], { y: 470 });
+  const bb = el('g', {}, g); cut(bb, 'hueso_poroso', 760, 250, 300); cut(bb, 'hueso_sano', 1160, 250, 300); Arrow(bb, 880, 250, 1040, 250, C.green, 12);
+  sfx('alert_soft', at('nosignifica2'));
+  return t => { show(w, t, at('nosignifica2')); show(bb, t, at('frenar')); };
+});
+// falls
+stillScene(svg, 'h1a', () => at('caidas2'), () => at('debilitados2'), { focus: [0.4, 0.6], zoom: 0.14 }, g => {
+  const a = CAP(g, 'MÚSCULOS FUERTES FRENTE A LAS CAÍDAS', { size: 52, hi: 'CAÍDAS' });
+  const b = Chip(g, 'UNA FRACCIÓN DE SEGUNDO', { cx: 1450, cy: 140, fill: C.red, color: C.white, size: 44 });
+  sfx('pop', at('fraccion'));
+  return t => { show(a, t, at('caidas2')); pop(b, t, at('fraccion'), 1450, 140); };
+});
+stillScene(svg, 'h2d', () => at('debilitados2'), () => at('ejercicio2'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'HUESOS + MÚSCULOS = ESTABILIDAD', { size: 54, hi: 'ESTABILIDAD' });
+  return t => show(a, t, at('debilitados2') + 2);
+});
+// exercise: wall push-up
+scene(svg, () => at('ejercicio2'), () => at('osteoporosis'), g => {
+  const h = Chip(g, 'EJERCICIO · FLEXIONES EN LA PARED', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['par1', 'par2', 'par3'], [], { y: 170, h: 640, x0: 210, x1: 1710 });
+  const steps = [['FRENTE A LA PARED', 'frente'], ['MANOS A LA ALTURA DEL PECHO', 'manos2'], ['DOBLA LOS CODOS DESPACIO', 'codos'], ['EMPUJA Y VUELVE', 'empujas']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 52 }), k]);
+  const cnt = Counter(g, { cx: 1690, cy: 920 }); cnt.set('8 ×');
+  const br = Chip(g, 'RESPIRA', { cx: 230, cy: 920, fill: C.green, color: C.white, size: 40 });
+  const zone = Chip(g, 'BRAZOS · PECHO · HOMBROS', { cx: 960, cy: 920, fill: C.white, size: 46 });
+  ['frente', 'manos2', 'codos', 'empujas', 'ocho2'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('ejercicio2'));
+    const keys = [at('manos2'), at('codos'), at('empujas')];
+    if (t < at('manos2')) row.forEach(({ c, st }) => { c.setAttribute('opacity', 0.3 + 0.7 * prog(t, at('frente'), at('frente') + 0.5) * 0.4); st.draw(t, 0, 1); });
+    else if (t < at('ocho2')) lightRow(row, t, keys);
+    else { const i = Math.floor((t - at('ocho2')) / 1) % 2; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === (i ? 1 : 0) ? 1 : 0.4); st.draw(t, 0, 1); }); }
+    steps.forEach(([c, k], i) => show(c, t, at(k), i < 3 ? at(steps[i + 1][1]) : at('ocho2')));
+    show(cnt.g, t, at('ocho2')); show(br, t, at('respiracion2')); show(zone, t, at('trabaja2'));
+  };
+});
+scene(svg, () => at('osteoporosis'), () => at('suscribe2'), g => {
+  const w = Warn(g, '¿OSTEOPOROSIS AVANZADA O FRACTURAS?', ['¿Problemas de equilibrio?', 'Consulta antes con un profesional'], { y: 300, w: 1500 });
+  sfx('alert_soft', at('osteoporosis'));
+  return t => show(w, t, at('osteoporosis'));
+});
+scene(svg, () => at('suscribe2'), () => at('confianza2'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const w1 = el('g', { transform: 'translate(300 0)' }, g); const c1 = CTA(w1, 'sub', 470);
+  const w2 = el('g', { transform: 'translate(300 0)' }, g); const c2 = CTA(w2, 'bell', 660);
+  sfx('click', at('suscribe2') + 0.3); sfx('ding', at('suscribe2') + 2);
+  return t => { host(t, at('suscribe2')); pop(c1, t, at('suscribe2') + 0.3, 960, 470); pop(c2, t, at('suscribe2') + 2, 960, 660); };
+});
+stillScene(svg, 'h2a', () => at('confianza2'), () => at('azucar2'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'MOVERTE CON CONFIANZA', { hi: 'CONFIANZA' });
+  return t => show(a, t, at('confianza2') + 3);
+});
+// bridge: sugar
+scene(svg, () => at('azucar2'), () => END + 1, g => {
+  const b = el('g', {}, g); const cb = cut(b, 'celula', 960, 470, 560);
+  const c = CAP(g, 'TUS MÚSCULOS Y EL AZÚCAR', { hi: 'AZÚCAR' });
+  sfx('pop', at('azucar2') + 0.3);
+  return t => { float(cb, t, 960, 470); pop(b, t, at('azucar2') + 0.3, 960, 470); show(c, t, at('sangre2')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

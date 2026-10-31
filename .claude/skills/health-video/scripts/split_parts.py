@@ -6,8 +6,8 @@
 Why: `ffmpeg -f segment -c copy` cuts at the nearest video keyframe while the AAC audio is cut on its own
 frame grid, so each part starts with a few ms of drift and the cut lands mid-word / mid-waveform (a click).
 Here: (1) every cut is placed in the middle of a pause in the VOICE (silencedetect) near each target time,
-(2) the video is re-encoded once with a keyframe forced exactly at every cut, so the video split is
-frame-exact, (3) each part's audio is decoded from one lossless WAV and re-encoded with a 25 ms fade in and
+(2) the video is re-encoded once (no B-frames, 30 fps) with a keyframe forced exactly at every cut, and each
+part takes an exact frame count, so video and audio of every part have the same length, (3) each part's audio is decoded from one lossless WAV and re-encoded with a 25 ms fade in and
 out, so the joins are silent and sample-aligned.
 """
 import argparse, re, subprocess, os
@@ -39,15 +39,16 @@ print('cuts at', ', '.join(f'{c:.2f}' for c in cuts))
 # 2. one re-encode with keyframes exactly at the cuts; audio kept as lossless PCM
 master = os.path.join(a.out, '_master.mkv')
 run('ffmpeg', '-v', 'error', '-y', '-i', a.video, '-c:v', 'libx264', '-crf', a.crf, '-preset', 'medium',
-    '-pix_fmt', 'yuv420p', '-force_key_frames', ','.join(f'{c:.3f}' for c in cuts), '-c:a', 'pcm_s16le', master)
+    '-pix_fmt', 'yuv420p', '-bf', '0', '-r', '30', '-force_key_frames', ','.join(f'{c:.3f}' for c in cuts), '-c:a', 'pcm_s16le', master)
 
 # 3. parts: video copied between keyframes, audio re-encoded with short fades
 bounds = [0.0] + cuts + [dur]
 for i in range(len(bounds) - 1):
     s, e = bounds[i], bounds[i + 1]; d = e - s
     out = os.path.join(a.out, f'{a.name}_parte{i}.mp4')
+    nf = round(e * 30) - round(s * 30)  # exact frame count, so video and audio end together
     run('ffmpeg', '-v', 'error', '-y', '-ss', f'{s:.3f}', '-i', master, '-t', f'{d:.3f}', '-map', '0:v', '-map', '0:a',
-        '-c:v', 'copy', '-af', f'afade=in:d=0.025,afade=out:st={max(0, d - 0.025):.3f}:d=0.025',
+        '-frames:v', str(nf), '-c:v', 'copy', '-af', f'afade=in:d=0.025,afade=out:st={max(0, d - 0.025):.3f}:d=0.025',
         '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', out)
     vd = float(run('ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=duration', '-of', 'csv=p=0', out).stdout)
     ad = float(run('ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=duration', '-of', 'csv=p=0', out).stdout)

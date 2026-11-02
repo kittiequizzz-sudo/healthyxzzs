@@ -97,7 +97,7 @@ Warm pastel 2D cartoon for adults, same line and colour style and the same chara
 ```
 
 ## H · `final` — Kết bài
-*Nhân vật chính sáng dậy khỏe khoắn; Pilar gối sưng đỏ, nhiệt kế (cảnh báo đi khám); 3 lựa chọn câu đố: (A) Rafael nằm im trên sofa; (B) Pilar tập sức với dây; (C) Antonio đi bộ dù đau — vẽ 3 cảnh trong khung 3, khung 4 cả nhóm vẫy tay.*
+*Nhân vật chính sáng dậy khỏe khoắn; Pilar gối sưng đỏ, ngậm nhiệt kế (cảnh báo đi khám); Rafael nằm im trên sofa (đáp án A của câu đố — B và C dùng hình ở D2 và E1); cả nhóm vẫy tay tạm biệt.*
 
 ```
 Warm pastel 2D cartoon for adults, same line and colour style and the same characters as the attached cast sheet (adult proportions, expressive faces, thick soft dark-brown outlines, flat pastel colours, minimal shading). Character illustration sheet, 2x2 grid of four separate panels with thin gaps, each panel a different warm pastel background (cream, peach, mint, lilac), no text, no numbers. Panel 1: the main character getting out of bed easily in the morning, stretching and smiling. Panel 2: Pilar sitting with a red, swollen knee and a thermometer in her mouth, worried, phone in hand to call the doctor. Panel 3: Rafael lying still on the sofa under a blanket, avoiding any movement. Panel 4: all five characters together waving goodbye at the viewer in a sunny park. 16:9, high resolution.

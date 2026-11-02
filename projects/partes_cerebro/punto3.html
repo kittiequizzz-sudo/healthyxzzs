@@ -1,0 +1,117 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 2 · opener (silent pre-roll until the v2 intro voice exists) + Punto 3: thalamus, hypothalamus, pituitary.
+const PRE = 5;
+window.START = at('p3') - PRE;
+window.END = window.DURATION = at('p4');
+HOOK_END = at('p3') + 35;
+const svg = Stage();
+const S0 = window.START;
+
+beat(S0, brain({
+  full: true, w: 900, cap: 'PARTE 1: lóbulos · MEMORIA', hi: 'MEMORIA', capAt: S0 + 0.4,
+}));
+beat(S0 + 2.2, (g, b) => {
+  const m = Mascot(g, 'm_waving', { cx: 470, floor: 930, h: 720 });
+  const t1 = txt(g, 'LAS PARTES', { x: 1200, y: 360, size: 140 });
+  const t2 = txt(g, 'DEL CEREBRO', { x: 1200, y: 510, size: 140, color: K.pink });
+  const c = Chip(g, 'PARTE 2 DE 3', { cx: 1200, cy: 660, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 790, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(t1, t, b.a + 0.1); show(t2, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1200, 660); show(ch, t, b.a + 0.9); };
+});
+beat('p3', kicker(3, 'LOS CONTROLES OCULTOS', { map: 'sag', on: [['thalamus', at('p3') + 0.4], ['hypothal', at('p3') + 0.8], ['pituitary', at('p3') + 1.2]], hi: 'OCULTOS', sub: 'tálamo · hipotálamo · hipófisis' }));
+beat('p3_desp', brain({ map: 'limb', on: [['hippo', 'p3_desp'], ['amyg', 'p3_desp']], cap: 'recuerdos y EMOCIONES', hi: 'EMOCIONES', w: 860 }));
+beat('p3_quien', mascot('m_thinking', { cap: '¿quién mantiene el EQUILIBRIO?', hi: 'EQUILIBRIO', size: 58 }));
+beat('p3_sed', row([['m_drinking', 'SED', 'p3_sed'], ['m_hot', 'TEMPERATURA', 'p3_temp'], ['m_yawn', 'SUEÑO', 'p3_dormir']]));
+beat('p3_peq', brain({ map: 'sag', on: [['thalamus', 'p3_peq'], ['hypothal', 'p3_peq'], ['pituitary', 'p3_peq']], cap: 'pequeñas y ESCONDIDAS', hi: 'ESCONDIDAS', punch: at('p3_peq') + 1 }));
+// thalamus
+beat('p3_talamo', brain({ map: 'sag', on: [['thalamus', 'p3_talamo']], labels: [['TÁLAMO', 'thalamus', 'p3_talamo', 0, -260]], mascot: ['m_pointing', 'p3_talamo'], cap: 'cerca del CENTRO', hi: 'CENTRO' }));
+beat('p3_estacion', brain({
+  map: 'sag', on: [['thalamus', 'p3_estacion']], cap: 'una ESTACIÓN de conexiones', hi: 'ESTACIÓN', w: 820, cy: 500,
+  extra: (g, B) => {
+    const [tx, ty] = B.pt('thalamus');
+    const src = [['eye', 260, 260, 'p3_tacto'], ['ear', 260, 520, at('p3_tacto') + 1.5], ['hand', 260, 780, at('p3_tacto') + 0.7]];
+    const parts = src.map(([n, x, y, k]) => {
+      const im = Img(g, n, x, y, 170);
+      const a = el('path', { d: `M${x + 110} ${y} C ${x + 400} ${y}, ${tx - 250} ${ty}, ${tx - 40} ${ty}`, fill: 'none', stroke: K.pink, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': '20 16' }, g);
+      return [im, a, k];
+    });
+    const out = [[-250, -230], [0, -280], [230, -220]].map(([dx, dy]) => el('path', { d: `M${tx} ${ty - 40} L${tx + dx} ${ty + dy}`, fill: 'none', stroke: K.yellow, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': '16 14' }, g));
+    const nose = Img(g, 'nose', 1650, 300, 170);
+    const nArr = el('path', { d: `M1570 300 C 1400 300, 1300 250, 1150 260`, fill: 'none', stroke: K.grey, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-dasharray': '6 14' }, g);
+    const nChip = Chip(g, 'OLFATO: otra vía', { cx: 1650, cy: 430, size: 38 });
+    return t => {
+      parts.forEach(([im, a, k]) => { live(im, t, tt(k), { amp: 3 }); set(a, { opacity: clamp(prog(t, tt(k) + 0.3, tt(k) + 0.6)), 'stroke-dashoffset': (-t * 60).toFixed(1) }); });
+      out.forEach(o => set(o, { opacity: clamp(prog(t, at('p3_corteza'), at('p3_corteza') + 0.4)), 'stroke-dashoffset': (-t * 50).toFixed(1) }));
+      live(nose, t, at('p3_olfato'), { amp: 3 }); set(nArr, { opacity: clamp(prog(t, at('p3_olfato') + 0.3, at('p3_olfato') + 0.6)) }); pop(nChip, t, at('p3_olfato') + 0.5, 1650, 430);
+    };
+  },
+}));
+beat('p3_atencion', row([['m_listening', 'ATENCIÓN', 'p3_atencion'], ['m_wobbly', 'MOVIMIENTO', at('p3_atencion') + 1.6], ['m_sleepy', 'SUEÑO Y VIGILIA', at('p3_atencion') + 3.2]]));
+beat('p3_lesionan', brain({ map: 'sag', on: [['thalamus', 'p3_lesionan']], cap: '¿y si se LESIONA?', hi: 'LESIONA', mascot: ['m_worried', 'p3_lesionan'] }));
+beat('p3_sensib', mascot('m_confused', { chips: [['SENSIBILIDAD', 'p3_sensib', K.pinkL], ['ATENCIÓN', at('p3_sensib') + 2, K.pinkL], ['DOLOR PERSISTENTE', 'p3_dolor', K.pinkL]] }));
+beat('p3_quemazon', mascot('m_scared', {
+  cap: 'quema… con un ROCE suave', hi: 'ROCE',
+  custom: g => {
+    // feather touching the arm + heat waves
+    const f = el('g', {}, g);
+    el('path', { d: 'M1380 260 C 1480 300, 1560 420, 1520 560 C 1440 470, 1390 380, 1380 260 Z', fill: K.white, stroke: K.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, f);
+    el('path', { d: 'M1385 270 L1515 545', stroke: K.ink, 'stroke-width': 5 }, f);
+    f.cx = 1460; f.cy = 410;
+    const waves = [0, 1, 2].map(i => el('path', { d: `M${560 + i * 60} 360 q -22 -30 0 -60 q 22 -30 0 -60`, fill: 'none', stroke: K.red, 'stroke-width': 9, 'stroke-linecap': 'round' }, g));
+    return t => { live(f, t, at('p3_quemazon') + 0.3, { amp: 8, tilt: 6 }); waves.forEach((w, i) => set(w, { opacity: clamp(prog(t, at('p3_quemazon') + 1.4, at('p3_quemazon') + 1.7)) * (0.6 + 0.4 * Math.sin(t * 6 + i)) })); };
+  },
+}));
+beat('p3_circuitos', brain({ map: 'sag', on: [['thalamus', 'p3_circuitos']], cap: 'depende de los CIRCUITOS', hi: 'CIRCUITOS',
+  extra: (g, B) => { const N = Network(g, [B.pt('thalamus'), [B.x + B.w * 0.25, B.y + B.h * 0.25], [B.x + B.w * 0.7, B.y + B.h * 0.2], [B.x + B.w * 0.45, B.y + B.h * 0.12]]); return t => N.draw(t, at('p3_circuitos') + 0.5); } }));
+// hypothalamus
+beat('p3_hipot', brain({ map: 'sag', on: [['hypothal', 'p3_hipot']], labels: [['HIPOTÁLAMO', 'hypothal', 'p3_hipot', -150, 240]], mascot: ['m_pointing', 'p3_hipot'], cap: 'pequeño… pero CLAVE', hi: 'CLAVE', capAt: 'p3_estab' }));
+beat('p3_hambre', row([['m_hungry', 'HAMBRE', 'p3_hambre'], ['m_drinking', 'SED', 'p3_sed2'], ['m_cold', 'TEMPERATURA', at('p3_sed2') + 0.8], ['m_yawn', 'RITMOS', 'p3_ritmos']]));
+beat('p3_calor', still('s_heat', { cap: 'calor → SUDOR · SED', hi: 'SED', capAt: 'p3_beber', focus: [0.35, 0.4] }));
+beat('p3_autonomo', brain({
+  map: 'sag', on: [['hypothal', 'p3_autonomo'], ['pituitary', at('p3_autonomo') + 2.5]], cap: 'nervios y HORMONAS', hi: 'HORMONAS', capAt: at('p3_autonomo') + 2.5,
+  extra: (g, B) => { const [hx, hy] = B.pt('hypothal'), [px, py] = B.pt('pituitary'); const a = Arrow(g, hx, hy + 10, px + 6, py - 20, K.red, 10); return t => set(a, { opacity: clamp(prog(t, at('p3_autonomo') + 2.5, at('p3_autonomo') + 2.9)) }); },
+}));
+beat('p3_alteran', row([['m_hot', 'TEMPERATURA', 'p3_alteran'], ['m_hungry', 'APETITO', at('p3_alteran') + 3], ['m_drinking', 'MUCHA SED', at('p3_alteran') + 4.6], ['m_tired', 'SUEÑO', at('p3_alteran') + 6]]));
+beat('p3_cuidado', mascot('m_thumbs', { cap: 'síntomas frecuentes ≠ LESIÓN', hi: 'LESIÓN', stamp: ['¡CUIDADO!', 'p3_cuidado', K.yellow], capAt: 'p3_nosirven' }));
+// pituitary
+beat('p3_hipof', brain({ map: 'sag', on: [['pituitary', 'p3_hipof'], ['hypothal', at('p3_hipof') + 4]], labels: [['HIPÓFISIS', 'pituitary', 'p3_hipof', -170, 200]], mascot: ['m_pointing', 'p3_hipof'], cap: 'en la BASE del cerebro', hi: 'BASE' }));
+beat('p3_hormonas', (g, b) => {
+  const B = BrainMap(g, 'sag', { cx: 560, cy: 470, w: 760 });
+  const [px, py] = B.pt('pituitary');
+  const targets = [['CRECIMIENTO', 'p3_hormonas', 1300, 230], ['REPRODUCCIÓN', at('p3_hormonas') + 2.2, 1300, 420], ['TIROIDES', 'p3_tiroides', 1300, 610], ['SUPRARRENALES', at('p3_tiroides') + 1.4, 1300, 800]];
+  const ts = targets.map(([s, k, x, y]) => {
+    const a = el('path', { d: `M${px + 10} ${py} C ${px + 300} ${py}, ${x - 400} ${y}, ${x - 190} ${y}`, fill: 'none', stroke: K.red, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-dasharray': '16 14' }, g);
+    const c = Chip(g, s, { cx: x, cy: y, size: 50, fill: K.pinkL });
+    return [a, c, k];
+  });
+  return t => { B.draw(t, [['pituitary', b.a]]); ts.forEach(([a, c, k]) => { set(a, { opacity: clamp(prog(t, tt(k), tt(k) + 0.3)), 'stroke-dashoffset': (-t * 50).toFixed(1) }); pop(c, t, tt(k) + 0.2, c.cx, c.cy); }); };
+});
+beat('p3_agua', mascot('m_drinking', { cap: 'equilibrio del AGUA', hi: 'AGUA', capAt: 'p3_equil',
+  custom: g => { const d = Drop(g); return t => set(d, { opacity: clamp(prog(t, at('p3_equil'), at('p3_equil') + 0.3)), transform: `translate(1400 ${300 + 8 * Math.sin(t * 3)}) scale(2.4)` }); } }));
+beat('p3_alter', mascot('m_tired', { chips: [['CANSANCIO', 'p3_alter', K.pinkL], ['CICLO MENSTRUAL', at('p3_alter') + 2.6, K.pinkL], ['CRECIMIENTO', at('p3_alter') + 4.4, K.pinkL], ['HORMONAS', at('p3_alter') + 6.2, K.pinkL]] }));
+beat('p3_valor', still('s_blood', { cap: 'valoración y ANÁLISIS', hi: 'ANÁLISIS', focus: [0.4, 0.6] }));
+beat('p3_sedorina', mascot('m_drinking', { cap: 'mucha sed + mucha orina → VARIAS CAUSAS', hi: 'VARIAS CAUSAS', size: 50, with: ['m_thinking', at('p3_sedorina') + 5] }));
+beat('p3_fasc', brain({ map: 'sag', on: [['thalamus', 'p3_fasc'], ['hypothal', 'p3_fasc'], ['pituitary', 'p3_fasc']], cap: 'trabajan EN SILENCIO', hi: 'EN SILENCIO' }));
+beat('p3_mientras', still('s_pour', { cap: 'ajustes CONTINUOS', hi: 'CONTINUOS', focus: [0.5, 0.5], capAt: at('p3_mientras') + 1 }));
+beat('p3_pieza', row([['m_wobbly', 'CAMINAR SEGURO', 'p3_pieza'], ['m_confused', 'ABROCHAR', 'p3_camisa'], ['m_drinking', 'NO DERRAMAR', at('p3_camisa') + 1.4]], { head: 'falta una PIEZA', hi: 'PIEZA' }));
+beat('p3_afinan', brain({ on: [['cerebellum', 'p3_afinan']], cap: '¿quién AFINA cada movimiento?', hi: 'AFINA', mascot: ['m_nose', 'p3_afinan'] }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

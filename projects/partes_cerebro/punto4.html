@@ -1,0 +1,117 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 2 · Punto 4: cerebellum and basal ganglia, then the part-2 end card (voice silent after at('p5')).
+window.START = at('p4');
+window.END = window.DURATION = at('p5') + 7;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('p4', kicker(4, 'EL MOVIMIENTO', { map: 'lobe', on: [['cerebellum', at('p4') + 0.4]], hi: 'MOVIMIENTO', sub: 'el cerebelo y los ganglios basales' }));
+beat('p4_hasta', brain({ full: true, w: 820, cap: 'mundo · recuerdos · CUERPO', hi: 'CUERPO' }));
+beat('p4_silla', still('s_pour', { cap: 'levantarte · caminar · SERVIR', hi: 'SERVIR', focus: [0.45, 0.6] }));
+beat('p4_gesto', mascot('m_drinking', { cap: 'coordinación EXTRAORDINARIA', hi: 'EXTRAORDINARIA', with: ['m_wobbly', 'p4_fallan'] }));
+// cerebellum
+beat('p4_cerebelo', brain({ on: [['cerebellum', 'p4_cerebelo']], labels: [['CEREBELO', 'cerebellum', 'p4_cerebelo', 330, 60]], mascot: ['m_pointing', 'p4_cerebelo'], cap: 'atrás y ABAJO', hi: 'ABAJO' }));
+beat('p4_ordenar', mascot('m_strong', { cap: 'no solo ORDENA moverte', hi: 'ORDENA' }));
+beat('p4_precision', row([['m_nose', 'PRECISIÓN', 'p4_precision'], ['m_waving', 'RITMO', at('p4_precision') + 1.0], ['m_strong', 'FUERZA', at('p4_precision') + 1.8]], { cap: 'usa la posición del CUERPO', capHi: 'CUERPO', capAt: at('p4_precision') + 4 }));
+beat('p4_equil', mascot('m_wobbly', { cap: 'EQUILIBRIO y habilidades', hi: 'EQUILIBRIO' }));
+beat('p4_nariz', (g, b) => {
+  // finger-to-nose: a clean path vs an overshooting one
+  const m = Mascot(g, 'm_nose', { cx: 560, floor: 900, h: 700 });
+  const good = el('path', { d: 'M1240 700 C 1300 520, 1360 420, 1480 330', fill: 'none', stroke: K.green, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-dasharray': '22 16' }, g);
+  const bad = el('path', { d: 'M1240 700 C 1260 560, 1420 520, 1380 420 S 1600 380, 1520 300 S 1420 260, 1500 330', fill: 'none', stroke: K.red, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-dasharray': '22 16' }, g);
+  const target = el('circle', { cx: 1480, cy: 330, r: 34, fill: K.yellow, stroke: K.ink, 'stroke-width': 7 }, g);
+  const ok = Mark(g, true, 1700, 640, 0.9), no = Mark(g, false, 1700, 640, 0.9);
+  const cap = Bubble(g, 'el dedo se DESVÍA', { hi: 'DESVÍA' });
+  return t => {
+    live(m, t, b.a, { dir: 'l' });
+    const k = at('p4_danadas');
+    set(good, { opacity: clamp(prog(t, b.a + 0.8, b.a + 1.1)) * (1 - clamp(prog(t, k, k + 0.3))), 'stroke-dashoffset': (-t * 60).toFixed(1) });
+    set(bad, { opacity: clamp(prog(t, k + 0.3, k + 0.6)), 'stroke-dashoffset': (-t * 60).toFixed(1) });
+    pop(target, t, b.a + 0.5, 1480, 330);
+    pop(ok, t, b.a + 1.3, 1700, 640, k); pop(no, t, k + 0.6, 1700, 640);
+    pop(cap, t, k + 0.8, 960, 975);
+  };
+});
+beat('p4_marcha', row([['m_wobbly', 'MARCHA INESTABLE', 'p4_marcha'], ['m_dizzy', 'PIERNAS', at('p4_marcha') + 2.5], ['m_confused', 'HABLA ENTRECORTADA', at('p4_marcha') + 4.5]]));
+beat('p4_ataxia', big([['ATAXIA', 'ATAXIA']], { y: 300, size: 170, pic: 'm_wobbly' }));
+// basal ganglia
+beat('p4_solo', brain({ on: [['cerebellum', 'p4_solo']], cap: 'no trabaja SOLO', hi: 'SOLO', mascot: ['m_thinking', 'p4_solo'] }));
+beat('p4_ganglios', brain({
+  map: 'cor', on: [['ganglia', 'p4_ganglios']], labels: [['GANGLIOS BASALES', 'ganglia', 'p4_ganglios', 0, -300]],
+  items: [['m_pointing', 'SELECCIONAR', at('p4_ganglios') + 5], ['m_waving', 'INICIAR', at('p4_ganglios') + 6.5], ['m_strong', 'REGULAR', at('p4_ganglios') + 8]],
+}));
+beat('p4_habitos', mascot('m_reading', { chips: [['HÁBITOS', 'p4_habitos', '#E5D6F7'], ['MOTIVACIÓN', at('p4_habitos') + 2.5, '#E5D6F7']] }));
+beat('p4_park', brain({ map: 'cor', on: [['ganglia', 'p4_park']], cap: 'la enfermedad de PARKINSON', hi: 'PARKINSON', mascot: ['m_thinking', 'p4_park'] }));
+beat('p4_nigra', brain({
+  map: 'cor', on: [['nigra', 'p4_nigra']], labels: [['SUSTANCIA NEGRA', 'nigra', 'p4_nigra', 0, 300]], cap: 'pierde neuronas de DOPAMINA', hi: 'DOPAMINA', capAt: at('p4_nigra') + 2.5,
+  extra: (g, B) => {
+    // dopamine dots that fade one by one
+    const [nx, ny] = B.pt('nigra');
+    const dots = Array.from({ length: 10 }, (_, i) => el('circle', { cx: 1460 + (i % 5) * 85, cy: 420 + Math.floor(i / 5) * 95, r: 26, fill: K.yellow, stroke: K.ink, 'stroke-width': 5 }, g));
+    return t => dots.forEach((d, i) => set(d, { opacity: (clamp(prog(t, at('p4_nigra') + 0.5, at('p4_nigra') + 0.8)) * (1 - clamp(prog(t, at('p4_nigra') + 2.8 + i * 0.35, at('p4_nigra') + 3.1 + i * 0.35)) * 0.8)).toFixed(2) }));
+  },
+}));
+beat('p4_circ', brain({ map: 'cor', on: [['ganglia', 'p4_circ'], ['nigra', 'p4_circ']], cap: 'se alteran los CIRCUITOS', hi: 'CIRCUITOS' }));
+beat('p4_lentitud', still('s_tremor', { focus: [0.65, 0.65], chips: [['LENTITUD', 'p4_lentitud', '#E5D6F7'], ['RIGIDEZ', at('p4_lentitud') + 2.2, '#E5D6F7'], ['TEMBLOR EN REPOSO', at('p4_lentitud') + 3.8, '#E5D6F7']] }));
+beat('p4_todos', mascot('m_thumbs', { cap: 'no todos IGUAL', hi: 'IGUAL', with: ['m_waving', at('p4_todos') + 0.5] }));
+beat('p4_dif', (g, b) => {
+  // comparison card: cerebellum corrects · basal ganglia decide what and how
+  const cols = [['lobe', 'cerebellum', 'CEREBELO', 'CORRIGE', 500, 'p4_dif'], ['cor', 'ganglia', 'GANGLIOS BASALES', 'DECIDE QUÉ Y CÓMO', 1420, at('p4_dif') + 6]];
+  const parts = cols.map(([map, r, name, verb, x, k]) => {
+    const c = el('g', {}, g);
+    el('rect', { x: x - 400, y: 120, width: 800, height: 760, rx: 40, fill: K.white, stroke: K.ink, 'stroke-width': 8 }, c);
+    const B = BrainMap(c, map, { cx: x, cy: 420, w: map === 'cor' ? 420 : 560 });
+    txt(c, name, { x, y: 690, size: 52 });
+    Chip(c, verb, { cx: x, cy: 800, size: 50, fill: K.yellow });
+    c.cx = x; c.cy = 500;
+    return [c, B, r, k];
+  });
+  const cap = Bubble(g, 'trabajan JUNTOS', { hi: 'JUNTOS' });
+  return t => { parts.forEach(([c, B, r, k]) => { pop(c, t, tt(k), c.cx, c.cy); B.draw(t, [[r, tt(k) + 0.3]]); }); pop(cap, t, at('p4_coop'), 960, 975); };
+});
+beat('p4_como', (g, b) => {
+  // slow decline vs sudden drop
+  const ax = el('path', { d: 'M300 220 L300 800 L1620 800', fill: 'none', stroke: K.ink, 'stroke-width': 8, 'stroke-linecap': 'round' }, g);
+  const slow = el('path', { d: 'M320 300 C 700 330, 1100 520, 1600 700', fill: 'none', stroke: K.amber, 'stroke-width': 16, 'stroke-linecap': 'round' }, g);
+  const fast = el('path', { d: 'M320 300 L 950 300 L 980 720 L 1600 730', fill: 'none', stroke: K.red, 'stroke-width': 16, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  const c1 = Chip(g, 'LENTAMENTE', { cx: 1350, cy: 520, size: 46, fill: '#FFE8C2' });
+  const c2 = Chip(g, 'DE GOLPE', { cx: 1140, cy: 420, size: 46, fill: K.pinkL });
+  const cap = Bubble(g, 'explicaciones MUY DISTINTAS', { hi: 'MUY DISTINTAS' });
+  const L = 1700;
+  [slow, fast].forEach(p => set(p, { 'stroke-dasharray': L, 'stroke-dashoffset': L }));
+  return t => {
+    const k = at('p4_golpe');
+    set(slow, { 'stroke-dashoffset': L * (1 - E.inOut(prog(t, k, k + 1.2))) }); pop(c1, t, k + 1.0, 1350, 520);
+    set(fast, { 'stroke-dashoffset': L * (1 - E.inOut(prog(t, k + 1.5, k + 2.5))) }); pop(c2, t, k + 2.4, 1140, 420);
+    pop(cap, t, at('p4_misma'), 960, 975);
+  };
+});
+beat('p4_advert', mascot('m_scared', { cap: 'una ADVERTENCIA', hi: 'ADVERTENCIA' }));
+beat('p4_equil2', strokeCard('SI APARECE DE REPENTE', [['m_wobbly', 'EQUILIBRIO', 'p4_equil2'], ['m_worried', 'HABLAR', 'p4_hablar'], ['eye', 'VISIÓN DOBLE', 'p4_doble'], ['hand', 'UN LADO', 'p4_lado'], ['m_dizzy', 'DOLOR DE CABEZA', 'p4_cabeza']], { goAt: 'p4_espera' }));
+beat('p4_llama', still('s_emergency', { cap: 'LLAMA A EMERGENCIAS', hi: 'LLAMA', focus: [0.65, 0.4], chips: [['112 · 911 · 123', 'p4_llama', K.pinkL]] }));
+beat('p4_tampoco', mascot('m_thinking', { cap: 'temblor ≠ siempre PARKINSON', hi: 'PARKINSON' }));
+beat('p4_causas', still('s_doctor', { cap: 'lo evalúa un PROFESIONAL', hi: 'PROFESIONAL', focus: [0.6, 0.45] }));
+beat('p4_pregunta', still('s_button', { cap: 'una pregunta más PROFUNDA', hi: 'PROFUNDA', focus: [0.5, 0.45] }));
+beat('p4_respirar', brain({ on: [['stem', 'p4_respirar']], labels: [['?', 'stem', 'p4_respirar', 170, 40]], mascot: ['m_sleepy', 'p4_respirar'], cap: 'respirar mientras DUERMES', hi: 'DUERMES' }));
+beat('p4_region', brain({ on: [['stem', 'p4_region']], cap: 'funciones ESENCIALES', hi: 'ESENCIALES', punch: at('p4_region') + 2 }));
+beat('p5', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 3 DE 3', topics: 'tronco encefálico · cuerpo calloso · señales de alarma' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

@@ -6,7 +6,7 @@ const at = k => { if (!(k in T)) throw new Error('missing cue ' + k); return T[k
 const K = { bg: '#F7F6F2', ink: '#1B1A22', pink: '#E0707A', pinkL: '#F9D3D3', yellow: '#F7C531', green: '#3FAE5A',
   red: '#E23B2E', amber: '#F2A33A', grey: '#8A8794', blue: '#4A7BC0', white: '#FFFFFF' };
 const IMG = n => 'cut/' + n + '.png';
-const HOOK_END = 45;          // hard cuts before this time, short cross-fades after
+let HOOK_END = 45;            // hard cuts before this time, short cross-fades after (a series part sets its own)
 
 function Stage() {
   const svg = document.getElementById('s');
@@ -19,8 +19,8 @@ const BEATS = [];
 function beat(k, build) { BEATS.push({ k, build }); }
 function initBeats(svg, end) {
   BEATS.forEach((b, i) => {
-    b.a = at(b.k);
-    b.b = i < BEATS.length - 1 ? at(BEATS[i + 1].k) : end;
+    b.a = tt(b.k);
+    b.b = i < BEATS.length - 1 ? tt(BEATS[i + 1].k) : end;
     b.g = el('g', {}, svg);
     el('rect', { width: 1920, height: 1080, fill: K.bg }, b.g);
     b.draw = b.build(b.g, b) || (() => {});
@@ -28,7 +28,8 @@ function initBeats(svg, end) {
 }
 function drawBeats(t) {
   for (const b of BEATS) {
-    const on = t >= b.a && t < b.b;
+    // a beat stays drawn 0.3 s past its end so the next one fades in over it (never through empty background)
+    const on = t >= b.a && t < b.b + (b.b < HOOK_END ? 0 : 0.3);
     if (!on) { b.g.style.display = 'none'; continue; }
     b.g.style.display = '';
     b.g.setAttribute('opacity', b.a < HOOK_END ? 1 : E.inOut(prog(t, b.a, b.a + 0.25)).toFixed(3));
@@ -104,7 +105,7 @@ function Badge(p, str) { return Chip(p, str, { cx: 0, cy: 70, size: 30, fill: K.
 
 // ------------------------------------------------------------------ brain maps (flat colours split by region)
 // prefix 'lobe' (lateral brain), 'limb' (hippocampus/amygdala) or 'cor' (coronal slice).
-const MAPS = { lobe: 'brain_color', limb: 'limbic', cor: 'coronal' };
+const MAPS = { lobe: 'brain_color', limb: 'limbic', cor: 'coronal', sag: 'sag_color' };
 function BrainMap(p, prefix, { cx, cy, w }) {
   const [iw, ih] = SZ[MAPS[prefix]], s = w / iw, x = cx - w / 2, y = cy - ih * s / 2;
   const g = el('g', {}, p);
@@ -166,10 +167,10 @@ function brain(o = {}) {
     const labs = (o.labels || []).map(([s, r, k, dx = 0, dy = -170]) => [Label(g, s, typeof r === 'string' ? B.pt(r) : r, { dx, dy }), k]);
     const m = o.mascot ? Mascot(g, o.mascot[0], { cx: 1560, floor: 880, h: 640 }) : null;
     const items = (o.items || []).map(([n, s, k], i, a) => {
-      const y = 430 + (i - (a.length - 1) / 2) * (a.length > 2 ? 270 : 390);
+      const three = a.length > 2, y = 430 + (i - (a.length - 1) / 2) * (three ? 290 : 390);
       const it = el('g', {}, g);
-      if (n.startsWith('m_')) Mascot(it, n, { cx: 1480, floor: y + 110, h: 250 }); else Img(it, n, 1480, y, a.length > 2 ? 180 : 230);
-      Chip(it, s, { cx: 1480, cy: y + 160, size: 42 });
+      if (n.startsWith('m_')) Mascot(it, n, { cx: 1480, floor: y + (three ? 80 : 110), h: three ? 190 : 250 }); else Img(it, n, 1480, y, three ? 160 : 230);
+      Chip(it, s, { cx: 1480, cy: y + (three ? 125 : 160), size: three ? 38 : 42 });
       it.cx = 1480; it.cy = y;
       return [it, k];
     });
@@ -373,4 +374,16 @@ function Mark(p, ok, cx, cy, s = 1) {
   el('path', { d: ok ? `M${cx - 28 * s} ${cy} l${20 * s} ${22 * s} l${38 * s} ${-44 * s}` : `M${cx - 26 * s} ${cy - 26 * s} l${52 * s} ${52 * s} M${cx + 26 * s} ${cy - 26 * s} l${-52 * s} ${52 * s}`, fill: 'none', stroke: K.white, 'stroke-width': 14 * s, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
   g.cx = cx; g.cy = cy;
   return g;
+}
+// Water drop icon (path in a 100×100 box).
+function Drop(p, color = '#7FC4F0') {
+  const g = el('g', {}, p);
+  el('path', { d: 'M50 6 C66 32 82 50 82 66 A32 32 0 0 1 18 66 C18 50 34 32 50 6 Z', fill: color, stroke: K.ink, 'stroke-width': 7, 'stroke-linejoin': 'round' }, g);
+  el('ellipse', { cx: 38, cy: 64, rx: 7, ry: 12, fill: K.white, opacity: 0.6 }, g);
+  return g;
+}
+// Arrow from (x1,y1) to (x2,y2).
+function Arrow(p, x1, y1, x2, y2, color = K.pink, w = 12) {
+  const a = Math.atan2(y2 - y1, x2 - x1), hl = 30;
+  return el('path', { d: `M${x1} ${y1} L${x2} ${y2} M${x2 - hl * Math.cos(a - 0.5)} ${y2 - hl * Math.sin(a - 0.5)} L${x2} ${y2} L${x2 - hl * Math.cos(a + 0.5)} ${y2 - hl * Math.sin(a + 0.5)}`, fill: 'none', stroke: color, 'stroke-width': w, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, p);
 }

@@ -135,3 +135,88 @@ p2_sub | Si quieres seguir descubriendo
 p2_proximo | En el próximo apartado
 p2_hambre | influya en el hambre
 p3 | Punto 3
+# Part 2 = punto 3 + punto 4
+p3_tit | El tálamo, el hipotálamo
+p3_desp | Después de descubrir cómo los recuerdos
+p3_quien | Quién mantiene tu cuerpo en equilibrio
+p3_sed | debes sentir sed
+p3_temp | ajustar tu temperatura
+p3_dormir | prepararte para dormir
+p3_peq | Buena parte de esa coordinación
+p3_talamo | Comencemos por el tálamo
+p3_estacion | Imagínalo como una estación
+p3_recibe | Recibe y organiza numerosas señales
+p3_corteza | dirige hacia regiones de la corteza
+p3_tacto | El tacto, la visión y la audición
+p3_olfato | El olfato sigue una vía
+p3_atencion | el tálamo participa en la atención
+p3_lesionan | Qué ocurre si determinadas zonas talámicas
+p3_sensib | alteraciones de sensibilidad
+p3_dolor | dolor persistente
+p3_quemazon | Algunos pacientes describen
+p3_circuitos | Sin embargo, las consecuencias dependen
+p3_hipot | Justo debajo encontramos el hipotálamo
+p3_estab | mantener la estabilidad interna
+p3_hambre | relacionadas con el hambre
+p3_sed2 | la sed, la temperatura
+p3_ritmos | los ritmos biológicos
+p3_calor | Cuando tienes calor
+p3_beber | necesidad de beber agua
+p3_autonomo | También se comunica con el sistema nervioso
+p3_alteran | Si estos mecanismos se alteran
+p3_cuidado | Pero cuidado, estos síntomas
+p3_nosirven | No sirven, por sí solos
+p3_hipof | Aquí entra en escena la hipófisis
+p3_hormonas | Libera hormonas
+p3_tiroides | como la tiroides
+p3_agua | Su región posterior también libera
+p3_equil | regular el equilibrio del agua
+p3_alter | Una alteración hipofisaria
+p3_valor | Identificar su origen exige
+p3_sedorina | Por ejemplo, una sed desproporcionada
+p3_fasc | Lo fascinante es que estas estructuras
+p3_mientras | Mientras escuchas este vídeo
+p3_dependemos | dependemos de ellos cada día
+p3_pieza | Pero todavía falta una pieza
+p3_camisa | abrocharte una camisa
+p3_afinan | Qué regiones afinan cada movimiento
+p4 | El cerebelo y los ganglios basales
+p4_hasta | Hasta ahora hemos descubierto
+p4_silla | Levantarte de una silla
+p4_gesto | Cada gesto exige
+p4_fallan | Si determinados circuitos fallan
+p4_cerebelo | Una de las estructuras fundamentales es el cerebelo
+p4_ordenar | Su trabajo no consiste
+p4_precision | ajustar la precisión, el ritmo y la fuerza
+p4_equil | También participa en el equilibrio
+p4_nariz | Imagina que intentas tocarte la punta de la nariz
+p4_danadas | cuando ciertas zonas del cerebelo
+p4_marcha | También pueden aparecer una marcha inestable
+p4_ataxia | Este conjunto de alteraciones
+p4_solo | Ahora bien, el cerebelo no trabaja solo
+p4_ganglios | En regiones profundas del cerebro
+p4_habitos | También intervienen en el aprendizaje de hábitos
+p4_park | Su importancia se aprecia
+p4_nigra | se pierden progresivamente neuronas
+p4_circ | Como consecuencia, se altera
+p4_lentitud | La persona puede experimentar
+p4_todos | No todos presentan los mismos
+p4_dif | La diferencia es fascinante
+p4_coop | Ambos sistemas cooperan
+p4_como | Por eso, observar cómo aparece
+p4_golpe | Si progresa lentamente o surge de golpe
+p4_misma | La misma dificultad visible
+p4_advert | Pero existe una advertencia
+p4_equil2 | Si alguien pierde el equilibrio
+p4_hablar | dificultad para hablar
+p4_doble | visión doble
+p4_lado | debilidad en un lado del cuerpo
+p4_cabeza | dolor de cabeza
+p4_espera | No esperes a comprobar si mejora
+p4_llama | Llama inmediatamente al servicio
+p4_tampoco | Tampoco debes asumir
+p4_causas | Existen muchas causas posibles
+p4_pregunta | Y ahora llegamos a una pregunta
+p4_respirar | Cómo respirar mientras duermes
+p4_region | Para entenderlo, debemos viajar
+p5 | Punto 5

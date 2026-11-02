@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 1 · intro (hook). Cuts every ~2 s in the first 45 s.
+window.START = 0;
+window.END = window.DURATION = at('p1');
+const svg = Stage();
+
+beat('i_open', still('s_wake', { cap: '¿SU NOMBRE?', hi: 'NOMBRE', capAt: 'i_nombre', tag: 'Dramatización', focus: [0.35, 0.4], punch: 'i_rostro' }));
+beat('i_mano', still('s_hand', { cap: 'el cuerpo NO RESPONDE', hi: 'NO RESPONDE', capAt: 'i_noresp', focus: [0.65, 0.55] }));
+beat('i_inq', mascot('m_worried', { cap: 'lo más INQUIETANTE…', hi: 'INQUIETANTE' }));
+beat('i_claridad', still('s_clear', { cap: 'piensas con CLARIDAD', hi: 'CLARIDAD', focus: [0.6, 0.3] }));
+beat('i_escuch', mascot('m_listening', { cap: 'escuchas · COMPRENDES', hi: 'COMPRENDES', extra: [['ear', 'i_escuch', 1420, 420, 260]] }));
+beat('i_como', brain({ mascot: ['m_confused', 'i_como'], cap: '¿una pequeña ALTERACIÓN?', hi: 'ALTERACIÓN', punch: 'i_vida' }));
+beat('i_univ', countUp(86000, 'MILLONES DE NEURONAS', { until: 'i_86', pic: 'neuron', src: 'Azevedo et al., 2009' }));
+beat('i_infancia', brain({ on: [['temporal', 'i_infancia']], labels: [['RECUERDOS', 'temporal', 'i_infancia', -40, 260]], mascot: ['m_thinking', 'i_infancia'] }));
+beat('i_emoc', brain({ map: 'limb', on: [['amyg', 'i_emoc'], ['hippo', 'i_emoc']], labels: [['EMOCIONES', 'amyg', 'i_emoc', -60, 260]], mascot: ['m_scared', 'i_emoc'] }));
+beat('i_ojos', brain({ on: [['occipital', 'i_ojos']], labels: [['VISTA', 'occipital', 'i_ojos', 20, -200]], items: [['eye', 'TUS OJOS', 'i_ojos']] }));
+beat('i_mov', brain({ on: [['cerebellum', 'i_mov'], ['frontal', 'i_mov']], labels: [['MOVIMIENTO', 'cerebellum', 'i_mov', 60, 200]], mascot: ['m_strong', 'i_mov'] }));
+beat('i_resp', still('s_sleep', { cap: 'RESPIRAS mientras duermes', hi: 'RESPIRAS', capAt: 'i_duermes', focus: [0.55, 0.6] }));
+beat('i_sorpr', mascot('m_pointing', { cap: 'lo SORPRENDENTE', hi: 'SORPRENDENTE' }));
+beat('i_zona', brain({
+  on: [['frontal', 'i_zona', 'i_afect'], ['temporal', 'i_afect'], ['occipital', 'i_afect']],
+  cap: 'depende de la ZONA', hi: 'ZONA', capAt: 'i_afect',
+}));
+beat('i_recuerdos', row([['m_confused', 'RECUERDOS', 'i_recuerdos'], ['m_dizzy', 'PERSONALIDAD', 'i_person'], ['m_worried', 'HABLAR', 'i_hablar']],
+  { cap: 'otras capacidades: INTACTAS', capHi: 'INTACTAS', capAt: 'i_intact' }));
+beat('i_hoy', (g, b) => {
+  const m = Mascot(g, 'm_strong', { cx: 470, floor: 930, h: 720 });
+  const t1 = txt(g, 'LAS PARTES', { x: 1200, y: 360, size: 140 });
+  const t2 = txt(g, 'DEL CEREBRO', { x: 1200, y: 510, size: 140, color: K.pink });
+  const c = Chip(g, 'PARTE 1 DE 3', { cx: 1200, cy: 660, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 790, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(t1, t, b.a + 0.1); show(t2, t, b.a + 0.3); pop(c, t, b.a + 0.7, 1200, 660); show(ch, t, b.a + 0.9); };
+});
+beat('i_qhace', brain({ full: true, cap: '¿qué hace CADA UNA?', hi: 'CADA UNA', w: 1000 }));
+beat('i_sub', cta('sub'));
+beat('i_ciencia', mascot('m_reading', { cap: 'ciencia CLARA', hi: 'CLARA' }));
+beat('i_ultima', brain({
+  on: [['stem', 'i_ultima']], labels: [['?', 'stem', 'i_ultima', 170, 40]],
+  cap: 'lo verás en la PARTE 3', hi: 'PARTE 3', capAt: 'i_vida2', mascot: ['m_idea', 'i_ultima'],
+}));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(0);
+</script>
+</body></html>

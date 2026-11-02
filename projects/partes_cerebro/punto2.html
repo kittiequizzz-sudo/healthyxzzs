@@ -1,0 +1,121 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 1 · Punto 2: hippocampus and amygdala, then the part-1 end card (voice is silent after at('p3')).
+window.START = at('p2');
+window.END = window.DURATION = at('p3') + 7;
+const svg = Stage();
+
+beat('p2', kicker(2, 'MEMORIA Y EMOCIÓN', { map: 'limb', on: [['hippo', at('p2') + 0.3], ['amyg', at('p2') + 0.6]], hi: 'EMOCIÓN', sub: 'el hipocampo y la amígdala' }));
+beat('p2_perfume', still('s_perfume', { cap: 'un aroma… un RECUERDO', hi: 'RECUERDO', focus: [0.7, 0.3], zoom: 0.14, punch: 'p2_puerta' }));
+beat('p2_dos', brain({
+  map: 'limb', on: [['hippo', 'p2_hipo'], ['amyg', at('p2_hipo') + 0.9]],
+  labels: [['HIPOCAMPO', 'hippo', 'p2_hipo', 160, -230], ['AMÍGDALA', 'amyg', at('p2_hipo') + 0.9, -120, 250]],
+}));
+beat('p2_interna', brain({
+  map: 'limb', on: [['hippo', 'p2_interna']], labels: [['HIPOCAMPO', 'hippo', 'p2_interna', 160, -230]],
+  mascot: ['m_idea', 'p2_nuevos'], cap: 'recuerdos NUEVOS', hi: 'NUEVOS', capAt: 'p2_nuevos',
+}));
+beat('p2_cajon', mascot('m_confused', {
+  cap: 'no es un CAJÓN', hi: 'CAJÓN',
+  custom: g => {
+    // a simple drawer with a red cross
+    const d = el('g', {}, g);
+    el('rect', { x: 1340, y: 300, width: 330, height: 250, rx: 20, fill: '#E9C49A', stroke: K.ink, 'stroke-width': 8 }, d);
+    el('rect', { x: 1370, y: 330, width: 270, height: 80, rx: 12, fill: '#F3D9B8', stroke: K.ink, 'stroke-width': 6 }, d);
+    el('rect', { x: 1370, y: 440, width: 270, height: 80, rx: 12, fill: '#F3D9B8', stroke: K.ink, 'stroke-width': 6 }, d);
+    el('rect', { x: 1480, y: 360, width: 50, height: 16, rx: 8, fill: K.ink }, d);
+    el('rect', { x: 1480, y: 470, width: 50, height: 16, rx: 8, fill: K.ink }, d);
+    d.cx = 1505; d.cy = 425;
+    const x = Mark(g, false, 1640, 300, 0.9);
+    return t => { live(d, t, at('p2_cajon') + 0.2, { amp: 3 }); pop(x, t, at('p2_cajon') + 0.9, 1640, 300); };
+  },
+}));
+beat('p2_redes', brain({
+  full: true, cap: 'CONECTA información', hi: 'CONECTA',
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital', 'cerebellum'].map(r => B.pt(r))); return t => N.draw(t, at('p2_redes') + 0.4); },
+}));
+beat('p2_llaves', still('s_keys', { cap: '¿dónde están las LLAVES?', hi: 'LLAVES', capAt: 'p2_dejaste', focus: [0.75, 0.45] }));
+beat('p2_lesion', brain({
+  map: 'limb', on: [['hippo', 'p2_lesion']], cap: 'si el hipocampo se LESIONA', hi: 'LESIONA',
+  extra: (g, B) => { const [x, y] = B.pt('hippo'); const m = Mark(g, false, x + 40, y - 130, 0.9); return t => pop(m, t, at('p2_lesion') + 0.8, x + 40, y - 130); },
+}));
+beat('p2_decadas', (g, b) => {
+  // two memories: decades ago ✓ vs this morning ✗
+  const cards = [['HACE DÉCADAS', 'm_strong', true, 'p2_decadas', 560], ['HOY: EL DESAYUNO', 'm_confused', false, 'p2_desayunar', 1360]].map(([s, m, ok, k, x]) => {
+    const c = el('g', {}, g);
+    el('rect', { x: x - 330, y: 160, width: 660, height: 680, rx: 40, fill: K.white, stroke: K.ink, 'stroke-width': 8 }, c);
+    txt(c, s, { x, y: 240, size: 52 });
+    Mascot(c, m, { cx: x, floor: 760, h: 420 });
+    const mk = Mark(c, ok, x + 220, 340, 0.9);
+    c.cx = x; c.cy = 500;
+    return [c, k];
+  });
+  return t => cards.forEach(([c, k]) => pop(c, t, at(k), c.cx, c.cy));
+});
+beat('p2_conv', mascot('m_listening', { cap: '…y luego NO LO RECUERDA', hi: 'NO LO RECUERDA', with: ['m_confused', at('p2_conv') + 2.5] }));
+beat('p2_amnesia', big([['AMNESIA', 'AMNESIA'], ['ANTERÓGRADA', '', K.ink]], {
+  y: 260, size: 130,
+  custom: g => { const c = Chip(g, 'recuerdos nuevos: difícil', { cx: 960, cy: 620, size: 54, fill: K.pinkL }); const m = Mascot(g, 'm_dizzy', { cx: 960, floor: 1040, h: 330 }); return t => { pop(c, t, at('p2_amnesia') + 2.0, 960, 620); live(m, t, at('p2_amnesia') + 0.5); }; },
+}));
+beat('p2_intel', mascot('m_thumbs', { chips: [['INTELIGENCIA ✓', 'p2_intel', '#CDEFD0'], ['RECUERDOS ANTIGUOS ✓', at('p2_intel') + 2.4, '#CDEFD0']], cap: 'no se pierde TODO', hi: 'TODO' }));
+beat('p2_neuro', brain({
+  map: 'limb', on: [['hippo', 'p2_neuro']], labels: [['ALZHÉIMER', 'hippo', 'p2_alz', 160, -230]], mascot: ['m_worried', 'p2_alz'],
+  cap: 'zonas de la MEMORIA', hi: 'MEMORIA', capAt: 'p2_alz',
+}));
+beat('p2_nombre', mascot('m_thinking', { cap: 'olvidar un nombre ≠ ALZHÉIMER', hi: 'ALZHÉIMER', stamp: ['¡TRANQUILO!', at('p2_nombre') + 1.5, '#CDEFD0'] }));
+beat('p2_estres', row([['m_worried', 'ESTRÉS', 'p2_estres'], ['m_sleepy', 'POCO SUEÑO', 'p2_sueno'], ['m_dizzy', 'OTROS PROBLEMAS', 'p2_salud']], { head: 'también afectan a la MEMORIA', hi: 'MEMORIA' }));
+beat('p2_amig', brain({
+  map: 'limb', on: [['amyg', 'p2_amig']], labels: [['AMÍGDALA', 'amyg', 'p2_amig', -120, 250]], mascot: ['m_scared', 'p2_amenaza'],
+  cap: 'EMOCIONES y amenazas', hi: 'EMOCIONES',
+}));
+beat('p2_golpe', still('s_startle', { cap: '¡ALERTA!', hi: 'ALERTA', focus: [0.45, 0.6], punch: at('p2_golpe') + 0.4 }));
+beat('p2_asoc', row([['ear', 'SONIDOS', 'p2_olores'], ['m_waving', 'LUGARES', at('p2_olores') + 0.8], ['nose', 'OLORES', at('p2_olores') + 1.4]],
+  { head: 'APRENDE asociaciones', hi: 'APRENDE', cap: 'miedo… o TRANQUILIDAD', capHi: 'TRANQUILIDAD', capAt: 'p2_miedo' }));
+beat('p2_centro', brain({
+  map: 'limb', on: [['amyg', 'p2_centro']], cap: '¿el CENTRO del miedo?', hi: 'CENTRO',
+  extra: g => { const st = Stamp(g, 'NO', { cx: 960, cy: 470, size: 180 }); return t => st.draw(t, at('p2_no') - 0.1); },
+}));
+beat('p2_redes2', brain({
+  full: true, cap: 'REDES amplias + el CUERPO', hi: 'REDES',
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital', 'cerebellum', 'stem'].map(r => B.pt(r)), { color: K.pink }); return t => N.draw(t, at('p2_redes2')); },
+}));
+beat('p2_alterada', mascot('m_scared', { cap: 'respuestas DESPROPORCIONADAS', hi: 'DESPROPORCIONADAS', size: 56 }));
+beat('p2_accidente', still('s_crossing', { tag: 'Dramatización', focus: [0.75, 0.5], zoom: 0.12 }));
+beat('p2_lugar', brain({
+  map: 'limb', on: [['hippo', 'p2_lugar'], ['amyg', 'p2_peligro']],
+  labels: [['EL LUGAR', 'hippo', 'p2_lugar', 160, -230], ['EL PELIGRO', 'amyg', 'p2_peligro', -120, 250]],
+}));
+beat('p2_meses', still('s_crossing', { cap: 'a salvo… pero en ALERTA', hi: 'ALERTA', focus: [0.3, 0.5], zoom: 0.14 }));
+beat('p2_juntas', brain({
+  map: 'limb', on: [['hippo', 'p2_juntas'], ['amyg', 'p2_juntas']], cap: 'MEMORIA + EMOCIÓN', hi: 'EMOCIÓN',
+  extra: (g, B) => {
+    const [a, c] = [B.pt('hippo'), B.pt('amyg')];
+    const r1 = el('circle', { cx: a[0], cy: a[1], r: 90, fill: 'none', stroke: K.green, 'stroke-width': 12 }, g);
+    const r2 = el('circle', { cx: c[0], cy: c[1], r: 90, fill: 'none', stroke: '#8E5CC7', 'stroke-width': 12 }, g);
+    return t => { const k = clamp(prog(t, at('p2_juntas') + 1, at('p2_juntas') + 1.5)); [r1, r2].forEach((r, i) => set(r, { opacity: k, r: 80 + 14 * Math.sin(t * 3 + i * Math.PI) })); };
+  },
+}));
+beat('p2_empatia', still('s_hug', { cap: 'más EMPATÍA', hi: 'EMPATÍA', focus: [0.5, 0.35] }));
+beat('p2_consulta', adviceCard('UN CONSEJO IMPORTANTE', [['problemas de memoria que AUMENTAN', 'p2_consulta'], ['o que afectan tu AUTONOMÍA', at('p2_consulta') + 4], ['→ consulta a un profesional', at('p2_consulta') + 6.5]], { m: 'm_worried' }));
+beat('p2_sub', cta('sub', { sub: 'Cerebro y Bienestar' }));
+beat('p2_proximo', row([['m_thinking', 'HAMBRE', 'p2_hambre'], ['m_waving', 'SED', at('p2_hambre') + 1.2], ['m_sleepy', 'SUEÑO', at('p2_hambre') + 2.2]], { head: 'en la PARTE 2', hi: 'PARTE 2' }));
+beat('p3', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 2 DE 3', topics: 'tálamo · hipotálamo · hipófisis · cerebelo' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

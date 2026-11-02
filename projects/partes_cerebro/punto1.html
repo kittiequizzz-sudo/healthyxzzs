@@ -1,0 +1,115 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 1 · Punto 1: the four lobes.
+window.START = at('p1');
+window.END = window.DURATION = at('p2');
+const svg = Stage();
+const LOBES = ['frontal', 'parietal', 'temporal', 'occipital'];
+
+beat('p1', kicker(1, 'LOS CUATRO LÓBULOS', { map: 'lobe', full: true, hi: 'LÓBULOS', sub: 'donde nacen tus pensamientos y decisiones' }));
+beat('p1_lesion', mascot('m_thinking', { cap: '¿por qué una lesión CAMBIA TANTO?', hi: 'CAMBIA TANTO' }));
+beat('p1_extensa', brain({ on: LOBES.map(r => [r, 'p1_extensa']), cap: 'la parte más EXTENSA', hi: 'EXTENSA', labels: [['CORTEZA', [500, 300], 'p1_corteza', -150, -120]] }));
+beat('p1_pliegues', brain({ cap: 'una superficie con PLIEGUES', hi: 'PLIEGUES', punch: 'p1_pliegues', w: 1150 }));
+beat('p1_mover', row([['hand', 'MOVERTE', 'p1_mover'], ['eye', 'INTERPRETAR', 'p1_interp'], ['m_waving', 'RELACIONARTE', 'p1_relac']]));
+beat('p1_ciudad', brain({
+  on: LOBES.map(r => [r, 'p1_ciudad']), cap: 'barrios CONECTADOS', hi: 'CONECTADOS', capAt: 'p1_caminos',
+  extra: (g, B) => { const N = Network(g, LOBES.map(r => B.pt(r))); return t => N.draw(t, at('p1_caminos')); },
+}));
+beat('p1_cuatro', brain({
+  on: LOBES.map((r, i) => [r, at('p1_cuatro') + 0.6 + i * 0.5]),
+  labels: [['FRONTAL', 'frontal', at('p1_cuatro') + 0.6, -260, -120], ['PARIETAL', 'parietal', at('p1_cuatro') + 1.1, 330, -110],
+    ['TEMPORAL', 'temporal', at('p1_cuatro') + 1.6, -60, 280], ['OCCIPITAL', 'occipital', at('p1_cuatro') + 2.1, 260, 120]],
+  cap: 'ninguno trabaja SOLO', hi: 'SOLO', capAt: 'p1_aislado',
+}));
+// frontal
+beat('p1_frontal', brain({ on: [['frontal', 'p1_frontal']], labels: [['FRONTAL', 'frontal', 'p1_frontal', -60, -170]], mascot: ['m_pointing', 'p1_frontal'], cap: 'detrás de la FRENTE', hi: 'FRENTE' }));
+beat('p1_decides', mascot('m_thinking', { chips: [['DECIDIR', 'p1_decides'], ['ORGANIZAR', 'p1_organizas'], ['FRENAR IMPULSOS', 'p1_impulsiva']] }));
+beat('p1_movvol', brain({
+  on: [['frontal', 'p1_movvol']], items: [['hand', 'MOVIMIENTO', 'p1_movvol'], ['m_listening', 'LENGUAJE', 'p1_lenguaje']],
+  cap: 'lenguaje: casi siempre IZQUIERDA', hi: 'IZQUIERDA', capAt: 'p1_lenguaje',
+}));
+beat('p1_danadas', mascot('m_dizzy', { chips: [['PLANIFICAR', 'p1_danadas', K.pinkL], ['CONDUCTA', 'p1_conducta', K.pinkL], ['DEBILIDAD', 'p1_debilidad', K.pinkL], ['EXPRESARSE', 'p1_expresarse', K.pinkL]] }));
+beat('p1_local', brain({
+  on: [['frontal', 'p1_local']], cap: 'importa la LOCALIZACIÓN', hi: 'LOCALIZACIÓN',
+  extra: (g, B) => {
+    const pts = [[120, 200], [230, 130], [260, 300], [140, 330]].map(([x, y]) => [B.x + x * B.w / 771, B.y + y * B.w / 771]);
+    const dots = pts.map(([x, y]) => el('circle', { cx: x, cy: y, r: 24, fill: K.white, stroke: K.ink, 'stroke-width': 7, opacity: 0 }, g));
+    return t => dots.forEach((d, i) => set(d, { opacity: clamp(prog(t, at('p1_local') + 0.8 + i * 0.4, at('p1_local') + 1.0 + i * 0.4)), r: 20 + 6 * Math.sin(t * 5 + i) }));
+  },
+}));
+// parietal
+beat('p1_parietal', brain({ on: [['parietal', 'p1_parietal']], labels: [['PARIETAL', 'parietal', 'p1_parietal', 320, -110]], mascot: ['m_pointing', 'p1_parietal'], cap: 'arriba y ATRÁS', hi: 'ATRÁS' }));
+beat('p1_tacto', row([['hand', 'TACTO', 'p1_tacto'], ['m_strong', 'POSICIÓN', 'p1_posicion'], ['m_pointing', 'ESPACIO', 'p1_espacio']]));
+beat('p1_ignorar', still('s_neglect', { cap: 'ignora UN LADO', hi: 'UN LADO', focus: [0.45, 0.75] }));
+beat('p1_vision', mascot('m_confused', {
+  cap: 'no es la VISTA… es la ATENCIÓN', hi: 'ATENCIÓN', capAt: 'p1_atencion', extra: [['eye', 'p1_vision', 1450, 380, 300]],
+  custom: g => { const x = Mark(g, false, 1560, 520, 0.8); return t => pop(x, t, at('p1_vision') + 0.6, 1560, 520); },
+}));
+// temporal
+beat('p1_temporal', brain({ on: [['temporal', 'p1_temporal']], labels: [['TEMPORAL', 'temporal', 'p1_temporal', -40, 270]], mascot: ['m_listening', 'p1_temporal'], cap: 'más ABAJO', hi: 'ABAJO' }));
+beat('p1_audicion', row([['ear', 'AUDICIÓN', 'p1_audicion'], ['m_listening', 'LENGUAJE', 'p1_comprension'], ['m_thinking', 'MEMORIA', 'p1_memoria']]));
+beat('p1_frase', still('s_listen', { cap: 'oye… pero no ENTIENDE', hi: 'ENTIENDE', focus: [0.7, 0.4] }));
+beat('p1_recientes', mascot('m_confused', { cap: 'recuerdos RECIENTES', hi: 'RECIENTES' }));
+beat('p1_oir', big([['OÍR ≠ ENTENDER', 'ENTENDER']], { y: 300, size: 130, pic: 'ear' }));
+// occipital
+beat('p1_occipital', brain({ on: [['occipital', 'p1_occipital']], labels: [['OCCIPITAL', 'occipital', 'p1_occipital', 40, -200]], mascot: ['m_pointing', 'p1_occipital'], cap: 'en la parte de ATRÁS', hi: 'ATRÁS' }));
+beat('p1_visual', brain({
+  on: [['occipital', 'p1_visual']], cap: 'información VISUAL', hi: 'VISUAL', w: 900,
+  extra: (g, B) => {
+    const eye = Img(g, 'eye', 300, 330, 260);
+    const [ox, oy] = B.pt('occipital');
+    const arr = el('path', { d: `M430 340 C 700 220, ${ox - 160} ${oy - 160}, ${ox - 20} ${oy - 20}`, fill: 'none', stroke: K.pink, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-dasharray': '22 18' }, g);
+    return t => { live(eye, t, at('p1_visual'), {}); set(arr, { opacity: clamp(prog(t, at('p1_visual') + 0.5, at('p1_visual') + 0.8)), 'stroke-dashoffset': (-t * 60).toFixed(1) }); };
+  },
+}));
+beat('p1_campo', (g, b) => {
+  // visual field: a circle that loses a quarter when the occipital area is damaged
+  const cx = 960, cy = 470, r = 300;
+  el('circle', { cx: cx + 10, cy: cy + 12, r, fill: K.ink }, g);
+  el('circle', { cx, cy, r, fill: '#CFE6F7', stroke: K.ink, 'stroke-width': 9 }, g);
+  const sun = el('circle', { cx: cx - 90, cy: cy - 80, r: 60, fill: K.yellow, stroke: K.ink, 'stroke-width': 7 }, g);
+  const hill = el('path', { d: `M${cx - r + 20} ${cy + 120} Q ${cx - 100} ${cy - 20} ${cx + 40} ${cy + 110} T ${cx + r - 20} ${cy + 80} L ${cx + r - 60} ${cy + 200} L ${cx - r + 60} ${cy + 200} Z`, fill: '#9ED39A', stroke: K.ink, 'stroke-width': 7 }, g);
+  const gone = el('path', { d: `M${cx} ${cy} L${cx + r} ${cy} A${r} ${r} 0 0 0 ${cx} ${cy - r} Z`, fill: K.ink, opacity: 0 }, g);
+  el('circle', { cx, cy, r, fill: 'none', stroke: K.ink, 'stroke-width': 9 }, g);
+  const cap = Bubble(g, 'puede desaparecer una PARTE', { hi: 'PARTE' });
+  const eye = Img(g, 'eye', 1560, 470, 280);
+  return t => { set(gone, { opacity: 0.92 * E.out(prog(t, at('p1_desaparecer'), at('p1_desaparecer') + 0.5)) }); pop(cap, t, at('p1_desaparecer'), 960, 975); live(eye, t, b.a); };
+});
+beat('p1_sanos', big([['VER ≠ OJOS SANOS', 'OJOS SANOS']], { y: 300, size: 120, pic: 'eye' }));
+beat('p1_desayuno', still('s_breakfast', {
+  focus: [0.45, 0.6], cap: 'todo a la vez', hi: 'a la vez', capAt: 'p1_distracc',
+  chips: [['INGREDIENTES', 'p1_ingred', '#FFD9C2'], ['UTENSILIOS', 'p1_utens', '#FFF1B8'], ['DISTANCIAS', 'p1_dist', '#CDEFD0'], ['MANOS', 'p1_manos', '#E5D6F7'], ['SIN DISTRAERTE', 'p1_distracc', '#F9D3D3']],
+}));
+beat('p1_auto', mascot('m_idea', { cap: 'AUTOMÁTICO…', hi: 'AUTOMÁTICO', with: ['m_dizzy', 'p1_fallar'] }));
+beat('p1_idea', brain({
+  full: true, cap: 'no son CAJAS CERRADAS', hi: 'CAJAS CERRADAS', capAt: 'p1_compart',
+  extra: (g, B) => { const N = Network(g, LOBES.map(r => B.pt(r)).concat([B.pt('cerebellum')])); return t => N.draw(t, at('p1_compart')); },
+}));
+beat('p1_familiar', still('s_hug', {
+  focus: [0.5, 0.4], cap: 'en SEGUNDOS', hi: 'SEGUNDOS', capAt: at('p1_percep') + 3.5,
+  chips: [['PERCEPCIÓN', 'p1_percep', '#FFD9C2'], ['MEMORIA', at('p1_percep') + 0.8, '#CDEFD0'], ['LENGUAJE', at('p1_percep') + 1.5, '#FFF1B8'], ['MOVIMIENTO', at('p1_percep') + 2.3, '#E5D6F7']],
+}));
+beat('p1_tampoco', mascot('m_thinking', { cap: 'no siempre es UN LÓBULO', hi: 'UN LÓBULO' }));
+beat('p1_subita', strokeCard('SI APARECE DE GOLPE', [['m_worried', 'HABLAR', 'p1_subita'], ['eye', 'VISIÓN', 'p1_vis'], ['hand', 'UN LADO DEL CUERPO', 'p1_lado']], { goAt: at('p1_lado') + 1.2 }));
+beat('p1_recuerdos', mascot('m_reading', { cap: 'tus RECUERDOS', hi: 'RECUERDOS' }));
+beat('p1_que', brain({ map: 'limb', cap: '¿qué los GUARDA?', hi: 'GUARDA', mascot: ['m_confused', 'p1_que'] }));
+beat('p1_ocultas', brain({ map: 'limb', on: [['hippo', 'p1_ocultas'], ['amyg', 'p1_ocultas']], cap: 'bajo la SUPERFICIE', hi: 'SUPERFICIE', w: 1050 }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

@@ -1,0 +1,137 @@
+# label | phrase (searched in order). Part 1 = intro + punto 1 + punto 2.
+i_open | Imagina que una mañana
+i_rostro | reconoces perfectamente su rostro
+i_nombre | incapaz de recordar su nombre
+i_mano | O que intentas levantar una mano
+i_noresp | tu cuerpo simplemente no responde
+i_inq | Lo más inquietante
+i_claridad | seguir pensando con claridad
+i_escuch | escuchando y comprendiendo
+i_como | Cómo es posible
+i_vida | cambie tanto nuestra vida
+i_univ | Dentro de tu cabeza
+i_86 | aproximadamente 86 mil millones
+i_infancia | Algunas regiones te permiten
+i_emoc | otras controlan tus emociones
+i_ojos | interpretan lo que ven tus ojos
+i_mov | coordinan cada movimiento
+i_resp | Y existen estructuras
+i_duermes | mantienen tu respiración mientras duermes
+i_sorpr | Pero aquí viene lo verdaderamente
+i_zona | Cuando una de estas regiones
+i_afect | según la zona afectada
+i_recuerdos | Puedes perder recuerdos
+i_person | cambios de personalidad
+i_hablar | dificultades para hablar
+i_intact | otras capacidades permanezcan intactas
+i_hoy | Hoy, en Cerebro y Bienestar
+i_qhace | qué hace cada una
+i_sub | Si te apasiona
+i_ciencia | Aquí transformamos la ciencia
+i_ultima | Y presta especial atención
+i_vida2 | funciones esenciales para mantenerte con vida
+p1 | Punto 1
+p1_lesion | Para comprender por qué
+p1_extensa | la parte más extensa
+p1_corteza | especialmente su corteza cerebral
+p1_pliegues | Esa superficie llena de pliegues
+p1_mover | participa en nuestra manera de movernos
+p1_interp | interpretar el mundo
+p1_relac | relacionarnos con los demás
+p1_ciudad | Imagina que la corteza es una ciudad
+p1_caminos | conectados mediante innumerables caminos
+p1_cuatro | Tradicionalmente distinguimos cuatro
+p1_aislado | ninguno trabaja completamente aislado
+p1_frontal | El primero es el lóbulo frontal
+p1_decides | Interviene cuando decides
+p1_organizas | organizas tus tareas
+p1_impulsiva | controlas una reacción impulsiva
+p1_movvol | También contiene regiones fundamentales
+p1_lenguaje | para producir el lenguaje
+p1_danadas | Si determinadas zonas resultan dañadas
+p1_conducta | cambios de conducta
+p1_debilidad | debilidad muscular
+p1_expresarse | problemas para expresarse
+p1_local | No significa que toda lesión frontal
+p1_parietal | Ahora piensa en el lóbulo parietal
+p1_tacto | interpretamos el tacto
+p1_posicion | reconocemos la posición
+p1_espacio | nos orientamos en el espacio
+p1_ignorar | Cuando ciertas áreas se lesionan
+p1_vision | No es necesariamente un problema de visión
+p1_atencion | El cerebro puede dejar de prestar atención
+p1_temporal | Más abajo encontramos el lóbulo temporal
+p1_audicion | intervienen en la audición
+p1_comprension | la comprensión del lenguaje
+p1_memoria | distintos procesos de memoria
+p1_frase | escuches perfectamente una frase
+p1_recientes | dificultar que recuerdes experiencias recientes
+p1_oir | Es una diferencia inquietante
+p1_occipital | Finalmente llegamos
+p1_visual | Su especialidad es procesar información visual
+p1_campo | Los ojos pueden captar la luz
+p1_desaparecer | pueden desaparecer porciones del campo visual
+p1_sanos | Por eso ver no depende
+p1_desayuno | De hecho, una misma actividad
+p1_ingred | recordar los ingredientes
+p1_utens | reconocer utensilios
+p1_dist | calcular distancias
+p1_manos | coordinar las manos
+p1_distracc | evitar distracciones
+p1_auto | Todo sucede automáticamente
+p1_fallar | empieza a fallar
+p1_idea | Y aquí aparece una idea fundamental
+p1_compart | Estas divisiones no son compartimentos cerrados
+p1_familiar | Para reconocer a un familiar
+p1_percep | coordinar percepción
+p1_tampoco | Tampoco todos los cambios repentinos
+p1_subita | si alguien presenta de forma súbita
+p1_vis | pérdida de visión
+p1_lado | debilidad de un lado del cuerpo
+p1_recuerdos | Ahora bien, entre todas estas capacidades
+p1_que | Qué estructuras permiten guardar
+p1_ocultas | La respuesta nos conduce
+p2 | Punto 2
+p2_perfume | Si alguna vez has percibido un perfume
+p2_puerta | Una simple sensación puede abrir una puerta
+p2_dos | Detrás de esa experiencia
+p2_hipo | el hipocampo y la amígdala
+p2_interna | El hipocampo se encuentra
+p2_nuevos | formación de muchos recuerdos nuevos
+p2_cajon | No funciona como un cajón
+p2_redes | Más bien, ayuda a organizar
+p2_llaves | Gracias a ese trabajo
+p2_dejaste | dónde dejaste las llaves
+p2_lesion | Pero imagina que ese sistema
+p2_decadas | podría recordar acontecimientos de hace décadas
+p2_desayunar | olvidar lo que acaba de desayunar
+p2_conv | Incluso podría mantener una conversación
+p2_amnesia | Este fenómeno se conoce
+p2_intel | No implica necesariamente perder la inteligencia
+p2_neuro | El hipocampo también merece atención
+p2_alz | En el Alzheimer
+p2_nombre | Sin embargo, olvidar ocasionalmente un nombre
+p2_estres | El estrés
+p2_sueno | la falta de sueño
+p2_salud | otros problemas de salud
+p2_amig | Muy cerca encontramos la amígdala
+p2_amenaza | importante o amenazante
+p2_golpe | Si escuchas un golpe inesperado
+p2_asoc | También intervienen en el aprendizaje
+p2_olores | ciertos sonidos, lugares u olores
+p2_miedo | despertar miedo o tranquilidad
+p2_centro | Significa esto que la amígdala
+p2_no | No. Las emociones
+p2_redes2 | surgen de redes amplias
+p2_alterada | Cuando estas redes funcionan de manera alterada
+p2_accidente | Piensa en alguien que sufrió
+p2_lugar | Su hipocampo puede participar
+p2_peligro | asociar determinadas señales con el peligro
+p2_meses | Meses después
+p2_juntas | Lo sorprendente es que memoria y emoción
+p2_empatia | Comprenderlo también ayuda
+p2_consulta | Y recuerda algo importante
+p2_sub | Si quieres seguir descubriendo
+p2_proximo | En el próximo apartado
+p2_hambre | influya en el hambre
+p3 | Punto 3

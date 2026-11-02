@@ -113,3 +113,4 @@ dependencies (playwright-core) and the motion QA tools.
 - `scripts/`: `cut_poses.py`, `cut_items.py`, `transcribe.mjs`, `cues.mjs`, `qa_pages.mjs` (contact sheet per section), `render_sections.mjs`, `setup.sh`, plus the legacy tools `render.py`,
   `puppet.py`, `motion.py` and `qa_motion.py`.
 - `characters/`: the user's character sheets. `projects/`: one folder per video.
+- Feedback 2 Nov: owner wants every video visually different (no repeated settings or reused panels). Vary season, places, framing per video; only the cast sheet is shared.

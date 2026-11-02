@@ -16,7 +16,7 @@ pg.on('pageerror', e => console.log('PAGE ERROR', e.message));
 fs.mkdirSync(path.join(dir, 'qa'), { recursive: true });
 for (const p of pages) {
   await pg.goto('file://' + path.resolve(dir, p));
-  await pg.evaluate(() => document.fonts.ready);
+  await pg.evaluate(() => Promise.all([...document.fonts].map(f => f.load())).then(() => document.fonts.ready));   // load every @font-face, used yet or not
   const [s, e] = await pg.evaluate(() => [window.START || 0, window.END]);
   const files = [];
   for (let t = s + 1; t < e; t += +step) {

@@ -1,0 +1,197 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#0F0F14;overflow:hidden} svg{display:block}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="../../.claude/skills/health-video/flat/cartoon.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — hook: a cut every ~2 s, cartoon panels + hand-lettered key phrases.
+window.START = 0;
+window.END = T.p1 - 1.1;   // just before the voice says "Punto 1"
+window.DURATION = window.END;
+const svg = Stage();
+const title = (g, s, o = {}) => HandTitle(g, s, { size: 112, y: 110, ...o });
+const LS = 64;   // label size
+
+// 1. "a moment that reveals your strength…"
+scene(svg, () => -1, () => at('km'), g => {
+  const p = panel(g, 'a1_armchair', { focus: [0.55, 0.5], zoom: 0.1 });
+  const h = title(g, 'TU FUERZA');
+  return t => { p.draw(t, 0, at('km')); show(h, t, at('momento') + 0.6); };
+});
+// 2. "…more than the kilometres you walk"
+scene(svg, () => at('km'), () => at('casa'), g => {
+  const w = el('g', {}, g);
+  const p = panel(w, 'a2_walk', { focus: [0.6, 0.5], zoom: 0.1 });
+  const h = title(g, 'MÁS QUE LOS KM', { size: 100 });
+  return t => { p.draw(t, at('km'), at('casa')); show(h, t, at('km')); };
+});
+// 3. at home, sitting, you decide to stand
+scene(svg, () => at('casa'), () => at('facilidad'), g => {
+  const p = panel(g, 'a1_armchair', { focus: [0.6, 0.45], zoom: 0.14 });
+  const h0 = title(g, 'EN TU CASA');
+  const h = title(g, 'AL LEVANTARTE');
+  return t => { p.draw(t, at('casa'), at('facilidad')); show(h0, t, at('casa'), at('levantarte')); show(h, t, at('levantarte')); };
+});
+// 4. easily?
+scene(svg, () => at('facilidad'), () => at('brazos'), g => {
+  const p = panel(g, 'b3_standup', { focus: [0.5, 0.45], zoom: 0.1 });
+  const h = title(g, '¿CON FACILIDAD?');
+  return t => { p.draw(t, at('facilidad'), at('brazos')); show(h, t, at('facilidad')); };
+});
+// 5. arms, leaning forward, a small effort
+scene(svg, () => at('brazos'), () => at('sesenta'), g => {
+  const w = el('g', {}, g);
+  const p = panel(w, 'a1_armchair', { zoom: 0 });
+  const [lx, ly] = pp(0.49, 0.6), [rx, ry] = pp(0.85, 0.58);
+  const L1 = HandLabel(w, 'LOS BRAZOS', { x: 560, y: 780, to: [1000, 545], anchor: 'end', size: LS });
+  const L2 = HandLabel(w, 'INCLINADO', { x: 880, y: 300, to: [1080, 330], anchor: 'end', size: LS });
+  const h = title(g, 'UN PEQUEÑO ESFUERZO');
+  return t => {
+    p.draw(t, 0, 1);
+    L1.draw(t, at('brazos')); L2.draw(t, at('inclinarte'));
+    punch(w, t, at('esfuerzo'), 1200, 500, 0.08);
+    show(h, t, at('esfuerzo'));
+  };
+});
+// 6. 60+
+scene(svg, () => at('sesenta'), () => at('indep'), g => {
+  Flat(g, K.butter);
+  const n = Hand(g, '60+', { x: 960, y: 520, size: 420, anchor: 'middle', bold: 18 });
+  const s1 = Sparkle(g, 1400, 300, 40), s2 = Sparkle(g, 520, 760, 30);
+  const h = title(g, 'PRESTA ATENCIÓN');
+  return t => { pop(n, t, at('sesenta'), 960, 520); if (t > at('sesenta') + 0.4) float(n, t, 960, 520, { amp: 8, tilt: 2 }); pop(s1, t, at('sesenta') + 0.3, 1400, 300); pop(s2, t, at('sesenta') + 0.4, 520, 760); show(h, t, at('gesto')); };
+});
+// 7. your future independence
+scene(svg, () => at('indep'), () => at('caminar'), g => {
+  const p = panel(g, 'b3_standup', { focus: [0.5, 0.4], zoom: 0.12 });
+  const h = title(g, 'TU INDEPENDENCIA');
+  return t => { p.draw(t, at('indep'), at('caminar')); show(h, t, at('indep')); };
+});
+// 8. walking every morning, thousands of steps
+scene(svg, () => at('caminar'), () => at('corazon'), g => {
+  const p = panel(g, 'a2_walk', { focus: [0.65, 0.5], zoom: 0.14 });
+  const c = el('g', {}, g); const p2 = panel(c, 'c1_couple', { zoom: 0 });
+  const h0 = title(g, 'CADA MAÑANA');
+  const h = title(g, 'MILES DE PASOS');
+  const [fx, fy] = pp(0.36, 0.86);
+  const L = HandLabel(c, 'PIERNAS FUERTES', { x: 1500, y: 860, to: [fx + 60, fy], anchor: 'start', size: LS });
+  return t => {
+    p.draw(t, at('caminar'), at('pasos')); p2.draw(t, 0, 1);
+    c.style.display = t >= at('pasos') ? '' : 'none';
+    show(h0, t, at('caminar'), at('pasos')); show(h, t, at('pasos')); L.draw(t, at('fuertes'));
+  };
+});
+// 9. great for your heart
+scene(svg, () => at('corazon'), () => at('estimulo'), g => {
+  Flat(g, K.peach);
+  const hg = el('g', {}, g); Icon.heart(hg, 760, 300, 4);
+  const ok = el('g', {}, g); Icon.check(ok, 1180, 260, 1.6);
+  const h = title(g, 'BUENO PARA TU CORAZÓN');
+  const q = HandLabel(g, 'pero…', { x: 960, y: 900, size: 96 });
+  return t => {
+    const b = 1 + 0.04 * Math.max(0, Math.sin(t * 7));
+    pop(hg, t, at('corazon'), 960, 500); if (t > at('corazon') + 0.4) hg.setAttribute('transform', `translate(960 500) scale(${b.toFixed(3)}) translate(-960 -500)`);
+    pop(ok, t, at('corazon') + 0.5, 1260, 340); show(h, t, at('corazon'));
+    q.draw(t, at('desconocen'));
+  };
+});
+// 10. not always enough stimulus for strength
+scene(svg, () => at('estimulo'), () => at('escaleras') - 1.2, g => {
+  const p = panel(g, 'a2_walk', { focus: [0.75, 0.95], zoom: 0.25 });
+  const h = title(g, '¿Y LA FUERZA?');
+  return t => { p.draw(t, at('estimulo') - 0.5, at('escaleras')); show(h, t, at('estimulo')); };
+});
+// 11. stairs
+scene(svg, () => at('escaleras') - 1.2, () => at('equilibrio'), g => {
+  const p = panel(g, 'a3_stairs', { focus: [0.45, 0.6], zoom: 0.12 });
+  const h = title(g, 'SUBIR ESCALERAS');
+  return t => { p.draw(t, at('escaleras') - 1.2, at('equilibrio') + 1); show(h, t, at('escaleras') - 1.2); };
+});
+// 12. recovering balance
+scene(svg, () => at('equilibrio'), () => at('ejercicio'), g => {
+  const w = el('g', {}, g);
+  const p = panel(w, 'a4_rug', { focus: [0.55, 0.5], zoom: 0.12 });
+  const h = title(g, 'RECUPERAR EL EQUILIBRIO');
+  return t => { p.draw(t, at('equilibrio'), at('ejercicio')); show(h, t, at('equilibrio')); punch(w, t, at('equilibrio') + 0.6, 1150, 500, 0.06); };
+});
+// 13. one simple exercise, in your living room, with a firm chair
+scene(svg, () => at('ejercicio'), () => at('pesas'), g => {
+  const p = panel(g, 'b1_chair', { focus: [0.5, 0.5], zoom: 0.1 });
+  const h1 = title(g, 'UN EJERCICIO SENCILLO');
+  const h2 = title(g, 'SOLO UNA SILLA FIRME');
+  const sp = [[Sparkle(g, 1500, 300, 36), 1500, 300], [Sparkle(g, 640, 640, 28), 640, 640]];
+  return t => {
+    p.draw(t, at('ejercicio'), at('pesas'));
+    show(h1, t, at('ejercicio'), at('silla')); show(h2, t, at('silla'));
+    sp.forEach(([s, x, y], i) => { const k = 0.8 + 0.3 * Math.sin(t * 4 + i * 2); s.setAttribute('transform', `translate(${x} ${y}) scale(${k.toFixed(3)}) translate(${-x} ${-y})`); });
+  };
+});
+// 14. no weights, no machines, no gym
+scene(svg, () => at('pesas'), () => at('vida'), g => {
+  const p = panel(g, 'b2_nogym', { focus: [0.75, 0.3], zoom: 0.16 });
+  const h = title(g, 'SIN GIMNASIO');
+  return t => { p.draw(t, at('pesas'), at('vida')); show(h, t, at('pesas')); };
+});
+// 15. a movement you've done all your life → the pose strip
+scene(svg, () => at('vida'), () => at('aliado'), g => {
+  const S = PoseStrip(g);
+  const h = title(g, 'TODA LA VIDA');
+  return t => { const k = Math.floor((t - at('vida') - 0.6) / 0.9); S.draw(t, k < 0 ? -1 : k % 4); show(h, t, at('vida')); };
+});
+// 16. a great ally after 60
+scene(svg, () => at('aliado'), () => at('adaptarlo'), g => {
+  const p = panel(g, 'b3_standup', { focus: [0.5, 0.45], zoom: 0.1 });
+  const h = title(g, 'UN GRAN ALIADO', { sub: 'DESPUÉS DE LOS 60' });
+  return t => { p.draw(t, at('aliado'), at('adaptarlo')); show(h, t, at('aliado')); };
+});
+// 17. adapted to your capacity: the steps light up one by one
+scene(svg, () => at('adaptarlo'), () => at('errores'), g => {
+  const S = PoseStrip(g);
+  const h = title(g, 'A TU CAPACIDAD');
+  return t => { const k = Math.floor((t - at('adaptarlo')) / 0.55); S.draw(t, k >= 0 && k < 4 ? k : -1); show(h, t, at('adaptarlo')); };
+});
+// 18. mistakes to avoid → joints
+scene(svg, () => at('errores'), () => at('tecnica'), g => {
+  const w = el('g', {}, g);
+  const p = panel(w, 'b4_knee', { zoom: 0 });
+  const [kx, ky] = pp(0.48, 0.52);
+  const L = HandLabel(w, 'ARTICULACIONES', { x: 640, y: 780, to: [kx - 60, ky + 30], anchor: 'end', size: LS });
+  const h = title(g, 'ERRORES A EVITAR');
+  return t => { p.draw(t, 0, 1); show(h, t, at('errores')); L.draw(t, at('articulaciones')); punch(w, t, at('articulaciones'), kx, ky, 0.07); };
+});
+// 19. the technique: one small detail (pose 2, the forward lean)
+scene(svg, () => at('tecnica'), () => at('final'), g => {
+  const w = el('g', {}, g);
+  const S = PoseStrip(w);
+  const ring = el('ellipse', { cx: S.x(1) - 30, cy: 560, rx: 190, ry: 150, fill: 'none', stroke: K.red, 'stroke-width': 9, 'stroke-dasharray': '1400', 'stroke-dashoffset': 1400 }, w);
+  const L = HandLabel(w, 'UN DETALLE', { x: 1000, y: 300, to: [S.x(1) + 40, 440], anchor: 'start', size: 72 });
+  const h = title(g, 'LA TÉCNICA');
+  return t => {
+    S.draw(t, t > at('detalle') ? 1 : -1);
+    show(h, t, at('tecnica'));
+    ring.setAttribute('stroke-dashoffset', (1400 * (1 - E.out(prog(t, at('detalle') + 0.2, at('detalle') + 0.8)))).toFixed(0));
+    L.draw(t, at('detalle') + 0.3);
+    punch(w, t, at('trabajan'), S.x(1), 560, 0.1);
+  };
+});
+// 20. stay to the end: your next victory starts by standing up
+scene(svg, () => at('final'), () => END + 1, g => {
+  const p = panel(g, 'b3_standup', { focus: [0.5, 0.4], zoom: 0.16 });
+  const h1 = title(g, 'QUÉDATE HASTA EL FINAL');
+  const h2 = title(g, 'TU PRÓXIMA VICTORIA');
+  const sp = [[1500, 260], [1700, 520], [1350, 820]].map(([x, y]) => [Sparkle(g, x, y, 34), x, y]);
+  return t => {
+    p.draw(t, at('final'), END);
+    show(h1, t, at('final'), at('victoria')); show(h2, t, at('victoria'));
+    sp.forEach(([s, x, y], i) => pop(s, t, at('victoria') + 0.2 + i * 0.2, x, y));
+  };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

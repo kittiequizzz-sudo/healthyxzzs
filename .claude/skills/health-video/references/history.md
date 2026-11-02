@@ -33,3 +33,9 @@ re-encoding (`qa-checklist.md`).
 
 Lesson: moving a drawn human in code always reads as a puppet. Don't propose another
 animated-figure method unless the owner asks for one explicitly.
+
+| 14 | `projects/cerebro_noche/` (sleep/brain, Intro + Punto 1–2, 4:52): white round-head character (`characters/round_m/`), night navy stage, code diagrams (glymphatic flow, hypnogram, brain→muscle STOP gate) | Delivered | Owner then switched the look for the next video → `cartoon-style.md`. |
+
+Oct 2026: owner picked a **cartoon-panel style** (flat doodle scenes on pastel colours, hand-lettered titles,
+no locked character) from a reference image → `cartoon-style.md`. Text is added in code, not baked in.
+

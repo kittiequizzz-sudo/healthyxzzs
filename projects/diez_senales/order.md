@@ -15,6 +15,15 @@ vào mọi prompt; tạo xong **a** thì đính kèm thêm **a** cho các ảnh 
 | **g** | 4 cảnh linh hoạt và thấu hiểu | Punto 4 |
 | **h** | 4 cảnh hài hước và "chưa biết" | Punto 5 + kết |
 
+## Chia 3 video (theo yêu cầu)
+| Video | Nội dung | Ảnh |
+|---|---|---|
+| 1 | Intro + Punto 1 + Punto 2 | **a, b, c, d, e** |
+| 2 | Punto 3 + Punto 4 | **f, g** |
+| 3 | Punto 5 + Conclusión | **h** |
+
+Giọng: `audio/voice.mp3` (22:53) + 4 đoạn ngắn v1–v4 trong `series.md`.
+
 ---
 
 ## a: 8 biểu cảm mới (`brainy_poses_3`)

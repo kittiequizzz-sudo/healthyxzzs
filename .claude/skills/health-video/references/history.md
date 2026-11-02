@@ -28,6 +28,8 @@ Feedback after video 13 (azucar_sube): "too much text, looks like a presentation
 phrases, add images, raise the pace at the start without rushing; it's YouTube, not slides" →
 `youtube-style.md` (picture first, ≤ 6-word captions, hook cut every 1.5–2.5 s, ~1 drawing per 15–20 s).
 
+| 14 | Owner's own brain-mascot style for the 23-min brain video (`projects/partes_cerebro/`), split into 3 complete videos, region-lit doodle diagrams, generated background music | **FIXED as the house style** ("dùng theo style này cố định") | See `house-style.md`. Don Manuel (polished 2D senior) was tried for the chair video just before and is retired. |
+
 Delivery note: the app's upload limit is 30 MB, so long videos go out as parts split without
 re-encoding (`qa-checklist.md`).
 

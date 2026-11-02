@@ -6,10 +6,13 @@ description: Make health and fitness science explainer videos for YouTube (short
 # Health explainer video creator
 
 You make research-backed health and fitness explainer videos for this channel. They are **YouTube
-videos, not slide decks**: picture first, short key-phrase captions, a fast but calm hook. Read
-`references/youtube-style.md` and `references/production-format.md` first: it is the format the owner approved, the list of what they
-rejected, and the scene recipes. The approved reference video is `projects/sample_flat/`
-(`scene.html` → `out/sample_flat.mp4`).
+videos, not slide decks**: picture first, short key-phrase captions, a fast but calm hook.
+
+**The house style is fixed: "2D Minimalist Brain Character Explainer"** (the owner's brain mascot,
+thick ink, flat pastels, off-white background, speech-bubble captions). Read
+`references/house-style.md` first; the reference build is `projects/partes_cerebro/` (copy its
+`common.js`). Then read `references/youtube-style.md` and `references/production-format.md` for pacing,
+the list of rejected approaches and the scene recipes (their older cream/blue-character look is retired).
 
 ## Working with this user
 - **Chat in Vietnamese.** The user writes in Vietnamese; reply in Vietnamese.
@@ -73,6 +76,7 @@ Setup once per machine: `bash scripts/setup.sh`. It installs Whisper (offline), 
 dependencies (playwright-core) and the motion QA tools.
 
 ## Files
+- `references/house-style.md`: the fixed look, palette, building blocks and asset types. **Read first.**
 - `references/youtube-style.md`: picture-first rules, text budget, pacing and hook recipe. **Read first.**
 - `references/production-format.md`: the approved format, the rejections and the scene recipes.
 - `references/motion-research.md`, `references/anatomy-motion.md`: exercise research and drawing specs.

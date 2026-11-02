@@ -1,5 +1,8 @@
 # Production format (APPROVED by the channel owner, use this for every video)
 
+**Look: always the house style in `house-style.md`** (brain mascot, off-white, ink-outline bubbles). The
+references below keep their recipes, but their cream/blue-character look is retired.
+
 **Infographic explainer + real drawings shown as stills or step sequences.** Rendered entirely in code
 (`flat/render.mjs` captures HTML scenes frame by frame → MP4). Two approved references:
 - Exercise video: `projects/sample_flat/scene.html` (sit-up vs curl-up, 28 s).

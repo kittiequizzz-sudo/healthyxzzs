@@ -5,12 +5,12 @@ the shared voice timeline, `common.js`, `render_sections.mjs`). Sections: `intro
 `cuadriceps`, `sentadilla`, `cierre`. Rules: `youtube-style.md` (picture on every beat, ≤ 6-word captions,
 ≤ 2 captions on screen, hook cut every 1.5–2.5 s).
 
-Character: **Don Manuel** (new, v2 order): 72, light-tan skin, white hair and short beard, average build, sage-green
-t-shirt + charcoal shorts, barefoot for exercises; cardigan + trousers in the home scenes. Drawn in a polished 2D
-film style with soft painterly shading and warm light (owner asked for a nicer character and scenes than `senior_m`).
-Cut poses with `cut_poses.py --skin none` (no blue recolour). Same light-oak chair with armrests and a sage cushion
-in every drawing. Exercise poses face **left** so the right leg (the one the script lifts) is nearest the camera.
-Voice: `audio/voice.mp3`, 19:09; the narrator reads the "Apartado n" headings, so each kicker lands on them.
+Character and look: the fixed house style (`.claude/skills/health-video/references/house-style.md`): the
+brain mascot (`characters/brainy/`), off-white #F7F6F2, ink-outline speech bubbles. Reuse the 21 mascot poses
+from `projects/partes_cerebro/cut/m_*.png`; build on a copy of `projects/partes_cerebro/common.js`. Same
+wooden chair (armrests, sage cushion) in every drawing; exercise poses face **left**; cut with
+`cut_poses.py --skin none`. Orders: `order.md` (v3). Voice: `audio/voice.mp3`, 19:09; the narrator reads the
+"Apartado n" headings, so each kicker lands on them. Don Manuel (v2) is retired.
 
 Recurring device: a **4-step progress strip** at the top right (tobillo · glúteo · cuádriceps · levantarse), the
 current step ringed orange, plus a **leg "chain" diagram** (item `cadena`): the working muscle lights red as each

@@ -9,6 +9,15 @@ Tạo bằng app miễn phí (Gemini hoặc ChatGPT), mỗi mục là **một �
 - **Tấm hình não:** mỗi vùng phải là **một màu phẳng riêng biệt**, ranh giới rõ, để mình tách từng vùng bằng màu và
   cho vùng đó sáng lên trong video. Không được có chữ, nhãn hay đường chỉ.
 
+## Chia video thành 3 phần (theo yêu cầu)
+| Phần | Nội dung | Ảnh cần |
+|---|---|---|
+| 1 | Intro + Punto 1 + Punto 2 | G1, G3, S1, S2, S3 |
+| 2 | Punto 3 + Punto 4 | G2, S4, S5 (dùng lại G1, G3) |
+| 3 | Punto 5 + Conclusión | S6 (dùng lại G1, G2, S1, S5) |
+
+Giọng đọc: một file cho cả video (`audio/voice.mp3`, 23:03); mình cắt ra 3 phần theo mốc "Punto 3" và "Punto 5".
+
 ---
 
 ## G1: não nhìn ngang, 4 thùy (`cerebro_lateral`)

@@ -4,8 +4,14 @@
 shared voice timeline, `common.js`, `render_sections.mjs --jobs 3`). Sections: `intro`, `punto1` … `punto5`,
 `conclusion`. Rules: `youtube-style.md`.
 
-Characters: **Don Manuel** (`characters/manuel/sheet.webp`, approved) and his wife **Doña Elena** (new, defined in
-the order and drawn in the same 2D film style). Both appear only in 2×2 scene panels shown as push-in stills.
+Style (owner, Nov 2026): **"2D Minimalist Brain Character Explainer"**: the owner's brain mascot
+(`characters/brainy/`), thick black ink, white bodies, flat pastels, no shading, off-white #F7F6F2 background,
+captions in ink-outlined speech bubbles (style test `demo_estilo.html`). Replaces Don Manuel / Doña Elena below:
+read every "Manuel/Elena" panel as the mascot / its partner (pink bow). Orders: `order.md`.
+
+Series of 3 complete videos cut from the one voice take (`series.md`): part 1 = 0–568.9 s (intro, punto 1–2,
+9:29), part 2 = 568.9–1029.1 s (punto 3–4, 7:40), part 3 = 1029.1–1382.5 s (punto 5 + conclusión, 5:53), plus the
+extra intro/outro lines.
 
 ## Core visual device: the brain map
 - `G1` lateral brain in flat, clearly separated colours: frontal orange, parietal yellow, temporal green, occipital

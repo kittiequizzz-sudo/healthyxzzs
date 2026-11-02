@@ -15,6 +15,25 @@ Toàn bộ loạt video dùng **linh vật đầu não** của bạn (`character
 | 2 | Punto 3 + Punto 4 | B2, G2, S4, S5 |
 | 3 | Punto 5 + Conclusión | S6, S7 |
 
+## Tên file đơn giản (dùng tên này khi gửi)
+| Tên gửi | Ảnh | Phần |
+|---|---|---|
+| **a** | B1 biểu cảm linh vật | 1 |
+| **b** | G1 não nhìn ngang | 1 |
+| **c** | G3 các chi tiết | 1 |
+| **d** | S1 mở đầu | 1 |
+| **e** | S2 các thùy não | 1 |
+| **f** | S3 trí nhớ, cảm xúc | 1 |
+| **g** | B2 biểu cảm phần 2 | 2 |
+| **h** | G2 não cắt dọc | 2 |
+| **i** | S4 hệ thống cơ thể | 2 |
+| **j** | S5 vận động, cảnh báo | 2 |
+| **k** | S6 thân não, thể chai | 3 |
+| **l** | S7 chăm sóc não | 3 |
+
+Giọng đọc thêm: **v1** = `p1_salida`, **v2** = `p2_entrada`, **v3** = `p2_salida`, **v4** = `p3_entrada`.
+Mình tự đổi về tên trong dự án khi nhận.
+
 ---
 
 # PHẦN 1

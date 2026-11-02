@@ -1,0 +1,89 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 3 · Conclusión, then the series end card (voice ends at ~1382.3 s).
+const VOICE_END = 1382.6;
+window.START = at('c0');
+window.END = window.DURATION = VOICE_END + 6;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('c0', (g, b) => {
+  // the one full dark title card of the series (conclusion only)
+  el('rect', { width: 1920, height: 1080, fill: K.ink }, g);
+  const c = Chip(g, 'CONCLUSIÓN', { cx: 960, cy: 300, size: 54, fill: K.yellow });
+  const a = txt(g, 'CONOCER TU CEREBRO', { x: 960, y: 470, size: 110, color: K.white });
+  const d = txt(g, 'ES APRENDER A PROTEGERLO', { x: 960, y: 610, size: 90, color: K.pink });
+  const m = Mascot(g, 'm_thumbs', { cx: 960, floor: 1060, h: 360 });
+  return t => { pop(c, t, b.a, 960, 300); show(a, t, b.a + 0.2); show(d, t, b.a + 0.6); live(m, t, b.a + 0.9); };
+});
+beat('c_rostro', still('s_hug', { cap: 'regiones que trabajan JUNTAS', hi: 'JUNTAS', focus: [0.5, 0.4] }));
+beat('c_frontal', brain({ on: [['frontal', 'c_frontal']], labels: [['DECIDIR', 'frontal', 'c_frontal', -60, -170]], mascot: ['m_thinking', 'c_frontal'] }));
+beat('c_hipo', brain({ map: 'limb', on: [['hippo', 'c_hipo']], labels: [['RECORDAR', 'hippo', 'c_hipo', 160, -230]], mascot: ['m_idea', 'c_hipo'] }));
+beat('c_cerebelo', brain({
+  on: [['cerebellum', 'c_cerebelo'], ['stem', 'c_tronco']], labels: [['MOVERSE', 'cerebellum', 'c_cerebelo', 330, 60], ['VIVIR', 'stem', 'c_tronco', -260, 60]],
+  mascot: ['m_sleepy', 'c_tronco'],
+}));
+beat('c_despiste', mascot('m_confused', { cap: 'un despiste no es una ENFERMEDAD', hi: 'ENFERMEDAD', size: 58 }));
+beat('c_palabra', row([['m_thinking', 'UNA PALABRA', 'c_palabra'], ['m_tired', 'CANSANCIO', 'c_cansancio'], ['m_dizzy', 'CONCENTRACIÓN', 'c_concen'], ['m_yawn', 'SUEÑO · ESTRÉS', 'c_estres']], { head: 'muchas EXPLICACIONES', hi: 'EXPLICACIONES' }));
+beat('c_persist', adviceCard('CONSULTA SI LOS CAMBIOS SON…', [['PERSISTENTES', 'c_persist'], ['PROGRESIVOS', at('c_persist') + 2.5], ['o afectan tu VIDA DIARIA', at('c_persist') + 4], ['→ un profesional sanitario', 'c_consult']], { m: 'm_listening' }));
+beat('c_dif', mascot('m_scared', { cap: 'pero hay una DIFERENCIA', hi: 'DIFERENCIA' }));
+beat('c_hablar', (g, b) => {
+  // final stroke card, held with emergency numbers by country
+  el('rect', { x: 100, y: 60, width: 1720, height: 960, rx: 40, fill: K.white, stroke: K.ink, 'stroke-width': 9 }, g);
+  el('rect', { x: 100, y: 60, width: 1720, height: 150, rx: 40, fill: K.red, stroke: K.ink, 'stroke-width': 9 }, g);
+  el('rect', { x: 105, y: 160, width: 1710, height: 48, fill: K.red }, g);
+  txt(g, 'DE REPENTE → LLAMA A EMERGENCIAS', { x: 960, y: 137, size: 64, color: K.white });
+  const items = [['m_worried', 'HABLAR', 'c_hablar'], ['hand', 'UN LADO', 'c_lado'], ['eye', 'VISIÓN', 'c_vision'], ['m_wobbly', 'EQUILIBRIO', 'c_deseq'], ['m_dizzy', 'DOLOR DE CABEZA', 'c_cabeza']].map(([n, s, k], i) => {
+    const x = 960 + (i - 2) * 320, it = el('g', {}, g);
+    n.startsWith('m_') ? Mascot(it, n, { cx: x, floor: 520, h: 260 }) : Img(it, n, x, 400, 220);
+    txt(it, s, { x, y: 570, size: 40 });
+    it.cx = x; it.cy = 420;
+    return [it, k];
+  });
+  const nums = el('g', {}, g);
+  [['España', '112'], ['México', '911'], ['Colombia', '123'], ['Argentina', '107'], ['Chile', '131'], ['Perú', '106'], ['EE. UU.', '911']].forEach(([c, n], i) => {
+    const x = 270 + i * 230;
+    txt(nums, n, { x, y: 720, size: 64, color: K.red });
+    txt(nums, c, { x, y: 790, size: 32, weight: 800, color: K.grey });
+  });
+  const ict = Chip(g, 'podría ser un ICTUS (ACV) · actuar rápido importa', { cx: 960, cy: 920, size: 44, fill: K.pinkL });
+  return t => { items.forEach(([it, k]) => pop(it, t, tt(k), it.cx, it.cy)); show(nums, t, at('c_llama')); pop(ict, t, at('c_ictus'), 960, 920); };
+});
+beat('c_plast', brain({
+  full: true, cap: 'se adapta… pero NO LO GARANTIZA TODO', hi: 'NO LO GARANTIZA TODO', capAt: 'c_garant', size: 54,
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital', 'cerebellum'].map(r => B.pt(r)), { color: K.green }); return t => N.draw(t, at('c_plast') + 0.5); },
+}));
+beat('c_cuidar', still('s_lamp', { cap: 'DORMIR suficiente', hi: 'DORMIR', focus: [0.5, 0.45] }));
+beat('c_activo', still('s_walk', { cap: 'mantenerte ACTIVO', hi: 'ACTIVO', focus: [0.45, 0.5] }));
+beat('c_riesgo', still('s_bp', { cap: 'controlar la PRESIÓN y el riesgo', hi: 'PRESIÓN', focus: [0.6, 0.5] }));
+beat('c_ayuda', still('s_doctor', { cap: 'pedir AYUDA cuando haga falta', hi: 'AYUDA', focus: [0.5, 0.45] }));
+beat('c_proteger', big([['CONOCERLO', 'CONOCERLO'], ['ES PROTEGERLO', 'PROTEGERLO']], { y: 300, size: 120, pic: 'm_strong' }));
+beat('c_pregunta', brain({ full: true, cap: '¿qué parte te SORPRENDIÓ más?', hi: 'SORPRENDIÓ', mascot: ['m_confused', 'c_pregunta'] }));
+beat('c_coment', still('s_tablet', { cap: 'cuéntalo en los COMENTARIOS', hi: 'COMENTARIOS', focus: [0.5, 0.5] }));
+beat('c_sub', cta('sub', { sub: 'Cerebro y Bienestar' }));
+beat(VOICE_END, (g, b) => {
+  const m = Mascot(g, 'm_waving', { cx: 480, floor: 900, h: 640 });
+  const h = txt(g, '¡SERIE COMPLETA!', { x: 1220, y: 300, size: 90 });
+  const parts = ['PARTE 1', 'PARTE 2', 'PARTE 3'].map((s, i) => Chip(g, s + ' ✓', { cx: 880 + i * 340, cy: 480, size: 46, fill: K.yellow }));
+  const d = txt(g, 'Contenido educativo: no sustituye una valoración médica.', { x: 960, y: 1020, size: 34, weight: 700, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(h, t, b.a + 0.2); parts.forEach((p, i) => pop(p, t, b.a + 0.5 + i * 0.3, p.cx, p.cy)); show(d, t, b.a + 1.2); };
+});
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

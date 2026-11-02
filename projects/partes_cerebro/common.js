@@ -220,7 +220,7 @@ function row(list, o = {}) {
     const its = list.map(([cn, s, k, fill], i) => {
       const x = 960 + (i - (n - 1) / 2) * gap, it = el('g', {}, g);
       if (cn.startsWith('m_')) Mascot(it, cn, { cx: x, floor: 700, h: 470 }); else Img(it, cn, x, 470, 330);
-      Chip(it, s, { cx: x, cy: 800, size: 46, fill: fill || K.white });
+      Chip(it, s, { cx: x, cy: 800, size: n > 3 ? 38 : 46, fill: fill || K.white });
       it.cx = x; it.cy = 560;
       return [it, k];
     });
@@ -297,13 +297,14 @@ function strokeCard(head, icons, o = {}) {
     const its = icons.map(([cn, s, k], i) => {
       const x = 960 + (i - (n - 1) / 2) * 1500 / n, it = el('g', {}, g);
       if (cn) (cn.startsWith('m_') ? Mascot(it, cn, { cx: x, floor: 650, h: 380 }) : Img(it, cn, x, 470, 300));
-      txt(it, s, { x, y: 710, size: n > 4 ? 40 : 48 });
+      txt(it, s, { x, y: 710, size: n > 4 ? 40 : n > 3 ? 42 : 48 });
       it.cx = x; it.cy = 520;
       return [it, k];
     });
     const go = el('g', {}, g);
-    el('rect', { x: 460, y: 790, width: 1000, height: 140, rx: 70, fill: K.red, stroke: K.ink, 'stroke-width': 8 }, go);
-    txt(go, o.go || 'URGENCIAS · ICTUS (ACV)', { x: 960, y: 862, size: 64, color: K.white });
+    const gt = txt(go, o.go || 'URGENCIAS · ICTUS (ACV)', { x: 960, y: 862, size: 60, color: K.white });
+    const gw = gt.getComputedTextLength() + 140;
+    go.insertBefore(el('rect', { x: 960 - gw / 2, y: 790, width: gw, height: 140, rx: 70, fill: K.red, stroke: K.ink, 'stroke-width': 8 }), gt);
     go.cx = 960; go.cy = 860;
     return t => {
       its.forEach(([it, k], i) => pop(it, t, tt(k, b.a + 0.3 + i * 0.3), it.cx, it.cy));

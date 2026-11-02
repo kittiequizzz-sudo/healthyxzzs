@@ -220,3 +220,86 @@ p4_pregunta | Y ahora llegamos a una pregunta
 p4_respirar | Cómo respirar mientras duermes
 p4_region | Para entenderlo, debemos viajar
 p5 | Punto 5
+# Part 3 = punto 5 + conclusión
+p5_tit | El tronco encefálico y el cuerpo calloso
+p5_region | Y esa región es el tronco
+p5_duermes | Mientras duermes, no necesitas
+p5_corazon | tu corazón debe seguir latiendo
+p5_redes | Detrás de estos procesos
+p5_medula | conecta el cerebro con la médula
+p5_modesto | Su tamaño puede parecer modesto
+p5_tres | tiene tres partes principales
+p5_puente0 | puente y bulbo
+p5_meso | El mesencéfalo participa
+p5_alerta | el movimiento y la alerta
+p5_mirada | Gracias a la coordinación de numerosas regiones
+p5_puente | Debajo se encuentra el puente
+p5_cerebelo | conexiones importantes con el cerebelo
+p5_sueno | Interviene en funciones vinculadas con el sueño
+p5_cara | los movimientos de la cara
+p5_danan | Si determinadas zonas se dañan
+p5_bulbo | Más abajo está el bulbo
+p5_respir | regular la respiración
+p5_cardio | control cardiovascular
+p5_deglu | la deglución y la tos
+p5_peligro | Por eso, una lesión importante
+p5_unico | No significa que un único punto
+p5_imagina | Imagina ahora a una persona
+p5_tragar | dificultad para tragar
+p5_doble | visión doble
+p5_habla | habla extraña
+p5_inest | inestabilidad intensa
+p5_causas | Aunque estos síntomas pueden tener
+p5_brusco | Si surgen bruscamente
+p5_dolor | incluso cuando no exista dolor
+p5_sorpresa | Pero nuestro recorrido todavía
+p5_mitades | Las dos mitades del cerebro
+p5_calloso | entre ellas se extiende el cuerpo calloso
+p5_lees | Gracias a esas conexiones
+p5_manos | las dos manos
+p5_sentidos | mediante varios sentidos
+p5_danos | Si el cuerpo calloso sufre
+p5_excep | En casos excepcionales
+p5_mano | una mano puede responder
+p5_dos | Sin embargo, esto no significa
+p5_rutas | El cerebro mantiene múltiples rutas
+p5_misma | También conviene recordar
+p5_local | La localización exacta
+p5_extension | la extensión del daño
+p5_rapidez | la rapidez con la que
+p5_aisl | Por eso, los síntomas nunca
+p5_piezas | Después de conocer estas estructuras
+p5_colab | Cada recuerdo, paso y respiración
+p5_ultima | Y comprender esa colaboración
+p5_miedo | Cómo podemos reconocer los cambios
+c0 | Ahora sabes que el cerebro
+c_rostro | Cada vez que recuerdas un rostro
+c_frontal | El lóbulo frontal ayuda
+c_hipo | El hipocampo participa
+c_cerebelo | El cerebelo afina
+c_tronco | el tronco encefálico sostiene
+c_despiste | Comprender estas estructuras no significa
+c_palabra | Olvidar ocasionalmente una palabra
+c_cansancio | sentir cansancio
+c_concen | perder la concentración
+c_estres | atravesar una etapa de estrés
+c_persist | Lo importante es prestar atención
+c_consult | consultarlos con un profesional
+c_dif | Existe, sin embargo, una diferencia
+c_hablar | Si aparecen de repente dificultades
+c_lado | debilidad en un lado del cuerpo
+c_vision | pérdida de visión
+c_deseq | desequilibrio intenso
+c_cabeza | dolor de cabeza extraordinariamente
+c_llama | llama inmediatamente a emergencias
+c_ictus | Podrían ser señales de un ictus
+c_plast | Nuestro cerebro posee cierta capacidad
+c_garant | esa plasticidad no garantiza
+c_cuidar | Cuidarlo implica también
+c_activo | mantenerse activo
+c_riesgo | controlar los factores de riesgo
+c_ayuda | buscar ayuda cuando sea necesario
+c_proteger | Conocer nuestro cerebro también es aprender
+c_pregunta | Y ahora quiero preguntarte algo
+c_coment | Cuéntamelo en los comentarios
+c_sub | Si este recorrido te ha ayudado

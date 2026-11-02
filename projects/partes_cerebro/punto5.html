@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Part 3 · opener (silent pre-roll until the v4 intro voice exists) + Punto 5: brainstem and corpus callosum.
+const PRE = 5;
+window.START = at('p5') - PRE;
+window.END = window.DURATION = at('c0');
+HOOK_END = at('p5') + 35;
+const svg = Stage();
+const S0 = window.START;
+const STEM = ['midbrain', 'pons', 'medulla'];
+
+beat(S0, row([['m_thinking', 'LÓBULOS', S0 + 0.1], ['m_idea', 'MEMORIA', S0 + 0.5], ['m_hot', 'CUERPO', S0 + 0.9], ['m_wobbly', 'MOVIMIENTO', S0 + 1.3]], { head: 'ya vimos…' }));
+beat(S0 + 2.4, (g, b) => {
+  const m = Mascot(g, 'm_strong', { cx: 470, floor: 930, h: 720 });
+  const t1 = txt(g, 'LAS PARTES', { x: 1200, y: 360, size: 140 });
+  const t2 = txt(g, 'DEL CEREBRO', { x: 1200, y: 510, size: 140, color: K.pink });
+  const c = Chip(g, 'PARTE 3 DE 3', { cx: 1200, cy: 660, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 790, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(t1, t, b.a + 0.1); show(t2, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1200, 660); show(ch, t, b.a + 0.9); };
+});
+beat('p5', kicker(5, 'TRONCO Y CUERPO CALLOSO', { map: 'sag', on: [['midbrain', at('p5') + 0.4], ['pons', at('p5') + 0.6], ['medulla', at('p5') + 0.8], ['callosum', 'p5_tit']], hi: 'CUERPO CALLOSO', sub: 'las conexiones que mantienen tu vida' }));
+beat('p5_region', brain({ map: 'sag', on: STEM.map(r => [r, 'p5_region']), labels: [['TRONCO ENCEFÁLICO', 'pons', 'p5_region', 360, 120]], cap: 'el TRONCO encefálico', hi: 'TRONCO' }));
+beat('p5_duermes', still('s_sleep2', { cap: 'respirar · el CORAZÓN late', hi: 'CORAZÓN', capAt: 'p5_corazon', focus: [0.45, 0.5] }));
+beat('p5_redes', brain({
+  map: 'sag', on: STEM.map(r => [r, 'p5_redes']), cap: 'une cerebro y MÉDULA', hi: 'MÉDULA', capAt: 'p5_medula', items: [['stem', 'MÉDULA ESPINAL', 'p5_medula']],
+}));
+beat('p5_modesto', mascot('m_strong', { cap: 'pequeño… pero ENORME', hi: 'ENORME' }));
+beat('p5_tres', brain({
+  map: 'sag', on: [['midbrain', 'p5_tres'], ['pons', at('p5_tres') + 1.8], ['medulla', at('p5_tres') + 3.2]],
+  labels: [['MESENCÉFALO', 'midbrain', 'p5_tres', 360, -40], ['PUENTE', 'pons', at('p5_tres') + 1.8, 360, 60], ['BULBO RAQUÍDEO', 'medulla', at('p5_tres') + 3.2, 360, 120]],
+}));
+beat('p5_meso', brain({ map: 'sag', on: [['midbrain', 'p5_meso']], labels: [['MESENCÉFALO', 'midbrain', 'p5_meso', 360, -40]], items: [['eye', 'OJOS', 'p5_meso'], ['ear', 'SONIDOS', at('p5_meso') + 3.5], ['m_scared', 'ALERTA', 'p5_alerta']] }));
+beat('p5_mirada', still('s_sound', { cap: 'la mirada va SOLA', hi: 'SOLA', focus: [0.7, 0.4] }));
+beat('p5_puente', brain({ map: 'sag', on: [['pons', 'p5_puente'], ['cerebellum', 'p5_cerebelo']], labels: [['PUENTE', 'pons', 'p5_puente', 360, 60]], cap: 'conecta con el CEREBELO', hi: 'CEREBELO', capAt: 'p5_cerebelo' }));
+beat('p5_sueno', row([['m_yawn', 'SUEÑO', 'p5_sueno'], ['m_drinking', 'RESPIRACIÓN', at('p5_sueno') + 1.6], ['m_waving', 'CARA', 'p5_cara']]));
+beat('p5_danan', mascot('m_dizzy', { chips: [['CARA', 'p5_danan', K.pinkL], ['COORDINACIÓN', at('p5_danan') + 3, K.pinkL], ['MOVILIDAD', at('p5_danan') + 5.5, K.pinkL]] }));
+beat('p5_bulbo', brain({ map: 'sag', on: [['medulla', 'p5_bulbo']], labels: [['BULBO RAQUÍDEO', 'medulla', 'p5_bulbo', 380, -30]], mascot: ['m_pointing', 'p5_bulbo'], cap: 'más ABAJO', hi: 'ABAJO' }));
+beat('p5_respir', row([['m_sleepy', 'RESPIRACIÓN', 'p5_respir'], ['m_strong', 'CORAZÓN', 'p5_cardio'], ['m_drinking', 'TRAGAR · TOSER', 'p5_deglu']]));
+beat('p5_peligro', brain({ map: 'sag', on: [['medulla', 'p5_peligro']], cap: 'una lesión aquí: PELIGROSA', hi: 'PELIGROSA', mascot: ['m_worried', 'p5_peligro'] }));
+beat('p5_unico', brain({
+  map: 'sag', on: STEM.map(r => [r, 'p5_unico']), cap: 'no UN punto: REDES', hi: 'REDES',
+  extra: (g, B) => { const N = Network(g, STEM.map(r => B.pt(r)).concat([B.pt('thalamus'), B.pt('cerebellum')])); return t => N.draw(t, at('p5_unico') + 2); },
+}));
+beat('p5_imagina', strokeCard('SI APARECE DE REPENTE', [['m_drinking', 'TRAGAR', 'p5_tragar'], ['eye', 'VISIÓN DOBLE', 'p5_doble'], ['m_worried', 'HABLA RARA', 'p5_habla'], ['m_wobbly', 'INESTABLE', 'p5_inest']], { goAt: 'p5_brusco', go: 'EMERGENCIAS · AUNQUE NO DUELA' }));
+beat('p5_sorpresa', mascot('m_idea', { cap: 'una SORPRESA más', hi: 'SORPRESA' }));
+beat('p5_mitades', brain({ map: 'sag', on: [['callosum', 'p5_calloso']], labels: [['CUERPO CALLOSO', 'callosum', 'p5_calloso', 0, -250]], cap: 'un PUENTE entre las dos mitades', hi: 'PUENTE', capAt: 'p5_calloso' }));
+beat('p5_lees', still('s_bridge', { focus: [0.5, 0.45], chips: [['LEER', 'p5_lees', '#CFE6F7'], ['DOS MANOS', 'p5_manos', '#CFE6F7'], ['VARIOS SENTIDOS', 'p5_sentidos', '#CFE6F7']] }));
+beat('p5_danos', brain({ map: 'sag', on: [['callosum', 'p5_danos']], cap: 'la comunicación se ALTERA', hi: 'ALTERA', mascot: ['m_confused', 'p5_danos'] }));
+beat('p5_excep', (g, b) => {
+  // split-brain: one hand reacts, the speech bubble stays empty
+  const m = Mascot(g, 'm_thinking', { cx: 620, floor: 900, h: 660 });
+  const tag = Chip(g, 'casos EXCEPCIONALES', { cx: 960, cy: 120, size: 52, fill: K.yellow });
+  const hand = Img(g, 'hand', 1350, 560, 300);
+  const ok = Mark(g, true, 1520, 420, 0.8);
+  const bub = Bubble(g, '¿…?', { cx: 1000, cy: 330, size: 70, tail: 'l' });
+  const cap = Bubble(g, 'la mano responde… la palabra NO', { hi: 'NO' });
+  return t => {
+    live(m, t, b.a, { dir: 'l' }); pop(tag, t, b.a + 0.3, 960, 120);
+    live(hand, t, at('p5_mano'), { amp: 6, tilt: 4 }); pop(ok, t, at('p5_mano') + 0.6, 1520, 420);
+    pop(bub, t, at('p5_mano') + 2.5, 1000, 330); pop(cap, t, at('p5_mano') + 3, 960, 975);
+  };
+});
+beat('p5_dos', mascot('m_thumbs', { cap: 'NO son dos personas', hi: 'NO', stamp: ['UNA SOLA PERSONA', at('p5_dos') + 1.5, '#CDEFD0'] }));
+beat('p5_rutas', brain({
+  full: true, cap: 'redes DISTRIBUIDAS', hi: 'DISTRIBUIDAS',
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital', 'cerebellum', 'stem'].map(r => B.pt(r))); return t => N.draw(t, at('p5_rutas') + 1); },
+}));
+beat('p5_misma', mascot('m_dizzy', { cap: 'una lesión → VARIAS funciones', hi: 'VARIAS' }));
+beat('p5_local', row([['m_pointing', 'LOCALIZACIÓN', 'p5_local'], ['m_worried', 'EXTENSIÓN', 'p5_extension'], ['m_wobbly', 'RAPIDEZ', 'p5_rapidez']], { cap: 'nunca un síntoma AISLADO', capHi: 'AISLADO', capAt: 'p5_aisl' }));
+beat('p5_piezas', brain({
+  full: true, cap: 'no son PIEZAS sueltas', hi: 'PIEZAS',
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital', 'cerebellum', 'stem'].map(r => B.pt(r)), { color: K.pink }); return t => N.draw(t, at('p5_colab')); },
+}));
+beat('p5_ultima', mascot('m_thinking', { cap: '¿cuándo PREOCUPARSE?', hi: 'PREOCUPARSE', capAt: 'p5_miedo' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

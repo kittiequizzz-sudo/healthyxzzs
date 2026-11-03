@@ -21,3 +21,4 @@ projects/*/sound/*.wav
 projects/*/sound/*.m4a
 projects/*/out/*.mkv
 projects/*/out/parts*/
+projects/*/out/*.log

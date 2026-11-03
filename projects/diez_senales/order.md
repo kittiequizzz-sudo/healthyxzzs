@@ -22,14 +22,14 @@ vào mọi prompt; tạo xong **a** thì đính kèm thêm **a** cho các ảnh 
 | 2 | Punto 3 + Punto 4 | **f, g** |
 | 3 | Punto 5 + Conclusión | **h** |
 
-Giọng: `audio/voice.mp3` (22:53) + 4 đoạn ngắn v1–v4 trong `series.md`.
+Giọng: `audio/voice.mp3` (22:53); mốc cắt: video 1 = 0:00–9:32, video 2 = 9:32–17:18, video 3 = 17:18–22:53 + 4 đoạn ngắn v1–v4 trong `series.md`.
 
 ---
 
 ## a: 8 biểu cảm mới (`brainy_poses_3`)
-*Giơ tay hỏi · soi kính lúp · cười lớn · viết danh sách · nhún vai "không biết" · cầm bóng đèn · tung hứng 3 ý tưởng · ngồi thiền.*
+*Giơ tay hỏi · cười lớn · nhún vai · cầm bóng đèn · tung hứng 3 ý tưởng · ngồi thiền · đi dạo chắp tay sau lưng · gật đầu đồng ý. (Kính lúp, bảng ghi chú, bánh răng, giơ tay vui đã có từ ảnh nền tối.)*
 
-> Character sheet in the exact style of the attached reference: minimalist 2D doodle mascot, round white head with an exposed pink brain on top, simple white body, thick black outlines, flat colours, no shading, small soft blue-grey shadow under the feet. Eight poses of the SAME character, drawn SEPARATELY and evenly spaced in two rows on a plain off-white #F7F6F2 background, same size: 1) raising one hand high to ask a question, curious face, 2) looking through a big magnifying glass, one eye enlarged, 3) laughing heartily holding its belly, small happy tears, 4) writing a list on a clipboard with a pencil, focused, 5) shrugging with open palms and a calm honest smile, 6) holding up a glowing yellow light bulb, proud, 7) juggling three small light bulbs, 8) sitting cross-legged with eyes closed, peaceful, small calm lines around it. No text, no letters, no numbers, 16:9, high resolution.
+> Character sheet in the exact style of the attached reference: minimalist 2D doodle mascot, round white head with an exposed pink brain on top, simple white body, thick black outlines, flat colours, no shading, small soft blue-grey shadow under the feet. Eight poses of the SAME character, drawn SEPARATELY and evenly spaced in two rows on a plain off-white #F7F6F2 background, same size: 1) raising one hand high to ask a question, curious face, 2) laughing heartily holding its belly, small happy tears, 3) shrugging with open palms and a calm honest smile, 4) holding up a glowing yellow light bulb, proud, 5) juggling three small light bulbs, 6) sitting cross-legged with eyes closed, peaceful, small calm lines around it, 7) walking slowly with hands behind its back, thoughtful, 8) nodding with an open palm, friendly "you are right" gesture. No text, no letters, no numbers, 16:9, high resolution.
 
 ## b: 8 đồ vật biểu tượng (`iconos`)
 *Kính lúp · hai mảnh ghép · biển chỉ đường 3 hướng · chồng sách · tờ báo · phiếu điểm có sao vàng · đồng hồ bấm giờ · cái cân.*

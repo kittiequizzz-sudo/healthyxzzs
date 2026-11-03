@@ -29,3 +29,10 @@ Lưu ý khi dựng:
 - Thẻ an toàn «DETENTE SI…» (mareo, dolor torácico, falta de aire, palpitaciones) giữ ≥ 6 giây.
 - «NO SUSTITUYAS TUS MEDICAMENTOS» ở Punto 5. Nguồn chữ nhỏ: «British Journal of Sports Medicine, 2023».
 - Phong cách mới: ảnh cartoon cho người lớn (ảnh mẫu `assets/style_ref_cartoon.webp`), nền video xanh xám đá.
+
+## Kiểm tra giọng đọc (rimovoice11 → audio/voice_full.mp3, 20:24)
+Đọc đủ toàn bộ kịch bản, đúng thứ tự (so từng từ: chỉ khác cách viết số), không có khoảng lặng dài.
+Chép lời bằng 2 nửa song song (cắt ở chỗ lặng 10:12,6), rồi ghép lại.
+Mốc: Punto 1 = 1:44 · Punto 2 = 4:55 · Punto 3 = 8:22 · Punto 4 = 11:24 · Punto 5 = 14:49 · Kết = 18:15.
+Chia 3 phần (1 video): **Phần 1 = 0:00–8:21** (mở đầu + P1 + P2) · **Phần 2 = 8:21–14:49** (P3 + P4) ·
+**Phần 3 = 14:49–20:24** (P5 + kết). Không cần cắt hay sửa giọng.

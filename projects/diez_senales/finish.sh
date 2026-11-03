@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 n=$1; S=../../.claude/skills/health-video/scripts
 d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 out/parte$n.mp4)
 python3 $S/make_music.py audio/music$n.wav --seconds "$d" --seed "$n"
-bash $S/mix_music.sh out/parte$n.mp4 audio/music$n.wav out/parte${n}_music.mp4
+bash $S/mix_music.sh out/parte$n.mp4 audio/music$n.wav out/parte${n}_music.mp4 -18
 ffmpeg -v error -y -i out/parte${n}_music.mp4 -c:v libx264 -preset medium -crf 24 -tune animation -pix_fmt yuv420p -c:a copy -movflags +faststart out/parte${n}_final.mp4
 mkdir -p out/parts && rm -f out/parts/video${n}_*
 ffmpeg -v error -i out/parte${n}_final.mp4 -c copy -map 0 -f segment -segment_time 290 -reset_timestamps 1 out/parts/video${n}_parte%d.mp4

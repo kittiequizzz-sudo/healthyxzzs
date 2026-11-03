@@ -3,25 +3,23 @@
 Owner's rules (Oct 21 2026): diverse cast, adult-animation look, strong expressions, fewer repeats.
 ChatGPT gives landscape 3:2 only; Gemini also does 16:9. Always end with "no text".
 
-## STYLE (owner, Nov 3 2026: the old prompts gave gaudy, loud colours and didn't look nice → 2D animated
-## look with a bit more detail, soft natural colours)
-> STYLE: high-quality 2D hand-drawn animation still, like a frame from a feature-length 2D animated film
-> for adults: natural adult proportions, head about 1/7 of body height, expressive faces with gentle,
-> realistic signs of age (fine wrinkles, laugh lines, soft jawline), detailed clean linework with varied
-> line weight, soft cel shading with two gentle tones plus a soft highlight, detailed hair strands and
-> fabric folds, painted background with soft depth and slight blur behind the characters, calm
-> cinematic composition with one clear subject per panel.
+## STYLE (owner, Nov 3 2026, 2nd round: wants CARTOON pictures, but not childish; soft colours stay)
+> STYLE: friendly modern cartoon illustration for adults, like a polished animated TV series for grown-ups
+> (not a kids' show): slightly stylised, gently exaggerated proportions (head about 1/6 of body height),
+> rounded simple shapes, clean confident outlines of medium weight, flat colours with one soft shadow
+> tone and a small highlight, expressive faces with clear emotions and simple but visible signs of age
+> (a few wrinkle lines, grey hair, glasses, slightly rounder bodies), simplified clean backgrounds with a
+> few key props, clear readable staging with one main subject per panel.
 > COLOR: soft, natural, low-to-medium saturation palette: muted teal, dusty blue, sage green, soft
-> burgundy, warm grey, beige and cream; gentle diffused daylight, soft shadows, natural skin tones;
-> calm and pleasant to look at; NOT gaudy, NOT neon, NOT oversaturated, no high-contrast colour clashes,
-> no yellow or orange colour cast, no golden glow.
-Metaphor panels: "as friendly 2D-animated medical explainer metaphors, detailed but clean, on soft cream
-backgrounds" + the same COLOR line. Item sheets: same STYLE words for the objects, flat cream #F5ECD7.
-Retired: Oct 21 "adult animated series… bold ink outlines, flat cel shading with one shadow tone" (came
-out harsh/loud), Oct 26 "rich, deep but harmonious palette…" and Oct 30 vivid block (worse engagement).
-Owner approved the test sheet (Nov 3): `assets/style_ref_2d_soft.webp`. Attach it to image 1 of each new video
-as the style reference ("same drawing style and colours as the attached image, NEW people"); don't attach
-images from earlier videos.
+> burgundy, warm grey, beige and cream; gentle even lighting, natural skin tones; calm and pleasant;
+> NOT gaudy, NOT neon, NOT oversaturated, no yellow or orange colour cast, no golden glow.
+Metaphor panels: "as friendly cartoon medical explainer metaphors (organs with simple faces where it
+helps), clean and simple, on soft cream backgrounds" + the same COLOR line. Item sheets: same cartoon
+STYLE words for the objects, flat cream #F5ECD7.
+Superseded the same day: the semi-realistic "high-quality 2D hand-drawn animation still… detailed hair
+strands and fabric folds" block (owner liked the softness but wants cartoon). `assets/style_ref_2d_soft.webp`
+was that test — don't attach it as style reference; use the approved cartoon test sheet once there is one.
+Retired earlier: Oct 21 "bold ink outlines, flat cel shading" (harsh/loud), Oct 26 "rich, deep…", Oct 30 vivid.
 
 ## EXPRESSION (one per panel, pick and adapt)
 - effort: teeth gritted, brows knitted, veins on the forehead, one hand pushing on the knee
@@ -43,7 +41,8 @@ Examples for a Spanish-speaking 60+ audience:
 - a man of about 80 with a walking cane, hearing aid, light skin, sweater vest
 
 ## AVOID (end of every prompt)
-> AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D or toy look, anime style,
+> AVOID: chibi or toddler proportions, baby faces, huge sparkly kid eyes, childish or nursery style,
+> glossy 3D or toy look, anime style,
 > comic-book heavy black outlines, neon or oversaturated colours, the same
 > person in every panel (unless asked), any text, letters, numbers, speech bubbles, signs or logos.
 

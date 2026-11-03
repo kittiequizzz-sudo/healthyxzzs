@@ -131,3 +131,7 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   (#56707A→#334650) + vignette, cream panel frames with a soft dark shadow, faint shadow under cut-outs,
   dark chips → deep slate, no colour grade. Compared cream / slate / sage on the sample: slate chosen.
   common.js Shot now reads theme hooks C.frame / C.halo / C.grade / C.frameW (vivid sets grade: true).
+- **Nov 3, 2026 (owner, later):** the semi-realistic 2D test was easy on the eye but the owner wants
+  CARTOON pictures, not childish → STYLE block rewritten (friendly modern adult cartoon, gently stylised
+  proportions, rounded shapes, medium clean outlines, flat colours + one soft shadow; soft palette kept).
+  theme_soft.js (slate stage) still the default. New cartoon test sheet pending.

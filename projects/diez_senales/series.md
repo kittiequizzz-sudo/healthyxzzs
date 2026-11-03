@@ -4,9 +4,9 @@ Una sola toma de voz (`audio/voice.mp3`, 22:53) cortada en «Punto 3» y «Punto
 
 | Vídeo | Contenido | Imágenes | Grabar aparte |
 |---|---|---|---|
-| 1 | Intro + Punto 1 + Punto 2 (señales 1–4) | a, b, c, d, e | `v1` |
-| 2 | Punto 3 + Punto 4 (señales 5–8) | f, g | `v2`, `v3` |
-| 3 | Punto 5 + Conclusión (señales 9–10) | h | `v4` |
+| 1 | Intro + Punto 1 + Punto 2 (señales 1–4) | a–h | `v1` |
+| 2 | Punto 3 + Punto 4 (señales 5–8) | i–l | `v2`, `v3` |
+| 3 | Punto 5 + Conclusión (señales 9–10) | m–o | `v4` |
 
 ## v1 — salida del vídeo 1 (~20 s)
 > Ya conoces las cuatro primeras señales. En la segunda parte descubrirás por qué tus mejores ideas pueden aparecer en silencio y cómo una mente flexible comprende a los demás. La encontrarás en la descripción.

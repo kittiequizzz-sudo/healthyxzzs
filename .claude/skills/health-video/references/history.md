@@ -137,3 +137,4 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   theme_soft.js (slate stage) still the default. New cartoon test sheet pending.
 - **Nov 3, 2026:** owner approved the cartoon test sheet → `assets/style_ref_cartoon.webp` = style reference for image 1 of every video. Next video starts from huevo_colesterol/common.js + flat/theme_soft.js.
 - pose sheets with a wall (sentadilla_pared): use scripts/cut_wall_poses.py, not cut_poses (wall strip is near-cream, gets eaten); crop each pose from wall_right+6, flood-fill background from the border, draw the wall in code so it stays fixed.
+- **Nov 3, 2026 (owner, later):** wants a LIGHT, almost-white video background → theme_soft.js default is now near-white (#FAF8F4→#ECE8E1) with thin dark-slate panel frames + soft drop shadow; ink chips/signs stay dark. Slate stage kept as window.SOFT={dark:true}.

@@ -4,8 +4,12 @@
 //  · panels get a cream frame + soft drop shadow; cut-outs a faint shadow
 //  · chips/cards/colours unchanged except ink-dark fills, which become a deep slate that still reads
 // No colour grade on the drawings (they keep their soft colours).
-window.SOFT = Object.assign({ bg0: '#56707A', bg1: '#334650', frame: '#F5ECD7' }, window.SOFT || {});
-C.frame = SOFT.frame; C.frameW = 9; C.halo = ['#0B1418', 0.5, 14];
+// Default (owner, Nov 3 later): LIGHT near-white stage. Panels keep a thin dark-slate frame + soft shadow so the
+// light cartoon pictures don't sink. Pass window.SOFT = { dark: true } for the earlier dusty-slate stage.
+const _dark = !!(window.SOFT && window.SOFT.dark);
+window.SOFT = Object.assign(_dark ? { bg0: '#56707A', bg1: '#334650', frame: '#F5ECD7', vig: 0.3 }
+  : { bg0: '#FAF8F4', bg1: '#ECE8E1', frame: '#3E4A50', vig: 0.07 }, window.SOFT || {});
+C.frame = SOFT.frame; C.frameW = _dark ? 9 : 6; C.halo = _dark ? ['#0B1418', 0.5, 14] : ['#1F2A30', 0.22, 14];
 
 function Stage() {
   const svg = document.getElementById('s');
@@ -13,7 +17,7 @@ function Stage() {
   const lg = el('linearGradient', { id: 'bgGrad', x1: 0, y1: 0, x2: 0.3, y2: 1 }, defs);
   el('stop', { offset: 0, 'stop-color': SOFT.bg0 }, lg); el('stop', { offset: 1, 'stop-color': SOFT.bg1 }, lg);
   const vg = el('radialGradient', { id: 'bgVig', r: 0.8 }, defs);
-  el('stop', { offset: 0.55, 'stop-color': '#000', 'stop-opacity': 0 }, vg); el('stop', { offset: 1, 'stop-color': '#000', 'stop-opacity': 0.3 }, vg);
+  el('stop', { offset: 0.55, 'stop-color': '#000', 'stop-opacity': 0 }, vg); el('stop', { offset: 1, 'stop-color': '#000', 'stop-opacity': SOFT.vig }, vg);
   const pg = el('filter', { id: 'panelGlow', x: '-10%', y: '-10%', width: '120%', height: '125%' }, defs);
   el('feGaussianBlur', { stdDeviation: 16 }, pg);
   const cs = el('filter', { id: 'cutShadow', x: '-15%', y: '-15%', width: '130%', height: '140%' }, defs);
@@ -24,15 +28,15 @@ function Stage() {
 }
 // panel frame: cream border + soft dark shadow (common.js Shot draws a C.frame glow and a C.frame stroke)
 const _Card = Card;
-Card = (g, o) => _Card(g, { ...o, fill: o.fill === C.ink ? '#22313A' : o.fill });
+Card = (g, o) => _Card(g, { ...o, fill: _dark && o.fill === C.ink ? '#22313A' : o.fill });
 const _Chip = Chip;
-Chip = (g, s, o = {}) => _Chip(g, s, { ...o, fill: o.fill === C.ink ? '#22313A' : (o.fill || C.white) });
+Chip = (g, s, o = {}) => _Chip(g, s, { ...o, fill: _dark && o.fill === C.ink ? '#22313A' : (o.fill || C.white) });
 const _Cutout = Cutout;
 Cutout = (g, href, o) => { const c = _Cutout(g, href, o); c.setAttribute('filter', 'url(#cutShadow)'); return c; };
 function source(g, s, t0, { y = 1050 } = {}) {
   const L = Live(g, { t0, enter: 'fade', idle: 'none' });
-  Text(L.g, s, { x: 960, y, size: 26, weight: 700, color: '#DCE4E6' });
+  Text(L.g, s, { x: 960, y, size: 26, weight: 700, color: _dark ? '#DCE4E6' : '#6F7478' });
   return L;
 }
-if (typeof Sign === 'function') { const _Sign = Sign; Sign = (g, s, t0, o = {}) => _Sign(g, s, t0, { ...o, color: o.color === C.ink ? C.white : o.color }); }
-if (typeof arrow === 'function') { const _arrow = arrow; arrow = (g, x1, y1, x2, y2, t0, o = {}) => _arrow(g, x1, y1, x2, y2, t0, { ...o, color: o.color === C.ink ? C.white : o.color }); }
+if (_dark && typeof Sign === 'function') { const _Sign = Sign; Sign = (g, s, t0, o = {}) => _Sign(g, s, t0, { ...o, color: o.color === C.ink ? C.white : o.color }); }
+if (_dark && typeof arrow === 'function') { const _arrow = arrow; arrow = (g, x1, y1, x2, y2, t0, o = {}) => _arrow(g, x1, y1, x2, y2, t0, { ...o, color: o.color === C.ink ? C.white : o.color }); }

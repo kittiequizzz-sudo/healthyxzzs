@@ -24,7 +24,7 @@ scene(svg, at('pantorrillas3'), at('gravedad3'), g => {
   stamp(g, 'SÓLEO', at('soleo3'), { cx: 1510, cy: 380, size: 70, color: C.red, rot: -4 });
   chip(g, 'DEBAJO DE LOS GEMELOS', at('gemelos3'), { cx: 1510, cy: 540, size: 32, fill: C.white });
   chip(g, '«EL SEGUNDO CORAZÓN»', at('segundo3'), { cx: 1510, cy: 680, size: 36, fill: C.red, color: C.white });
-  arrow(g, 1260, 380, 900, 620, at('soleo3') + 0.3, { color: C.white, w: 9 });
+  arrow(g, 1260, 380, 900, 620, at('soleo3') + 0.3, { color: C.ink, w: 9 });
 }, { punch: [at('soleo3')] });
 
 // 3. gravity: blood must climb back up; valves stop it falling; calf contractions squeeze the deep veins
@@ -47,7 +47,7 @@ scene(svg, at('esponja3'), at('relacion3'), g => {
 // 5. the wall sit works mainly the thighs → add gentle heel raises, separately at first (balance, knees)
 scene(svg, at('relacion3'), at('ejemplo3'), g => {
   Food(g, 'pared', at('relacion3') + 0.3, { cx: 500, cy: 380, r: 170, label: 'PARED → MUSLOS', fill: C.white });
-  Sign(g, '+', at('talones3') - 0.3, { cx: 960, cy: 380, size: 140, color: C.white });
+  Sign(g, '+', at('talones3') - 0.3, { cx: 960, cy: 380, size: 140, color: C.ink });
   Food(g, 'pantorrilla', at('talones3'), { cx: 1420, cy: 380, r: 170, label: 'TALONES → PANTORRILLAS', fill: C.white, phase: 0.4 });
   chip(g, 'AL PRINCIPIO, POR SEPARADO', at('separado3'), { cy: 760, size: 42, fill: C.amber });
   chip(g, 'SI TIENES PROBLEMAS DE EQUILIBRIO O RODILLAS', at('separado3') + 1.5, { cy: 890, size: 30, fill: C.white });

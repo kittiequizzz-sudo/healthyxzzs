@@ -21,7 +21,7 @@ scene(svg, at('hoy_c'), at('rivales_c'), g => {
 scene(svg, at('rivales_c'), at('reto_c'), g => {
   tile(g, 'c_amigas', at('rivales_c'), { x: 140, y: 170, w: 760, h: 500 });
   tile(g, 'c_pared', at('rivales_c') + 0.4, { x: 1020, y: 170, w: 760, h: 500 });
-  Sign(g, '+', at('rivales_c') + 0.8, { cx: 960, cy: 420, size: 140, color: C.white });
+  Sign(g, '+', at('rivales_c') + 0.8, { cx: 960, cy: 420, size: 140, color: C.ink });
   chip(g, 'NO SON RIVALES: COMBÍNALOS', at('rivales_c') + 1, { cy: 820, size: 46, fill: C.green, color: C.white });
 });
 

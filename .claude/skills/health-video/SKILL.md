@@ -66,8 +66,8 @@ rejected, and the scene recipes. The approved reference video is `projects/sampl
    per job). Shared pieces for a video go in its `common.js` (start from the latest project's, now
    `projects/equilibrio_silla/`: calm motion with regular still moments, SFX events for `scripts/soundtrack.py`,
    which adds original code-made music + soft effects that sit above the music; see `references/history.md`).
-   Load `flat/theme_soft.js` right after `common.js` in `video.html` (owner Nov 3: soft dusty-slate stage so
-   the light 2D images don't sink; cream frames + soft shadows). `flat/theme_vivid.js` is RETIRED.
+   Load `flat/theme_soft.js` right after `common.js` in `video.html` (owner Nov 3: LIGHT near-white stage, thin
+   dark-slate frames + soft shadows so the light cartoon images don't sink; `window.SOFT={dark:true}` = old slate). `flat/theme_vivid.js` is RETIRED.
 10. **Deliver** the MP4 with a short Vietnamese summary of what's in it and any changes made to on-screen
     facts. Files over 30 MB can't be uploaded to the app: split without re-encoding into ~280 s parts
     (command in `qa-checklist.md`) and send them in order. Never commit full renders (GitHub's 100 MB limit);

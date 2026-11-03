@@ -21,7 +21,7 @@ scene(svg, at('ocho_mil1'), at('diferencia1'), g => {
 scene(svg, at('diferencia1'), at('plantear1'), g => {
   tile(g, 'u_tipos', at('diferencia1'), { x: 140, y: 160, w: 840, h: 520 });
   chip(g, 'MANTENERSE ACTIVO', at('activo1'), { cx: 1430, cy: 330, size: 40, fill: C.green, color: C.white });
-  Sign(g, '≠', at('activo1') + 1, { cx: 1430, cy: 460, size: 110, color: C.white });
+  Sign(g, '≠', at('activo1') + 1, { cx: 1430, cy: 460, size: 110, color: C.ink });
   chip(g, 'CONSERVAR LA FUERZA', at('fuerza1') - 0.5, { cx: 1430, cy: 590, size: 40, fill: C.amber });
 });
 
@@ -29,7 +29,7 @@ scene(svg, at('diferencia1'), at('plantear1'), g => {
 scene(svg, at('plantear1'), at('antonio1'), g => {
   chip(g, 'LA PREGUNTA DEL VÍDEO', at('plantear1'), { cy: 90, size: 44, fill: C.ink, color: C.amber });
   Food(g, 'zapatillas', at('veinte1') - 0.3, { cx: 520, cy: 420, r: 180, label: '20 MIN CAMINANDO', fill: C.white });
-  Text(g, '¿O?', { x: 960, y: 420, size: 90, color: C.white });
+  Text(g, '¿O?', { x: 960, y: 420, size: 90, color: C.ink });
   Food(g, 'pared', at('pocos1') - 0.3, { cx: 1400, cy: 420, r: 180, label: 'UNOS MINUTOS EN LA PARED', fill: C.white, phase: 0.4 });
   chip(g, 'DEPENDE DEL BENEFICIO QUE BUSCAS', at('depende1'), { cy: 820, size: 40, fill: C.amber });
   chip(g, 'RESPUESTA AL FINAL', at('depende1') + 2, { cy: 950, size: 32, fill: C.white });

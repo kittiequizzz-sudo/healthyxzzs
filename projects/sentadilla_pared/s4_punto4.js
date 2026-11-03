@@ -13,7 +13,7 @@ scene(svg, at('p4') - 0.3, at('pared4'), g => {
 scene(svg, at('pared4'), at('firme4'), g => {
   Food(g, 'cronometro', at('pared4') + 0.3, { cx: 520, cy: 440, r: 200 });
   chip(g, 'HACERLO BIEN', at('diferencia4'), { cx: 1330, cy: 340, size: 48, fill: C.green, color: C.white });
-  Sign(g, '>', at('diferencia4') + 1.5, { cx: 1330, cy: 480, size: 110, color: C.white });
+  Sign(g, '>', at('diferencia4') + 1.5, { cx: 1330, cy: 480, size: 110, color: C.ink });
   chip(g, 'AGUANTAR MÁS SEGUNDOS', at('segundos4') - 0.5, { cx: 1330, cy: 620, size: 38, fill: C.white });
 });
 

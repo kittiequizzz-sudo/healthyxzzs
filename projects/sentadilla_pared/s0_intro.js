@@ -45,7 +45,7 @@ scene(svg, at('diferente0') - 1, at('atencion0'), g => {
 scene(svg, at('atencion0'), at('hoy0'), g => {
   tile(g, 'c_amigas', at('atencion0'), { x: 140, y: 160, w: 760, h: 500, label: 'CAMINAR: MUY BENEFICIOSO' });
   tile(g, 'c_pared', at('sorpresa0') - 0.3, { x: 1020, y: 160, w: 760, h: 500, label: 'LA PARED: OTRO ESTÍMULO' });
-  Sign(g, '+', at('sorpresa0') + 0.5, { cx: 960, cy: 410, size: 140, color: C.white });
+  Sign(g, '+', at('sorpresa0') + 0.5, { cx: 960, cy: 410, size: 140, color: C.ink });
 });
 
 // 6. today: inside your vessels, the leg muscles, how to adapt it safely

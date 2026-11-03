@@ -1,0 +1,292 @@
+[0.30 - 3.48] (w0-8) Imagina que alguien te hace una pregunta muy sencilla.
+[3.68 - 7.90] (w9-20) Un bate y una pelota cuestan juntos un euro con 10 céntimos.
+[8.06 - 11.74] (w21-30) El bate cuesta exactamente un euro más que la pelota.
+[11.86 - 13.86] (w31-34) ¿Cuánto cuesta la pelota?
+[14.08 - 19.46] (w35-49) Si has pensado 10 céntimos, acabas de caer en una trampa de tu propio cerebro.
+[19.62 - 22.64] (w50-55) La respuesta correcta es 5 céntimos.
+[22.78 - 28.38] (w56-68) Y lo más sorprendente es que incluso personas muy inteligentes cometen este error.
+[28.68 - 31.26] (w69-74) Ahora piensa en algo más inquietante.
+[31.32 - 38.42] (w75-92) ¿Cuántas veces al día confías en una respuesta que parece lógica pero que en realidad nunca has comprobado?
+[38.70 - 46.92] (w93-104) Tu cerebro toma decisiones constantemente, interpreta conversaciones, resuelve problemas y anticipa consecuencias.
+[47.12 - 52.88] (w105-117) Sin embargo, con frecuencia prefiere una respuesta rápida antes que detenerse a analizarla.
+[53.06 - 59.36] (w118-132) Y cuando dejamos de cuestionar nuestras primeras impresiones, podemos cometer errores sin siquiera darnos cuenta.
+[60.18 - 62.28] (w133-137) Pero existe una buena noticia.
+[62.36 - 70.00] (w138-152) Puedes practicar una forma de pensar más reflexiva, flexible y organizada mediante pequeños desafíos cotidianos.
+[70.20 - 80.52] (w153-175) Hoy descubrirás siete ejercicios mentales que pondrán a prueba tu razonamiento, tu capacidad para detectar patrones y tu habilidad para encontrar soluciones inesperadas.
+[80.72 - 86.14] (w176-185) No necesitas conocimientos especiales, materiales complicados, ni pasar horas estudiando.
+[86.62 - 91.10] (w186-197) Te recomiendo que participes en cada ejercicio antes de escuchar la respuesta.
+[91.50 - 94.78] (w198-203) Algunos parecerán fáciles, pero podrían sorprenderte.
+[95.30 - 100.68] (w204-218) Y si te interesa comprender mejor cómo funciona tu mente, suscríbete a Cerebro y Bienestar.
+[101.22 - 104.90] (w219-227) Aquí exploramos la ciencia del cerebro con explicaciones sencillas.
+[105.38 - 109.58] (w228-239) Empecemos con un desafío que puede cambiar tu manera de hacer preguntas.
+[109.76 - 110.84] (w240-241) Punto 1.
+[111.00 - 112.80] (w242-247) El ejercicio de las tres preguntas.
+[113.64 - 116.58] (w248-253) Aprende a pensar antes de creer.
+[116.78 - 121.40] (w254-265) Acabas de comprobar lo fácil que resulta aceptar una respuesta sin examinarla.
+[121.64 - 133.36] (w266-298) Pero el verdadero peligro no está en equivocarse con una pelota y un bate, está en hacer lo mismo cuando alguien te da un consejo, escuchas una noticia o tomas una decisión importante.
+[133.58 - 139.16] (w299-309) Por eso, nuestro primer ejercicio consiste en aprendernos antes de creer.
+[139.48 - 142.20] (w310-316) Imagina que una mañana lees este mensaje.
+[142.40 - 146.40] (w317-326) Una bebida natural mejora la memoria en solo siete días.
+[146.64 - 152.36] (w327-338) Suena esperanzador, especialmente si últimamente notas que te cuesta recordar algún nombre.
+[152.50 - 154.88] (w339-343) Quizá incluso pienses en probarla.
+[155.08 - 159.92] (w344-354) Sin embargo, antes de sacar conclusiones, quiero que hagas tres preguntas.
+[160.08 - 162.70] (w355-360) La primera es ¿Quién lo afirma?
+[163.00 - 168.88] (w361-376) No es lo mismo una investigación publicada y revisada que un anuncio diseñado para venderte algo.
+[168.96 - 174.18] (w377-390) Averigua de dónde procede la información y quién se beneficia de que la aceptes.
+[174.62 - 178.26] (w391-397) La segunda pregunta es ¿qué pruebas existen?
+[178.42 - 184.84] (w398-413) Una historia personal puede resultar convincente, pero no demuestra que algo funcione para todo el mundo.
+[185.04 - 189.98] (w414-428) busca datos fiables, compara fuentes y presta atención a lo que todavía no se sabe.
+[185.68 - 190.80] (w429-441) fiables, compara fuentes y presta atención a lo que todavía no se sabe.
+[191.32 - 193.82] (w442-447) La tercera es la más interesante.
+[194.06 - 195.94] (w448-450) ¿Existe otra explicación?
+[196.30 - 203.04] (w451-466) Tal vez quienes probaron esa bebida también durmieron mejor, hicieron más ejercicio o cambiaron su alimentación.
+[203.32 - 208.92] (w467-477) Cuando consideras varias posibilidades, evitas quedarte atrapado en la primera idea.
+[209.16 - 211.62] (w478-482) Ahora te propongo practicarlo conmigo.
+[211.74 - 215.14] (w483-491) Piensa en alguna afirmación que hayas escuchado esta semana.
+[215.26 - 219.42] (w492-500) Puede ser sobre salud, dinero o cualquier asunto cotidiano.
+[219.64 - 229.50] (w501-521) No necesitas demostrar inmediatamente que sea falsa Sólo pregúntate quién lo dice, qué pruebas presenta y qué otras explicaciones podrían existir.
+[230.00 - 232.50] (w522-527) Dedica un minuto a responder mentalmente.
+[233.00 - 236.30] (w528-535) Si encuentras dudas, no significa que hayas fracasado.
+[236.74 - 240.80] (w536-546) Significa que has empezado a examinar la información con más cuidado.
+[241.30 - 248.96] (w547-567) Este ejercicio es útil porque nuestras creencias influyen en aquello que recordamos y en las pruebas a las que prestamos atención.
+[249.16 - 254.56] (w568-580) A veces buscamos, sin darnos cuenta, motivos para confirmar lo que ya pensamos.
+[254.90 - 259.70] (w581-589) Formular preguntas deliberadamente puede ayudarnos a reconocer ese hábito.
+[259.88 - 264.96] (w590-602) No hace falta desconfiar de todo ni convertir cada conversación en un interrogatorio.
+[265.10 - 273.74] (w603-621) El objetivo es algo mucho más sencillo, aprender a distinguir entre una impresión convincente y una conclusión bien fundamentada.
+[273.92 - 276.68] (w622-627) Y aquí aparece una nueva dificultad.
+[276.88 - 283.34] (w628-642) Incluso cuando hacemos buenas preguntas, nuestro cerebro intenta encontrar patrones donde quizá no los hay.
+[283.48 - 294.02] (w643-664) En el siguiente ejercicio comprobarás cómo tu capacidad para descubrir reglas puede ayudarte, pero también confundirte si no revisas tus propias suposiciones.
+[294.34 - 297.58] (w665-670) Punto 2 Encuentra la regla oculta.
+[297.86 - 300.40] (w671-675) Entren a tu razonamiento lógico.
+[300.70 - 304.88] (w676-685) Después de aprender a cuestionar una afirmación, llega otro desafío.
+[305.06 - 309.24] (w686-695) Descubrir si tu cerebro puede reconocer una regla sin precipitarse.
+[309.74 - 315.30] (w696-708) Parece sencillo, pero este ejercicio revela algo fascinante sobre nuestra manera de razonar.
+[315.82 - 317.30] (w709-711) Observa esta secuencia.
+[317.98 - 322.20] (w712-716) 2, 6, 12, 20, 30.
+[322.52 - 324.96] (w717-721) ¿Qué número debería aparecer después?
+[325.54 - 328.04] (w722-726) No busques la respuesta inmediatamente.
+[328.10 - 329.78] (w727-729) Detente unos segundos.
+[329.92 - 336.78] (w730-745) Compara los números, examina sus diferencias e intenta explicar por qué elegirías uno y no otro.
+[336.86 - 341.28] (w746-754) Lo importante no es adivinar, sino construir una explicación.
+[341.64 - 343.52] (w755-758) Vamos a resolverlo juntos.
+[343.64 - 346.00] (w759-764) Del 2 al 6 sumamos 4.
+[346.24 - 348.42] (w765-769) Del 6 al 12, 6.
+[348.80 - 352.00] (w770-775) Después sumamos 8 y finalmente 10.
+[352.10 - 356.88] (w776-788) Si las diferencias aumentan de 2 en 2, el siguiente salto será 12.
+[357.04 - 360.20] (w789-794) Por tanto, la respuesta es 42.
+[360.60 - 362.72] (w795-799) También puedes descubrir otra regla.
+[362.92 - 366.50] (w800-807) Cada término resulta de multiplicar dos números consecutivos.
+[366.98 - 371.80] (w808-819) Uno por dos, dos por tres, tres por cuatro, y así sucesivamente.
+[372.32 - 375.80] (w820-828) Dos caminos distintos nos conducen a la misma solución.
+[376.22 - 378.40] (w829-838) ¿Te has dado cuenta de lo que acabas de hacer?
+[378.84 - 383.80] (w839-848) Has observado información, formulado una hipótesis y comprobado si funcionaba.
+[384.24 - 387.70] (w849-857) Ese proceso es una parte fundamental del razonamiento lógico.
+[388.66 - 390.08] (w858-862) Ahora prueba con otra secuencia.
+[390.98 - 393.88] (w863-866) 3, 6, 12, 24.
+[394.46 - 395.68] (w867-870) ¿Qué número vendría después?
+[396.64 - 403.48] (w871-884) Si has pensado 48, has identificado una regla posible, multiplicar cada término por 2.
+[403.78 - 406.66] (w885-890) Pero aquí aparece una advertencia importante.
+[406.80 - 410.26] (w891-897) Una secuencia corta puede admitir diferentes reglas.
+[410.38 - 415.24] (w898-909) Encontrar una respuesta que encaja no significa demostrar que sea la única.
+[415.40 - 422.52] (w910-927) Por eso, cuando resuelvas estos desafíos, intenta explicar tus suposiciones en lugar de limitarte a decir un número.
+[422.66 - 430.92] (w928-945) Puedes practicar durante unos minutos creando secuencias para un familiar o buscando relaciones entre figuras, palabras y cantidades.
+[431.08 - 435.38] (w946-954) Empieza con patrones sencillos y aumenta gradualmente la dificultad.
+[435.54 - 439.42] (w955-962) Si te equivocas, revisa dónde cambió tu razonamiento.
+[439.54 - 445.96] (w963-977) En la vida cotidiana, esa paciencia también resulta útil cuando comparas opciones antes de decidir.
+[446.14 - 454.12] (w978-997) Y si disfrutas descubriendo cómo funciona tu mente mediante ejercicios que puedes realizar en casa, suscríbete a CEDEBRO y Bienestar.
+[454.32 - 460.00] (w998-1012) Así podrás acompañarnos en próximos videos dedicados a la memoria, la atención y el pensamiento.
+[460.86 - 469.06] (w1013-1030) Recuerda, entrenar consecuencias puede ayudarte a mejorar en tareas semejantes, pero no garantiza que aumente tu inteligencia general.
+[469.18 - 474.34] (w1031-1042) Su verdadero valor está en practicar la observación y la comprobación consciente.
+[474.56 - 478.54] (w1043-1052) Sin embargo, no todos los problemas siguen una regla visible.
+[478.82 - 486.34] (w1053-1070) Algunos solo empiezan a aclararse cuando dejamos de mirar hacia adelante y aprendemos a pensar exactamente al revés.
+[486.80 - 487.94] (w1071-1072) Punto 3.
+[488.12 - 489.64] (w1073-1075) Piensa al revés.
+[489.76 - 493.92] (w1076-1083) Descubre soluciones que tu cerebro no había considerado.
+[494.08 - 499.00] (w1084-1095) Acabamos de descubrir que una misma secuencia puede entenderse desde diferentes caminos.
+[499.72 - 503.00] (w1096-1102) Ahora, quiero proponerte algo todavía más sorprendente.
+[503.52 - 506.92] (w1103-1109) Resolver un problema empezando por el final.
+[507.30 - 508.58] (w1110-1112) Imagina esta escena.
+[508.90 - 514.14] (w1113-1127) Sales de casa con prisas, llegas al ascensor y descubres que has olvidado las llaves.
+[514.34 - 518.58] (w1128-1138) Te enfadas contigo mismo y repites la misma promesa de siempre.
+[518.86 - 521.08] (w1139-1142) Mañana prestaré más atención.
+[521.36 - 524.68] (w1143-1150) Sin embargo, unos días después vuelve a ocurrir.
+[524.80 - 525.70] (w1151-1152) ¿Por qué?
+[526.02 - 530.98] (w1153-1164) Porque estás intentando cambiar el resultado sin examinar lo que sucede antes.
+[531.22 - 533.40] (w1165-1172) Vamos a darle la vuelta a la pregunta.
+[533.54 - 541.78] (w1173-1191) En lugar de preguntarte cómo puedo recordar las llaves, piensa ¿qué tendría que pasar para que volviera a olvidarlas?
+[541.92 - 549.98] (w1192-1210) Quizá dejarías las llaves en lugares diferentes, mirarías el móvil mientras te preparas o saldrías sin revisar tus bolsillos.
+[550.14 - 554.58] (w1211-1220) De pronto, aparecen causas concretas sobre las que puedes actuar.
+[554.94 - 557.30] (w1221-1224) Ahora invierte esas respuestas.
+[557.42 - 560.80] (w1225-1235) Coloca las llaves siempre en una bandeja junto a la puerta.
+[560.96 - 565.68] (w1236-1249) Evita distraerte durante los últimos minutos y comprueba que las llevas antes de salir.
+[566.72 - 569.28] (w1250-1255) ¿No has mejorado mágicamente tu memoria?
+[569.52 - 574.48] (w1256-1265) Has diseñado una situación que reduce las oportunidades de equivocarte.
+[574.72 - 578.42] (w1266-1272) Este procedimiento se conoce como pensamiento inverso.
+[578.66 - 588.22] (w1273-1291) Consiste en observar un objetivo desde la dirección contraria para identificar obstáculos, errores o condiciones que normalmente pasan desapercibidos.
+[588.52 - 590.00] (w1292-1294) Probemos otro ejemplo.
+[590.22 - 594.94] (w1295-1305) ¿Quieres leer 20 minutos cada tarde, pero nunca encuentras el momento?
+[595.18 - 596.24] (w1306-1306) Pregúntate.
+[596.36 - 600.08] (w1307-1314) ¿Cómo conseguiría que este hábito fracasara por completo?
+[600.32 - 607.20] (w1315-1333) Tal vez encenderías la televisión, dejarías el teléfono al lado, o elegirías una hora en la que estás agotado.
+[607.68 - 609.80] (w1334-1338) Ahora sabes qué puedes modificar.
+[610.10 - 612.60] (w1339-1344) Y eso es precisamente lo interesante.
+[612.94 - 619.68] (w1345-1361) A veces resulta más fácil detectar lo que bloquea una solución que imaginar directamente la solución perfecta.
+[620.14 - 622.00] (w1362-1366) Te propongo un pequeño desafío.
+[622.38 - 626.18] (w1367-1375) Elige un problema cotidiano que lleves tiempo intentando resolver.
+[626.40 - 629.92] (w1376-1383) Durante un minuto, escribe tres maneras de empeorarlo.
+[630.34 - 633.92] (w1384-1391) Después, transforma cada una en una acción preventiva.
+[634.16 - 636.12] (w1392-1395) No busques ideas extraordinarias.
+[636.40 - 638.64] (w1396-1399) Empieza por cambios realistas.
+[638.94 - 643.76] (w1400-1409) Este ejercicio puede ayudarte a organizar decisiones y anticipar dificultades.
+[643.98 - 650.84] (w1410-1427) No funciona para todos dos problemas, pero ofrece otra perspectiva cuando sientes que estás dando vueltas sin avanzar.
+[651.06 - 654.94] (w1428-1437) Recuerda que equivocarte durante el proceso no es un fracaso.
+[655.22 - 659.06] (w1438-1445) También puedes señalar qué parte necesitas revisar mejor.
+[659.20 - 661.08] (w1446-1450) Y aquí surge una pregunta.
+[661.22 - 672.00] (w1451-1478) Si darle la vuelta a una idea puede abrir nuevas posibilidades, ¿qué ocurriría si, en lugar de encontrar una sola respuesta, obligaras a tu mente a descubrir cinco?
+[672.24 - 675.06] (w1479-1483) Ese será nuestro próximo reto.
+[675.32 - 678.88] (w1484-1488) Punto 4 Encuentras cinco soluciones.
+[679.08 - 681.78] (w1489-1492) Despierta tu pensamiento creativo.
+[682.02 - 695.70] (w1493-1521) Hasta ahora, has aprendido a cuestionar respuestas, descubrir patrones y mirar los problemas desde otra dirección, pero todavía queda una habilidad esencial, dejar de buscar siempre una única solución.
+[696.00 - 701.40] (w1522-1536) Imagina que tienes una caja de cartón vacía delante de ti, ¿para qué podría servir?
+[701.68 - 709.44] (w1537-1552) Seguramente pensarás en guardar objetos, es una respuesta razonable, pero quiero que encuentres otras cuatro posibilidades.
+[709.64 - 722.70] (w1553-1581) Podrías convertirla en un organizador de fotografías, utilizarla para clasificar documentos, transformarla en una pequeña maceta decorativa con un recipiente impermeable dentro, o construir un juego para tus nietos.
+[722.98 - 726.30] (w1582-1588) 5 Ideas nacidas de un objeto cotidiano.
+[726.54 - 735.08] (w1589-1606) Este ejercicio practica el pensamiento divergente, es decir, la capacidad de generar distintas posibilidades ante una misma pregunta.
+[735.28 - 738.88] (w1607-1616) No todas serán brillantes, y eso no importa al principio.
+[739.12 - 740.80] (w1617-1619) Primero buscamos variedad.
+[741.16 - 744.68] (w1620-1625) Después, evaluamos cuáles son realmente útiles.
+[744.96 - 748.20] (w1626-1635) Ahora prueba por tu cuenta con una situación más personal.
+[748.58 - 751.94] (w1636-1642) Imagina que tus mañanas siempre resultan estresantes.
+[752.08 - 755.52] (w1643-1650) Durante un minuto, piensa en cinco cambios posibles.
+[755.70 - 765.38] (w1651-1672) Quizá preparar la ropa la noche anterior, adelantar el desayuno, reducir las distracciones, organizar tus tareas o pedir ayuda cuando sea necesario.
+[765.76 - 772.16] (w1673-1687) Después, elige una sola idea y pregúntate si es práctica, segura y adecuada para ti.
+[772.34 - 776.20] (w1688-1693) Pensar creativamente también significa saber seleccionar.
+[776.28 - 781.70] (w1694-1706) Puedes repetir el desafío con una cuchara, una libreta o una rutina cotidiana.
+[781.94 - 786.78] (w1707-1719) Cambia el objeto cada día y evita juzgar tus primeras respuestas demasiado pronto.
+[787.64 - 789.94] (w1720-1723) Conviene recordar algo importante.
+[790.08 - 796.06] (w1724-1735) Estos juegos pueden ejercitar habilidades concretas, pero no sustituyen una valoración médica.
+[796.22 - 806.50] (w1736-1754) Si experimentas dificultades nuevas, persistentes o progresivas para recordar, razonar o organizar actividades habituales, consulta con un profesional sanitario.
+[806.96 - 810.00] (w1755-1762) No atribuyas automáticamente esos cambios a la edad.
+[810.70 - 814.00] (w1763-1770) Y ahora viene una pregunta todavía más interesante.
+[814.40 - 820.46] (w1771-1784) Cuando dos cosas ocurren al mismo tiempo, ¿significa necesariamente que una provoca la otra?
+[820.78 - 824.00] (w1785-1792) Nuestro próximo ejercicio pondrá a prueba esa suposición.
+[824.60 - 825.76] (w1793-1794) Punto 5.
+[825.92 - 827.96] (w1795-1799) El detective de las causas.
+[828.06 - 831.00] (w1800-1806) Aprende a distinguir entre coincidencia y realidad.
+[832.24 - 835.00] (w1807-1814) Imagina que una amiga te cuenta algo sorprendente.
+[835.48 - 839.00] (w1815-1825) Desde que toma una infusión por las noches, duerme mucho mejor.
+[839.62 - 843.00] (w1826-1835) Está convencida de que esa bebida ha solucionado su problema.
+[843.74 - 848.24] (w1836-1846) Pero antes de aceptar su conclusión, quiero proponerte un pequeño desafío.
+[848.40 - 852.68] (w1847-1854) Pregúntate, ¿qué otras cosas podrían explicar ese cambio?
+[852.86 - 856.02] (w1855-1863) Quizá tu amiga también empezó a acostarse más temprano.
+[856.18 - 862.80] (w1864-1882) Tal vez dejó de mirar el teléfono antes de dormir, redujo el café o atraviesa una etapa menos estresante.
+[863.12 - 866.20] (w1883-1888) Incluso podría tratarse de una coincidencia.
+[866.36 - 876.88] (w1889-1911) Acabas de utilizar una habilidad fundamental del razonamiento, distinguir entre dos acontecimientos que ocurren juntos y una verdadera relación de causa y efecto.
+[877.04 - 880.54] (w1912-1916) Nuestro cerebro busca explicaciones constantemente.
+[880.74 - 885.16] (w1917-1930) Cuando observa que algo sucede después de otra cosa, tiende a conectar ambos hechos.
+[885.96 - 891.24] (w1931-1942) Esa rapidez puede resultar útil, pero también puede conducirnos a conclusiones equivocadas.
+[892.18 - 893.44] (w1943-1945) Vamos a practicar.
+[893.72 - 900.62] (w1946-1962) Imagina que un vecino empieza a caminar cada mañana y, semanas después, dice sentirse con más energía.
+[900.82 - 903.44] (w1963-1968) Caminar es necesariamente la única explicación.
+[904.24 - 906.84] (w1969-1973) Piensa en tres posibilidades diferentes.
+[907.04 - 912.92] (w1974-1986) Quizá también duerme mejor, ha cambiado su alimentación o disfruta de más compañía.
+[913.36 - 915.40] (w1987-1991) Ahora llega la parte importante.
+[915.48 - 919.10] (w1992-1998) ¿Qué información necesitarías para comprobar tu hipótesis?
+[919.26 - 924.98] (w1999-2014) Podrías preguntar qué otros hábitos ha modificado o si la mejoría se mantiene con el tiempo.
+[925.22 - 931.44] (w2015-2029) No siempre podrás conocer la causa exacta y reconocer esa incertidumbre también demuestra buen juicio.
+[932.24 - 937.16] (w2030-2038) Prueba este ejercicio con noticias, anuncios y conversaciones cotidianas.
+[937.28 - 943.84] (w2039-2052) Cada vez que escuches, esto ocurrió gracias a aquello, detente y busca explicaciones alternativas.
+[944.64 - 954.18] (w2053-2075) No se trata de desconfiar de todas las experiencias personales, sino de comprender que una historia convincente no equivale a una prueba definitiva.
+[954.62 - 961.38] (w2076-2092) Y si hasta ahora hemos aprendido a examinar mejor la información, el siguiente reto exigirá algo diferente.
+[961.58 - 967.74] (w2093-2105) Mantener varios datos en tu mente y reorganizarlos sin perder completamente el hilo.
+[968.20 - 972.14] (w2106-2113) .6 El desafío de la memoria de trabajo.
+[972.34 - 975.80] (w2114-2120) Entren a tu capacidad para organizar información.
+[976.04 - 984.22] (w2121-2140) Hasta ahora hemos puesto a prueba tu capacidad para cuestionar ideas, encontrar soluciones y distinguir las causas de las coincidencias.
+[984.48 - 995.06] (w2141-2163) Pero existe otra habilidad que utilizas constantemente, incluso cuando no eres consciente de ello, mantener información en tu mente mientras trabajas con ella.
+[995.50 - 1001.62] (w2164-2179) Imagina que alguien te dice un número de teléfono y necesitas recordarlo mientras buscas dónde apuntarlo.
+[1001.88 - 1006.12] (w2180-2191) O que estás calculando cuánto dinero te devolverán después de una compra.
+[1006.28 - 1011.36] (w2192-2202) En ambos casos interviene una capacidad conocida como memoria de trabajo.
+[1011.58 - 1014.62] (w2203-2211) Vamos a ponerla a prueba con un ejercicio sencillo.
+[1014.82 - 1016.84] (w2212-2215) Escucha estos cinco números.
+[1016.94 - 1021.32] (w2216-2221) Ocho, tres, seis, uno y cinco.
+[1021.58 - 1025.00] (w2222-2230) Ahora intenta recordarlos sin volver a mirar la secuencia.
+[1025.40 - 1029.00] (w2231-2241) Pero atención, no quiero que los repitas en el mismo orden.
+[1029.22 - 1033.96] (w2242-2251) Tu desafío consiste en organizarlos mentalmente de menor a mayor.
+[1034.10 - 1035.12] (w2252-2253) ¿Lo tienes?
+[1035.38 - 1036.74] (w2254-2257) La respuesta es ...
+[1037.04 - 1040.80] (w2258-2263) Uno, tres, cinco, seis y ocho.
+[1041.12 - 1043.00] (w2264-2267) Si has acertado, estupendo.
+[1043.36 - 1046.20] (w2268-2276) Y si has perdido algún número, tampoco pasa nada.
+[1046.26 - 1052.52] (w2277-2290) Lo interesante es observar cómo tu cerebro intenta conservar varios datos mientras los reorganiza.
+[1052.78 - 1055.64] (w2291-2295) Ahora aumentaremos ligeramente la dificultad.
+[1056.02 - 1058.04] (w2296-2299) Imagina esta nueva secuencia.
+[1058.42 - 1063.20] (w2300-2306) 7, 2, 9, 4, 1 y 6.
+[1063.36 - 1066.58] (w2307-2312) Intenta ordenarla mentalmente antes de continuar.
+[1066.80 - 1072.36] (w2313-2322) La respuesta sería 1, 2, 4, 6, 7 y 9.
+[1073.24 - 1079.14] (w2323-2334) Este tipo de desafío exige atención, retención temporal y manipulación de información.
+[1079.24 - 1086.74] (w2335-2349) Son procesos importantes para comprender instrucciones, realizar cálculos y seguir razonamientos que incluyen varios pasos.
+[1086.92 - 1093.02] (w2350-2362) Puedes practicar durante unos minutos utilizando números, palabras o pequeñas listas de objetos.
+[1093.20 - 1098.52] (w2363-2375) Empieza con cuatro elementos y aumenta la dificultad solamente cuando te sientas cómodo.
+[1098.88 - 1103.06] (w2376-2388) También puedes pedirle a alguien que te lea las secuencias para editar mirarlas.
+[1103.28 - 1112.54] (w2389-2407) Sin embargo, recuerda que mejorar en estos ejercicios no significa necesariamente aumentar tu inteligencia general ni prevenir enfermedades neurológicas.
+[1112.74 - 1118.30] (w2408-2418) Su utilidad principal consiste en practicar habilidades específicas de manera entretenida.
+[1118.46 - 1125.38] (w2419-2436) Si estás disfrutando estos desafíos y quieres seguir descubriendo cómo funciona tu cerebro, suscríbete a Cerebro y Bienestar.
+[1126.00 - 1132.82] (w2437-2452) Cada semana exploramos ideas y ejercicios para comprender mejor nuestra mente y cuidar nuestra salud cognitiva.
+[1133.00 - 1136.38] (w2453-2460) Pero todavía nos queda el desafío más intrigante.
+[1136.56 - 1140.16] (w2461-2467) No necesitarás recordar números ni descubrir patrones.
+[1140.34 - 1144.04] (w2468-2475) Tendrás que enfrentarte a algo posiblemente más difícil.
+[1144.16 - 1148.94] (w2476-2486) Defender una idea contraria a aquello que siempre has considerado verdadero.
+[1149.32 - 1159.08] (w2487-2508) Porque, a veces, el mayor obstáculo para razonar con claridad no es olvidar información, sino estar demasiado seguro de nuestras propias creencias.
+[1159.60 - 1160.86] (w2509-2510) Punto 7.
+[1160.96 - 1162.94] (w2511-2514) Defiende la idea contraria.
+[1163.06 - 1166.22] (w2515-2520) Aprende a cuestionar tus propias creencias.
+[1166.68 - 1168.62] (w2521-2525) Hemos llegado al último desafío.
+[1168.86 - 1171.00] (w2526-2533) Y quizá sea el más incómodo de todos.
+[1171.82 - 1179.04] (w2534-2551) No porque necesites hacer cálculos difíciles, sino porque tendrás que poner en duda una idea que consideras verdadera.
+[1179.46 - 1181.00] (w2552-2555) Piensa en esta afirmación.
+[1181.46 - 1185.92] (w2556-2567) Hacer varias cosas al mismo tiempo me permite aprovechar mejor el día.
+[1186.20 - 1187.70] (w2568-2572) Tal vez estés de acuerdo.
+[1187.88 - 1190.30] (w2573-2579) Pero ahora quiero que hagas algo diferente.
+[1190.50 - 1194.58] (w2580-2587) Durante un minuto, intenta defender la postura contraria.
+[1194.72 - 1196.60] (w2588-2590) ¿Qué argumentos encontrarías?
+[1196.76 - 1200.38] (w2591-2600) Quizá cambiar de tarea te obliga a recuperar la concentración.
+[1200.62 - 1204.42] (w2601-2611) Tal vez cometas más errores o tardes más en terminar algo.
+[1204.58 - 1209.56] (w2612-2621) No tienes que abandonar tu opinión, solamente explorar otra posibilidad.
+[1209.80 - 1213.56] (w2622-2629) Este ejercicio se llama Defender la idea Contraria.
+[1213.72 - 1220.48] (w2630-2645) Su objetivo es ayudarte a reconocer que nuestras primeras convicciones no siempre cuentan toda la historia.
+[1220.60 - 1226.02] (w2646-2660) Nuestro cerebro suele prestar especial atención a la información que confirma lo que ya creemos.
+[1226.76 - 1229.90] (w2661-2668) Este fenómeno se conoce como sesgo de confirmación.
+[1230.52 - 1236.70] (w2669-2682) Por eso, escuchar un argumento diferente puede resultar molesto, incluso cuando merece ser examinado.
+[1237.36 - 1239.20] (w2683-2687) Te propongo una práctica sencilla.
+[1239.78 - 1244.50] (w2688-2697) Elige una opinión cotidiana, preferiblemente sobre un asunto poco conflictivo.
+[1245.00 - 1247.70] (w2698-2703) Escribe tres razones que la apoyen.
+[1248.08 - 1251.20] (w2704-2710) Después, busca tres razones que la cuestionen.
+[1251.42 - 1256.86] (w2711-2720) Finalmente, pregúntate qué pruebas necesitarías para decidir con mayor seguridad.
+[1256.90 - 1262.38] (w2721-2735) Puedes hacerlo con hábitos de trabajo, decisiones de compra o maneras de organizar tu tiempo.
+[1262.50 - 1267.90] (w2736-2749) Lo importante es escuchar las dos perspectivas sin convertir el ejercicio en una discusión.
+[1268.04 - 1274.42] (w2750-2765) Y recuerda, considerar una opinión contraria no significa que todas las ideas tengan el mismo valor.
+[1274.74 - 1278.00] (w2766-2774) Algunas cuentan con pruebas mucho más sólidas que otras.
+[1278.20 - 1282.18] (w2775-2782) Pensar bien también consiste en reconocer esa diferencia.
+[1282.38 - 1287.22] (w2783-2794) Si este desafío te ha resultado difícil, quizá hayas descubierto algo valioso.
+[1287.36 - 1293.16] (w2795-2806) La flexibilidad mental comienza cuando somos capaces de decir, podría estar equivocado.
+[1293.42 - 1297.04] (w2807-2815) Ahora que conoces los siete ejercicios, queda una pregunta.
+[1297.04 - 1299.52] (w2816-2820) ¿Cuál empezarás a practicar mañana?
+[1299.82 - 1306.08] (w2821-2836) Hoy has descubierto que entrenar tu mente no consiste únicamente en recordar nombres o resolver acertijos.
+[1306.42 - 1316.22] (w2837-2854) También significa hacer mejores preguntas, reconocer patrones, explorar alternativas y tener la valentía de revisar tus propias creencias.
+[1316.32 - 1319.68] (w2855-2863) Piensa en los siete desafíos que acabamos de compartir.
+[1319.90 - 1324.52] (w2864-2874) Algunos te habrán parecidos sencillos, otros quizá te hayan hecho dudar.
+[1324.74 - 1327.88] (w2875-2880) Y precisamente ahí está lo interesante.
+[1328.02 - 1332.50] (w2881-2891) No necesitas acertar siempre para aprender a razonar con más atención.
+[1332.62 - 1334.44] (w2892-2895) Te propongo algo concreto.
+[1334.58 - 1338.76] (w2896-2905) Durante la próxima semana, elige un ejercicio diferente cada día.
+[1338.94 - 1343.38] (w2906-2915) Dedícale cinco minutos, sin prisas y sin compararte con nadie.
+[1343.66 - 1349.90] (w2916-2929) Observa qué estrategias utilizas, donde te equivocas y qué descubres al intentarlo de nuevo.
+[1349.98 - 1354.36] (w2930-2938) Tu curiosidad puede acompañarte a cualquier edad, cada día.
+[1354.58 - 1363.28] (w2939-2958) Recuerda que estos ejercicios pueden ayudarte a practicar habilidades específicas, pero no garantizan mejorar la inteligencia general ni prevenir enfermedades.
+[1364.04 - 1371.30] (w2959-2973) Dormir bien, mantenerte físicamente activo y cuidar tus relaciones también importa para la salud cerebral.
+[1371.48 - 1377.34] (w2974-2987) Si notas cambios persistentes en tu memoria o razonamiento, consulta con un profesional sanitario.
+[1377.68 - 1379.50] (w2988-2992) Ahora, cuéntame en los comentarios.
+[1379.56 - 1381.42] (w2993-2997) ¿Qué ejercicio te sorprendió más?
+[1381.54 - 1383.42] (w2998-3002) ¿Y cuál te costó resolver?
+[1383.62 - 1387.92] (w3003-3014) Si quieres seguir aprendiendo sobre tu cerebro, suscríbete a Cerebro y Bienestar.
+[1388.04 - 1389.48] (w3015-3020) Nos vemos en el próximo vídeo.

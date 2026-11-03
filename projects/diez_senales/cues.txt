@@ -204,3 +204,70 @@ p4_transformar | Esos pequeños gestos
 p4_practicar | Lo verdaderamente interesante
 p4_quedan | Pero aún quedan dos señales
 p5 | Punto 5
+# Video 3 = punto 5 + conclusión
+p5_tit | Dos capacidades mentales
+p5_coment | Quizá alguna vez has hecho un comentario
+p5_broma | No era una broma complicada
+p5_novena | Ese pequeño momento nos acerca
+p5_humor | Tu capacidad para reconocer conexiones
+p5_juego | Cuando escuchamos un juego de palabras
+p5_contexto | comprender el contexto
+p5_sorpresa | detectar una sorpresa
+p5_segunda | A veces, el significado inicial
+p5_flex | Esa flexibilidad puede convertir
+p5_invest | Algunas investigaciones han observado
+p5_nosignif | aunque eso no significa
+p5_comida | Imagina una comida familiar
+p5_tension | alivia la tensión
+p5_sonrien | Quizá los demás sonríen
+p5_herram | En ese instante, el humor funciona
+p5_mismo | Pero conviene recordar que no todos
+p5_edad | La edad, la cultura
+p5_reservada | Incluso una persona muy inteligente
+p5_invitacion | Por eso, esta señal es una invitación
+p5_prueba | Nunca una prueba definitiva
+p5_decima | Y llegamos a la décima señal
+p5_nosabes | Sabes reconocer lo que todavía no sabes
+p5_contra | Puede parecer una contradicción
+p5_ignor | Cómo podría estar relacionada
+p5_meta | La respuesta está en una capacidad llamada
+p5_observar | Observar y evaluar
+p5_estudiar | Piensa en alguien que comienza
+p5_mas | cuanto más investiga
+p5_memoria | Comprende que la memoria no es
+p5_nolose | En lugar de fingir seguridad
+p5_limites | Reconocer los límites
+p5_fuentes | buscar mejores fuentes
+p5_consejo | pedir consejo
+p5_corregir | corregir errores
+p5_confianza | También nos protege
+p5_insegur | Sin embargo, la inseguridad constante
+p5_seguridad | Del mismo modo que hablar
+p5_esencial | Lo esencial es comprobar
+p5_recuerdes | Tal vez ahora recuerdes
+p5_gesto | Ese gesto merece atención
+p5_cultivar | Y recuerda, cultivar estas habilidades
+p5_despues | Después de estas 10 señales
+p5_otra | Quizá sea otra
+p5_normales | Qué capacidades has dejado
+p5_concl | En la conclusión, descubrirás
+c0 | Quizá hayas llegado hasta aquí
+c_momentos | Una pregunta que nadie quiso responder
+c_notas | Ahora sabes que la inteligencia
+c_mente | Nuestra mente reúne capacidades
+c_desaperc | Y algunas de ellas pueden pasar
+c_esencial | Pero recuerda algo esencial
+c_cociente | Reconocer varias de estas diez señales
+c_curiosidad | La curiosidad, el humor
+c_utilizas | Lo importante es cómo las utilizas
+c_tarde | Y nunca es tarde
+c_formular | Puedes formular nuevas preguntas
+c_escuchar | escuchar perspectivas distintas
+c_habilidad | aprender una habilidad
+c_desconoces | reconocer con tranquilidad
+c_esfuerzo | Cada pequeño esfuerzo
+c_pregunta | Ahora quiero preguntarte algo
+c_cuantas | Cuántas de estas 10 señales
+c_coment | Escríbelo en los comentarios
+c_sub | Si te interesa descubrir
+c_final | Porque quizá tu mayor fortaleza

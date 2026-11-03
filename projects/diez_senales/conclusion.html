@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · Conclusión, then the series end card (voice ends ≈ 1373.0 s).
+const VOICE_END = 1373.3;
+window.START = at('c0');
+window.END = window.DURATION = VOICE_END + 6;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('c0', (g, b) => {
+  el('rect', { width: 1920, height: 1080, fill: K.ink }, g);
+  const c = Chip(g, 'CONCLUSIÓN', { cx: 960, cy: 290, size: 54, fill: K.yellow });
+  const a = txt(g, 'LA VERDADERA INTELIGENCIA', { x: 960, y: 450, size: 96, color: K.white });
+  const d = txt(g, 'ESTÁ DONDE MENOS LO ESPERAS', { x: 960, y: 580, size: 80, color: K.pink });
+  const m = Mascot(g, 'm_bulb', { cx: 960, floor: 1060, h: 360 });
+  return t => { pop(c, t, b.a, 960, 290); show(a, t, b.a + 0.2); show(d, t, b.a + 0.6); live(m, t, b.a + 0.9); };
+});
+beat('c_momentos', still('s_album', { cap: 'momentos que parecían PEQUEÑOS', hi: 'PEQUEÑOS', focus: [0.6, 0.45] }));
+beat('c_notas', row([['i_report', 'NOTAS', 'c_notas'], ['i_books', 'MEMORIZAR', at('c_notas') + 2.4], ['i_stopwatch', 'RAPIDEZ', at('c_notas') + 3.6]], { head: 'la inteligencia NO es solo…', hi: 'NO' }));
+beat('c_mente', still('s_skills', { cap: 'razonar · aprender · ADAPTARSE', hi: 'ADAPTARSE', focus: [0.5, 0.4] }));
+beat('c_desaperc', mascot('m_magnify', { cap: 'capacidades INVISIBLES durante años', hi: 'INVISIBLES', size: 56 }));
+beat('c_esencial', big([['10 SEÑALES ≠ COCIENTE INTELECTUAL', 'COCIENTE INTELECTUAL']], { y: 280, size: 76, pic: 'm_shrug', at: ['c_cociente'] }));
+beat('c_curiosidad', row([['m_ask', 'CURIOSIDAD', 'c_curiosidad'], ['m_laugh', 'HUMOR', at('c_curiosidad') + 0.8], ['m_bulb', 'CREATIVIDAD', at('c_curiosidad') + 1.6], ['m_meditate', 'REFLEXIÓN', at('c_curiosidad') + 2.4]], { cap: 'valiosas… pero NO miden todo', capHi: 'NO', capAt: at('c_curiosidad') + 5 }));
+beat('c_utilizas', mascot('m_strong', { cap: 'lo que importa es cómo las USAS', hi: 'USAS', size: 56 }));
+beat('c_tarde', still('s_guitar', { cap: 'NUNCA es tarde', hi: 'NUNCA', focus: [0.4, 0.4] }));
+beat('c_formular', row([['m_ask', 'PREGUNTAR', 'c_formular'], ['m_listening', 'ESCUCHAR', 'c_escuchar'], ['m_reading', 'APRENDER', 'c_habilidad'], ['m_shrug', '«NO LO SÉ»', 'c_desconoces']]));
+beat('c_esfuerzo', still('s_painting', { cap: 'cada pequeño ESFUERZO cuenta', hi: 'ESFUERZO', focus: [0.5, 0.45] }));
+beat('c_pregunta', (g, b) => {
+  const dots = Array.from({ length: 10 }, (_, i) => { const c = el('g', {}, g); el('circle', { cx: 960 + (i - 4.5) * 150, cy: 360, r: 56, fill: K.white, stroke: K.ink, 'stroke-width': 7 }, c); txt(c, String(i + 1), { x: 960 + (i - 4.5) * 150, y: 364, size: 52 }); c.cx = 960 + (i - 4.5) * 150; c.cy = 360; return c; });
+  const q = hiText(g, '¿CUÁNTAS reconoces en ti?', 'CUÁNTAS', { x: 960, y: 600, size: 84 });
+  const m = Mascot(g, 'm_ask', { cx: 960, floor: 1040, h: 330 });
+  return t => { dots.forEach((d, i) => pop(d, t, at('c_cuantas') + i * 0.12, d.cx, d.cy)); show(q, t, at('c_cuantas')); live(m, t, b.a); };
+});
+beat('c_coment', still('s_share', { cap: 'cuéntalo en los COMENTARIOS', hi: 'COMENTARIOS', focus: [0.5, 0.45] }));
+beat('c_sub', cta('sub', { sub: 'Cerebro y Bienestar · comparte el vídeo' }));
+beat('c_final', big([['tu mayor fortaleza:', '', K.grey], ['LAS GANAS DE APRENDER', 'APRENDER']], { y: 280, size: 96, pic: 'm_bulb' }));
+beat(VOICE_END, (g, b) => {
+  const m = Mascot(g, 'm_waving', { cx: 480, floor: 900, h: 640 });
+  const h = txt(g, '¡SERIE COMPLETA!', { x: 1220, y: 300, size: 90 });
+  const parts = ['PARTE 1', 'PARTE 2', 'PARTE 3'].map((s, i) => Chip(g, s + ' ✓', { cx: 880 + i * 340, cy: 480, size: 46, fill: K.yellow }));
+  const d = txt(g, 'Contenido educativo: no sustituye una valoración médica.', { x: 960, y: 1020, size: 34, weight: 700, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(h, t, b.a + 0.2); parts.forEach((p, i) => pop(p, t, b.a + 0.5 + i * 0.3, p.cx, p.cy)); show(d, t, b.a + 1.2); };
+});
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

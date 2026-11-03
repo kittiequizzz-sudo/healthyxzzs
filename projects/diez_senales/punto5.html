@@ -1,0 +1,81 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · opener (silent pre-roll until v4 exists) + Punto 5: signals 9 (witty humour) and 10 (knowing what you don't know).
+const PRE = 5;
+window.START = at('p5') - PRE;
+window.END = window.DURATION = at('c0');
+HOOK_END = at('p5') + 35;
+const svg = Stage();
+const S0 = window.START;
+
+beat(S0, (g, b) => {
+  const dots = Array.from({ length: 10 }, (_, i) => { const c = el('g', {}, g); el('circle', { cx: 960 + (i - 4.5) * 150, cy: 420, r: 56, fill: i < 8 ? K.pink : K.white, stroke: K.ink, 'stroke-width': 7 }, c); txt(c, String(i + 1), { x: 960 + (i - 4.5) * 150, y: 424, size: 52 }); c.cx = 960 + (i - 4.5) * 150; c.cy = 420; return c; });
+  const cap = Bubble(g, 'ya vimos 8 SEÑALES…', { hi: 'SEÑALES' });
+  return t => { dots.forEach((d, i) => pop(d, t, b.a + i * 0.1, d.cx, d.cy)); pop(cap, t, b.a + 0.8, 960, 975); };
+});
+beat(S0 + 2.3, (g, b) => {
+  const m = Mascot(g, 'm_laugh', { cx: 450, floor: 900, h: 620 });
+  const n = txt(g, '10', { x: 1200, y: 330, size: 230, color: K.pink });
+  const t1 = txt(g, 'SEÑALES', { x: 1200, y: 510, size: 120 });
+  const c = Chip(g, 'PARTE 3 DE 3', { cx: 1200, cy: 650, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 780, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1200, 330); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1200, 650); show(ch, t, b.a + 0.9); };
+});
+beat('p5', kicker(5, 'DOS CAPACIDADES SUBESTIMADAS', { map: 'lobe', on: [['temporal', at('p5') + 0.4], ['frontal', at('p5') + 0.8]], hi: 'SUBESTIMADAS', sub: 'señales 9 y 10' }));
+beat('p5_coment', mascot('m_agree', { cap: 'un comentario… y RISAS', hi: 'RISAS', with: ['m_laugh', at('p5_coment') + 2.5] }));
+beat('p5_broma', row([['i_puzzle', 'DOS IDEAS', 'p5_broma'], ['m_laugh', 'SIN RELACIÓN… ¡JA!', at('p5_broma') + 2.5]]));
+beat('p5_novena', signal(9, 'TIENES UN HUMOR INGENIOSO', { hi: 'HUMOR INGENIOSO', m: 'm_laugh', at: 'p5_humor' }));
+beat('p5_juego', still('s_bat', { cap: 'una palabra, DOS sentidos', hi: 'DOS', focus: [0.55, 0.35], chips: [['LENGUAJE', 'p5_juego'], ['CONTEXTO', 'p5_contexto'], ['SORPRESA', 'p5_sorpresa', '#FFF1B8']] }));
+beat('p5_segunda', brain({
+  on: [['temporal', 'p5_segunda'], ['frontal', at('p5_segunda') + 1.5]], labels: [['LENGUAJE', 'temporal', 'p5_segunda', -60, 260], ['SORPRESA', 'frontal', at('p5_segunda') + 1.5, -60, -170]],
+  mascot: ['m_idea', 'p5_flex'], cap: 'una SEGUNDA interpretación', hi: 'SEGUNDA',
+}));
+beat('p5_invest', mascot('m_reading', { cap: 'gracioso ≠ MÁS INTELIGENTE', hi: 'MÁS INTELIGENTE', capAt: 'p5_nosignif', chips: [['algunos estudios: asociación', 'p5_invest', '#CFE6F7']], custom: g => { const s = Tag(g, 'Greengross & Miller, 2011'); return t => show(s, t, at('p5_invest')); } }));
+beat('p5_comida', still('s_family_laugh', { cap: 'alivia la TENSIÓN', hi: 'TENSIÓN', capAt: 'p5_tension', focus: [0.4, 0.4], chips: [['sin burlarse de nadie', at('p5_tension') + 1.5, '#CDEFD0']] }));
+beat('p5_sonrien', mascot('m_laugh', { cap: 'otra forma de MIRAR', hi: 'MIRAR' }));
+beat('p5_herram', row([['m_agree', 'COMUNICACIÓN', 'p5_herram'], ['m_bulb', 'CREATIVIDAD', at('p5_herram') + 2.8], ['m_waving', 'CERCANÍA', at('p5_herram') + 4.2]]));
+beat('p5_mismo', still('s_laughs', { cap: 'no todos reímos de lo MISMO', hi: 'MISMO', focus: [0.5, 0.4], chips: [['EDAD · CULTURA', 'p5_edad'], ['EXPERIENCIA · ÁNIMO', at('p5_edad') + 2.5]] }));
+beat('p5_reservada', still('s_reserved', { cap: 'reservado… y BRILLANTE', hi: 'BRILLANTE', focus: [0.3, 0.45] }));
+beat('p5_invitacion', big([['UNA INVITACIÓN', 'INVITACIÓN'], ['nunca una PRUEBA', 'PRUEBA', K.grey]], { y: 270, size: 110, pic: 'm_shrug', at: ['p5_invitacion', 'p5_prueba'] }));
+beat('p5_decima', signal(10, 'SABES LO QUE TODAVÍA NO SABES', { hi: 'NO SABES', m: 'm_shrug', at: 'p5_nosabes' }));
+beat('p5_contra', mascot('m_confused', { cap: '¿inteligencia = admitir IGNORANCIA?', hi: 'IGNORANCIA', capAt: 'p5_ignor', size: 54 }));
+beat('p5_meta', brain({
+  on: [['frontal', 'p5_meta']], labels: [['METACOGNICIÓN', 'frontal', 'p5_meta', -40, -180]], mascot: ['m_thinking', 'p5_observar'],
+  cap: 'pensar sobre tu PENSAMIENTO', hi: 'PENSAMIENTO', capAt: 'p5_observar',
+  extra: g => { const s = Tag(g, 'Flavell, 1979'); return t => show(s, t, at('p5_meta')); },
+}));
+beat('p5_estudiar', still('s_brainbook', { cap: 'cuanto más sabe… MÁS PREGUNTAS', hi: 'MÁS PREGUNTAS', capAt: 'p5_mas', focus: [0.65, 0.35] }));
+beat('p5_memoria', still('s_iceberg', { cap: 'lo que sabemos es la PUNTA', hi: 'PUNTA', focus: [0.7, 0.5] }));
+beat('p5_nolose', still('s_shrugbooks', { cap: '«no lo sé TODAVÍA»', hi: 'TODAVÍA', focus: [0.3, 0.45] }));
+beat('p5_limites', row([['i_books', 'MEJORES FUENTES', 'p5_fuentes'], ['m_listening', 'PEDIR CONSEJO', 'p5_consejo'], ['m_agree', 'CORREGIR', 'p5_corregir']], { cap: 'menos CONFIANZA EXCESIVA', capHi: 'CONFIANZA EXCESIVA', capAt: 'p5_confianza' }));
+beat('p5_insegur', big([['DUDAR SIEMPRE ≠ INTELIGENCIA', 'INTELIGENCIA'], ['SEGURIDAD ≠ RAZÓN', 'RAZÓN']], { y: 260, size: 84, pic: 'i_scale', at: ['p5_insegur', 'p5_seguridad'] }));
+beat('p5_esencial', mascot('m_list', { cap: 'COMPRUEBA cuánto sabes', hi: 'COMPRUEBA' }));
+beat('p5_recuerdes', mascot('m_ask', { cap: 'una pregunta más PROFUNDA', hi: 'PROFUNDA' }));
+beat('p5_gesto', mascot('m_reading', { cap: 'una actitud que hace APRENDER', hi: 'APRENDER' }));
+beat('p5_cultivar', row([['m_strong', 'PRÁCTICA', 'p5_cultivar'], ['m_meditate', 'PACIENCIA', at('p5_cultivar') + 1.5], ['m_ask', 'CURIOSIDAD', at('p5_cultivar') + 2.8]]));
+beat('p5_despues', (g, b) => {
+  const dots = Array.from({ length: 10 }, (_, i) => { const c = el('g', {}, g); el('circle', { cx: 960 + (i - 4.5) * 150, cy: 360, r: 56, fill: K.pink, stroke: K.ink, 'stroke-width': 7 }, c); txt(c, '✓', { x: 960 + (i - 4.5) * 150, y: 364, size: 52, color: K.white }); c.cx = 960 + (i - 4.5) * 150; c.cy = 360; return c; });
+  const q = hiText(g, '¿qué capacidades crees NORMALES?', 'NORMALES', { x: 960, y: 620, size: 70 });
+  const m = Mascot(g, 'm_thinking', { cx: 960, floor: 1040, h: 330 });
+  return t => { dots.forEach((d, i) => pop(d, t, b.a + i * 0.12, d.cx, d.cy)); show(q, t, at('p5_normales')); live(m, t, at('p5_otra')); };
+});
+beat('p5_concl', mascot('m_pointing', { cap: 'más importante que una ETIQUETA', hi: 'ETIQUETA', size: 56 }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

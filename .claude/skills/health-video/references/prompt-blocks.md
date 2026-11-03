@@ -3,23 +3,23 @@
 Owner's rules (Oct 21 2026): diverse cast, adult-animation look, strong expressions, fewer repeats.
 ChatGPT gives landscape 3:2 only; Gemini also does 16:9. Always end with "no text".
 
-## STYLE (scene panels)
-> STYLE: adult animated series look for grown-ups (not a kids' cartoon): realistic adult proportions,
-> head about 1/7 of body height, angular faces with visible age (wrinkles, sagging skin, age spots),
-> bold clean ink outlines, flat cel shading with one shadow tone, muted grown-up palette, film-like
-> framing with close-ups and varied camera angles, simple uncluttered backgrounds.
-
-## COLOR (owner, Nov 3 2026: the vivid Oct 30 look got worse engagement → back to the harmonious look)
-> COLOR: rich, deep but harmonious palette of deep navy, teal, forest green, burgundy, terracotta, warm
-> grey and soft cream; neutral white balance; NO yellow or orange colour cast, no golden glow, no glaring
-> lamp light, no oversaturated warm filter; night scenes lit by cool soft blue moonlight with only one
-> small, soft warm accent.
-Metaphor panels: "as friendly medical explainer metaphors on soft cream backgrounds" with "COLOR: deep navy,
-teal, forest green, burgundy, terracotta, warm grey and soft cream; neutral white balance; NO yellow or
-orange colour cast, no golden glow."
-Retired (tried Oct 30 → Nov 3, worse engagement): the vivid/saturated block with cobalt, fuchsia, rim light
-and saturated gradient backgrounds. Don't attach images from the vivid video (infarto_mujer) or the older
-yellow videos as style references.
+## STYLE (owner, Nov 3 2026: the old prompts gave gaudy, loud colours and didn't look nice → 2D animated
+## look with a bit more detail, soft natural colours)
+> STYLE: high-quality 2D hand-drawn animation still, like a frame from a feature-length 2D animated film
+> for adults: natural adult proportions, head about 1/7 of body height, expressive faces with gentle,
+> realistic signs of age (fine wrinkles, laugh lines, soft jawline), detailed clean linework with varied
+> line weight, soft cel shading with two gentle tones plus a soft highlight, detailed hair strands and
+> fabric folds, painted background with soft depth and slight blur behind the characters, calm
+> cinematic composition with one clear subject per panel.
+> COLOR: soft, natural, low-to-medium saturation palette: muted teal, dusty blue, sage green, soft
+> burgundy, warm grey, beige and cream; gentle diffused daylight, soft shadows, natural skin tones;
+> calm and pleasant to look at; NOT gaudy, NOT neon, NOT oversaturated, no high-contrast colour clashes,
+> no yellow or orange colour cast, no golden glow.
+Metaphor panels: "as friendly 2D-animated medical explainer metaphors, detailed but clean, on soft cream
+backgrounds" + the same COLOR line. Item sheets: same STYLE words for the objects, flat cream #F5ECD7.
+Retired: Oct 21 "adult animated series… bold ink outlines, flat cel shading with one shadow tone" (came
+out harsh/loud), Oct 26 "rich, deep but harmonious palette…" and Oct 30 vivid block (worse engagement).
+Don't attach images from earlier videos as style references; use the new image 1 of each video.
 
 ## EXPRESSION (one per panel, pick and adapt)
 - effort: teeth gritted, brows knitted, veins on the forehead, one hand pushing on the knee
@@ -41,7 +41,8 @@ Examples for a Spanish-speaking 60+ audience:
 - a man of about 80 with a walking cane, hearing aid, light skin, sweater vest
 
 ## AVOID (end of every prompt)
-> AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D or toy look, the same
+> AVOID: cute or chibi proportions, baby faces, big round kid eyes, glossy 3D or toy look, anime style,
+> comic-book heavy black outlines, neon or oversaturated colours, the same
 > person in every panel (unless asked), any text, letters, numbers, speech bubbles, signs or logos.
 
 ## Panel sheet template (2x2)

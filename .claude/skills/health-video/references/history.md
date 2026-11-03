@@ -123,3 +123,6 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   back to the original harmonious look: cream stage, ink/amber chips, no colour grade, the Oct 26 COLOR
   prompt block. theme_vivid.js retired (kept only to re-render infarto_mujer as published). Next videos
   start from projects/huevo_colesterol/common.js + its video.html (no theme script).
+- **Nov 3, 2026 (owner):** the images themselves looked gaudy and not pretty → new STYLE+COLOR block in
+  prompt-blocks.md: high-quality 2D hand-drawn animation still, more detail (linework, hair, fabric,
+  painted soft-focus background), soft natural low-to-medium saturation palette. Test on the next video.

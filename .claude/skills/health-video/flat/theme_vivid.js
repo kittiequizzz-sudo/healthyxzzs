@@ -1,3 +1,5 @@
+// RETIRED Nov 3 2026 (owner: worse engagement → back to the cream harmonious look). Kept only so
+// projects/infarto_mujer can be re-rendered as published. Don't use it for new videos.
 // Vivid look (owner, Oct 30 2026: the videos looked too neutral and flat; wants colour that "breaks
 // through" and grabs attention). Load AFTER common.js; it only re-skins, the scenes stay the same.
 //  · deep navy stage with a soft glow whose colour changes per section (p1, p2, … cues) instead of cream

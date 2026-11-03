@@ -118,3 +118,8 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   The vivid theme (SVG filters) renders ~2× slower: ~2 h 15 min for 21 min of video on 4 jobs, which hits
   the 2-hour background-task limit. render_full.sh skips finished chunks, so just re-run it to finish;
   better: split into two runs, or `chmod +x render_full.sh` before the first run (it failed once on that).
+
+- **Nov 3, 2026 (owner):** after publishing, the vivid video (infarto_mujer) got clearly worse engagement →
+  back to the original harmonious look: cream stage, ink/amber chips, no colour grade, the Oct 26 COLOR
+  prompt block. theme_vivid.js retired (kept only to re-render infarto_mujer as published). Next videos
+  start from projects/huevo_colesterol/common.js + its video.html (no theme script).

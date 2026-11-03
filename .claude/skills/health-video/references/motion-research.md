@@ -220,3 +220,18 @@ Each card lists: view, phases with joint angles, muscles to highlight, correct c
 - Soleus ≈60–70 % slow (type I) fibres in human samples (Edgerton 1975 ≈70 %; other samples ≈62 %).
 - Faults: lifting the toes too, fast bouncing, breath-holding / bracing the whole body, forcing the ankle.
 - Safety: sudden pain, redness or swelling of one leg → medical assessment first (possible DVT).
+
+### Isometric wall squat / wall sit (side view) — added Nov 3 2026 (sentadilla_pared)
+- Back flat against a firm wall, feet hip-width and about one foot-length forward, whole sole down; slide
+  the back down until the knees bend a little and hold still; knees stay over the ankles (not past the
+  toes), arms relaxed. Breathe continuously (no Valsalva). Stand up by sliding back up slowly **[coach]**.
+- Beginners (script): only a few cm of knee bend, hold 5–10 s, rest until breathing is easy, progress the
+  time slowly. Research protocols are much longer: typically 4 × 2 min holds, 1–2 min rest, 3×/week,
+  intensity set by knee angle **[study]** — not shown on screen as a starting dose.
+- Evidence **[study]**: network meta-analysis of 270 RCTs — isometric training lowered resting SBP ≈8.2 mmHg
+  and DBP ≈4 mmHg; wall squat ranked first among sub-modes
+  ([Edwards et al., BJSM 2023](https://bmjgroup.com/static-isometric-exercise-such-as-wall-sits-best-for-lowering-blood-pressure/)).
+  BP rises during the hold → caution in uncontrolled hypertension / heart disease.
+- Draw: 4 poses side view — standing with back on the wall; feet stepped forward; small bend (knees ≈20°);
+  deeper but still above a right angle (knees ≈45–60°). Never a 90° "chair" pose for this audience.
+- Faults: knees past the toes, heels lifting, back peeling off the wall, holding the breath, going to 90°.

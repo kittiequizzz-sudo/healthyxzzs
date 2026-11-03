@@ -1,0 +1,61 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · Punto 2: signals 3 (details and patterns) and 4 (several ways out), then the end card.
+window.START = at('p2');
+window.END = window.DURATION = at('p3') + 7;
+const svg = Stage();
+
+beat('p2', kicker(2, 'VES CONEXIONES', { map: 'lobe', on: [['parietal', at('p2') + 0.3], ['occipital', at('p2') + 0.6]], hi: 'CONEXIONES', sub: 'señales 3 y 4' }));
+beat('p2_hab', still('s_vase', { cap: 'algo ha CAMBIADO', hi: 'CAMBIADO', focus: [0.65, 0.45] }));
+beat('p2_objeto', row([['i_magnifier', 'UN OBJETO', 'p2_objeto'], ['m_confused', 'UNA CONTRADICCIÓN', 'p2_contra'], ['i_report', 'UN ERROR', 'p2_error']]));
+beat('p2_atencion', mascot('m_focus', { cap: 'algo llama tu ATENCIÓN', hi: 'ATENCIÓN' }));
+beat('p2_senal3', signal(3, 'VES DETALLES Y PATRONES', { hi: 'DETALLES Y PATRONES', m: 'm_magnify', at: at('p2_senal3') + 2.2 }));
+beat('p2_cerebro', brain({
+  full: true, cap: 'busca RELACIONES', hi: 'RELACIONES',
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital'].map(r => B.pt(r)), { color: K.pink }); return t => N.draw(t, at('p2_cerebro') + 1); },
+}));
+beat('p2_anticipar', row([['m_idea', 'ANTICIPAR', 'p2_anticipar'], ['m_reading', 'APRENDER', 'p2_aprender'], ['m_magnify', 'INCONSISTENCIAS', 'p2_incons']]));
+beat('p2_destacan', still('s_plan', { cap: 'más fácil si CONOCES el tema', hi: 'CONOCES', capAt: 'p2_conoc', focus: [0.6, 0.5] }));
+beat('p2_intuic', mascot('m_confused', { cap: 'intuición ≠ CERTEZA', hi: 'CERTEZA' }));
+beat('p2_coinc', still('s_cloud', { cap: 'a veces… COINCIDENCIA', hi: 'COINCIDENCIA', focus: [0.75, 0.3] }));
+beat('p2_amigo', still('s_knot', { cap: 'una causa COMÚN', hi: 'COMÚN', capAt: 'p2_comun', focus: [0.5, 0.45] }));
+beat('p2_respons', mascot('m_list', { cap: 'nadie definió las RESPONSABILIDADES', hi: 'RESPONSABILIDADES', size: 52 }));
+beat('p2_conectado', big([['CONECTAR', 'CONECTAR'], ['lo que estaba disperso', '', K.grey]], { y: 280, size: 120, pic: 'i_puzzle' }));
+beat('p2_util', mascot('m_agree', { cap: 'COMPRENDER antes de solucionar', hi: 'COMPRENDER', size: 56 }));
+beat('p2_senal4', signal(4, 'BUSCAS VARIAS SALIDAS', { hi: 'VARIAS SALIDAS', m: 'm_juggle', at: at('p2_senal4') + 1.5 }));
+beat('p2_obstaculo', still('s_closed', { cap: 'un OBSTÁCULO', hi: 'OBSTÁCULO', focus: [0.6, 0.5], chips: [['explorar ALTERNATIVAS', 'p2_alternat', '#CDEFD0']] }));
+beat('p2_falla', still('s_spoon', { cap: 'otra forma de USARLA', hi: 'USARLA', capAt: 'p2_herram', focus: [0.5, 0.65] }));
+beat('p2_diverg', big([['PENSAMIENTO', ''], ['DIVERGENTE', 'DIVERGENTE']], { y: 260, size: 120, pic: 'i_signpost', custom: g => { const c = Chip(g, 'varias posibilidades · una pregunta', { cx: 960, cy: 540, size: 44, fill: K.yellow }); return t => pop(c, t, at('p2_diverg') + 4, 960, 540); } }));
+beat('p2_reunion', mascot('m_worried', { cap: 'el lugar NO está disponible', hi: 'NO', capAt: 'p2_lugar' }));
+beat('p2_abandonar', mascot('m_tired', { cap: '¿abandonar el PLAN?', hi: 'PLAN' }));
+beat('p2_opciones', still('s_paths', { focus: [0.5, 0.4], chips: [['OTRA HORA', 'p2_opciones', '#CFE6F7'], ['DOS ACTIVIDADES', 'p2_dividir', '#FFF1B8'], ['OTRO LUGAR', 'p2_espacio', '#CDEFD0']] }));
+beat('p2_garant', mascot('m_juggle', { cap: 'más opciones = más POSIBILIDADES', hi: 'POSIBILIDADES', size: 56 }));
+beat('p2_basta', still('s_notes', { cap: '¿realista · segura · ÚTIL?', hi: 'ÚTIL', capAt: 'p2_evaluar', focus: [0.6, 0.4] }));
+beat('p2_complem', row([['m_bulb', '1 · EXPLORAR', 'p2_complem'], ['i_scale', '2 · EXAMINAR', 'p2_examinar']], { head: 'creatividad + RAZONAMIENTO', hi: 'RAZONAMIENTO' }));
+beat('p2_original', big([['ORIGINAL ≠ BUENA', 'BUENA']], { y: 300, size: 130, pic: 'm_shrug', custom: g => { const c = Chip(g, 'lo sencillo puede ser EXCELENTE', { cx: 960, cy: 470, size: 46, fill: '#CDEFD0' }); return t => pop(c, t, at('p2_original') + 3.5, 960, 470); } }));
+beat('p2_anos', mascot('m_stroll', { cap: 'observas · relacionas · IMAGINAS', hi: 'IMAGINAS', capAt: 'p2_observas' }));
+beat('p2_pruebas', mascot('m_strong', { cap: 'se pueden FORTALECER', hi: 'FORTALECER', capAt: 'p2_fortal', chips: [['no son pruebas de genialidad', 'p2_pruebas', K.pinkL]] }));
+beat('p2_entrena', row([['i_magnifier', 'OBSERVA', 'p2_entrena'], ['m_juggle', '3 EXPLICACIONES', 'p2_tres'], ['i_scale', 'COMPRUEBA', 'p2_comprob']], { head: 'ENTRÉNALO', hi: 'ENTRÉNALO' }));
+beat('p2_acertar', mascot('m_agree', { cap: 'REVISA tus conclusiones', hi: 'REVISA' }));
+beat('p2_sub', cta('sub', { sub: 'Cerebro y Bienestar' }));
+beat('p2_prox', mascot('m_meditate', { cap: 'próximo: el poder del SILENCIO', hi: 'SILENCIO' }));
+beat('p3', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 2 DE 3', topics: 'silencio · decisiones · flexibilidad · empatía' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

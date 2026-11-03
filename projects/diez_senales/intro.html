@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · intro (hook): a cut every ~2 s for the first 45 s.
+window.START = 0;
+window.END = window.DURATION = at('p1');
+const svg = Stage();
+
+beat('i0', mascot('m_thinking', { cap: '¿PIENSAS DIFERENTE?', hi: 'DIFERENTE' }));
+beat('i_preg', mascot('m_ask', { cap: 'preguntas que NADIE hace', hi: 'NADIE' }));
+beat('i_det', still('s_frame', { cap: 'pequeños DETALLES', hi: 'DETALLES', focus: [0.55, 0.3] }));
+beat('i_solas', still('s_bench', { cap: 'pensar a SOLAS', hi: 'SOLAS', focus: [0.5, 0.35] }));
+beat('i_intel', still('s_podium', { cap: '¿inteligente? ¿YO?', hi: 'YO', focus: [0.3, 0.6] }));
+beat('i_notas', still('s_grades', { cap: 'las mejores NOTAS', hi: 'NOTAS', focus: [0.6, 0.5] }));
+beat('i_mate', still('s_fast', { cap: 'resolver RÁPIDO', hi: 'RÁPIDO', focus: [0.6, 0.4] }));
+beat('i_resp', row([['i_report', 'NOTAS', 'i_resp'], ['i_stopwatch', 'RAPIDEZ', at('i_resp') + 0.4], ['m_bulb', 'RESPUESTAS', at('i_resp') + 0.8]], { head: '¿eso es ser INTELIGENTE?', hi: 'INTELIGENTE' }));
+beat('i_impedido', mascot('m_confused', { cap: '¿y si te IMPIDIÓ verte?', hi: 'IMPIDIÓ' }));
+beat('i_ciencia', still('s_scientist', { cap: 'décadas de CIENCIA', hi: 'CIENCIA', focus: [0.6, 0.4] }));
+beat('i_interes', mascot('m_magnify', { cap: 'algo muy INTERESANTE', hi: 'INTERESANTE' }));
+beat('i_cotid', row([['i_magnifier', 'OBSERVAR', 'i_cotid'], ['i_puzzle', 'CONECTAR', at('i_cotid') + 0.6], ['i_signpost', 'IMAGINAR', at('i_cotid') + 1.2]], { cap: 'en tu día a DÍA', capHi: 'DÍA', capAt: at('i_cotid') + 2 }));
+beat('i_ninguna', big([['SEÑAL ≠ PRUEBA', 'PRUEBA']], { y: 300, size: 130, pic: 'm_shrug', custom: g => { const c = Chip(g, 'pero revelan FORTALEZAS', { cx: 960, cy: 470, size: 50, fill: '#CDEFD0' }); return t => pop(c, t, at('i_revelar'), 960, 470); } }));
+beat('i_hoy', (g, b) => {
+  const m = Mascot(g, 'm_bulb', { cx: 450, floor: 930, h: 700 });
+  const n = txt(g, '10', { x: 1200, y: 330, size: 230, color: K.pink });
+  const t1 = txt(g, 'SEÑALES', { x: 1200, y: 510, size: 120 });
+  const c = Chip(g, 'PARTE 1 DE 3', { cx: 1200, cy: 650, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 780, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1200, 330); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.7, 1200, 650); show(ch, t, b.a + 0.9); };
+});
+beat('i_sorpr', (g, b) => {
+  const dots = Array.from({ length: 10 }, (_, i) => { const c = el('g', {}, g); el('circle', { cx: 960 + (i - 4.5) * 150, cy: 420, r: 56, fill: i === 9 ? K.yellow : K.white, stroke: K.ink, 'stroke-width': 7 }, c); txt(c, String(i + 1), { x: 960 + (i - 4.5) * 150, y: 424, size: 52 }); c.cx = 960 + (i - 4.5) * 150; c.cy = 420; return c; });
+  const m = Mascot(g, 'm_scared', { cx: 960, floor: 860, h: 300 });
+  const cap = Bubble(g, 'la ÚLTIMA te sorprenderá', { hi: 'ÚLTIMA' });
+  return t => { dots.forEach((d, i) => pop(d, t, b.a + i * 0.25, d.cx, d.cy)); set(dots[9], { transform: `translate(${dots[9].cx} 420) scale(${t > at('i_ultima') ? 1.15 + 0.05 * Math.sin(t * 5) : 1}) translate(${-dots[9].cx} -420)` }); live(m, t, at('i_ultima')); pop(cap, t, at('i_ultima') + 0.3, 960, 975); };
+});
+beat('i_final', still('s_mirror', { cap: 'no se trata de ser un GENIO', hi: 'GENIO', capAt: 'i_final', focus: [0.5, 0.4], chips: [['capacidades SUBESTIMADAS', 'i_genio', K.pinkL]] }));
+beat('i_sub', cta('sub', { sub: 'Cerebro y Bienestar' }));
+beat('i_explor', mascot('m_reading', { cap: 'CURIOSIDAD + ciencia', hi: 'CURIOSIDAD' }));
+beat('i_empec', mascot('m_ask', { cap: '¿demasiado PREGUNTÓN?', hi: 'PREGUNTÓN' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(0);
+</script>
+</body></html>

@@ -1,0 +1,118 @@
+# label | phrase (searched in order). Video 1 = intro + punto 1 + punto 2.
+i0 | Alguna vez has sentido que tu forma
+i_preg | haces preguntas que nadie
+i_det | detectas pequeños detalles
+i_solas | necesitas estar a solas
+i_intel | cuando alguien habla de personas inteligentes
+i_notas | sacaban las mejores notas
+i_mate | resolvían problemas matemáticos
+i_resp | tener siempre la respuesta correcta
+i_impedido | y si esa idea te hubiera impedido
+i_ciencia | La ciencia lleva décadas
+i_interes | Y algo resulta especialmente interesante
+i_cotid | Ciertas habilidades cognitivas
+i_ninguna | Aunque ninguna de estas señales
+i_revelar | algunas pueden revelar fortalezas
+i_hoy | Hoy descubrirás 10 señales
+i_sorpr | Algunas te sorprenderán
+i_ultima | y la última podría cambiar
+i_final | Quédate hasta el final
+i_genio | sino de descubrir capacidades
+i_sub | Y si te apasiona comprender
+i_explor | Aquí exploramos juntos
+i_empec | Empecemos con una señal
+p1 | Una mente que nunca deja
+p1_porque | Todo empieza con una pregunta
+p1_molesto | Incluso molesto
+p1_detras | Sin embargo, detrás de esa necesidad
+p1_conformar | No conformarte con la primera
+p1_familia | Imagina una conversación familiar
+p1_pruebas | qué pruebas existen
+p1_entender | No buscas llevar la contraria
+p1_senal1 | Esta es nuestra primera señal
+p1_critico | El pensamiento crítico consiste
+p1_distinguir | distinguir hechos de opiniones
+p1_alternat | considerar explicaciones alternativas
+p1_desconf | No significa desconfiar de todo
+p1_corregir | una mente crítica también es capaz
+p1_sencilla | Piensa en cuántas veces una pregunta
+p1_titular | una noticia tenía un titular
+p1_consejo | un consejo popular carecía
+p1_dificultad | una dificultad cotidiana
+p1_mejor | La diferencia no está en discutir
+p1_senal2 | Pero existe una segunda señal
+p1_curios | La curiosidad que parece no tener fin
+p1_hora | Alguna vez has empezado buscando
+p1_sonamos | querías saber por qué soñamos
+p1_cancion | recordamos una canción antigua
+p1_aprend | qué ocurre en el cerebro cuando aprendemos
+p1_motor | Esa inclinación a explorar
+p1_interes | Cuando algo despierta tu interés
+p1_conex | haces conexiones
+p1_buscas | buscas información adicional
+p1_tiempo | Con el tiempo, esos pequeños
+p1_psico | La psicología ha estudiado
+p1_aclarar | Pero conviene aclarar algo
+p1_nodem | no demuestra que poseas
+p1_cultivar | Son hábitos que pueden acompañar
+p1_colegio | Quizá en el colegio
+p1_impac | O quizá hoy alguien se impacienta
+p1_virtud | Eso no convierte automáticamente
+p1_apagar | tampoco significa que debas apagar
+p1_clave | La clave está en combinar
+p1_pacien | paciencia para escuchar
+p1_compro | disposición para comprobarlas
+p1_etiqueta | si te reconoces en estas dos señales
+p1_observa | Observa cómo utilizas
+p1_valiosa | ya tienes una herramienta valiosa
+p1_sorpr | Y ahora viene algo todavía más
+p1_relac | encuentran relaciones donde
+p2 | Ves conexiones que otros
+p2_hab | Quizá alguna vez has entrado
+p2_objeto | Un objeto ligeramente desplazado
+p2_contra | una contradicción en una conversación
+p2_error | un pequeño error en un plan
+p2_atencion | No necesariamente sabes explicar
+p2_senal3 | Esa experiencia nos lleva a la tercera
+p2_cerebro | Nuestro cerebro intenta constantemente
+p2_anticipar | Gracias a ese proceso
+p2_aprender | aprender de experiencias anteriores
+p2_incons | detectar inconsistencias
+p2_destacan | Algunas personas destacan
+p2_conoc | especialmente cuando poseen
+p2_intuic | Sin embargo, prestar atención
+p2_coinc | A veces encontramos patrones
+p2_amigo | Imagina que un amigo te cuenta
+p2_comun | tienen una causa común
+p2_respons | Nadie ha definido claramente
+p2_conectado | No has realizado ningún cálculo
+p2_util | Ese tipo de razonamiento
+p2_senal4 | Pero aquí aparece la cuarta señal
+p2_obstaculo | Cuando encuentras un obstáculo
+p2_alternat | Tu mente empieza a explorar
+p2_falla | Si una solución falla
+p2_herram | Si una herramienta no sirve
+p2_diverg | En psicología, esta habilidad
+p2_reunion | Pensemos en algo sencillo
+p2_lugar | descubres que el lugar previsto
+p2_abandonar | Una persona podría abandonar
+p2_opciones | Tú, en cambio, consideras
+p2_dividir | dividir el encuentro
+p2_espacio | utilizar un espacio diferente
+p2_garant | Ninguna alternativa garantiza
+p2_basta | Eso sí, producir muchas ideas
+p2_evaluar | También necesitamos evaluar
+p2_complem | La creatividad y el razonamiento
+p2_examinar | después examinamos sus consecuencias
+p2_original | Por eso, una idea original
+p2_anos | Tal vez estas dos señales
+p2_observas | Observas, relacionas
+p2_pruebas | No son pruebas de genialidad
+p2_fortal | pueden fortalecerse con práctica
+p2_entrena | Por ejemplo, puedes entrenar
+p2_tres | proponiendo tres explicaciones
+p2_comprob | comprobando cuál encaja
+p2_acertar | No necesitas acertar siempre
+p2_sub | Si disfrutas descubriendo
+p2_prox | En el próximo apartado
+p3 | Punto 3

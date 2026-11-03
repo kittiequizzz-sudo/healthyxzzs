@@ -1,0 +1,64 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · Punto 1: signals 1 (questioning) and 2 (curiosity).
+window.START = at('p1');
+window.END = window.DURATION = at('p2');
+const svg = Stage();
+
+beat('p1', kicker(1, 'UNA MENTE QUE PREGUNTA', { map: 'lobe', on: [['frontal', at('p1') + 0.4]], hi: 'PREGUNTA', sub: 'señales 1 y 2' }));
+beat('p1_porque', big([['¿POR QUÉ?', '¿POR QUÉ?']], { y: 300, size: 170, pic: 'm_ask' }));
+beat('p1_molesto', mascot('m_confused', { cap: '¿pesado? ¿MOLESTO?', hi: 'MOLESTO', with: ['m_tired', at('p1_molesto') + 0.5] }));
+beat('p1_detras', mascot('m_idea', { cap: 'no te basta la PRIMERA respuesta', hi: 'PRIMERA', capAt: 'p1_conformar', size: 56 }));
+beat('p1_familia', still('s_dinner', { cap: '¿qué PRUEBAS hay?', hi: 'PRUEBAS', capAt: 'p1_pruebas', focus: [0.35, 0.4], chips: [['«siempre se hizo así»', at('p1_familia') + 2.4]] }));
+beat('p1_entender', mascot('m_listening', { cap: 'ENTENDER antes de aceptar', hi: 'ENTENDER' }));
+beat('p1_senal1', signal(1, 'CUESTIONAS LO QUE OTROS DAN POR HECHO', { hi: 'CUESTIONAS', m: 'm_magnify', at: at('p1_senal1') + 1.8 }));
+beat('p1_critico', brain({
+  on: [['frontal', 'p1_critico']], labels: [['PENSAMIENTO CRÍTICO', 'frontal', 'p1_critico', -40, -180]],
+  items: [['i_magnifier', 'EXAMINAR', at('p1_critico') + 2.5], ['i_scale', 'HECHOS ≠ OPINIONES', 'p1_distinguir'], ['i_signpost', 'ALTERNATIVAS', 'p1_alternat']],
+}));
+beat('p1_desconf', mascot('m_agree', { cap: 'también CORRIGE sus ideas', hi: 'CORRIGE', capAt: 'p1_corregir', chips: [['desconfiar de todo ✗', 'p1_desconf', K.pinkL], ['tener siempre razón ✗', at('p1_desconf') + 1.8, K.pinkL]] }));
+beat('p1_sencilla', mascot('m_bulb', { cap: 'una pregunta SENCILLA', hi: 'SENCILLA' }));
+beat('p1_titular', still('s_fakenews', { cap: 'titular ENGAÑOSO', hi: 'ENGAÑOSO', focus: [0.6, 0.5] }));
+beat('p1_consejo', still('s_rumor', { cap: 'consejo sin FUNDAMENTO', hi: 'FUNDAMENTO', focus: [0.55, 0.35] }));
+beat('p1_dificultad', still('s_jar', { cap: 'resolverlo de OTRA forma', hi: 'OTRA', focus: [0.55, 0.6] }));
+beat('p1_mejor', big([['NO DISCUTIR MÁS…', ''], ['PENSAR MEJOR', 'MEJOR']], { y: 260, size: 110, pic: 'm_meditate' }));
+beat('p1_senal2', signal(2, 'UNA CURIOSIDAD SIN FIN', { hi: 'CURIOSIDAD', m: 'm_reading', at: 'p1_curios' }));
+beat('p1_hora', still('s_night', { cap: '…y pasó una HORA', hi: 'HORA', focus: [0.5, 0.35] }));
+beat('p1_sonamos', row([['m_sleepy', 'SOÑAR', 'p1_sonamos'], ['m_listening', 'UNA CANCIÓN', 'p1_cancion'], ['neuron', 'APRENDER', 'p1_aprend']], { head: '¿por qué…?' }));
+beat('p1_motor', mascot('m_juggle', { cap: 'un MOTOR de aprendizaje', hi: 'MOTOR' }));
+beat('p1_interes', mascot('m_focus', { chips: [['ATENCIÓN', 'p1_interes'], ['CONEXIONES', 'p1_conex'], ['MÁS INFORMACIÓN', 'p1_buscas']] }));
+beat('p1_tiempo', brain({
+  full: true, cap: 'más HERRAMIENTAS para comprender', hi: 'HERRAMIENTAS', size: 56,
+  extra: (g, B) => { const N = Network(g, ['frontal', 'parietal', 'temporal', 'occipital', 'cerebellum'].map(r => B.pt(r))); return t => N.draw(t, at('p1_tiempo') + 0.6); },
+}));
+beat('p1_psico', row([['m_ask', 'CURIOSIDAD', 'p1_psico'], ['m_stroll', 'APERTURA', at('p1_psico') + 2.2], ['m_reading', 'APRENDIZAJE', at('p1_psico') + 4.4]],
+  { head: 'lo estudia la PSICOLOGÍA', hi: 'PSICOLOGÍA', cap: 'von Stumm et al., 2011', capAt: at('p1_psico') + 5 }));
+beat('p1_aclarar', mascot('m_shrug', { cap: 'curiosidad ≠ COCIENTE INTELECTUAL', hi: 'COCIENTE INTELECTUAL', capAt: 'p1_nodem', size: 54 }));
+beat('p1_cultivar', mascot('m_strong', { cap: 'se puede CULTIVAR', hi: 'CULTIVAR', capAt: at('p1_cultivar') + 3 }));
+beat('p1_colegio', still('s_school', { cap: '¿preguntas DEMASIADO?', hi: 'DEMASIADO', focus: [0.5, 0.4] }));
+beat('p1_impac', mascot('m_list', { cap: 'quieres los DETALLES', hi: 'DETALLES', with: ['m_tired', at('p1_impac') + 1] }));
+beat('p1_virtud', mascot('m_thinking', { cap: 'no APAGUES tu curiosidad', hi: 'APAGUES', capAt: 'p1_apagar' }));
+beat('p1_clave', row([['m_ask', 'PREGUNTAR', 'p1_clave'], ['m_listening', 'ESCUCHAR', 'p1_pacien'], ['i_magnifier', 'COMPROBAR', 'p1_compro']], { head: 'la CLAVE', hi: 'CLAVE' }));
+beat('p1_etiqueta', mascot('m_shrug', { cap: 'sin ETIQUETAS', hi: 'ETIQUETAS' }));
+beat('p1_observa', still('s_check', { cap: '¿te ayuda a APRENDER?', hi: 'APRENDER', focus: [0.65, 0.4] }));
+beat('p1_valiosa', mascot('m_bulb', { cap: 'una herramienta VALIOSA', hi: 'VALIOSA' }));
+beat('p1_sorpr', mascot('m_magnify', { cap: 'RELACIONES donde otros ven detalles', hi: 'RELACIONES', capAt: 'p1_relac', size: 54, extra: [['i_puzzle', 'p1_relac', 1480, 380, 280]] }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · Punto 4: signals 7 (cognitive flexibility) and 8 (other perspectives), warning card, end card.
+window.START = at('p4');
+window.END = window.DURATION = at('p5') + 7;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('p4', kicker(4, 'UNA MENTE QUE SE ADAPTA', { map: 'lobe', on: [['frontal', at('p4') + 0.4]], hi: 'SE ADAPTA', sub: 'señales 7 y 8' }));
+beat('p4_idea', mascot('m_confused', { cap: '¿y si estabas EQUIVOCADO?', hi: 'EQUIVOCADO', chips: [['incómodo…', 'p4_incomodo', K.pinkL]] }));
+beat('p4_valiosa', still('s_eraser', { cap: 'REVISAR tus creencias', hi: 'REVISAR', capAt: 'p4_revisar', focus: [0.5, 0.4] }));
+beat('p4_senal7', signal(7, 'FLEXIBILIDAD COGNITIVA', { hi: 'FLEXIBILIDAD', m: 'm_agree', at: at('p4_senal7') + 1.5 }));
+beat('p4_60', mascot('m_shrug', { cap: '«después de los 60… IMPOSIBLE»', hi: 'IMPOSIBLE' }));
+beat('p4_70', still('s_language', { cap: '70 años… y un IDIOMA nuevo', hi: 'IDIOMA', focus: [0.6, 0.4] }));
+beat('p4_curiosidad', row([['m_ask', 'CURIOSIDAD', 'p4_curiosidad'], ['m_magnify', 'INVESTIGAS', at('p4_curiosidad') + 1.5], ['m_agree', 'RECONSIDERAS', at('p4_curiosidad') + 2.8]]));
+beat('p4_razones', mascot('m_bulb', { cap: 'por RAZONES, no por complacer', hi: 'RAZONES', size: 56 }));
+beat('p4_flex', brain({
+  on: [['frontal', 'p4_flex']], labels: [['FUNCIONES EJECUTIVAS', 'frontal', 'p4_ejecutivas', -40, -180]],
+  items: [['m_juggle', 'RESOLVER', at('p4_ejecutivas') + 2.5], ['m_reading', 'APRENDER', at('p4_ejecutivas') + 3.5], ['m_scared', 'LO INESPERADO', at('p4_ejecutivas') + 4.8]],
+  extra: g => { const s = Tag(g, 'Diamond, 2013'); return t => show(s, t, at('p4_ejecutivas')); },
+}));
+beat('p4_cualquier', still('s_reliable', { cap: 'fiable ≠ SIN FUNDAMENTO', hi: 'SIN FUNDAMENTO', capAt: 'p4_criterio', focus: [0.5, 0.4] }));
+beat('p4_razon', still('s_agree', { cap: '«tienes RAZÓN, no lo había visto así»', hi: 'RAZÓN', focus: [0.45, 0.4], size: 54 }));
+beat('p4_derrota', mascot('m_agree', { cap: 'rectificar no es una DERROTA', hi: 'DERROTA' }));
+beat('p4_rectificar', mascot('m_reading', { cap: 'una forma SANA de aprender', hi: 'SANA' }));
+beat('p4_senal8', signal(8, 'ENTIENDES OTRAS PERSPECTIVAS', { hi: 'OTRAS PERSPECTIVAS', m: 'm_listening', at: at('p4_senal8') + 1.5 }));
+beat('p4_opinion', mascot('m_listening', { cap: '¿por qué piensa DIFERENTE?', hi: 'DIFERENTE', with: ['m_ask', at('p4_opinion') + 0.6] }));
+beat('p4_tom', row([['m_thinking', 'CREENCIAS', at('p4_tom') + 5], ['m_bulb', 'INTENCIONES', at('p4_tom') + 6.5], ['m_stroll', 'PERSPECTIVAS', at('p4_tom') + 8]], { head: 'TEORÍA DE LA MENTE', hi: 'TEORÍA DE LA MENTE' }));
+beat('p4_familiar', still('s_suitcase', { cap: 'tu hijo quiere IRSE', hi: 'IRSE', capAt: 'p4_hijo', focus: [0.35, 0.45], chips: [['tú: «quédate cerca»', 'p4_cerca', K.pinkL]] }));
+beat('p4_postura', mascot('m_worried', { cap: '¿solo defender tu POSTURA?', hi: 'POSTURA' }));
+beat('p4_motivos', still('s_perspective', { focus: [0.7, 0.4], chips: [['OPORTUNIDADES', 'p4_oportun', '#CFE6F7'], ['INDEPENDENCIA', at('p4_oportun') + 1.5, '#FFF1B8'], ['OTRA VIDA', at('p4_oportun') + 3, '#CDEFD0']] }));
+beat('p4_renunciar', mascot('m_agree', { cap: 'comprender ≠ RENUNCIAR', hi: 'RENUNCIAR' }));
+beat('p4_realidades', mascot('m_listening', { cap: 'una situación, DOS realidades', hi: 'DOS', with: ['m_thinking', at('p4_realidades') + 0.5] }));
+beat('p4_comunic', still('s_handshake', { cap: 'desacuerdo ≠ BATALLA', hi: 'BATALLA', focus: [0.5, 0.45] }));
+beat('p4_limites', mascot('m_shrug', { cap: 'nadie LEE la mente', hi: 'LEE', capAt: 'p4_leer' }));
+beat('p4_preguntar', still('s_ask', { cap: 'PREGUNTA y escucha', hi: 'PREGUNTA', focus: [0.5, 0.45] }));
+beat('p4_importante', mascot('m_scared', { cap: 'algo IMPORTANTE', hi: 'IMPORTANTE' }));
+beat('p4_memoria', (g, b) => {
+  // warning card, held for the whole medical note (≥ 8 s)
+  el('rect', { x: 120, y: 80, width: 1680, height: 920, rx: 40, fill: K.white, stroke: K.ink, 'stroke-width': 9 }, g);
+  el('rect', { x: 120, y: 80, width: 1680, height: 150, rx: 40, fill: K.amber, stroke: K.ink, 'stroke-width': 9 }, g);
+  el('rect', { x: 125, y: 180, width: 1670, height: 48, fill: K.amber }, g);
+  txt(g, 'CAMBIOS REPENTINOS ≠ RASGO DE PERSONALIDAD', { x: 960, y: 157, size: 54 });
+  const items = [['m_confused', 'MEMORIA', 'p4_memoria'], ['m_worried', 'LENGUAJE', at('p4_memoria') + 1.2], ['m_wobbly', 'ORIENTACIÓN', at('p4_memoria') + 2.2], ['m_dizzy', 'RAZONAR', at('p4_memoria') + 3.2]].map(([n, s, k], i) => {
+    const x = 960 + (i - 1.5) * 380, it = el('g', {}, g);
+    Mascot(it, n, { cx: x, floor: 520, h: 260 }); txt(it, s, { x, y: 570, size: 44 });
+    it.cx = x; it.cy = 420; return [it, k];
+  });
+  const c1 = Chip(g, '→ consulta a un PROFESIONAL', { cx: 960, cy: 690, size: 52, fill: '#FFE8C2' });
+  const red = el('g', {}, g);
+  el('rect', { x: 260, y: 770, width: 1400, height: 130, rx: 65, fill: K.red, stroke: K.ink, 'stroke-width': 8 }, red);
+  txt(red, 'DE GOLPE + debilidad o al hablar → URGENCIAS', { x: 960, y: 838, size: 50, color: K.white });
+  red.cx = 960; red.cy = 835;
+  const ed = txt(g, 'Contenido educativo: no sustituye una valoración médica.', { x: 960, y: 955, size: 34, weight: 700, color: K.grey });
+  return t => { items.forEach(([it, k]) => pop(it, t, tt(k), it.cx, it.cy)); pop(c1, t, at('p4_consulta'), 960, 690); pop(red, t, at('p4_brusco'), 960, 835); show(ed, t, at('p4_educativo')); };
+});
+beat('p4_gestos', row([['m_ask', 'UNA PREGUNTA', 'p4_gestos'], ['m_meditate', 'UNA PAUSA', at('p4_gestos') + 2.4], ['m_shrug', '«NO LO SÉ TODO»', at('p4_gestos') + 4.6]], { cap: 'pequeños GESTOS', capHi: 'GESTOS', capAt: 'p4_transformar' }));
+beat('p4_practicar', mascot('m_strong', { cap: 'se practica CADA DÍA', hi: 'CADA DÍA' }));
+beat('p4_quedan', (g, b) => {
+  const dots = Array.from({ length: 10 }, (_, i) => { const c = el('g', {}, g); el('circle', { cx: 960 + (i - 4.5) * 150, cy: 420, r: 56, fill: i < 8 ? K.pink : i === 9 ? K.yellow : K.white, stroke: K.ink, 'stroke-width': 7 }, c); txt(c, String(i + 1), { x: 960 + (i - 4.5) * 150, y: 424, size: 52 }); c.cx = 960 + (i - 4.5) * 150; c.cy = 420; return c; });
+  const cap = Bubble(g, 'quedan DOS señales', { hi: 'DOS' });
+  return t => { dots.forEach((d, i) => pop(d, t, b.a + i * 0.12, d.cx, d.cy)); pop(cap, t, b.a + 1.5, 960, 975); };
+});
+beat('p5', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 3 DE 3', topics: 'humor ingenioso · saber lo que no sabes' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

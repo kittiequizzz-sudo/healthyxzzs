@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · opener (silent pre-roll until v2 exists) + Punto 3: signals 5 (solitude) and 6 (weighing decisions).
+const PRE = 5;
+window.START = at('p3') - PRE;
+window.END = window.DURATION = at('p4');
+HOOK_END = at('p3') + 35;
+const svg = Stage();
+const S0 = window.START;
+
+beat(S0, row([['m_ask', 'PREGUNTAS', S0 + 0.1], ['m_reading', 'CURIOSIDAD', S0 + 0.4], ['m_magnify', 'PATRONES', S0 + 0.7], ['m_juggle', 'SALIDAS', S0 + 1.0]], { head: 'ya vimos 4 señales…' }));
+beat(S0 + 2.3, (g, b) => {
+  const m = Mascot(g, 'm_meditate', { cx: 450, floor: 900, h: 600 });
+  const n = txt(g, '10', { x: 1200, y: 330, size: 230, color: K.pink });
+  const t1 = txt(g, 'SEÑALES', { x: 1200, y: 510, size: 120 });
+  const c = Chip(g, 'PARTE 2 DE 3', { cx: 1200, cy: 650, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 780, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1200, 330); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1200, 650); show(ch, t, b.a + 0.9); };
+});
+beat('p3', kicker(3, 'TU MUNDO INTERIOR', { map: 'sag', hi: 'INTERIOR', sub: 'señales 5 y 6' }));
+beat('p3_detener', mascot('m_meditate', { cap: 'el mundo se DETIENE', hi: 'DETIENE' }));
+beat('p3_apagas', still('s_tvoff', { cap: 'escuchas tus PENSAMIENTOS', hi: 'PENSAMIENTOS', capAt: 'p3_escuchas', focus: [0.4, 0.45] }));
+beat('p3_curioso', mascot('m_bulb', { cap: 'tu mente SIGUE trabajando', hi: 'SIGUE' }));
+beat('p3_senal5', signal(5, 'DISFRUTAS DE LA SOLEDAD PARA PENSAR', { hi: 'SOLEDAD', m: 'm_meditate', at: 'p3_soledad' }));
+beat('p3_caminar', still('s_walkalone', { cap: 'caminar SIN COMPAÑÍA', hi: 'SIN COMPAÑÍA', focus: [0.45, 0.4] }));
+beat('p3_ventana', still('s_tea', { cap: 'junto a una VENTANA', hi: 'VENTANA', focus: [0.5, 0.45] }));
+beat('p3_escapar', mascot('m_stroll', { cap: 'espacio para ORDENAR', hi: 'ORDENAR', capAt: 'p3_ordenar', chips: [['no es escapar', 'p3_escapar', K.pinkL]] }));
+beat('p3_aparecen', row([['m_thinking', 'RECUERDOS', 'p3_aparecen'], ['m_ask', 'PREGUNTAS', at('p3_aparecen') + 1.6], ['i_puzzle', 'CONEXIONES', at('p3_aparecen') + 2.8]]));
+beat('p3_investig', brain({
+  map: 'sag', cap: 'cuando NO miras hacia fuera', hi: 'NO', capAt: at('p3_investig') + 3,
+  extra: (g, B) => {
+    // schematic default-network hubs on the medial slice (front, middle, back)
+    const pts = [[0.24, 0.42], [0.52, 0.30], [0.66, 0.33], [0.40, 0.62]].map(([x, y]) => [B.x + x * B.w, B.y + y * B.h]);
+    const N = Network(g, pts, { color: K.pink });
+    return t => N.draw(t, at('p3_investig') + 1.2);
+  },
+}));
+beat('p3_red', brain({
+  map: 'sag', items: [['m_thinking', 'RECORDAR', 'p3_recordar'], ['m_bulb', 'IMAGINAR', 'p3_futuro'], ['m_shrug', 'PENSAR EN TI', 'p3_nosotros']],
+  labels: [['RED POR DEFECTO', [520, 200], 'p3_red', 0, 0]],
+  extra: (g, B) => {
+    const pts = [[0.24, 0.42], [0.52, 0.30], [0.66, 0.33], [0.40, 0.62]].map(([x, y]) => [B.x + x * B.w, B.y + y * B.h]);
+    const N = Network(g, pts, { color: K.pink });
+    const src = Tag(g, 'Raichle et al., 2001 · Buckner et al., 2008');
+    return t => { N.draw(t, at('p3_red')); show(src, t, at('p3_red') + 0.5); };
+  },
+}));
+beat('p3_nosignif', mascot('m_agree', { cap: 'reflexionar es NORMAL', hi: 'NORMAL', capAt: 'p3_normal', chips: [['solo ≠ más inteligente', 'p3_nosignif', K.pinkL]] }));
+beat('p3_sociable', still('s_alonetalk', { cap: 'a solas… o CONVERSANDO', hi: 'CONVERSANDO', capAt: 'p3_conversando', focus: [0.5, 0.4] }));
+beat('p3_condic', mascot('m_list', { cap: '¿qué te ayuda a PENSAR?', hi: 'PENSAR' }));
+beat('p3_senal6', signal(6, 'PIENSAS EN LAS CONSECUENCIAS', { hi: 'CONSECUENCIAS', m: 'i_scale', at: 'p3_conseq' }));
+beat('p3_vueltas', still('s_spiral', { cap: 'reflexionar ≠ PREOCUPARSE', hi: 'PREOCUPARSE', capAt: 'p3_atrapado', focus: [0.5, 0.5] }));
+beat('p3_trabajo', still('s_envelopes', { cap: '¿cambiar de TRABAJO?', hi: 'TRABAJO', focus: [0.5, 0.45], chips: [['ENTUSIASMO · MIEDO', 'p3_reaccion', '#FFF1B8'], ['CONDICIONES', 'p3_comparas'], ['FAMILIA', 'p3_familia']] }));
+beat('p3_proceso', row([['m_list', 'ORGANIZAR', 'p3_proceso'], ['m_juggle', 'ESCENARIOS', at('p3_proceso') + 1.6], ['m_shrug', 'LO QUE NO SÉ', at('p3_proceso') + 3.2]]));
+beat('p3_detenerse', mascot('m_meditate', { cap: 'pensar más ≠ ELEGIR MEJOR', hi: 'ELEGIR MEJOR', capAt: at('p3_detenerse') + 4.5, chips: [['evita impulsos ✓', 'p3_detenerse', '#CDEFD0']] }));
+beat('p3_repites', mascot('m_dizzy', { cap: 'las mismas dudas → AGOTAMIENTO', hi: 'AGOTAMIENTO', size: 56 }));
+beat('p3_pregunta', big([['¿DESCUBRO ALGO ÚTIL…', 'ÚTIL'], ['…o ALIMENTO mi preocupación?', 'ALIMENTO']], { y: 270, size: 80, pic: 'm_thinking' }));
+beat('p3_estrategia', still('s_proscons', { cap: 'escribe · datos · una FECHA', hi: 'FECHA', capAt: 'p3_momento', focus: [0.6, 0.45] }));
+beat('p3_herram', mascot('m_strong', { cap: 'una HERRAMIENTA, no una carga', hi: 'HERRAMIENTA' }));
+beat('p3_confianza', still('s_ask', { cap: 'otra mirada: PUNTOS CIEGOS', hi: 'PUNTOS CIEGOS', focus: [0.5, 0.45] }));
+beat('p3_silencio', mascot('m_meditate', { cap: 'descubrimientos en SILENCIO', hi: 'SILENCIO' }));
+beat('p3_genio', mascot('m_bulb', { cap: 'espacio para tus IDEAS', hi: 'IDEAS', chips: [['a cualquier EDAD', 'p3_edad', '#CDEFD0']] }));
+beat('p3_pregunta2', mascot('m_confused', { cap: '¿y si estabas EQUIVOCADO?', hi: 'EQUIVOCADO', capAt: 'p3_equivocada' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

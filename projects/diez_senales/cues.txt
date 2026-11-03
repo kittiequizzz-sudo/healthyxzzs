@@ -116,3 +116,91 @@ p2_acertar | No necesitas acertar siempre
 p2_sub | Si disfrutas descubriendo
 p2_prox | En el próximo apartado
 p3 | Punto 3
+# Video 2 = punto 3 + punto 4
+p3_tit | Tu mundo interior es más profundo
+p3_detener | Hay momentos en los que el mundo
+p3_apagas | Apagas la televisión
+p3_escuchas | escuchas tus propios pensamientos
+p3_curioso | Quizá entonces descubres algo curioso
+p3_senal5 | Esa experiencia nos conduce a la quinta
+p3_soledad | Disfrutar de ciertos momentos de soledad
+p3_caminar | Tal vez te gusta caminar
+p3_ventana | sentarte junto a una ventana
+p3_escapar | No siempre buscas escapar
+p3_ordenar | necesitas espacio para ordenar
+p3_aparecen | Durante esos instantes pueden aparecer
+p3_investig | La investigación sobre el cerebro
+p3_red | Se conocen como la red neuronal
+p3_recordar | recordar experiencias
+p3_futuro | imaginar situaciones futuras
+p3_nosotros | pensar sobre nosotros mismos
+p3_nosignif | Esto no significa que estar solo
+p3_normal | la reflexión interna forma parte
+p3_sociable | Además, disfrutar de la soledad
+p3_algunos | Algunos encuentran claridad
+p3_conversando | otros comprenden mejor sus ideas
+p3_condic | Lo importante es reconocer qué condiciones
+p3_senal6 | Y aquí aparece la sexta señal
+p3_conseq | examinar sus posibles consecuencias
+p3_vueltas | Quizá alguien te ha dicho alguna vez
+p3_atrapado | quedar atrapado en preocupaciones
+p3_trabajo | Imagina que te ofrecen cambiar
+p3_reaccion | La primera reacción puede ser
+p3_comparas | comparas las condiciones
+p3_familia | cómo afectaría a tu familia
+p3_proceso | Ese proceso requiere organizar
+p3_detenerse | La capacidad de detenerse antes de actuar
+p3_repites | Si repites las mismas dudas
+p3_pregunta | Por eso conviene preguntarte
+p3_estrategia | Una estrategia sencilla consiste
+p3_momento | establecer un momento
+p3_herram | transformas el pensamiento en una herramienta
+p3_confianza | También puedes consultar a alguien
+p3_silencio | Quizá ahora comprendas por qué
+p3_genio | No porque seas necesariamente un genio
+p3_edad | Y esa habilidad puede acompañarte
+p3_pregunta2 | Pero todavía queda una pregunta
+p3_equivocada | Qué ocurre cuando una mente reflexiva
+p3_dos | La respuesta nos llevará a dos señales
+p4 | Tu mente sabe adaptarse
+p4_idea | Qué ocurre cuando descubres que una idea
+p4_incomodo | Para algunas personas
+p4_valiosa | Sin embargo, existe una capacidad
+p4_revisar | Revisar nuestras creencias
+p4_senal7 | Esa es la séptima señal
+p4_60 | Imagina que siempre has pensado
+p4_70 | Un día conoces a alguien de 70
+p4_curiosidad | En lugar de descartar su experiencia
+p4_razones | No has cambiado de pensamiento
+p4_flex | La flexibilidad cognitiva nos permite
+p4_ejecutivas | Forma parte de las funciones ejecutivas
+p4_cualquier | Pero no consiste en aceptar
+p4_criterio | Una mente flexible necesita
+p4_razon | Quizá recuerdes una discusión
+p4_derrota | Lejos de ser una derrota
+p4_rectificar | Saber rectificar no demuestra
+p4_senal8 | La octava señal aparece
+p4_opinion | Aunque no compartas su opinión
+p4_tom | En psicología, esta capacidad se relaciona
+p4_familiar | Pensemos en una conversación familiar
+p4_hijo | Tu hijo considera importante
+p4_cerca | Tú preferirías que permaneciera
+p4_postura | Podrías limitarte a defender
+p4_motivos | Sin embargo, haces un esfuerzo
+p4_oportun | Quizá buscan nuevas oportunidades
+p4_renunciar | Comprenderlo no significa renunciar
+p4_realidades | Significa reconocer que dos personas
+p4_comunic | Esta capacidad puede mejorar
+p4_limites | También tiene límites
+p4_leer | Nadie puede leer la mente
+p4_preguntar | Por eso, antes de sacar conclusiones
+p4_importante | Y aquí merece la pena recordar
+p4_memoria | Si notas cambios repentinos
+p4_consulta | Consulta con un profesional sanitario
+p4_brusco | Si aparecen bruscamente
+p4_educativo | Este contenido es educativo
+p4_gestos | A veces basta con una pregunta sincera
+p4_transformar | Esos pequeños gestos
+p4_practicar | Lo verdaderamente interesante
+p4_quedan | Pero aún quedan dos señales
+p5 | Punto 5

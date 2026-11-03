@@ -22,3 +22,4 @@ projects/*/out/*.log
 projects/levantarse_silla/out/
 projects/*/out/
 projects/*/transcribe.log
+projects/*/tr_*/

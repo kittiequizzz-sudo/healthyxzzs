@@ -19,7 +19,9 @@ Metaphor panels: "as friendly 2D-animated medical explainer metaphors, detailed 
 backgrounds" + the same COLOR line. Item sheets: same STYLE words for the objects, flat cream #F5ECD7.
 Retired: Oct 21 "adult animated series… bold ink outlines, flat cel shading with one shadow tone" (came
 out harsh/loud), Oct 26 "rich, deep but harmonious palette…" and Oct 30 vivid block (worse engagement).
-Don't attach images from earlier videos as style references; use the new image 1 of each video.
+Owner approved the test sheet (Nov 3): `assets/style_ref_2d_soft.webp`. Attach it to image 1 of each new video
+as the style reference ("same drawing style and colours as the attached image, NEW people"); don't attach
+images from earlier videos.
 
 ## EXPRESSION (one per panel, pick and adapt)
 - effort: teeth gritted, brows knitted, veins on the forehead, one hand pushing on the knee

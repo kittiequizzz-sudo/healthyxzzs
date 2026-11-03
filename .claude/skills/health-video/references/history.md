@@ -126,3 +126,8 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
 - **Nov 3, 2026 (owner):** the images themselves looked gaudy and not pretty → new STYLE+COLOR block in
   prompt-blocks.md: high-quality 2D hand-drawn animation still, more detail (linework, hair, fabric,
   painted soft-focus background), soft natural low-to-medium saturation palette. Test on the next video.
+- **Nov 3, 2026 (owner):** approved the soft 2D test sheet (`assets/style_ref_2d_soft.webp`) and asked that the
+  video background not swallow these light images → `flat/theme_soft.js`: dusty-slate gradient stage
+  (#56707A→#334650) + vignette, cream panel frames with a soft dark shadow, faint shadow under cut-outs,
+  dark chips → deep slate, no colour grade. Compared cream / slate / sage on the sample: slate chosen.
+  common.js Shot now reads theme hooks C.frame / C.halo / C.grade / C.frameW (vivid sets grade: true).

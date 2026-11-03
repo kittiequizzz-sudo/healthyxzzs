@@ -8,7 +8,7 @@
 // Still no yellow/golden cast: the grade boosts saturation, it doesn't warm the image.
 Object.assign(C, {
   red: '#F0263F', orange: '#FF5A1F', amber: '#FFB21A', green: '#12B76A', blueDark: '#2F6BFF',
-  deep: '#1F4FD8', frame: '#FFFFFF', bg0: '#0A1633', bg1: '#162E66',
+  deep: '#1F4FD8', frame: '#FFFFFF', grade: true, bg0: '#0A1633', bg1: '#162E66',
 });
 const GLOWS = ['#2F6BFF', '#F0263F', '#0BB3A6', '#FF5A1F', '#8B5CF6', '#12B76A', '#E83E8C'];
 

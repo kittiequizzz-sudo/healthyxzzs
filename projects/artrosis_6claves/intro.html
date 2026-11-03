@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — morning knees, fear of wear, the contradiction, six keys.
+window.START = 0;
+window.END = at('h1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('intro');
+const c = k => () => at(k);
+
+stillScene(svg, 'i1a', () => 0, c('rigidez0'), { focus: [0.45, 0.6], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿TUS RODILLAS PIDEN PERMISO?', { hi: 'PERMISO' });
+  return t => show(a, t, 1.2);
+}, true);
+stillScene(svg, 'i0a', c('rigidez0'), c('crujido0'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const s = Stamp(g, 'RIGIDEZ', { cx: 1500, cy: 230, size: 80, color: C.red });
+  sfx('stamp', at('rigidez0') + 0.4);
+  return t => s.draw(t, at('rigidez0') + 0.4);
+}, true);
+stillScene(svg, 'i0b', c('crujido0'), c('pregunta0'), { focus: [0.5, 0.6], zoom: 0.14 }, g => {
+  const s = Stamp(g, '¡CRAC!', { cx: 1480, cy: 240, size: 90, color: C.orange, rot: 6 });
+  sfx('stamp', at('crujido0') + 0.6);
+  return t => s.draw(t, at('crujido0') + 0.6);
+}, true);
+stillScene(svg, 'i0d', c('pregunta0'), c('sesenta0'), { focus: [0.5, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, '¿CUÁNTO PODRÉ CAMINAR SIN AYUDA?', { hi: 'SIN AYUDA', size: 54 });
+  return t => show(a, t, at('cuanto0'));
+}, true);
+stillScene(svg, 'i1b', c('sesenta0'), c('miedo0'), { focus: [0.6, 0.5], zoom: 0.1 }, g => {
+  const r = SideChips(g, [['+60 AÑOS', c('sesenta0')], ['ARTROSIS', () => at('sesenta0') + 1.6]], { cx: 1640, y0: 200 });
+  const a = CAP(g, 'CADA MOVIMIENTO "CONSUME"', { hi: 'CONSUME' });
+  sfx('pop', at('sesenta0')); sfx('pop', at('sesenta0') + 1.6);
+  return t => { r(t); show(a, t, at('consume0')); };
+});
+stillScene(svg, 'i1c', c('miedo0'), c('escaleras0'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'POR MIEDO AL DESGASTE…', { hi: 'MIEDO' });
+  return t => show(a, t, at('miedo0'));
+});
+stillScene(svg, 'i1d', c('escaleras0'), c('contradiccion'), { focus: [0.55, 0.5], zoom: 0.1 }, g => {
+  const r = ChipRow(g, [['ESCALERAS', c('escaleras0')], ['PASEOS LARGOS', () => at('escaleras0') + 1.2], ['MOVIMIENTOS', () => at('escaleras0') + 2.6]], { cy: 960, size: 42 });
+  [0, 1.2, 2.6].forEach(d => sfx('pop', at('escaleras0') + d, 0.6));
+  return t => r(t);
+});
+// the contradiction: rest vs strengthen
+scene(svg, c('contradiccion'), c('respuesta0'), g => {
+  const h = Text(g, 'UNA CONTRADICCIÓN', { x: 960, y: 150, size: 80, color: ACC });
+  const a = IconTile(g, 'chair', 'DESCANSAR', 560, 500, { w: 420, h: 440 });
+  const vs = Text(g, 'VS', { x: 960, y: 500, size: 120, color: C.red });
+  const b = IconTile(g, 'dumbbell', 'FORTALECER', 1360, 500, { w: 420, h: 440 });
+  const la = Text(g, 'TÚ', { x: 560, y: 790, size: 48, color: C.grey });
+  const lb = Text(g, 'LOS ESPECIALISTAS', { x: 1360, y: 790, size: 48, color: C.green });
+  const host = Host(g, 'three_q', { cx: 960, cy: 820, fit: 420 });
+  const q = Bubble(g, '¿Quién tiene razón?', { cx: 1320, cy: 900, size: 50 });
+  sfx('pop', at('descansando0')); sfx('pop', at('especialistas')); sfx('ding', at('razon0'));
+  return t => {
+    show(h, t, at('contradiccion'));
+    pop(a, t, at('descansando0'), 560, 500); show(la, t, at('descansando0') + 0.3, at('razon0'));
+    show(vs, t, at('especialistas') - 0.4); pop(b, t, at('especialistas'), 1360, 500); show(lb, t, at('especialistas') + 0.3, at('razon0'));
+    host(t, at('razon0') - 0.2); pop(q, t, at('razon0'), 1320, 900);
+  };
+});
+stillScene(svg, 'i2b', c('respuesta0'), c('seis0'), { focus: [0.5, 0.4], zoom: 0.1 }, g => {
+  const r = SideChips(g, [['¿CÓMO LO HACES?', c('como0')], ['¿CUÁNTO ESFUERZO?', c('cuanto_esf')], ['¿QUÉ MÚSCULOS?', c('musculos0')]], { cx: 1540, y0: 200, size: 42, fill: C.white });
+  const a = CAP(g, 'EL PROBLEMA NO ES MOVERSE', { hi: 'NO' });
+  ['como0', 'cuanto_esf', 'musculos0'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => { show(a, t, at('respuesta0') + 3, at('como0')); r(t); };
+});
+// six keys
+scene(svg, c('seis0'), c('quedate'), g => {
+  const h = Text(g, '6 CLAVES', { x: 960, y: 140, size: 100, color: ACC });
+  const ts = SIGNS.map(([ic, s], i) => { const cx = 400 + (i % 3) * 560, cy = 420 + Math.floor(i / 3) * 340; return [IconTile(g, ic, s, cx, cy, { w: 330, h: 300 }), cx, cy, i]; });
+  const a = CAP(g, 'RODILLAS Y CADERAS', { hi: 'RODILLAS Y CADERAS' });
+  ts.forEach(([, , , i]) => sfx('pop', at('seis0') + 0.8 + i * 0.6, 0.5));
+  return t => { pop(h, t, at('seis0'), 960, 140); ts.forEach(([c, cx, cy, i]) => pop(c, t, at('seis0') + 0.8 + i * 0.6, cx, cy)); show(a, t, at('seis0') + 4.5); };
+});
+stillScene(svg, 'i2d', c('quedate'), c('millones'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'QUÉDATE HASTA EL FINAL', { hi: 'FINAL' });
+  return t => show(a, t, at('quedate') + 0.3);
+});
+stillScene(svg, 'i2c', c('millones'), () => 81.7, { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'UN ERROR EN ALGO "SALUDABLE"', { hi: '"SALUDABLE"' });
+  return t => show(a, t, at('millones'));
+});
+scene(svg, () => 81.7, () => END + 1, g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const h = Text(g, 'CUIDA TU INDEPENDENCIA', { x: 1260, y: 330, size: 64, color: ACC });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const cta = CTA(w, 'sub', 560);
+  sfx('click', at('suscribe0') + 0.6);
+  return t => { host(t, 81.8); show(h, t, 82.2); pop(cta, t, at('suscribe0') + 0.3, 1260, 560); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

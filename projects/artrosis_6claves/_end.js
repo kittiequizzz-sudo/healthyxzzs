@@ -1,0 +1,74 @@
+// Conclusion — hopeful reframe, six lessons, red flags, quiz (answer not revealed), like + subscribe.
+window.START = at('c0') - 0.3;
+window.END = 1283.97;
+window.DURATION = window.END;
+const svg = Stage('end');
+const c = k => () => at(k);
+
+scene(svg, () => START, c('esperanzadora'), g => {
+  const k = ItemCard(g, 'rodilla_sana', 600, 520, { w: 520, h: 700, fit: 600 });
+  const a = Text(g, '¿CADA PASO', { x: 1320, y: 420, size: 80 });
+  const b = Text(g, 'DESGASTA?', { x: 1320, y: 520, size: 80 });
+  const x = el('g', {}, g); IC.cross(x, 1240, 600, 1.6);
+  sfx('pop', START + 0.4); sfx('stamp', at('esperanzadora') - 0.6);
+  return t => { pop(k, t, START + 0.4, 600, 520); show(a, t, START + 1); show(b, t, START + 1.4); pop(x, t, at('esperanzadora') - 0.6, 1320, 680); };
+}, true);
+stillScene(svg, 'ha', c('esperanzadora'), c('lecciones'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SON PIEZAS FRÁGILES', { hi: 'NO' });
+  const r = SideChips(g, [['MOVIMIENTO', () => at('complejas') + 2.5], ['MÚSCULOS FUERTES', () => at('complejas') + 3.8], ['CUIDADOS', () => at('complejas') + 5.2]], { cx: 1600, y0: 200, size: 42, fill: C.white });
+  [2.5, 3.8, 5.2].forEach(d => sfx('pop', at('complejas') + d, 0.6));
+  return t => { show(a, t, at('fragiles')); r(t); };
+});
+// six lessons
+scene(svg, c('lecciones'), c('advertencia'), g => {
+  const h = Text(g, '6 LECCIONES', { x: 960, y: 120, size: 90, color: ACC });
+  const labels = ['SIN SEDENTARISMO', 'SENTADILLA ADAPTADA', 'CUÁDRICEPS FUERTE', 'CAMINAR CON LÍMITES', 'GLÚTEOS ACTIVOS', 'BUENA ALIMENTACIÓN'];
+  const ts = SIGNS.map(([ic], i) => { const cx = 400 + (i % 3) * 560, cy = 380 + Math.floor(i / 3) * 330; return [IconTile(g, ic, labels[i].replace(' ', '\n'), cx, cy, { w: 440, h: 290 }), cx, cy, 'l' + (i + 1)]; });
+  const a = el('g', {}, g); Card(a, { x: 260, y: 870, w: 1400, h: 130, fill: C.white }); Text(a, 'NO ELIMINAN LA ARTROSIS…', { x: 960, y: 937, size: 52, color: C.grey });
+  const b = ChipRow(g, [['MENOS MOLESTIAS', () => at('combinadas') + 2.5], ['MÁS CAPACIDAD', () => at('combinadas') + 4.2], ['AUTONOMÍA', () => at('combinadas') + 6]], { cy: 935, size: 42, fill: C.green, color: C.white });
+  ts.forEach(([, , , k]) => sfx('pop', at(k), 0.6)); sfx('pop', at('ninguna_c')); [2.5, 4.2, 6].forEach(d => sfx('pop', at('combinadas') + d, 0.5));
+  return t => { show(h, t, at('lecciones')); ts.forEach(([tile, cx, cy, k]) => pop(tile, t, at(k), cx, cy)); pop(a, t, at('ninguna_c'), 960, 935, at('combinadas') + 2.3); b(t); };
+});
+// red flags (≥ 8 s)
+stillScene(svg, 'hb', c('advertencia'), c('intenso_c'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UNA ADVERTENCIA IMPORTANTE', { hi: 'ADVERTENCIA' });
+  return t => show(a, t, at('advertencia'));
+});
+scene(svg, c('intenso_c'), c('quiz'), g => {
+  const w = Warn(g, 'BUSCA VALORACIÓN MÉDICA', ['DOLOR INTENSO O HINCHAZÓN REPENTINA', 'ENROJECIMIENTO, CALOR Y FIEBRE', 'NO PUEDES APOYAR LA PIERNA'], { kind: 'red', y: 110, w: 1500 });
+  const b = Chip(g, 'NO LO RESUELVAS CON MÁS EJERCICIO', { cx: 960, cy: 640, fill: C.white, size: 42 });
+  const d = Chip(g, 'ARTROSIS AVANZADA: CONSULTA ANTES', { cx: 960, cy: 790, fill: C.white, size: 42 });
+  const s = Source(g, 'Contenido educativo · no sustituye una evaluación médica', 960);
+  sfx('alert', at('intenso_c') + 0.1); sfx('pop', at('noaumentes')); sfx('pop', at('avanzada'));
+  return t => { pop(w, t, at('intenso_c') + 0.1, 960, 330); pop(b, t, at('noaumentes'), 960, 640); pop(d, t, at('avanzada'), 960, 790); show(s, t, at('educativo')); };
+});
+// quiz — answer not revealed
+stillScene(svg, 'hc', c('quiz'), c('cual'), { focus: [0.5, 0.5], zoom: 0.08 }, g => {
+  const a = CAP(g, 'PREGUNTA DEL DÍA', { hi: 'PREGUNTA' });
+  return t => show(a, t, at('quiz'));
+});
+scene(svg, c('cual'), c('megusta'), g => {
+  const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 110, size: 76, color: ACC });
+  const q = Text(g, '¿Qué cuida mejor las articulaciones con artrosis?', { x: 960, y: 210, size: 50, weight: 800 });
+  const ops = [['A', 'EVITAR CUALQUIER MOVIMIENTO', 'qa', 'hc'], ['B', 'FUERZA ADAPTADA Y PROGRESIVA', 'qb', null], ['C', 'CAMINAR LEJOS AUNQUE DUELA', 'qc', null]].map(([L, s, k, img], i) => {
+    const o = el('g', {}, g), y = 360 + i * 175;
+    Card(o, { x: 260, y: y - 70, w: 1400, h: 140, fill: C.white, r: 70 });
+    el('circle', { cx: 340, cy: y, r: 50, fill: ACC, stroke: C.ink, 'stroke-width': 5 }, o); Text(o, L, { x: 340, y: y + 3, size: 60, color: C.white });
+    Text(o, s, { x: 1000, y, size: 50 });
+    IC[['chair', 'dumbbell', 'walk'][i]](o, 1500, y - 50, 1);
+    return [o, k, y];
+  });
+  const host = Host(g, 'three_q', { cx: 1780, cy: 900, fit: 380 });
+  const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 940);
+  ops.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('ding', at('quiz')); sfx('click', at('escribe'));
+  return t => { show(h, t, at('cual')); show(q, t, at('cual') + 0.3); ops.forEach(([o, k, y]) => pop(o, t, at(k), 960, y)); host(t, at('escribe') - 0.5); pop(cta, t, at('escribe'), 760, 940); };
+});
+stillScene(svg, 'hd', c('megusta'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = el('g', { transform: 'translate(-420 -760)' }, g); const l = CTA(a, 'like', 900);
+  const b = el('g', { transform: 'translate(420 -760)' }, g); const s = CTA(b, 'sub', 900);
+  const cc = CAP(g, 'CUIDAR TU MOVILIDAD MARCA LA DIFERENCIA', { hi: 'MOVILIDAD', size: 48 });
+  sfx('click', at('megusta') + 0.2); sfx('click', at('megusta') + 1.4); sfx('ding', at('inevitable') + 4);
+  return t => { pop(l, t, at('megusta') + 0.2, 540, 140); pop(s, t, at('megusta') + 1.4, 1380, 140); show(cc, t, at('inevitable') + 2); };
+});
+
+window.draw = t => drawScenes(t);

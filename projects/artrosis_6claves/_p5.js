@@ -1,0 +1,117 @@
+// Punto 5 — the glutes: gluteus medius keeps the pelvis level; glute bridge + standing option.
+window.START = at('h5') - 0.3;
+window.END = at('h6') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p5');
+const c = k => () => at(k);
+
+TitleCard(svg, 5, 'EL PODER DE LOS GLÚTEOS', 'La clave olvidada', () => START, c('pagando'));
+stillScene(svg, 'g1b', c('pagando'), c('gluteos5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const k = Kicker(g, 5, 'GLÚTEOS'); Progress(g, 4);
+  const a = CAP(g, 'EL PROBLEMA EMPIEZA MÁS ARRIBA', { hi: 'MÁS ARRIBA', size: 54 });
+  return t => { slideIn(k, t, at('pagando') + 0.2, 'l', 600); show(a, t, at('pagando') + 3); };
+});
+scene(svg, c('gluteos5'), c('extrano5'), g => {
+  const h = ItemCard(g, 'cadera', 960, 520, { w: 560, h: 700, fit: 600 });
+  const s = Stamp(g, 'GLÚTEOS', { cx: 960, cy: 140, size: 84, color: ACC, rot: -4 });
+  sfx('stamp', at('gluteos5') + 0.1);
+  return t => { pop(h, t, at('gluteos5'), 960, 520); s.draw(t, at('gluteos5') + 0.1); };
+}, true);
+scene(svg, c('extrano5'), c('independientes'), g => {
+  const host = Host(g, 'three_q', { cx: 450, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿No era la rodilla?', { cx: 1250, cy: 380, size: 60 });
+  sfx('ding', at('extrano5') + 0.3);
+  return t => { host(t, at('extrano5')); pop(q, t, at('extrano5') + 0.3, 1250, 380); };
+});
+// chain of joints
+scene(svg, c('independientes'), c('medio5'), g => {
+  const h = Text(g, 'UNA CADENA DE MOVIMIENTO', { x: 960, y: 150, size: 72, color: ACC });
+  const ts = [['hip', 'CADERA'], ['knee', 'RODILLA'], ['feet', 'TOBILLO']].map(([ic, s], i) => [IconTile(g, ic, s, 420 + i * 540, 520, { w: 360, h: 380 }), i]);
+  const lk = [0, 1].map(i => { const l = el('g', {}, g); el('path', { d: `M${620 + i * 540} 520 H${760 + i * 540}`, stroke: C.ink, 'stroke-width': 14, 'stroke-dasharray': '4 22', 'stroke-linecap': 'round' }, l); return l; });
+  const a = CAP(g, 'LOS GLÚTEOS: PAPEL FUNDAMENTAL', { hi: 'GLÚTEOS', size: 54 });
+  [0.4, 1.2, 2].forEach(d => sfx('pop', at('independientes') + d, 0.6));
+  return t => { show(h, t, at('independientes')); ts.forEach(([tile, i]) => pop(tile, t, at('independientes') + 0.4 + i * 0.8, 420 + i * 540, 520)); lk.forEach((l, i) => show(l, t, at('independientes') + 1 + i * 0.8)); show(a, t, at('independientes') + 7); };
+});
+stillScene(svg, 'g1a', c('medio5'), c('pelvis5'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'GLÚTEO MEDIO: LADO DE LA CADERA', { hi: 'GLÚTEO MEDIO', size: 54 });
+  return t => show(a, t, at('medio5'));
+});
+// pelvis level vs dropping
+scene(svg, c('pelvis5'), c('nocausa'), g => {
+  const cd = ItemCard(g, 'cadera', 380, 520, { w: 480, h: 600, fit: 500 });
+  const p = el('g', {}, g);
+  const bar = el('g', {}, p);
+  el('rect', { x: 900, y: 380, width: 760, height: 60, rx: 30, fill: '#FFF6E3', stroke: C.ink, 'stroke-width': 6 }, bar);
+  el('circle', { cx: 1280, cy: 410, r: 18, fill: C.ink }, bar);
+  el('path', { d: 'M1280 440 V700', stroke: C.ink, 'stroke-width': 18, 'stroke-linecap': 'round' }, p);
+  el('path', { d: 'M1230 700 H1330', stroke: C.ink, 'stroke-width': 12, 'stroke-linecap': 'round' }, p);
+  const lvl = el('path', { d: 'M880 300 H1680', stroke: C.green, 'stroke-width': 6, 'stroke-dasharray': '18 14' }, p);
+  const lab = Chip(g, 'PELVIS ESTABLE', { cx: 1280, cy: 200, fill: C.green, color: C.white, size: 42 });
+  const lab2 = Chip(g, 'PELVIS QUE CAE', { cx: 1280, cy: 200, fill: C.red, color: C.white, size: 42 });
+  const r = ChipRow(g, [['CAMINAR', () => at('pelvis5') + 2.2], ['ESCALERAS', () => at('pelvis5') + 3.4], ['UNA PIERNA', () => at('pelvis5') + 4.8]], { cy: 860, size: 38, cx: 1280 });
+  const a = CAP(g, 'COMPENSACIONES EN LA RODILLA', { hi: 'COMPENSACIONES', size: 54 });
+  sfx('pop', at('pelvis5')); sfx('alert_soft', at('pierde5') + 1); sfx('pop', at('compensa5'));
+  return t => {
+    pop(cd, t, at('pelvis5'), 380, 520); show(p, t, at('pelvis5') + 0.4); r(t);
+    const tilt = 10 * E.inOut(prog(t, at('pierde5') + 1, at('pierde5') + 2));
+    bar.setAttribute('transform', `rotate(${tilt.toFixed(2)} 1280 410)`);
+    show(lab, t, at('pelvis5') + 0.6, at('pierde5') + 1); show(lab2, t, at('pierde5') + 1); show(a, t, at('compensa5'));
+  };
+});
+stillScene(svg, 'g1c', c('nocausa'), c('maquinas5'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = Chip(g, 'NO SIEMPRE ES LA CAUSA', { cx: 1450, cy: 150, fill: C.white, size: 42 });
+  const b = CAP(g, 'MÁS ESTABILIDAD', { hi: 'ESTABILIDAD' });
+  sfx('pop', at('nocausa') + 1);
+  return t => { slideIn(a, t, at('nocausa') + 1, 'r', 400); show(b, t, at('nocausa') + 6); };
+});
+stillScene(svg, 'g1d', c('maquinas5'), c('boca'), { focus: [0.5, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SIN MÁQUINAS COMPLICADAS', { hi: 'SIN MÁQUINAS' });
+  return t => show(a, t, at('maquinas5') - 0.5);
+});
+// exercise: glute bridge
+scene(svg, c('boca'), c('pie5'), g => {
+  const h = Chip(g, 'EJERCICIO · PUENTE DE GLÚTEOS', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['pu1', 'pu2', 'pu3'], [], { y: 260, h: 450, x0: 70, x1: 1500 });
+  const steps = [['BOCA ARRIBA, SUPERFICIE FIRME', 'boca'], ['RODILLAS DOBLADAS, BRAZOS A LOS LADOS', 'flexiona5'], ['APRIETA Y SUBE UNOS CENTÍMETROS', 'contrae5'], ['MANTÉN 2–3 SEGUNDOS Y BAJA', 'manten5'], ['SIN ARQUEAR LA ESPALDA', 'cinco5']].map(([s, k]) => [CAP(g, s, { cy: 900, size: 48 }), k]);
+  const tr = TimerRing(g, { cx: 1700, cy: 360, r: 100, dur: 3, label: 'SEGUNDOS' });
+  const cnt = Counter(g, { cx: 1700, cy: 660 }); cnt.set('5–8 ×');
+  ['boca', 'flexiona5', 'contrae5', 'manten5', 'cinco5'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('boca'));
+    if (t < at('cinco5')) lightRow(row, t, [at('boca'), at('contrae5') + 2, at('manten5') + 2.5]);
+    else { const i = Math.floor((t - at('cinco5')) / 1.2) % 2; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === [0, 1][i] ? 1 : 0.4); st.draw(t, 0, 1); }); }
+    steps.forEach(([cap, k], i) => show(cap, t, at(k), i < steps.length - 1 ? at(steps[i + 1][1]) : 1e9));
+    if (t >= at('manten5') && t < at('cinco5')) { show(tr.g, t, at('manten5')); tr.draw(t, at('manten5')); } else tr.g.setAttribute('opacity', 0);
+    show(cnt.g, t, at('cinco5'));
+  };
+});
+// standing alternative
+scene(svg, c('pie5'), c('adaptarse5'), g => {
+  const a = el('g', {}, g); const sa = Still(a, 'cut/pu4.png', { x: 120, y: 160, w: 560, h: 700, iw: SZ.pu4[0], ih: SZ.pu4[1], r: 30, focus: [0.5, 0.55], zoom: 0.04 });
+  const b = el('g', {}, g); const sb = Still(b, 'cut/g2a.png', { x: 760, y: 160, w: 1040, h: 700, iw: SZ.g2a[0], ih: SZ.g2a[1], r: 30, zoom: 0.08 });
+  const h = CAP(g, 'ALTERNATIVA DE PIE', { hi: 'DE PIE' });
+  sfx('pop', at('pie5') - 3); sfx('pop', at('pie5') - 1.5);
+  return t => { show(a, t, at('pie5') - 3.5); sa.draw(t, at('pie5') - 3.5, at('adaptarse5')); show(b, t, at('pie5') - 1.5); sb.draw(t, at('pie5') - 1.5, at('adaptarse5')); show(h, t, at('pie5')); };
+});
+stillScene(svg, 'g2b', c('adaptarse5'), () => at('suscribe5') - 2.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ADAPTADO A TU CAPACIDAD', { hi: 'TU CAPACIDAD' });
+  return t => show(a, t, at('adaptarse5') + 0.3);
+});
+scene(svg, () => at('suscribe5') - 2.5, c('seguiremos'), g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const cta = CTA(w, 'sub', 520);
+  sfx('click', at('suscribe5'));
+  return t => { host(t, at('suscribe5') - 2.5); pop(cta, t, at('suscribe5'), 1260, 520); };
+});
+stillScene(svg, 'g2c', c('seguiremos'), c('aliados5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'PIERNAS QUE TE ACOMPAÑAN', { hi: 'TE ACOMPAÑAN' });
+  return t => show(a, t, at('seguiremos') + 6);
+});
+stillScene(svg, 'g2d', c('aliados5'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const r = SideChips(g, [['ESTABILIDAD', () => at('aliados5') + 2.5], ['CONFIANZA', () => at('aliados5') + 4.5], ['INDEPENDENCIA', () => at('aliados5') + 6.5]], { cx: 1600, y0: 200, size: 42 });
+  const a = CAP(g, 'TUS GLÚTEOS: TUS ALIADOS', { hi: 'ALIADOS' });
+  [2.5, 4.5, 6.5].forEach(d => sfx('pop', at('aliados5') + d, 0.6));
+  return t => { show(a, t, at('aliados5')); r(t); };
+});
+
+window.draw = t => drawScenes(t);

@@ -1,0 +1,113 @@
+// Punto 3 — the quadriceps, the invisible shock absorber; seated knee extension.
+window.START = at('h3') - 0.3;
+window.END = at('h4') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p3');
+const c = k => () => at(k);
+
+TitleCard(svg, 3, 'EL CUÁDRICEPS', 'El amortiguador invisible', () => START, c('verdadero3'));
+stillScene(svg, 'q1d', c('verdadero3'), c('observa3'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const k = Kicker(g, 3, 'CUÁDRICEPS'); Progress(g, 2);
+  const a = CAP(g, '¿Y SI NO ES SOLO LA RODILLA?', { hi: 'NO ES SOLO' });
+  return t => { slideIn(k, t, at('verdadero3') + 0.2, 'l', 600); show(a, t, at('verdadero3') + 3); };
+});
+stillScene(svg, 'q1c', c('observa3'), c('cremas'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'TODA LA ATENCIÓN EN LA RODILLA', { hi: 'RODILLA', size: 54 });
+  return t => show(a, t, at('observa3') + 3);
+});
+stillScene(svg, 'q1a', c('cremas'), c('rara3'), { focus: [0.6, 0.5], zoom: 0.1 }, g => {
+  const r = ChipRow(g, [['CREMAS', c('cremas')], ['RODILLERAS', () => at('cremas') + 0.9], ['MEDICAMENTOS', () => at('cremas') + 1.8]], { cy: 960, size: 44 });
+  [0, 0.9, 1.8].forEach(d => sfx('pop', at('cremas') + d, 0.6));
+  return t => r(t);
+});
+stillScene(svg, 'q1b', c('rara3'), c('pieza3'), { focus: [0.55, 0.6], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿Y LA FUERZA DE TUS MÚSCULOS?', { hi: 'FUERZA', size: 54 });
+  return t => show(a, t, at('rara3') + 0.5);
+});
+stillScene(svg, 'q2a', c('pieza3'), c('grupo3'), { focus: [0.4, 0.45], zoom: 0.12 }, g => {
+  const s = Stamp(g, 'CUÁDRICEPS', { cx: 1450, cy: 170, size: 76, color: ACC, rot: -5 });
+  sfx('stamp', at('pieza3') + 3);
+  return t => s.draw(t, at('pieza3') + 3);
+});
+// shock absorber: spring on the thigh + daily tasks
+scene(svg, c('grupo3'), c('pierde3'), g => {
+  const kc = ItemCard(g, 'rodilla_flex', 560, 470, { w: 700, h: 660, fit: 580 });
+  const sp = el('path', { fill: 'none', stroke: ACC, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  const lab = Chip(g, 'AMORTIGUADOR', { cx: 560, cy: 880, fill: ACC, color: C.white, size: 44 });
+  const ts = [['chair', 'LEVANTARTE'], ['stairs', 'BAJAR UN ESCALÓN'], ['walk', 'PENDIENTES']].map(([ic, s], i) => [IconTile(g, ic, s, 1450, 230 + i * 270, { w: 520, h: 230 }), i]);
+  sfx('pop', at('grupo3')); sfx('pop', at('grupo3') + 2.5); [0, 1.6, 3.2].forEach(d => sfx('pop', at('cadavez3') + d, 0.6));
+  return t => {
+    pop(kc, t, at('grupo3'), 560, 470); pop(lab, t, at('grupo3') + 2.5, 560, 880);
+    // zig-zag spring along the front of the thigh, gently compressing
+    const on = t > at('grupo3') + 2, k = 1 + 0.12 * Math.sin((t - at('grupo3')) * 3);
+    if (on) { let d = 'M330 300'; for (let i = 1; i <= 8; i++) d += ` L${330 + i * 30 * k + (i % 2 ? 0 : 0)} ${300 + (i % 2 ? -26 : 26) + i * 10 * k}`; set(sp, { d, opacity: 1 }); } else set(sp, { opacity: 0 });
+    ts.forEach(([tile, i]) => pop(tile, t, at('cadavez3') + i * 1.6, 1450, 230 + i * 270));
+  };
+});
+// weakness consequences
+scene(svg, c('pierde3'), c('silencio3'), g => {
+  const h = Text(g, 'CUÁDRICEPS DÉBIL', { x: 960, y: 160, size: 84, color: C.red });
+  const ts = [['knee', 'RODILLA\nINSEGURA'], ['walk', 'COMPENSACIONES'], ['dumbbell', 'MÁS ESFUERZO']].map(([ic, s], i) => [IconTile(g, ic, s, 460 + i * 500, 540, { w: 420, h: 420 }), i]);
+  sfx('alert_soft', at('pierde3')); [0, 2.5, 5].forEach(d => sfx('pop', at('insegura') + d, 0.6));
+  return t => { show(h, t, at('pierde3')); ts.forEach(([tile, i]) => pop(tile, t, at('insegura') + i * 2.5, 460 + i * 500, 540)); };
+});
+// silent progression
+scene(svg, c('silencio3'), c('buena3'), g => {
+  const h = Text(g, 'AVANZA EN SILENCIO', { x: 960, y: 150, size: 80, color: ACC });
+  const ts = [['hand', 'APOYAR LOS\nBRAZOS', 'brazos3'], ['stairs', 'EVITAR\nESCALERAS', 'escaleras3'], ['walk', 'CAMINAR\nAGOTA', 'distancias3']].map(([ic, s, k], i) => [IconTile(g, ic, s, 400 + i * 560, 540, { w: 400, h: 440 }), k, i]);
+  const ar = [0, 1].map(i => { const a = el('g', {}, g); Arrow(a, 620 + i * 560, 540, 740 + i * 560, 540, C.red, 12); return a; });
+  ['brazos3', 'escaleras3', 'distancias3'].forEach(k => sfx('pop', at(k), 0.7));
+  return t => { show(h, t, at('silencio3')); ts.forEach(([tile, k, i]) => pop(tile, t, at(k), 400 + i * 560, 540)); ar.forEach((a, i) => show(a, t, at(['escaleras3', 'distancias3'][i]) - 0.4)); };
+});
+stillScene(svg, 'q2d', c('buena3'), c('prueba3'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = Chip(g, 'A LOS 70 Y 80 AÑOS', { cx: 1530, cy: 150, fill: C.white, size: 44 });
+  const b = Chip(g, 'EL MÚSCULO SE FORTALECE', { cx: 1450, cy: 280, fill: C.green, color: C.white, size: 44 });
+  const cc = CAP(g, 'SIN LEVANTAR PESAS', { hi: 'SIN' });
+  sfx('ding', at('buena3')); sfx('pop', at('setenta')); sfx('pop', at('setenta') + 2.5);
+  return t => { slideIn(a, t, at('setenta'), 'r', 400); slideIn(b, t, at('setenta') + 2.5, 'r', 400); show(cc, t, at('pesas')); };
+});
+// exercise: seated knee extension
+scene(svg, c('prueba3'), c('clave3'), g => {
+  const h = Chip(g, 'EJERCICIO · EXTENSIÓN DE RODILLA', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['re1', 're2', 're3'], [], { y: 170, h: 640, x0: 70, x1: 1500 });
+  const steps = [['ESPALDA APOYADA, PIES EN EL SUELO', 'sientate3'], ['EXTIENDE Y APRIETA EL MUSLO', 'extiende'], ['MANTÉN 5 SEGUNDOS', 'manten3'], ['BAJA DESPACIO', 'baja3'], ['5 VECES CON CADA PIERNA', 'repite3'], ['MÁS FÁCIL: SOLO CONTRAE EL MUSLO', 'exigente']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 50 }), k]);
+  const tr = TimerRing(g, { cx: 1700, cy: 400, r: 110, dur: 5, label: 'SEGUNDOS' });
+  const cnt = Counter(g, { cx: 1700, cy: 700, label: 'POR PIERNA' }); cnt.set('5 ×');
+  ['sientate3', 'extiende', 'manten3', 'baja3', 'repite3', 'exigente'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('prueba3'));
+    lightRow(row, t, [at('sientate3'), at('extiende'), at('baja3')]);
+    steps.forEach(([cap, k], i) => show(cap, t, at(k), i < steps.length - 1 ? at(steps[i + 1][1]) : 1e9));
+    if (t >= at('manten3') && t < at('baja3') + 0.3) { show(tr.g, t, at('manten3')); tr.draw(t, at('manten3')); } else tr.g.setAttribute('opacity', 0);
+    show(cnt.g, t, at('repite3'));
+  };
+});
+stillScene(svg, 'q2b', c('clave3'), c('pedirte'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SIN DOLOR INTENSO NI INFLAMACIÓN', { hi: 'SIN', size: 52 });
+  const b = Chip(g, 'PROGRESA POCO A POCO', { cx: 1450, cy: 150, fill: C.green, color: C.white, size: 44 });
+  sfx('pop', at('clave3') + 0.4);
+  return t => { slideIn(b, t, at('clave3') + 0.4, 'r', 400); show(a, t, at('clave3') + 2.5); };
+});
+stillScene(svg, 'q2c', c('pedirte'), c('reconstruir'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const sh = el('g', {}, g); Card(sh, { x: 1380, y: 90, w: 440, h: 140, fill: C.white, r: 70 }); IC.share(sh, 1410, 110, 1); Text(sh, 'COMPARTE', { x: 1640, y: 162, size: 50 });
+  const a = CAP(g, 'AYUDA A QUIEN PIERDE FUERZA', { hi: 'AYUDA' });
+  sfx('click', at('comparte3'));
+  return t => { pop(sh, t, at('comparte3'), 1600, 160); show(a, t, at('pedirte') + 1.5); };
+});
+scene(svg, c('reconstruir'), c('autonomia3'), g => {
+  const a = el('g', {}, g); Card(a, { x: 260, y: 200, w: 1400, h: 200, fill: C.white }); Mark(a, false, 400, 300, 1); Text(a, 'RECONSTRUIR EL CARTÍLAGO', { x: 1020, y: 300, size: 56, color: C.grey });
+  const b = el('g', {}, g); Card(b, { x: 260, y: 470, w: 1400, h: 200, fill: C.white }); Mark(b, true, 400, 570, 1); Text(b, 'PIERNAS QUE TE SOSTIENEN', { x: 1020, y: 570, size: 56 });
+  const r = ChipRow(g, [['SOSTENERTE', () => at('significa3') + 1], ['MOVERTE', () => at('significa3') + 2.6], ['AUTONOMÍA', () => at('significa3') + 3.8]], { cy: 800, size: 44, fill: C.green, color: C.white });
+  sfx('pop', at('reconstruir')); sfx('ding', at('significa3')); [1, 2.6, 3.8].forEach(d => sfx('pop', at('significa3') + d, 0.5));
+  return t => { pop(a, t, at('reconstruir'), 960, 300); pop(b, t, at('significa3'), 960, 570); r(t); };
+});
+scene(svg, c('autonomia3'), () => END + 1, g => {
+  const host = Host(g, 'face_happy', { cx: 1400, cy: 560, fit: 640 });
+  const a = Text(g, 'TU AUTONOMÍA', { x: 640, y: 440, size: 96, color: ACC });
+  const b = Text(g, 'un gran regalo', { x: 640, y: 560, size: 64 });
+  const hr = el('g', {}, g); IC.heart(hr, 580, 620, 1.2);
+  sfx('ding', at('autonomia3') + 3);
+  return t => { host(t, at('autonomia3')); show(a, t, at('autonomia3') + 0.3); show(b, t, at('autonomia3') + 3); pop(hr, t, at('autonomia3') + 3.4, 640, 680); };
+});
+
+window.draw = t => drawScenes(t);

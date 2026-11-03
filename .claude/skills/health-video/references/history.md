@@ -136,3 +136,4 @@ low-passed, no clicks or pitch sweeps, and keeps each ≈ 14–16 dB under the v
   proportions, rounded shapes, medium clean outlines, flat colours + one soft shadow; soft palette kept).
   theme_soft.js (slate stage) still the default. New cartoon test sheet pending.
 - **Nov 3, 2026:** owner approved the cartoon test sheet → `assets/style_ref_cartoon.webp` = style reference for image 1 of every video. Next video starts from huevo_colesterol/common.js + flat/theme_soft.js.
+- pose sheets with a wall (sentadilla_pared): don't use cut_poses (wall strip is near-cream, gets eaten); crop each pose from wall_right+6, flood-fill background from the border, draw the wall in code so it stays fixed.

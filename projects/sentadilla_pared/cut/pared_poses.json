@@ -1,0 +1,25 @@
+{
+ "canvas": [
+  373,
+  965
+ ],
+ "floor_y": 959,
+ "poses": [
+  {
+   "file": "pared_0.png",
+   "x0": 103
+  },
+  {
+   "file": "pared_1.png",
+   "x0": 38
+  },
+  {
+   "file": "pared_2.png",
+   "x0": 55
+  },
+  {
+   "file": "pared_3.png",
+   "x0": 20
+  }
+ ]
+}

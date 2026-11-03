@@ -69,7 +69,7 @@ scene(svg, c('cual'), c('megusta'), g => {
     IC[['chair', 'dumbbell', 'walk'][i]](o, 1500, y - 50, 1);
     return [o, k, y];
   });
-  const host = Host(g, 'three_q', { cx: 1780, cy: 900, fit: 380 });
+  const host = Host(g, 'three_q', { cx: 1730, cy: 880, fit: 360 });
   const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 940);
   ops.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('ding', at('quiz')); sfx('click', at('escribe'));
   return t => { show(h, t, at('cual')); show(q, t, at('cual') + 0.3); ops.forEach(([o, k, y]) => pop(o, t, at(k), 960, y)); host(t, at('escribe') - 0.5); pop(cta, t, at('escribe'), 760, 940); };

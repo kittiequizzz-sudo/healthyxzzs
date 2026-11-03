@@ -97,13 +97,13 @@ stillScene(svg, 'g2b', c('adaptarse5'), () => at('suscribe5') - 2.5, { focus: [0
   const a = CAP(g, 'ADAPTADO A TU CAPACIDAD', { hi: 'TU CAPACIDAD' });
   return t => show(a, t, at('adaptarse5') + 0.3);
 });
-scene(svg, () => at('suscribe5') - 2.5, c('seguiremos'), g => {
+scene(svg, () => at('suscribe5') - 2.5, () => at('seguiremos') + 3, g => {
   const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
   const w = el('g', { transform: 'translate(300 0)' }, g); const cta = CTA(w, 'sub', 520);
   sfx('click', at('suscribe5'));
   return t => { host(t, at('suscribe5') - 2.5); pop(cta, t, at('suscribe5'), 1260, 520); };
 });
-stillScene(svg, 'g2c', c('seguiremos'), c('aliados5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+stillScene(svg, 'g2c', () => at('seguiremos') + 3, c('aliados5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
   const a = CAP(g, 'PIERNAS QUE TE ACOMPAÑAN', { hi: 'TE ACOMPAÑAN' });
   return t => show(a, t, at('seguiremos') + 6);
 });

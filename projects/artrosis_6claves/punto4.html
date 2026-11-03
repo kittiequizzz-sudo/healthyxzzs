@@ -70,8 +70,8 @@ stillScene(svg, 'w1b', c('bruscamente'), c('error4'), { focus: [0.5, 0.5], zoom:
 scene(svg, c('error4'), c('apoyas'), g => {
   const a = Text(g, '¿MÁS PASOS = MÁS BENEFICIOS?', { x: 960, y: 420, size: 84 });
   const s = Stamp(g, 'NO SIEMPRE', { cx: 960, cy: 640, size: 100, color: C.red });
-  sfx('pop', at('error4') + 2.5); sfx('stamp', at('error4') + 5.5);
-  return t => { show(a, t, at('error4') + 2.5); s.draw(t, at('error4') + 5.5); };
+  sfx('pop', at('error4') + 0.2); sfx('stamp', at('error4') + 4.5);
+  return t => { show(a, t, at('error4') + 0.2); s.draw(t, at('error4') + 4.5); };
 });
 // every step: forces shared by muscles and joints
 scene(svg, c('apoyas'), c('hora4'), g => {

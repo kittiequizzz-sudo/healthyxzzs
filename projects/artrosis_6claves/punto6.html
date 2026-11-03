@@ -91,21 +91,21 @@ scene(svg, c('transformar'), () => at('invito') - 0.2, g => {
     cut(r, n1, 320, y, 150); if (n2) { Arrow(r, 410, y, 470, y, C.ink, 8); cut(r, n2, 560, y, 150); }
     Text(r, s, { x: n2 ? 1150 : 1050, y, size: 46 }); IC.check(r, 1600, y - 45, 0.9); return [r, k, y];
   });
-  rows.forEach(([, k]) => sfx('pop', at(k), 0.7));
-  return t => { show(h, t, at('transformar')); rows.forEach(([r, k, y]) => pop(r, t, at(k), 960, y)); };
+  rows.forEach(([, k], i) => sfx('pop', i ? at(k) : at('transformar') + 1.5, 0.7));
+  return t => { show(h, t, at('transformar')); rows.forEach(([r, k, y], i) => pop(r, t, i ? at(k) : at('transformar') + 1.5, 960, y)); };
 });
-scene(svg, () => at('invito') - 0.2, c('distinguir'), g => {
+scene(svg, () => at('invito') - 0.2, () => at('distinguir') + 2.5, g => {
   const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
   const w = el('g', { transform: 'translate(300 0)' }, g); const cta = CTA(w, 'sub', 520);
   sfx('click', at('suscribe6'));
   return t => { host(t, at('invito') - 0.2); pop(cta, t, at('suscribe6'), 1260, 520); };
 });
-scene(svg, c('distinguir'), c('decisiones'), g => {
+scene(svg, () => at('distinguir') + 2.5, c('decisiones'), g => {
   const a = el('g', {}, g); Card(a, { x: 200, y: 260, w: 700, h: 360, fill: C.white }); IC.check(a, 500, 300, 1); Text(a, 'CONSEJOS ÚTILES', { x: 550, y: 500, size: 52 });
   const b = el('g', {}, g); Card(b, { x: 1020, y: 260, w: 700, h: 360, fill: C.white }); IC.cross(b, 1320, 300, 1); Text(b, 'FALSAS PROMESAS', { x: 1370, y: 500, size: 52, color: C.grey });
   const cc = CAP(g, 'NI UN EJERCICIO ÚNICO NI UN INGREDIENTE SECRETO', { size: 44, hi: 'SECRETO' });
-  sfx('pop', at('distinguir') + 1.5); sfx('pop', at('distinguir') + 3.5);
-  return t => { pop(a, t, at('distinguir') + 1.5, 550, 440); pop(b, t, at('distinguir') + 3.5, 1370, 440); show(cc, t, at('distinguir') + 6); };
+  sfx('pop', at('distinguir') + 2.6); sfx('pop', at('distinguir') + 4);
+  return t => { pop(a, t, at('distinguir') + 2.6, 550, 440); pop(b, t, at('distinguir') + 4, 1370, 440); show(cc, t, at('distinguir') + 6); };
 });
 scene(svg, c('decisiones'), () => END + 1, g => {
   const cal = el('g', {}, g); IC.calendar(cal, 760, 160, 4);

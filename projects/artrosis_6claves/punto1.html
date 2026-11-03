@@ -39,9 +39,9 @@ stillScene(svg, 'i2a', c('reducir1'), c('maquina'), { focus: [0.5, 0.45], zoom: 
 });
 // not machine parts: living tissue, no vessels, synovial fluid
 scene(svg, c('maquina'), c('esponja'), g => {
-  const gear = el('g', {}, g); IC.gear(gear, 230, 260, 2.4);
-  const x = el('g', {}, g); IC.cross(x, 380, 240, 1.1);
-  const ml = Text(g, 'NO ES UNA MÁQUINA', { x: 450, y: 600, size: 52 });
+  const gear = el('g', {}, g); IC.gear(gear, 170, 200, 3.6);
+  const x = el('g', {}, g); IC.cross(x, 430, 170, 1.5);
+  const ml = Text(g, 'NO ES UNA MÁQUINA', { x: 350, y: 660, size: 60 });
   const k = ItemCard(g, 'rodilla_sana', 1180, 480, { w: 560, h: 720, fit: 600 });
   const ring = Callout(g, 1180, 520, 150);
   const r = SideChips(g, [['TEJIDO VIVO', c('vivo')], ['SIN VASOS SANGUÍNEOS', c('vasos')], ['LÍQUIDO SINOVIAL', c('sinovial')]], { cx: 1680, y0: 300, dy: 170, size: 36 });
@@ -49,7 +49,7 @@ scene(svg, c('maquina'), c('esponja'), g => {
   sfx('pop', at('maquina')); sfx('stamp', at('maquina') + 1); sfx('pop', at('vivo') - 0.5);
   ['vivo', 'vasos', 'sinovial'].forEach(kk => sfx('pop', at(kk), 0.6));
   return t => {
-    pop(gear, t, at('maquina'), 350, 380); pop(x, t, at('maquina') + 1, 435, 295); show(ml, t, at('maquina') + 1.2);
+    pop(gear, t, at('maquina'), 350, 380); pop(x, t, at('maquina') + 1, 505, 245); show(ml, t, at('maquina') + 1.2);
     pop(k, t, at('vivo') - 0.5, 1180, 480); ring(t, at('vivo') + 0.5, at('vasos')); r(t); show(a, t, at('sinovial') + 1.5);
   };
 });
@@ -114,7 +114,7 @@ scene(svg, c('solucion1'), c('preguntarte1'), g => {
   const g2 = el('g', {}, g); Card(g2, { x: 610, y: 400, w: 700, h: 240, fill: C.white }); IC.stairs(g2, 650, 470, 1); Text(g2, 'POCO A POCO', { x: 1010, y: 490, size: 64, color: ACC }); Text(g2, 'respetando tus capacidades', { x: 1010, y: 570, size: 36, weight: 700 });
   sfx('pop', at('suaves1') + 0.5); sfx('pop', at('silla1')); sfx('ding', at('gradual1'));
   return t => {
-    r(t); show(a, t, at('suaves1') + 0.5); sa.draw(t, at('suaves1'), at('gradual1')); show(b, t, at('silla1')); sb.draw(t, at('silla1'), at('gradual1'));
+    r(t); show(a, t, at('suaves1') + 0.5, at('gradual1')); sa.draw(t, at('suaves1'), at('gradual1')); show(b, t, at('silla1'), at('gradual1')); sb.draw(t, at('silla1'), at('gradual1'));
     pop(g2, t, at('gradual1'), 960, 520);
   };
 });

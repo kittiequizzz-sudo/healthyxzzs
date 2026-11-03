@@ -190,7 +190,8 @@ const icon = (g, name, x, y, s = 1) => { const w = el('g', {}, g); IC[name](w, x
 function IconTile(g, name, label, cx, cy, { w = 300, h = 300, fill = C.white } = {}) {
   const c = el('g', {}, g);
   Card(c, { x: cx - w / 2, y: cy - h / 2, w, h, fill });
-  IC[name](c, cx - 70, cy - h / 2 + 30, 1.4);
+  const lines = label.split('\n').length, ks = Math.min(w * 0.55, h - 90 - lines * 44) / 100;
+  IC[name](c, cx - 50 * ks, cy - h / 2 + 24, ks);
   label.split('\n').forEach((l, i, a) => Text(c, l, { x: cx, y: cy + h / 2 - 50 - (a.length - 1 - i) * 44, size: l.length > 11 ? 34 : 40 }));
   return c;
 }

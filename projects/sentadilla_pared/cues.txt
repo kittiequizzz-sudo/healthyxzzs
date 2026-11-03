@@ -1,0 +1,226 @@
+# One timeline: audio/voice_full.mp3, transcript/words_clean.json. label | phrase, in order.
+# --- intro
+sales0 | Sales a caminar cada mañana
+pasos0 | completas tus pasos diarios
+noche0 | al llegar la noche
+pesadas0 | tus piernas siguen pesadas
+escaleras0 | subir unas escaleras
+tension0 | tu tensión arterial continúa
+pregunta0 | Entonces aparece una pregunta
+algo_mas0 | algo más que caminar
+pared0 | una simple pared de tu casa
+maquinas0 | Sin máquinas, sin pesas
+diferente0 | de una manera diferente
+nombre0 | Se llama sentadilla isométrica
+estudios0 | diversos estudios científicos
+regularidad0 | correctamente y con regularidad
+atencion0 | Pero atención: caminar sigue
+sorpresa0 | La verdadera sorpresa está
+hoy0 | Hoy descubrirás qué sucede
+vasos0 | dentro de tus vasos sanguíneos
+musculos0 | cómo intervienen los músculos
+adaptar0 | cómo adaptar este ejercicio
+suscribete0 | suscríbete al canal
+casa0 | cambiar tu forma de entrenar en casa
+# --- punto 1
+p1 | Punto 1 El límite de caminar
+ocho_mil1 | cumplir tus ocho mil pasos
+sin_entrenar1 | estar dejando sin entrenar
+contradictorio1 | Parece contradictorio
+decadas1 | Durante décadas hemos escuchado
+cierto1 | Y es cierto
+diferencia1 | Pero existe una diferencia importante
+activo1 | entre mantenerse activo
+fuerza1 | para conservar su fuerza
+plantear1 | quiero plantearte una pregunta
+veinte1 | caminar durante veinte minutos
+pocos1 | mantener una posición contra la pared
+depende1 | porque depende del tipo
+antonio1 | Piensa en Antonio
+madrid1 | que vive en Madrid
+barrio1 | sale a caminar por su barrio
+vecinos1 | saluda a sus vecinos
+preocupante1 | últimamente nota algo preocupante
+sube1 | Cuando sube las escaleras
+tobillos1 | siente los tobillos hinchados
+pregunta1 | Antonio comienza a preguntarse
+sarcopenia1 | llamado sarcopenia
+perdida1 | la pérdida progresiva de masa
+estimulos1 | necesitan estímulos específicos
+resistencia1 | Caminar ayuda a mantener la resistencia
+no_siempre1 | pero no siempre proporciona
+retorno1 | el retorno de la sangre
+valvulas1 | las válvulas venosas
+pantorrillas1 | los músculos de las pantorrillas
+pesadez1 | sensación de pesadez
+evaluacion1 | necesitan una evaluación médica
+persistente1 | Una hinchazón persistente
+posibilidad1 | Aquí aparece una posibilidad
+isometricas1 | contracciones isométricas
+inmovil1 | prácticamente inmóvil
+complementar1 | puede complementar los beneficios
+control1 | mejorar el control de la presión
+esencial1 | todavía falta comprender algo esencial
+revelacion1 | nuestra siguiente gran revelación
+# --- punto 2
+p2 | Punto 2 La ciencia detrás
+solo2 | Tu corazón no trabaja solo
+kilometros2 | miles de kilómetros
+detalle2 | existe un detalle
+fuerza2 | la fuerza con la que late
+resistencia2 | la resistencia que encuentra
+manguera2 | Imagina una manguera
+presion2 | la presión cambia
+contraerse2 | Las arterias pueden contraerse
+anos2 | Con los años, esa flexibilidad
+sedentarismo2 | sedentarismo, hipertensión
+apoyas2 | Ahora imagina que apoyas
+flexionas2 | flexionas las rodillas
+muslos2 | los músculos de los muslos
+isometrico2 | recibe el nombre de ejercicio isométrico
+cambios2 | se producen cambios temporales
+semanas2 | durante varias semanas
+reducir2 | pueden contribuir a reducir
+mecanismos2 | Entre los posibles mecanismos
+oxido2 | óxido nítrico
+incorrecto2 | sería incorrecto afirmar
+regular2 | principalmente al entrenamiento regular
+precaucion2 | existe una precaución fundamental
+aumentar2 | puede aumentar temporalmente
+respiracion2 | evitando aguantar la respiración
+consulta2 | consulta antes con tu profesional
+suscribete2 | suscríbete al canal
+milagrosas2 | sin promesas milagrosas
+pantorrillas2 | los músculos de las pantorrillas también
+segundo2 | el segundo corazón
+# --- punto 3
+p3 | Punto 3 El segundo corazón
+musculo3 | Hay un músculo en tu cuerpo
+pecho3 | No está en el pecho
+puntillas3 | te pones de puntillas
+sorprendente3 | Y lo más sorprendente
+pantorrillas3 | los músculos de las pantorrillas, especialmente
+soleo3 | del sóleo
+gemelos3 | debajo de los gemelos
+segundo3 | el segundo corazón porque
+porque3 | Pero por qué necesitamos
+gravedad3 | La explicación está en la gravedad
+arriba3 | debe regresar hacia arriba
+valvulas3 | las venas cuentan con válvulas
+comprimen3 | comprimen las venas profundas
+esponja3 | Imagina una esponja
+aprietas3 | Cuando la aprietas
+sueltas3 | Cuando la sueltas
+sentado3 | permanecer mucho tiempo sentado
+caminar3 | mientras que caminar
+relacion3 | qué relación tiene esto
+muslos3 | trabaja principalmente los músculos de los muslos
+talones3 | elevaciones suaves de talones
+separado3 | por separado al principio
+ejemplo3 | Por ejemplo, puedes apoyar
+eleva3 | elevar lentamente ambos talones
+bajalos3 | bájalos de forma controlada
+activa3 | Este sencillo movimiento activa
+rapido3 | No necesitas hacerlo rápidamente
+eso_si3 | Eso sí, activar esta bomba
+varices3 | la hinchazón o las varices
+repentina3 | Si una pierna se hincha repentinamente
+urgente3 | necesita valoración médica urgente
+pregunta3 | Y ahora quiero preguntarte algo
+pesadas3 | sientes las piernas pesadas
+ciudad3 | desde qué ciudad
+# --- punto 4
+p4 | Punto 4 Cómo hacer el ejercicio
+pared4 | Una pared, unos pocos minutos
+diferencia4 | existe una diferencia enorme
+segundos4 | el número de segundos
+firme4 | busca una pared firme
+suelo4 | un suelo antideslizante
+calzado4 | calzado con buena sujeción
+alfombras4 | Evita las alfombras
+equilibrio4 | Si tienes dificultades
+demostrar4 | no estamos buscando demostrar fuerza
+nivel4 | Empezaremos con el primer nivel
+espalda4 | Coloca la espalda contra la pared
+caderas4 | a la anchura de las caderas
+adelanta4 | Adelántalos ligeramente
+desliza4 | desliza lentamente la espalda
+centimetros4 | solo unos centímetros
+recto4 | hasta formar un ángulo recto
+pequena4 | Una flexión pequeña
+respiracion4 | Ahora presta atención a tu respiración
+inspira4 | Inspira suavemente
+nunca4 | Nunca aguantes la respiración
+manten4 | Mantén la posición entre cinco
+vuelve4 | vuelve lentamente a ponerte de pie
+descansa4 | Descansa hasta recuperar
+domines4 | Cuando domines este primer nivel
+estudiados4 | En los programas estudiados
+supervision4 | sin supervisión
+complementar4 | Para complementar el ejercicio
+manos4 | Coloca las manos sobre ella
+reps4 | Haz entre ocho y diez
+rebotes4 | sin rebotes
+regla4 | Existe una regla
+controlado4 | debe resultar controlado
+mareo4 | Si notas mareo
+detente4 | detente y busca atención
+cuatro4 | No necesitas alcanzar inmediatamente
+progresion4 | La progresión individual
+suscribete4 | suscríbete al canal
+siguiente4 | En el siguiente apartado
+# --- punto 5
+p5 | Punto 5 La combinación inteligente
+abandonar5 | Imagina que mañana decides abandonar
+error5 | Pero estarías cometiendo un error
+clave5 | la verdadera clave no consiste
+mejores5 | Caminar sigue siendo una de las mejores
+corazon5 | tu corazón aumenta progresivamente
+pulmones5 | tus pulmones trabajan
+animo5 | mejorar el estado de ánimo
+descanso5 | favorecer el descanso nocturno
+sociales5 | relaciones sociales
+sustituir5 | no puede sustituir completamente
+olvidan5 | existe algo que muchos olvidan
+fuerza5 | conservar la fuerza muscular
+silla5 | levantarte de una silla baja
+bolsas5 | cargar las bolsas de la compra
+diferentes5 | la resistencia y la fuerza son capacidades
+estrategia5 | una estrategia razonable
+veinte5 | unos veinte minutos de caminata
+conversar5 | que te permita conversar
+tarde5 | Más tarde, cuando te encuentres
+semanales5 | Dos o tres sesiones semanales
+medicamentos5 | no sustituyas tus medicamentos
+competicion5 | no tiene que convertirse en una competición
+diez_mil5 | diez mil pasos diarios
+regular5 | Lo importante es mantener una actividad
+recuperemos5 | Y ahora recuperemos la pregunta
+superar5 | superar los beneficios
+sugieren5 | Algunos estudios sugieren
+sustituya5 | no significa que una sesión breve
+respuesta5 | La respuesta, por tanto
+movimiento5 | Tu corazón necesita movimiento
+musculos5 | tus músculos necesitan fuerza
+equilibrio5 | tu cuerpo necesita equilibrio
+autonomia5 | conservar tu autonomía
+# --- conclusión
+despues_c | Después de los sesenta años, cuidar
+agotamiento_c | no significa caminar hasta el agotamiento
+estimulos_c | ofrecerle pequeños estímulos
+hoy_c | Hoy hemos descubierto
+herramienta_c | una herramienta interesante
+sentadillas_c | Las sentadillas isométricas
+pantorrillas_c | el papel de las pantorrillas
+rivales_c | no son actividades rivales
+reto_c | proponerte un pequeño reto
+observa_c | Observa tus sensaciones
+pregunta_c | Y aquí va una pregunta
+musculo_c | qué músculo de la pantorrilla
+escribe_c | Escribe tu respuesta
+util_c | Si este vídeo te ha resultado útil
+suscribete_c | suscríbete al canal y compártelo
+advertencia_c | Y una última advertencia
+consulta_c | consulta con un profesional
+porque_c | Porque envejecer con salud
+mejor_c | sino en moverte mejor

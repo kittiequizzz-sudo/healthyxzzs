@@ -1,7 +1,7 @@
 # Plan: "5 transformaciones de tus piernas después de los 80" (~21–22 min, standard pastel process)
 Sections: intro · punto1 (fuerza, Ricardo/Burgos) · punto2 (segundo corazón, Mercedes/Valencia) · punto3 (calambres,
 Elisa/Granada) · punto4 (rodillas rígidas, Rosario/Toledo) · punto5 (propiocepción, Federico/Asturias) · conclusion.
-Season: WINTER (previous video was autumn). New cast sheet `reparto80` (5 story people 80+ and a doctor/physio);
+Season: WINTER (previous video was autumn). Old cast sheet `reparto` (owner, 3 Nov): Ricardo=Antonio, Mercedes/Elisa/Rosario=Pilar, Federico=Rafael, doctor/physio=Lucía;
 host = owner's mascot cut-outs. Named people → "Dramatización".
 Tints (bg · accent): intro #EAF0F6 · #5B8DB8 | p1 #F3E7D6 · #B7794A | p2 #FFE9D2 · #F08A2E | p3 #E6E2F3 · #7A68B8 |
 p4 #F8E1E7 · #D9668A | p5 #DFF0E4 · #4E9A6A | end #FCEDCE · #E8735F.

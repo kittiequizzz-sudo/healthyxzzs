@@ -18,7 +18,11 @@ helps), clean and simple, on soft cream backgrounds" + the same COLOR line. Item
 STYLE words for the objects, flat cream #F5ECD7.
 Superseded the same day: the semi-realistic "high-quality 2D hand-drawn animation still… detailed hair
 strands and fabric folds" block (owner liked the softness but wants cartoon). `assets/style_ref_2d_soft.webp`
-was that test — don't attach it as style reference; use the approved cartoon test sheet once there is one.
+was that test — don't attach it.
+**Approved (owner, Nov 3): `assets/style_ref_cartoon.webp`.** Attach it to image 1 of every new video as the
+style reference ("in exactly the same cartoon style and soft colours as the attached image, but with NEW,
+DIFFERENT people"); later images attach image 1. The test drifted to US-looking streets → always name
+Spanish settings (whitewashed walls, blue-and-white tiles, terracotta roofs, Spanish plaza/park).
 Retired earlier: Oct 21 "bold ink outlines, flat cel shading" (harsh/loud), Oct 26 "rich, deep…", Oct 30 vivid.
 
 ## EXPRESSION (one per panel, pick and adapt)

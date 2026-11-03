@@ -34,7 +34,7 @@ Create one image: a 2x2 grid of four separate illustration panels with thin whit
 STYLE: friendly modern cartoon illustration for adults, like a polished animated TV series for grown-ups (not a kids' show): slightly stylised, gently exaggerated proportions (head about 1/6 of body height), rounded simple shapes, clean confident outlines of medium weight, flat colours with one soft shadow tone and a small highlight, expressive faces with clear emotions and simple but visible signs of age (a few wrinkle lines, grey hair, glasses, slightly rounder bodies), simplified clean backgrounds with a few key props, clear readable staging with one main subject per panel.
 COLOR: soft, natural, low-to-medium saturation palette: muted teal, dusty blue, sage green, soft burgundy, warm grey, beige and cream; gentle even lighting, natural skin tones; calm and pleasant; NOT gaudy, NOT neon, NOT oversaturated, no yellow or orange colour cast, no golden glow.
 Settings are clearly in Spain: whitewashed walls, blue-and-white tiles, terracotta roofs, wrought-iron balconies, Spanish plazas and tree-lined paseos.
-Each panel shows a DIFFERENT older person.
+Panel 1 shows only the wall; panels 2–4 each show a DIFFERENT older person.
 Panel 1 (top left): a simple calm living-room wall in a Spanish flat, soft daylight, a small plant and a framed tile picture, empty space in front of it.
 Panel 2 (top right): a woman of about 67 with dark brown skin and short grey curls leans her back against a wall at home, knees slightly bent, calm focused smile, sneakers.
 Panel 3 (bottom left): close-up of a man's thighs in trousers with a soft glowing outline on the front thigh muscles, back against a wall, knees slightly bent.

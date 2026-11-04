@@ -126,5 +126,83 @@ p2_general | pero no garantiza
 p2_valor | Su verdadero valor
 p2_sinembargo | Sin embargo no todos los problemas
 p2_reves | Algunos solo empiezan a aclararse
+# Video 2 = punto 3 + punto 4.
 p3 | Punto 3
 p3_reves | Piensa al revés
+p3_acabamos | Acabamos de descubrir que una misma
+p3_final | Resolver un problema empezando
+p3_escena | Imagina esta escena
+p3_llaves | descubres que has olvidado las llaves
+p3_enfadas | Te enfadas contigo mismo
+p3_manana | Mañana prestaré más atención
+p3_ocurrir | Sin embargo unos días después
+p3_porque | Porque estás intentando cambiar
+p3_vuelta | Vamos a darle la vuelta
+p3_olvidar | qué tendría que pasar
+p3_lugares | Quizá dejarías las llaves
+p3_movil | mirarías el móvil
+p3_bolsillos | saldrías sin revisar
+p3_causas | De pronto aparecen causas
+p3_invierte | Ahora invierte esas respuestas
+p3_bandeja | Coloca las llaves siempre
+p3_evita | Evita distraerte
+p3_comprueba | comprueba que las llevas
+p3_magia | No has mejorado mágicamente
+p3_disenado | Has diseñado una situación
+p3_inverso | Este procedimiento se conoce
+p3_contraria | Consiste en observar un objetivo
+p3_ejemplo | Probemos otro ejemplo
+p3_leer | Quieres leer 20 minutos
+p3_fracasar | Cómo conseguiría que este hábito
+p3_tele | Tal vez encenderías la televisión
+p3_telefono | dejarías el teléfono
+p3_agotado | elegirías una hora
+p3_modificar | Ahora sabes qué puedes modificar
+p3_bloquea | A veces resulta más fácil detectar
+p3_desafio | Te propongo un pequeño desafío
+p3_elige | Elige un problema cotidiano
+p3_empeorar | escribe tres maneras de empeorarlo
+p3_preventiva | Después transforma cada una
+p3_realistas | No busques ideas extraordinarias
+p3_ayudarte | Este ejercicio puede ayudarte a organizar
+p3_notodos | No funciona para todos
+p3_fracaso | Recuerda que equivocarte
+p3_pregunta | Y aquí surge una pregunta
+p3_cinco | en lugar de encontrar una sola
+p3_reto | Ese será nuestro próximo reto
+p4 | Punto 4
+p4_hasta | Hasta ahora has aprendido
+p4_unica | dejar de buscar siempre
+p4_caja | Imagina que tienes una caja
+p4_guardar | Seguramente pensarás en guardar
+p4_cuatro | quiero que encuentres otras cuatro
+p4_fotos | Podrías convertirla en un organizador
+p4_docs | clasificar documentos
+p4_maceta | transformarla en una pequeña maceta
+p4_juego | construir un juego
+p4_cinco | 5 Ideas nacidas
+p4_divergente | Este ejercicio practica el pensamiento
+p4_brillantes | No todas serán brillantes
+p4_variedad | Primero buscamos variedad
+p4_evaluamos | Después evaluamos
+p4_personal | Ahora prueba por tu cuenta
+p4_mananas | Imagina que tus mañanas
+p4_minuto | Durante un minuto piensa
+p4_ropa | Quizá preparar la ropa
+p4_desayuno | adelantar el desayuno
+p4_distrac | reducir las distracciones
+p4_tareas | organizar tus tareas
+p4_ayuda | pedir ayuda
+p4_elige | Después elige una sola idea
+p4_seleccionar | Pensar creativamente también
+p4_cuchara | Puedes repetir el desafío
+p4_juzgar | Cambia el objeto cada día
+p4_conviene | Conviene recordar algo importante
+p4_valoracion | no sustituyen una valoración
+p4_dificultades | Si experimentas dificultades
+p4_edad | No atribuyas automáticamente
+p4_ahora | Y ahora viene una pregunta
+p4_mismo | Cuando dos cosas ocurren
+p4_proximo | Nuestro próximo ejercicio
+p5 | Punto 5
+p5_detective | El detective de las causas

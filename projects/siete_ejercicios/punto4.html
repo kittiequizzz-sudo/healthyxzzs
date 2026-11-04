@@ -1,0 +1,88 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · Punto 4: five solutions (the cardboard box, stressful mornings), then the end card.
+window.START = at('p4');
+window.END = window.DURATION = at('p5') + 7;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('p4', ejercicio(4, 'ENCUENTRA CINCO SOLUCIONES', { hi: 'CINCO', sub: 'despierta tu pensamiento CREATIVO', subHi: 'CREATIVO', m: 'm_bulb' }));
+beat('p4_hasta', row([['m_ask', 'CUESTIONAR', 'p4_hasta'], ['m_detective', 'PATRONES', at('p4_hasta') + 2.2], ['m_upside', 'AL REVÉS', at('p4_hasta') + 4.4]], { cap: 'deja de buscar UNA sola solución', capHi: 'UNA', capAt: 'p4_unica' }));
+beat('p4_caja', mascot('m_box', { cap: '¿para qué sirve una CAJA?', hi: 'CAJA' }));
+beat('p4_guardar', still('s_oneidea', { cap: 'guardar cosas… ¿y OTRAS CUATRO?', hi: 'OTRAS CUATRO', capAt: 'p4_cuatro', focus: [0.5, 0.45] }));
+beat('p4_fotos', (g, b) => {
+  const box = Img(g, 'i_box', 960, 470, 340);
+  const ideas = [['FOTOS', 'p4_fotos', 420, 260], ['DOCUMENTOS', 'p4_docs', 1500, 260], ['MACETA', 'p4_maceta', 420, 700], ['JUEGO', 'p4_juego', 1500, 700], ['GUARDAR', 'p4_fotos', 960, 820]];
+  const its = ideas.map(([s, k, x, y], i) => { const c = Chip(g, s, { cx: x, cy: y, size: 58, fill: EX_COL[i] }); return [c, i === 4 ? at('p4_guardar') : at(k)]; });
+  its[4][1] = b.a;
+  const cnt = txt(g, '1', { x: 960, y: 140, size: 120, color: K.pink });
+  const tag = ExTag(g, 4);
+  return t => {
+    live(box, t, b.a, { amp: 5 });
+    let n = 0; its.forEach(([c, k]) => { pop(c, t, k, c.cx, c.cy); if (t >= k) n++; });
+    cnt.textContent = n + ' / 5'; show(cnt, t, b.a); show(tag, t, b.a);
+  };
+});
+beat('p4_cinco', still('s_boxideas', { cap: '5 ideas de un objeto COTIDIANO', hi: 'COTIDIANO', focus: [0.5, 0.45] }));
+beat('p4_divergente', brain({ on: [['frontal', 'p4_divergente'], ['temporal', at('p4_divergente') + 0.8], ['parietal', at('p4_divergente') + 1.6]], labels: [['PENSAMIENTO DIVERGENTE', [690, 200], at('p4_divergente') + 0.5, 0, -60]], mascot: ['m_bulb', 'p4_divergente'], cap: 'muchas posibilidades, UNA pregunta', hi: 'UNA' }));
+beat('p4_brillantes', still('s_fireworks', { cap: 'no todas serán BRILLANTES', hi: 'BRILLANTES', focus: [0.5, 0.4] }));
+beat('p4_variedad', big([['1. VARIEDAD', 'VARIEDAD'], ['2. ELEGIR LO ÚTIL', 'ÚTIL']], { y: 280, size: 110, pic: 'm_juggle', at: ['p4_variedad', 'p4_evaluamos'] }));
+beat('p4_personal', mascot('m_pointing', { cap: 'ahora, algo más PERSONAL', hi: 'PERSONAL' }));
+beat('p4_mananas', still('s_chaos', { cap: 'mañanas ESTRESANTES', hi: 'ESTRESANTES', focus: [0.5, 0.45] }));
+beat('p4_minuto', (g, b) => {
+  const head = hiText(g, '5 CAMBIOS posibles', '5 CAMBIOS', { x: 960, y: 110, size: 74 });
+  const L = [['ROPA LA NOCHE ANTES', 'p4_ropa'], ['ADELANTAR EL DESAYUNO', 'p4_desayuno'], ['MENOS DISTRACCIONES', 'p4_distrac'], ['ORGANIZAR TAREAS', 'p4_tareas'], ['PEDIR AYUDA', 'p4_ayuda']];
+  const its = L.map(([s, k], i) => { const y = 250 + i * 150, it = el('g', {}, g);
+    el('circle', { cx: 300, cy: y, r: 48, fill: EX_COL[i], stroke: K.ink, 'stroke-width': 7 }, it); txt(it, String(i + 1), { x: 300, y: y + 3, size: 56 });
+    txt(it, s, { x: 380, y, size: 62, anchor: 'start' }); it.cx = 700; it.cy = y; return [it, k]; });
+  const m = Mascot(g, 'm_count', { cx: 1600, floor: 1040, h: 480 });
+  const th = Think(g, 1600, 330);
+  const tag = ExTag(g, 4);
+  return t => { show(head, t, b.a); th.draw(t, b.a + 0.3, at('p4_ropa') - 0.2); its.forEach(([it, k]) => show(it, t, at(k), 1e9, { dy: 30 })); live(m, t, b.a + 0.2, { dir: 'r' }); show(tag, t, b.a); };
+});
+beat('p4_ropa', still('s_calm', { focus: [0.5, 0.45], chips: [['ROPA PREPARADA', 'p4_ropa', '#CDEFD0'], ['DESAYUNO TRANQUILO', 'p4_desayuno', '#FFF1B8']] }));
+beat('p4_distrac', still('s_spoon', { focus: [0.5, 0.45], chips: [['MENOS DISTRACCIONES', 'p4_distrac', '#E5DAF5'], ['TAREAS ORGANIZADAS', 'p4_tareas', '#CFE6F7']] }));
+beat('p4_ayuda', still('s_help', { cap: 'pedir AYUDA', hi: 'AYUDA', focus: [0.55, 0.45] }));
+beat('p4_elige', (g, b) => {
+  const head = hiText(g, 'elige UNA idea', 'UNA', { x: 960, y: 140, size: 84 });
+  const qs = [['¿PRÁCTICA?', 'p4_elige'], ['¿SEGURA?', at('p4_elige') + 3.6], ['¿PARA TI?', at('p4_elige') + 4.6]];
+  const its = qs.map(([s, k], i) => { const x = 960 + (i - 1) * 480, it = el('g', {}, g); Mark(it, true, x, 400, 1.2); txt(it, s, { x, y: 560, size: 66 }); it.cx = x; it.cy = 460; return [it, tt(k)]; });
+  const m = Mascot(g, 'm_weigh', { cx: 960, floor: 920, h: 300 });
+  return t => { show(head, t, b.a); its.forEach(([it, k]) => pop(it, t, k + 0.3, it.cx, it.cy)); live(m, t, b.a + 0.4); };
+});
+beat('p4_seleccionar', still('s_baskets', { cap: 'crear también es SELECCIONAR', hi: 'SELECCIONAR', focus: [0.5, 0.5] }));
+beat('p4_cuchara', row([['m_box', 'UNA CAJA', 'p4_cuchara'], ['i_notebook', 'UNA LIBRETA', at('p4_cuchara') + 2.2], ['m_list', 'UNA RUTINA', at('p4_cuchara') + 3.4]], { head: 'cambia de objeto CADA DÍA', hi: 'CADA DÍA' }));
+beat('p4_juzgar', still('s_judge', { cap: 'no juzgues DEMASIADO PRONTO', hi: 'DEMASIADO PRONTO', focus: [0.4, 0.45] }));
+beat('p4_conviene', still('s_pot', { cap: 'algo IMPORTANTE', hi: 'IMPORTANTE', focus: [0.5, 0.45], chips: [['juegos ≠ valoración MÉDICA', 'p4_valoracion', K.pinkL]] }));
+beat('p4_dificultades', adviceCard('CONSULTA CON UN PROFESIONAL', [['dificultades NUEVAS', 'p4_dificultades'], ['que PERSISTEN o EMPEORAN', at('p4_dificultades') + 2], ['para recordar, razonar u organizarte', at('p4_dificultades') + 4.5]], { m: 'm_listening' }));
+beat('p4_edad', still('s_doctor', { cap: 'no es «solo la EDAD»', hi: 'EDAD', focus: [0.5, 0.45] }));
+beat('p4_ahora', mascot('m_glassmag', { cap: 'una pregunta MÁS interesante', hi: 'MÁS' }));
+beat('p4_mismo', (g, b) => {
+  const a = Chip(g, 'A', { cx: 600, cy: 420, size: 120, fill: '#CFE6F7' });
+  const c = Chip(g, 'B', { cx: 1320, cy: 420, size: 120, fill: '#FFF1B8' });
+  const ar = Arrow(g, 760, 420, 1160, 420, K.ink, 12);
+  const q = txt(g, '?', { x: 960, y: 330, size: 130, color: K.pink });
+  const h = hiText(g, 'juntos ≠ CAUSA', 'CAUSA', { x: 960, y: 700, size: 96 });
+  const m = Mascot(g, 'm_detective', { cx: 960, floor: 1060, h: 300 });
+  return t => { pop(a, t, b.a, 600, 420); pop(c, t, b.a + 0.4, 1320, 420); set(ar, { opacity: clamp(prog(t, b.a + 1.6, b.a + 2)) }); pop(q, t, b.a + 2.2, 960, 330); show(h, t, at('p4_proximo')); live(m, t, at('p4_proximo') + 0.3); };
+});
+beat('p5', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 3 DE 3', topics: 'causas · memoria de trabajo · la idea contraria' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

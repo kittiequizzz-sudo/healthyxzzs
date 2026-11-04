@@ -1,0 +1,97 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · opener (silent pre-roll until v2 exists) + Punto 3: think in reverse (the forgotten keys, the reading habit).
+const PRE = 5;
+window.START = at('p3') - PRE;
+window.END = window.DURATION = at('p4');
+HOOK_END = at('p3') + 35;
+const svg = Stage();
+const S0 = window.START;
+
+beat(S0, row([['m_ask', '3 PREGUNTAS', S0 + 0.1], ['m_detective', 'REGLA OCULTA', S0 + 0.5]], { head: 'ya practicamos 2 ejercicios…', hi: '2 ejercicios' }));
+beat(S0 + 2.3, (g, b) => {
+  const m = Mascot(g, 'm_upside', { cx: 450, floor: 930, h: 640 });
+  const n = txt(g, '7', { x: 1200, y: 300, size: 260, color: K.pink });
+  const t1 = txt(g, 'EJERCICIOS MENTALES', { x: 1200, y: 480, size: 84 });
+  const c = Chip(g, 'PARTE 2 DE 3', { cx: 1200, cy: 620, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 750, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1200, 300); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1200, 620); show(ch, t, b.a + 0.9); };
+});
+beat('p3', ejercicio(3, 'PIENSA AL REVÉS', { hi: 'AL REVÉS', sub: 'soluciones que NO habías visto', subHi: 'NO', subAt: 'p3_reves', m: 'm_upside' }));
+beat('p3_acabamos', still('s_maze', { cap: 'una secuencia, VARIOS caminos', hi: 'VARIOS', focus: [0.6, 0.4] }));
+beat('p3_final', still('s_backpath', { cap: 'empieza por el FINAL', hi: 'FINAL', focus: [0.55, 0.45] }));
+beat('p3_escena', still('s_elevator', { cap: '¡he olvidado las LLAVES!', hi: 'LLAVES', capAt: 'p3_llaves', focus: [0.4, 0.4] }));
+beat('p3_enfadas', still('s_mirror', { cap: '«mañana prestaré ATENCIÓN»', hi: 'ATENCIÓN', capAt: 'p3_manana', focus: [0.5, 0.4] }));
+beat('p3_ocurrir', still('s_again', { cap: 'unos días después… OTRA VEZ', hi: 'OTRA VEZ', focus: [0.6, 0.45] }));
+beat('p3_porque', mascot('m_thinking', { cap: 'miras el resultado, no lo de ANTES', hi: 'ANTES', size: 56 }));
+beat('p3_vuelta', (g, b) => {
+  const a = hiText(g, '¿cómo RECORDAR las llaves?', 'RECORDAR', { x: 960, y: 230, size: 76, color: K.grey, hiColor: K.grey });
+  const s = el('line', { x1: 450, y1: 232, x2: 1470, y2: 232, stroke: K.red, 'stroke-width': 12, 'stroke-linecap': 'round' }, g);
+  const c = hiText(g, '¿qué haría que las OLVIDARA?', 'OLVIDARA', { x: 960, y: 420, size: 84 });
+  const m = Mascot(g, 'm_upside', { cx: 960, floor: 1040, h: 480 });
+  return t => { show(a, t, b.a + 0.1); set(s, { opacity: clamp(prog(t, at('p3_olvidar'), at('p3_olvidar') + 0.3)) }); show(c, t, at('p3_olvidar') + 0.2); live(m, t, b.a + 0.3); };
+});
+beat('p3_lugares', still('s_keysmess', { focus: [0.5, 0.45], chips: [['LUGARES DISTINTOS', 'p3_lugares', K.pinkL], ['EL MÓVIL', 'p3_movil', K.pinkL], ['SIN REVISAR', 'p3_bolsillos', K.pinkL]] }));
+beat('p3_causas', mascot('m_detective', { cap: 'causas CONCRETAS', hi: 'CONCRETAS' }));
+beat('p3_invierte', (g, b) => {
+  const rows = [['LUGARES DISTINTOS', 'UNA BANDEJA', 'p3_bandeja'], ['EL MÓVIL', 'SIN DISTRACCIONES', 'p3_evita'], ['SIN REVISAR', 'COMPRUEBA AL SALIR', 'p3_comprueba']];
+  const head = hiText(g, 'ahora INVIERTE cada causa', 'INVIERTE', { x: 960, y: 120, size: 70 });
+  const its = rows.map(([a, c, k], i) => {
+    const y = 300 + i * 200, it = el('g', {}, g);
+    Chip(it, a, { cx: 560, cy: y, size: 50, fill: K.pinkL });
+    Arrow(it, 860, y, 1020, y, K.ink, 10);
+    Chip(it, c, { cx: 1350, cy: y, size: 50, fill: '#CDEFD0' });
+    it.cx = 960; it.cy = y;
+    return [it, k];
+  });
+  const tag = ExTag(g, 3);
+  return t => { show(head, t, b.a); its.forEach(([it, k]) => pop(it, t, at(k), it.cx, it.cy)); show(tag, t, b.a); };
+});
+beat('p3_magia', still('s_keytray', { cap: 'no es magia: es DISEÑO', hi: 'DISEÑO', capAt: 'p3_disenado', focus: [0.4, 0.4] }));
+beat('p3_inverso', still('s_upside', { cap: 'PENSAMIENTO INVERSO', hi: 'INVERSO', focus: [0.5, 0.45] }));
+beat('p3_contraria', still('s_rocks', { cap: 'encuentra los OBSTÁCULOS', hi: 'OBSTÁCULOS', focus: [0.5, 0.5] }));
+beat('p3_ejemplo', mascot('m_reading', { cap: 'leer 20 minutos cada TARDE', hi: 'TARDE', capAt: 'p3_leer' }));
+beat('p3_fracasar', mascot('m_noise', { cap: '¿cómo haría que FRACASARA?', hi: 'FRACASARA' }));
+beat('p3_tele', still('s_distract', { focus: [0.5, 0.45], chips: [['LA TELEVISIÓN', 'p3_tele', K.pinkL], ['EL TELÉFONO', 'p3_telefono', K.pinkL]] }));
+beat('p3_agotado', still('s_sofa', { cap: 'una hora en la que estás AGOTADO', hi: 'AGOTADO', focus: [0.5, 0.45] }));
+beat('p3_modificar', still('s_reading', { cap: 'ahora sabes qué CAMBIAR', hi: 'CAMBIAR', focus: [0.45, 0.45] }));
+beat('p3_bloquea', big([['¿QUÉ LO BLOQUEA?', 'BLOQUEA'], ['más fácil que imaginar lo PERFECTO', 'PERFECTO', K.grey]], { y: 260, size: 96, pic: 'm_idea', at: [at('p3_bloquea'), at('p3_bloquea') + 3] }));
+beat('p3_desafio', (g, b) => {
+  const head = hiText(g, 'TU DESAFÍO · 1 minuto', 'TU DESAFÍO', { x: 960, y: 120, size: 72 });
+  const steps = [['1', 'elige un PROBLEMA', 'p3_elige'], ['2', '3 formas de EMPEORARLO', 'p3_empeorar'], ['3', 'conviértelas en PREVENCIÓN', 'p3_preventiva']];
+  const its = steps.map(([n, s, k], i) => {
+    const y = 300 + i * 190, it = el('g', {}, g);
+    el('circle', { cx: 430, cy: y, r: 60, fill: K.yellow, stroke: K.ink, 'stroke-width': 8 }, it);
+    txt(it, n, { x: 430, y: y + 4, size: 70 });
+    hiText(it, s, s.split(' ').pop(), { x: 540, y, size: 66, anchor: 'start' });
+    it.cx = 900; it.cy = y;
+    return [it, k];
+  });
+  const m = Mascot(g, 'm_list', { cx: 1650, floor: 1040, h: 440 });
+  const tag = ExTag(g, 3);
+  return t => { show(head, t, b.a); its.forEach(([it, k]) => show(it, t, at(k), 1e9, { dy: 30 })); live(m, t, b.a + 0.3, { dir: 'r' }); show(tag, t, b.a); };
+});
+beat('p3_realistas', still('s_fixlist', { cap: 'cambios REALISTAS', hi: 'REALISTAS', focus: [0.55, 0.5] }));
+beat('p3_ayudarte', mascot('m_weigh', { cap: 'organizar y ANTICIPAR', hi: 'ANTICIPAR', chips: [['no sirve para TODO', 'p3_notodos', K.pinkL]] }));
+beat('p3_fracaso', mascot('m_thumbs', { cap: 'equivocarte ≠ FRACASO', hi: 'FRACASO' }));
+beat('p3_pregunta', mascot('m_ask', { cap: '¿y si buscas CINCO respuestas?', hi: 'CINCO', capAt: 'p3_cinco', size: 58 }));
+beat('p3_reto', still('s_fireworks', { cap: 'nuestro próximo RETO', hi: 'RETO', focus: [0.5, 0.45] }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

@@ -1,0 +1,1 @@
+Note: audio/voice.mp3 = voice_raw.mp3 with 4 spoken editor notes removed (cuts at 265.45-270.75, 775.7-783.5, 959.3-964.7, 1134.5-1140.1 s of the raw take); transcript/words.json shifted to match; lines.txt is from the raw take.

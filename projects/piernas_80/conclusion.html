@@ -37,11 +37,11 @@ scene(svg, c('pedirian'), c('cinco_c'), g => {
 scene(svg, c('cinco_c'), c('advertencia'), g => {
   const h = Text(g, '5 TRANSFORMACIONES', { x: 960, y: 130, size: 84, color: ACC });
   const labels = ['MENOS\nFUERZA', 'CIRCULACIÓN\nMÁS LENTA', 'CALAMBRES\nNOCTURNOS', 'RODILLAS\nRÍGIDAS', 'MENOS\nSENSIBILIDAD'];
-  const ts = SIGNS.map(([ic], i) => { const cx = 230 + i * 365; return [IconTile(g, ic, labels[i], cx, 440, { w: 330, h: 360 }), cx, 'r' + (i + 1)]; });
+  const ts = SIGNS.map(([ic], i) => { const cx = 230 + i * 365, w = el('g', {}, g); IconTile(w, ic, labels[i], cx, 440, { w: 330, h: 360 }); return [w, cx, 'r' + (i + 1), i]; });
   const a = el('g', {}, g); Card(a, { x: 260, y: 700, w: 1400, h: 130, fill: C.white }); Text(a, 'NO SIGNIFICA RENUNCIAR A TU INDEPENDENCIA', { x: 960, y: 766, size: 46 });
   const r = ChipRow(g, [['MOVIMIENTO', () => at('minutos_c') + 0.5], ['BUENA ALIMENTACIÓN', () => at('minutos_c') + 2.5], ['FUERZA ADAPTADA', () => at('minutos_c') + 4.5], ['CASA SEGURA', () => at('minutos_c') + 6.5]], { cy: 950, size: 36, fill: C.green, color: C.white, gap: 24 });
   ts.forEach(([, , k]) => sfx('pop', at(k), 0.6)); sfx('pop', at('renunciar_c'));
-  return t => { show(h, t, at('cinco_c')); ts.forEach(([tile, cx, k]) => pop(tile, t, at(k), cx, 440)); pop(a, t, at('renunciar_c'), 960, 766); r(t); };
+  return t => { show(h, t, at('cinco_c')); ts.forEach(([tile, cx, k, i]) => { pop(tile, t, at('cinco_c') + 1 + i * 0.3, cx, 440); if (t < at(k)) tile.setAttribute('opacity', Math.min(+tile.getAttribute('opacity'), 0.35)); }); pop(a, t, at('renunciar_c'), 960, 766); r(t); };
 });
 stillScene(svg, 'gc', c('advertencia'), c('urgencia_c'), { focus: [0.45, 0.55], zoom: 0.12 }, g => {
   const a = CAP(g, 'NO TODO ES "COSA DE LA EDAD"', { hi: '"COSA DE LA EDAD"', size: 52 });
@@ -65,15 +65,14 @@ scene(svg, c('quiz'), c('suscribe_c'), g => {
     Text(o, s, { x: 960, y, size: 44 }); IC[ic](o, 1570, y - 50, 1);
     return [o, k, y];
   });
-  const p = ItemCard(g, 'pantorrilla', 1790, 330, { w: 200, h: 260, fit: 200 });
   const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 940);
-  const host = Host(g, 'three_q', { cx: 1730, cy: 880, fit: 360 });
+  const host = Host(g, 'three_q', { cx: 1760, cy: 930, fit: 280 });
   ops.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('ding', at('quiz')); sfx('click', at('escribe'));
-  return t => { show(h, t, at('quiz')); show(q, t, at('cual')); pop(p, t, at('cual') + 1, 1790, 330); ops.forEach(([o, k, y]) => pop(o, t, at(k), 960, y)); pop(cta, t, at('escribe'), 760, 940); host(t, at('escribe') - 0.5); };
+  return t => { show(h, t, at('quiz')); show(q, t, at('cual')); ops.forEach(([o, k, y]) => pop(o, t, at(k), 960, y)); pop(cta, t, at('escribe'), 760, 940); host(t, at('escribe') - 0.5); };
 });
 stillScene(svg, 'gd', c('suscribe_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
   const a = el('g', { transform: 'translate(-420 -760)' }, g); const s = CTA(a, 'sub', 900);
-  const b = el('g', { transform: 'translate(420 -760)' }, g); const sh = el('g', {}, b); Card(sh, { x: 760, y: 835, w: 400, h: 130, fill: C.white, r: 65 }); IC.share(sh, 790, 850, 1); Text(sh, 'COMPARTE', { x: 1010, y: 902, size: 50 });
+  const b = el('g', { transform: 'translate(420 -760)' }, g); const sh = el('g', {}, b); Card(sh, { x: 760, y: 835, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(sh, 790, 850, 1); Text(sh, 'COMPARTE', { x: 1035, y: 902, size: 46 });
   const cc = CAP(g, 'CADA PASO MERECE SER PROTEGIDO', { hi: 'CADA PASO', size: 52 });
   sfx('click', at('suscribe_c') + 3); sfx('click', at('suscribe_c') + 5); sfx('ding', at('inevitable') + 2);
   return t => { pop(s, t, at('suscribe_c') + 3, 540, 140); pop(sh, t, at('suscribe_c') + 5, 1380, 140); show(cc, t, at('inevitable') + 1); };

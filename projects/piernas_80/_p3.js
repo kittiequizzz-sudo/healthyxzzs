@@ -27,8 +27,10 @@ scene(svg, c('calambres3'), c('cables'), g => {
   const h = Text(g, 'CALAMBRES NOCTURNOS', { x: 960, y: 160, size: 80, color: ACC });
   const a = el('g', {}, g); Card(a, { x: 360, y: 300, w: 1200, h: 200, fill: C.white }); Mark(a, false, 500, 400, 1); Text(a, '¿SOLO FALTA DE POTASIO O MAGNESIO?', { x: 1030, y: 400, size: 48, color: C.grey });
   const s = Stamp(g, 'CAUSAS MÁS COMPLEJAS', { cx: 960, cy: 680, size: 76, color: ACC });
-  sfx('pop', at('potasio')); sfx('stamp', at('complejas'));
-  return t => { show(h, t, at('calambres3')); pop(a, t, at('potasio'), 960, 400); s.draw(t, at('complejas')); };
+  const f = Chip(g, 'FRECUENTES EN PERSONAS MAYORES', { cx: 960, cy: 400, fill: C.white, size: 46 });
+  const m = el('g', {}, g); IC.moon(m, 860, 560, 2);
+  sfx('pop', at('calambres3') + 1.5); sfx('pop', at('potasio')); sfx('stamp', at('complejas'));
+  return t => { show(h, t, at('calambres3')); pop(f, t, at('calambres3') + 1.5, 960, 400, at('potasio')); pop(m, t, at('calambres3') + 2.5, 960, 660, at('potasio')); pop(a, t, at('potasio'), 960, 400); s.draw(t, at('complejas')); };
 });
 // nerves as electric cables
 scene(svg, c('cables'), c('factores'), g => {

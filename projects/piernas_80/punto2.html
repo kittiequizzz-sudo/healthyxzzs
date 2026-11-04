@@ -146,8 +146,8 @@ scene(svg, c('inquietante2'), () => END + 1, g => {
   const m = el('g', {}, g); IC.moon(m, 1300, 200, 2.4);
   const cm = ItemCard(g, 'calambre', 640, 560, { w: 480, h: 640, fit: 540 });
   const a = Text(g, '¿Y SI DUELE MIENTRAS DUERMES?', { x: 1300, y: 640, size: 56 });
-  sfx('pop', at('duermes')); sfx('alert_soft', at('duermes') + 1);
-  return t => { pop(m, t, at('inquietante2') + 0.3, 1420, 320); pop(cm, t, at('duermes'), 640, 560); show(a, t, at('duermes') + 0.5); };
+  sfx('pop', at('inquietante2') + 1.2); sfx('alert_soft', at('duermes') + 1);
+  return t => { pop(m, t, at('inquietante2') + 0.3, 1420, 320); pop(cm, t, at('inquietante2') + 1.2, 640, 560); show(a, t, at('inquietante2') + 2); };
 });
 
 window.draw = t => drawScenes(t);

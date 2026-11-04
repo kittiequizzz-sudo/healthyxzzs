@@ -1,8 +1,8 @@
 # Ảnh cần tạo cho "6 cambios en tu cerebro después de los 60" (style linh vật não, nền sáng)
 
 Dùng lại hơn 40 biểu cảm linh vật đã có. Bản đồ não (hồi hải mã, vỏ não trước trán), thẻ cảnh báo đột quỵ và các
-con số mình vẽ bằng code. Cần **24 ảnh mới, a → x**: 1 tờ biểu cảm, 1 tờ đồ vật và **22 tờ cảnh 2×2** (88 cảnh). Kịch bản
-khoảng 2.700 từ, tầm 20 phút, nên trung bình **cứ ~14 giây có một cảnh vẽ mới**. Đính kèm ảnh nhân vật
+con số mình vẽ bằng code. Cần **26 ảnh mới, a → z**: 1 tờ biểu cảm, 1 tờ đồ vật và **24 tờ cảnh 2×2** (96 cảnh; y, z là 2 tờ bổ sung). Kịch bản
+khoảng 2.700 từ, tầm 20 phút, nên trung bình **cứ ~13 giây có một cảnh vẽ mới**. Đính kèm ảnh nhân vật
 (`characters/brainy/sheet_dark2.jpg`, tờ nền tối mới) vào mọi prompt; tạo xong **a** thì đính kèm thêm **a**. Mọi ảnh đều nền sáng.
 
 **Nhân vật kể chuyện** (đều là linh vật lớn tuổi, lông mày bạc): Carmen (nơ hồng, kính tròn) · Manuel (mũ nồi nâu, ria bạc) ·
@@ -10,8 +10,8 @@ Teresa (búi tóc bạc, tạp dề) · Dolores (kính tròn, áo len tím) · M
 
 | Video | Nội dung | Ảnh | Số ảnh |
 |---|---|---|---|
-| 1 | Intro + Punto 1 + Punto 2 | a → j | 10 |
-| 2 | Punto 3 + Punto 4 | k → p | 6 |
+| 1 | Intro + Punto 1 + Punto 2 | a → j + y | 11 |
+| 2 | Punto 3 + Punto 4 | k → p + z | 7 |
 | 3 | Punto 5 + 6 + Conclusión | q → x | 8 |
 
 ---
@@ -67,6 +67,11 @@ Teresa (búi tóc bạc, tạp dề) · Dolores (kính tròn, áo len tím) · M
 
 > 2D Minimalist Brain Character Explainer style. Illustration sheet, 2x2 grid of four separate panels with thin gaps, in the exact style of the attached mascot: minimalist 2D doodle, round white head with an exposed pink brain on top, white body, thick black outlines, flat pastel colours, no shading, very simple props, plain soft backgrounds. Other characters are the same kind of mascot; older characters have grey eyebrows. No text, no letters, no numbers. Panel 1: four small vignettes in one panel: an older mascot tired in bed at night, a worried mascot with sweat drops, a mascot cupping its ear, a bottle of pills. Panel 2: an older mascot walking calmly and smiling past a mirror in which a younger version of itself is running fast. Panel 3: an older mascot learning slowly on a tablet with a cup of tea, the TV switched off in the background. Panel 4: an older mascot puzzled between a big colourful thought bubble of a youthful dance and a small blurry sticky note. 16:9, high resolution.
 
+### y: Bổ sung · Video 1 (Punto 1–2) (`scenes_extra1`)
+*Truyền kinh nghiệm cho người trẻ · giải ô chữ · nấu ăn thuộc lòng · kể chuyện bên bàn ăn gia đình.*
+
+> 2D Minimalist Brain Character Explainer style. Illustration sheet, 2x2 grid of four separate panels with thin gaps, in the exact style of the attached mascot: minimalist 2D doodle, round white head with an exposed pink brain on top, white body, thick black outlines, flat pastel colours, no shading, very simple props, plain soft backgrounds. Other characters are the same kind of mascot; older characters have grey eyebrows. No text, no letters, no numbers. Panel 1: an older mascot giving friendly advice to a young mascot, the young one taking notes. Panel 2: an older mascot solving a crossword-style grid of empty squares with a pencil, focused and happy. Panel 3: an older mascot cooking confidently without a recipe, tossing vegetables in a pan. Panel 4: an older mascot telling a story at a family dinner table while everyone listens and smiles. 16:9, high resolution.
+
 ---
 ## Video 2 · Punto 3 + Punto 4
 
@@ -99,6 +104,11 @@ Teresa (búi tóc bạc, tạp dề) · Dolores (kính tròn, áo len tím) · M
 *Nghe kém, lo âu, thuốc, mất ngủ · não ban đêm có những người tí hon xếp ký ức vào ngăn · gọi điện cấp cứu gấp · bạn đỡ người bị khó chịu ngồi xuống.*
 
 > 2D Minimalist Brain Character Explainer style. Illustration sheet, 2x2 grid of four separate panels with thin gaps, in the exact style of the attached mascot: minimalist 2D doodle, round white head with an exposed pink brain on top, white body, thick black outlines, flat pastel colours, no shading, very simple props, plain soft backgrounds. Other characters are the same kind of mascot; older characters have grey eyebrows. No text, no letters, no numbers. Panel 1: four small vignettes in one panel: an ear with faint sound waves, a worried face, a bottle of pills, a bed under a moon. Panel 2: a brain at night under stars, tiny helper characters placing small photos into drawers. Panel 3: an older mascot urgently calling for help on a phone, a yellow warning triangle beside it (no symbols inside). Panel 4: a mascot helping a friend sit down on a chair carefully while holding a phone, serious but calm. 16:9, high resolution.
+
+### z: Bổ sung · Video 2 (Punto 3–4) (`scenes_extra2`)
+*Giấy nhớ và lịch trên tủ lạnh · luôn để chìa khóa vào cùng một bát · kiểm tra thính lực · nghỉ ngơi với tách trà trong vườn yên tĩnh.*
+
+> 2D Minimalist Brain Character Explainer style. Illustration sheet, 2x2 grid of four separate panels with thin gaps, in the exact style of the attached mascot: minimalist 2D doodle, round white head with an exposed pink brain on top, white body, thick black outlines, flat pastel colours, no shading, very simple props, plain soft backgrounds. Other characters are the same kind of mascot; older characters have grey eyebrows. No text, no letters, no numbers. Panel 1: an older mascot sticking blank sticky notes and a calendar on the fridge, organised. Panel 2: an older mascot dropping keys into the same small bowl by the front door, smiling. Panel 3: an older mascot wearing headphones during a hearing check with a friendly health professional mascot in a plain light-blue coat, no symbols. Panel 4: an older mascot taking a calm break with a cup of tea in a quiet garden, eyes closed. 16:9, high resolution.
 
 ---
 ## Video 3 · Punto 5 + Punto 6 + Conclusión

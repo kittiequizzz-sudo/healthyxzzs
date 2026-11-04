@@ -27,12 +27,19 @@ function initBeats(svg, end) {
   });
 }
 function drawBeats(t) {
+  // Transitions: before HOOK_END a hard cut with a quick zoom settle; after it the new beat pushes in from the
+  // right (slide + slight scale + fade) while the old one stays drawn and drifts left underneath.
+  const X = 0.45;
   for (const b of BEATS) {
-    // a beat stays drawn 0.3 s past its end so the next one fades in over it (never through empty background)
-    const on = t >= b.a && t < b.b + (b.b < HOOK_END ? 0 : 0.3);
+    const hook = b.a < HOOK_END, tail = b.b < HOOK_END ? 0 : X;
+    const on = t >= b.a && t < b.b + tail;
     if (!on) { b.g.style.display = 'none'; continue; }
     b.g.style.display = '';
-    b.g.setAttribute('opacity', b.a < HOOK_END ? 1 : E.inOut(prog(t, b.a, b.a + 0.25)).toFixed(3));
+    const k = E.out(prog(t, b.a, b.a + (hook ? 0.3 : X)));
+    let dx = hook ? 0 : (1 - k) * 560, sc = 1 + (hook ? 0.07 : 0.04) * (1 - k);
+    if (t > b.b) { const ex = E.inOut(prog(t, b.b, b.b + X)); dx -= ex * 240; sc -= ex * 0.03; }
+    b.g.setAttribute('transform', `translate(${(960 + dx).toFixed(1)} 540) scale(${sc.toFixed(4)}) translate(-960 -540)`);
+    b.g.setAttribute('opacity', hook ? 1 : clamp(prog(t, b.a, b.a + 0.12)).toFixed(3));
     b.draw(t, b.a, b.b);
   }
 }
@@ -95,7 +102,7 @@ const enter = (e, t, t0, dir = 'u') => {   // pop for small things, slide for ma
 };
 function live(e, t, t0, opts = {}) {      // enter, then idle float
   if (t < t0 + 0.42) enter(e, t, t0, opts.dir || 'pop');
-  else { e.setAttribute('opacity', 1); float(e, t, e.cx, e.cy, { amp: opts.amp ?? 6, tilt: opts.tilt ?? 1, phase: opts.phase || 0 }); }
+  else { e.setAttribute('opacity', 1); float(e, t, e.cx, e.cy, { amp: opts.amp ?? 10, tilt: opts.tilt ?? 2.2, period: 2.6, phase: opts.phase || 0 }); }
 }
 function hide(e) { e.setAttribute('opacity', 0); }
 // small corner tag (dramatisation / source)
@@ -142,7 +149,7 @@ function Label(p, str, [px, py], { dx = 0, dy = -150, size = 46, fill = K.white 
 // Full panel still with push-in + caption bubble.
 function still(n, o = {}) {
   return (g, b) => {
-    const S = Still(g, IMG(n), { x: 200, y: 40, w: 1520, h: 850, iw: SZ[n][0], ih: SZ[n][1], r: 34, focus: o.focus || [0.5, 0.45], zoom: o.zoom ?? 0.1 });
+    const S = Still(g, IMG(n), { x: 200, y: 40, w: 1520, h: 850, iw: SZ[n][0], ih: SZ[n][1], r: 34, focus: o.focus || [0.5, 0.45], zoom: o.zoom ?? 0.2 });
     const cap = o.cap ? Bubble(g, o.cap, { cy: 965, hi: o.hi, size: o.size || 62 }) : null;
     const tag = o.tag ? Tag(g, o.tag, { x: 1700, y: 80 }) : null;
     const chips = (o.chips || []).map(([s, k, fill], i) => [Chip(g, s, { cx: 1500, cy: 150 + i * 120, size: 46, fill: fill || K.white }), k]);

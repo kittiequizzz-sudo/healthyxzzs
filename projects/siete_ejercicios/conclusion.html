@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · Conclusión, then the series end card.
+const VOICE_END = 1389.6;
+window.START = at('c0');
+window.END = window.DURATION = VOICE_END + 6;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('c0', (g, b) => {
+  el('rect', { width: 1920, height: 1080, fill: K.ink }, g);
+  const c = Chip(g, 'CONCLUSIÓN', { cx: 960, cy: 260, size: 54, fill: K.yellow });
+  const a = txt(g, 'TU CEREBRO SIGUE APRENDIENDO', { x: 960, y: 420, size: 90, color: K.white });
+  const d = txt(g, 'A CUALQUIER EDAD', { x: 960, y: 550, size: 96, color: K.pink });
+  const m = Mascot(g, 'm_bulb', { cx: 960, floor: 1060, h: 380 });
+  return t => { pop(c, t, b.a, 960, 260); show(a, t, b.a + 0.2); show(d, t, b.a + 0.6); live(m, t, b.a + 0.9); };
+});
+beat('c_tambien', row([['m_ask', 'PREGUNTAR', 'c_tambien'], ['m_detective', 'PATRONES', at('c_tambien') + 2.2], ['m_box', 'ALTERNATIVAS', at('c_tambien') + 3.6], ['m_weigh', 'REVISAR CREENCIAS', at('c_tambien') + 5.4]], { head: 'entrenar tu mente es…', hi: '' }));
+beat('c_piensa', (g, b) => {
+  const its = Array.from({ length: 7 }, (_, i) => { const c = el('g', {}, g); const x = 960 + (i - 3) * 190; el('circle', { cx: x, cy: 380, r: 70, fill: EX_COL[i], stroke: K.ink, 'stroke-width': 7 }, c); txt(c, String(i + 1), { x, y: 385, size: 72 }); c.cx = x; c.cy = 380; return c; });
+  const q = hiText(g, 'no necesitas ACERTAR siempre', 'ACERTAR', { x: 960, y: 640, size: 80 });
+  const m = Mascot(g, 'm_thumbs', { cx: 960, floor: 1060, h: 320 });
+  return t => { its.forEach((d, i) => pop(d, t, b.a + i * 0.12, d.cx, d.cy)); show(q, t, at('c_acertar')); live(m, t, at('c_sencillos')); };
+});
+beat('c_concreto', still('s_calendar', { cap: 'un ejercicio DISTINTO cada día', hi: 'DISTINTO', capAt: 'c_semana', focus: [0.55, 0.45] }));
+beat('c_cinco', still('s_5min', { cap: '5 MINUTOS, sin prisas', hi: '5 MINUTOS', focus: [0.5, 0.45], chips: [['sin compararte con NADIE', at('c_cinco') + 1.8, '#CDEFD0']] }));
+beat('c_observa', still('s_rebuild', { cap: 'equivócate… e INTÉNTALO de nuevo', hi: 'INTÉNTALO', focus: [0.5, 0.45] }));
+beat('c_curiosidad', still('s_elder', { cap: 'curiosidad a CUALQUIER EDAD', hi: 'CUALQUIER EDAD', focus: [0.5, 0.4] }));
+beat('c_recuerda', mascot('m_shrug', { cap: 'no garantiza más inteligencia ni PREVIENE enfermedades', hi: 'PREVIENE', size: 48 }));
+beat('c_dormir', still('s_habits3', { focus: [0.5, 0.45], chips: [['DORMIR BIEN', 'c_dormir', '#E5DAF5'], ['MOVERTE', 'c_activo', '#CDEFD0'], ['TUS RELACIONES', 'c_relaciones', '#FFF1B8']], tag: 'Livingston et al., 2024' }));
+beat('c_notas', adviceCard('¿CAMBIOS QUE PERSISTEN?', [['en la memoria o el razonamiento', 'c_notas'], ['consulta con un PROFESIONAL SANITARIO', at('c_notas') + 3]], { m: 'm_listening' }));
+beat('c_coment', still('s_comment', { cap: '¿cuál te SORPRENDIÓ? ¿cuál te COSTÓ?', hi: 'SORPRENDIÓ', capAt: 'c_sorpr', focus: [0.5, 0.45], size: 54 }));
+beat('c_sub', cta('sub', { sub: 'Cerebro y Bienestar' }));
+beat('c_nos', still('s_bye', { cap: '¡nos vemos en el PRÓXIMO VÍDEO!', hi: 'PRÓXIMO VÍDEO', focus: [0.5, 0.45] }));
+beat(VOICE_END, (g, b) => {
+  const m = Mascot(g, 'm_correct', { cx: 480, floor: 900, h: 640 });
+  const h = txt(g, '¡SERIE COMPLETA!', { x: 1220, y: 300, size: 90 });
+  const parts = ['PARTE 1', 'PARTE 2', 'PARTE 3'].map((s, i) => Chip(g, s + ' ✓', { cx: 880 + i * 340, cy: 480, size: 46, fill: K.yellow }));
+  const d = txt(g, 'Contenido educativo: no sustituye una valoración médica.', { x: 960, y: 1020, size: 34, weight: 700, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(h, t, b.a + 0.2); parts.forEach((p, i) => pop(p, t, b.a + 0.5 + i * 0.3, p.cx, p.cy)); show(d, t, b.a + 1.2); };
+});
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

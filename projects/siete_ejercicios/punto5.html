@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · opener (silent pre-roll until v4 exists) + Punto 5: the cause detective.
+const PRE = 5;
+window.START = at('p5') - PRE;
+window.END = window.DURATION = at('p6') - 1.2;
+HOOK_END = at('p5') + 35;
+const svg = Stage();
+const S0 = window.START;
+
+beat(S0, row([['m_ask', 'PREGUNTAS', S0 + 0.1], ['m_detective', 'REGLAS', S0 + 0.4], ['m_upside', 'AL REVÉS', S0 + 0.7], ['m_box', '5 SOLUCIONES', S0 + 1.0]], { head: 'ya practicamos 4 ejercicios…', hi: '4 ejercicios' }));
+beat(S0 + 2.3, (g, b) => {
+  const m = Mascot(g, 'm_detective', { cx: 450, floor: 930, h: 660 });
+  const n = txt(g, '7', { x: 1200, y: 300, size: 260, color: K.pink });
+  const t1 = txt(g, 'EJERCICIOS MENTALES', { x: 1200, y: 480, size: 84 });
+  const c = Chip(g, 'PARTE 3 DE 3', { cx: 1200, cy: 620, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 750, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1200, 300); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1200, 620); show(ch, t, b.a + 0.9); };
+});
+beat('p5', ejercicio(5, 'EL DETECTIVE DE LAS CAUSAS', { hi: 'CAUSAS', sub: 'coincidencia ≠ REALIDAD', subHi: 'REALIDAD', subAt: at('p5_detective') + 1.5, m: 'm_detective' }));
+beat('p5_amiga', still('s_teanight', { cap: '«desde la infusión, duermo MEJOR»', hi: 'MEJOR', capAt: 'p5_infusion', focus: [0.5, 0.45] }));
+beat('p5_convencida', mascot('m_drinking', { cap: 'está CONVENCIDA', hi: 'CONVENCIDA', extra: [['i_tea', 'p5_convencida', 1450, 500, 330]] }));
+beat('p5_antes', mascot('m_ask', { cap: '¿qué OTRAS cosas lo explican?', hi: 'OTRAS', capAt: 'p5_otras', size: 58 }));
+beat('p5_temprano', still('s_explain3', { focus: [0.5, 0.45], chips: [['SE ACUESTA ANTES', 'p5_temprano', '#CFE6F7'], ['SIN TELÉFONO', 'p5_telefono', '#E5DAF5'], ['MENOS CAFÉ', 'p5_cafe', '#FFE0C2'], ['MENOS ESTRÉS', 'p5_estres', '#CDEFD0']] }));
+beat('p5_coinc', mascot('m_shrug', { cap: '…o una COINCIDENCIA', hi: 'COINCIDENCIA' }));
+beat('p5_habilidad', (g, b) => {
+  const a = Img(g, 'i_tea', 560, 420, 300), c = Mascot(g, 'm_sleepy', { cx: 1360, floor: 600, h: 380 });
+  const l1 = txt(g, 'OCURREN JUNTOS', { x: 960, y: 760, size: 76, color: K.grey });
+  const l2 = hiText(g, '≠ CAUSA Y EFECTO', 'CAUSA Y EFECTO', { x: 960, y: 880, size: 92 });
+  const ar = Arrow(g, 760, 420, 1140, 420, K.ink, 12), q = txt(g, '?', { x: 950, y: 330, size: 120, color: K.pink });
+  const tag = ExTag(g, 5);
+  return t => { live(a, t, b.a, { amp: 4 }); live(c, t, b.a + 0.2); set(ar, { opacity: clamp(prog(t, b.a + 0.5, b.a + 0.8)) }); pop(q, t, b.a + 0.9, 950, 330); show(l1, t, b.a + 1); show(l2, t, at('p5_causa')); show(tag, t, b.a); };
+});
+beat('p5_busca', still('s_arrows', { cap: 'tu cerebro CONECTA todo', hi: 'CONECTA', focus: [0.5, 0.45] }));
+beat('p5_despues', still('s_rooster', { cap: 'después ≠ POR CAUSA DE', hi: 'POR CAUSA DE', focus: [0.5, 0.45] }));
+beat('p5_rapidez', mascot('m_dizzy', { cap: 'rápido… pero EQUIVOCADO', hi: 'EQUIVOCADO' }));
+beat('p5_practicar', still('s_neighbour', { cap: 'camina… y tiene más ENERGÍA', hi: 'ENERGÍA', capAt: at('p5_vecino') + 3, focus: [0.4, 0.4] }));
+beat('p5_unica', mascot('m_glassmag', { cap: '¿la ÚNICA explicación?', hi: 'ÚNICA' }));
+beat('p5_tres', row([['m_sleepy', 'DUERME MEJOR', 'p5_duerme'], ['m_hungry', 'OTRA ALIMENTACIÓN', 'p5_alim'], ['m_laugh', 'MÁS COMPAÑÍA', 'p5_compania']], { head: 'TRES posibilidades', hi: 'TRES' }));
+beat('p5_importante', still('s_interview', { cap: '¿qué INFORMACIÓN necesitas?', hi: 'INFORMACIÓN', capAt: 'p5_info', focus: [0.45, 0.45], chips: [['¿otros hábitos?', 'p5_preguntar'], ['¿se mantiene?', at('p5_preguntar') + 3.5]] }));
+beat('p5_incert', mascot('m_meditate', { cap: 'aceptar la duda = BUEN JUICIO', hi: 'BUEN JUICIO', size: 58 }));
+beat('p5_noticias', still('s_tvad', { cap: '«gracias a…» → ¡DETENTE!', hi: 'DETENTE', capAt: 'p5_gracias', focus: [0.6, 0.45] }));
+beat('p5_historia', still('s_clues', { cap: 'historia convincente ≠ PRUEBA', hi: 'PRUEBA', focus: [0.5, 0.45] }));
+beat('p5_siguiente', mascot('m_juggle', { cap: 'varios datos… sin perder el HILO', hi: 'HILO', capAt: 'p5_varios', size: 58 }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

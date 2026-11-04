@@ -204,5 +204,129 @@ p4_edad | No atribuyas automáticamente
 p4_ahora | Y ahora viene una pregunta
 p4_mismo | Cuando dos cosas ocurren
 p4_proximo | Nuestro próximo ejercicio
+# Video 3 = punto 5 + 6 + 7 + conclusión.
 p5 | Punto 5
 p5_detective | El detective de las causas
+p5_amiga | Imagina que una amiga
+p5_infusion | Desde que toma una infusión
+p5_convencida | Está convencida
+p5_antes | Pero antes de aceptar
+p5_otras | qué otras cosas podrían
+p5_temprano | Quizá tu amiga también
+p5_telefono | dejó de mirar el teléfono
+p5_cafe | redujo el café
+p5_estres | atraviesa una etapa
+p5_coinc | Incluso podría tratarse
+p5_habilidad | Acabas de utilizar una habilidad
+p5_causa | relación de causa y efecto
+p5_busca | Nuestro cerebro busca explicaciones
+p5_despues | Cuando observa que algo sucede
+p5_rapidez | Esa rapidez puede resultar
+p5_practicar | Vamos a practicar
+p5_vecino | Imagina que un vecino
+p5_unica | Caminar es necesariamente
+p5_tres | Piensa en tres posibilidades
+p5_duerme | también duerme mejor
+p5_alim | ha cambiado su alimentación
+p5_compania | disfruta de más compañía
+p5_importante | Ahora llega la parte importante
+p5_info | Qué información necesitarías
+p5_preguntar | Podrías preguntar qué otros
+p5_incert | No siempre podrás conocer
+p5_noticias | Prueba este ejercicio con noticias
+p5_gracias | Cada vez que escuches
+p5_historia | No se trata de desconfiar
+p5_siguiente | Y si hasta ahora hemos aprendido
+p5_varios | Mantener varios datos
+p6 | El desafío de la memoria de trabajo
+p6_hasta | Hasta ahora hemos puesto
+p6_otra | Pero existe otra habilidad
+p6_telefono | Imagina que alguien te dice
+p6_dinero | O que estás calculando
+p6_memoria | En ambos casos interviene
+p6_prueba | Vamos a ponerla a prueba
+p6_escucha | Escucha estos cinco números
+p6_n1 | Ocho tres seis uno y cinco
+p6_recordar | Ahora intenta recordarlos
+p6_orden | Pero atención no quiero
+p6_menor | Tu desafío consiste
+p6_tienes | Lo tienes
+p6_resp | La respuesta es
+p6_r1 | Uno tres cinco seis y ocho
+p6_acertado | Si has acertado
+p6_perdido | Y si has perdido
+p6_interes | Lo interesante es observar
+p6_aumentar | Ahora aumentaremos ligeramente
+p6_nueva | Imagina esta nueva secuencia
+p6_n2 | 7 2 9 4 1 y 6
+p6_ordenar | Intenta ordenarla mentalmente
+p6_resp2 | La respuesta sería
+p6_exige | Este tipo de desafío exige
+p6_procesos | Son procesos importantes
+p6_practicar | Puedes practicar durante unos minutos utilizando
+p6_cuatro | Empieza con cuatro elementos
+p6_alguien | También puedes pedirle
+p6_recuerda | Sin embargo recuerda que mejorar
+p6_utilidad | Su utilidad principal
+p6_sub | Si estás disfrutando estos desafíos
+p6_semana | Cada semana exploramos
+p6_queda | Pero todavía nos queda
+p6_nonum | No necesitarás recordar
+p6_dificil | Tendrás que enfrentarte
+p6_contraria | Defender una idea contraria
+p6_obstaculo | Porque a veces el mayor
+p7 | Punto 7
+p7_defiende | Defiende la idea contraria
+p7_ultimo | Hemos llegado al último
+p7_incomodo | Y quizá sea el más incómodo
+p7_calculos | No porque necesites
+p7_afirm | Piensa en esta afirmación
+p7_multi | Hacer varias cosas al mismo tiempo
+p7_acuerdo | Tal vez estés de acuerdo
+p7_diferente | Pero ahora quiero que hagas
+p7_minuto | Durante un minuto intenta defender
+p7_args | Qué argumentos encontrarías
+p7_concent | Quizá cambiar de tarea
+p7_errores | Tal vez cometas más errores
+p7_opinion | No tienes que abandonar
+p7_llama | Este ejercicio se llama
+p7_objetivo | Su objetivo es ayudarte
+p7_cerebro | Nuestro cerebro suele prestar
+p7_sesgo | Este fenómeno se conoce
+p7_molesto | Por eso escuchar un argumento
+p7_practica | Te propongo una práctica sencilla
+p7_elige | Elige una opinión cotidiana
+p7_apoyen | Escribe tres razones
+p7_cuestionen | Después busca tres razones
+p7_pruebas | Finalmente pregúntate
+p7_habitos | Puedes hacerlo con hábitos
+p7_dos | Lo importante es escuchar
+p7_valor | Y recuerda considerar
+p7_solidas | Algunas cuentan con pruebas
+p7_bien | Pensar bien también
+p7_dificil | Si este desafío te ha resultado
+p7_flex | La flexibilidad mental comienza
+p7_equivocado | podría estar equivocado
+p7_conoces | Ahora que conoces los siete
+p7_manana | Cuál empezarás a practicar
+c0 | Hoy has descubierto que entrenar
+c_tambien | También significa hacer mejores
+c_piensa | Piensa en los siete desafíos
+c_sencillos | Algunos te habrán parecido
+c_interes | Y precisamente ahí está
+c_acertar | No necesitas acertar siempre
+c_concreto | Te propongo algo concreto
+c_semana | Durante la próxima semana
+c_cinco | Dedícale cinco minutos
+c_observa | Observa qué estrategias
+c_curiosidad | Tu curiosidad puede acompañarte
+c_recuerda | Recuerda que estos ejercicios
+c_dormir | Dormir bien
+c_activo | mantenerte físicamente activo
+c_relaciones | cuidar tus relaciones
+c_notas | Si notas cambios persistentes
+c_coment | Ahora cuéntame en los comentarios
+c_sorpr | Qué ejercicio te sorprendió
+c_costo | Y cuál te costó
+c_sub | Si quieres seguir aprendiendo
+c_nos | Nos vemos en el próximo

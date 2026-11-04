@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · Punto 7: defend the opposite idea (multitasking).
+window.START = at('p7');
+window.END = window.DURATION = at('c0');
+HOOK_END = 0;
+const svg = Stage();
+
+beat('p7', ejercicio(7, 'DEFIENDE LA IDEA CONTRARIA', { hi: 'CONTRARIA', sub: 'cuestiona TUS creencias', subHi: 'TUS', subAt: at('p7_defiende') + 1.5, m: 'm_weigh' }));
+beat('p7_ultimo', mascot('m_scared', { cap: 'el último… y el más INCÓMODO', hi: 'INCÓMODO', capAt: 'p7_incomodo' }));
+beat('p7_calculos', mascot('m_thinking', { cap: 'dudar de lo que CREES', hi: 'CREES', capAt: at('p7_calculos') + 3 }));
+beat('p7_afirm', (g, b) => {
+  const card = el('g', {}, g);
+  el('rect', { x: 260, y: 200, width: 1400, height: 330, rx: 40, fill: K.white, stroke: K.ink, 'stroke-width': 9 }, card);
+  txt(card, '«Hacer varias cosas a la vez', { x: 960, y: 320, size: 72 });
+  txt(card, 'me hace aprovechar el día»', { x: 960, y: 420, size: 72 });
+  card.cx = 960; card.cy = 365;
+  const m = Mascot(g, 'm_multitask', { cx: 960, floor: 1050, h: 440 });
+  const ok = Chip(g, '¿DE ACUERDO?', { cx: 1500, cy: 640, size: 54, fill: K.yellow });
+  const tag = ExTag(g, 7);
+  return t => { pop(card, t, at('p7_multi'), 960, 365); live(m, t, b.a + 0.3); pop(ok, t, at('p7_acuerdo'), 1500, 640); show(tag, t, b.a); };
+});
+beat('p7_diferente', mascot('m_upside', { cap: '1 minuto: defiende lo CONTRARIO', hi: 'CONTRARIO', capAt: 'p7_minuto', size: 58 }));
+beat('p7_args', still('s_multi', { focus: [0.5, 0.45], chips: [['RECUPERAR LA CONCENTRACIÓN', 'p7_concent', K.pinkL], ['MÁS ERRORES', 'p7_errores', K.pinkL], ['TARDAS MÁS', at('p7_errores') + 2, K.pinkL]] }));
+beat('p7_opinion', still('s_onetask', { cap: 'solo EXPLORA otra posibilidad', hi: 'EXPLORA', focus: [0.5, 0.45], tag: 'coste del cambio de tarea · Monsell, 2003' }));
+beat('p7_llama', still('s_debate', { cap: 'DEFENDER LA IDEA CONTRARIA', hi: 'CONTRARIA', focus: [0.5, 0.45] }));
+beat('p7_objetivo', mascot('m_list', { cap: 'la primera idea no cuenta TODA la historia', hi: 'TODA', size: 54 }));
+beat('p7_cerebro', still('s_magnet', { cap: 'atraemos lo que YA CREEMOS', hi: 'YA CREEMOS', focus: [0.5, 0.45] }));
+beat('p7_sesgo', big([['SESGO DE CONFIRMACIÓN', 'CONFIRMACIÓN']], { y: 300, size: 100, pic: 'm_glassmag', custom: g => {
+  const c = Chip(g, 'otra opinión puede MOLESTAR', { cx: 960, cy: 470, size: 54, fill: K.pinkL }); const s = Tag(g, 'Nickerson, 1998');
+  return t => { pop(c, t, at('p7_molesto'), 960, 470); show(s, t, at('p7_sesgo') + 0.5); }; } }));
+beat('p7_practica', (g, b) => {
+  const head = hiText(g, 'TU PRÁCTICA', 'PRÁCTICA', { x: 960, y: 110, size: 74 });
+  const steps = [['1', 'una opinión POCO CONFLICTIVA', 'p7_elige'], ['2', '3 razones A FAVOR', 'p7_apoyen'], ['3', '3 razones EN CONTRA', 'p7_cuestionen'], ['4', '¿qué PRUEBAS necesito?', 'p7_pruebas']];
+  const its = steps.map(([n, s, k], i) => {
+    const y = 270 + i * 175, it = el('g', {}, g);
+    el('circle', { cx: 330, cy: y, r: 56, fill: EX_COL[i], stroke: K.ink, 'stroke-width': 8 }, it);
+    txt(it, n, { x: 330, y: y + 4, size: 66 });
+    const hi = { 0: 'POCO CONFLICTIVA', 1: 'A FAVOR', 2: 'EN CONTRA', 3: 'PRUEBAS' }[i];
+    hiText(it, s, hi, { x: 430, y, size: 62, anchor: 'start' });
+    it.cx = 900; it.cy = y;
+    return [it, k];
+  });
+  const m = Mascot(g, 'm_list', { cx: 1660, floor: 1050, h: 440 });
+  const tag = ExTag(g, 7);
+  return t => { show(head, t, b.a); its.forEach(([it, k]) => show(it, t, at(k), 1e9, { dy: 30 })); live(m, t, b.a + 0.3, { dir: 'r' }); show(tag, t, b.a); };
+});
+beat('p7_habitos', still('s_lists', { cap: 'trabajo · compras · TIEMPO', hi: 'TIEMPO', focus: [0.5, 0.45] }));
+beat('p7_dos', still('s_bench', { cap: 'escuchar, sin DISCUTIR', hi: 'DISCUTIR', focus: [0.5, 0.45] }));
+beat('p7_valor', still('s_scale', { cap: 'no todas las ideas VALEN LO MISMO', hi: 'VALEN LO MISMO', focus: [0.5, 0.45], chips: [['más PRUEBAS = más peso', 'p7_solidas', '#CDEFD0']] }));
+beat('p7_bien', mascot('m_agree', { cap: 'pensar bien = ver la DIFERENCIA', hi: 'DIFERENCIA', size: 58 }));
+beat('p7_dificil', mascot('m_tired', { cap: '¿difícil? algo VALIOSO', hi: 'VALIOSO' }));
+beat('p7_flex', still('s_humble', { cap: '«podría estar EQUIVOCADO»', hi: 'EQUIVOCADO', capAt: 'p7_equivocado', focus: [0.5, 0.45] }));
+beat('p7_conoces', (g, b) => {
+  const ic = ['m_ask', 'm_detective', 'm_upside', 'm_box', 'm_glassmag', 'm_juggle', 'm_weigh'];
+  const its = ic.map((n, i) => { const x = 960 + (i - 3) * 245, it = el('g', {}, g); el('circle', { cx: x, cy: 400, r: 105, fill: EX_COL[i], stroke: K.ink, 'stroke-width': 7 }, it); Mascot(it, n, { cx: x, floor: 480, h: 170 }); txt(it, String(i + 1), { x, y: 560, size: 60 }); it.cx = x; it.cy = 420; return it; });
+  const q = hiText(g, '¿cuál empezarás MAÑANA?', 'MAÑANA', { x: 960, y: 760, size: 84 });
+  return t => { its.forEach((it, i) => pop(it, t, b.a + i * 0.15, it.cx, it.cy)); show(q, t, at('p7_manana')); };
+});
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

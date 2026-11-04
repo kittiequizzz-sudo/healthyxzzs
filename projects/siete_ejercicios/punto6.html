@@ -1,0 +1,74 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · Punto 6: working memory (sort 8, 3, 6, 1, 5 and 7, 2, 9, 4, 1, 6 in your head).
+window.START = at('p6') - 1.2;
+window.END = window.DURATION = at('p7');
+HOOK_END = 0;
+const svg = Stage();
+// numbers shown, then hidden (cards turn to "?"), then the sorted answer
+function sortPuzzle(nums, ans, o) {
+  return (g, b) => {
+    const N = nums.length, gap = Math.min(260, 1600 / N), bw = Math.min(210, gap - 40);
+    const xs = nums.map((_, i) => 960 + (i - (N - 1) / 2) * gap);
+    const shown = nums.map((s, i) => Box(g, s, xs[i], 360, { w: bw, h: 190, size: 110 }));
+    const hid = nums.map((s, i) => Box(g, '?', xs[i], 360, { w: bw, h: 190, size: 110, fill: K.yellow }));
+    const sorted = ans.map((s, i) => Box(g, s, xs[i], 360, { w: bw, h: 190, size: 110, fill: '#CDEFD0' }));
+    const lab = hiText(g, 'ordénalos de MENOR a MAYOR', 'MENOR a MAYOR', { x: 960, y: 590, size: 70 });
+    const th = Think(g, 1660, 800);
+    const m = Mascot(g, 'm_count', { cx: 300, floor: 1060, h: 380 });
+    const head = hiText(g, o.head, o.headHi, { x: 960, y: 130, size: 64 });
+    const tag = ExTag(g, 6);
+    return t => {
+      const th0 = tt(o.hide), ta = tt(o.ans);
+      shown.forEach((x, i) => { if (t < th0) pop(x, t, tt(o.at[i]), x.cx, x.cy); else hide(x); });
+      hid.forEach((x, i) => { if (t >= th0 && t < ta) pop(x, t, th0 + i * 0.06, x.cx, x.cy); else hide(x); });
+      sorted.forEach((x, i) => { if (t >= ta) pop(x, t, ta + i * (o.step || 0.6), x.cx, x.cy); else hide(x); });
+      show(lab, t, tt(o.sortAt)); th.draw(t, tt(o.think[0]), tt(o.think[1])); live(m, t, b.a + 0.2); show(head, t, b.a); show(tag, t, b.a);
+    };
+  };
+}
+
+beat(at('p6') - 1.2, ejercicio(6, 'LA MEMORIA DE TRABAJO', { hi: 'MEMORIA DE TRABAJO', sub: 'organizar INFORMACIÓN', subHi: 'INFORMACIÓN', m: 'm_juggle' }));
+beat('p6_hasta', row([['m_ask', 'CUESTIONAR', 'p6_hasta'], ['m_box', 'SOLUCIONES', at('p6_hasta') + 2.5], ['m_detective', 'CAUSAS', at('p6_hasta') + 5]], { cap: 'otra habilidad que usas SIEMPRE', capHi: 'SIEMPRE', capAt: 'p6_otra' }));
+beat('p6_telefono', still('s_phone', { cap: 'recordar un TELÉFONO', hi: 'TELÉFONO', focus: [0.5, 0.45] }));
+beat('p6_dinero', still('s_change', { cap: 'calcular el CAMBIO', hi: 'CAMBIO', focus: [0.6, 0.45] }));
+beat('p6_memoria', brain({ on: [['frontal', 'p6_memoria'], ['parietal', at('p6_memoria') + 1]], labels: [['MEMORIA DE TRABAJO', 'frontal', at('p6_memoria') + 0.6, -20, -190]], mascot: ['m_juggle', 'p6_memoria'], cap: 'guardar Y USAR a la vez', hi: 'Y USAR', extra: g => { const s = Tag(g, 'Baddeley, 2003'); return t => show(s, t, at('p6_memoria') + 0.6); } }));
+beat('p6_prueba', mascot('m_noise', { cap: 'escucha BIEN', hi: 'BIEN', capAt: 'p6_escucha' }));
+beat('p6_n1', sortPuzzle(['8', '3', '6', '1', '5'], ['1', '3', '5', '6', '8'], { head: 'recuérdalos SIN MIRAR', headHi: 'SIN MIRAR',
+  at: [at('p6_n1'), at('p6_n1') + 0.8, at('p6_n1') + 1.6, at('p6_n1') + 2.4, at('p6_n1') + 3.6], hide: at('p6_n1') + 4.6, sortAt: 'p6_menor', think: ['p6_menor', 'p6_resp'], ans: 'p6_r1', step: 0.7 }));
+beat('p6_acertado', mascot('m_correct', { cap: '¿acertaste? ¡ESTUPENDO!', hi: 'ESTUPENDO', chips: [['¿perdiste uno? NO PASA NADA', 'p6_perdido', '#CDEFD0']] }));
+beat('p6_interes', still('s_balls', { cap: 'guardar… y REORGANIZAR', hi: 'REORGANIZAR', focus: [0.5, 0.5] }));
+beat('p6_aumentar', mascot('m_strong', { cap: 'un poco más DIFÍCIL', hi: 'DIFÍCIL' }));
+beat('p6_n2', sortPuzzle(['7', '2', '9', '4', '1', '6'], ['1', '2', '4', '6', '7', '9'], { head: 'SEIS números', headHi: 'SEIS',
+  at: [at('p6_n2'), at('p6_n2') + 0.8, at('p6_n2') + 1.6, at('p6_n2') + 2.4, at('p6_n2') + 3.2, at('p6_n2') + 4.2], hide: 'p6_ordenar', sortAt: 'p6_ordenar', think: [at('p6_ordenar') + 0.3, 'p6_resp2'], ans: at('p6_resp2') + 1.2, step: 0.7 }));
+beat('p6_exige', row([['m_focus', 'ATENCIÓN', 'p6_exige'], ['m_thinking', 'RETENER', at('p6_exige') + 1.8], ['m_juggle', 'MANIPULAR', at('p6_exige') + 3.2]]));
+beat('p6_procesos', still('s_recipe', { cap: 'instrucciones con VARIOS PASOS', hi: 'VARIOS PASOS', focus: [0.6, 0.45] }));
+beat('p6_practicar', still('s_objcards', { cap: 'números, palabras, OBJETOS', hi: 'OBJETOS', focus: [0.5, 0.5] }));
+beat('p6_cuatro', still('s_stairs', { cap: 'empieza con CUATRO', hi: 'CUATRO', focus: [0.5, 0.45] }));
+beat('p6_alguien', still('s_listen', { cap: 'que alguien te los LEA', hi: 'LEA', focus: [0.5, 0.45] }));
+beat('p6_recuerda', big([['habilidades CONCRETAS', 'CONCRETAS'], ['≠ más inteligencia ni prevención', '', K.grey]], { y: 250, size: 84, pic: 'm_shrug', at: ['p6_recuerda', at('p6_recuerda') + 4],
+  custom: g => { const s = Tag(g, 'Melby-Lervåg & Hulme, 2013'); return t => show(s, t, at('p6_recuerda') + 4); } }));
+beat('p6_utilidad', still('s_memgame', { cap: 'practicar de forma ENTRETENIDA', hi: 'ENTRETENIDA', focus: [0.5, 0.45] }));
+beat('p6_sub', cta('sub', { sub: 'ideas y ejercicios para tu mente' }));
+beat('p6_queda', mascot('m_scared', { cap: 'el desafío más INTRIGANTE', hi: 'INTRIGANTE' }));
+beat('p6_contraria', mascot('m_weigh', { cap: 'defender la idea CONTRARIA', hi: 'CONTRARIA' }));
+beat('p6_obstaculo', mascot('m_confused', { cap: 'estar DEMASIADO SEGURO', hi: 'DEMASIADO SEGURO', capAt: at('p6_obstaculo') + 5 }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

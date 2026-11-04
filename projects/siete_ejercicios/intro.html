@@ -29,7 +29,7 @@ beat('i_bate', (g, b) => {
   return t => { live(pic, t, b.a, { amp: 5 }); show(l1, t, b.a + 0.2); show(l2, t, at('i_mas')); show(l3, t, at('i_cuanto')); th.draw(t, at('i_cuanto') + 1.2, at('i_diez')); };
 });
 beat('i_diez', (g, b) => {
-  const S = Still(g, IMG('s_wrong'), { x: 200, y: 40, w: 1520, h: 850, iw: SZ.s_wrong[0], ih: SZ.s_wrong[1], r: 34, focus: [0.5, 0.45], zoom: 0.1 });
+  const S = Still(g, IMG('s_wrong'), { x: 200, y: 40, w: 1520, h: 850, iw: SZ.s_wrong[0], ih: SZ.s_wrong[1], r: 34, focus: [0.5, 0.45], zoom: 0.2 });
   const c = Chip(g, '¿10 CÉNTIMOS?', { cx: 960, cy: 140, size: 70, fill: K.white });
   const cap = Bubble(g, '¡una TRAMPA de tu cerebro!', { hi: 'TRAMPA' });
   return t => { S.draw(t, b.a, b.b); pop(c, t, b.a + 0.2, 960, 140); pop(cap, t, at('i_trampa'), 960, 975); };

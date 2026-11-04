@@ -19,3 +19,4 @@ projects/*/out_render.log
 projects/*/out/*.mp4
 projects/*/audio/*.wav
 projects/*/out/
+projects/*/transcribe.log

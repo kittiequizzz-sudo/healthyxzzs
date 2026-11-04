@@ -1,0 +1,134 @@
+// Punto 3 — night cramps: nerves, factors, thirst; Elisa (=Pilar); wall calf stretch; magnesium / warning.
+window.START = at('h3') - 0.3;
+window.END = at('h4') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p3');
+const c = k => () => at(k);
+
+TitleCard(svg, 3, 'DOLOR A MEDIANOCHE', 'Los calambres nocturnos', () => START, c('tres3'));
+stillScene(svg, 'd1a', c('tres3'), c('bloqueado'), { focus: [0.45, 0.5], zoom: 0.14 }, g => {
+  const k = Kicker(g, 3, 'CALAMBRES'); Progress(g, 2);
+  const ck = el('g', {}, g); const clk = Clock(ck, { cx: 1730, cy: 330, r: 90, night: true });
+  const a = CAP(g, 'UN DOLOR QUE APRIETA EL MÚSCULO', { hi: 'APRIETA', size: 52 });
+  sfx('alert_soft', at('dolor3'));
+  return t => { slideIn(k, t, at('tres3'), 'l', 600); show(ck, t, at('tres3') + 0.3); clk.draw(3 + (t - at('tres3')) / 600); show(a, t, at('dolor3')); };
+}, true);
+stillScene(svg, 'd1b', c('bloqueado'), c('termina3'), { focus: [0.6, 0.6], zoom: 0.14 }, g => {
+  const a = CAP(g, 'EL PIE, BLOQUEADO', { hi: 'BLOQUEADO' });
+  return t => show(a, t, at('bloqueado') + 0.3);
+}, true);
+stillScene(svg, 'd1c', c('termina3'), c('calambres3'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const a = Chip(g, 'DOLORIDO VARIAS HORAS', { cx: 1450, cy: 140, fill: C.white, size: 42 });
+  const b = CAP(g, '¿VOLVERÁ MAÑANA?', { hi: 'MAÑANA' });
+  sfx('pop', at('termina3') + 2);
+  return t => { slideIn(a, t, at('termina3') + 2, 'r', 400); show(b, t, at('manana3')); };
+});
+scene(svg, c('calambres3'), c('cables'), g => {
+  const h = Text(g, 'CALAMBRES NOCTURNOS', { x: 960, y: 160, size: 80, color: ACC });
+  const a = el('g', {}, g); Card(a, { x: 360, y: 300, w: 1200, h: 200, fill: C.white }); Mark(a, false, 500, 400, 1); Text(a, '¿SOLO FALTA DE POTASIO O MAGNESIO?', { x: 1030, y: 400, size: 48, color: C.grey });
+  const s = Stamp(g, 'CAUSAS MÁS COMPLEJAS', { cx: 960, cy: 680, size: 76, color: ACC });
+  sfx('pop', at('potasio')); sfx('stamp', at('complejas'));
+  return t => { show(h, t, at('calambres3')); pop(a, t, at('potasio'), 960, 400); s.draw(t, at('complejas')); };
+});
+// nerves as electric cables
+scene(svg, c('cables'), c('factores'), g => {
+  const cm = ItemCard(g, 'calambre', 1400, 540, { w: 520, h: 680, fit: 580 });
+  const br = el('g', {}, g); IC.brain(br, 200, 200, 2);
+  const wires = [0, 1, 2].map(i => el('path', { d: `M400 ${300 + i * 40} C700 ${300 + i * 40} 900 ${520 + i * 60} 1180 ${480 + i * 70}`, fill: 'none', stroke: C.amber, 'stroke-width': 10, 'stroke-linecap': 'round' }, g));
+  const sparks = [0, 1, 2, 3, 4, 5].map(i => { const s = el('g', {}, g); IC.bolt(s, 0, 0, 0.6); return s; });
+  const a = Chip(g, 'SEÑALES PARA CONTRAER Y RELAJAR', { cx: 760, cy: 860, fill: C.white, size: 38 });
+  const b = Chip(g, 'SEÑALES DEMASIADO EXCITABLES', { cx: 760, cy: 860, fill: C.red, color: C.white, size: 38 });
+  sfx('pop', at('cables')); sfx('pop', at('senales3')); sfx('alert', at('excitables'), 0.6);
+  return t => {
+    pop(br, t, at('cables'), 300, 300); pop(cm, t, at('cables') + 0.8, 1400, 540); wires.forEach((w, i) => show(w, t, at('cables') + 1.5 + i * 0.3));
+    const ex = t > at('excitables');
+    sparks.forEach((s, i) => { const u = ((t - at('senales3')) * (ex ? 0.9 : 0.35) + i / 6) % 1, x = 400 + 780 * u, y = 300 + i % 3 * 40 + (220 + (i % 3) * 30) * u; s.setAttribute('transform', `translate(${x - 30} ${y - 30}) scale(0.6)`); s.setAttribute('opacity', t > at('senales3') ? (ex ? 1 : 0.7) : 0); });
+    show(a, t, at('senales3'), at('excitables')); show(b, t, at('excitables'));
+    if (ex) cm.setAttribute('transform', `translate(${(4 * Math.sin(t * 40)).toFixed(1)} 0)`);
+  };
+});
+scene(svg, c('factores'), c('flexibilidad'), g => {
+  const h = Text(g, 'FACTORES QUE INFLUYEN', { x: 960, y: 150, size: 76, color: ACC });
+  const ts = [['chair', 'MENOS\nMOVILIDAD', 'movilidad3'], ['bolt', 'FATIGA\nMUSCULAR', 'fatiga'], ['heart', 'ALGUNAS\nENFERMEDADES', 'enfermedades3'], ['pill', 'ALGUNOS\nMEDICAMENTOS', 'medicamentos3']].map(([ic, s, k], i) => [IconTile(g, ic, s, 300 + i * 440, 540, { w: 380, h: 440 }), k, 300 + i * 440]);
+  ts.forEach(([, k]) => sfx('pop', at(k), 0.6));
+  return t => { show(h, t, at('factores')); ts.forEach(([tile, k, cx]) => pop(tile, t, at(k), cx, 540)); };
+});
+scene(svg, c('flexibilidad'), c('sed'), g => {
+  const p = ItemCard(g, 'pantorrilla', 600, 540, { w: 500, h: 660, fit: 540 });
+  const r = SideChips(g, [['MÚSCULOS Y TENDONES', () => at('flexibilidad') + 0.5], ['PIERDEN FLEXIBILIDAD', () => at('flexibilidad') + 2], ['MUCHAS HORAS SENTADO', () => at('flexibilidad') + 5]], { cx: 1340, y0: 360, dy: 160, size: 42 });
+  sfx('pop', at('flexibilidad'));
+  return t => { pop(p, t, at('flexibilidad'), 600, 540); r(t); };
+});
+stillScene(svg, 'd2b', c('sed'), c('elisa'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MENOS SED → BEBEMOS MENOS', { hi: 'MENOS SED' });
+  const b = Chip(g, 'NO EXPLICAN TODOS LOS CASOS', { cx: 1320, cy: 140, fill: C.white, size: 38 });
+  sfx('pop', at('deshidratacion') + 4);
+  return t => { show(a, t, at('sed') + 0.5); pop(b, t, at('deshidratacion') + 4, 1320, 140); };
+});
+// Elisa (= Pilar)
+stillScene(svg, 'd2a', c('elisa'), c('acostarse'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = Drama2(g, 'ELISA · 81 · GRANADA');
+  const b = CAP(g, 'UNA COSTUMBRE PECULIAR', { hi: 'PECULIAR' });
+  sfx('pop', at('elisa') + 0.5);
+  return t => { pop(a, t, at('elisa') + 0.5, 1640, 150); show(b, t, at('costumbre3')); };
+});
+stillScene(svg, 'd1d', c('acostarse'), c('noches'), { focus: [0.5, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO POR ORDEN: POR MIEDO', { hi: 'POR MIEDO' });
+  Drama(g);
+  return t => show(a, t, at('miedo3'));
+});
+scene(svg, c('noches'), c('hipertension'), g => {
+  const cal = el('g', {}, g); IC.calendar(cal, 760, 180, 4);
+  const bolts = [0, 1, 2].map(i => { const b = el('g', {}, g); IC.bolt(b, 680 + i * 220, 620, 1); return b; });
+  const a = CAP(g, 'VARIAS NOCHES A LA SEMANA', { hi: 'VARIAS NOCHES' });
+  sfx('pop', at('noches')); [0, 1, 2].forEach(i => sfx('pop', at('noches') + 1 + i * 0.5, 0.5));
+  return t => { pop(cal, t, at('noches'), 960, 380); bolts.forEach((b, i) => pop(b, t, at('noches') + 1 + i * 0.5, 730 + i * 220, 670)); show(a, t, at('noches') + 2); };
+});
+stillScene(svg, 'd2c', c('hipertension'), c('rutina'), { focus: [0.45, 0.6], zoom: 0.12 }, g => {
+  const a = Chip(g, 'MEDICACIÓN PARA LA TENSIÓN', { cx: 1400, cy: 140, fill: C.white, size: 40 });
+  const b = CAP(g, 'ALGUNOS DIURÉTICOS PUEDEN INFLUIR', { hi: 'DIURÉTICOS', size: 50 });
+  const d = CAP(g, 'SU MÉDICO REVISÓ LA MEDICACIÓN', { hi: 'REVISÓ', size: 50 });
+  sfx('pop', at('hipertension') + 1);
+  return t => { slideIn(a, t, at('hipertension') + 1, 'r', 400); show(b, t, at('diureticos') + 2, at('reviso')); show(d, t, at('reviso')); };
+});
+// exercise: wall calf stretch
+scene(svg, c('rutina'), c('hidratacion'), g => {
+  const h = Chip(g, 'EJERCICIO · ESTIRAR LA PANTORRILLA', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['ee1', 'ee2', 'ee3'], [], { y: 170, h: 640, x0: 70, x1: 1500 });
+  const steps = [['ANTES DE DORMIR', 'rutina'], ['FRENTE A UNA PARED', 'pared3'], ['MANOS EN LA PARED, UNA PIERNA DELANTE', 'adelanta'], ['LA OTRA DETRÁS, TALÓN EN EL SUELO', 'detras'], ['INCLÍNATE SUAVE: ESTIRAMIENTO AGRADABLE', 'inclinate'], ['30 SEGUNDOS Y CAMBIA DE PIERNA', 'treinta'], ['PUEDE AYUDAR A ALGUNAS PERSONAS', 'ayudar3']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 46 }), k]);
+  const tr = TimerRing(g, { cx: 1700, cy: 420, r: 110, dur: 30, label: 'SEGUNDOS' });
+  ['pared3', 'adelanta', 'inclinate', 'treinta'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('rutina'));
+    if (t < at('pared3')) row.forEach(({ c, st }) => { c.setAttribute('opacity', 0.3); st.draw(t, 0, 1); }); else lightRow(row, t, [at('pared3'), at('adelanta'), at('inclinate')]);
+    steps.forEach(([cap, k], i) => show(cap, t, at(k), i < steps.length - 1 ? at(steps[i + 1][1]) : 1e9));
+    if (t >= at('treinta')) { show(tr.g, t, at('treinta')); tr.draw(t, at('treinta')); } else tr.g.setAttribute('opacity', 0);
+  };
+});
+scene(svg, c('hidratacion'), c('frecuencia3'), g => {
+  const a = ItemCard(g, 'agua', 520, 400, { w: 520, h: 420, fit: 300, label: 'HIDRATACIÓN ADECUADA', size: 34 });
+  const n = Text(g, 'respeta las restricciones de tu médico', { x: 520, y: 680, size: 34, weight: 700 });
+  const b = el('g', {}, g); Card(b, { x: 1000, y: 200, w: 760, h: 200, fill: C.white }); Mark(b, false, 1110, 300, 0.9); Text(b, 'SUPLEMENTOS DE MAGNESIO', { x: 1430, y: 300, size: 40 });
+  const d = el('g', {}, g); Card(d, { x: 1000, y: 450, w: 760, h: 200, fill: C.white }); Mark(d, false, 1110, 550, 0.9); Text(d, 'CAMBIAR TUS MEDICAMENTOS', { x: 1430, y: 550, size: 40 });
+  const e = CAP(g, 'NUNCA POR TU CUENTA', { hi: 'NUNCA' });
+  sfx('pop', at('hidratacion')); sfx('pop', at('magnesio')); sfx('pop', at('magnesio') + 2);
+  return t => { pop(a, t, at('hidratacion'), 520, 400); show(n, t, at('hidratacion') + 3); pop(b, t, at('magnesio'), 1380, 300); pop(d, t, at('magnesio') + 2, 1380, 550); show(e, t, at('magnesio') + 2.5); };
+});
+scene(svg, c('frecuencia3'), c('fundamental3'), g => {
+  const w = Warn(g, 'CONSULTA SI LOS CALAMBRES…', ['SON FRECUENTES O EMPEORAN', 'VIENEN CON DEBILIDAD', 'O CON CAMBIOS DE SENSIBILIDAD'], { kind: 'amber', y: 220, w: 1400 });
+  sfx('alert_soft', at('frecuencia3') + 0.2);
+  return t => pop(w, t, at('frecuencia3') + 0.2, 960, 440);
+});
+stillScene(svg, 'd2d', c('fundamental3'), c('oxidadas'), { focus: [0.45, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'MOVIMIENTO + DESCANSO + ATENCIÓN', { hi: 'DESCANSO', size: 52 });
+  return t => show(a, t, at('fundamental3') + 1);
+});
+scene(svg, c('oxidadas'), () => END + 1, g => {
+  const k = ItemCard(g, 'rodilla', 620, 540, { w: 500, h: 640, fit: 540 });
+  const a = Text(g, '¿RODILLAS "OXIDADAS"', { x: 1300, y: 480, size: 64 });
+  const b = Text(g, 'AL DESPERTAR?', { x: 1300, y: 580, size: 64 });
+  sfx('pop', at('oxidadas') + 1);
+  return t => { pop(k, t, at('oxidadas') + 1, 620, 540); show(a, t, at('oxidadas') + 5); show(b, t, at('oxidadas') + 5.5); };
+});
+
+window.draw = t => drawScenes(t);

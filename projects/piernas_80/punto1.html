@@ -1,0 +1,166 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 1 — sarcopenia: strength falls before size, fast fibres; Ricardo (=Antonio); chair stand; protein.
+window.START = at('h1') - 0.3;
+window.END = at('h2') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p1');
+const c = k => () => at(k);
+
+TitleCard(svg, 1, 'EL ENEMIGO SILENCIOSO', 'La fuerza de tus piernas', () => START, c('sofa1'));
+stillScene(svg, 'b1a', c('sofa1'), c('manos1'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const k = Kicker(g, 1, 'FUERZA'); Progress(g, 0);
+  const a = CAP(g, 'UN DÍA: SIN PENSARLO', { hi: 'SIN PENSARLO' });
+  return t => { slideIn(k, t, at('sofa1') + 0.2, 'l', 600); show(a, t, at('sofa1') + 0.5); };
+});
+stillScene(svg, 'b1b', c('manos1'), c('escalones1'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, 'DESPUÉS: CON LAS MANOS', { hi: 'CON LAS MANOS' });
+  return t => show(a, t, at('manos1') + 0.5);
+}, true);
+stillScene(svg, 'b1c', c('escalones1'), c('avisado1'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'TRES ESCALONES… Y PARAR', { hi: 'PARAR' });
+  return t => show(a, t, at('escalones1') + 0.5);
+}, true);
+stillScene(svg, 'b1d', c('avisado1'), c('sarcopenia'), { focus: [0.45, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'NADIE TE AVISÓ', { hi: 'NADIE' });
+  return t => show(a, t, at('avisado1') + 0.5);
+});
+// sarcopenia
+scene(svg, () => at('sarcopenia') - 0.6, c('delgadas'), g => {
+  const s = Stamp(g, 'SARCOPENIA', { cx: 960, cy: 150, size: 90, color: ACC, rot: -4 });
+  const a = ItemCard(g, 'musculo_fuerte', 560, 500, { w: 520, h: 440, fit: 400 });
+  const ar = el('g', {}, g); Arrow(ar, 860, 500, 1040, 500, C.ink, 14);
+  const b = ItemCard(g, 'musculo_debil', 1360, 500, { w: 520, h: 440, fit: 330 });
+  const r = ChipRow(g, [['MENOS MASA', () => at('perdida1') + 2], ['MENOS FUERZA', () => at('perdida1') + 3.5]], { cy: 800, size: 44, fill: C.white });
+  const r2 = ChipRow(g, [['POCA ACTIVIDAD', c('disminuyen1')], ['MALA ALIMENTACIÓN', () => at('disminuyen1') + 1.6]], { cy: 930, size: 40, fill: '#FCE3D3' });
+  sfx('stamp', at('sarcopenia')); sfx('pop', at('perdida1')); sfx('pop', at('perdida1') + 1);
+  return t => { s.draw(t, at('sarcopenia')); pop(a, t, at('perdida1'), 560, 500); show(ar, t, at('perdida1') + 0.7); pop(b, t, at('perdida1') + 1, 1360, 500); r(t); r2(t); };
+});
+// strength falls before size
+scene(svg, c('delgadas'), c('orquesta'), g => {
+  const h = Text(g, 'LA FUERZA BAJA ANTES', { x: 960, y: 150, size: 76, color: ACC });
+  const base = 820, bars = [['TAMAÑO', 560, C.blue, 0.12], ['FUERZA', 1360, C.red, 0.5]].map(([s, x, col, drop]) => {
+    const b = el('g', {}, g); const r = el('rect', { x: x - 120, y: base - 500, width: 240, height: 500, rx: 20, fill: col, stroke: C.ink, 'stroke-width': 5 }, b);
+    Text(b, s, { x, y: base + 60, size: 52 }); return [b, r, drop];
+  });
+  el('path', { d: `M300 ${base} H1620`, stroke: C.ink, 'stroke-width': 8 }, g);
+  sfx('pop', at('delgadas')); sfx('swish', at('delgadas') + 1.5, 0.6);
+  return t => { show(h, t, at('delgadas')); bars.forEach(([b, r, drop]) => { show(b, t, at('delgadas') + 0.3); const u = E.inOut(prog(t, at('delgadas') + 1.5, at('delgadas') + 4)); const hgt = 500 * (1 - drop * u); set(r, { y: base - hgt, height: hgt }); }); };
+});
+// orchestra of fibres
+scene(svg, c('orquesta'), c('acera'), g => {
+  const h = Text(g, 'UNA GRAN ORQUESTA', { x: 960, y: 140, size: 76, color: ACC });
+  const dots = []; for (let r = 0; r < 5; r++) for (let q = 0; q < 12; q++) { const fast = (q + r) % 3 === 0; dots.push([el('circle', { cx: 410 + q * 100, cy: 330 + r * 100, r: 34, fill: fast ? C.amber : C.red, stroke: C.ink, 'stroke-width': 4 }, g), fast, q, r]); }
+  const lab = Chip(g, 'RÁPIDAS: REACCIONAR SI TROPIEZAS', { cx: 960, cy: 900, fill: C.amber, size: 42 });
+  const r2 = ChipRow(g, [['CAMINAR', () => at('fibras1') + 4], ['LEVANTARTE', () => at('fibras1') + 5], ['EQUILIBRIO', () => at('fibras1') + 6.2]], { cy: 900, size: 42, fill: C.white });
+  sfx('pop', at('fibras1')); sfx('alert_soft', at('pierden1')); sfx('pop', at('rapidas'));
+  return t => {
+    show(h, t, at('orquesta'));
+    dots.forEach(([d, fast, q, r]) => {
+      const on = t > at('fibras1') + (q + r) * 0.05, beat = 1 + 0.06 * Math.sin(t * 5 + (q + r) * 0.4);
+      const shrink = t > at('pierden1') ? 1 - (fast ? 0.55 : 0.2) * E.inOut(prog(t, at('pierden1'), at('pierden1') + 2.5)) : 1;
+      set(d, { r: (34 * beat * shrink).toFixed(1), opacity: on ? (fast && t > at('rapidas') ? 0.5 + 0.5 * Math.abs(Math.sin(t * 3)) : 1) : 0 });
+    });
+    if (t < at('rapidas')) { r2(t); lab.setAttribute('opacity', 0); } else { r2(-1); pop(lab, t, at('rapidas'), 960, 900); }
+  };
+});
+stillScene(svg, 'b3a', c('acera'), c('ricardo'), { focus: [0.5, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN PEQUEÑO DESNIVEL = UN GRAN DESAFÍO', { hi: 'GRAN DESAFÍO', size: 50 });
+  return t => show(a, t, at('acera') + 0.5);
+});
+// Ricardo's story (drawn as Antonio)
+stillScene(svg, 'b2a', c('ricardo'), c('sillon1'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const a = Drama2(g, 'RICARDO · 82 · BURGOS');
+  const b = CAP(g, 'UNA PRECISIÓN EXTRAORDINARIA', { hi: 'PRECISIÓN' });
+  sfx('pop', at('ricardo') + 0.5);
+  return t => { pop(a, t, at('ricardo') + 0.5, 1640, 150); show(b, t, at('precision')); };
+});
+stillScene(svg, 'b2b', c('sillon1'), c('autobus'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LE CUESTA LEVANTARSE', { hi: 'LE CUESTA' });
+  const r = SideChips(g, [['¿LAS RODILLAS?', c('rodillas1')], ['¿LA EDAD?', c('envejeciendo1')]], { cx: 380, y0: 160, size: 42 });
+  sfx('pop', at('rodillas1')); sfx('pop', at('envejeciendo1')); Drama(g);
+  return t => { show(a, t, at('sillon1'), at('rodillas1')); r(t); };
+});
+stillScene(svg, 'b2c', c('autobus'), c('medico1'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SUJETARSE CON AMBAS MANOS', { hi: 'AMBAS MANOS' });
+  Drama(g);
+  return t => show(a, t, at('autobus') + 3);
+});
+stillScene(svg, 'b2d', c('medico1'), c('caminar1'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'EVALUAR FUERZA Y MOVILIDAD', { hi: 'FUERZA' });
+  return t => show(a, t, at('medico1') + 0.5);
+});
+stillScene(svg, 'b3b', c('caminar1'), c('proteger1'), { focus: [0.4, 0.5], zoom: 0.1 }, g => {
+  const a = Chip(g, '✓ CAMINAR ES POSITIVO', { cx: 1500, cy: 140, fill: C.white, size: 42 });
+  const b = Chip(g, 'PERO NO SIEMPRE BASTA', { cx: 1500, cy: 270, fill: C.red, color: C.white, size: 42 });
+  sfx('pop', at('caminar1') + 2); sfx('pop', at('caminar1') + 4.5);
+  return t => { slideIn(a, t, at('caminar1') + 2, 'r', 400); slideIn(b, t, at('caminar1') + 4.5, 'r', 400); };
+});
+scene(svg, c('proteger1'), c('ejercicio1'), g => {
+  const host = Host(g, 'three_q', { cx: 450, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿Y qué puedes hacer tú?', { cx: 1250, cy: 400, size: 60 });
+  sfx('ding', at('proteger1') + 0.3);
+  return t => { host(t, at('proteger1')); pop(q, t, at('proteger1') + 0.3, 1250, 400); };
+});
+// exercise: sit to stand
+scene(svg, c('ejercicio1'), c('proteinas'), g => {
+  const h = Chip(g, 'EJERCICIO · LEVANTARSE DE LA SILLA', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['sr1', 'sr2', 'sr3', 'sr4'], [], { y: 170, h: 640 });
+  const steps = [['SILLA FIRME', 'ejercicio1'], ['PIES EN EL SUELO', 'pies1'], ['TRONCO ADELANTE', 'inclina1'], ['LEVÁNTATE DESPACIO', 'levantate1'], ['SIÉNTATE CON CONTROL', 'sientate1'], ['USA LOS REPOSABRAZOS', 'reposabrazos']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 52 }), k]);
+  const cnt = Counter(g, { cx: 1690, cy: 920 }); cnt.set('5–10 ×');
+  const w = Chip(g, 'SIN APOYO SOLO SI TIENES EQUILIBRIO', { cx: 960, cy: 1020, fill: C.amber, size: 30 });
+  ['pies1', 'inclina1', 'levantate1', 'sientate1', 'reps1'].forEach(k => sfx('pop', at(k), 0.6)); sfx('alert_soft', at('reposabrazos') + 2);
+  return t => {
+    show(h, t, at('ejercicio1'));
+    if (t < at('pies1')) row.forEach(({ c, st }) => { c.setAttribute('opacity', 0.3); st.draw(t, 0, 1); });
+    else if (t < at('reps1')) lightRow(row, t, [at('pies1'), at('inclina1'), at('levantate1'), at('sientate1')]);
+    else { const i = Math.floor((t - at('reps1')) / 0.9) % 4; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === i ? 1 : 0.4); st.draw(t, 0, 1); }); }
+    steps.forEach(([cap, k], i) => show(cap, t, at(k), i < steps.length - 1 ? at(steps[i + 1][1]) : 1e9));
+    show(cnt.g, t, at('reps1')); show(w, t, at('reposabrazos') + 2);
+  };
+});
+// protein
+stillScene(svg, 'b3c', c('proteinas'), () => at('huevos') - 0.6, { focus: [0.5, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'PROTEÍNAS SUFICIENTES', { hi: 'PROTEÍNAS' });
+  return t => show(a, t, at('proteinas') + 0.5);
+});
+scene(svg, () => at('huevos') - 0.6, c('recuerda1'), g => {
+  const h = Text(g, 'PROTEÍNAS SUFICIENTES', { x: 960, y: 150, size: 76, color: ACC });
+  const it = [['huevos', 'HUEVOS', 'huevos'], ['pescado', 'PESCADO', 'pescado'], ['lentejas', 'LEGUMBRES', 'legumbres'], ['yogur', 'LÁCTEOS', 'lacteos']].map(([n, s, k], i) => [ItemCard(g, n, 300 + i * 440, 500, { w: 380, h: 420, fit: 300, label: s }), k, 300 + i * 440]);
+  const a = CAP(g, 'ADAPTADO A TUS NECESIDADES MÉDICAS', { hi: 'NECESIDADES', size: 50 });
+  it.forEach(([, k]) => sfx('pop', at(k), 0.6));
+  return t => { show(h, t, at('huevos') - 0.6); it.forEach(([cc, k, cx]) => pop(cc, t, at(k), cx, 500)); show(a, t, at('lacteos') + 1); };
+});
+stillScene(svg, 'b3d', c('recuerda1'), c('pregunta1'), { focus: [0.55, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'TUS MÚSCULOS RESPONDEN, A CUALQUIER EDAD', { hi: 'RESPONDEN', size: 48 });
+  const r = SideChips(g, [['PROGRESIVO', () => at('deportista') + 2.5], ['CONSTANTE', () => at('deportista') + 4]], { cx: 380, y0: 160, size: 44, fill: C.green, color: C.white });
+  sfx('pop', at('deportista') + 2.5); sfx('pop', at('deportista') + 4);
+  return t => { show(a, t, at('recuerda1') + 1.5); r(t); };
+});
+scene(svg, c('pregunta1'), c('desafio'), g => {
+  const host = Host(g, 'three_q', { cx: 400, cy: 600, fit: 720 });
+  const q = Bubble(g, '¿Silla o escaleras?', { cx: 1180, cy: 330, size: 60 });
+  const w = el('g', { transform: 'translate(220 0)' }, g); const cta = CTA(w, 'comment', 700);
+  sfx('ding', at('pregunta1') + 2.2); sfx('click', at('cuentamelo1'));
+  return t => { host(t, at('pregunta1')); pop(q, t, at('pregunta1') + 2.2, 1180, 330); pop(cta, t, at('cuentamelo1'), 1180, 700); };
+});
+scene(svg, c('desafio'), () => END + 1, g => {
+  const p = ItemCard(g, 'pantorrilla', 600, 520, { w: 520, h: 640, fit: 520 });
+  const r = SideChips(g, [['¿TOBILLOS HINCHADOS?', c('tobillos1')], ['¿PIERNAS PESADAS?', () => at('tobillos1') + 1.8]], { cx: 1340, y0: 420, dy: 170, size: 48 });
+  const a = Text(g, 'OTRO CAMBIO SILENCIOSO', { x: 960, y: 130, size: 70, color: ACC });
+  sfx('pop', at('desafio') + 2); sfx('pop', at('tobillos1')); sfx('pop', at('tobillos1') + 1.8);
+  return t => { show(a, t, at('desafio') + 1); pop(p, t, at('desafio') + 2, 600, 520); r(t); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

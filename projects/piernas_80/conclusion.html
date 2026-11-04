@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#FCEDCE;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Conclusion — letter from your legs, recap of 5 changes, urgent warning, quiz (answer not revealed), subscribe.
+window.START = at('carta') - 0.3;
+window.END = 1345.49;
+window.DURATION = window.END;
+const svg = Stage('end');
+const c = k => () => at(k);
+
+stillScene(svg, 'ga', () => START, c('recordarian'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SI TUS PIERNAS TE ESCRIBIERAN…', { hi: 'ESCRIBIERAN' });
+  return t => show(a, t, START + 1);
+}, true);
+stillScene(svg, 'gb', c('recordarian'), c('pedirian'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const r = ChipRow(g, [['CAMINOS', () => at('recordarian') + 2], ['ESCALERAS', () => at('recordarian') + 3.6], ['PASEOS JUNTOS', () => at('recordarian') + 5.6]], { cy: 960, size: 42 });
+  [2, 3.6, 5.6].forEach(d => sfx('pop', at('recordarian') + d, 0.5));
+  return t => r(t);
+});
+scene(svg, c('pedirian'), c('cinco_c'), g => {
+  const l = el('g', {}, g); Card(l, { x: 330, y: 220, w: 1260, h: 560, fill: '#FFF8EA' });
+  for (let i = 0; i < 4; i++) el('path', { d: `M420 ${330 + i * 50} H1500`, stroke: '#E9D9BC', 'stroke-width': 3 }, l);
+  const q = Text(g, '«No dejes de cuidarnos', { x: 960, y: 560, size: 62, weight: 800 });
+  const q2 = Text(g, 'ahora que más nos necesitas»', { x: 960, y: 650, size: 62, weight: 800, color: ACC });
+  const hr = el('g', {}, g); IC.heart(hr, 910, 240, 1);
+  sfx('pop', at('pedirian')); sfx('ding', at('nodejes'));
+  return t => { pop(l, t, at('pedirian'), 960, 500); pop(hr, t, at('pedirian') + 0.6, 960, 290); show(q, t, at('nodejes')); show(q2, t, at('nodejes') + 0.8); };
+});
+scene(svg, c('cinco_c'), c('advertencia'), g => {
+  const h = Text(g, '5 TRANSFORMACIONES', { x: 960, y: 130, size: 84, color: ACC });
+  const labels = ['MENOS\nFUERZA', 'CIRCULACIÓN\nMÁS LENTA', 'CALAMBRES\nNOCTURNOS', 'RODILLAS\nRÍGIDAS', 'MENOS\nSENSIBILIDAD'];
+  const ts = SIGNS.map(([ic], i) => { const cx = 230 + i * 365; return [IconTile(g, ic, labels[i], cx, 440, { w: 330, h: 360 }), cx, 'r' + (i + 1)]; });
+  const a = el('g', {}, g); Card(a, { x: 260, y: 700, w: 1400, h: 130, fill: C.white }); Text(a, 'NO SIGNIFICA RENUNCIAR A TU INDEPENDENCIA', { x: 960, y: 766, size: 46 });
+  const r = ChipRow(g, [['MOVIMIENTO', () => at('minutos_c') + 0.5], ['BUENA ALIMENTACIÓN', () => at('minutos_c') + 2.5], ['FUERZA ADAPTADA', () => at('minutos_c') + 4.5], ['CASA SEGURA', () => at('minutos_c') + 6.5]], { cy: 950, size: 36, fill: C.green, color: C.white, gap: 24 });
+  ts.forEach(([, , k]) => sfx('pop', at(k), 0.6)); sfx('pop', at('renunciar_c'));
+  return t => { show(h, t, at('cinco_c')); ts.forEach(([tile, cx, k]) => pop(tile, t, at(k), cx, 440)); pop(a, t, at('renunciar_c'), 960, 766); r(t); };
+});
+stillScene(svg, 'gc', c('advertencia'), c('urgencia_c'), { focus: [0.45, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO TODO ES "COSA DE LA EDAD"', { hi: '"COSA DE LA EDAD"', size: 52 });
+  return t => show(a, t, at('nunca'));
+});
+scene(svg, c('urgencia_c'), c('quiz'), g => {
+  const w = Warn(g, 'BUSCA ATENCIÓN URGENTE SI HAY…', ['HINCHAZÓN REPENTINA EN UNA PIERNA', 'DOLOR INTENSO', 'PÉRDIDA BRUSCA DE FUERZA', 'DIFICULTAD PARA CAMINAR'], { kind: 'red', y: 90, w: 1500 });
+  const b = Chip(g, 'NINGÚN EJERCICIO SUSTITUYE UNA VALORACIÓN', { cx: 960, cy: 820, fill: C.white, size: 40 });
+  const s = Source(g, 'Contenido educativo · no sustituye una evaluación médica', 960);
+  sfx('alert', at('urgencia_c') + 0.1); sfx('pop', at('sustituye'));
+  return t => { pop(w, t, at('urgencia_c') + 0.1, 960, 380); pop(b, t, at('sustituye'), 960, 820); show(s, t, at('sustituye') + 1); };
+});
+// quiz — answer not revealed
+scene(svg, c('quiz'), c('suscribe_c'), g => {
+  const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 110, size: 76, color: ACC });
+  const q = Text(g, '¿Qué hacen los músculos de las pantorrillas?', { x: 960, y: 210, size: 50, weight: 800 });
+  const ops = [['A', 'IMPULSAN LA SANGRE HACIA EL CORAZÓN', 'qa', 'heart'], ['B', 'PRODUCEN EL LÍQUIDO DE LAS RODILLAS', 'qb', 'knee'], ['C', 'CONTROLAN LOS LATIDOS DEL CORAZÓN', 'qc', 'bolt']].map(([L, s, k, ic], i) => {
+    const o = el('g', {}, g), y = 360 + i * 175;
+    Card(o, { x: 210, y: y - 70, w: 1500, h: 140, fill: C.white, r: 70 });
+    el('circle', { cx: 290, cy: y, r: 50, fill: ACC, stroke: C.ink, 'stroke-width': 5 }, o); Text(o, L, { x: 290, y: y + 3, size: 60, color: C.white });
+    Text(o, s, { x: 960, y, size: 44 }); IC[ic](o, 1570, y - 50, 1);
+    return [o, k, y];
+  });
+  const p = ItemCard(g, 'pantorrilla', 1790, 330, { w: 200, h: 260, fit: 200 });
+  const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 940);
+  const host = Host(g, 'three_q', { cx: 1730, cy: 880, fit: 360 });
+  ops.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('ding', at('quiz')); sfx('click', at('escribe'));
+  return t => { show(h, t, at('quiz')); show(q, t, at('cual')); pop(p, t, at('cual') + 1, 1790, 330); ops.forEach(([o, k, y]) => pop(o, t, at(k), 960, y)); pop(cta, t, at('escribe'), 760, 940); host(t, at('escribe') - 0.5); };
+});
+stillScene(svg, 'gd', c('suscribe_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = el('g', { transform: 'translate(-420 -760)' }, g); const s = CTA(a, 'sub', 900);
+  const b = el('g', { transform: 'translate(420 -760)' }, g); const sh = el('g', {}, b); Card(sh, { x: 760, y: 835, w: 400, h: 130, fill: C.white, r: 65 }); IC.share(sh, 790, 850, 1); Text(sh, 'COMPARTE', { x: 1010, y: 902, size: 50 });
+  const cc = CAP(g, 'CADA PASO MERECE SER PROTEGIDO', { hi: 'CADA PASO', size: 52 });
+  sfx('click', at('suscribe_c') + 3); sfx('click', at('suscribe_c') + 5); sfx('ding', at('inevitable') + 2);
+  return t => { pop(s, t, at('suscribe_c') + 3, 540, 140); pop(sh, t, at('suscribe_c') + 5, 1380, 140); show(cc, t, at('inevitable') + 1); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

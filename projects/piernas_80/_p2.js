@@ -1,0 +1,142 @@
+// Punto 2 — the second heart: calf pump, valves, swelling; Mercedes (=Pilar); ankle pumps; urgent warning.
+window.START = at('h2') - 0.3;
+window.END = at('h3') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p2');
+const c = k => () => at(k);
+
+TitleCard(svg, 2, 'EL SEGUNDO CORAZÓN', 'La circulación de tus piernas', () => START, c('otro2'));
+scene(svg, c('otro2'), c('hincharse'), g => {
+  const k = Kicker(g, 2, 'CIRCULACIÓN'); Progress(g, 1);
+  const p = ItemCard(g, 'pantorrilla', 640, 560, { w: 520, h: 680, fit: 560 });
+  const hr = el('g', {}, g); IC.heart(hr, 1180, 330, 2.6);
+  const a = Text(g, '¿UN CORAZÓN EN LAS PIERNAS?', { x: 1310, y: 720, size: 52 });
+  const b = Chip(g, 'NO LATE… PERO TRABAJA', { cx: 1310, cy: 830, fill: ACC, color: C.white, size: 44 });
+  sfx('pop', at('otro2') + 0.5); sfx('pop', at('otro2') + 1.4); sfx('pop', at('nolate'));
+  return t => { slideIn(k, t, at('otro2'), 'l', 600); pop(p, t, at('otro2') + 0.5, 640, 560); pop(hr, t, at('otro2') + 1.4, 1310, 460); const s = 1 + 0.06 * Math.max(0, Math.sin(t * 6)); hr.firstChild.setAttribute('transform', `translate(1180 330) scale(${2.6 * s})`); show(a, t, at('otro2') + 2); pop(b, t, at('nolate'), 1310, 830); };
+});
+stillScene(svg, 'c1d', c('hincharse'), c('pantorrillas2'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const r = ChipRow(g, [['TOBILLOS HINCHADOS', () => at('hincharse') + 3], ['ZAPATOS QUE "ENCOGEN"', () => at('hincharse') + 5], ['PESADEZ', () => at('hincharse') + 7.5]], { cy: 960, size: 40 });
+  [3, 5, 7.5].forEach(d => sfx('pop', at('hincharse') + d, 0.6));
+  return t => r(t);
+});
+// calf pump diagram
+scene(svg, c('pantorrillas2'), c('envejecimiento2'), g => {
+  const p = ItemCard(g, 'pantorrilla', 420, 540, { w: 480, h: 680, fit: 560 });
+  const vx = 1100, vb = el('g', {}, g);
+  el('rect', { x: vx - 50, y: 160, width: 100, height: 760, rx: 50, fill: '#BFD6F2', stroke: C.ink, 'stroke-width': 6 }, vb);
+  const mL = el('ellipse', { cx: vx - 110, cy: 640, rx: 60, ry: 170, fill: '#F2A7A0', stroke: C.ink, 'stroke-width': 5 }, vb);
+  const mR = el('ellipse', { cx: vx + 110, cy: 640, rx: 60, ry: 170, fill: '#F2A7A0', stroke: C.ink, 'stroke-width': 5 }, vb);
+  const vals = [420, 760].map(y => el('path', { d: `M${vx - 48} ${y + 30} Q${vx - 10} ${y} ${vx} ${y - 30} M${vx + 48} ${y + 30} Q${vx + 10} ${y} ${vx} ${y - 30}`, fill: 'none', stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, g));
+  const dots = [0, 1, 2, 3, 4, 5].map(i => el('circle', { cx: vx, cy: 900, r: 18, fill: C.red, stroke: C.ink, 'stroke-width': 3 }, g));
+  const up = el('g', {}, g); Arrow(up, vx + 230, 860, vx + 230, 260, C.red, 14); Text(up, 'AL CORAZÓN', { x: vx + 380, y: 300, size: 40, color: C.red });
+  const lab = Chip(g, 'LAS VÁLVULAS: COMPUERTAS', { cx: 1250, cy: 1000, fill: C.white, size: 40 });
+  const a = Text(g, 'LA BOMBA DE LA PANTORRILLA', { x: 960, y: 100, size: 64, color: ACC });
+  sfx('pop', at('pantorrillas2')); sfx('squeeze', at('paso2') + 1); sfx('pop', at('valvulas'));
+  return t => {
+    show(a, t, at('pantorrillas2')); pop(p, t, at('pantorrillas2'), 420, 540); show(vb, t, at('pantorrillas2') + 1);
+    const on = t > at('paso2'), sq = on ? 0.5 + 0.5 * Math.sin((t - at('paso2')) * 3) : 0;
+    set(mL, { cx: vx - 110 + 40 * sq }); set(mR, { cx: vx + 110 - 40 * sq });
+    dots.forEach((d, i) => { const y = on ? 900 - ((t - at('paso2')) * 120 + i * 120) % 720 : 900; set(d, { cy: y.toFixed(1), opacity: on ? 1 : 0 }); });
+    show(up, t, at('paso2') + 2); vals.forEach(v => show(v, t, at('valvulas'))); pop(lab, t, at('valvulas') + 0.5, 1250, 1000);
+  };
+});
+// ageing: weak walls, leaky valves → pressure → swelling
+scene(svg, c('envejecimiento2'), c('fuente'), g => {
+  const a = ItemCard(g, 'valvula_ok', 420, 470, { w: 420, h: 560, fit: 440, label: 'SANA', size: 40 });
+  const b = ItemCard(g, 'valvula_mal', 920, 470, { w: 420, h: 560, fit: 440, label: 'NO CIERRA', size: 40 });
+  const r = SideChips(g, [['PAREDES MÁS DÉBILES', c('paredes')], ['VÁLVULAS QUE NO CIERRAN', () => at('paredes') + 2.2], ['MENOS MÚSCULO EN ACCIÓN', () => at('paredes') + 4.5]], { cx: 1540, y0: 300, dy: 150, size: 34 });
+  const d = CAP(g, 'MÁS PRESIÓN → LÍQUIDO → HINCHAZÓN', { hi: 'HINCHAZÓN', size: 50 });
+  sfx('pop', at('envejecimiento2')); sfx('alert_soft', at('envejecimiento2') + 2); [0, 2.2, 4.5].forEach(x => sfx('pop', at('paredes') + x, 0.5));
+  return t => { pop(a, t, at('envejecimiento2'), 420, 470); pop(b, t, at('envejecimiento2') + 2, 920, 470); r(t); show(d, t, at('presion2')); };
+});
+// fountain slowing
+scene(svg, c('fuente'), c('mercedes'), g => {
+  const h = Text(g, 'COMO UNA FUENTE QUE BOMBEA DESPACIO', { x: 960, y: 140, size: 60, color: ACC });
+  const bowl = el('g', {}, g);
+  el('path', { d: 'M560 760 H1360 L1290 900 H630 Z', fill: '#D9C7AE', stroke: C.ink, 'stroke-width': 6 }, bowl);
+  el('rect', { x: 930, y: 380, width: 60, height: 380, fill: '#D9C7AE', stroke: C.ink, 'stroke-width': 6 }, bowl);
+  const pool = el('rect', { x: 600, y: 740, width: 720, height: 20, fill: C.blue, opacity: 0.85 }, g);
+  const jets = [0, 1, 2, 3, 4, 5, 6, 7].map(i => el('circle', { cx: 960, cy: 380, r: 14, fill: C.blue, stroke: C.ink, 'stroke-width': 3 }, g));
+  const a = CAP(g, 'EL AGUA SE ACUMULA ABAJO', { hi: 'ABAJO' });
+  sfx('pop', at('fuente')); sfx('alert_soft', at('acumularse'));
+  return t => {
+    show(h, t, at('fuente')); show(bowl, t, at('fuente') + 0.3);
+    const slow = 1 - 0.7 * E.inOut(prog(t, at('fuente') + 2, at('acumularse') + 2)), e = (t - at('fuente')) * slow;
+    jets.forEach((j, i) => { const u = ((e * 0.8 + i / 8) % 1), side = i % 2 ? 1 : -1; set(j, { cx: 960 + side * u * 260, cy: 380 - 260 * u * (1 - u) * 4 * slow + 380 * u * u, opacity: 0.9 }); });
+    const lvl = 20 + 120 * E.inOut(prog(t, at('acumularse'), at('acumularse') + 4)); set(pool, { y: 760 - lvl, height: lvl });
+    show(a, t, at('acumularse') + 0.5);
+  };
+});
+// Mercedes (= Pilar)
+stillScene(svg, 'c1a', c('mercedes'), c('zapatillas2'), { focus: [0.4, 0.45], zoom: 0.12 }, g => {
+  const a = Drama2(g, 'MERCEDES · 84 · VALENCIA');
+  const b = CAP(g, 'CADA TARDE, CRUCIGRAMAS', { hi: 'CRUCIGRAMAS' });
+  sfx('pop', at('mercedes') + 0.5);
+  return t => { pop(a, t, at('mercedes') + 0.5, 1640, 150); show(b, t, at('tarde2')); };
+});
+stillScene(svg, 'c1b', c('zapatillas2'), c('sal'), { focus: [0.6, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LAS ZAPATILLAS LE APRIETAN', { hi: 'APRIETAN' });
+  Drama(g);
+  return t => show(a, t, at('zapatillas2') + 3);
+});
+stillScene(svg, 'c1c', c('sal'), c('consulta2'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['¿ENGORDÉ?', () => at('sal') + 0.6], ['¿DEMASIADA SAL?', () => at('sal') + 2]], { cx: 1600, y0: 180, size: 44 });
+  sfx('pop', at('sal') + 0.6); sfx('pop', at('sal') + 2); Drama(g);
+  return t => r(t);
+});
+stillScene(svg, 'c2a', c('consulta2'), c('buena2'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'INSUFICIENCIA VENOSA', { hi: 'VENOSA' });
+  const b = Chip(g, 'TANTAS HORAS INMÓVIL NO AYUDA', { cx: 1250, cy: 140, fill: C.white, size: 40 });
+  sfx('pop', at('inmovil'));
+  return t => { show(a, t, at('consulta2') + 6); pop(b, t, at('inmovil'), 1250, 140); };
+});
+scene(svg, c('buena2'), c('sientate2'), g => {
+  const host = Host(g, 'face_happy', { cx: 1500, cy: 560, fit: 600 });
+  const a = Text(g, 'LA BUENA NOTICIA', { x: 700, y: 420, size: 84, color: C.green });
+  const b = Text(g, 'movimientos muy sencillos', { x: 700, y: 540, size: 56 });
+  sfx('ding', at('buena2'));
+  return t => { host(t, at('buena2')); show(a, t, at('buena2') + 0.2); show(b, t, at('retorno2') + 1); };
+});
+// exercise: seated ankle pumps
+scene(svg, c('sientate2'), c('periodicamente'), g => {
+  const h = Chip(g, 'EJERCICIO · BOMBEO DE TOBILLOS', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['tm1', 'tm2', 'tm3'], [], { y: 170, h: 640, x0: 70, x1: 1500 });
+  const steps = [['SILLA ESTABLE, PIES APOYADOS', 'sientate2'], ['TALONES ABAJO, PUNTAS ARRIBA', 'puntas'], ['PUNTAS ABAJO, TALONES ARRIBA', 'talones2'], ['ALTERNA 1–2 MINUTOS', 'alterna'], ['ACTIVA LA PANTORRILLA', 'activa2']].map(([s, k]) => [CAP(g, s, { cy: 920, size: 50 }), k]);
+  const cnt = Counter(g, { cx: 1700, cy: 470, label: 'MINUTOS' }); cnt.set('1–2');
+  const ok = Chip(g, 'SIN FORZAR', { cx: 1700, cy: 690, fill: C.green, color: C.white, size: 36 });
+  ['sientate2', 'puntas', 'talones2', 'alterna', 'activa2'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => {
+    show(h, t, at('sientate2'));
+    if (t < at('alterna')) lightRow(row, t, [at('sientate2'), at('puntas'), at('talones2')]);
+    else { const i = 1 + Math.floor((t - at('alterna')) / 1.1) % 2; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === i ? 1 : 0.35); st.draw(t, 0, 1); }); }
+    steps.forEach(([cap, k], i) => show(cap, t, at(k), i < steps.length - 1 ? at(steps[i + 1][1]) : 1e9));
+    show(cnt.g, t, at('alterna')); show(ok, t, at('alterna') + 2);
+  };
+});
+stillScene(svg, 'c2b', c('periodicamente'), c('elevar2'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LEVÁNTATE Y CAMINA POR CASA', { hi: 'CAMINA' });
+  return t => show(a, t, at('periodicamente') + 0.5);
+});
+stillScene(svg, 'c2c', c('elevar2'), c('atencion2'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ELEVA LAS PIERNAS AL DESCANSAR', { hi: 'ELEVA' });
+  return t => show(a, t, at('elevar2') + 0.3);
+});
+scene(svg, c('atencion2'), c('frecuente2'), g => {
+  const w = Warn(g, 'BUSCA ATENCIÓN MÉDICA', ['HINCHAZÓN NUEVA O QUE NO SE VA → CONSULTA', 'DE REPENTE EN UNA SOLA PIERNA', 'CON DOLOR, CALOR O ENROJECIMIENTO → URGENCIAS'], { kind: 'red', y: 220, w: 1560 });
+  sfx('alert', at('atencion2') + 0.2);
+  return t => pop(w, t, at('atencion2') + 0.2, 960, 440);
+});
+stillScene(svg, 'c2d', c('frecuente2'), c('inquietante2'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'MOVIMIENTO FRECUENTE, NO EXTREMO', { hi: 'FRECUENTE', size: 52 });
+  return t => show(a, t, at('frecuente2') + 0.3);
+});
+scene(svg, c('inquietante2'), () => END + 1, g => {
+  const m = el('g', {}, g); IC.moon(m, 1300, 200, 2.4);
+  const cm = ItemCard(g, 'calambre', 640, 560, { w: 480, h: 640, fit: 540 });
+  const a = Text(g, '¿Y SI DUELE MIENTRAS DUERMES?', { x: 1300, y: 640, size: 56 });
+  sfx('pop', at('duermes')); sfx('alert_soft', at('duermes') + 1);
+  return t => { pop(m, t, at('inquietante2') + 0.3, 1420, 320); pop(cm, t, at('duermes'), 640, 560); show(a, t, at('duermes') + 0.5); };
+});
+
+window.draw = t => drawScenes(t);

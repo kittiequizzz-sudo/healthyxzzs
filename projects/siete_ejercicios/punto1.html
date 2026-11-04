@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · Punto 1: the three questions (who says it, what evidence, another explanation?).
+window.START = at('p1');
+window.END = window.DURATION = at('p2');
+HOOK_END = 0;
+const svg = Stage();
+const Q = [['¿QUIÉN LO AFIRMA?', '#CFE6F7'], ['¿QUÉ PRUEBAS EXISTEN?', '#FFF1B8'], ['¿OTRA EXPLICACIÓN?', '#F9D3D3']];
+
+beat('p1', ejercicio(1, 'LAS TRES PREGUNTAS', { hi: 'TRES', sub: 'piensa ANTES de creer', subHi: 'ANTES', m: 'm_ask' }));
+beat('p1_acabas', mascot('m_count', { cap: 'aceptar SIN EXAMINAR', hi: 'SIN EXAMINAR' }));
+beat('p1_peligro', row([['m_listening', 'UN CONSEJO', 'p1_consejo'], ['m_reading', 'UNA NOTICIA', 'p1_noticia'], ['m_weigh', 'UNA DECISIÓN', 'p1_decision']], { head: 'el verdadero PELIGRO', hi: 'PELIGRO' }));
+beat('p1_detener', big([['DETENTE', 'DETENTE'], ['antes de CREER', 'CREER', K.grey]], { y: 260, size: 130, pic: 'm_focus' }));
+beat('p1_mensaje', still('s_drinkmsg', { focus: [0.6, 0.4], chips: [['«mejor MEMORIA en 7 días»', 'p1_bebida', K.pinkL]] }));
+beat('p1_espera', mascot('m_idea', { cap: 'suena ESPERANZADOR', hi: 'ESPERANZADOR', extra: [['i_bottle', 'p1_probar', 1450, 520, 360]] }));
+beat('p1_tres', still('s_3q', { cap: 'antes: TRES PREGUNTAS', hi: 'TRES PREGUNTAS', focus: [0.5, 0.4] }));
+beat('p1_quien', qcard(1, Q[0][0], Q[0][1], { hi: 'QUIÉN' }));
+beat('p1_revisada', still('s_journal', { cap: 'estudio revisado ≠ ANUNCIO', hi: 'ANUNCIO', focus: [0.5, 0.5] }));
+beat('p1_benef', still('s_seller', { cap: '¿quién se BENEFICIA?', hi: 'BENEFICIA', capAt: 'p1_quienbenef', focus: [0.4, 0.4] }));
+beat('p1_pruebas', qcard(2, Q[1][0], Q[1][1], { hi: 'PRUEBAS', m: 'm_magnify' }));
+beat('p1_historia', still('s_story', { cap: 'una historia ≠ PRUEBA', hi: 'PRUEBA', focus: [0.5, 0.5] }));
+beat('p1_datos', still('s_compare', { cap: 'COMPARA fuentes', hi: 'COMPARA', capAt: 'p1_compara', focus: [0.5, 0.45], chips: [['datos FIABLES', 'p1_datos'], ['lo que NO se sabe', 'p1_nosabe', K.pinkL]] }));
+beat('p1_tercera', qcard(3, Q[2][0], Q[2][1], { hi: 'OTRA', m: 'm_thinking' }));
+beat('p1_durmieron', still('s_habits', { focus: [0.6, 0.4], chips: [['DURMIERON MEJOR', 'p1_dormir', '#E5DAF5'], ['MÁS EJERCICIO', 'p1_ejercicio', '#CDEFD0'], ['OTRA ALIMENTACIÓN', 'p1_alim', '#FFF1B8']] }));
+beat('p1_varias', mascot('m_weigh', { cap: 'no te quedes en la PRIMERA idea', hi: 'PRIMERA', size: 58 }));
+beat('p1_conmigo', still('s_media', { cap: 'algo que oíste ESTA SEMANA', hi: 'ESTA SEMANA', capAt: 'p1_afirm', focus: [0.5, 0.45] }));
+beat('p1_salud', row([['m_drinking', 'SALUD', 'p1_salud'], ['i_coins', 'DINERO', 'p1_dinero'], ['m_list', 'DÍA A DÍA', 'p1_cotid']], { head: 'practícalo CONMIGO', hi: 'CONMIGO' }));
+beat('p1_nonec', (g, b) => {
+  const head = hiText(g, 'no hace falta PROBAR que es falso', 'PROBAR', { x: 960, y: 130, size: 64 });
+  const ks = ['p1_qdice', 'p1_qpruebas', 'p1_qotras'];
+  const its = Q.map(([q, c], i) => {
+    const x = 960 + (i - 1) * 560, it = el('g', {}, g);
+    el('circle', { cx: x, cy: 440, r: 130, fill: c, stroke: K.ink, 'stroke-width': 9 }, it);
+    txt(it, '?', { x, y: 452, size: 170 });
+    txt(it, ['¿QUIÉN?', '¿PRUEBAS?', '¿OTRA?'][i], { x, y: 680, size: 64 });
+    it.cx = x; it.cy = 500;
+    return it;
+  });
+  const tag = ExTag(g, 1);
+  return t => { show(head, t, b.a); its.forEach((it, i) => pop(it, t, at(ks[i]), it.cx, it.cy)); show(tag, t, b.a); };
+});
+beat('p1_minuto', still('s_timer', { cap: 'un MINUTO, mentalmente', hi: 'MINUTO', focus: [0.5, 0.5] }));
+beat('p1_dudas', mascot('m_thumbs', { cap: 'dudar ≠ FRACASAR', hi: 'FRACASAR', chips: [['examinas con más CUIDADO', 'p1_examinar', '#CDEFD0']] }));
+beat('p1_util', still('s_glasses', { cap: 'vemos lo que YA CREEMOS', hi: 'YA CREEMOS', capAt: 'p1_confirmar', focus: [0.5, 0.45], tag: 'sesgo de confirmación · Nickerson, 1998' }));
+beat('p1_formular', still('s_funnel', { cap: 'preguntar = FILTRAR', hi: 'FILTRAR', focus: [0.5, 0.5] }));
+beat('p1_desconf', still('s_teatalk', { cap: 'sin INTERROGATORIOS', hi: 'INTERROGATORIOS', focus: [0.5, 0.45] }));
+beat('p1_objetivo', big([['IMPRESIÓN CONVINCENTE', 'CONVINCENTE', K.grey], ['≠ CONCLUSIÓN FUNDAMENTADA', 'FUNDAMENTADA']], { y: 250, size: 84, pic: 'm_glassmag', at: [at('p1_distinguir'), at('p1_distinguir') + 1.8] }));
+beat('p1_dificultad', mascot('m_confused', { cap: 'una nueva DIFICULTAD', hi: 'DIFICULTAD' }));
+beat('p1_patrones', mascot('m_dizzy', { cap: 'patrones donde NO LOS HAY', hi: 'NO LOS HAY' }));
+beat('p1_siguiente', mascot('m_detective', { cap: 'descubrir REGLAS… o CONFUNDIRTE', hi: 'REGLAS', chips: [['revisa tus SUPOSICIONES', 'p1_confundir', K.pinkL]] }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

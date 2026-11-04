@@ -50,7 +50,13 @@ for (const line of fs.readFileSync(cuesPath, 'utf8').split('\n')) {
   let best = -1, bs = 0;
   for (let i = from; i < Math.min(words.length, from + 250); i++) {   // stay near the previous cue (~100 s)
     const sc = score(p, i);
-    if (sc >= GOOD) { best = i; bs = sc; break; }
+    if (sc >= GOOD) {
+      // the edit tolerance lets a short phrase also "match" one or two words early (e.g. "4. Del 6 al 12"
+      // for "Del 6 al 12"); take the next start if it scores better
+      best = i; bs = sc;
+      for (let j = i + 1; j <= i + 2 && j < words.length; j++) { const s2 = score(p, j); if (s2 > bs + 1e-9) { best = j; bs = s2; } }
+      break;
+    }
     if (sc > bs + 1e-9) { bs = sc; best = i; }
   }
   if (best < 0 || bs < WEAK) { miss.push(`${label} (${phrase}) best=${bs.toFixed(2)}`); continue; }

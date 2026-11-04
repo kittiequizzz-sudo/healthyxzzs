@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · Punto 2: find the hidden rule (2, 6, 12, 20, 30 → 42; 3, 6, 12, 24 → 48), then the end card.
+window.START = at('p2');
+window.END = window.DURATION = at('p3') + 7;
+HOOK_END = 0;
+const svg = Stage();
+const S1 = [['2', 'p2_n1'], ['6', at('p2_n1') + 0.7], ['12', at('p2_n1') + 1.5], ['20', at('p2_n1') + 2.4], ['30', at('p2_n1') + 3.3]];
+const S1all = S1.map(([s]) => [s]);
+
+beat('p2', ejercicio(2, 'ENCUENTRA LA REGLA OCULTA', { hi: 'REGLA OCULTA', sub: 'razonamiento LÓGICO', subHi: 'LÓGICO', m: 'm_detective' }));
+beat('p2_despues', mascot('m_thinking', { cap: 'una regla… SIN PRECIPITARTE', hi: 'SIN PRECIPITARTE', capAt: 'p2_descubrir' }));
+beat('p2_fascin', still('s_towers', { cap: 'algo FASCINANTE', hi: 'FASCINANTE', focus: [0.6, 0.5] }));
+beat('p2_observa', seq(S1, { q: 'p2_qnum', head: 'observa esta SECUENCIA', headHi: 'SECUENCIA', ex: 2, m: ['m_count', 'p2_observa'] }));
+beat('p2_nobusques', seq(S1all, { think: ['p2_nobusques', at('p2_compara') - 0.3], m: ['m_upside', 'p2_nobusques'], cap: 'NO te precipites', hi: 'NO', ex: 2 }));
+beat('p2_compara', still('s_gaps', { cap: 'compara las DIFERENCIAS', hi: 'DIFERENCIAS', focus: [0.6, 0.5] }));
+beat('p2_explic', mascot('m_bulb', { cap: 'no adivines: EXPLICA', hi: 'EXPLICA' }));
+beat('p2_resolver', seq(S1all, { ex: 2, head: 'vamos a resolverlo JUNTOS', headHi: 'JUNTOS',
+  diffs: [['+4', 'p2_d4'], ['+6', 'p2_d6'], ['+8', 'p2_d8'], ['+10', 'p2_d10'], ['+12', 'p2_d12']], answer: ['42', 'p2_42'],
+  cap: 'las diferencias crecen de 2 en 2', hi: '2 en 2', capAt: 'p2_salto' }));
+beat('p2_otra', (g, b) => {
+  const head = hiText(g, 'otra regla: n × (n + 1)', 'n × (n + 1)', { x: 960, y: 120, size: 70 });
+  const rows = [['1 × 2', '2'], ['2 × 3', '6'], ['3 × 4', '12'], ['4 × 5', '20'], ['5 × 6', '30'], ['6 × 7', '42']];
+  const ks = [at('p2_x1'), at('p2_x2'), at('p2_x3'), at('p2_x3') + 0.9, at('p2_x3') + 1.6, at('p2_x3') + 2.3];
+  const its = rows.map(([a, r], i) => {
+    const x = 960 + (i % 3 - 1) * 540, y = 330 + Math.floor(i / 3) * 230, last = i === 5;
+    const it = Box(g, `${a} = ${r}`, x, y, { w: 470, h: 150, size: 70, fill: last ? '#CDEFD0' : K.white });
+    return it;
+  });
+  const cap = Bubble(g, 'multiplica dos números SEGUIDOS', { hi: 'SEGUIDOS' });
+  const tag = ExTag(g, 2);
+  return t => { show(head, t, b.a); its.forEach((it, i) => pop(it, t, ks[i], it.cx, it.cy)); pop(cap, t, at('p2_mult'), 960, 975); show(tag, t, b.a); };
+});
+beat('p2_caminos', still('s_maze', { cap: 'dos caminos, la MISMA solución', hi: 'MISMA', focus: [0.6, 0.4] }));
+beat('p2_hecho', still('s_steps', { focus: [0.5, 0.45], chips: [['OBSERVAR', 'p2_observado'], ['HIPÓTESIS', 'p2_hipot', K.pinkL], ['COMPROBAR', 'p2_comprob', '#CDEFD0']] }));
+beat('p2_logico', brain({ on: [['frontal', 'p2_logico'], ['parietal', at('p2_logico') + 1]], labels: [['RAZONAMIENTO', 'frontal', at('p2_logico') + 0.4, -40, -190]], mascot: ['m_correct', at('p2_logico') + 0.6], cap: 'eso es RAZONAR', hi: 'RAZONAR' }));
+beat('p2_otra2', seq([['3', 'p2_m1'], ['6', at('p2_m1') + 0.7], ['12', at('p2_m1') + 1.4], ['24', at('p2_m1') + 2.1]], {
+  q: 'p2_qnum2', think: [at('p2_qnum2') + 0.6, at('p2_48') - 0.1], m: ['m_count', 'p2_otra2'], ex: 2,
+  diffs: [['×2', at('p2_x2rule')], ['×2', at('p2_x2rule') + 0.3], ['×2', at('p2_x2rule') + 0.6], ['×2', at('p2_x2rule') + 0.9]], answer: ['48', 'p2_48'],
+  cap: 'una regla POSIBLE: × 2', hi: 'POSIBLE', capAt: 'p2_x2rule' }));
+beat('p2_advert', still('s_branch', { cap: 'secuencia corta: VARIAS reglas', hi: 'VARIAS', capAt: 'p2_corta', focus: [0.6, 0.45] }));
+beat('p2_unica', big([['ENCAJA ≠ ÚNICA', 'ÚNICA']], { y: 300, size: 140, pic: 'm_weigh' }));
+beat('p2_explica', mascot('m_list', { cap: 'explica tus SUPOSICIONES', hi: 'SUPOSICIONES' }));
+beat('p2_practica', still('s_cards', { cap: 'crea secuencias para un FAMILIAR', hi: 'FAMILIAR', focus: [0.5, 0.55] }));
+beat('p2_sencillos', still('s_jumps', { cap: 'de SENCILLO a difícil', hi: 'SENCILLO', focus: [0.55, 0.45] }));
+beat('p2_equivocas', mascot('m_glassmag', { cap: '¿error? revisa DÓNDE cambió', hi: 'DÓNDE' }));
+beat('p2_cotid', still('s_jars', { cap: 'compara ANTES de decidir', hi: 'ANTES', focus: [0.5, 0.45] }));
+beat('p2_sub', cta('sub', { sub: 'memoria · atención · pensamiento' }));
+beat('p2_recuerda', big([['mejor en tareas SEMEJANTES', 'SEMEJANTES'], ['≠ más inteligencia general', 'inteligencia general', K.grey]], { y: 250, size: 84, pic: 'm_shrug', at: ['p2_recuerda', 'p2_general'],
+  custom: g => { const s = Tag(g, 'Simons et al., 2016'); return t => show(s, t, at('p2_general')); } }));
+beat('p2_valor', mascot('m_magnify', { cap: 'OBSERVAR y COMPROBAR', hi: 'OBSERVAR' }));
+beat('p2_sinembargo', mascot('m_confused', { cap: 'no siempre hay una REGLA VISIBLE', hi: 'REGLA VISIBLE', size: 58 }));
+beat('p2_reves', mascot('m_upside', { cap: 'pensar AL REVÉS', hi: 'AL REVÉS' }));
+beat('p3', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 2 DE 3', topics: 'pensar al revés · cinco soluciones' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

@@ -1,0 +1,130 @@
+# label | phrase (searched in order). Video 1 = intro + punto 1 + punto 2.
+i0 | Imagina que alguien te hace
+i_bate | Un bate y una pelota cuestan
+i_mas | El bate cuesta exactamente
+i_cuanto | Cuánto cuesta la pelota
+i_diez | Si has pensado 10 céntimos
+i_trampa | acabas de caer en una trampa
+i_correcta | La respuesta correcta es
+i_sorpr | Y lo más sorprendente
+i_inquiet | Ahora piensa en algo más inquietante
+i_confias | Cuántas veces al día confías
+i_decide | Tu cerebro toma decisiones
+i_interpreta | interpreta conversaciones
+i_resuelve | resuelve problemas
+i_anticipa | anticipa consecuencias
+i_rapida | Sin embargo con frecuencia prefiere
+i_cuestionar | Y cuando dejamos de cuestionar
+i_buena | Pero existe una buena noticia
+i_practicar | Puedes practicar una forma
+i_flexible | flexible y organizada
+i_organizada | organizada mediante
+i_desafios | mediante pequeños desafíos
+i_hoy | Hoy descubrirás siete ejercicios
+i_patrones | tu capacidad para detectar patrones
+i_nonec | No necesitas conocimientos especiales
+i_participa | Te recomiendo que participes
+i_faciles | Algunos parecerán fáciles
+i_sub | Y si te interesa comprender mejor
+i_explor | Aquí exploramos la ciencia
+i_empec | Empecemos con un desafío
+p1 | Punto 1
+p1_acabas | Acabas de comprobar lo fácil
+p1_peligro | Pero el verdadero peligro
+p1_consejo | alguien te da un consejo
+p1_noticia | escuchas una noticia
+p1_decision | tomas una decisión importante
+p1_detener | Por eso nuestro primer ejercicio
+p1_mensaje | Imagina que una mañana lees
+p1_bebida | Una bebida natural mejora
+p1_espera | Suena esperanzador
+p1_probar | Quizá incluso pienses en probarla
+p1_tres | Sin embargo antes de sacar conclusiones
+p1_quien | La primera es
+p1_revisada | No es lo mismo una investigación
+p1_benef | Averigua de dónde procede
+p1_quienbenef | quién se beneficia
+p1_pruebas | La segunda pregunta es
+p1_historia | Una historia personal
+p1_datos | busca datos fiables
+p1_compara | compara fuentes
+p1_nosabe | lo que todavía no se sabe
+p1_tercera | La tercera es la más interesante
+p1_durmieron | Tal vez quienes probaron
+p1_dormir | durmieron mejor
+p1_ejercicio | hicieron más ejercicio
+p1_alim | cambiaron su alimentación
+p1_varias | Cuando consideras varias
+p1_conmigo | Ahora te propongo practicarlo
+p1_afirm | Piensa en alguna afirmación
+p1_salud | Puede ser sobre salud
+p1_dinero | dinero o cualquier
+p1_cotid | cualquier asunto cotidiano
+p1_nonec | No necesitas demostrar
+p1_qdice | quién lo dice
+p1_qpruebas | qué pruebas presenta
+p1_qotras | qué otras explicaciones
+p1_minuto | Dedica un minuto
+p1_dudas | Si encuentras dudas
+p1_examinar | Significa que has empezado
+p1_util | Este ejercicio es útil
+p1_confirmar | motivos para confirmar
+p1_formular | Formular preguntas deliberadamente
+p1_desconf | No hace falta desconfiar
+p1_objetivo | El objetivo es algo mucho
+p1_distinguir | distinguir entre una impresión
+p1_dificultad | Y aquí aparece una nueva dificultad
+p1_patrones | Incluso cuando hacemos buenas preguntas
+p1_siguiente | En el siguiente ejercicio
+p1_confundir | pero también confundirte
+p2 | Punto 2 Encuentra la regla
+p2_despues | Después de aprender a cuestionar
+p2_descubrir | Descubrir si tu cerebro
+p2_fascin | Parece sencillo
+p2_observa | Observa esta secuencia
+p2_n1 | 2 6 12 20 30
+p2_qnum | Qué número debería aparecer
+p2_nobusques | No busques la respuesta
+p2_compara | Compara los números
+p2_explic | Lo importante no es adivinar
+p2_resolver | Vamos a resolverlo juntos
+p2_d4 | Del 2 al 6
+p2_d6 | Del 6 al 12
+p2_d8 | Después sumamos 8
+p2_d10 | finalmente 10
+p2_salto | Si las diferencias aumentan
+p2_d12 | el siguiente salto
+p2_42 | Por tanto la respuesta es
+p2_otra | También puedes descubrir otra regla
+p2_mult | Cada término resulta
+p2_x1 | Uno por dos
+p2_x2 | dos por tres
+p2_x3 | tres por cuatro
+p2_caminos | Dos caminos distintos
+p2_hecho | Te has dado cuenta
+p2_observado | Has observado información
+p2_hipot | formulado una hipótesis
+p2_comprob | comprobado si funcionaba
+p2_logico | Ese proceso es una parte
+p2_otra2 | Ahora prueba con otra secuencia
+p2_m1 | 3 6 12 24
+p2_qnum2 | Qué número vendría después
+p2_48 | Si has pensado 48
+p2_x2rule | multiplicar cada término
+p2_advert | Pero aquí aparece una advertencia
+p2_corta | Una secuencia corta
+p2_unica | Encontrar una respuesta que encaja
+p2_explica | Por eso cuando resuelvas
+p2_practica | Puedes practicar durante unos minutos
+p2_sencillos | Empieza con patrones sencillos
+p2_equivocas | Si te equivocas
+p2_cotid | En la vida cotidiana
+p2_sub | Y si disfrutas descubriendo
+p2_proximos | Así podrás acompañarnos
+p2_recuerda | Recuerda entrenar
+p2_general | pero no garantiza
+p2_valor | Su verdadero valor
+p2_sinembargo | Sin embargo no todos los problemas
+p2_reves | Algunos solo empiezan a aclararse
+p3 | Punto 3
+p3_reves | Piensa al revés

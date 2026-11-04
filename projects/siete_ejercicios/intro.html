@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · intro (hook): the bat-and-ball trap, then what the 7 exercises are. A cut every ~2–4 s.
+window.START = 0;
+window.END = window.DURATION = at('p1');
+const svg = Stage();
+
+beat('i0', still('s_shop', { cap: 'una pregunta MUY SENCILLA', hi: 'MUY SENCILLA', focus: [0.4, 0.45] }));
+// the puzzle, line by line, then a short countdown
+beat('i_bate', (g, b) => {
+  const pic = Img(g, 'i_batball', 330, 430, 400);
+  const l1 = hiText(g, 'BATE + PELOTA = 1,10 €', '1,10 €', { x: 1180, y: 250, size: 82 });
+  const l2 = hiText(g, 'BATE = PELOTA + 1 €', '+ 1 €', { x: 1180, y: 420, size: 82 });
+  const l3 = hiText(g, 'PELOTA = ¿?', '¿?', { x: 1180, y: 590, size: 96 });
+  const th = Think(g, 1180, 830);
+  return t => { live(pic, t, b.a, { amp: 5 }); show(l1, t, b.a + 0.2); show(l2, t, at('i_mas')); show(l3, t, at('i_cuanto')); th.draw(t, at('i_cuanto') + 1.2, at('i_diez')); };
+});
+beat('i_diez', (g, b) => {
+  const S = Still(g, IMG('s_wrong'), { x: 200, y: 40, w: 1520, h: 850, iw: SZ.s_wrong[0], ih: SZ.s_wrong[1], r: 34, focus: [0.5, 0.45], zoom: 0.1 });
+  const c = Chip(g, '¿10 CÉNTIMOS?', { cx: 960, cy: 140, size: 70, fill: K.white });
+  const cap = Bubble(g, '¡una TRAMPA de tu cerebro!', { hi: 'TRAMPA' });
+  return t => { S.draw(t, b.a, b.b); pop(c, t, b.a + 0.2, 960, 140); pop(cap, t, at('i_trampa'), 960, 975); };
+});
+beat('i_correcta', (g, b) => {
+  const l1 = hiText(g, 'PELOTA = 0,05 €', '0,05 €', { x: 1100, y: 270, size: 100, hiColor: K.green });
+  const l2 = hiText(g, 'BATE = 1,05 €', '1,05 €', { x: 1100, y: 440, size: 86 });
+  const l3 = hiText(g, '0,05 + 1,05 = 1,10 €', '1,10 €', { x: 1100, y: 610, size: 74, color: K.grey, hiColor: K.green });
+  const m = Mascot(g, 'm_correct', { cx: 360, floor: 960, h: 620 });
+  return t => { show(l1, t, b.a + 0.1); show(l2, t, b.a + 0.9); show(l3, t, b.a + 1.7); live(m, t, b.a + 0.2, { dir: 'l' }); };
+});
+beat('i_sorpr', still('s_scholars', { cap: 'incluso personas MUY INTELIGENTES', hi: 'MUY INTELIGENTES', focus: [0.5, 0.6] }));
+beat('i_inquiet', mascot('m_worried', { cap: 'algo más INQUIETANTE', hi: 'INQUIETANTE' }));
+beat('i_confias', still('s_sign', { cap: '¿lógica… pero NUNCA COMPROBADA?', hi: 'NUNCA COMPROBADA', focus: [0.45, 0.5] }));
+beat('i_decide', still('s_gears', { cap: 'tu cerebro DECIDE sin parar', hi: 'DECIDE', focus: [0.4, 0.4], chips: [['CONVERSACIONES', 'i_interpreta'], ['PROBLEMAS', 'i_resuelve']] }));
+beat('i_anticipa', still('s_fork', { cap: 'anticipa CONSECUENCIAS', hi: 'CONSECUENCIAS', focus: [0.5, 0.35] }));
+beat('i_rapida', still('s_rabbit', { cap: 'prefiere lo RÁPIDO', hi: 'RÁPIDO', focus: [0.4, 0.35] }));
+beat('i_cuestionar', still('s_nodding', { cap: 'errores SIN DARNOS CUENTA', hi: 'SIN DARNOS CUENTA', focus: [0.5, 0.4] }));
+beat('i_buena', mascot('m_yay', { cap: 'una BUENA noticia', hi: 'BUENA' }));
+beat('i_practicar', row([['m_thinking', 'REFLEXIVA', 'i_practicar'], ['m_upside', 'FLEXIBLE', 'i_flexible'], ['m_list', 'ORGANIZADA', 'i_organizada']], { cap: 'con pequeños DESAFÍOS', capHi: 'DESAFÍOS', capAt: 'i_desafios' }));
+beat('i_hoy', (g, b) => {
+  const m = Mascot(g, 'm_idea', { cx: 450, floor: 930, h: 700 });
+  const n = txt(g, '7', { x: 1200, y: 300, size: 260, color: K.pink });
+  const t1 = txt(g, 'EJERCICIOS MENTALES', { x: 1200, y: 480, size: 84 });
+  const c = Chip(g, 'PARTE 1 DE 3', { cx: 1200, cy: 620, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1200, y: 750, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1200, 300); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.7, 1200, 620); show(ch, t, b.a + 0.9); };
+});
+beat('i_patrones', still('s_icons', { cap: 'razonar · PATRONES · soluciones', hi: 'PATRONES', focus: [0.5, 0.45] }));
+beat('i_nonec', still('s_coffee', { cap: 'sin materiales NI HORAS de estudio', hi: 'NI HORAS', focus: [0.6, 0.5] }));
+beat('i_participa', still('s_pause', { cap: 'piensa ANTES de la respuesta', hi: 'ANTES', focus: [0.6, 0.45] }));
+beat('i_faciles', mascot('m_wink', { cap: 'parecen FÁCILES…', hi: 'FÁCILES' }));
+beat('i_sub', cta('sub', { sub: 'Cerebro y Bienestar' }));
+beat('i_explor', mascot('m_reading', { cap: 'la ciencia del cerebro, SENCILLA', hi: 'SENCILLA' }));
+beat('i_empec', still('s_ready', { cap: '¡EMPECEMOS!', hi: 'EMPECEMOS', focus: [0.45, 0.45] }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

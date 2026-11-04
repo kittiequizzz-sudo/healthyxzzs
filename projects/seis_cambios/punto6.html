@@ -1,0 +1,61 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · Punto 6: neuroplasticity, Francisco learns piano, habits that protect the brain.
+window.START = at('p6') - 1.0;
+window.END = window.DURATION = at('c0');
+HOOK_END = 0;
+const svg = Stage();
+const D = 'Dramatización';
+
+beat(at('p6') - 1.0, ejercicio(6, 'TU CEREBRO SIGUE APRENDIENDO', { hi: 'APRENDIENDO', sub: 'y se ADAPTA', subHi: 'ADAPTA', m: 'm_write' }));
+beat('p6_conocer', mascot('m_pause', { cap: '¿puede MEJORAR después de los 60?', hi: 'MEJORAR', size: 56 }));
+beat('p6_respuesta', mascot('m_flex', { cap: '¡SÍ! puede adaptarse', hi: 'SÍ' }));
+beat('p6_neuro', big([['NEUROPLASTICIDAD', 'PLASTICIDAD']], { y: 300, size: 120, pic: 'm_teach' }));
+beat('p6_conexiones', still('s_neurons', { cap: 'conexiones que se MODIFICAN', hi: 'MODIFICAN', focus: [0.5, 0.45], chips: [['EXPERIENCIA', at('p6_conexiones') + 3.5, '#CFE6F7'], ['PRÁCTICA', at('p6_conexiones') + 5.5, '#CDEFD0']] }));
+beat('p6_vida', still('s_sprouts', { cap: 'toda la vida: también a los 70 y 80', hi: '70 y 80', focus: [0.5, 0.35], tag: 'Park & Bischof, 2013', size: 56 }));
+beat('p6_francisco', mascot('m_elder', { cap: 'Francisco, 74 años: ¡a tocar el PIANO!', hi: 'PIANO', size: 54, extra: [['i_piano', 'p6_francisco', 1480, 560, 360]], custom: g => { const s = Tag(g, D, { x: 1880, y: 60 }); return t => show(s, t, at('p6_francisco')); } }));
+beat('p6_cuesta', still('s_piano', { cap: 'al principio: NOTAS LIADAS', hi: 'NOTAS LIADAS', tag: D, focus: [0.5, 0.45] }));
+beat('p6_abandonar', still('s_pianoquit', { cap: '¿y si lo DEJO?', hi: 'DEJO', tag: D, focus: [0.6, 0.45] }));
+beat('p6_practica', still('s_practice', { cap: 'unos minutos CADA DÍA', hi: 'CADA DÍA', tag: D, focus: [0.6, 0.4] }));
+beat('p6_melodias', still('s_pianojoy', { cap: '¡ya suenan MELODÍAS!', hi: 'MELODÍAS', tag: D, focus: [0.6, 0.45], chips: [['su cerebro se ADAPTA', 'p6_adapta', '#CDEFD0']] }));
+beat('p6_privilegio', big([['aprender ≠ solo JUVENTUD', 'JUVENTUD']], { y: 300, size: 100, pic: 'm_wise' }));
+beat('p6_habitos', (g, b) => {
+  const head = hiText(g, 'hábitos que PROTEGEN tu cerebro', 'PROTEGEN', { x: 960, y: 120, size: 70 });
+  const L = [['s_parkwalk', 'ACTIVIDAD FÍSICA', 'p6_fisica'], ['s_habits5', 'RELACIONES', 'p6_social'], ['s_bedtime', 'DORMIR BIEN', 'p6_dormir'], ['s_bp', 'PRESIÓN ARTERIAL', 'p6_presion']];
+  const its = L.map(([n, s, k], i) => {
+    const x = 270 + i * 460, it = el('g', {}, g), w = 410, h = w * SZ[n][1] / SZ[n][0];
+    el('rect', { x: x - w / 2 + 8, y: 420 - h / 2 + 10, width: w, height: h, rx: 24, fill: K.ink }, it);
+    el('image', { href: IMG(n), x: x - w / 2, y: 420 - h / 2, width: w, height: h }, it);
+    el('rect', { x: x - w / 2, y: 420 - h / 2, width: w, height: h, rx: 24, fill: 'none', stroke: K.ink, 'stroke-width': 6 }, it);
+    Chip(it, s, { cx: x, cy: 420 + h / 2 + 70, size: 40, fill: EX_COL[i] });
+    it.cx = x; it.cy = 440; return [it, k];
+  });
+  const src = Tag(g, 'Livingston et al., 2024 · Lancet');
+  const tag = ExTag(g, 6);
+  return t => { show(head, t, b.a); its.forEach(([it, k]) => pop(it, t, at(k), it.cx, it.cy)); show(src, t, at('p6_fisica')); show(tag, t, b.a); };
+});
+beat('p6_estimular', still('s_cards', { focus: [0.5, 0.45], chips: [['UN IDIOMA', 'p6_idioma', '#CFE6F7'], ['LEER', 'p6_leyendo', '#FFF1B8'], ['MÚSICA', 'p6_musica', '#E5DAF5'], ['CURIOSIDAD', at('p6_musica') + 2, '#CDEFD0']] }));
+beat(at('p6_musica') + 3.2, still('s_paint', { cap: 'lo que despierte tu CURIOSIDAD', hi: 'CURIOSIDAD', focus: [0.5, 0.45] }));
+beat('p6_ninguno', big([['ningún ejercicio GARANTIZA', 'GARANTIZA'], ['prevenir el alzhéimer', '', K.grey]], { y: 260, size: 90, pic: 'm_shrug' }));
+beat('p6_importante', still('s_library', { cap: 'seguir aprendiendo y DISFRUTANDO', hi: 'DISFRUTANDO', focus: [0.5, 0.45] }));
+beat('p6_perdido', still('s_openarms', { cap: '¿qué puedes APRENDER todavía?', hi: 'APRENDER', capAt: 'p6_maravillosas', focus: [0.5, 0.45] }));
+beat('p6_sub', cta('sub', { sub: 'tu cerebro después de los 60', m: 'm_wave' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

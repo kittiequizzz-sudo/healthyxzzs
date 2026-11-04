@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · Conclusión, then the series end card.
+const VOICE_END = 1254.7;
+window.START = at('c0');
+window.END = window.DURATION = VOICE_END + 6;
+HOOK_END = 0;
+const svg = Stage();
+
+beat('c0', (g, b) => {
+  el('rect', { width: 1920, height: 1080, fill: K.ink }, g);
+  const c = Chip(g, 'CONCLUSIÓN', { cx: 960, cy: 250, size: 54, fill: K.yellow });
+  const a = txt(g, 'TU CEREBRO ENVEJECE', { x: 960, y: 410, size: 96, color: K.white });
+  const d = txt(g, 'PERO TIENE MUCHO QUE OFRECER', { x: 960, y: 540, size: 80, color: K.pink });
+  const m = Mascot(g, 'm_heart', { cx: 960, floor: 1060, h: 380 });
+  return t => { pop(c, t, b.a, 960, 250); show(a, t, b.a + 0.2); show(d, t, b.a + 0.6); live(m, t, b.a + 0.9); };
+});
+beat('c_60', still('s_garden2', { cap: 'una ETAPA diferente', hi: 'ETAPA', capAt: 'c_etapa', focus: [0.5, 0.45] }));
+beat('c_cierto', still('s_six2', { cap: 'cambios reales…', hi: '', focus: [0.6, 0.45], chips: [['el SUEÑO cambia', 'c_sueno', '#E5DAF5']] }));
+beat('c_futuro', big([['…que NO deciden tu futuro', 'NO']], { y: 300, size: 96, pic: 'm_wise' }));
+beat('c_conserva', mascot('m_flex', { cap: 'experiencia · conocimientos · ADAPTACIÓN', hi: 'ADAPTACIÓN', size: 54, chips: [['SÍ podemos DECIDIR', 'c_decisiones', '#CDEFD0']] }));
+beat('c_moverte', still('s_habits5', { focus: [0.5, 0.45], chips: [['MOVERTE', 'c_moverte', '#CFE6F7'], ['RELACIONES', 'c_relaciones', '#FFF1B8'], ['DESCANSAR', 'c_descansar', '#E5DAF5'], ['APRENDER', 'c_aprender', '#CDEFD0'], ['CORAZÓN', 'c_cardio', K.pinkL]] }));
+beat('c_recuerda', adviceCard('NO ES «SOLO LA EDAD» SI…', [['los olvidos EMPEORAN', 'c_recuerda'], ['hay DESORIENTACIÓN', at('c_recuerda') + 3.8], ['cuesta el DÍA A DÍA', at('c_recuerda') + 5.6]], { m: 'm_listening' }));
+beat('c_consulta', still('s_doctor3', { cap: 'consulta con un PROFESIONAL SANITARIO', hi: 'PROFESIONAL SANITARIO', focus: [0.6, 0.45], size: 54 }));
+beat('c_pregunta', (g, b) => {
+  const q = hiText(g, '¿cuál has notado MÁS?', 'MÁS', { x: 960, y: 170, size: 84 });
+  const L = [['m_name', 'LA MEMORIA'], ['m_focus', 'LA CONCENTRACIÓN'], ['m_yawn', 'EL SUEÑO']];
+  const its = L.map(([n, s], i) => { const x = 960 + (i - 1) * 560, it = el('g', {}, g); Mascot(it, n, { cx: x, floor: 720, h: 420 }); Chip(it, s, { cx: x, cy: 810, size: 46, fill: EX_COL[i] }); it.cx = x; it.cy = 560; return it; });
+  return t => { show(q, t, at('c_cual')); its.forEach((it, i) => live(it, t, at('c_tres') + i * 0.8, { amp: 4, phase: i * 0.3 })); };
+});
+beat('c_coment', still('s_comment2', { cap: 'cuéntamelo en los COMENTARIOS', hi: 'COMENTARIOS', focus: [0.5, 0.45] }));
+beat('c_comparte', still('s_share', { cap: 'compártelo con alguien que QUIERAS', hi: 'QUIERAS', focus: [0.5, 0.45], chips: [['SUSCRÍBETE', at('c_comparte') + 3.5, K.pinkL]] }));
+beat('c_final', still('s_dance', { cap: 'disfrutar los años que tienes por DELANTE', hi: 'DELANTE', capAt: 'c_disfrutar', focus: [0.5, 0.45], size: 54 }));
+beat(VOICE_END, (g, b) => {
+  const m = Mascot(g, 'm_wave', { cx: 480, floor: 900, h: 640 });
+  const h = txt(g, '¡SERIE COMPLETA!', { x: 1220, y: 300, size: 90 });
+  const parts = ['PARTE 1', 'PARTE 2', 'PARTE 3'].map((s, i) => Chip(g, s + ' ✓', { cx: 880 + i * 340, cy: 480, size: 46, fill: K.yellow }));
+  const d = txt(g, 'Contenido educativo: no sustituye una valoración médica.', { x: 960, y: 1020, size: 34, weight: 700, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); show(h, t, b.a + 0.2); parts.forEach((p, i) => pop(p, t, b.a + 0.5 + i * 0.3, p.cx, p.cy)); show(d, t, b.a + 1.2); };
+});
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

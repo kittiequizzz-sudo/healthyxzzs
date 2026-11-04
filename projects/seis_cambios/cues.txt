@@ -155,4 +155,82 @@ p4_debilidad | debilidad en un lado
 p4_vision | alteraciones súbitas
 p4_grave | Estos síntomas pueden indicar
 p4_esperes | No espere a que desaparezcan
+# Video 3 = punto 5 + punto 6 + conclusión.
 p5 | Punto 5
+p5_titulo | Tu cerebro cambia la forma
+p5_noche | Has notado que ahora te despiertas
+p5_4 | Quizá incluso abras los ojos
+p5_extrano | Aunque parezca extraño
+p5_mecanismos | Después de los 60 años los mecanismos
+p5_reloj | El reloj biológico
+p5_adelantarse | puede adelantarse
+p5_profundo | Además el sueño profundo
+p5_despertares | mientras que los despertares
+p5_mercedes | Imagina a Mercedes
+p5_dia | Durante el día olvida
+p5_preocupa | Empieza a preocuparse
+p5_fundamental | Y aquí aparece algo fundamental
+p5_consolida | Mientras dormimos
+p5_insuf | Por eso descansar insuficientemente
+p5_animo | el estado de ánimo
+p5_inevitable | Sin embargo despertarse constantemente
+p5_apnea | Problemas como la apnea
+p5_dolor | el dolor
+p5_medic | determinados medicamentos
+p5_horarios | Mantener horarios regulares
+p5_luz | recibir luz natural
+p5_cafeina | evitar la cafeína
+p5_persisten | Si las dificultades persisten
+p5_esperanzador | Pero ahora llegamos al cambio
+p5_ochenta | Porque aunque tu cerebro envejezca
+p6 | Tu cerebro todavía puede aprender
+p6_conocer | Después de conocer tantos cambios
+p6_respuesta | La respuesta es esperanzadora
+p6_habilidad | Aunque algunas capacidades disminuyan
+p6_neuro | Esta capacidad se conoce
+p6_conexiones | Significa que las conexiones
+p6_vida | Y lo más interesante es que este proceso
+p6_francisco | Imagina a Francisco
+p6_cuesta | Al principio le cuesta
+p6_abandonar | Se equivoca constantemente
+p6_practica | Sin embargo continúa practicando
+p6_melodias | Poco a poco empieza
+p6_adapta | Su cerebro está adaptándose
+p6_privilegio | Esto demuestra que aprender
+p6_habitos | Además existen hábitos
+p6_fisica | Realizar actividad física
+p6_social | mantener relaciones sociales
+p6_dormir | dormir adecuadamente
+p6_presion | controlar la presión arterial
+p6_estimular | También puedes estimular
+p6_idioma | aprendiendo un idioma
+p6_leyendo | leyendo
+p6_musica | practicando música
+p6_ninguno | Pero recuerda que ningún ejercicio
+p6_importante | Lo verdaderamente importante
+p6_perdido | Así que no te preguntes
+p6_maravillosas | Pregúntate qué cosas
+p6_sub | Y si deseas seguir descubriendo
+p6_clara | Aquí encontrarás información clara
+c0 | Después de conocer estos seis cambios
+c_60 | significa que tu cerebro
+c_etapa | significa que está entrando
+c_cierto | Es cierto que algunas regiones
+c_sueno | También sabemos que el sueño
+c_futuro | Sin embargo ninguna de estas
+c_conserva | Tu cerebro conserva experiencias
+c_decisiones | Y aunque no podemos detener
+c_moverte | Moverte diariamente
+c_relaciones | mantener relaciones personales
+c_descansar | descansar adecuadamente
+c_aprender | aprender cosas nuevas
+c_cardio | controlar tu salud cardiovascular
+c_recuerda | Pero recuerda los olvidos
+c_consulta | Si aparecen estos problemas
+c_pregunta | Antes de despedirnos
+c_cual | De los seis cambios
+c_tres | La memoria la concentración
+c_coment | Cuéntamelo en los comentarios
+c_comparte | Y si este video te ha resultado
+c_final | Porque cuidar tu cerebro
+c_disfrutar | sino en disfrutar

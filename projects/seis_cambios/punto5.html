@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 3 · opener (silent pre-roll) + Punto 5: sleep changes with age.
+const PRE = 5;
+window.START = at('p5') - PRE;
+window.END = window.DURATION = at('p6') - 1.0;
+HOOK_END = at('p5') + 35;
+const svg = Stage();
+const S0 = window.START;
+const D = 'Dramatización';
+
+beat(S0, row([['m_inspect', 'VOLUMEN', S0 + 0.1], ['i_turtle', 'VELOCIDAD', S0 + 0.4], ['m_name', 'MEMORIA', S0 + 0.7], ['m_focus', 'ATENCIÓN', S0 + 1.0]], { head: 'ya vimos 4 cambios…', hi: '4 cambios' }));
+beat(S0 + 2.3, (g, b) => {
+  const m = Mascot(g, 'm_yawn', { cx: 450, floor: 930, h: 640 });
+  const n = txt(g, '6', { x: 1250, y: 290, size: 260, color: K.pink });
+  const t1 = txt(g, 'CAMBIOS EN TU CEREBRO', { x: 1250, y: 470, size: 74 });
+  const c = Chip(g, 'PARTE 3 DE 3', { cx: 1250, cy: 620, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1250, y: 750, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1250, 290); show(t1, t, b.a + 0.3); pop(c, t, b.a + 0.6, 1250, 620); show(ch, t, b.a + 0.9); };
+});
+beat('p5', ejercicio(5, 'CAMBIA TU FORMA DE DORMIR', { hi: 'DORMIR', m: 'm_yawn' }));
+beat('p5_noche', still('s_wakes', { cap: 'te despiertas VARIAS VECES', hi: 'VARIAS VECES', focus: [0.5, 0.45] }));
+beat('p5_4', still('s_4am', { cap: 'las 4 de la madrugada… y ya NO DUERMES', hi: 'NO DUERMES', focus: [0.6, 0.35], size: 54 }));
+beat('p5_extrano', mascot('m_wake', { cap: 'también es el CEREBRO', hi: 'CEREBRO' }));
+beat('p5_reloj', still('s_clock', { cap: 'el reloj biológico se ADELANTA', hi: 'ADELANTA', capAt: 'p5_adelantarse', focus: [0.5, 0.45], chips: [['sueño ANTES · despertar ANTES', at('p5_adelantarse') + 2, '#FFF1B8']] }));
+beat('p5_profundo', still('s_wave', { cap: 'menos sueño PROFUNDO', hi: 'PROFUNDO', focus: [0.6, 0.45], chips: [['más DESPERTARES', 'p5_despertares', K.pinkL]], tag: 'Ohayon et al., 2004 · Mander et al., 2017' }));
+beat('p5_mercedes', still('s_mercedes', { cap: 'Mercedes, 71 años: se levanta CANSADA', hi: 'CANSADA', tag: D, focus: [0.5, 0.4], size: 56 }));
+beat('p5_dia', still('s_cup', { cap: 'de día: OLVIDOS y poca concentración', hi: 'OLVIDOS', tag: D, focus: [0.4, 0.45], size: 54 }));
+beat('p5_preocupa', mascot('m_yawn', { cap: '¿la memoria… o el SUEÑO?', hi: 'SUEÑO' }));
+beat('p5_fundamental', still('s_sleepbrain', { cap: 'dormir CONSOLIDA recuerdos', hi: 'CONSOLIDA', capAt: 'p5_consolida', focus: [0.5, 0.5] }));
+beat('p5_insuf', row([['m_focus', 'ATENCIÓN', 'p5_insuf'], ['m_heart', 'ÁNIMO', 'p5_animo'], ['m_name', 'MEMORIA', at('p5_animo') + 1.2]], { head: 'dormir poco afecta a…', hi: '' }));
+beat('p5_inevitable', mascot('m_wise', { cap: 'NO es inevitable con la edad', hi: 'NO' }));
+beat('p5_apnea', still('s_snore', { focus: [0.5, 0.45], chips: [['APNEA DEL SUEÑO', 'p5_apnea', '#CFE6F7'], ['DOLOR', 'p5_dolor', K.pinkL], ['MEDICAMENTOS', 'p5_medic', '#FFF1B8']] }));
+beat('p5_horarios', still('s_bedtime', { cap: 'horarios REGULARES', hi: 'REGULARES', focus: [0.5, 0.45] }));
+beat('p5_luz', still('s_sunwalk', { cap: 'luz NATURAL de día', hi: 'NATURAL', focus: [0.5, 0.45] }));
+beat('p5_cafeina', still('s_coffee', { cap: 'sin cafeína por la TARDE', hi: 'TARDE', focus: [0.5, 0.5], tag: 'NIA · Sleep and older adults' }));
+beat('p5_persisten', still('s_doctor3', { cap: '¿persiste? consulta a un PROFESIONAL', hi: 'PROFESIONAL', focus: [0.5, 0.45], size: 56 }));
+beat('p5_esperanzador', still('s_sunrise', { cap: 'el cambio más ESPERANZADOR', hi: 'ESPERANZADOR', focus: [0.5, 0.4] }));
+beat('p5_ochenta', (g, b) => {
+  const n = txt(g, '80+', { x: 1200, y: 330, size: 230, color: K.pink });
+  const l = hiText(g, 'sigues APRENDIENDO', 'APRENDIENDO', { x: 1200, y: 530, size: 84 });
+  const m = Mascot(g, 'm_write', { cx: 480, floor: 930, h: 560 });
+  return t => { pop(n, t, at('p5_ochenta') + 9, 1200, 330); show(l, t, at('p5_ochenta') + 9.6); live(m, t, b.a, { dir: 'l' }); };
+});
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

@@ -84,4 +84,75 @@ p2_juventud | acontecimientos de nuestra juventud
 p2_siguiente | En el siguiente punto
 p2_sub | Si quieres comprender mejor tu cerebro
 p2_clara | Aquí compartimos información
+# Video 2 = punto 3 + punto 4.
 p3 | Punto 3
+p3_titulo | Tu memoria cambia pero no todos
+p3_preocupa | Hay algo que preocupa especialmente
+p3_30 | Descubrir que pueden recordar perfectamente
+p3_manana | lo que alguien les dijo
+p3_miedo | Esta diferencia puede resultar
+p3_almacena | Sin embargo nuestro cerebro no almacena
+p3_sistemas | Existen diferentes sistemas
+p3_trabajo | Por ejemplo la memoria de trabajo
+p3_telefono | La utilizamos cuando recordamos
+p3_eficiente | Con la edad esta capacidad
+p3_palabras | También puede resultar más difícil
+p3_teresa | Imagina a Teresa
+p3_hija | Mientras cocina su hija
+p3_olvida | Teresa continúa preparando
+p3_recuerda | Sin embargo cuando su hija vuelve
+p3_normal | Situaciones como esta pueden aparecer
+p3_diferencia | Pero existe una diferencia importante
+p3_llaves | Olvidar ocasionalmente
+p3_sirven | para qué sirven objetos
+p3_palabra | Tardar en recordar una palabra
+p3_aumentan | Cuando los problemas de memoria aumentan
+p3_desorient | provocan desorientación
+p3_edad | Además no debemos atribuir
+p3_sueno | La falta de sueño
+p3_depresion | la depresión
+p3_medic | determinados medicamentos
+p3_tratables | algunas enfermedades tratables
+p3_alz | Lo más importante es comprender
+p3_conserva | Nuestro cerebro continúa conservando
+p3_cuestion | Y aquí aparece otra cuestión
+p3_concentrar | Muchas veces creemos que estamos olvidando
+p3_cuarto | Esto nos conduce directamente
+p3_ruido | Uno que puede explicar
+p4 | Punto 4
+p4_titulo | Tu capacidad de concentración
+p4_salon | Imagina que estás sentado
+p4_tele | La televisión permanece encendida
+p4_cocina | alguien habla desde la cocina
+p4_telefono | tu teléfono comienza a sonar
+p4_antes | Hace años quizá podías
+p4_apagar | Ahora sin embargo sientes
+p4_explic | Esta experiencia tiene una explicación
+p4_filtrar | Después de los 60 años algunas funciones
+p4_recursos | Esto significa que el cerebro necesita
+p4_pref | Una región importante en este proceso
+p4_multi | Cuando esta red experimenta
+p4_dolores | Pensemos en Dolores
+p4_tranquila | Cuando permanece en una habitación
+p4_nietos | Sin embargo si sus nietos
+p4_noperdido | Dolores no ha perdido
+p4_selecciona | Lo que puede haber cambiado
+p4_una | Por eso realizar una sola actividad
+p4_ruido | Reducir el ruido ambiental
+p4_descansar | descansar adecuadamente
+p4_interrup | evitar las interrupciones
+p4_fundamental | Pero conviene recordar algo fundamental
+p4_notodas | No todas las dificultades
+p4_auditivos | Los problemas auditivos
+p4_progresiva | Además una pérdida progresiva
+p4_relacion | Y existe una relación especialmente
+p4_duermes | Mientras duermes
+p4_nocturnos | Por eso los cambios nocturnos
+p4_advert | Antes de continuar recuerda
+p4_confusion | Si experimentas confusión repentina
+p4_hablar | dificultad brusca para hablar
+p4_debilidad | debilidad en un lado
+p4_vision | alteraciones súbitas
+p4_grave | Estos síntomas pueden indicar
+p4_esperes | No espere a que desaparezcan
+p5 | Punto 5

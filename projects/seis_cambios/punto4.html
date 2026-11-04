@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 2 · Punto 4: concentration (filtering distractions, prefrontal cortex), Dolores, stroke warning, end card.
+window.START = at('p4');
+window.END = window.DURATION = at('p5') + 7;
+HOOK_END = 0;
+const svg = Stage();
+const D = 'Dramatización';
+
+beat('p4', ejercicio(4, 'TU CONCENTRACIÓN CAMBIA', { hi: 'CONCENTRACIÓN', m: 'm_focus' }));
+beat('p4_salon', still('s_noise', { focus: [0.5, 0.45], chips: [['LA TELE', 'p4_tele', K.pinkL], ['LA COCINA', 'p4_cocina', K.pinkL], ['EL TELÉFONO', 'p4_telefono', K.pinkL]] }));
+beat('p4_antes', mascot('m_noise', { cap: 'antes podías… ahora se BLOQUEA', hi: 'BLOQUEA', capAt: 'p4_apagar', size: 58 }));
+beat(at('p4_apagar') + 3.5, still('s_tvoff', { cap: 'apagar la tele para ENTENDER', hi: 'ENTENDER', focus: [0.4, 0.45] }));
+beat('p4_explic', mascot('m_teach', { cap: 'tiene una EXPLICACIÓN', hi: 'EXPLICACIÓN' }));
+beat('p4_filtrar', still('s_sieve', { cap: 'filtrar lo que NO IMPORTA', hi: 'NO IMPORTA', focus: [0.6, 0.45], tag: 'Hasher & Zacks, 1988' }));
+beat('p4_recursos', mascot('m_multitask', { cap: 'concentrarse cuesta MÁS RECURSOS', hi: 'MÁS RECURSOS', size: 56 }));
+beat('p4_pref', brain({ on: [['frontal', at('p4_pref') + 0.4]], labels: [['CORTEZA PREFRONTAL', 'frontal', at('p4_pref') + 0.6, 230, -170]], mascot: ['m_focus', 'p4_pref'], cap: 'controla las DISTRACCIONES', hi: 'DISTRACCIONES', capAt: at('p4_pref') + 4 }));
+beat('p4_multi', still('s_controller', { cap: 'varias tareas: más EXIGENTE', hi: 'EXIGENTE', focus: [0.5, 0.4] }));
+beat('p4_dolores', still('s_dolores', { cap: 'Dolores, 73 años', hi: 'Dolores', tag: D, focus: [0.4, 0.45], chips: [['en calma: lo ENTIENDE TODO', 'p4_tranquila', '#CDEFD0']] }));
+beat('p4_nietos', still('s_dolnoise', { cap: 'con ruido: RELEE el párrafo', hi: 'RELEE', tag: D, focus: [0.6, 0.45] }));
+beat('p4_noperdido', mascot('m_wise', { cap: 'no perdió COMPRENSIÓN', hi: 'COMPRENSIÓN', capAt: 'p4_noperdido', chips: [['le cuesta SELECCIONAR', 'p4_selecciona', '#FFF1B8']] }));
+beat('p4_una', still('s_onetask', { cap: 'UNA sola actividad', hi: 'UNA', focus: [0.4, 0.45] }));
+beat('p4_ruido', still('s_quiet', { focus: [0.5, 0.45], chips: [['MENOS RUIDO', 'p4_ruido', '#CFE6F7'], ['DESCANSO', 'p4_descansar', '#E5DAF5'], ['SIN INTERRUPCIONES', 'p4_interrup', '#CDEFD0']] }));
+beat('p4_fundamental', mascot('m_teach', { cap: 'no todo es la EDAD', hi: 'EDAD', capAt: 'p4_notodas' }));
+beat('p4_auditivos', still('s_causes4', { focus: [0.5, 0.45], chips: [['OÍDO', 'p4_auditivos', '#CFE6F7'], ['ANSIEDAD', at('p4_auditivos') + 1.6, '#F9D3D3'], ['MEDICAMENTOS', at('p4_auditivos') + 2.8, '#FFF1B8'], ['SUEÑO', at('p4_auditivos') + 4.6, '#E5DAF5']] }));
+beat('p4_progresiva', still('s_hearing', { cap: 'si empeora: VALORACIÓN profesional', hi: 'VALORACIÓN', focus: [0.5, 0.45], size: 56 }));
+beat('p4_relacion', still('s_nightbrain', { cap: 'mientras duermes… CONSOLIDAS', hi: 'CONSOLIDAS', capAt: 'p4_duermes', focus: [0.6, 0.45] }));
+beat('p4_nocturnos', still('s_garden', { cap: 'la noche influye en el DÍA', hi: 'DÍA', focus: [0.5, 0.45] }));
+beat('p4_advert', mascot('m_scared', { cap: 'una advertencia IMPORTANTE', hi: 'IMPORTANTE' }));
+beat('p4_confusion', strokeCard('SEÑALES SÚBITAS DE ALARMA', [['m_dizzy', 'CONFUSIÓN', 'p4_confusion'], ['m_scared', 'HABLAR', 'p4_hablar'], ['m_wobbly', 'UN LADO DÉBIL', 'p4_debilidad'], ['m_inspect', 'VISIÓN', 'p4_vision']], { go: 'ATENCIÓN MÉDICA URGENTE', goAt: 'p4_grave' }));
+beat('p4_esperes', still('s_call', { cap: 'no esperes: no es la EDAD', hi: 'EDAD', focus: [0.4, 0.45], tag: 'NINDS · Stroke' }));
+beat('p5', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 3 DE 3', topics: 'el sueño · un cerebro que sigue aprendiendo' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

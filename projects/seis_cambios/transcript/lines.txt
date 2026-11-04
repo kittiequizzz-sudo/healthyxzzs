@@ -1,0 +1,190 @@
+[0.10 - 4.68] (w0-13) ¿Alguna vez has olvidado el nombre de alguien a quien conoces desde hace años?
+[4.82 - 10.36] (w14-28) ¿O has entrado en una habitación y, de repente, no recuerdas qué ibas a buscar?
+[10.66 - 17.24] (w29-41) Son pequeños momentos que pueden parecer insignificantes, pero que despiertan una preocupación silenciosa.
+[17.36 - 20.04] (w42-47) ¿Estará empezando a fallar mi cerebro?
+[20.48 - 25.06] (w48-57) Después de los 60 años, nuestro cerebro experimenta cambios reales.
+[25.32 - 28.48] (w58-64) Algunas conexiones nerviosas funcionan de manera diferente.
+[28.80 - 34.90] (w65-77) Ciertas regiones pueden perder volumen y procesar información nueva puede llevarnos más tiempo.
+[35.22 - 36.98] (w78-82) Pero aquí viene lo importante.
+[37.38 - 42.14] (w83-93) No todos estos cambios significan que estés perdiendo tus capacidades mentales.
+[42.52 - 49.84] (w94-107) De hecho, mientras algunas funciones se vuelven más lentas, otras pueden mantenerse sorprendentemente fuertes.
+[49.94 - 58.30] (w108-124) Tu experiencia, tus conocimientos y tu capacidad para aprender siguen siendo recursos valiosos, incluso a edades avanzadas.
+[58.44 - 65.14] (w125-143) El problema es que muchas personas confunden los cambios normales del envejecimiento con las primeras señales de una enfermedad.
+[65.96 - 74.60] (w144-159) Y esa confusión puede provocar dos errores, preocuparse innecesariamente o ignorar síntomas que merecen atención médica.
+[74.76 - 80.58] (w160-176) Hoy vamos a descubrir seis cambios que pueden producirse en tu cerebro después de los 60 años.
+[80.76 - 88.92] (w177-195) Comprenderás por qué aparecen ciertos olvidos, qué ocurre con tu concentración y cómo puedes seguir cuidando tu salud cerebral.
+[89.10 - 96.52] (w196-212) Y presta especial atención al último cambio, porque demuestra que cumplir años no significa dejar de aprender.
+[96.82 - 98.92] (w213-219) Antes de empezar, cuéntame en los comentarios.
+[99.62 - 102.64] (w220-227) ¿Has notado algún cambio en tu memoria últimamente?
+[102.76 - 106.74] (w228-239) Tu experiencia también puede ayudar a otras personas que nos están viendo.
+[107.04 - 111.00] (w240-250) Punto 1 Tu cerebro cambia de tamaño después de los 60.
+[111.92 - 116.00] (w251-261) Lo primero que debes saber es algo que pocas personas imaginan.
+[116.14 - 121.04] (w262-273) Tu cerebro no conserva exactamente el mismo tamaño durante toda la vida.
+[121.26 - 125.64] (w274-285) Con el paso de los años, algunas regiones comienzan a perder volumen.
+[125.78 - 135.08] (w286-305) Es un proceso natural del envejecimiento, pero comprenderlo puede cambiar completamente la manera en que interpretas esos pequeños olvidos cotidianos.
+[135.38 - 139.30] (w306-314) Imagina a una mujer de 67 años llamada Carmen.
+[139.48 - 145.44] (w315-328) Una mañana encuentra unas fotografías familiares y reconoce inmediatamente los rostros de sus mietos.
+[146.22 - 153.62] (w329-345) Sin embargo, cuando intenta recordar dónde guardó las gafas hace apenas 10 minutos, necesita detenerse y pensar.
+[154.42 - 161.56] (w346-362) Esa diferencia puede parecer extraña, pero tiene una explicación relacionada con el funcionamiento de distintas redes cerebrales.
+[162.22 - 171.82] (w363-387) Una de las regiones más importantes es el hipocampo, una estructura situada en el interior del cerebro que participa en la formación de nuevos recuerdos.
+[171.94 - 180.32] (w388-405) Con la edad, su volumen puede disminuir gradualmente, aunque la velocidad de ese cambio varía considerablemente entre personas.
+[180.50 - 186.20] (w406-418) Otra región especialmente relevante es la corteza prefrontal, situada detrás de la frente.
+[186.98 - 192.20] (w419-432) Esta zona interviene en la planificación, la organización y el control de nuestra atención.
+[193.00 - 199.20] (w433-446) Cuando experimenta cambios asociados al envejecimiento, algunas tareas pueden requerir un esfuerzo mental mayor.
+[200.00 - 202.20] (w447-452) Pero aquí aparece una distinción fundamental.
+[203.16 - 211.40] (w453-469) perder algo de volumen cerebral no significa necesariamente perder inteligencia, desarrollar Alzheimer o dejar de ser independiente.
+[211.78 - 219.58] (w470-484) Muchas personas mayores mantienen una excelente capacidad para conversar, resolver problemas y tomar decisiones importantes.
+[219.70 - 228.18] (w485-500) Su experiencia acumulada puede compensar determinadas dificultades y ayudarles a desenvolverse con seguridad en situaciones conocidas.
+[228.50 - 233.20] (w501-512) Además, el cerebro no envejece de manera idéntica en todas las personas.
+[233.36 - 242.70] (w513-531) La actividad física, la salud cardiovascular, el descanso y otros factores pueden influir en cómo evoluciona nuestras capacidades cognitivas.
+[243.18 - 252.22] (w532-550) Por eso, si últimamente necesitas unos segundos adicionales para recordar dónde dejaste un objeto, no debes sacar conclusiones precipitadas.
+[252.44 - 261.44] (w551-568) Sin embargo, cuando los olvidos empeoran progresivamente o dificultan las actividades habituales, conviene consultar con un profesional sanitario.
+[261.60 - 268.82] (w569-589) Y recuerda algo importante, el tamaño de tu cerebro no determina por sí solo todo lo que eres capaz de hacer.
+[269.12 - 278.08] (w590-611) Ahora bien, existe otro cambio menos visible que puede afectar a tu vida diaria incluso cuando recuerdas perfectamente lo que necesitas hacer.
+[278.22 - 281.92] (w612-621) La velocidad con la que tu cerebro procesa la información.
+[282.10 - 290.62] (w622-641) Y entenderlo te ayudará a descubrir por qué algunas situaciones que antes parecían sencillas ahora pueden resultar más exigentes mentalmente.
+[291.62 - 292.66] (w642-642) .2.
+[292.70 - 295.52] (w643-649) Tu cerebro procesa la información más despacio.
+[296.68 - 304.16] (w650-666) ¿Has notado que algunas cosas que antes hacías casi automáticamente ahora requieren unos segundos más de concentración?
+[304.30 - 318.76] (w667-703) Quizá alguien te explica cómo utilizar una aplicación nueva y necesitas escuchar las instrucciones dos veces, o tal vez participas en una conversación animada y descubres que te cuesta seguir el ritmo cuando varias personas hablan simultáneamente.
+[319.60 - 323.54] (w704-711) Esto no significa necesariamente que estés perdiendo inteligencia.
+[323.80 - 331.64] (w712-729) Después de los 60 años, la velocidad con la que el cerebro procesa determinadas informaciones puede disminuir gradualmente.
+[332.06 - 339.10] (w730-748) Es uno de los cambios más habituales del envejecimiento cognitivo, aunque no afecta a todas las personas por igual.
+[339.40 - 345.92] (w749-765) Para comprenderlo, imagina que tu cerebro es una ciudad con millones de caminos que conectan diferentes barrios.
+[346.20 - 349.98] (w766-776) Esos caminos representan las redes nerviosas que permiten transmitir la información.
+[348.86 - 351.54] (w777-791) que permiten transmitir Esos caminos representan las redes nerviosas que permiten transmitir y coordinar información.
+[352.36 - 364.04] (w792-818) Con el paso del tiempo, algunas conexiones y estructuras, especialmente las relacionadas con la sustancia blanca, pueden experimentar modificaciones que afectan a la eficiencia de esa comunicación.
+[364.18 - 368.64] (w819-829) El resultado es que ciertas respuestas necesitan más tiempo para organizarse.
+[369.36 - 375.20] (w830-844) Pensemos en Manuel, un hombre de 71 años que siempre ha disfrutado arreglando objetos domésticos.
+[375.96 - 382.00] (w845-859) Cuando su nieto le enseña un teléfono nuevo, Manuel tarda bastante en comprender algunas funciones.
+[382.20 - 392.04] (w860-880) Sin embargo, cuando aparece un problema con una puerta averiada, encuentra rápidamente una solución gracias a sus conocimientos acumulados durante décadas.
+[392.42 - 395.64] (w881-886) Esta historia refleja una diferencia fundamental.
+[395.86 - 402.12] (w887-900) Procesar información nueva más lentamente no equivale a haber perdido la capacidad de razonar.
+[402.36 - 412.82] (w901-917) De hecho, numerosos conocimientos adquiridos, habilidades familiares y experiencias personales pueden mantenerse relativamente estables durante muchos años.
+[413.00 - 420.00] (w918-933) El cerebro puede necesitar más tiempo para determinadas tareas, pero eso no elimina todo lo aprendido.
+[420.38 - 433.40] (w934-958) También conviene recordar que dormir mal, experimentar ansiedad, tener problemas auditivos o tomar ciertos medicamentos puede aumentar las dificultades para seguir conversaciones y comprender instrucciones.
+[433.66 - 438.84] (w959-973) Por eso, no te compares constantemente con la rapidez que tenías a los 30 años.
+[439.14 - 447.00] (w974-991) Permítete aprender a tu ritmo, reduce las distracciones y dedica atención a una sola tarea cuando sea necesario.
+[447.30 - 450.82] (w992-998) Y ahora viene una cuestión especialmente importante.
+[450.92 - 462.16] (w999-1022) Si nuestro cerebro puede funcionar más despacio, ¿por qué algunas veces olvidamos información que acabamos de recibir mientras recordamos perfectamente acontecimientos de nuestra juventud?
+[462.42 - 468.52] (w1023-1037) En el siguiente punto, descubridás qué ocurre realmente con la memoria después de los 60.
+[468.88 - 474.64] (w1038-1052) Si quieres comprender mejor tu cerebro y aprender a cuidarlo, suscríbete a Cerebro y Bienestar.
+[474.82 - 477.80] (w1053-1061) Aquí compartimos información clara y útil para tu salud.
+[478.52 - 479.64] (w1062-1063) Punto 3.
+[479.76 - 484.56] (w1064-1073) Tu memoria cambia, pero no todos los olvidos son peligrosos.
+[484.78 - 489.66] (w1074-1086) Hay algo que preocupa especialmente a muchas personas después de los 60 años.
+[489.82 - 499.74] (w1087-1110) Descubrir que pueden recordar perfectamente una conversación de hace 30 años, pero tienen dificultades para recordar lo que alguien les dijo esta misma mañana.
+[500.02 - 507.36] (w1111-1126) Esta diferencia puede resultar desconcertante y, en ocasiones, despertar un miedo profundo a perder la memoria.
+[507.62 - 512.68] (w1127-1139) Sin embargo, nuestro cerebro no almacena todos los recuerdos de la misma manera.
+[512.86 - 518.66] (w1140-1153) Existen diferentes sistemas de memoria, y algunos son más sensibles al envejecimiento que otros.
+[518.90 - 525.88] (w1154-1170) Por ejemplo, la memoria de trabajo nos permite mantener información durante unos segundos mientras realizamos una tarea.
+[526.06 - 532.98] (w1171-1186) La utilizamos cuando recordamos un número de teléfono antes de apuntarlo, o seguimos varias instrucciones consecutivas.
+[533.20 - 539.90] (w1187-1199) Con la edad, esta capacidad puede volverse menos eficiente, especialmente cuando aparecen distracciones.
+[540.22 - 549.20] (w1200-1216) También puede resultar más difícil recuperar rápidamente determinadas palabras o nombres, aunque sigamos conociendo perfectamente su significado.
+[549.50 - 555.48] (w1217-1230) Imagina a Teresa, una mujer de 69 años que está preparando una comida familiar.
+[555.60 - 559.22] (w1231-1240) Mientras cocina, su hija le pide que busque un documento.
+[559.42 - 565.86] (w1241-1253) Teresa continúa preparando los alimentos y, unos minutos después, olvida qué debía buscar.
+[566.08 - 571.18] (w1254-1265) Sin embargo, cuando su hija vuelve a mencionarlo, recuerda inmediatamente la petición.
+[572.18 - 581.14] (w1266-1283) Situaciones como esta pueden aparecer durante el envejecimiento normal, especialmente cuando intentamos prestar atención a varias cosas simultáneamente.
+[581.34 - 584.80] (w1284-1291) Pero existe una diferencia importante que debes conocer.
+[585.04 - 593.00] (w1292-1310) Olvidar ocasionalmente donde has dejado las llaves no es lo mismo que olvidar repetidamente para qué sirven objetos cotidianos.
+[593.12 - 599.76] (w1311-1326) Tardar en recordar una palabra tampoco equivale a perder progresivamente la capacidad de mantener una conversación.
+[600.24 - 610.90] (w1327-1349) Cuando los problemas de memoria aumentan, afectan a la independencia o provocan desorientación en lugares conocidos, resulta fundamental consultar con un profesional sanitario.
+[611.32 - 615.04] (w1350-1359) Además, no debemos atribuir todos los olvidos a la edad.
+[615.16 - 624.76] (w1360-1378) La falta de sueño, la depresión, determinados medicamentos y algunas enfermedades tratables también pueden afectar considerablemente a nuestra memoria.
+[625.36 - 632.68] (w1379-1392) Lo más importante es comprender que olvidar algo ocasionalmente no significa automáticamente desarrollar Alzheimer.
+[632.82 - 639.92] (w1393-1404) Nuestro cerebro continúa conservando conocimientos, experiencias y recuerdos valiosos durante muchos años.
+[640.10 - 643.66] (w1405-1413) Y aquí aparece otra cuestión que merece nuestra atención.
+[643.92 - 652.72] (w1414-1432) Muchas veces creemos que estamos olvidando información, cuando en realidad nunca llegamos a concentrarnos lo suficiente para recordarla después.
+[652.96 - 656.32] (w1433-1440) Esto nos conduce directamente al cuarto cambio cerebral.
+[656.46 - 666.94] (w1441-1466) Uno que puede explicar por qué el ruido, las interrupciones y hacer varias cosas al mismo tiempo, empiezan a resultar especialmente agotadores en nuestra vida cotidiana.
+[667.10 - 668.40] (w1467-1468) Punto 4.
+[668.44 - 672.14] (w1469-1474) Tu capacidad de concentración también cambia.
+[672.40 - 677.52] (w1475-1486) Imagina que estás sentado en el salón, intentando escuchar una conversación importante.
+[677.64 - 683.94] (w1487-1501) La televisión permanece encendida, alguien habla desde la cocina y tu teléfono comienza a sonar.
+[684.10 - 689.28] (w1502-1512) Hace años, quizá podías manejar todas esas distracciones sin demasiado esfuerzo.
+[689.62 - 697.26] (w1513-1533) Ahora, sin embargo, sientes que tu mente se bloquea y necesitas apagar la televisión para comprender lo que te están diciendo.
+[697.52 - 702.58] (w1534-1543) Esta experiencia tiene una explicación relacionada con el envejecimiento cerebral.
+[702.88 - 712.38] (w1544-1563) Después de los 60 años, algunas funciones responsables de mantener la atención y filtrar información irrelevante pueden volverse menos eficientes.
+[712.58 - 720.12] (w1564-1579) Esto significa que el cerebro necesita dedicar más recursos para concentrarse cuando existen varios estímulos simultáneos.
+[720.30 - 729.70] (w1580-1604) Una región importante en este proceso es la corteza prefrontal, que participa en la organización de nuestras actividades y en el control de las distracciones.
+[730.06 - 738.70] (w1605-1623) Cuando esta red experimenta cambios asociados a la edad, realizar varias tareas al mismo tiempo puede resultar especialmente exigente.
+[738.96 - 745.28] (w1624-1637) Pensemos en Dolores, una mujer de 73 años que disfruta leyendo todas las tardes.
+[745.38 - 752.56] (w1638-1652) Cuando permanece en una habitación tranquila, comprende perfectamente sus libros y recuerda los detalles principales.
+[752.72 - 761.32] (w1653-1670) Sin embargo, si sus nietos juegan cerca mientras la televisión está encendida, necesita releer continuamente los mismos párrafos.
+[761.52 - 765.48] (w1671-1679) Dolores no ha perdido necesariamente su capacidad de comprensión.
+[765.60 - 773.98] (w1680-1703) Lo que puede haber cambiado es la facilidad con la que su cerebro selecciona la información importante y deja de lado los estímulos secundarios.
+[774.16 - 781.64] (w1704-1721) Por eso, realizar una sola actividad cada vez puede convertirse en una estrategia útil para mantener la concentración.
+[781.88 - 789.46] (w1722-1735) Reducir el ruido ambiental, descansar adecuadamente y evitar las interrupciones innecesarias también puede ayudar.
+[789.66 - 792.18] (w1736-1740) Pero conviene recordar algo fundamental.
+[792.36 - 798.34] (w1741-1752) No todas las dificultades de atención están relacionadas exclusivamente con el envejecimiento.
+[798.50 - 806.44] (w1753-1767) Los problemas auditivos, la ansiedad, ciertos medicamentos y los trastornos del sueño pueden influir considerablemente.
+[806.88 - 814.16] (w1768-1782) Además, una pérdida progresiva de atención que dificulte las actividades habituales merece una valoración profesional.
+[814.44 - 819.16] (w1783-1792) Y existe una relación especialmente interesante que exploraremos a continuación.
+[819.42 - 826.86] (w1793-1807) Mientras duermes, tu cerebro realiza procesos esenciales para consolidar recuerdos y regular distintas funciones cognitivas.
+[827.60 - 833.60] (w1808-1821) Por eso, los cambios nocturnos pueden influir directamente en cómo piensas durante el día.
+[833.88 - 837.44] (w1822-1828) Antes de continuar, recuerda esta advertencia médica.
+[837.52 - 848.34] (w1829-1852) Si experimentas confusión repentina, dificultad brusca para hablar, debilidad en un lado del cuerpo o alteraciones súbitas de la visión, busca atención médica urgente.
+[848.58 - 852.92] (w1853-1861) Estos síntomas pueden indicar un problema grave, incluido unictus.
+[853.10 - 856.74] (w1862-1873) No espere a que desaparezcan ni los atribuya simplemente a la edad.
+[857.54 - 858.64] (w1874-1875) Punto 5.
+[858.82 - 861.80] (w1876-1883) Tu cerebro cambia la forma en que duermes.
+[861.86 - 869.32] (w1884-1902) ¿Has notado que ahora te despiertas varias veces durante la noche, aunque antes podías dormir profundamente hasta la mañana?
+[869.48 - 875.98] (w1903-1922) Quizá incluso abras los ojos a las 4 de la madrugada y te resulte imposible volver a conciliar el sueño.
+[876.24 - 882.14] (w1923-1934) Aunque parezca extraño, estos cambios pueden estar relacionados con el envejecimiento cerebral.
+[882.44 - 889.12] (w1935-1951) Después de los 60 años, los mecanismos que regulan nuestro descanso comienzan a funcionar de manera diferente.
+[889.26 - 899.78] (w1952-1974) El reloj biológico, encargado de organizar nuestros horarios de sueño y vigilia, puede adelantarse, haciendo que sintamos sueño más temprano y despertemos antes.
+[900.16 - 908.06] (w1975-1992) Además, el sueño profundo suele disminuir con la edad, mientras que los despertares nocturnos pueden hacerse más frecuentes.
+[908.36 - 914.04] (w1993-2005) Imagina a Mercedes, una mujer de 71 años que últimamente se despierta cansada.
+[914.26 - 919.76] (w2006-2016) Durante el día, olvida pequeñas cosas y encuentra dificultades para concentrarse.
+[919.98 - 927.22] (w2017-2033) Empieza a preocuparse por su memoria, sin sospechar que dormir mal podría estar contribuyendo a esas dificultades.
+[927.38 - 929.96] (w2034-2038) Y aquí aparece algo fundamental.
+[930.06 - 939.02] (w2039-2057) Mientras dormimos, nuestro cerebro participa en la consolidación de recuerdos y en procesos esenciales para mantener nuestras capacidades cognitivas.
+[939.22 - 946.00] (w2058-2073) Por eso, descansar insuficientemente puede afectar a la atención, el estado de ánimo y la memoria.
+[946.20 - 952.52] (w2074-2086) Sin embargo, despertarse constantemente no debe considerarse una consecuencia inevitable de la edad.
+[952.84 - 960.08] (w2087-2102) Problemas como la apnea del sueño, el dolor o determinados medicamentos también pueden alterar el descanso.
+[960.22 - 969.44] (w2103-2125) Mantener horarios regulares, recibir luz natural durante el día y evitar la cafeína por la tarde puede ayudar a mejorar nuestros hábitos nocturnos.
+[969.60 - 974.36] (w2126-2135) Si las dificultades persisten, conviene consultar con un profesional sanitario.
+[974.56 - 978.08] (w2136-2144) Pero ahora llegamos al cambio más esperanzador de todos.
+[978.48 - 992.92] (w2145-2174) Porque aunque tu cerebro envejezca y algunas funciones se vuelvan más lentas, todavía conserva una capacidad extraordinaria para aprender, adaptarse y desarrollar nuevas habilidades, incluso después de cumplir 80 años.
+[994.26 - 994.96] (w2175-2175) 6.
+[995.12 - 998.80] (w2176-2182) Tu cerebro todavía puede aprender y adaptarse.
+[999.10 - 1007.94] (w2183-2205) Después de conocer tantos cambios relacionados con el envejecimiento, quizá te preguntes si tu cerebro puede seguir mejorando después de los 60 años.
+[1008.18 - 1010.54] (w2206-2209) La respuesta es esperanzadora.
+[1010.68 - 1018.12] (w2210-2223) Aunque algunas capacidades disminuyan, nuestro cerebro conserva una extraordinaria habilidad para adaptarse y aprender.
+[1018.32 - 1021.66] (w2224-2229) Esta capacidad se conoce como neuroplasticidad.
+[1021.90 - 1029.04] (w2230-2244) Significa que las conexiones entre las neuronas pueden modificarse mediante nuevas experiencias, aprendizaje y práctica.
+[1029.78 - 1037.74] (w2245-2265) Y lo más interesante es que este proceso continúa durante toda la vida, incluso después de los 70 u 80 años.
+[1038.02 - 1043.94] (w2266-2280) Imagina a Francisco, un hombre de 74 años que decide aprender a tocar el piano.
+[1044.06 - 1049.50] (w2281-2294) Al principio le cuesta recordar las notas y coordinar los movimientos de ambas manos.
+[1049.72 - 1054.26] (w2295-2303) Se equivoca constantemente y piensa que quizá debería abandonar.
+[1054.50 - 1059.08] (w2304-2312) Sin embargo, continúa practicando durante unos minutos cada día.
+[1059.14 - 1065.14] (w2313-2326) Poco a poco empieza a reconocer melodías y sus dedos responden con mayor facilidad.
+[1065.26 - 1069.20] (w2327-2334) Su cerebro está adaptándose a una actividad desconocida.
+[1069.44 - 1074.02] (w2335-2346) Esto demuestra que aprender no es un privilegio exclusivo de la juventud.
+[1074.40 - 1079.64] (w2347-2357) Además, existen hábitos que pueden ayudar a mantener nuestras capacidades cognitivas.
+[1079.84 - 1091.64] (w2358-2379) Realizar actividad física regularmente, mantener relaciones sociales, dormir adecuadamente y controlar la presión arterial son medidas importantes para proteger la salud cerebral.
+[1091.96 - 1100.42] (w2380-2398) También puedes estimular tu mente aprendiendo un idioma, leyendo, practicando música o participando en actividades que despierten tu curiosidad.
+[1100.70 - 1108.20] (w2399-2414) Pero recuerda que ningún ejercicio mental garantiza prevenir el Alzheimer ni detener completamente el envejecimiento cerebral.
+[1108.46 - 1117.40] (w2415-2432) Lo verdaderamente importante es comprender que todavía puedes desarrollar habilidades, disfrutar nuevas experiencias y mantener una vida activa.
+[1118.22 - 1122.36] (w2433-2444) Así que no te preguntes únicamente qué has perdido con los años.
+[1122.38 - 1126.08] (w2445-2451) Pregúntate qué cosas maravillosas todavía puedes aprender.
+[1126.72 - 1134.44] (w2452-2472) Y si deseas seguir descubriendo cómo funciona tu cerebro y cómo cuidarlo después de los 60, suscríbete a Cerebro y Bienestar.
+[1134.66 - 1140.66] (w2473-2487) Aquí encontrarás información clara y consejos útiles para acompañarte en esta etapa de tu vida.
+[1140.96 - 1145.48] (w2488-2498) Después de conocer estos seis cambios, quiero que recuerdes algo importante.
+[1145.56 - 1158.60] (w2499-2529) Cplir 60 años no significa que tu cerebro esté dejando de funcionar, significa que está entrando en una etapa diferente, con nuevas necesidades, pero también con capacidades que todavía pueden sorprenderte.
+[1159.74 - 1171.36] (w2530-2556) Es cierto que algunas regiones cerebrales pierden volumen, que procesar información puede llevar más tiempo y que recordar nombres o concentrarse entre distracciones puede resultar más difícil.
+[1171.78 - 1174.56] (w2557-2565) También sabemos que el sueño cambia con la edad.
+[1174.86 - 1180.20] (w2566-2577) Sin embargo, ninguna de estas transformaciones determina por sí sola tu futuro.
+[1180.32 - 1186.44] (w2578-2588) Tu cerebro conserva experiencias, conocimientos y una extraordinaria capacidad para adaptarse.
+[1186.92 - 1194.50] (w2589-2605) Y aunque no podemos detener completamente el envejecimiento, sí podemos tomar decisiones que favorezcan nuestra salud cerebral.
+[1194.96 - 1208.10] (w2606-2628) Moverte diariamente, mantener relaciones personales, descansar adecuadamente, aprender cosas nuevas y controlar tu salud cardiovascular son pasos importantes para cuidar tus capacidades cognitivas.
+[1208.38 - 1219.16] (w2629-2651) Pero recuerda, los olvidos frecuentes que empeoran, la desorientación o las dificultades para realizar actividades habituales no deben atribuirse automáticamente a la edad.
+[1219.40 - 1223.20] (w2652-2660) Si aparecen estos problemas, consulta con un profesional sanitario.
+[1224.48 - 1227.58] (w2661-2667) Antes de despedirnos, quiero hacerte una pregunta.
+[1227.72 - 1232.18] (w2668-2681) ¿De los seis cambios que hemos explicado, cuál has notado más en tu vida?
+[1232.28 - 1235.62] (w2682-2688) ¿La memoria, la concentración o el sueño?
+[1235.76 - 1237.30] (w2689-2692) Cuéntamelo en los comentarios.
+[1237.44 - 1239.92] (w2693-2697) Me encantará conocer tu experiencia.
+[1240.10 - 1246.58] (w2698-2716) Y si este video te ha resultado útil, compártelo con alguien que quieras y suscríbete a Cerebro y Bienestar.
+[1246.96 - 1254.58] (w2717-2738) Porque cuidar tu cerebro no consiste en volver al pasado, sino en disfrutar plenamente de los años que todavía tienes por delante.

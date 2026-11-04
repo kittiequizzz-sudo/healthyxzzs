@@ -1,0 +1,87 @@
+# label | phrase (searched in order). Video 1 = intro + punto 1 + punto 2.
+i0 | Alguna vez has olvidado el nombre
+i_habit | O has entrado en una habitación
+i_momentos | Son pequeños momentos
+i_fallar | Estará empezando a fallar
+i_60 | Después de los 60 años nuestro cerebro
+i_conex | Algunas conexiones nerviosas
+i_volumen | Ciertas regiones pueden perder volumen
+i_tiempo | procesar información nueva
+i_importante | Pero aquí viene lo importante
+i_notodos | No todos estos cambios
+i_hecho | De hecho mientras algunas funciones
+i_fuertes | otras pueden mantenerse
+i_exper | Tu experiencia tus conocimientos
+i_problema | El problema es que muchas personas
+i_errores | Y esa confusión puede provocar
+i_preoc | preocuparse innecesariamente
+i_ignorar | o ignorar síntomas
+i_hoy | Hoy vamos a descubrir seis
+i_olvidos | Comprenderás por qué aparecen
+i_concent | qué ocurre con tu concentración
+i_ultimo | Y presta especial atención
+i_coment | Antes de empezar cuéntame
+i_notado | Has notado algún cambio
+i_ayudar | Tu experiencia también puede ayudar
+p1 | Punto 1 Tu cerebro cambia
+p1_primero | Lo primero que debes saber
+p1_tamano | Tu cerebro no conserva exactamente
+p1_regiones | Con el paso de los años algunas
+p1_natural | Es un proceso natural
+p1_carmen | Imagina a una mujer de 67
+p1_fotos | Una mañana encuentra unas fotografías
+p1_gafas | Sin embargo cuando intenta recordar
+p1_redes | Esa diferencia puede parecer
+p1_hipo | Una de las regiones más importantes
+p1_disminuir | Con la edad su volumen
+p1_varia | aunque la velocidad de ese cambio
+p1_pref | Otra región especialmente relevante
+p1_planif | Esta zona interviene
+p1_esfuerzo | Cuando experimenta cambios
+p1_distincion | Pero aquí aparece una distinción
+p1_perder | perder algo de volumen
+p1_mayores | Muchas personas mayores
+p1_experiencia | Su experiencia acumulada
+p1_identica | Además el cerebro no envejece
+p1_actividad | La actividad física
+p1_cardio | la salud cardiovascular
+p1_descanso | el descanso y otros
+p1_segundos | Por eso si últimamente
+p1_empeoran | Sin embargo cuando los olvidos
+p1_tamano2 | Y recuerda algo importante
+p1_velocidad | Ahora bien existe otro cambio
+p1_procesa | La velocidad con la que tu cerebro
+p1_exigentes | Y entenderlo te ayudará
+p2 | Tu cerebro procesa la información más despacio
+p2_notado | Has notado que algunas cosas
+p2_app | Quizá alguien te explica
+p2_conv | o tal vez participas
+p2_nosig | Esto no significa necesariamente
+p2_velocidad | Después de los 60 años la velocidad
+p2_habitual | Es uno de los cambios más habituales
+p2_ciudad | Para comprenderlo imagina
+p2_redes | Esos caminos representan
+p2_blanca | Con el paso del tiempo algunas conexiones
+p2_resultado | El resultado es que ciertas
+p2_manuel | Pensemos en Manuel
+p2_telefono | Cuando su nieto le enseña
+p2_puerta | Sin embargo cuando aparece un problema
+p2_historia | Esta historia refleja
+p2_razonar | Procesar información nueva más lentamente
+p2_conoc | De hecho numerosos conocimientos
+p2_tiempo | El cerebro puede necesitar más tiempo
+p2_causas | También conviene recordar que dormir mal
+p2_ansiedad | experimentar ansiedad
+p2_auditivos | tener problemas auditivos
+p2_medic | tomar ciertos medicamentos
+p2_compares | Por eso no te compares
+p2_ritmo | Permítete aprender a tu ritmo
+p2_distrac | reduce las distracciones
+p2_unatarea | dedica atención a una sola tarea
+p2_cuestion | Y ahora viene una cuestión
+p2_olvidamos | Si nuestro cerebro puede funcionar
+p2_juventud | acontecimientos de nuestra juventud
+p2_siguiente | En el siguiente punto
+p2_sub | Si quieres comprender mejor tu cerebro
+p2_clara | Aquí compartimos información
+p3 | Punto 3

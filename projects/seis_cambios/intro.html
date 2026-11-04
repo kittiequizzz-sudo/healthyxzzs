@@ -1,0 +1,64 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · intro (hook): forgetting a name / a room, real changes after 60, normal ageing vs illness.
+window.START = 0;
+window.END = window.DURATION = at('p1');
+const svg = Stage();
+const D = 'Dramatización';
+
+beat('i0', still('s_name', { cap: '¿cómo se LLAMABA?', hi: 'LLAMABA', focus: [0.4, 0.4] }));
+beat('i_habit', still('s_door', { cap: '¿a qué VENÍA yo?', hi: 'VENÍA', focus: [0.55, 0.4] }));
+beat('i_momentos', mascot('m_pause', { cap: 'pequeños MOMENTOS', hi: 'MOMENTOS' }));
+beat('i_fallar', still('s_worry', { cap: '¿me está FALLANDO el cerebro?', hi: 'FALLANDO', focus: [0.5, 0.45] }));
+beat('i_60', (g, b) => {
+  const n = txt(g, '60+', { x: 1200, y: 360, size: 260, color: K.pink });
+  const l = hiText(g, 'cambios REALES', 'REALES', { x: 1290, y: 560, size: 90 });
+  const m = Mascot(g, 'm_elder', { cx: 480, floor: 940, h: 680 });
+  return t => { pop(n, t, b.a + 0.1, 1200, 360); show(l, t, b.a + 0.5); live(m, t, b.a, { dir: 'l' }); };
+});
+beat('i_conex', still('s_city', { cap: 'conexiones que CAMBIAN', hi: 'CAMBIAN', focus: [0.5, 0.5] }));
+beat('i_volumen', still('s_brains', { cap: 'regiones con menos VOLUMEN', hi: 'VOLUMEN', focus: [0.6, 0.5], chips: [['más TIEMPO para lo nuevo', 'i_tiempo', '#FFF1B8']] }));
+beat('i_importante', mascot('m_teach', { cap: 'lo IMPORTANTE', hi: 'IMPORTANTE' }));
+beat('i_notodos', big([['CAMBIO ≠ PÉRDIDA', 'PÉRDIDA']], { y: 300, size: 130, pic: 'm_wise' }));
+beat('i_hecho', row([['i_turtle', 'MÁS LENTAS', 'i_hecho'], ['m_flex', 'MUY FUERTES', 'i_fuertes']], { head: 'algunas funciones…', hi: '' }));
+beat('i_exper', row([['m_wise', 'EXPERIENCIA', 'i_exper'], ['i_album', 'CONOCIMIENTOS', at('i_exper') + 1.6], ['m_write', 'APRENDER', at('i_exper') + 3.4]], { cap: 'recursos VALIOSOS', capHi: 'VALIOSOS', capAt: at('i_exper') + 5 }));
+beat('i_problema', still('s_fork', { cap: '¿edad… o ENFERMEDAD?', hi: 'ENFERMEDAD', focus: [0.5, 0.45] }));
+beat('i_errores', (g, b) => {
+  const S = Still(g, IMG('s_twoerrors'), { x: 200, y: 40, w: 1520, h: 850, iw: SZ.s_twoerrors[0], ih: SZ.s_twoerrors[1], r: 34, focus: [0.5, 0.45], zoom: 0.2 });
+  const c = Chip(g, 'DOS ERRORES', { cx: 960, cy: 120, size: 60, fill: K.yellow });
+  const a = Chip(g, 'preocuparse DE MÁS', { cx: 560, cy: 960, size: 50, fill: K.pinkL });
+  const z = Chip(g, 'IGNORAR síntomas', { cx: 1360, cy: 960, size: 50, fill: K.pinkL });
+  return t => { S.draw(t, b.a, b.b); pop(c, t, b.a + 0.2, 960, 120); pop(a, t, at('i_preoc'), 560, 960); pop(z, t, at('i_ignorar'), 1360, 960); };
+});
+beat('i_hoy', (g, b) => {
+  const m = Mascot(g, 'm_teach', { cx: 360, floor: 900, h: 520 });
+  const n = txt(g, '6', { x: 1290, y: 290, size: 260, color: K.pink });
+  const t1 = txt(g, 'CAMBIOS EN TU CEREBRO', { x: 1290, y: 470, size: 74 });
+  const t2 = txt(g, 'después de los 60', { x: 1290, y: 560, size: 58, color: K.grey });
+  const c = Chip(g, 'PARTE 1 DE 3', { cx: 1290, cy: 680, size: 54, fill: K.yellow });
+  const ch = txt(g, 'Cerebro y Bienestar', { x: 1290, y: 800, size: 44, weight: 800, color: K.grey });
+  return t => { live(m, t, b.a, { dir: 'l' }); pop(n, t, b.a + 0.1, 1290, 290); show(t1, t, b.a + 0.3); show(t2, t, b.a + 0.5); pop(c, t, b.a + 0.8, 1290, 680); show(ch, t, b.a + 1); };
+});
+beat('i_olvidos', still('s_six', { focus: [0.5, 0.5], chips: [['OLVIDOS', 'i_olvidos', '#CFE6F7'], ['CONCENTRACIÓN', 'i_concent', '#FFF1B8']] }));
+beat('i_ultimo', mascot('m_write', { cap: 'el último: seguir APRENDIENDO', hi: 'APRENDIENDO', size: 58 }));
+beat('i_coment', still('s_comment', { cap: '¿has notado CAMBIOS en tu memoria?', hi: 'CAMBIOS', capAt: 'i_notado', focus: [0.5, 0.45], size: 56 }));
+beat('i_ayudar', mascot('m_heart', { cap: 'tu experiencia AYUDA a otros', hi: 'AYUDA' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

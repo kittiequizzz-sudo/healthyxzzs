@@ -1,0 +1,66 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · Punto 2: slower processing (white-matter "roads"), Manuel, then the end card.
+window.START = at('p2') - 1.0;
+window.END = window.DURATION = at('p3') + 7;
+HOOK_END = 0;
+const svg = Stage();
+const D = 'Dramatización';
+
+beat(at('p2') - 1.0, ejercicio(2, 'PROCESA MÁS DESPACIO', { hi: 'DESPACIO', sub: 'la velocidad de tu cerebro', m: 'm_phone' }));
+beat('p2_notado', mascot('m_pause', { cap: 'unos segundos MÁS', hi: 'MÁS', extra: [['i_turtle', at('p2_notado') + 2, 1480, 560, 300]] }));
+beat('p2_app', still('s_app', { cap: 'escuchar las instrucciones DOS VECES', hi: 'DOS VECES', focus: [0.5, 0.45], size: 56 }));
+beat('p2_conv', still('s_dinner', { cap: 'varias personas a la VEZ', hi: 'VEZ', focus: [0.5, 0.45] }));
+beat('p2_nosig', big([['más lento ≠ MENOS INTELIGENTE', 'MENOS INTELIGENTE']], { y: 300, size: 86, pic: 'm_wise' }));
+beat('p2_velocidad', (g, b) => {
+  const head = hiText(g, 'velocidad de procesamiento', 'velocidad', { x: 960, y: 150, size: 70 });
+  const track = el('rect', { x: 360, y: 420, width: 1200, height: 40, rx: 20, fill: '#E9E6DE', stroke: K.ink, 'stroke-width': 6 }, g);
+  const bar = el('rect', { x: 360, y: 420, width: 1200, height: 40, rx: 20, fill: K.pink, stroke: K.ink, 'stroke-width': 6 }, g);
+  const tur = Img(g, 'i_turtle', 960, 330, 160);
+  const c = Chip(g, 'no afecta a todos IGUAL', { cx: 960, cy: 620, size: 54, fill: '#FFF1B8' });
+  const m = Mascot(g, 'm_elder', { cx: 960, floor: 1060, h: 320 });
+  const tag = ExTag(g, 2);
+  return t => { show(head, t, b.a); const k = E.inOut(prog(t, b.a + 0.5, b.a + 5)); set(bar, { width: (1200 - 420 * k).toFixed(1) }); set(tur, { transform: `translate(${(360 + 1200 - 420 * k - 960).toFixed(1)} 0)` }); pop(c, t, at('p2_habitual') + 3, 960, 620); live(m, t, b.a + 0.3); show(tag, t, b.a); };
+});
+beat('p2_ciudad', still('s_city', { cap: 'tu cerebro es una CIUDAD', hi: 'CIUDAD', focus: [0.5, 0.5], chips: [['caminos = REDES NERVIOSAS', 'p2_redes', '#CFE6F7']] }));
+beat('p2_blanca', still('s_citylow', { cap: 'la SUSTANCIA BLANCA cambia', hi: 'SUSTANCIA BLANCA', focus: [0.6, 0.45], tag: 'Salthouse, 1996 · Madden et al., 2012' }));
+beat('p2_resultado', mascot('m_phone', { cap: 'respuestas que tardan MÁS', hi: 'MÁS' }));
+beat('p2_manuel', mascot('m_elder', { cap: 'Manuel, 71 años: le encanta ARREGLAR', hi: 'ARREGLAR', size: 56, custom: g => { const s = Tag(g, D, { x: 1880, y: 60 }); return t => show(s, t, at('p2_manuel')); } }));
+beat('p2_telefono', still('s_manuelphone', { cap: 'el teléfono nuevo: DESPACIO', hi: 'DESPACIO', tag: D, focus: [0.4, 0.4] }));
+beat('p2_puerta', still('s_door2', { cap: 'la puerta: ¡RESUELTO!', hi: 'RESUELTO', tag: D, focus: [0.5, 0.4] }));
+beat('p2_historia', mascot('m_wise', { cap: 'lento ≠ no saber RAZONAR', hi: 'RAZONAR', capAt: 'p2_razonar' }));
+beat('p2_conoc', still('s_shelf', { cap: 'lo aprendido se QUEDA', hi: 'QUEDA', focus: [0.4, 0.45], tag: 'Park et al., 2002' }));
+beat('p2_tiempo', still('s_turtle', { cap: 'más tiempo… pero LLEGA', hi: 'LLEGA', focus: [0.6, 0.5] }));
+beat('p2_causas', still('s_causes', { focus: [0.5, 0.45], chips: [['DORMIR MAL', 'p2_causas', '#E5DAF5'], ['ANSIEDAD', 'p2_ansiedad', '#F9D3D3'], ['OÍDO', 'p2_auditivos', '#CFE6F7'], ['MEDICAMENTOS', 'p2_medic', '#FFF1B8']] }));
+beat('p2_compares', still('s_mirror30', { cap: 'no te compares con los 30', hi: '30', focus: [0.6, 0.45] }));
+beat('p2_ritmo', (g, b) => {
+  const head = hiText(g, 'a TU ritmo', 'TU', { x: 960, y: 130, size: 84 });
+  const L = [['m_write', 'APRENDE DESPACIO', 'p2_ritmo'], ['m_noise', 'MENOS DISTRACCIONES', 'p2_distrac'], ['m_zen', 'UNA SOLA TAREA', 'p2_unatarea']];
+  const its = L.map(([n, s, k], i) => { const x = 960 + (i - 1) * 540, it = el('g', {}, g); Mascot(it, n, { cx: x, floor: 720, h: 420 }); Chip(it, s, { cx: x, cy: 810, size: 44, fill: EX_COL[i] }); it.cx = x; it.cy = 560; return [it, k]; });
+  const tag = ExTag(g, 2);
+  return t => { show(head, t, b.a); its.forEach(([it, k], i) => live(it, t, at(k), { amp: 4, phase: i * 0.3 })); show(tag, t, b.a); };
+});
+beat('p2_cuestion', still('s_tablet', { cap: 'una cuestión IMPORTANTE', hi: 'IMPORTANTE', focus: [0.4, 0.45] }));
+beat('p2_olvidamos', still('s_youth', { cap: '¿lo de hoy se va… y la JUVENTUD se queda?', hi: 'JUVENTUD', focus: [0.5, 0.4], size: 50 }));
+beat('p2_siguiente', mascot('m_name', { cap: 'próximo: la MEMORIA', hi: 'MEMORIA' }));
+beat('p2_sub', cta('sub', { sub: 'información clara para tu salud', m: 'm_wave' }));
+beat('p3', endCard({ next: 'CONTINÚA EN LA', chip: 'PARTE 2 DE 3', topics: 'memoria · concentración' }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

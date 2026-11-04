@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#F7F6F2;overflow:hidden}
+  svg{display:block}
+  text{font-family:Inter,sans-serif}
+</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Video 1 · Punto 1: the brain changes size (hippocampus, prefrontal cortex) — less volume ≠ less ability.
+window.START = at('p1');
+window.END = window.DURATION = at('p2') - 1.0;
+HOOK_END = 0;
+const svg = Stage();
+const D = 'Dramatización';
+
+beat('p1', ejercicio(1, 'TU CEREBRO CAMBIA DE TAMAÑO', { hi: 'TAMAÑO', sub: 'después de los 60', m: 'm_inspect' }));
+beat('p1_primero', mascot('m_teach', { cap: 'algo que POCOS imaginan', hi: 'POCOS' }));
+beat('p1_tamano', still('s_brains', { cap: 'no siempre del MISMO tamaño', hi: 'MISMO', focus: [0.6, 0.5] }));
+beat('p1_regiones', brain({ on: [['frontal', 'p1_regiones'], ['temporal', at('p1_regiones') + 0.8]], mascot: ['m_wise', 'p1_regiones'], cap: 'algunas regiones PIERDEN volumen', hi: 'PIERDEN', size: 56 }));
+beat('p1_natural', mascot('m_elder', { cap: 'un proceso NATURAL', hi: 'NATURAL', chips: [['cambia cómo ves tus OLVIDOS', at('p1_natural') + 3.5, '#CFE6F7']] }));
+beat('p1_carmen', still('s_album', { cap: 'Carmen, 67 años', hi: 'Carmen', tag: D, focus: [0.4, 0.4], chips: [['reconoce a sus NIETOS', 'p1_fotos', '#CDEFD0']] }));
+beat('p1_gafas', still('s_glasses', { cap: '¿dónde dejé las GAFAS?', hi: 'GAFAS', tag: D, focus: [0.45, 0.35] }));
+beat('p1_redes', row([['i_album', 'LO ANTIGUO', 'p1_redes'], ['i_glasses', 'LO RECIENTE', at('p1_redes') + 1.5]], { cap: 'distintas REDES cerebrales', capHi: 'REDES', capAt: at('p1_redes') + 3.5 }));
+beat('p1_hipo', brain({ map: 'limb', full: false, on: [['hippo', at('p1_hipo') + 0.6]], labels: [['HIPOCAMPO', 'hippo', at('p1_hipo') + 1, 120, 200]], mascot: ['m_teach', 'p1_hipo'], cap: 'forma RECUERDOS nuevos', hi: 'RECUERDOS', capAt: at('p1_hipo') + 4 }));
+beat('p1_disminuir', still('s_hippo', { cap: 'puede DISMINUIR con la edad', hi: 'DISMINUIR', focus: [0.5, 0.45], chips: [['varía MUCHO entre personas', 'p1_varia', '#FFF1B8']] }));
+beat('p1_pref', brain({ on: [['frontal', at('p1_pref') + 0.5]], labels: [['CORTEZA PREFRONTAL', 'frontal', at('p1_pref') + 0.8, 230, -170]], mascot: ['m_name', 'p1_pref'], cap: 'detrás de la FRENTE', hi: 'FRENTE', capAt: at('p1_pref') + 3 }));
+beat('p1_planif', still('s_prefrontal', { focus: [0.5, 0.45], chips: [['PLANIFICAR', 'p1_planif', '#CFE6F7'], ['ORGANIZAR', at('p1_planif') + 1.6, '#FFF1B8'], ['ATENCIÓN', at('p1_planif') + 3.6, '#F9D3D3']] }));
+beat('p1_esfuerzo', mascot('m_yawn', { cap: 'algunas tareas: más ESFUERZO', hi: 'ESFUERZO' }));
+beat('p1_distincion', mascot('m_wise', { cap: 'una distinción FUNDAMENTAL', hi: 'FUNDAMENTAL' }));
+beat('p1_perder', (g, b) => {
+  const head = hiText(g, 'menos volumen NO significa…', 'NO', { x: 960, y: 140, size: 70 });
+  const L = [['perder INTELIGENCIA', 'p1_perder'], ['tener ALZHÉIMER', at('p1_perder') + 3.2], ['perder INDEPENDENCIA', at('p1_perder') + 5]];
+  const its = L.map(([s, k], i) => { const x = 960 + (i - 1) * 560, it = el('g', {}, g); Mark(it, false, x, 400, 1.3); txt(it, s.split(' ')[0], { x, y: 560, size: 50, color: K.grey }); txt(it, s.split(' ')[1], { x, y: 630, size: 62 }); it.cx = x; it.cy = 480; return [it, tt(k)]; });
+  const m = Mascot(g, 'm_flex', { cx: 960, floor: 1060, h: 320 });
+  const tag = ExTag(g, 1);
+  return t => { show(head, t, b.a); its.forEach(([it, k]) => pop(it, t, k, it.cx, it.cy)); live(m, t, b.a + 0.4); show(tag, t, b.a); };
+});
+beat('p1_mayores', still('s_chess', { focus: [0.5, 0.45], chips: [['CONVERSAR', 'p1_mayores', '#CFE6F7'], ['RESOLVER', at('p1_mayores') + 3.3, '#FFF1B8'], ['DECIDIR', at('p1_mayores') + 4.8, '#CDEFD0']] }));
+beat('p1_experiencia', still('s_advice', { cap: 'la experiencia COMPENSA', hi: 'COMPENSA', focus: [0.4, 0.4] }));
+beat('p1_identica', mascot('m_elder', { cap: 'cada cerebro envejece DISTINTO', hi: 'DISTINTO', with: ['m_flex', at('p1_identica') + 1.5] }));
+beat('p1_actividad', still('s_factors', { focus: [0.5, 0.5], chips: [['ACTIVIDAD FÍSICA', 'p1_actividad', '#CFE6F7'], ['CORAZÓN SANO', 'p1_cardio', '#F9D3D3'], ['DESCANSO', 'p1_descanso', '#E5DAF5']], tag: 'Raz et al., 2005 · Fjell & Walhovd, 2010' }));
+beat('p1_segundos', still('s_remote', { cap: 'unos segundos más: SIN PÁNICO', hi: 'SIN PÁNICO', focus: [0.6, 0.5] }));
+beat('p1_empeoran', still('s_doctor', { cap: 'si EMPEORAN: consulta', hi: 'EMPEORAN', focus: [0.5, 0.45], chips: [['dificultan tu DÍA A DÍA', at('p1_empeoran') + 3.5, K.pinkL]] }));
+beat('p1_tamano2', still('s_trophy', { cap: 'el tamaño no lo es TODO', hi: 'TODO', focus: [0.6, 0.45] }));
+beat('p1_velocidad', still('s_roads', { cap: 'otro cambio: la VELOCIDAD', hi: 'VELOCIDAD', capAt: 'p1_procesa', focus: [0.5, 0.5] }));
+beat('p1_exigentes', still('s_path', { cap: 'lo sencillo… ahora más EXIGENTE', hi: 'EXIGENTE', focus: [0.6, 0.45] }));
+
+initBeats(svg, window.END);
+window.draw = t => drawBeats(t);
+window.draw(window.START);
+</script>
+</body></html>

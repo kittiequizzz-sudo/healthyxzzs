@@ -56,7 +56,7 @@ scene(svg, () => at('consultas'), () => at('pero65'), g => {
 scene(svg, () => at('pero65'), () => at('p70'), g => {
   const l = still(g, 'a_sofa', { x: 60, y: 260, w: 620, h: 360, focus: [0.4, 0.3], zoom: 0.1 });
   const r = still(g, 's_mareo', { x: 1240, y: 260, w: 620, h: 360, focus: [0.4, 0.3], zoom: 0.1 });
-  const big = el('g', {}, g); Text(big, '+65', { x: 960, y: 450, size: 260, color: C.orange });
+  const big = el('g', {}, g); Text(big, '+65', { x: 960, y: 450, size: 210, color: C.orange });
   const c = cap(g, 'MÁS COMPLEJO', 'COMPLEJO', 860, 70);
   return t => {
     l.draw(t, at('pero65'), at('p70')); r.draw(t, at('pero65'), at('p70'));

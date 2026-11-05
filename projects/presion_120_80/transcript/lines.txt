@@ -1,0 +1,40 @@
+[0.18 - 7.58] (w0-19) Y si la cifra de presión arterial que llevas años intentando conseguir no fuera necesariamente la más adecuada para ti?
+[7.76 - 12.70] (w20-31) Durante décadas hemos escuchado que la atención perfecta es 120 sobre 80.
+[12.78 - 20.30] (w32-52) La vemos en revistas, la escuchamos en consultas médicas y muchas personas la consideran una especie de garantía de buena salud.
+[20.64 - 25.86] (w53-65) Pero después de los 65 años, las cosas pueden ser bastante más complejas.
+[26.00 - 35.12] (w66-86) Una persona de 70 años puede tener una presión de 135 sobre 80 y encontrarse perfectamente, aunque esa cifra merezca seguimiento.
+[35.26 - 43.68] (w87-107) Mientras tanto, otra de 82 puede registrar 115 sobre 65 y sufrir mareos cada vez que se levanta de una silla.
+[44.18 - 47.72] (w108-115) Entonces, ¿quién tiene realmente la presión más adecuada?
+[47.94 - 52.38] (w116-127) La respuesta no depende únicamente del número que aparece en el tensiómetro.
+[52.54 - 64.58] (w128-156) Hoy descubrirás qué cifras recomiendan los especialistas, por qué cumplir años no significa que debamos aceptar una tensión elevada y cuando intentar bajarla demasiado puede convertirse en un problema.
+[64.94 - 69.64] (w157-171) También conocerás un error cotidiano que puede alterar tus mediciones sin que te des cuenta.
+[70.02 - 79.22] (w172-196) Y presta especial atención a la segunda parte, porque conocerás un objetivo de presión arterial que puede sorprender incluso a quienes llevan años tomando medicamentos.
+[79.60 - 84.98] (w197-212) Si quieres cuidar tu corazón con información clara y sin falsas promesas, acompáñame hasta el final.
+[85.54 - 86.46] (w213-227) .1 El gran mito de los 120 80 después de los 60 y Punto 1.
+[86.56 - 90.88] (w228-238) El gran mito de los 120 -80 después de los 65.
+[91.04 - 93.84] (w239-246) Hay una idea que conviene abandonar cuanto antes.
+[94.02 - 99.00] (w247-258) Creer que todas las personas deben tener exactamente la misma presión arterial.
+[99.10 - 104.46] (w259-273) El cuerpo humano no funciona como una máquina que necesita mostrar siempre un número perfecto.
+[104.62 - 113.14] (w274-294) La presión cambia durante el día, responde a nuestras emociones, al movimiento, al descanso y también a los medicamentos que tomamos.
+[113.36 - 118.30] (w295-305) Para entenderlo, primero debemos conocer qué significan realmente las dos cifras.
+[118.46 - 126.40] (w306-326) El número superior, llamado presión sistólica, indica la presión que ejerce la sangre sobre las arterias cuando el corazón se contrae.
+[126.52 - 133.08] (w327-341) El inferior, o presión diastólica, representa esa presión cuando el corazón se relaja entre latidos.
+[133.28 - 140.74] (w342-358) Ambos valores importan, aunque después de los 65 años suele prestarse especial atención a la presión sistólica.
+[140.88 - 141.88] (w359-360) El motivo?
+[142.02 - 146.14] (w361-372) Con el envejecimiento, las grandes arterias pueden perder parte de su elasticidad.
+[146.88 - 152.52] (w373-388) Cuando eran más flexibles, se expandían con facilidad para recibir la sangre impulsada por el corazón.
+[152.70 - 158.00] (w389-401) Con los años pueden volverse más rígidas, haciendo que la presión systólica aumente.
+[158.26 - 166.60] (w402-421) Esto ayuda a explicar por qué algunas personas mayores presentan una cifra superior elevada mientras la inferior permanece relativamente normal.
+[166.80 - 172.48] (w422-434) Sin embargo, hay una diferencia fundamental entre explicar un cambio y considerarlo inofensivo.
+[172.64 - 178.28] (w435-450) Que la presión aumente frecuentemente con la edad no significa que sea conveniente dejar la elevada.
+[178.42 - 189.02] (w451-473) La hipertensión continúa siendo un importante factor de riesgo de ictus, insuficiencia cardíaca, daño renal y otras enfermedades cardiovasculares, incluso en edades avanzadas.
+[189.18 - 196.72] (w474-491) Por otra parte, tampoco debemos interpretar que cualquier lectura diferente de 120 sobre 80 supone un peligro inmediato.
+[196.86 - 200.64] (w492-500) Una medición aislada no describe toda tu salud cardiovascular.
+[200.80 - 207.46] (w501-518) Quizá acabas de subir unas escaleras, has discutido por teléfono o llevas varios minutos preocupado por el resultado.
+[207.64 - 211.06] (w519-527) Todas estas circunstancias pueden influir temporalmente en la lectura.
+[211.88 - 213.34] (w528-531) También ocurre lo contrario.
+[213.46 - 220.66] (w532-546) Una cifra aparentemente excelente puede necesitar revisión si aparece acompañada de debilidad, mareos o desmayos.
+[221.56 - 224.00] (w547-552) Aquí está la primera conclusión importante.
+[224.08 - 234.54] (w553-578) El objetivo no consiste en conseguir siempre el número más bonito, sino en mantener una presión que reduzca los riesgos cardiovasculares y que puedas tolerar adecuadamente.
+[234.80 - 237.74] (w579-586) Y hay otro detalle que muchas personas desconocen.
+[237.88 - 240.00] (w587-594) Tener la presión controlada gracias a los medicamentos.

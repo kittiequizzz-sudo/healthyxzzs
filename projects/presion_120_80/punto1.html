@@ -91,8 +91,8 @@ scene(svg, () => at('motivo'), () => at('explica'), g => {
   const up = Arrow(g, 1130, 300, 1130, 160, C.red, 16);
   return t => {
     show(q, t, at('motivo'), at('flexibles'));
-    show(fa, t, at('elasticidad') - 0.2); show(ra, t, at('elasticidad') - 0.2);
-    const flex = t > at('flexibles') ? 1 + 0.07 * Math.max(0, Math.sin(t * 7)) : 1;
+    show(fa, t, at('motivo') + 0.3); show(ra, t, at('motivo') + 0.6);
+    const flex = t > at('expandian') ? 1 + 0.07 * Math.max(0, Math.sin(t * 7)) : 1;
     scaleAbout(fa.firstChild, 560, 470, flex);
     show(c1, t, at('flexibles')); show(c2, t, at('rigidas'));
     ra.setAttribute('opacity', +ra.getAttribute('opacity') * (t > at('rigidas') ? 1 : 0.55));
@@ -106,7 +106,7 @@ scene(svg, () => at('explica'), () => at('diferencia'), g => {
   const m = MonitorDigits(g, { cx: 760, cy: 500, fit: 1000 });
   const c1 = Chip(g, 'ARRIBA ALTA', { cx: 1560, cy: 400, fill: C.red, color: C.white, size: 46 });
   const c2 = Chip(g, 'ABAJO NORMAL', { cx: 1560, cy: 600, fill: C.green, color: C.white, size: 46 });
-  return t => { m.draw(155, 80, { sysCol: C.red, diaCol: C.green }); float(m.g, t, 760, 500, { amp: 4 }); show(c1, t, at('explica') + 0.4); show(c2, t, at('explica') + 1.0); };
+  return t => { m.draw(155, 80, { sysCol: C.red, diaCol: C.green }); float(m.g, t, 760, 500, { amp: 4 }); show(c1, t, at('elevada')); show(c2, t, at('normal')); };
 });
 
 // 6. explain ≠ accept

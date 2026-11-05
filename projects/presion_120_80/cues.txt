@@ -46,9 +46,13 @@ sist65 | especial atención a la presión sistólica
 motivo | El motivo
 elasticidad | pueden perder parte de su elasticidad
 flexibles | Cuando eran más flexibles
+expandian | se expandían con facilidad
+impulsada | la sangre impulsada por el corazón
 rigidas | pueden volverse más rígidas
 aumente | haciendo que la presión sistólica aumente
 explica | Esto ayuda a explicar
+elevada | una cifra superior elevada
+normal | mientras la inferior permanece
 diferencia | hay una diferencia fundamental
 inofensivo | y considerarlo inofensivo
 conveniente | no significa que sea conveniente dejarla elevada

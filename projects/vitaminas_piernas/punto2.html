@@ -30,13 +30,14 @@ stillScene(svg, 'p2ab', c('algodon'), c('mision2'), { focus: [0.5, 0.7], zoom: 0
 });
 // myelin + red cells
 scene(svg, c('mision2'), c('lento2'), g => {
-  const b = VitBadge(g, 'B12', 260, 200, 1.6);
+  const b = VitBadge(g, 'B12', 400, 200, 2.4);
+  const mt = Text(g, 'UNA MISIÓN ESENCIAL', { x: 1200, y: 200, size: 66, color: ACC });
   const rc = ItemCard(g, 'globulos', 400, 560, { w: 440, h: 440, fit: 330, label: 'GLÓBULOS ROJOS', size: 34 });
   const ok = el('g', {}, g); Card(ok, { x: 760, y: 220, w: 1020, h: 300, fill: C.white }); cut(ok, 'nervio_ok', 940, 370, 260); Text(ok, 'MIELINA: LA CUBIERTA', { x: 1390, y: 330, size: 46 }); Text(ok, 'del nervio', { x: 1390, y: 400, size: 38, weight: 700 });
   const bad = el('g', {}, g); Card(bad, { x: 760, y: 580, w: 1020, h: 300, fill: '#FCE9E6' }); cut(bad, 'nervio_mal', 940, 730, 260); Text(bad, 'SEÑALES QUE FALLAN', { x: 1390, y: 690, size: 46, color: C.red });
   const r = ChipRow(g, [['HORMIGUEOS', c('hormigueos2')], ['MENOS SENSIBILIDAD', () => at('hormigueos2') + 1.6], ['DEBILIDAD', () => at('hormigueos2') + 3.2], ['EQUILIBRIO', () => at('hormigueos2') + 4.6]], { cy: 975, size: 32, fill: C.white, gap: 20 });
   sfx('pop', at('mision2')); sfx('pop', at('globulos')); sfx('pop', at('mielina')); sfx('alert_soft', at('disminuyen2'));
-  return t => { pop(b, t, at('mision2'), 260, 200); pop(rc, t, at('globulos'), 400, 560); pop(ok, t, at('mielina'), 1270, 370); pop(bad, t, at('disminuyen2'), 1270, 730); r(t); };
+  return t => { pop(b, t, at('mision2'), 400, 200); show(mt, t, at('mision2') + 0.4, at('mielina')); pop(rc, t, at('globulos'), 400, 560); pop(ok, t, at('mielina'), 1270, 370); pop(bad, t, at('disminuyen2'), 1270, 730); r(t); };
 });
 scene(svg, c('lento2'), c('edad2'), g => {
   const cal = el('g', {}, g); IC.calendar(cal, 360, 260, 3.6);
@@ -51,7 +52,7 @@ scene(svg, c('edad2'), c('medicamentos2'), g => {
   const h = Text(g, '¿POR QUÉ MÁS RIESGO CON LA EDAD?', { x: 960, y: 140, size: 64, color: ACC });
   const ts = [['drop', 'MENOS ÁCIDO\nEN EL ESTÓMAGO', 'acido']].map(([ic, s, k], i) => [IconTile(g, ic, s, 960, 500, { w: 520, h: 460 }), k, 960]);
   ts.forEach(([, k]) => sfx('pop', at(k), 0.6));
-  return t => { show(h, t, at('edad2')); ts.forEach(([tile, k, cx]) => pop(tile, t, at(k), 960, 500)); };
+  return t => { show(h, t, at('edad2')); ts.forEach(([tile, k, cx]) => pop(tile, t, Math.min(at(k), at('edad2') + 1), 960, 500)); };
 });
 stillScene(svg, 'p2ac', c('medicamentos2'), c('buena2'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
   const r = SideChips(g, [['PROTECTORES DE ESTÓMAGO', () => at('medicamentos2') + 0.5], ['…DURANTE MUCHO TIEMPO', () => at('medicamentos2') + 2.5], ['METFORMINA', c('metformina')]], { cx: 1500, y0: 170, size: 36 });
@@ -72,8 +73,6 @@ scene(svg, () => at('sardinas2') - 0.4, c('inyecciones'), g => {
   const h = Text(g, 'B12 EN LA DIETA MEDITERRÁNEA', { x: 960, y: 140, size: 64, color: ACC });
   const r = FoodRow(g, [['sardinas', 'SARDINAS', c('sardinas2')], ['caballa', 'CABALLA', () => at('sardinas2') + 0.8], ['huevos', 'HUEVOS', () => at('sardinas2') + 1.5], ['leche', 'LECHE Y YOGUR', () => at('sardinas2') + 2.3], ['marisco', 'MARISCO', () => at('sardinas2') + 4]], { w: 320, h: 380, fit: 250 });
   return t => { show(h, t, at('sardinas2') - 0.4); r(t); };
-});
-  return t => show(a, t, at('sardinas2') + 6.3);
 });
 stillScene(svg, 'p2bc', c('inyecciones'), c('detalle2'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'SI NO SE ABSORBE: PASTILLAS O INYECCIONES', { hi: 'INYECCIONES', size: 46 });

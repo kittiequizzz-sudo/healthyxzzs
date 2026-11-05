@@ -29,7 +29,7 @@ scene(svg, c('seis_c'), c('ninguna'), g => {
   const labels = ['ENERGÍA', 'NERVIOS', 'MÚSCULOS', 'CALCIO', 'COMUNICACIÓN\nNERVIOSA', 'COLÁGENO'];
   const ts = VIT.map(([v], i) => { const cx = 400 + (i % 3) * 560, cy = 360 + Math.floor(i / 3) * 360; const w = el('g', {}, g); IconTile(w, 'v' + v, labels[i], cx, cy, { w: 440, h: 300 }); return [w, cx, cy, 'v' + (i + 1)]; });
   ts.forEach(([, , , k]) => sfx('pop', at(k), 0.6));
-  return t => { show(h, t, at('seis_c')); ts.forEach(([w, cx, cy, k]) => pop(w, t, at(k), cx, cy)); };
+  return t => { show(h, t, at('seis_c')); ts.forEach(([w, cx, cy, k], i) => { pop(w, t, at('seis_c') + 0.6 + i * 0.4, cx, cy); if (t < at(k)) w.setAttribute('opacity', Math.min(+w.getAttribute('opacity'), 0.4)); }); };
 });
 scene(svg, c('ninguna'), c('advertencia_c'), g => {
   const bt = el('g', {}, g); cut(bt, 'botes', 960, 300, 300);
@@ -66,7 +66,7 @@ scene(svg, c('quiz'), c('megusta_c'), g => {
   const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 930);
   const host = Host(g, 'three_q', { cx: 1760, cy: 900, fit: 300 });
   ops.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('ding', at('quiz')); sfx('click', at('escribe'));
-  return t => { show(h, t, at('quiz')); show(q, t, at('cual')); pop(nv, t, at('cual') + 1, 1700, 240); ops.forEach(([o, k, cx, cy]) => pop(o, t, at(k), cx, cy)); pop(cta, t, at('escribe'), 760, 930); host(t, at('escribe') - 0.5); };
+  return t => { show(h, t, at('quiz')); show(q, t, at('quiz') + 1.5); pop(nv, t, at('cual') + 1, 1700, 240); ops.forEach(([o, k, cx, cy]) => pop(o, t, at(k), cx, cy)); pop(cta, t, at('escribe'), 760, 930); host(t, at('escribe') - 0.5); };
 });
 stillScene(svg, 'hd', c('megusta_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
   const a = el('g', { transform: 'translate(-560 -760)' }, g); const l = CTA(a, 'like', 900);

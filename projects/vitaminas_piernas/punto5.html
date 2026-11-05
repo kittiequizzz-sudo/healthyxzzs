@@ -24,15 +24,16 @@ stillScene(svg, 'p5aa', c('cansadas5'), c('b6'), { focus: [0.45, 0.6], zoom: 0.1
   return t => { slideIn(k, t, at('cansadas5'), 'l', 600); r(t); };
 });
 scene(svg, c('b6'), c('importa5'), g => {
-  const b = VitBadge(g, 'B6', 300, 250, 2.2);
-  const p = Text(g, 'PIRIDOXINA', { x: 300, y: 420, size: 50, color: ACC });
+  const b = VitBadge(g, 'B6', 960, 230, 2.6);
+  const p = Text(g, 'PIRIDOXINA', { x: 960, y: 400, size: 60, color: ACC });
+  const p2 = Text(g, 'MUCHAS REACCIONES ESENCIALES', { x: 960, y: 480, size: 44 });
   const n1 = el('g', {}, g); cut(n1, 'nervio_ok', 900, 540, 300);
   const n2 = el('g', {}, g); cut(n2, 'nervio_ok', 1480, 540, 300);
   const gap = el('g', {}, g); for (let i = 0; i < 5; i++) el('circle', { cx: 1130 + i * 30, cy: 540 + 30 * Math.sin(i), r: 12, fill: ACC, stroke: C.ink, 'stroke-width': 3 }, gap);
   const r = SideChips(g, [['METABOLIZA PROTEÍNAS', () => at('neuro5') + 0.3], ['NEUROTRANSMISORES', () => at('neuro5') + 3]], { cx: 400, y0: 600, dy: 140, size: 36 });
   const gb = Chip(g, 'GABA: CALMA LA ACTIVIDAD NERVIOSA', { cx: 1190, cy: 840, fill: C.white, size: 36 });
   sfx('pop', at('b6')); sfx('pop', at('neuro5') + 3); sfx('pop', at('gaba'));
-  return t => { pop(b, t, at('b6'), 300, 250); show(p, t, at('b6') + 4); pop(n1, t, at('neuro5') + 3, 900, 540); pop(n2, t, at('neuro5') + 3.3, 1480, 540); show(gap, t, at('neuro5') + 4); gap.setAttribute('transform', `translate(${(10 * Math.sin(t * 3)).toFixed(1)} 0)`); r(t); pop(gb, t, at('gaba'), 1190, 840); };
+  return t => { pop(b, t, at('b6'), 960, 230, at('neuro5') + 2.6); show(p, t, at('b6') + 3, at('neuro5') + 2.6); show(p2, t, at('reacciones'), at('neuro5') + 2.6); pop(n1, t, at('neuro5') + 3, 900, 540); pop(n2, t, at('neuro5') + 3.3, 1480, 540); show(gap, t, at('neuro5') + 4); gap.setAttribute('transform', `translate(${(10 * Math.sin(t * 3)).toFixed(1)} 0)`); r(t); pop(gb, t, at('gaba'), 1190, 840); };
 });
 scene(svg, c('importa5'), c('error5'), g => {
   const ts = [['brain', 'CEREBRO'], ['bolt', 'NERVIOS'], ['dumbbell', 'MÚSCULOS']].map(([ic, s], i) => [IconTile(g, ic, s, 460 + i * 500, 420, { w: 380, h: 380 }), 460 + i * 500, i]);
@@ -52,8 +53,8 @@ scene(svg, c('exceso'), c('alimentacion5'), g => {
   const ax = el('g', {}, g);
   el('path', { d: 'M260 840 H1660 M260 840 V260', stroke: C.ink, 'stroke-width': 6, fill: 'none' }, ax);
   Text(ax, 'DOSIS', { x: 1580, y: 890, size: 36 }); Text(ax, 'Y DURACIÓN', { x: 1580, y: 930, size: 28, weight: 700 });
-  const zoneA = el('rect', { x: 270, y: 270, width: 560, height: 560, fill: C.green, opacity: 0.15 }, g);
-  const zoneB = el('rect', { x: 1080, y: 270, width: 570, height: 560, fill: C.red, opacity: 0.15 }, g);
+  const zoneA = el('g', {}, g); el('rect', { x: 270, y: 270, width: 560, height: 560, fill: C.green, 'fill-opacity': 0.14 }, zoneA);
+  const zoneB = el('g', {}, g); el('rect', { x: 1080, y: 270, width: 570, height: 560, fill: C.red, 'fill-opacity': 0.14 }, zoneB);
   const la = Text(g, 'CON LA COMIDA', { x: 550, y: 320, size: 40, color: C.green });
   const lb = Text(g, 'SUPLEMENTOS EN EXCESO', { x: 1365, y: 320, size: 36, color: C.red });
   const nOk = el('g', {}, g); cut(nOk, 'nervio_ok', 550, 600, 260);
@@ -63,16 +64,16 @@ scene(svg, c('exceso'), c('alimentacion5'), g => {
   sfx('pop', at('exceso')); sfx('alert', at('exceso') + 3, 0.7); sfx('stamp', at('precisamente5'));
   return t => { show(ax, t, at('exceso')); show(zoneA, t, at('exceso') + 0.5); show(la, t, at('exceso') + 0.5); pop(nOk, t, at('exceso') + 0.8, 550, 600); show(zoneB, t, at('exceso') + 3); show(lb, t, at('exceso') + 3); pop(nBad, t, at('exceso') + 3.3, 1365, 600); r(t); pop(cap, t, at('precisamente5'), 960, 180); };
 });
-stillScene(svg, 'p5ac', c('alimentacion5'), () => at('garbanzos5') - 3, { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+stillScene(svg, 'p5ac', c('alimentacion5'), () => at('garbanzos5') - 0.6, { focus: [0.45, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'MEJOR CON UNA DIETA VARIADA', { hi: 'DIETA VARIADA' });
   const b = Chip(g, 'SALVO INDICACIÓN PROFESIONAL', { cx: 1350, cy: 140, fill: C.white, size: 38 });
   sfx('pop', at('alimentacion5') + 4);
   return t => { show(a, t, at('alimentacion5') + 0.5); pop(b, t, at('alimentacion5') + 4, 1350, 140); };
 });
-scene(svg, () => at('garbanzos5') - 3, c('recetas'), g => {
+scene(svg, () => at('garbanzos5') - 0.6, c('recetas'), g => {
   const h = Text(g, 'VITAMINA B6 EN TU MESA', { x: 960, y: 140, size: 70, color: ACC });
   const r = FoodRow(g, [['garbanzos', 'GARBANZOS', c('garbanzos5')], ['patatas', 'PATATAS', () => at('garbanzos5') + 1], ['sardinas', 'PESCADO', () => at('garbanzos5') + 2], ['pollo', 'POLLO', () => at('garbanzos5') + 3], ['platanos', 'PLÁTANOS', () => at('garbanzos5') + 4.2], ['nueces', 'FRUTOS SECOS', () => at('garbanzos5') + 5.4]], { w: 270, h: 340, fit: 210, gap: 26 });
-  return t => { show(h, t, at('garbanzos5') - 3); r(t); };
+  return t => { show(h, t, at('garbanzos5') - 0.6); r(t); };
 });
 stillScene(svg, 'p5ad', c('recetas'), () => at('plato5') + 3.3, { focus: [0.55, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'SIN RECETAS COMPLICADAS', { hi: 'SIN' });

@@ -51,9 +51,10 @@ scene(svg, c('fabricar'), c('fragiles'), g => {
   const fib = [0, 1].map(k => { const p = el('path', { fill: 'none', stroke: '#FFFFFF', 'stroke-width': 7, 'stroke-linecap': 'round' }, g); return [p, k]; });
   const r = ChipRow(g, [['PIEL', () => at('fabricar') + 4], ['TENDONES', () => at('fabricar') + 5], ['PAREDES DE LOS VASOS', () => at('fabricar') + 6.5]], { cy: 870, size: 40, fill: C.white });
   const a = Text(g, 'SIN VITAMINA C, NO HAY COLÁGENO', { x: 1110, y: 250, size: 50, color: ACC });
+  const a0 = Text(g, 'FABRICA EL COLÁGENO', { x: 1110, y: 250, size: 56, color: ACC });
   [4, 5, 6.5].forEach(d => sfx('pop', at('fabricar') + d, 0.5)); sfx('pop', at('fabricar'));
   return t => {
-    pop(b, t, at('fabricar'), 260, 220); show(wall, t, at('fabricar') + 0.5); r(t); show(a, t, at('estructura6'));
+    pop(b, t, at('fabricar'), 260, 220); show(wall, t, at('fabricar') + 0.5); r(t); show(a0, t, at('fabricar') + 0.5, at('estructura6')); show(a, t, at('estructura6'));
     const u = prog(t, at('fabricar') + 1, at('fabricar') + 4);
     fib.forEach(([p, k]) => { let d = ''; const y = k ? 660 : 420, n = Math.floor(20 * u); for (let i = 0; i <= n; i++) d += (i ? 'L' : 'M') + (580 + i * 53) + ' ' + (y + (i % 2 ? -22 : 22)); set(p, { d }); });
   };
@@ -65,12 +66,13 @@ stillScene(svg, 'p6ac', c('fragiles'), c('aclarar6'), { focus: [0.45, 0.65], zoo
   return t => { show(a, t, at('fragiles') + 2); r(t); };
 });
 scene(svg, c('aclarar6'), () => at('tejidos6') + 3, g => {
+  const hd = Text(g, 'ALGO FUNDAMENTAL', { x: 960, y: 90, size: 60, color: ACC });
   const a = el('g', {}, g); Card(a, { x: 260, y: 170, w: 1400, h: 170, fill: C.white }); Mark(a, false, 390, 255, 0.9); Text(a, 'NO ELIMINA LAS VARICES', { x: 1010, y: 255, size: 52 });
   const b = el('g', {}, g); Card(b, { x: 260, y: 380, w: 1400, h: 170, fill: C.white }); Mark(b, false, 390, 465, 0.9); Text(b, 'NO REPARA LAS VÁLVULAS', { x: 1010, y: 465, size: 52 });
   const d = el('g', {}, g); Card(d, { x: 260, y: 590, w: 1400, h: 170, fill: C.white }); Mark(d, false, 390, 675, 0.9); Text(d, 'MEGADOSIS ≠ MENOS PESADEZ', { x: 1010, y: 675, size: 52 });
   const e = el('g', {}, g); Card(e, { x: 260, y: 800, w: 1400, h: 150, fill: '#E7F4EC' }); Mark(e, true, 390, 875, 0.8); Text(e, 'AYUDA A MANTENER TEJIDOS SANOS', { x: 1010, y: 875, size: 48, color: C.green });
   sfx('pop', at('varices')); sfx('pop', at('varices') + 3); sfx('pop', at('tampoco6')); sfx('ding', at('tejidos6'));
-  return t => { pop(a, t, at('varices'), 960, 255); pop(b, t, at('varices') + 3, 960, 465); pop(d, t, at('tampoco6'), 960, 675); pop(e, t, at('tejidos6'), 960, 875); };
+  return t => { show(hd, t, at('aclarar6')); pop(a, t, at('varices'), 960, 255); pop(b, t, at('varices') + 3, 960, 465); pop(d, t, at('tampoco6'), 960, 675); pop(e, t, at('tejidos6'), 960, 875); };
 });
 stillScene(svg, 'p6ad', () => at('tejidos6') + 3, c('ventaja6'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'NO SON PASTILLAS MILAGRO', { hi: 'MILAGRO' });
@@ -118,16 +120,17 @@ scene(svg, c('ensenanza'), () => at('independencia6'), g => {
   const bt = el('g', {}, g); cut(bt, 'botes', 560, 480, 420);
   const x = el('g', {}, g); IC.cross(x, 640, 300, 1.4);
   const a = Text(g, 'NO ES ACUMULAR PASTILLAS', { x: 1300, y: 420, size: 56 });
+  const e0 = Text(g, 'UNA ENSEÑANZA ESENCIAL', { x: 960, y: 160, size: 64, color: ACC });
   const b = Text(g, 'ES ENTENDER QUÉ NECESITAS', { x: 1300, y: 530, size: 56, color: C.green });
   sfx('pop', at('pastillas')); sfx('stamp', at('pastillas') + 1); sfx('ding', at('pastillas') + 3.5);
-  return t => { pop(bt, t, at('pastillas'), 560, 480); pop(x, t, at('pastillas') + 1, 710, 370); show(a, t, at('pastillas') + 0.5); show(b, t, at('pastillas') + 3.5); };
+  return t => { show(e0, t, at('ensenanza') + 0.3); pop(bt, t, at('ensenanza') + 1, 560, 480); pop(x, t, at('pastillas') + 1, 710, 370); show(a, t, at('pastillas') + 0.5); show(b, t, at('pastillas') + 3.5); };
 });
 scene(svg, c('independencia6'), () => END + 1, g => {
   const host = Host(g, 'face_happy', { cx: 1450, cy: 560, fit: 620 });
   const a = Text(g, 'TU INDEPENDENCIA', { x: 680, y: 460, size: 84, color: ACC });
   const b = Text(g, 'más valiosa que la fuerza', { x: 680, y: 570, size: 50 });
   sfx('ding', at('independencia6') + 6);
-  return t => { host(t, at('independencia6')); show(a, t, at('independencia6') + 6); show(b, t, at('independencia6') + 2); };
+  return t => { host(t, at('independencia6')); show(a, t, at('independencia6') + 1.5); show(b, t, at('independencia6') + 5); };
 });
 
 window.draw = t => drawScenes(t);

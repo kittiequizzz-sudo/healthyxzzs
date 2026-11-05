@@ -46,10 +46,12 @@ stillScene(svg, 'p3ab', c('aire3'), c('aclarar3'), { focus: [0.5, 0.45], zoom: 0
   return t => { show(a, t, at('aire3') + 0.5); pop(b, t, at('espana'), 1250, 140); };
 });
 scene(svg, c('aclarar3'), c('comprar3'), g => {
+  const hd = Text(g, 'ALGO FUNDAMENTAL', { x: 960, y: 130, size: 70, color: ACC });
+  const bt = el('g', {}, g); cut(bt, 'botes', 960, 520, 360);
   const a = el('g', {}, g); Card(a, { x: 260, y: 220, w: 1400, h: 200, fill: C.white }); Mark(a, false, 400, 320, 1); Text(a, 'SUPLEMENTO = MÁS FUERZA AUTOMÁTICA', { x: 1030, y: 320, size: 48, color: C.grey });
   const b = el('g', {}, g); Card(b, { x: 260, y: 500, w: 1400, h: 200, fill: C.white }); Mark(b, true, 400, 600, 1); Text(b, 'AYUDA SOBRE TODO SI HAY DÉFICIT', { x: 1030, y: 600, size: 50 });
   sfx('pop', at('noaumenta')); sfx('ding', at('beneficios3'));
-  return t => { pop(a, t, at('noaumenta'), 960, 320); pop(b, t, at('beneficios3'), 960, 600); };
+  return t => { show(hd, t, at('aclarar3')); pop(bt, t, at('aclarar3') + 0.6, 960, 520, at('noaumenta')); pop(a, t, at('noaumenta'), 960, 320); pop(b, t, at('beneficios3'), 960, 600); };
 });
 stillScene(svg, 'p3ac', c('comprar3'), c('donde3'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'ANTES DE COMPRAR, CONSULTA', { hi: 'CONSULTA' });

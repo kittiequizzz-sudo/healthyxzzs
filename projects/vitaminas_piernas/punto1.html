@@ -23,18 +23,18 @@ stillScene(svg, 'p1aa', c('musculos1'), c('juego1'), { focus: [0.45, 0.6], zoom:
   return t => { slideIn(k, t, at('musculos1') + 0.2, 'l', 600); show(a, t, at('musculos1') + 4); };
 });
 scene(svg, c('juego1'), c('deficiencia1'), g => {
-  const b = VitBadge(g, 'B1', 960, 260, 2.6);
-  const t1 = Text(g, 'TIAMINA', { x: 960, y: 420, size: 64, color: ACC });
-  const f = el('g', {}, g); ['lentejas', 'pan', 'cerdo'].forEach((n, i) => cut(f, n, 360 + i * 150, 680, 150));
-  const ar = el('g', {}, g); Arrow(ar, 800, 680, 940, 680, C.ink, 14);
-  const e = el('g', {}, g); IC.bolt(e, 990, 600, 1.6);
-  const et = Text(g, 'ENERGÍA', { x: 1070, y: 800, size: 46 });
-  const nv = el('g', {}, g); cut(nv, 'nervio_ok', 1500, 660, 300);
-  const nt = Text(g, 'NERVIOS QUE FUNCIONAN', { x: 1500, y: 860, size: 36 });
-  const ns = NerveSignal(g, 1380, 900, 1640);
-  const a = CAP(g, 'UNA PIEZA INDISPENSABLE', { hi: 'INDISPENSABLE' });
-  sfx('pop', at('juego1') + 4); sfx('ding', at('tiamina')); sfx('pop', at('energia1')); sfx('pop', at('energia1') + 3);
-  return t => { pop(b, t, at('juego1') + 4, 960, 260); show(t1, t, at('tiamina')); show(f, t, at('energia1')); show(ar, t, at('energia1') + 1); pop(e, t, at('energia1') + 1.6, 1070, 680); show(et, t, at('energia1') + 1.8); pop(nv, t, at('energia1') + 3.5, 1500, 660); show(nt, t, at('energia1') + 3.8); show(a, t, at('pieza1')); };
+  const b = VitBadge(g, 'B1', 960, 250, 3);
+  const t1 = Text(g, 'TIAMINA', { x: 960, y: 430, size: 70, color: ACC });
+  const t0 = Text(g, 'LA VITAMINA QUE POCOS RELACIONAN CON LA DEBILIDAD', { x: 960, y: 520, size: 42, weight: 800 });
+  const f = el('g', {}, g); ['lentejas', 'pan', 'cerdo'].forEach((n, i) => cut(f, n, 250 + i * 210, 700, 220));
+  const ar = el('g', {}, g); Arrow(ar, 760, 700, 880, 700, C.ink, 14);
+  const e = el('g', {}, g); IC.bolt(e, 900, 580, 2.2);
+  const et = Text(g, 'ENERGÍA', { x: 1010, y: 840, size: 50 });
+  const nv = el('g', {}, g); cut(nv, 'nervio_ok', 1470, 660, 360);
+  const nt = Text(g, 'NERVIOS QUE FUNCIONAN', { x: 1470, y: 900, size: 40 });
+    const a = CAP(g, 'UNA PIEZA INDISPENSABLE', { hi: 'INDISPENSABLE' });
+  sfx('pop', at('juego1') + 0.5); sfx('ding', at('tiamina')); sfx('pop', at('energia1')); sfx('pop', at('energia1') + 3);
+  return t => { pop(b, t, at('juego1') + 0.5, 960, 250); show(t0, t, at('juego1') + 1.5, at('energia1')); show(t1, t, at('tiamina')); show(f, t, at('energia1')); show(ar, t, at('energia1') + 1); pop(e, t, at('energia1') + 1.6, 1010, 690); show(et, t, at('energia1') + 1.8); pop(nv, t, at('energia1') + 3.5, 1470, 680); show(nt, t, at('energia1') + 3.8); show(a, t, at('pieza1')); };
 });
 stillScene(svg, 'p1ab', c('deficiencia1'), c('atencion1'), { focus: [0.5, 0.6], zoom: 0.14 }, g => {
   const a = CAP(g, 'DÉFICIT IMPORTANTE → NERVIOS AFECTADOS', { hi: 'NERVIOS', size: 48 });
@@ -57,9 +57,10 @@ scene(svg, c('porque1'), c('suplementos1'), g => {
 // foods
 scene(svg, c('suplementos1'), c('ejemplo1'), g => {
   const h = Text(g, 'PRIMERO, EN EL PLATO', { x: 960, y: 140, size: 70, color: ACC });
+  const sp = el('g', {}, g); Card(sp, { x: 460, y: 380, w: 1000, h: 220, fill: C.white }); Mark(sp, false, 580, 490, 0.9); Text(sp, 'SUPLEMENTOS DE ENTRADA', { x: 1020, y: 490, size: 50, color: C.grey });
   const r = FoodRow(g, [['lentejas', 'LENTEJAS', c('lentejas1')], ['garbanzos', 'GARBANZOS', c('garbanzos1')], ['pan', 'INTEGRALES', c('cereales1')], ['pipas', 'PIPAS DE GIRASOL', c('pipas1')], ['cerdo', 'CERDO', c('cerdo1')]], { w: 320, h: 380, fit: 240 });
   const a = CAP(g, 'DIETA EQUILIBRADA', { hi: 'EQUILIBRADA' });
-  return t => { show(h, t, at('suplementos1')); r(t); show(a, t, at('cerdo1') + 3); };
+  return t => { show(h, t, at('suplementos1')); pop(sp, t, at('suplementos1') + 1.5, 960, 490, at('lentejas1')); r(t); show(a, t, at('cerdo1') + 3); };
 });
 stillScene(svg, 'p1ad', c('ejemplo1'), c('legumbres1'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'PAN INTEGRAL EN VEZ DE BLANCO', { hi: 'INTEGRAL' });

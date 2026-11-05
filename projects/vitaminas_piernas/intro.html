@@ -48,13 +48,15 @@ stillScene(svg, 'a2b', c('igual0'), c('nutrientes0'), { focus: [0.6, 0.5], zoom:
 // six vitamins
 scene(svg, c('nutrientes0'), c('hoy0'), g => {
   const h = Text(g, 'OTROS NUTRIENTES', { x: 960, y: 140, size: 70, color: C.grey });
+  const qs = [0, 1, 2].map(i => { const q = el('g', {}, g); IC.question(q, 560 + i * 300, 330, 1.8); return q; });
+  const qt = Text(g, 'QUE RARA VEZ RECIBEN ATENCIÓN', { x: 960, y: 640, size: 54 });
   const h2 = Text(g, '6 VITAMINAS', { x: 960, y: 140, size: 96, color: ACC });
   const bs = VIT.map(([v], i) => { const cx = 330 + i * 252; return [VitBadge(g, v, cx, 430, 2.2), cx, i]; });
   const r = ChipRow(g, [['NERVIOS', c('nervios0')], ['MÚSCULOS', c('musculos0')], ['VASOS SANGUÍNEOS', c('vasos0')]], { cy: 680, size: 44, fill: C.white });
   const a = CAP(g, '¿O "COSAS DE LA EDAD"?', { hi: 'EDAD' });
   const n = Chip(g, 'TAMBIÉN HAY OTRAS CAUSAS', { cx: 960, cy: 840, fill: '#FCE3DE', size: 40 });
   VIT.forEach((x, i) => sfx('pop', at('seis0') + 0.4 + i * 0.35, 0.5)); ['nervios0', 'musculos0', 'vasos0'].forEach(k => sfx('pop', at(k), 0.5));
-  return t => { show(h, t, at('nutrientes0'), at('seis0')); show(h2, t, at('seis0')); bs.forEach(([b, cx, i]) => pop(b, t, at('seis0') + 0.4 + i * 0.35, cx, 430)); r(t); show(a, t, at('edad0') + 1, at('edad0') + 5); show(n, t, at('edad0') + 5); };
+  return t => { show(h, t, at('nutrientes0'), at('seis0')); qs.forEach((q, i) => pop(q, t, at('nutrientes0') + 0.5 + i * 0.4, 650 + i * 300, 420, at('seis0'))); show(qt, t, at('nutrientes0') + 2, at('seis0')); show(h2, t, at('seis0')); bs.forEach(([b, cx, i]) => pop(b, t, at('seis0') + 0.4 + i * 0.35, cx, 430)); r(t); show(a, t, at('edad0') + 1, at('edad0') + 5); show(n, t, at('edad0') + 5); };
 });
 stillScene(svg, 'a2c', c('hoy0'), c('ultima0'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
   const r = SideChips(g, [['¿CUÁLES SON?', c('hoy0')], ['¿EN QUÉ ALIMENTOS?', c('alimentos0')], ['¿CUÁNDO IR AL MÉDICO?', c('medico0')]], { cx: 1520, y0: 160, size: 40 });

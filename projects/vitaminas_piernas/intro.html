@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5F7FA;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — tired legs after 60, magnesium alone, six vitamins.
+window.START = 0;
+window.END = at('h1') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('intro');
+const c = k => () => at(k);
+
+stillScene(svg, 'a1a', () => 0, c('miles0'), { focus: [0.45, 0.6], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿PIERNAS AGOTADAS ANTES QUE TÚ?', { hi: 'AGOTADAS', size: 54 });
+  return t => show(a, t, 0.8);
+}, true);
+stillScene(svg, 'a1b', c('miles0'), c('preocupante0'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['PESADEZ', () => at('miles0') + 4], ['DEBILIDAD', () => at('miles0') + 5.2], ['SIN ENERGÍA', () => at('miles0') + 6.6]], { cx: 380, y0: 160, size: 42 });
+  const a = CAP(g, 'SUBIR ESCALERAS: UN ESFUERZO', { hi: 'ESFUERZO' });
+  [4, 5.2, 6.6].forEach(d => sfx('pop', at('miles0') + d, 0.6));
+  return t => { r(t); show(a, t, at('escaleras0') - 0.5); };
+}, true);
+stillScene(svg, 'a1c', c('preocupante0'), c('nietos0'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'RENUNCIAR A PEQUEÑOS PLACERES', { hi: 'RENUNCIAR', size: 54 });
+  const r = ChipRow(g, [['PASEAR', c('pasear0')], ['LA COMPRA', c('compra0')]], { cy: 130, size: 42 });
+  sfx('pop', at('pasear0')); sfx('pop', at('compra0'));
+  return t => { show(a, t, at('preocupante0') + 1.5); r(t); };
+});
+stillScene(svg, 'a1d', c('nietos0'), c('magnesio0'), { focus: [0.35, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UNA TARDE CON LOS NIETOS', { hi: 'NIETOS' });
+  return t => show(a, t, at('nietos0'));
+});
+stillScene(svg, 'a2a', c('magnesio0'), c('igual0'), { focus: [0.4, 0.5], zoom: 0.12 }, g => {
+  const s = Stamp(g, 'MAGNESIO', { cx: 1500, cy: 200, size: 80, color: C.blueDark, rot: -5 });
+  sfx('stamp', at('magnesio0') + 0.6);
+  return t => s.draw(t, at('magnesio0') + 0.6);
+}, true);
+stillScene(svg, 'a2b', c('igual0'), c('nutrientes0'), { focus: [0.6, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿Y LAS PIERNAS SIGUEN IGUAL?', { hi: 'IGUAL' });
+  return t => show(a, t, at('igual0') - 0.8);
+}, true);
+// six vitamins
+scene(svg, c('nutrientes0'), c('hoy0'), g => {
+  const h = Text(g, 'OTROS NUTRIENTES', { x: 960, y: 140, size: 70, color: C.grey });
+  const h2 = Text(g, '6 VITAMINAS', { x: 960, y: 140, size: 96, color: ACC });
+  const bs = VIT.map(([v], i) => { const cx = 330 + i * 252; return [VitBadge(g, v, cx, 430, 2.2), cx, i]; });
+  const r = ChipRow(g, [['NERVIOS', c('nervios0')], ['MÚSCULOS', c('musculos0')], ['VASOS SANGUÍNEOS', c('vasos0')]], { cy: 680, size: 44, fill: C.white });
+  const a = CAP(g, '¿O "COSAS DE LA EDAD"?', { hi: 'EDAD' });
+  const n = Chip(g, 'TAMBIÉN HAY OTRAS CAUSAS', { cx: 960, cy: 840, fill: '#FCE3DE', size: 40 });
+  VIT.forEach((x, i) => sfx('pop', at('seis0') + 0.4 + i * 0.35, 0.5)); ['nervios0', 'musculos0', 'vasos0'].forEach(k => sfx('pop', at(k), 0.5));
+  return t => { show(h, t, at('nutrientes0'), at('seis0')); show(h2, t, at('seis0')); bs.forEach(([b, cx, i]) => pop(b, t, at('seis0') + 0.4 + i * 0.35, cx, 430)); r(t); show(a, t, at('edad0') + 1, at('edad0') + 5); show(n, t, at('edad0') + 5); };
+});
+stillScene(svg, 'a2c', c('hoy0'), c('ultima0'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['¿CUÁLES SON?', c('hoy0')], ['¿EN QUÉ ALIMENTOS?', c('alimentos0')], ['¿CUÁNDO IR AL MÉDICO?', c('medico0')]], { cx: 1520, y0: 160, size: 40 });
+  ['hoy0', 'alimentos0', 'medico0'].forEach(k => sfx('pop', at(k), 0.6));
+  return t => r(t);
+});
+stillScene(svg, 'a2d', c('ultima0'), c('suscribe0'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'ATENCIÓN A LA ÚLTIMA', { hi: 'LA ÚLTIMA' });
+  return t => show(a, t, at('ultima0') + 0.3);
+});
+scene(svg, c('suscribe0'), () => END + 1, g => {
+  const host = Host(g, 'waving', { cx: 420, cy: 580, fit: 700 });
+  const h = Text(g, 'INFORMACIÓN CLARA Y PRÁCTICA', { x: 1260, y: 330, size: 54, color: ACC });
+  const w = el('g', { transform: 'translate(300 0)' }, g); const cta = CTA(w, 'sub', 560);
+  sfx('click', at('suscribe0') + 0.4);
+  return t => { host(t, at('suscribe0')); show(h, t, at('suscribe0') + 1.5); pop(cta, t, at('suscribe0') + 0.4, 1260, 560); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

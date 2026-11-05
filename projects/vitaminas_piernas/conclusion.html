@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5F7FA;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Conclusion — not condemned, recap of 6, no single vitamin fixes all, warnings, quiz (answer not revealed), CTA.
+window.START = at('c0') - 0.4;
+window.END = 1243.9;
+window.DURATION = window.END;
+const svg = Stage('end');
+const c = k => () => at(k);
+
+stillScene(svg, 'ha', () => START, c('inevitable_c'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO ESTÁS CONDENADO A DEBILITARTE', { hi: 'NO', size: 52 });
+  return t => show(a, t, START + 1);
+}, true);
+stillScene(svg, 'hb', c('inevitable_c'), c('seis_c'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'PERO NO ACEPTES CUALQUIER MOLESTIA', { hi: 'NO ACEPTES', size: 50 });
+  return t => show(a, t, at('inevitable_c') + 0.3);
+});
+scene(svg, c('seis_c'), c('ninguna'), g => {
+  const h = Text(g, '6 VITAMINAS', { x: 960, y: 120, size: 90, color: ACC });
+  const labels = ['ENERGÍA', 'NERVIOS', 'MÚSCULOS', 'CALCIO', 'COMUNICACIÓN\nNERVIOSA', 'COLÁGENO'];
+  const ts = VIT.map(([v], i) => { const cx = 400 + (i % 3) * 560, cy = 360 + Math.floor(i / 3) * 360; const w = el('g', {}, g); IconTile(w, 'v' + v, labels[i], cx, cy, { w: 440, h: 300 }); return [w, cx, cy, 'v' + (i + 1)]; });
+  ts.forEach(([, , , k]) => sfx('pop', at(k), 0.6));
+  return t => { show(h, t, at('seis_c')); ts.forEach(([w, cx, cy, k]) => pop(w, t, at(k), cx, cy)); };
+});
+scene(svg, c('ninguna'), c('advertencia_c'), g => {
+  const bt = el('g', {}, g); cut(bt, 'botes', 960, 300, 300);
+  const a = Text(g, 'NINGUNA VITAMINA LO SOLUCIONA TODO', { x: 960, y: 520, size: 56 });
+  const ts = [['plate', 'ALIMENTACIÓN\nEQUILIBRADA'], ['dumbbell', 'FUERZA\nADAPTADA'], ['moon', 'DESCANSO'], ['heart', 'REVISIONES\nMÉDICAS']].map(([ic, s], i) => [IconTile(g, ic, s, 330 + i * 420, 800, { w: 360, h: 330 }), 330 + i * 420, i]);
+  sfx('pop', at('ninguna')); [0, 1.8, 3.4, 5].forEach(d => sfx('pop', at('combinacion') + d, 0.5));
+  return t => { pop(bt, t, at('ninguna'), 960, 300); show(a, t, at('ninguna') + 0.5); ts.forEach(([tile, cx, i]) => pop(tile, t, at('combinacion') + [0, 1.8, 3.4, 5][i], cx, 800)); };
+});
+stillScene(svg, 'hc', c('advertencia_c'), c('consulta_c'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UNA ADVERTENCIA IMPORTANTE', { hi: 'ADVERTENCIA' });
+  return t => show(a, t, at('advertencia_c'));
+});
+scene(svg, c('consulta_c'), c('quiz'), g => {
+  const w = Warn(g, 'CONSULTA CON TU MÉDICO', ['DEBILIDAD QUE AVANZA · HORMIGUEOS', 'DOLOR AL CAMINAR · HINCHAZÓN FRECUENTE'], { kind: 'amber', y: 80, w: 1500 });
+  const u = el('g', {}, g); Card(u, { x: 210, y: 470, w: 1500, h: 220, fill: C.red });
+  Text(u, 'PIERNA HINCHADA DE REPENTE O', { x: 960, y: 545, size: 48, color: C.white }); Text(u, 'DEBILIDAD BRUSCA → URGENCIAS', { x: 960, y: 625, size: 52, color: C.white });
+  const n = Chip(g, 'NO SUSPENDAS MEDICAMENTOS NI TOMES DOSIS ALTAS POR TU CUENTA', { cx: 960, cy: 820, fill: C.white, size: 32 });
+  const s = Source(g, 'Contenido educativo · no sustituye una evaluación médica', 960);
+  sfx('alert_soft', at('consulta_c') + 0.1); sfx('alert', at('urgente_c')); sfx('pop', at('nunca_c'));
+  return t => { pop(w, t, at('consulta_c') + 0.1, 960, 250); pop(u, t, at('urgente_c'), 960, 580); pop(n, t, at('nunca_c'), 960, 820); show(s, t, at('nunca_c') + 1); };
+});
+// quiz — answer not revealed
+scene(svg, c('quiz'), c('megusta_c'), g => {
+  const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 110, size: 76, color: ACC });
+  const q = Text(g, '¿Cuál protege la cubierta de los nervios?', { x: 960, y: 210, size: 52, weight: 800 });
+  const nv = el('g', {}, g); cut(nv, 'nervio_ok', 1700, 240, 200);
+  const ops = [['A', 'B12', 'qa'], ['B', 'C', 'qb'], ['C', 'K2', 'qc']].map(([L, v, k], i) => {
+    const o = el('g', {}, g), cx = 480 + i * 480, cy = 560;
+    Card(o, { x: cx - 200, y: cy - 190, w: 400, h: 380, fill: C.white });
+    el('circle', { cx, cy: cy - 110, r: 50, fill: ACC, stroke: C.ink, 'stroke-width': 5 }, o); Text(o, L, { x: cx, y: cy - 107, size: 60, color: C.white });
+    IC['v' + v](o, cx - 100, cy - 30, 2);
+    return [o, k, cx, cy];
+  });
+  const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 930);
+  const host = Host(g, 'three_q', { cx: 1760, cy: 900, fit: 300 });
+  ops.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('ding', at('quiz')); sfx('click', at('escribe'));
+  return t => { show(h, t, at('quiz')); show(q, t, at('cual')); pop(nv, t, at('cual') + 1, 1700, 240); ops.forEach(([o, k, cx, cy]) => pop(o, t, at(k), cx, cy)); pop(cta, t, at('escribe'), 760, 930); host(t, at('escribe') - 0.5); };
+});
+stillScene(svg, 'hd', c('megusta_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = el('g', { transform: 'translate(-560 -760)' }, g); const l = CTA(a, 'like', 900);
+  const b = el('g', { transform: 'translate(0 -760)' }, g); const s = CTA(b, 'sub', 900);
+  const d = el('g', {}, g); Card(d, { x: 1380, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(d, 1410, 90, 1); Text(d, 'COMPARTE', { x: 1655, y: 142, size: 46 });
+  const cc = CAP(g, 'TU MOVILIDAD SIGUE EN TUS MANOS', { hi: 'EN TUS MANOS', size: 52 });
+  sfx('click', at('megusta_c') + 2.5); sfx('click', at('megusta_c') + 3.5); sfx('click', at('megusta_c') + 5); sfx('ding', at('recuerda_c') + 3);
+  return t => { pop(l, t, at('megusta_c') + 2.5, 400, 140); pop(s, t, at('megusta_c') + 3.5, 960, 140); pop(d, t, at('megusta_c') + 5, 1600, 140); show(cc, t, at('recuerda_c')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

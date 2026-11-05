@@ -1,0 +1,119 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5F7FA;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 4 — K2: calcium handling (osteocalcin, MGP); no proof it "cleans arteries"; heavy legs have other causes; foods K2/K1; anticoagulant warning.
+window.START = at('h4') - 0.6;
+window.END = at('h5') - 2.3;
+window.DURATION = window.END;
+const svg = Stage('p4');
+const c = k => () => at(k);
+
+TitleCard(svg, 4, 'VITAMINA K2', 'Ayuda a usar el calcio', () => START, c('nocalcio'));
+stillScene(svg, 'p4aa', c('nocalcio'), c('k2'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const k = Kicker(g, 4, 'PUNTO 4 · VITAMINA K2'); Progress(g, 3);
+  const a = CAP(g, '¿ADÓNDE VA EL CALCIO?', { hi: 'ADÓNDE' });
+  const r = SideChips(g, [['HUESOS', () => at('nocalcio') + 8], ['CORAZÓN Y VASOS', () => at('nocalcio') + 10.5]], { cx: 1560, y0: 260, size: 40 });
+  sfx('pop', at('nocalcio') + 8); sfx('pop', at('nocalcio') + 10.5);
+  return t => { slideIn(k, t, at('nocalcio'), 'l', 600); show(a, t, at('nocalcio') + 1); r(t); };
+});
+// calcium routing diagram
+scene(svg, c('k2'), c('limpiar'), g => {
+  const b = VitBadge(g, 'K2', 960, 200, 2);
+  const ca = el('g', {}, g); el('circle', { cx: 960, cy: 470, r: 70, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, ca); Text(ca, 'Ca', { x: 960, y: 474, size: 64, color: C.blueDark });
+  const bone = ItemCard(g, 'hueso', 440, 640, { w: 420, h: 480, fit: 360, label: 'OSTEOCALCINA', size: 34 });
+  const art = ItemCard(g, 'arteria', 1480, 640, { w: 420, h: 480, fit: 360, label: 'REGULA LA CALCIFICACIÓN', size: 26 });
+  const a1 = el('g', {}, g); Arrow(a1, 880, 510, 640, 600, C.green, 14);
+  const a2 = el('g', {}, g); Arrow(a2, 1040, 510, 1280, 600, C.amber, 14, '18 14');
+  const dots = [0, 1, 2, 3].map(() => el('circle', { r: 12, fill: '#E7ECF2', stroke: C.ink, 'stroke-width': 3 }, g));
+  const a = CAP(g, 'GESTIONA EL CALCIO', { hi: 'CALCIO' });
+  sfx('pop', at('k2') + 3); sfx('pop', at('proteinas4')); sfx('pop', at('osteocalcina')); sfx('pop', at('calcificacion'));
+  return t => {
+    pop(b, t, at('k2') + 3, 960, 200); pop(ca, t, at('proteinas4'), 960, 470); pop(bone, t, at('osteocalcina'), 440, 640); show(a1, t, at('osteocalcina') + 0.5);
+    pop(art, t, at('calcificacion'), 1480, 640); show(a2, t, at('calcificacion') + 0.5); show(a, t, at('sencilla4'));
+    dots.forEach((d, i) => { const u = ((t - at('osteocalcina')) * 0.5 + i / 4) % 1; set(d, { cx: (900 - 280 * u).toFixed(1), cy: (520 + 110 * u).toFixed(1), opacity: t > at('osteocalcina') + 0.6 ? 1 : 0 }); });
+  };
+});
+scene(svg, c('limpiar'), c('porque4'), g => {
+  const art = ItemCard(g, 'arteria', 420, 520, { w: 440, h: 560, fit: 420 });
+  const q = Bubble(g, '¿Limpia las arterias?', { cx: 1220, cy: 300, size: 56 });
+  const s = Stamp(g, 'SIN PRUEBAS SUFICIENTES', { cx: 1220, cy: 560, size: 66, color: C.red, rot: -3 });
+  const r = ChipRow(g, [['¿MEJOR CIRCULACIÓN?', () => at('pruebas4') + 8], ['¿ELIMINA EL CALCIO?', () => at('pruebas4') + 10]], { cy: 800, cx: 1220, size: 36, fill: C.white });
+  sfx('pop', at('limpiar') + 4); sfx('stamp', at('pruebas4') + 4);
+  return t => { pop(art, t, at('limpiar'), 420, 520); pop(q, t, at('limpiar') + 4, 1220, 300); s.draw(t, at('pruebas4') + 4); r(t); };
+});
+stillScene(svg, 'p4ab', c('porque4'), c('pesadas4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['HUESOS RESISTENTES', () => at('porque4') + 4.5], ['CORAZÓN SANO', () => at('porque4') + 8]], { cx: 380, y0: 160, size: 40 });
+  sfx('pop', at('porque4') + 4.5); sfx('pop', at('porque4') + 8);
+  return t => r(t);
+});
+scene(svg, c('pesadas4'), c('como4'), g => {
+  const a = el('g', {}, g); Card(a, { x: 260, y: 200, w: 1400, h: 200, fill: C.white }); Mark(a, false, 400, 300, 1); Text(a, 'PIERNAS PESADAS = FALTA DE K2', { x: 1030, y: 300, size: 50, color: C.grey });
+  const ts = [['vena', 'INSUFICIENCIA\nVENOSA'], ['arteria', 'PROBLEMAS\nARTERIALES']].map(([n, l], i) => [ItemCard(g, n, 700 + i * 520, 690, { w: 440, h: 440, fit: 300, label: l.replace('\n', ' '), size: 30 }), 700 + i * 520, i]);
+  const o = Chip(g, '+ OTRAS ENFERMEDADES', { cx: 1600, cy: 690, fill: C.white, size: 36 });
+  sfx('pop', at('pesadas4')); sfx('pop', at('venosa4')); sfx('pop', at('venosa4') + 1.6); sfx('pop', at('venosa4') + 3.4);
+  return t => { pop(a, t, at('pesadas4'), 960, 300); ts.forEach(([c2, cx, i]) => pop(c2, t, at('venosa4') + i * 1.6, cx, 690)); pop(o, t, at('venosa4') + 3.4, 1600, 690); };
+});
+scene(svg, c('como4'), () => at('fermentados') + 6.2, g => {
+  const h = Text(g, 'VITAMINA K2', { x: 960, y: 140, size: 76, color: ACC });
+  const r = FoodRow(g, [['chucrut', 'FERMENTADOS', () => at('fermentados') + 1.5], ['queso', 'QUESOS CURADOS', () => at('fermentados') + 3.2], ['huevos', 'ORIGEN ANIMAL', () => at('fermentados') + 5]], { w: 380, h: 420, fit: 280 });
+  const n = Chip(g, 'CANTIDADES MUY VARIABLES', { cx: 960, cy: 880, fill: C.white, size: 38 });
+  sfx('pop', at('fermentados') + 7);
+  return t => { show(h, t, at('como4')); r(t); pop(n, t, at('fermentados') + 7, 960, 880); };
+});
+stillScene(svg, 'p4ad', () => at('fermentados') + 6.2, c('k1'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'QUESO CURADO, CON MODERACIÓN', { hi: 'MODERACIÓN' });
+  return t => show(a, t, at('fermentados') + 6.4);
+});
+stillScene(svg, 'p4ac', c('k1'), () => at('k1') + 4.2, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'VERDURAS DE HOJA VERDE', { hi: 'HOJA VERDE' });
+  return t => show(a, t, at('k1') + 0.2);
+});
+scene(svg, () => at('k1') + 4.2, () => at('advertencia4') - 0.01, g => {
+  const h = Text(g, 'HOJA VERDE = VITAMINA K1', { x: 960, y: 140, size: 70, color: C.green });
+  const r = FoodRow(g, [['espinacas', 'ESPINACAS', () => at('k1') + 4.4], ['acelgas', 'ACELGAS', () => at('k1') + 5], ['brocoli', 'BRÓCOLI', () => at('k1') + 5.6]], { w: 380, h: 420, fit: 300 });
+  const n = Chip(g, 'K1 Y K2: DOS FORMAS DE LA VITAMINA K', { cx: 960, cy: 880, fill: C.white, size: 36 });
+  sfx('pop', at('k1') + 7);
+  return t => { show(h, t, at('k1') + 4.2); r(t); pop(n, t, at('k1') + 7, 960, 880); };
+});
+scene(svg, c('advertencia4'), () => at('anticoag') + 7.5, g => {
+  const w = Warn(g, 'SI TOMAS ANTICOAGULANTES', ['NO EMPIECES SUPLEMENTOS DE VITAMINA K', 'NI CAMBIES DE GOLPE LO QUE COMES', 'SIN HABLAR CON TU MÉDICO'], { kind: 'red', y: 160, w: 1500 });
+  sfx('alert', at('advertencia4') + 0.2);
+  return t => pop(w, t, at('advertencia4') + 0.2, 960, 380);
+});
+stillScene(svg, 'p4ba', () => at('anticoag') + 7.5, c('combinar4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN CONTROL DE COAGULACIÓN', { hi: 'COAGULACIÓN' });
+  return t => show(a, t, at('anticoag') + 7.7);
+});
+stillScene(svg, 'p4bb', c('combinar4'), () => at('combinar4') + 3.4, { focus: [0.55, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'D3 + K2: NO ES OBLIGATORIO PARA TODOS', { hi: 'NO ES OBLIGATORIO', size: 48 });
+  return t => show(a, t, at('combinar4') + 0.3);
+});
+stillScene(svg, 'p4bc', () => at('combinar4') + 3.4, () => at('megusta4') - 3.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'PRIMERO, LA COMIDA', { hi: 'LA COMIDA' });
+  return t => show(a, t, at('combinar4') + 3.6);
+});
+stillScene(svg, 'p4bd', () => at('megusta4') - 3.5, c('siguiente4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = el('g', { transform: 'translate(-420 -760)' }, g); const l = CTA(a, 'like', 900);
+  const b = el('g', { transform: 'translate(420 -760)' }, g); const s = CTA(b, 'sub', 900);
+  sfx('click', at('megusta4')); sfx('click', at('megusta4') + 2);
+  return t => { pop(l, t, at('megusta4'), 540, 140); pop(s, t, at('megusta4') + 2, 1380, 140); };
+});
+scene(svg, c('siguiente4'), () => END + 1, g => {
+  const b = VitBadge(g, 'B6', 640, 460, 3);
+  const bt = el('g', {}, g); cut(bt, 'botes', 1300, 460, 420);
+  const a = Text(g, 'CUIDADO CON EL EXCESO', { x: 1300, y: 760, size: 58, color: C.red });
+  sfx('pop', at('siguiente4') + 1); sfx('alert_soft', at('siguiente4') + 6);
+  return t => { pop(b, t, at('siguiente4') + 1, 640, 460); pop(bt, t, at('siguiente4') + 3, 1300, 460); show(a, t, at('siguiente4') + 6); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

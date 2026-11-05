@@ -114,3 +114,4 @@ dependencies (playwright-core) and the motion QA tools.
   `puppet.py`, `motion.py` and `qa_motion.py`.
 - `characters/`: the user's character sheets. `projects/`: one folder per video.
 - Feedback 2 Nov: owner wants every video visually different (no repeated settings or reused panels). Vary season, places, framing per video; only the cast sheet is shared.
+- Feedback 5 Nov: owner finds the past videos too yellow. Use a neutral theme (white-ish bg, grey shadows, no amber caption highlight) and white-balance scene panels (partial gray-world on highlights, 65%) after cutting.

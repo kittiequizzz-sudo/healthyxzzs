@@ -1,0 +1,106 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5F7FA;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 3 — D3: muscles not only bones; proximal weakness; skin makes less; supplements help mainly if deficient; foods; sun; strength.
+window.START = at('h3') - 2.3;
+window.END = at('h4') - 0.6;
+window.DURATION = window.END;
+const svg = Stage('p3');
+const c = k => () => at(k);
+
+TitleCard(svg, 3, 'VITAMINA D3', 'La fuerza de tus músculos', () => START, c('huesos3'));
+scene(svg, c('huesos3'), c('d3'), g => {
+  const k = Kicker(g, 3, 'PUNTO 3 · VITAMINA D3'); Progress(g, 2);
+  const a = ItemCard(g, 'hueso', 560, 520, { w: 460, h: 560, fit: 420, label: 'HUESOS FUERTES', size: 36 });
+  const pl = Text(g, '≠', { x: 960, y: 520, size: 150, color: C.red });
+  const b = ItemCard(g, 'muslos', 1360, 520, { w: 460, h: 560, fit: 420, label: 'PIERNAS FUERTES', size: 36 });
+  const r = ChipRow(g, [['SOSTENER TU PESO', c('sostener3')], ['EQUILIBRIO', () => at('sostener3') + 2.4], ['REACCIONAR', () => at('sostener3') + 4]], { cy: 920, size: 40, fill: C.white });
+  sfx('pop', at('huesos3')); sfx('pop', at('huesos3') + 3); [0, 2.4, 4].forEach(d => sfx('pop', at('sostener3') + d, 0.5));
+  return t => { slideIn(k, t, at('huesos3'), 'l', 600); pop(a, t, at('huesos3') + 0.4, 560, 520); show(pl, t, at('huesos3') + 2.5); pop(b, t, at('huesos3') + 3, 1360, 520); r(t); };
+});
+scene(svg, c('d3'), c('silla3'), g => {
+  const b = VitBadge(g, 'D3', 300, 250, 2.2);
+  const m = ItemCard(g, 'muslos', 1340, 520, { w: 560, h: 680, fit: 560 });
+  const ring = Callout(g, 1340, 420, 180);
+  const r = SideChips(g, [['FUNCIÓN MUSCULAR', c('calcio3')], ['ABSORBER EL CALCIO', () => at('calcio3') + 3]], { cx: 520, y0: 520, dy: 140, size: 40 });
+  const a = CAP(g, 'DÉFICIT: DEBILIDAD EN CADERAS Y MUSLOS', { hi: 'CADERAS Y MUSLOS', size: 48 });
+  sfx('pop', at('d3')); sfx('pop', at('calcio3')); sfx('alert_soft', at('caderas3') + 3);
+  return t => { pop(b, t, at('d3'), 300, 250); pop(m, t, at('d3') + 1, 1340, 520); r(t); ring(t, at('caderas3') + 3); show(a, t, at('caderas3') + 3); };
+});
+stillScene(svg, 'p3aa', c('silla3'), c('piel3'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['LEVANTARSE DE UNA SILLA', () => at('silla3') + 1], ['SUBIR ESCALERAS', () => at('silla3') + 2.8], ['INCORPORARSE DESDE ABAJO', () => at('silla3') + 4.2]], { cx: 1480, y0: 170, size: 36 });
+  const a = CAP(g, 'DESPUÉS DE LOS 60: ATENCIÓN', { hi: 'ATENCIÓN' });
+  [1, 2.8, 4.2].forEach(d => sfx('pop', at('silla3') + d, 0.5));
+  return t => { r(t); show(a, t, at('atencion3')); };
+});
+scene(svg, c('piel3'), c('aire3'), g => {
+  const s = el('g', {}, g); cut(s, 'sol', 420, 400, 380);
+  const rays = [0, 1, 2].map(i => { const a = el('g', {}, g); Arrow(a, 620, 400 + (i - 1) * 60, 1100, 400 + (i - 1) * 60, C.amber, 12, '16 14'); return a; });
+  const p = el('g', {}, g); Card(p, { x: 1140, y: 240, w: 520, h: 320, fill: '#FBE9E1' }); Text(p, 'PIEL', { x: 1400, y: 360, size: 64 }); Text(p, 'produce menos', { x: 1400, y: 440, size: 42, weight: 700 });
+  const dn = el('g', {}, g); Arrow(dn, 1700, 300, 1700, 520, C.red, 14);
+  const a = CAP(g, 'CON LOS AÑOS, MENOS VITAMINA D', { hi: 'MENOS' });
+  sfx('pop', at('piel3')); sfx('pop', at('piel3') + 2);
+  return t => { pop(s, t, at('piel3'), 420, 400); rays.forEach((r, i) => { show(r, t, at('piel3') + 0.8 + i * 0.2); r.setAttribute('stroke-dashoffset', (-t * 50).toFixed(0)); }); pop(p, t, at('piel3') + 2, 1400, 400); show(dn, t, at('piel3') + 3); show(a, t, at('piel3') + 3.5); };
+});
+stillScene(svg, 'p3ab', c('aire3'), c('aclarar3'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MENOS TIEMPO AL AIRE LIBRE', { hi: 'AIRE LIBRE' });
+  const b = Chip(g, 'MUCHO SOL ≠ NIVELES ASEGURADOS', { cx: 1250, cy: 140, fill: C.white, size: 40 });
+  sfx('pop', at('espana'));
+  return t => { show(a, t, at('aire3') + 0.5); pop(b, t, at('espana'), 1250, 140); };
+});
+scene(svg, c('aclarar3'), c('comprar3'), g => {
+  const a = el('g', {}, g); Card(a, { x: 260, y: 220, w: 1400, h: 200, fill: C.white }); Mark(a, false, 400, 320, 1); Text(a, 'SUPLEMENTO = MÁS FUERZA AUTOMÁTICA', { x: 1030, y: 320, size: 48, color: C.grey });
+  const b = el('g', {}, g); Card(b, { x: 260, y: 500, w: 1400, h: 200, fill: C.white }); Mark(b, true, 400, 600, 1); Text(b, 'AYUDA SOBRE TODO SI HAY DÉFICIT', { x: 1030, y: 600, size: 50 });
+  sfx('pop', at('noaumenta')); sfx('ding', at('beneficios3'));
+  return t => { pop(a, t, at('noaumenta'), 960, 320); pop(b, t, at('beneficios3'), 960, 600); };
+});
+stillScene(svg, 'p3ac', c('comprar3'), c('donde3'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ANTES DE COMPRAR, CONSULTA', { hi: 'CONSULTA' });
+  return t => show(a, t, at('comprar3') + 1);
+});
+scene(svg, () => at('pescados3') - 0.3, c('sol3'), g => {
+  const h = Text(g, '¿DÓNDE ESTÁ LA VITAMINA D?', { x: 960, y: 140, size: 66, color: ACC });
+  const r = FoodRow(g, [['sardinas', 'SARDINAS', c('pescados3')], ['caballa', 'CABALLA', () => at('pescados3') + 1.4], ['salmon', 'SALMÓN', () => at('pescados3') + 2.4], ['huevos', 'YEMA DE HUEVO', c('yema')], ['cereales', 'ENRIQUECIDOS', () => at('yema') + 2.4]], { w: 320, h: 380, fit: 250 });
+  return t => { show(h, t, at('pescados3') - 0.3); r(t); };
+});
+stillScene(svg, 'p3ba', c('donde3'), () => at('pescados3') - 0.3, { focus: [0.5, 0.5], zoom: 0.08 }, g => {
+  const a = CAP(g, '¿DÓNDE ENCONTRARLA?', { hi: 'DÓNDE' });
+  return t => show(a, t, at('donde3') + 0.2);
+});
+stillScene(svg, 'p3bc', c('sol3'), () => at('sol3') + 4.6, { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SOL PRUDENTE, CON PROTECCIÓN', { hi: 'PRUDENTE' });
+  return t => show(a, t, at('sol3') + 0.3);
+});
+stillScene(svg, 'p3ad', () => at('sol3') + 4.6, c('fuerza3'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'SEGÚN TU PIEL Y LA ESTACIÓN', { hi: 'TU PIEL' });
+  return t => show(a, t, at('sol3') + 4.8);
+});
+stillScene(svg, 'p3bb', c('fuerza3'), c('estabilidad3'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'Y EJERCICIOS DE FUERZA', { hi: 'FUERZA' });
+  const b = Chip(g, 'LA VITAMINA NO HACE EL TRABAJO DEL MÚSCULO', { cx: 1150, cy: 140, fill: C.white, size: 34 });
+  sfx('pop', at('nosustituye3'));
+  return t => { show(a, t, at('fuerza3') + 1); pop(b, t, at('nosustituye3'), 1150, 140); };
+});
+stillScene(svg, 'p3bd', c('estabilidad3'), c('llegamos3'), { focus: [0.55, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO LO ATRIBUYAS A LOS AÑOS', { hi: 'NO' });
+  return t => show(a, t, at('estabilidad3') + 3);
+});
+scene(svg, c('llegamos3'), () => END + 1, g => {
+  const hu = ItemCard(g, 'hueso', 620, 520, { w: 440, h: 540, fit: 420 });
+  const b = VitBadge(g, 'K2', 1300, 400, 2.4);
+  const a = Text(g, 'EL CALCIO… Y LOS MITOS', { x: 1300, y: 620, size: 54 });
+  sfx('pop', at('llegamos3') + 1); sfx('pop', at('llegamos3') + 3);
+  return t => { pop(hu, t, at('llegamos3') + 1, 620, 520); pop(b, t, at('llegamos3') + 3, 1300, 400); show(a, t, at('llegamos3') + 6); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

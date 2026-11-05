@@ -1,0 +1,122 @@
+// Punto 6 — C: veins against gravity; collagen; deficiency → fragile vessels, bruises; no cure for varicose veins; foods; iron; warnings; message.
+window.START = at('h6') - 2.2;
+window.END = at('c0') - 0.4;
+window.DURATION = window.END;
+const svg = Stage('p6');
+const c = k => () => at(k);
+
+TitleCard(svg, 6, 'VITAMINA C', 'El apoyo de tus vasos sanguíneos', () => START, c('gravedad'));
+stillScene(svg, 'p6aa', c('gravedad'), c('venas6'), { focus: [0.4, 0.5], zoom: 0.12 }, g => {
+  const k = Kicker(g, 6, 'PUNTO 6 · VITAMINA C'); Progress(g, 5);
+  const a = CAP(g, 'TODO EL DÍA CONTRA LA GRAVEDAD', { hi: 'GRAVEDAD' });
+  const up = el('g', {}, g); Arrow(up, 1700, 800, 1700, 300, C.red, 16);
+  const ut = Text(g, 'AL CORAZÓN', { x: 1700, y: 260, size: 34, color: C.red });
+  sfx('pop', at('regresar') + 4);
+  return t => { slideIn(k, t, at('gravedad'), 'l', 600); show(a, t, at('gravedad') + 0.3); show(up, t, at('regresar') + 4); show(ut, t, at('regresar') + 4.3); };
+});
+stillScene(svg, 'p6ab', c('resfriados'), c('colageno'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, '¿LA VITAMINA DE LOS RESFRIADOS?', { hi: 'RESFRIADOS', size: 54 });
+  return t => show(a, t, at('resfriados') + 0.3);
+});
+scene(svg, c('venas6'), c('resfriados'), g => {
+  const v = ItemCard(g, 'vena', 520, 520, { w: 460, h: 580, fit: 460, label: 'VENAS SANAS', size: 36 });
+  const a = Text(g, 'VENAS SALUDABLES', { x: 1250, y: 420, size: 66, color: ACC });
+  const b = Text(g, 'Y BUENA CIRCULACIÓN', { x: 1250, y: 520, size: 56 });
+  sfx('pop', at('venas6'));
+  return t => { pop(v, t, at('venas6'), 520, 520); show(a, t, at('venas6') + 1); show(b, t, at('venas6') + 3); };
+});
+scene(svg, c('colageno'), c('fabricar'), g => {
+  const s = Stamp(g, 'COLÁGENO', { cx: 960, cy: 520, size: 120, color: ACC, rot: -4 });
+  sfx('stamp', at('colageno') + 0.2);
+  return t => s.draw(t, at('colageno') + 0.2);
+});
+// collagen fibres in the wall
+scene(svg, c('fabricar'), c('fragiles'), g => {
+  const b = VitBadge(g, 'C', 260, 220, 1.8);
+  const wall = el('g', {}, g);
+  el('rect', { x: 560, y: 360, width: 1100, height: 120, rx: 30, fill: '#F2B3B0', stroke: C.ink, 'stroke-width': 6 }, wall);
+  el('rect', { x: 560, y: 600, width: 1100, height: 120, rx: 30, fill: '#F2B3B0', stroke: C.ink, 'stroke-width': 6 }, wall);
+  el('rect', { x: 560, y: 480, width: 1100, height: 120, fill: '#FBE3E1' }, wall);
+  const fib = [0, 1].map(k => { const p = el('path', { fill: 'none', stroke: '#FFFFFF', 'stroke-width': 7, 'stroke-linecap': 'round' }, g); return [p, k]; });
+  const r = ChipRow(g, [['PIEL', () => at('fabricar') + 4], ['TENDONES', () => at('fabricar') + 5], ['PAREDES DE LOS VASOS', () => at('fabricar') + 6.5]], { cy: 870, size: 40, fill: C.white });
+  const a = Text(g, 'SIN VITAMINA C, NO HAY COLÁGENO', { x: 1110, y: 250, size: 50, color: ACC });
+  [4, 5, 6.5].forEach(d => sfx('pop', at('fabricar') + d, 0.5)); sfx('pop', at('fabricar'));
+  return t => {
+    pop(b, t, at('fabricar'), 260, 220); show(wall, t, at('fabricar') + 0.5); r(t); show(a, t, at('estructura6'));
+    const u = prog(t, at('fabricar') + 1, at('fabricar') + 4);
+    fib.forEach(([p, k]) => { let d = ''; const y = k ? 660 : 420, n = Math.floor(20 * u); for (let i = 0; i <= n; i++) d += (i ? 'L' : 'M') + (580 + i * 53) + ' ' + (y + (i % 2 ? -22 : 22)); set(p, { d }); });
+  };
+});
+stillScene(svg, 'p6ac', c('fragiles'), c('aclarar6'), { focus: [0.45, 0.65], zoom: 0.14 }, g => {
+  const a = CAP(g, 'DÉFICIT: VASOS FRÁGILES, HEMATOMAS', { hi: 'HEMATOMAS', size: 50 });
+  const r = SideChips(g, [['CANSANCIO', c('cansancio6')], ['DOLOR MUSCULAR', () => at('cansancio6') + 1.6]], { cx: 1580, y0: 160, size: 40 });
+  sfx('pop', at('cansancio6')); sfx('pop', at('cansancio6') + 1.6);
+  return t => { show(a, t, at('fragiles') + 2); r(t); };
+});
+scene(svg, c('aclarar6'), () => at('tejidos6') + 3, g => {
+  const a = el('g', {}, g); Card(a, { x: 260, y: 170, w: 1400, h: 170, fill: C.white }); Mark(a, false, 390, 255, 0.9); Text(a, 'NO ELIMINA LAS VARICES', { x: 1010, y: 255, size: 52 });
+  const b = el('g', {}, g); Card(b, { x: 260, y: 380, w: 1400, h: 170, fill: C.white }); Mark(b, false, 390, 465, 0.9); Text(b, 'NO REPARA LAS VÁLVULAS', { x: 1010, y: 465, size: 52 });
+  const d = el('g', {}, g); Card(d, { x: 260, y: 590, w: 1400, h: 170, fill: C.white }); Mark(d, false, 390, 675, 0.9); Text(d, 'MEGADOSIS ≠ MENOS PESADEZ', { x: 1010, y: 675, size: 52 });
+  const e = el('g', {}, g); Card(e, { x: 260, y: 800, w: 1400, h: 150, fill: '#E7F4EC' }); Mark(e, true, 390, 875, 0.8); Text(e, 'AYUDA A MANTENER TEJIDOS SANOS', { x: 1010, y: 875, size: 48, color: C.green });
+  sfx('pop', at('varices')); sfx('pop', at('varices') + 3); sfx('pop', at('tampoco6')); sfx('ding', at('tejidos6'));
+  return t => { pop(a, t, at('varices'), 960, 255); pop(b, t, at('varices') + 3, 960, 465); pop(d, t, at('tampoco6'), 960, 675); pop(e, t, at('tejidos6'), 960, 875); };
+});
+stillScene(svg, 'p6ad', () => at('tejidos6') + 3, c('ventaja6'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SON PASTILLAS MILAGRO', { hi: 'MILAGRO' });
+  return t => show(a, t, at('tejidos6') + 3.2);
+});
+stillScene(svg, 'p6bd', c('ventaja6'), () => at('naranjas') - 0.3, { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MEJOR DESDE EL PLATO', { hi: 'EL PLATO' });
+  return t => show(a, t, at('ventaja6') + 1);
+});
+scene(svg, () => at('naranjas') - 0.3, c('desayuno6'), g => {
+  const h = Text(g, 'VITAMINA C FÁCIL', { x: 960, y: 140, size: 76, color: ACC });
+  const r = FoodRow(g, [['naranja', 'CÍTRICOS', c('naranjas')], ['kiwi', 'KIWI', c('kiwis')], ['fresas', 'FRESAS', c('fresas')], ['pimiento', 'PIMIENTO ROJO', c('pimientos')], ['brocoli', 'BRÓCOLI', c('brocoli6')]], { w: 320, h: 380, fit: 250 });
+  return t => { show(h, t, at('naranjas') - 0.3); r(t); };
+});
+stillScene(svg, 'p6ba', c('desayuno6'), () => at('desayuno6') + 3, { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN KIWI EN EL DESAYUNO', { hi: 'KIWI' });
+  return t => show(a, t, at('desayuno6'));
+});
+stillScene(svg, 'p6bb', () => at('desayuno6') + 3, () => at('desayuno6') + 5.8, { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UNA NARANJA DE POSTRE', { hi: 'NARANJA' });
+  return t => show(a, t, at('desayuno6') + 3);
+});
+stillScene(svg, 'p6bc', () => at('desayuno6') + 5.8, c('hierro'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ENSALADA CON PIMIENTO ROJO', { hi: 'PIMIENTO ROJO' });
+  return t => show(a, t, at('desayuno6') + 5.9);
+});
+scene(svg, c('hierro'), c('causa6'), g => {
+  const a = ItemCard(g, 'lentejas', 480, 500, { w: 400, h: 420, fit: 300, label: 'HIERRO VEGETAL', size: 34 });
+  const p = Text(g, '+', { x: 800, y: 500, size: 140, color: ACC });
+  const b = ItemCard(g, 'pimiento', 1120, 500, { w: 400, h: 420, fit: 300, label: 'VITAMINA C', size: 34 });
+  const ar = el('g', {}, g); Arrow(ar, 1360, 500, 1500, 500, C.ink, 14);
+  const ck = el('g', {}, g); IC.check(ck, 1540, 440, 1.3);
+  const t1 = Text(g, 'SE ABSORBE MEJOR', { x: 1610, y: 640, size: 36 });
+  sfx('pop', at('hierro')); sfx('pop', at('hierro') + 1); sfx('ding', at('hierro') + 2.5);
+  return t => { pop(a, t, at('hierro'), 480, 500); show(p, t, at('hierro') + 0.6); pop(b, t, at('hierro') + 1, 1120, 500); show(ar, t, at('hierro') + 2); pop(ck, t, at('hierro') + 2.5, 1605, 505); show(t1, t, at('hierro') + 2.8); };
+});
+scene(svg, c('causa6'), c('ensenanza'), g => {
+  const w = Warn(g, 'CONOCE LA CAUSA ANTES DE TOMAR NADA', ['¿HINCHAZÓN CONSTANTE? ¿CAMBIOS DE COLOR?', '¿DOLOR AL CAMINAR? → CONSULTA'], { kind: 'amber', y: 120, w: 1500 });
+  const u = el('g', {}, g); Card(u, { x: 260, y: 600, w: 1400, h: 230, fill: C.red });
+  Text(u, 'UNA PIERNA SE HINCHA DE REPENTE', { x: 960, y: 680, size: 50, color: C.white }); Text(u, 'CON DOLOR O ENROJECIMIENTO → URGENCIAS', { x: 960, y: 760, size: 46, color: C.white });
+  sfx('alert_soft', at('causa6') + 0.2); sfx('alert', at('urgente6'));
+  return t => { pop(w, t, at('causa6') + 0.2, 960, 300); pop(u, t, at('urgente6'), 960, 715); };
+});
+scene(svg, c('ensenanza'), () => at('independencia6'), g => {
+  const bt = el('g', {}, g); cut(bt, 'botes', 560, 480, 420);
+  const x = el('g', {}, g); IC.cross(x, 640, 300, 1.4);
+  const a = Text(g, 'NO ES ACUMULAR PASTILLAS', { x: 1300, y: 420, size: 56 });
+  const b = Text(g, 'ES ENTENDER QUÉ NECESITAS', { x: 1300, y: 530, size: 56, color: C.green });
+  sfx('pop', at('pastillas')); sfx('stamp', at('pastillas') + 1); sfx('ding', at('pastillas') + 3.5);
+  return t => { pop(bt, t, at('pastillas'), 560, 480); pop(x, t, at('pastillas') + 1, 710, 370); show(a, t, at('pastillas') + 0.5); show(b, t, at('pastillas') + 3.5); };
+});
+scene(svg, c('independencia6'), () => END + 1, g => {
+  const host = Host(g, 'face_happy', { cx: 1450, cy: 560, fit: 620 });
+  const a = Text(g, 'TU INDEPENDENCIA', { x: 680, y: 460, size: 84, color: ACC });
+  const b = Text(g, 'más valiosa que la fuerza', { x: 680, y: 570, size: 50 });
+  sfx('ding', at('independencia6') + 6);
+  return t => { host(t, at('independencia6')); show(a, t, at('independencia6') + 6); show(b, t, at('independencia6') + 2); };
+});
+
+window.draw = t => drawScenes(t);

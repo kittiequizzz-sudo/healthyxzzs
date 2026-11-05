@@ -37,3 +37,4 @@ re-encoding (`qa-checklist.md`).
 Lesson: moving a drawn human in code always reads as a puppet. Don't propose another
 animated-figure method unless the owner asks for one explicitly.
 | 18 | piernas_80 (5 transformaciones 80+) | winter, original cast sheet reused by owner's choice (Ricardo=Antonio, Mercedes/Elisa/Rosario=Pilar, Federico=Rafael); 22 sheets; images sent mid-turn are not saved, ask to resend in a new message | delivered 4 Nov |
+| 19 | vitaminas_piernas (6 vitaminas) | spring, old cast; owner flagged yellow cast → neutral theme + panel white balance; 4 spoken editor notes cut from the voice | delivered 5 Nov |

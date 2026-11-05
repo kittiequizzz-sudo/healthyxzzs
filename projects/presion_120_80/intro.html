@@ -1,0 +1,168 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// INTRO (hook): hard cuts, a change every 1.5–2.5 s.
+window.START = 0;
+window.END = at('p1') - 0.4;
+window.DURATION = window.END;
+const svg = Stage();
+const H = { hard: true };
+const cap = (g, s, hi, cy = 950, size = 60) => Caption(g, s, { cx: 960, cy, size, hi });
+
+// 1. cold open: Don Andrés measuring at home
+scene(svg, () => -1, () => at('decadas'), (g, ) => {
+  const st = still(g, 'a_sofa', { ...BIG, focus: [0.45, 0.35], zoom: 0.14 });
+  const c = cap(g, '¿Y SI NO ES LA ADECUADA?', 'ADECUADA');
+  return (t, inner) => { st.draw(t, 0, at('decadas')); show(c, t, at('noadecuada')); punch(inner, t, at('noadecuada'), 700, 400, 0.06); };
+}, H);
+
+// 2. "120/80" slam
+scene(svg, () => at('decadas'), () => at('revistas'), g => {
+  const ch = Chip(g, 'DURANTE DÉCADAS', { cx: 960, cy: 250, fill: C.ink, color: C.amber, size: 46 });
+  const big = el('g', {}, g);
+  Text(big, '120/80', { x: 960, y: 560, size: 300, color: C.red });
+  const hearts = el('g', {}, g); Icon.heart(hearts, 90, 460, 1.6); Icon.heart(hearts, 1670, 460, 1.6);
+  const c = cap(g, '¿LA TENSIÓN PERFECTA?', 'PERFECTA', 880);
+  return t => {
+    show(ch, t, at('decadas'));
+    const s = t < at('perfecta') ? 0 : E.back(prog(t, at('perfecta'), at('perfecta') + 0.35)) * (1 + 0.03 * Math.sin(t * 3));
+    scaleAbout(big, 960, 540, Math.max(0.001, s)); big.setAttribute('opacity', s > 0 ? 1 : 0);
+    float(hearts, t, 960, 540, { amp: 8 }); show(c, t, at('perfecta') + 0.4);
+  };
+}, H);
+
+// 3. magazines
+scene(svg, () => at('revistas'), () => at('consultas'), g => {
+  const st = still(g, 'a_revista', { ...BIG, focus: [0.62, 0.5], zoom: 0.16 });
+  const sp = Stamp(g, '120/80', { cx: 1450, cy: 260, size: 120 });
+  return t => { st.draw(t, at('revistas'), at('consultas') + 1); sp.draw(t, at('revistas') + 0.3); };
+}, H);
+
+// 4. clinic → "¿garantía?"
+scene(svg, () => at('consultas'), () => at('pero65'), g => {
+  const st = still(g, 'a_clinica', { ...BIG, focus: [0.4, 0.55], zoom: 0.12 });
+  const c = cap(g, '¿GARANTÍA DE SALUD?', 'GARANTÍA');
+  return t => { st.draw(t, at('consultas'), at('pero65')); show(c, t, at('garantia')); };
+}, H);
+
+// 5. after 65
+scene(svg, () => at('pero65'), () => at('p70'), g => {
+  const l = still(g, 'a_sofa', { x: 60, y: 260, w: 620, h: 360, focus: [0.4, 0.3], zoom: 0.1 });
+  const r = still(g, 's_mareo', { x: 1240, y: 260, w: 620, h: 360, focus: [0.4, 0.3], zoom: 0.1 });
+  const big = el('g', {}, g); Text(big, '+65', { x: 960, y: 450, size: 260, color: C.orange });
+  const c = cap(g, 'MÁS COMPLEJO', 'COMPLEJO', 860, 70);
+  return t => {
+    l.draw(t, at('pero65'), at('p70')); r.draw(t, at('pero65'), at('p70'));
+    pop(big, t, at('pero65') + 0.15, 960, 450); show(c, t, at('complejas'));
+  };
+}, H);
+
+// 6. 70 years, 135/80, feels fine
+scene(svg, () => at('p70'), () => at('p82'), g => {
+  const st = still(g, 'a_sofa', { x: 70, y: 60, w: 1250, h: 960, focus: [0.4, 0.35], zoom: 0.1 });
+  const age = Chip(g, '70 AÑOS', { cx: 330, cy: 150, fill: C.ink, color: C.amber, size: 52 });
+  const ro = Readout(g, { cx: 1600, cy: 420, size: 130, w: 400 });
+  const ok = el('g', {}, g); Icon.check(ok, 1530, 720, 1.4);
+  const c = cap(g, 'MERECE SEGUIMIENTO', 'SEGUIMIENTO', 950, 54);
+  const ej = Ejemplo(g, 1600, 120);
+  return t => {
+    st.draw(t, at('p70'), at('p82'));
+    show(age, t, at('p70')); show(ej, t, at('p70'));
+    pop(ro.g, t, at('v135'), 1600, 420); ro.draw(count(t, at('v135'), 100, 135), count(t, at('v135'), 60, 80));
+    pop(ok, t, at('perfectamente'), 1600, 790); show(c, t, at('seguimiento'));
+  };
+}, H);
+
+// 7. 82 years, 115/65, dizzy standing up
+scene(svg, () => at('p82'), () => at('quien'), g => {
+  const st = still(g, 's_mareo', { x: 600, y: 60, w: 1250, h: 960, focus: [0.4, 0.3], zoom: 0.1 });
+  const age = Chip(g, '82 AÑOS', { cx: 1590, cy: 150, fill: C.ink, color: C.amber, size: 52 });
+  const ro = Readout(g, { cx: 320, cy: 420, size: 130, w: 400 });
+  const dz = el('g', {}, g); Icon.dizzy(dz, 250, 720, 1.4);
+  const c = cap(g, 'MAREOS AL LEVANTARSE', 'MAREOS', 950, 54);
+  const ej = Ejemplo(g, 320, 120);
+  return (t, inner) => {
+    st.draw(t, at('p82'), at('quien'));
+    show(age, t, at('p82')); show(ej, t, at('p82'));
+    pop(ro.g, t, at('v115'), 320, 420); ro.draw(count(t, at('v115'), 100, 115), count(t, at('v115'), 60, 65));
+    pop(dz, t, at('mareos'), 320, 790); show(c, t, at('mareos') + 0.3);
+    punch(inner, t, at('silla'), 1100, 450, 0.05);
+  };
+}, H);
+
+// 8. who is better?
+scene(svg, () => at('quien'), () => at('numero'), g => {
+  const l = still(g, 'a_sofa', { x: 70, y: 120, w: 870, h: 560, focus: [0.4, 0.3], zoom: 0.08 });
+  const r = still(g, 's_mareo', { x: 980, y: 120, w: 870, h: 560, focus: [0.4, 0.3], zoom: 0.08 });
+  Chip(g, '135/80', { cx: 505, cy: 760, size: 50 }); Chip(g, '115/65', { cx: 1415, cy: 760, size: 50 });
+  const c = cap(g, '¿QUIÉN ESTÁ MEJOR?', 'MEJOR', 930, 70);
+  return t => { l.draw(t, at('quien'), at('numero')); r.draw(t, at('quien'), at('numero')); show(c, t, at('quien') + 0.3); };
+}, H);
+
+// 9. not only the number
+scene(svg, () => at('numero'), () => at('hoy'), g => {
+  const m = MonitorDigits(g, { cx: 960, cy: 470, fit: 900 });
+  const q = el('g', {}, g); Icon.question(q, 1110, 250, 1.6);
+  const c = cap(g, 'NO SOLO EL NÚMERO', 'NÚMERO', 930, 70);
+  return t => { m.draw('', ''); float(m.g, t, 960, 470, { amp: 5 }); pop(q, t, at('numero') + 0.3, 1190, 330); show(c, t, at('numero') + 0.5); };
+}, H);
+
+// 10. preview 1: the experts' figure (gauge)
+scene(svg, () => at('hoy'), () => at('edad'), g => {
+  const ga = Gauge(g, { x: 260, y: 470 });
+  const c = cap(g, 'LA CIFRA DE LOS EXPERTOS', 'EXPERTOS', 850, 64);
+  return t => { ga.draw(t, { band: at('hoy') + 0.3 }); show(c, t, at('hoy') + 0.2); };
+}, H);
+
+// 11. preview 2: age doesn't justify high pressure
+scene(svg, () => at('edad'), () => at('bajar'), g => {
+  const st = still(g, 'a_clinica', { ...BIG, focus: [0.4, 0.4], zoom: 0.1 });
+  const sp = Stamp(g, 'LA EDAD NO LO JUSTIFICA', { cx: 960, cy: 880, size: 76 });
+  return t => { st.draw(t, at('edad'), at('bajar') + 1); sp.draw(t, at('edad') + 0.4); };
+}, H);
+
+// 12. preview 3: too low
+scene(svg, () => at('bajar'), () => at('error'), g => {
+  const st = still(g, 's_pasillo', { ...BIG, focus: [0.4, 0.35], zoom: 0.12 });
+  const c = cap(g, '¿DEMASIADO BAJA?', 'BAJA', 950, 70);
+  return t => { st.draw(t, at('bajar'), at('error')); show(c, t, at('bajar') + 0.3); };
+}, H);
+
+// 13. preview 4: an everyday error
+scene(svg, () => at('error'), () => at('segunda'), g => {
+  const m = MonitorDigits(g, { cx: 640, cy: 470, fit: 720 });
+  const cf = el('g', {}, g); cut(cf, 'manguito_pequeno', 1380, 470, 380);
+  const x = el('g', {}, g); Icon.cross(x, 1480, 260, 1.3);
+  const c = cap(g, 'UN ERROR COTIDIANO', 'ERROR', 900, 70);
+  return t => {
+    m.draw(count(t, at('error'), 120, 158, 1.2), count(t, at('error'), 75, 92, 1.2), { sysCol: C.red });
+    float(cf, t, 1380, 470, { amp: 6 }); pop(x, t, at('error') + 0.6, 1545, 325); show(c, t, at('error') + 0.2);
+  };
+}, H);
+
+// 14. open loop: the target in part 2
+scene(svg, () => at('segunda'), () => at('clara'), g => {
+  const ga = Gauge(g, { x: 260, y: 520 });
+  const ch = Chip(g, 'PUNTO 2', { cx: 960, cy: 230, fill: C.ink, color: C.amber, size: 56 });
+  const c = cap(g, 'UN OBJETIVO QUE SORPRENDE', 'SORPRENDE', 870, 64);
+  return t => { ga.draw(t, { hidden: true }); show(ch, t, at('segunda')); show(c, t, at('sorprender')); float(ga.g, t, 960, 520, { amp: 4, tilt: 0.3 }); };
+}, H);
+
+// 15. promise
+scene(svg, () => at('clara'), () => END + 1, g => {
+  const st = still(g, 'a_sofa', { ...BIG, focus: [0.4, 0.3], zoom: 0.12 });
+  const c1 = cap(g, 'INFORMACIÓN CLARA', 'CLARA', 860, 64);
+  const c2 = Chip(g, 'sin falsas promesas', { cx: 960, cy: 970, size: 40 });
+  return t => { st.draw(t, at('clara'), END); show(c1, t, at('clara') + 0.3); show(c2, t, at('clara') + 1.2); };
+}, H);
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

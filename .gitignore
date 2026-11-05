@@ -16,3 +16,5 @@ projects/*/out/parts/
 projects/azucar_sube/out/
 projects/azucar_sube/transcript.log
 projects/*/out_render.log
+projects/presion_120_80/out/
+projects/*/audio/*.wav

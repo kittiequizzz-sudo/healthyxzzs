@@ -1,0 +1,67 @@
+# Cues on audio/voice.mp3 (first ~4 min used for the 3-minute cut)
+# intro
+q1 | Y si la cifra de presión arterial
+noadecuada | no fuera necesariamente la más adecuada
+decadas | Durante décadas hemos escuchado
+perfecta | la tensión perfecta es 120 sobre 80
+revistas | La vemos en revistas
+consultas | la escuchamos en consultas médicas
+garantia | una especie de garantía de buena salud
+pero65 | Pero después de los 65 años
+complejas | bastante más complejas
+p70 | Una persona de 70 años
+v135 | una presión de 135 sobre 80
+perfectamente | y encontrarse perfectamente
+seguimiento | aunque esa cifra merezca seguimiento
+p82 | otra de 82 puede registrar
+v115 | 115 sobre 65
+mareos | y sufrir mareos cada vez
+silla | se levanta de una silla
+quien | quién tiene realmente la presión más adecuada
+numero | La respuesta no depende únicamente del número
+hoy | Hoy descubrirás qué cifras recomiendan
+edad | por qué cumplir años no significa
+bajar | cuándo intentar bajarla demasiado
+error | También conocerás un error cotidiano
+segunda | presta especial atención a la segunda parte
+sorprender | puede sorprender incluso a quienes
+clara | Si quieres cuidar tu corazón con información clara
+final | acompáñame hasta el final
+# punto 1
+p1 | Hay una idea que conviene abandonar
+misma | exactamente la misma presión arterial
+maquina | no funciona como una máquina
+cambia | La presión cambia durante el día
+emociones | responde a nuestras emociones
+movimiento | al movimiento
+descanso | al descanso
+medicamentos | y también a los medicamentos
+doscifras | qué significan realmente las dos cifras
+superior | El número superior, llamado presión sistólica
+contrae | cuando el corazón se contrae
+inferior | El inferior, o presión diastólica
+relaja | cuando el corazón se relaja entre latidos
+ambos | Ambos valores importan
+sist65 | especial atención a la presión sistólica
+motivo | El motivo
+elasticidad | pueden perder parte de su elasticidad
+flexibles | Cuando eran más flexibles
+rigidas | pueden volverse más rígidas
+aumente | haciendo que la presión sistólica aumente
+explica | Esto ayuda a explicar
+diferencia | hay una diferencia fundamental
+inofensivo | y considerarlo inofensivo
+conveniente | no significa que sea conveniente dejarla elevada
+riesgo | La hipertensión continúa siendo un importante factor
+ictus | de ictus
+insuficiencia | insuficiencia cardíaca
+renal | daño renal
+avanzadas | incluso en edades avanzadas
+otraparte | Por otra parte, tampoco debemos
+peligro | supone un peligro inmediato
+aislada | Una medición aislada no describe
+escaleras | acabas de subir unas escaleras
+telefono | has discutido por teléfono
+preocupado | preocupado por el resultado
+temporal | pueden influir temporalmente
+contrario | También ocurre lo contrario

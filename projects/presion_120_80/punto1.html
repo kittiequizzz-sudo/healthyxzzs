@@ -1,0 +1,157 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F5ECD7;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// PUNTO 1 — el mito de los 120/80 (first half, for the 3-minute cut).
+window.START = at('p1') - 0.4;
+window.CUT = window.CUT || 'otraparte';          // 3-minute cut ends at the sentence before this cue
+window.END = at(window.CUT) - 0.15;
+window.DURATION = window.END;
+const svg = Stage();
+const cap = (g, s, hi, cy = 950, size = 60) => Caption(g, s, { cx: 960, cy, size, hi });
+const nextOr = (k, d) => () => (k in T ? at(k) : END + d);
+
+// 1. kicker over the magazine
+scene(svg, () => START, () => at('maquina'), g => {
+  const st = still(g, 'a_revista', { ...BIG, focus: [0.6, 0.45], zoom: 0.12 });
+  const k = cap(g, 'PUNTO 1 · EL MITO', 'EL MITO', 140, 64);
+  const sp = Stamp(g, '¿TODOS 120/80?', { cx: 960, cy: 900, size: 90 });
+  return t => { st.draw(t, START, at('maquina')); show(k, t, START + 0.1); sp.draw(t, at('misma')); };
+});
+
+// 2. not a machine → pressure changes during the day
+scene(svg, () => at('maquina'), () => at('doscifras'), g => {
+  const ge = el('g', {}, g); Icon.gear(ge, 760, 290, 4);
+  const gx = el('g', {}, g); Icon.cross(gx, 1060, 260, 1.6);
+  const ch = el('g', {}, g);
+  Card(ch, { x: 160, y: 140, w: 1600, h: 640, fill: C.white });
+  const X = h => 260 + h / 24 * 1400, Y = v => 640 - (v - 100) * 6;
+  for (const [h, s] of [[0, '0 h'], [6, '6 h'], [12, '12 h'], [18, '18 h'], [24, '24 h']]) Text(ch, s, { x: X(h), y: 730, size: 32, weight: 800, color: C.grey });
+  const f = h => 118 + 10 * Math.sin((h - 9) / 24 * 2 * Math.PI) + 7 * Math.exp(-((h - 9.5) ** 2) / 1.2) + 8 * Math.exp(-((h - 15) ** 2) / 1.5) - 9 * Math.exp(-((h - 20) ** 2) / 2);
+  const P = []; for (let h = 0; h <= 24; h += 0.2) P.push([X(h), Y(f(h))]);
+  const line = el('polyline', { points: '', fill: 'none', stroke: C.red, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, ch);
+  const icons = [['emociones', 9.5, g2 => Icon.heart(g2, -50, -50, 1)], ['movimiento', 15, g2 => Icon.walk(g2, -50, -50, 1)], ['descanso', 3, g2 => Icon.moon(g2, -50, -50, 1)], ['medicamentos', 20, g2 => Icon.pill(g2, -50, -50, 1)]].map(([k, h, mk]) => {
+    const w = el('g', {}, ch); const inner = el('g', {}, w); mk(inner);
+    const cx = X(h), cy = Y(f(h)) - 100; inner.setAttribute('transform', `translate(${cx} ${cy})`);
+    return [w, k, cx, cy];
+  });
+  const c = cap(g, 'CAMBIA DURANTE EL DÍA', 'DÍA', 920, 64);
+  return t => {
+    const on = t >= at('cambia') - 0.1;
+    ge.setAttribute('opacity', on ? 0 : 1); gx.setAttribute('opacity', on ? 0 : 1);
+    float(ge, t, 960, 490, { amp: 0, tilt: 0, base: `rotate(${(t * 25).toFixed(1)} 960 490)` });
+    pop(gx, t, at('maquina') + 0.5, 1140, 340);
+    show(ch, t, at('cambia') - 0.1);
+    const n = Math.max(2, Math.round(P.length * E.inOut(prog(t, at('cambia'), at('cambia') + 1.6))));
+    set(line, { points: pts(P.slice(0, n)) });
+    icons.forEach(([w, k, cx, cy]) => pop(w, t, at(k), cx, cy));
+    show(c, t, at('cambia') + 0.3);
+  };
+});
+
+// 3. the two numbers: systolic (heart contracts) / diastolic (heart relaxes)
+scene(svg, () => at('doscifras'), () => at('motivo'), g => {
+  const m = MonitorDigits(g, { cx: 600, cy: 480, fit: 900 });
+  const hg = el('g', {}, g); cut(hg, 'heart', 1450, 430, 440);
+  const c1 = Chip(g, 'SISTÓLICA · SE CONTRAE', { cx: 1400, cy: 760, fill: C.red, color: C.white, size: 40 });
+  const c2 = Chip(g, 'DIASTÓLICA · SE RELAJA', { cx: 1400, cy: 890, fill: C.blue, color: C.white, size: 40 });
+  const rr = (y, col) => el('rect', { x: m.sx - m.fs * 1.05, y: y - m.fs * 0.55, width: m.fs * 2.1, height: m.fs * 1.05, rx: 20, fill: 'none', stroke: col, 'stroke-width': 9, opacity: 0 }, g);
+  const ring1 = rr(m.sy - m.fs * 0.55, C.red), ring2 = rr(m.sy + m.fs * 0.55, C.blue);
+  const plus = Chip(g, '+65 · LA DE ARRIBA', { cx: 600, cy: 860, fill: C.ink, color: C.amber, size: 40 });
+  const two = cap(g, 'DOS CIFRAS', 'DOS', 140, 60);
+  return t => {
+    m.draw(120, 80);
+    show(two, t, at('doscifras'), at('superior') + 0.4);
+    // heart: squeezes on "contrae", relaxes on "relaja", gentle beat otherwise
+    let s = beat(t);
+    if (t > at('contrae') && t < at('inferior')) s = 0.88 + 0.04 * Math.sin(t * 7);
+    if (t > at('relaja') && t < at('ambos')) s = 1.1;
+    scaleAbout(hg, 1450, 430, s);
+    show(c1, t, at('superior')); show(c2, t, at('inferior'));
+    ring1.setAttribute('opacity', t > at('superior') && t < at('inferior') || t > at('sist65') ? 1 : 0);
+    ring2.setAttribute('opacity', t > at('inferior') && t < at('ambos') ? 1 : 0);
+    show(plus, t, at('sist65'));
+  };
+});
+
+// 4. stiffer arteries → systolic up
+scene(svg, () => at('motivo'), () => at('explica'), g => {
+  const q = cap(g, '¿EL MOTIVO?', 'MOTIVO', 140, 64);
+  const fa = el('g', {}, g); cut(fa, 'arteria_flexible', 560, 470, 560);
+  const ra = el('g', {}, g); cut(ra, 'arteria_rigida', 1360, 470, 480);
+  const c1 = Chip(g, 'FLEXIBLE', { cx: 560, cy: 800, fill: C.green, color: C.white, size: 48 });
+  const c2 = Chip(g, 'MÁS RÍGIDA', { cx: 1360, cy: 800, fill: C.red, color: C.white, size: 48 });
+  const ro = Readout(g, { cx: 960, cy: 240, size: 80, w: 260, card: true });
+  const up = Arrow(g, 1130, 300, 1130, 160, C.red, 16);
+  return t => {
+    show(q, t, at('motivo'), at('flexibles'));
+    show(fa, t, at('elasticidad') - 0.2); show(ra, t, at('elasticidad') - 0.2);
+    const flex = t > at('flexibles') ? 1 + 0.07 * Math.max(0, Math.sin(t * 7)) : 1;
+    scaleAbout(fa.firstChild, 560, 470, flex);
+    show(c1, t, at('flexibles')); show(c2, t, at('rigidas'));
+    ra.setAttribute('opacity', +ra.getAttribute('opacity') * (t > at('rigidas') ? 1 : 0.55));
+    pop(ro.g, t, at('aumente'), 960, 240); ro.draw(count(t, at('aumente'), 125, 155, 1.2), 80, { sysCol: C.red });
+    up.setAttribute('opacity', t > at('aumente') + 0.6 ? 1 : 0);
+  };
+});
+
+// 5. high top number, normal bottom number
+scene(svg, () => at('explica'), () => at('diferencia'), g => {
+  const m = MonitorDigits(g, { cx: 760, cy: 500, fit: 1000 });
+  const c1 = Chip(g, 'ARRIBA ALTA', { cx: 1560, cy: 400, fill: C.red, color: C.white, size: 46 });
+  const c2 = Chip(g, 'ABAJO NORMAL', { cx: 1560, cy: 600, fill: C.green, color: C.white, size: 46 });
+  return t => { m.draw(155, 80, { sysCol: C.red, diaCol: C.green }); float(m.g, t, 760, 500, { amp: 4 }); show(c1, t, at('explica') + 0.4); show(c2, t, at('explica') + 1.0); };
+});
+
+// 6. explain ≠ accept
+scene(svg, () => at('diferencia'), () => at('riesgo'), g => {
+  const st = still(g, 'a_clinica', { ...BIG, focus: [0.4, 0.45], zoom: 0.1 });
+  const sp = Stamp(g, 'EXPLICAR ≠ ACEPTAR', { cx: 960, cy: 250, size: 96 });
+  const c = cap(g, 'NO DEJARLA ELEVADA', 'ELEVADA', 950, 60);
+  return t => { st.draw(t, at('diferencia'), at('riesgo')); sp.draw(t, at('inofensivo')); show(c, t, at('conveniente')); };
+});
+
+// 7. hypertension = risk
+scene(svg, () => at('riesgo'), nextOr('otraparte', 1), g => {
+  const c = cap(g, 'HIPERTENSIÓN = RIESGO', 'RIESGO', 130, 64);
+  const tiles = [['brain', 'ICTUS', 'ictus'], ['heart', 'INSUFICIENCIA\nCARDÍACA', 'insuficiencia'], ['rinones', 'DAÑO\nRENAL', 'renal']].map(([n, l, k], i) => {
+    const tl = Tile(g, { x: 180 + i * 560, y: 260, w: 440, h: 440, imgs: [img(n)], label: l, size: 46 });
+    return [tl, k];
+  });
+  const ch = Chip(g, 'TAMBIÉN EN EDADES AVANZADAS', { cx: 960, cy: 880, fill: C.ink, color: C.amber, size: 44 });
+  return t => {
+    show(c, t, at('riesgo'));
+    tiles.forEach(([tl, k]) => { pop(tl.g, t, at(k), tl.cx, tl.cy); tl.ring.setAttribute('opacity', t > at(k) && t < at(k) + 1.2 ? 1 : 0); });
+    show(ch, t, at('avanzadas'));
+  };
+});
+
+// 8+. later beats (only rendered if the cut goes past them)
+scene(svg, () => at('otraparte'), () => at('aislada'), g => {
+  const m = MonitorDigits(g, { cx: 760, cy: 480, fit: 1000 });
+  const c = cap(g, 'NO ES UN PELIGRO INMEDIATO', 'INMEDIATO', 930, 58);
+  return t => { m.draw(132, 84); float(m.g, t, 760, 480, { amp: 4 }); show(c, t, at('peligro')); };
+});
+scene(svg, () => at('aislada'), () => at('telefono'), g => {
+  const st = still(g, 'a_sofa', { ...BIG, focus: [0.5, 0.4], zoom: 0.1 });
+  const c = cap(g, 'UNA MEDICIÓN NO LO DICE TODO', 'UNA', 950, 58);
+  return t => { st.draw(t, at('aislada'), at('telefono')); show(c, t, at('aislada') + 0.2); };
+});
+scene(svg, () => at('telefono'), () => END + 1, g => {
+  const st = still(g, 'a_telefono', { x: 70, y: 60, w: 1250, h: 960, focus: [0.45, 0.3], zoom: 0.1 });
+  const ro = Readout(g, { cx: 1600, cy: 450, size: 130, w: 400 });
+  const up = Arrow(g, 1600, 820, 1600, 690, C.red, 18);
+  return t => { st.draw(t, at('telefono'), END); pop(ro.g, t, at('telefono') + 0.3, 1600, 450); ro.draw(count(t, at('telefono') + 0.3, 125, 150, 1.5), count(t, at('telefono') + 0.3, 80, 92, 1.5), { sysCol: C.red }); up.setAttribute('opacity', t > at('telefono') + 1 ? 1 : 0); };
+});
+
+// fade out at the end of the cut
+const fade = el('rect', { width: 1920, height: 1080, fill: C.ink, opacity: 0 }, svg);
+window.draw = t => { drawScenes(t); fade.setAttribute('opacity', (0.0 + prog(t, END - 0.6, END)).toFixed(3)); };
+</script>
+</body></html>

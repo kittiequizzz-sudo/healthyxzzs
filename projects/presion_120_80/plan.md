@@ -5,10 +5,10 @@
 captions, hook cut every 1.5–2.5 s).
 
 Drawings: 9 scene sheets (2×2 = 36 panels) + 2 item sheets (20 items) + reuse from earlier videos
-(`7dias_sin_cenar/cut`: heart, brain, body, fish, lentils, veg; `azucar_sube/cut`: cafe, pesas) ≈ 60 drawings,
+(`7dias_sin_cenar/cut`: heart, brain, fish, lentils, veg; `azucar_sube/cut`: cafe, pesas) ≈ 60 drawings,
 about 1 per 20 s.
 
-Characters: **senior_m** (channel mascot: the hook's 70-year-old, measuring scenes, habits) · **Señora** (unnamed,
+Characters: **Don Andrés** (`characters/senior_es`, replaces senior_m; natural skin, coral polo: the hook's 70-year-old, measuring scenes, habits) · **Señora** (unnamed,
 82: hook + orthostatic scenes) · **Elías** (69, new) · **Natividad** (86, new). Fictional people get the chip
 "Dramatización" / "Ejemplo".
 
@@ -68,7 +68,7 @@ Recurring visuals (code):
 ## punto3: presión baja (~170 s)
 - Kicker "PUNTO 3 · DEMASIADO BAJA". Bubble "Cuanto más baja, mejor" ✗.
 - Term "HIPOTENSIÓN ORTOSTÁTICA" over `senora_a_1`.
-- Mechanism on the body cut-out: blood dots drift to the legs on standing (gravity arrow) → vessels squeeze and heart
+- Mechanism on the `silueta` cut-out (objetos #11): blood dots drift to the legs on standing (gravity arrow) → vessels squeeze and heart
   speeds up (normal) → slow response → dizzy.
 - Symptom row pops per word: mareo · visión borrosa · debilidad · desmayo.
 - Falls: `senora_a_4` → chips fractura · hospital · autonomía.

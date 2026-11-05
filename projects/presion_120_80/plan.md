@@ -121,3 +121,10 @@ Recurring visuals (code):
 - Quiz: A "siempre 120/80" (`senior_a_2`) · B "adaptada y tolerada" (`vida_4`). No answer revealed. Comment bubble;
   like · subscribe · bell.
 - Closing quote on ink: "Cumplir años no es dejar de cuidarte. Es cuidarte mejor."
+
+## First cut: 3-minute clip (owner request)
+Voice arrives full; render only 0:00 → the first sentence end after ~3:00 (≈ intro + first half of punto1, up to
+"…incluso en edades avanzadas." / "Una medición aislada…" depending on the take), with a 0.5 s fade out.
+Assets for this cut: `character_sheet`, `senior_a`, `senora_a`, `objetos` only. Substitutions vs the full plan:
+intro preview uses gauge · `senora_a_4` · `manguito_pequeno` + monitor (instead of `mal_3`); promise uses
+`senior_a_1` (instead of `vida_4`). Heart and brain reused from `7dias_sin_cenar/cut`.

@@ -10,8 +10,8 @@
 |---|---|---|
 | …repite la medición tras **al menos un minuto** y, si continúa tan elevada… | …**espera unos cinco minutos sentado y tranquilo, y repite la medición.** Si continúa tan elevada… | Hướng dẫn của Hội Tim mạch Hoa Kỳ (AHA) cho người bệnh là chờ khoảng 5 phút rồi đo lại. 1 phút là quá ngắn. (Nghĩa: "chờ khoảng 5 phút, ngồi yên, rồi đo lại.") |
 
-## CẦN BẠN QUYẾT ĐỊNH (2)
-1. **Số cấp cứu 112.** 112 đúng ở Tây Ban Nha và châu Âu. Video trước (`azucar_sube`) nhắm khán giả Mỹ Latinh (911, 123, 131…).
+## ĐÃ QUYẾT ĐỊNH
+1. **Số cấp cứu 112: GIỮ** (chủ kênh xác nhận khán giả là Tây Ban Nha). Ghi chú cũ: 112 đúng ở Tây Ban Nha và châu Âu. Video trước (`azucar_sube`) nhắm khán giả Mỹ Latinh (911, 123, 131…).
    Nếu video này cũng cho Mỹ Latinh: đổi thành *"llama a emergencias (112 en España, 911 en México…)"*, hoặc giữ 112
    trong lời đọc và hiện thẻ các số theo nước trên màn hình. Mặc định tôi giữ 112 vì kịch bản dùng "tú", "vídeo", "centro de
    salud", "ictus" (cách nói ở Tây Ban Nha).

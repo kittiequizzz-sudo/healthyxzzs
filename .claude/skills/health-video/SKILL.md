@@ -115,3 +115,5 @@ dependencies (playwright-core) and the motion QA tools.
 - `characters/`: the user's character sheets. `projects/`: one folder per video.
 - Feedback 2 Nov: owner wants every video visually different (no repeated settings or reused panels). Vary season, places, framing per video; only the cast sheet is shared.
 - Feedback 5 Nov: owner finds the past videos too yellow. Use a neutral theme (white-ish bg, grey shadows, no amber caption highlight) and white-balance scene panels (partial gray-world on highlights, 65%) after cutting.
+- Feedback 5 Nov (2): owner finds the images too bright. Grade every scene panel and cut-out darker / more muted
+  (lower brightness and saturation, a little contrast) and keep the page backgrounds muted too, not white.

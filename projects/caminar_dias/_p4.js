@@ -1,0 +1,103 @@
+// Punto 4 — walking isn't enough for strength: endurance vs strength, sarcopenia, resistance, chair stand, heel raises, balance, 2 days/week, CTA.
+window.START = at('h4') - 0.4;
+window.END = at('h5') - 0.7;
+window.DURATION = window.END;
+const svg = Stage('p4');
+const c = k => () => at(k);
+
+TitleCard(svg, 4, 'CAMINAR NO BASTA', 'Para mantener los músculos fuertes', () => START, c('confusion4'));
+scene(svg, c('confusion4'), c('cambios4'), g => {
+  const k = Kicker(g, 4, 'PUNTO 4 · FUERZA'); Progress(g, 3);
+  const gauge = (cx, label, val, col) => { const w = el('g', {}, g); Card(w, { x: cx - 330, y: 300, w: 660, h: 440, fill: C.white }); Text(w, label, { x: cx, y: 370, size: 52 });
+    el('rect', { x: cx - 260, y: 470, width: 520, height: 70, rx: 35, fill: '#D5D9DE', stroke: C.ink, 'stroke-width': 4 }, w); const bar = el('rect', { x: cx - 260, y: 470, width: 0, height: 70, rx: 35, fill: col }, w); return [w, bar, val]; };
+  const A = gauge(560, 'RESISTENCIA', 0.85, C.green), B = gauge(1360, 'FUERZA MUSCULAR', 0.35, C.red);
+  const ic1 = el('g', {}, A[0]); IC.walk(ic1, 510, 570, 1); const ic2 = el('g', {}, B[0]); IC.dumbbell(ic2, 1310, 570, 1);
+  const a = CAP(g, 'CAMINAR CUIDA SOBRE TODO LA RESISTENCIA', { hi: 'RESISTENCIA', size: 48 });
+  sfx('pop', at('diferencia4') + 5); sfx('pop', at('diferencia4') + 7);
+  return t => { slideIn(k, t, at('confusion4'), 'l', 600); [[A, 5], [B, 7]].forEach(([[w, bar, v], d]) => { pop(w, t, at('diferencia4') + d, w === A[0] ? 560 : 1360, 520); set(bar, { width: (520 * v * E.out(prog(t, at('diferencia4') + d + 0.4, at('diferencia4') + d + 1.6))).toFixed(1) }); }); show(a, t, at('confusion4') + 2, at('diferencia4') + 4.5); };
+});
+scene(svg, c('cambios4'), c('sorpresa4'), g => {
+  const m = ItemCard(g, 'muslos', 480, 500, { w: 460, h: 580, fit: 480 });
+  const r = SideChips(g, [['MENOS MASA', c('perder4')], ['MENOS FUERZA', () => at('perder4') + 1.6], ['MENOS POTENCIA', () => at('perder4') + 2.8]], { cx: 1100, y0: 300, dy: 140, size: 42 });
+  const s = Stamp(g, 'SARCOPENIA', { cx: 1450, cy: 760, size: 76, color: C.red, rot: -4 });
+  const ts = ChipRow(g, [['SILLA', () => at('silla4') + 3], ['ESCALERAS', () => at('silla4') + 4.6], ['EQUILIBRIO', () => at('silla4') + 6.2]], { cy: 960, size: 36, fill: '#E9D6D2', cx: 1100 });
+  sfx('pop', at('cambios4')); [0, 1.6, 2.8].forEach(d => sfx('pop', at('perder4') + d, 0.5)); sfx('stamp', at('sarcopenia'));
+  return t => { pop(m, t, at('cambios4'), 480, 500); r(t); s.draw(t, at('sarcopenia')); ts(t); };
+});
+stillScene(svg, 'p4aa', c('sorpresa4'), c('porque4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, '30 O 60 MINUTOS… Y AÚN HACE FALTA FUERZA', { hi: 'FUERZA', size: 46 });
+  return t => show(a, t, at('sesenta4'));
+});
+stillScene(svg, 'p4ac', c('porque4'), () => at('repetitivo') + 4.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN ESFUERZO REPETITIVO', { hi: 'REPETITIVO' });
+  return t => show(a, t, at('repetitivo'));
+});
+stillScene(svg, 'p4ab', () => at('repetitivo') + 4.5, c('resistencia4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SIEMPRE BASTA PARA GANAR FUERZA', { hi: 'NO SIEMPRE', size: 50 });
+  return t => show(a, t, at('repetitivo') + 4.7);
+});
+stillScene(svg, 'p4ad', c('resistencia4'), c('sillaej'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'TRABAJAR CONTRA UNA RESISTENCIA', { hi: 'RESISTENCIA', size: 52 });
+  return t => show(a, t, at('resistencia4') + 0.5);
+});
+// exercise 1: sit to stand arms crossed
+scene(svg, c('sillaej'), c('talones'), g => {
+  const h = Chip(g, 'EJERCICIO 1 · LEVANTARSE SIN BRAZOS', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['sb1', 'sb2', 'sb3', 'sb4'], [], { y: 170, h: 640 });
+  const a = CAP(g, 'LENTO · SILLA FIRME · MUSLOS Y CADERAS', { hi: 'MUSLOS Y CADERAS', size: 48, cy: 920 });
+  const b = Chip(g, 'SOLO SI PUEDES CON SEGURIDAD', { cx: 960, cy: 1020, fill: C.amber, size: 32 });
+  [0, 1.5, 3, 4.5].forEach(d => sfx('pop', at('sillaej') + d, 0.5));
+  return t => { show(h, t, at('sillaej')); lightRow(row, t, [0, 1.5, 3, 4.5].map(d => at('sillaej') + d)); show(a, t, at('sillaej') + 5); show(b, t, at('sillaej') + 7); };
+});
+// exercise 2: heel raises
+scene(svg, c('talones'), c('equilibrio4'), g => {
+  const h = Chip(g, 'EJERCICIO 2 · ELEVAR LOS TALONES', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['ta1', 'ta2', 'ta3'], [], { y: 170, h: 640 });
+  const a = CAP(g, 'SUJETÁNDOTE · PANTORRILLAS', { hi: 'PANTORRILLAS', cy: 920 });
+  [0, 2, 4].forEach(d => sfx('pop', at('talones') + d, 0.5));
+  return t => { show(h, t, at('talones')); if (t < at('talones') + 6) lightRow(row, t, [0, 2, 4].map(d => at('talones') + d)); else { const i = Math.floor((t - at('talones') - 6) / 1) % 3; row.forEach(({ c, st }, j) => { c.setAttribute('opacity', j === i ? 1 : 0.4); st.draw(t, 0, 1); }); } show(a, t, at('pantorrillas')); };
+});
+// exercise 3: balance
+scene(svg, c('equilibrio4'), c('dosdias'), g => {
+  const h = Chip(g, 'EJERCICIO 3 · EQUILIBRIO', { cx: 960, cy: 95, fill: ACC, color: C.white, size: 44 });
+  const row = PoseRow(g, ['eq1', 'eq2', 'eq3'], [], { y: 170, h: 640 });
+  const a = CAP(g, 'CERCA DE UNA ENCIMERA · SIN RIESGO DE CAÍDA', { hi: 'SIN RIESGO', size: 46, cy: 920 });
+  [0, 2.5, 5].forEach(d => sfx('pop', at('equilibrio4') + d, 0.5));
+  return t => { show(h, t, at('equilibrio4')); lightRow(row, t, [0, 2.5, 5].map(d => at('equilibrio4') + d)); show(a, t, at('equilibrio4') + 1); };
+});
+scene(svg, c('dosdias'), c('pesas'), g => {
+  const cal = ItemCard(g, 'calendario', 560, 470, { w: 640, h: 440, fit: 520 });
+  const r1 = el('circle', { cx: 420, cy: 500, r: 48, fill: 'none', stroke: C.red, 'stroke-width': 9 }, g);
+  const r2 = el('circle', { cx: 640, cy: 500, r: 48, fill: 'none', stroke: C.red, 'stroke-width': 9 }, g);
+  const a = Text(g, 'FUERZA: AL MENOS', { x: 1340, y: 380, size: 52 }); const b = Text(g, '2 DÍAS / SEMANA', { x: 1340, y: 470, size: 72, color: ACC });
+  const d = Chip(g, '+ EQUILIBRIO Y CAPACIDAD FUNCIONAL', { cx: 1340, cy: 640, fill: C.white, size: 34 });
+  const src = Source(g, 'OMS 2020 · recomendaciones para personas mayores');
+  sfx('pop', at('dosdias')); sfx('stamp', at('dosdias') + 4); sfx('pop', at('funcional'));
+  return t => { pop(cal, t, at('dosdias'), 560, 470); show(r1, t, at('dosdias') + 4); show(r2, t, at('dosdias') + 4.4); show(a, t, at('dosdias') + 3); show(b, t, at('dosdias') + 4); pop(d, t, at('funcional'), 1340, 640); show(src, t, at('dosdias') + 1); };
+});
+stillScene(svg, 'p4ba', c('pesas'), () => at('progresivo4'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'SIN GRANDES PESAS', { hi: 'SIN' });
+  return t => show(a, t, at('pesas') + 0.3);
+});
+stillScene(svg, 'p4bb', c('progresivo4'), c('articulares4'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'Y SUBIR LA DIFICULTAD POCO A POCO', { hi: 'POCO A POCO', size: 52 });
+  return t => show(a, t, at('progresivo4') + 0.3);
+});
+scene(svg, c('articulares4'), c('suscribe4'), g => {
+  const w = Warn(g, 'ADAPTA LOS EJERCICIOS CON AYUDA PROFESIONAL', ['PROBLEMAS ARTICULARES IMPORTANTES', 'DOLOR PERSISTENTE', 'CAÍDAS ANTERIORES'], { kind: 'amber', y: 200, w: 1560 });
+  sfx('alert_soft', at('articulares4') + 0.2);
+  return t => pop(w, t, at('articulares4') + 0.2, 960, 420);
+});
+stillScene(svg, 'p4bc', c('suscribe4'), c('siguiente4'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = el('g', { transform: 'translate(-420 -760)' }, g); const s = CTA(a, 'sub', 900);
+  const b = el('g', { transform: 'translate(420 -760)' }, g); const n = CTA(b, 'bell', 900);
+  sfx('click', at('suscribe4') + 5); sfx('click', at('suscribe4') + 6.5);
+  return t => { pop(s, t, at('suscribe4') + 5, 540, 140); pop(n, t, at('suscribe4') + 6.5, 1380, 140); };
+});
+stillScene(svg, 'p4bd', c('siguiente4'), () => END + 1, { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const q = Bubble(g, '¿Todos los días o descansar?', { cx: 1300, cy: 170, size: 46 });
+  sfx('ding', at('siguiente4') + 3);
+  return t => pop(q, t, at('siguiente4') + 3, 1300, 170);
+});
+
+window.draw = t => drawScenes(t);

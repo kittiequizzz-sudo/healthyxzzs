@@ -1,0 +1,82 @@
+// Punto 6 — the best routine is one you can keep: don't copy, three profiles, where you walk, shoes, strength+balance, consult, conclusion.
+window.START = at('h6') - 0.2;
+window.END = at('c0') - 0.6;
+window.DURATION = window.END;
+const svg = Stage('p6');
+const c = k => () => at(k);
+
+TitleCard(svg, 6, 'LA MEJOR RUTINA', 'La que puedes mantener sin riesgos', () => START, c('pregunta6'));
+stillScene(svg, 'p6ad', c('pregunta6'), c('copiar'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const k = Kicker(g, 6, 'PUNTO 6 · TU RUTINA'); Progress(g, 5);
+  const r = SideChips(g, [['TU CONDICIÓN FÍSICA', () => at('depende6') + 3], ['TUS HÁBITOS', () => at('depende6') + 5.5], ['CÓMO RESPONDE TU CUERPO', () => at('depende6') + 7]], { cx: 400, y0: 260, size: 36 });
+  [3, 5.5, 7].forEach(d => sfx('pop', at('depende6') + d, 0.5));
+  return t => { slideIn(k, t, at('pregunta6'), 'l', 600); r(t); };
+});
+scene(svg, c('copiar'), c('tres6'), g => {
+  const s = Stamp(g, 'NO COPIES LA RUTINA DE OTRO', { cx: 960, cy: 300, size: 64, color: C.red, rot: -3 });
+  const a = ItemCard(g, 'reloj', 560, 640, { w: 380, h: 380, fit: 260, label: 'MINUTOS', size: 36 });
+  const p = Text(g, '+', { x: 960, y: 640, size: 120, color: ACC });
+  const b = Medal(g, 'heart', 1360, 640, 1.7);
+  const bl = Text(g, 'RECUPERARTE Y MANTENERLO', { x: 1360, y: 860, size: 34 });
+  sfx('stamp', at('copiar')); sfx('pop', at('copiar') + 7); sfx('pop', at('copiar') + 10);
+  return t => { s.draw(t, at('copiar')); pop(a, t, at('copiar') + 7, 560, 640); show(p, t, at('copiar') + 9); pop(b, t, at('copiar') + 10, 1360, 640); show(bl, t, at('copiar') + 10.5); };
+});
+// three profiles
+scene(svg, c('tres6'), c('ninguna6'), g => {
+  const h = Text(g, 'TRES SITUACIONES', { x: 960, y: 120, size: 76, color: ACC });
+  const P = [['p6aa', 'EMPIEZAS', "5–10'", '1–2 VECES AL DÍA', 'primera', C.blue], ['p6ab', 'YA CAMINAS', "20–30'", '5 DÍAS / SEMANA', 'segunda', C.green], ['p6ac', 'MUY ACTIVO', "30–45'", 'SI LO TOLERAS BIEN', 'tercera', C.orange]].map(([n, t1, m, f, k, col], i) => {
+    const w = el('g', {}, g), x = 90 + i * 600; Card(w, { x, y: 190, w: 540, h: 760, fill: C.white });
+    const st = Still(w, 'cut/' + n + '.png', { x: x + 20, y: 210, w: 500, h: 320, iw: SZ[n][0], ih: SZ[n][1], r: 20, zoom: 0.04 });
+    el('rect', { x: x + 20, y: 560, width: 500, height: 70, rx: 35, fill: col }, w); Text(w, t1, { x: x + 270, y: 597, size: 42, color: C.white });
+    Text(w, m, { x: x + 270, y: 730, size: 100, color: C.ink }); Text(w, f, { x: x + 270, y: 850, size: 34 }); return [w, st, k, x];
+  });
+  P.forEach(([, , k]) => sfx('pop', at(k), 0.7));
+  return t => { show(h, t, at('tres6')); P.forEach(([w, st, k, x]) => { pop(w, t, at(k), x + 270, 570); st.draw(t, at(k), at('ninguna6')); }); };
+});
+stillScene(svg, 'a2b', c('ninguna6'), c('donde6'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'NINGUNA CIFRA ES OBLIGATORIA', { hi: 'NINGUNA' });
+  return t => show(a, t, at('ninguna6') + 0.3);
+});
+stillScene(svg, 'p6ba', c('donde6'), c('calzado6'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'ELIGE BIEN DÓNDE CAMINAS', { hi: 'DÓNDE' });
+  const r = SideChips(g, [['✗ TERRENO IRREGULAR', () => at('donde6') + 2.5], ['✗ PENDIENTES', () => at('donde6') + 4.3], ['✗ SUELO RESBALADIZO', () => at('donde6') + 6]], { cx: 1560, y0: 160, size: 36 });
+  [2.5, 4.3, 6].forEach(d => sfx('pop', at('donde6') + d, 0.5));
+  return t => { show(a, t, at('donde6')); r(t); };
+});
+scene(svg, c('calzado6'), () => at('calzado6') + 5.6, g => {
+  const h = Text(g, 'MÁS SEGURIDAD', { x: 960, y: 140, size: 76, color: ACC });
+  const cs = [['zapatos', 'CALZADO CÓMODO', 0], ['speed', 'EMPEZAR SUAVE', 1.8], ['steps', 'SUBIR POCO A POCO', 3.6]].map(([n, l, d], i) => [i ? IconTile(g, n, l, 400 + i * 560, 520, { w: 440, h: 440 }) : ItemCard(g, n, 400, 520, { w: 440, h: 440, fit: 320, label: l, size: 36 }), d, 400 + i * 560]);
+  cs.forEach(([, d]) => sfx('pop', at('calzado6') + d, 0.6));
+  return t => { show(h, t, at('calzado6')); cs.forEach(([cc, d, cx]) => pop(cc, t, at('calzado6') + d, cx, 520)); };
+});
+stillScene(svg, 'p6bb', () => at('calzado6') + 5.6, c('complementar6'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'UN BUEN CALZADO', { hi: 'CALZADO' });
+  return t => show(a, t, at('calzado6') + 5.7);
+});
+scene(svg, c('complementar6'), c('consulta6'), g => {
+  const a = Medal(g, 'walk', 460, 470, 2); const al = Text(g, 'RESISTENCIA', { x: 460, y: 680, size: 44 });
+  const p1 = Text(g, '+', { x: 760, y: 480, size: 120, color: ACC });
+  const b = Medal(g, 'dumbbell', 1060, 470, 2); const bl = Text(g, 'FUERZA', { x: 1060, y: 680, size: 44 });
+  const p2 = Text(g, '+', { x: 1360, y: 480, size: 120, color: ACC });
+  const d = IconTile(g, 'feet', 'EQUILIBRIO', 1600, 470, { w: 300, h: 320 });
+  const cc = CAP(g, 'ASÍ SE CONSERVA LA AUTONOMÍA', { hi: 'AUTONOMÍA' });
+  sfx('pop', at('complementar6')); sfx('pop', at('complementar6') + 2); sfx('pop', at('complementar6') + 3);
+  return t => { pop(a, t, at('complementar6'), 460, 470); show(al, t, at('complementar6')); show(p1, t, at('complementar6') + 1.5); pop(b, t, at('complementar6') + 2, 1060, 470); show(bl, t, at('complementar6') + 2); show(p2, t, at('complementar6') + 2.8); pop(d, t, at('complementar6') + 3, 1600, 470); show(cc, t, at('complementar6') + 6); };
+});
+scene(svg, c('consulta6'), c('conclusion6'), g => {
+  const w = Warn(g, 'ADAPTA TU ACTIVIDAD CON UN PROFESIONAL', ['ENFERMEDAD CARDIOVASCULAR', 'PROBLEMAS RESPIRATORIOS IMPORTANTES', 'LIMITACIONES DE MOVILIDAD'], { kind: 'amber', y: 200, w: 1560 });
+  sfx('alert_soft', at('consulta6') + 0.2);
+  return t => pop(w, t, at('consulta6') + 0.2, 960, 420);
+});
+stillScene(svg, 'p6bc', c('conclusion6'), c('objetivo6'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO TIENES QUE DEMOSTRAR NADA', { hi: 'NADA' });
+  const r = SideChips(g, [['DISFRUTAR', () => at('demostrar') + 4], ['MANTENER', () => at('demostrar') + 5], ['ADAPTAR', () => at('demostrar') + 6]], { cx: 1600, y0: 160, size: 42, fill: C.green, color: C.white });
+  [4, 5, 6].forEach(d => sfx('pop', at('demostrar') + d, 0.5));
+  return t => { show(a, t, at('demostrar')); r(t); };
+});
+stillScene(svg, 'p6bd', c('objetivo6'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'CONFIANZA · SEGURIDAD · INDEPENDENCIA', { hi: 'INDEPENDENCIA', size: 48 });
+  return t => show(a, t, at('objetivo6') + 7);
+});
+
+window.draw = t => drawScenes(t);

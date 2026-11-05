@@ -1,0 +1,97 @@
+// Punto 1 — 10,000 steps: origin, Lancet PH 2022 plateau 6–8k for 60+, build up +500, not a competition.
+window.START = at('h1') - 0.3;
+window.END = at('h2') - 0.5;
+window.DURATION = window.END;
+const svg = Stage('p1');
+const c = k => () => at(k);
+
+TitleCard(svg, 1, 'NO NECESITAS 10.000 PASOS', 'Para cuidar tu salud', () => START, c('diezmil1'));
+stillScene(svg, 'p1aa', c('diezmil1'), c('noneces1'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const k = Kicker(g, 1, 'PUNTO 1 · PASOS'); Progress(g, 0);
+  const n = Text(g, '10.000', { x: 1500, y: 300, size: 110, color: C.white });
+  const r = SideChips(g, [['RELOJES', c('relojes1')], ['APLICACIONES', () => at('relojes1') + 1.6], ['INTERNET', () => at('relojes1') + 4]], { cx: 1560, y0: 440, size: 40 });
+  [0, 1.6, 4].forEach(d => sfx('pop', at('relojes1') + d, 0.5));
+  return t => { slideIn(k, t, at('diezmil1'), 'l', 600); show(n, t, at('diezmil1') + 0.5, at('relojes1')); r(t); };
+});
+stillScene(svg, 'p1ab', c('noneces1'), c('origen1'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO HACE FALTA LLEGAR A 10.000', { hi: 'NO HACE FALTA' });
+  return t => show(a, t, at('noneces1') + 0.5);
+});
+stillScene(svg, 'p1ac', c('origen1'), c('estudios1'), { focus: [0.55, 0.55], zoom: 0.14 }, g => {
+  const a = Chip(g, 'NO VIENE DE UN ESTUDIO MÉDICO', { cx: 1300, cy: 140, fill: C.white, size: 40 });
+  const b = CAP(g, 'UN PODÓMETRO JAPONÉS · AÑOS 60', { hi: 'AÑOS 60' });
+  sfx('pop', at('origen1') + 1);
+  return t => { pop(a, t, at('origen1') + 1, 1300, 140); show(b, t, at('podometro')); };
+});
+// plateau chart
+scene(svg, c('estudios1'), c('significa1'), g => {
+  const x0 = 260, x1 = 1660, y0 = 820, y1 = 280, X = s => x0 + (x1 - x0) * s / 12000, Y = v => y0 - (y0 - y1) * v;
+  const ax = el('g', {}, g); el('path', { d: `M${x0} ${y1 - 30} V${y0} H${x1 + 30}`, fill: 'none', stroke: C.ink, 'stroke-width': 6 }, ax);
+  [0, 2000, 4000, 6000, 8000, 10000, 12000].forEach(s => Text(ax, s ? (s / 1000) + '.000' : '0', { x: X(s), y: y0 + 40, size: 28, weight: 700 }));
+  Text(ax, 'PASOS AL DÍA', { x: (x0 + x1) / 2, y: y0 + 95, size: 34 }); Text(ax, 'BENEFICIO', { x: x0, y: y1 - 60, size: 32, anchor: 'start' });
+  const band = el('rect', { x: X(6000), y: y1, width: X(8000) - X(6000), height: y0 - y1, fill: C.green, 'fill-opacity': 0.18 }, g);
+  const bl = Text(g, '6.000–8.000', { x: X(7000), y: y1 + 40, size: 40, color: C.green });
+  const curve = el('path', { fill: 'none', stroke: ACC, 'stroke-width': 12, 'stroke-linecap': 'round' }, g);
+  const f = s => 1 - Math.exp(-s / 2600) * 1.0 - 0.0; // saturating
+  const src = Source(g, 'Paluch et al., The Lancet Public Health 2022 · adultos de 60+');
+  const n1 = Chip(g, 'NO GARANTIZA VIVIR MÁS', { cx: 600, cy: 180, fill: C.white, size: 36 });
+  const n2 = Chip(g, 'MÁS PASOS NO ES PERJUDICIAL', { cx: 1320, cy: 180, fill: C.white, size: 36 });
+  sfx('pop', at('lancet')); sfx('ding', at('lancet') + 10);
+  return t => {
+    show(ax, t, at('estudios1') + 0.5); show(src, t, at('lancet'));
+    const u = prog(t, at('lancet') + 1, at('lancet') + 9); let d = ''; const n = Math.floor(60 * u);
+    for (let i = 0; i <= n; i++) { const s = 12000 * i / 60; d += (i ? 'L' : 'M') + X(s).toFixed(1) + ' ' + Y(f(s) * 0.92).toFixed(1); }
+    set(curve, { d }); show(band, t, at('lancet') + 10); show(bl, t, at('lancet') + 10);
+    pop(n1, t, at('nosignifica1') + 1, 600, 180); pop(n2, t, at('nosignifica1') + 4, 1320, 180);
+  };
+});
+stillScene(svg, 'p1ad', () => at('significa1'), c('cuestion1'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'MENOS DE LO QUE CREES TAMBIÉN SUMA', { hi: 'TAMBIÉN SUMA', size: 50 });
+  return t => show(a, t, at('significa1') + 0.5);
+});
+// build up gradually
+scene(svg, c('cuestion1'), c('estrategia1'), g => {
+  const a = Text(g, '2.000', { x: 420, y: 520, size: 120, color: C.grey });
+  const ar = el('g', {}, g); Arrow(ar, 640, 520, 1250, 520, C.red, 16);
+  const b = Text(g, '8.000', { x: 1500, y: 520, size: 120, color: C.red });
+  const x = Stamp(g, 'DE GOLPE, NO', { cx: 960, cy: 300, size: 70, color: C.red, rot: -4 });
+  const r = ChipRow(g, [['MÚSCULOS', c('adaptarse1')], ['ARTICULACIONES', () => at('adaptarse1') + 1], ['CORAZÓN', () => at('adaptarse1') + 2]], { cy: 800, size: 40, fill: C.white });
+  sfx('pop', at('dosmil')); sfx('stamp', at('dosmil') + 4);
+  return t => { show(a, t, at('dosmil')); show(ar, t, at('dosmil') + 2); show(b, t, at('dosmil') + 3); x.draw(t, at('dosmil') + 4); r(t); };
+});
+stillScene(svg, 'p1ba', c('estrategia1'), c('quinientos'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'POCO A POCO', { hi: 'POCO A POCO' });
+  return t => show(a, t, at('estrategia1') + 0.3);
+});
+scene(svg, c('quinientos'), () => at('quinientos') + 5, g => {
+  const st = el('g', {}, g); const steps = [0, 1, 2, 3, 4].map(i => el('rect', { x: 360 + i * 250, y: 780 - (i + 1) * 90, width: 230, height: (i + 1) * 90, rx: 12, fill: C.green, 'fill-opacity': 0.75, stroke: C.ink, 'stroke-width': 4 }, st));
+  const sl = Text(g, '+500 PASOS CADA VEZ', { x: 960, y: 880, size: 60, color: C.green });
+  [0, 1, 2, 3, 4].forEach(i => sfx('pop', at('quinientos') + 0.4 + i * 0.7, 0.4));
+  return t => { steps.forEach((r, i) => r.setAttribute('opacity', t > at('quinientos') + 0.4 + i * 0.7 ? 1 : 0)); show(sl, t, at('quinientos') + 0.6); };
+});
+stillScene(svg, 'p1bb', () => at('quinientos') + 5, c('competicion1'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'AVANZA CUANDO ESTÉS PREPARADO', { hi: 'PREPARADO' });
+  return t => show(a, t, at('quinientos') + 5.2);
+});
+stillScene(svg, 'p1bc', c('competicion1'), c('mantener1'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'NO ES UNA COMPETICIÓN', { hi: 'NO' });
+  const r = SideChips(g, [['65 AÑOS, EN FORMA', () => at('sesenta5') + 0.5], ['80 AÑOS, CON BASTÓN', () => at('sesenta5') + 5]], { cx: 1560, y0: 150, size: 38 });
+  sfx('pop', at('sesenta5') + 0.5); sfx('pop', at('sesenta5') + 5);
+  return t => { show(a, t, at('competicion1') + 0.3); r(t); };
+});
+stillScene(svg, 'p1bd', c('mantener1'), c('sorpresa1'), { focus: [0.55, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LO QUE PUEDAS MANTENER', { hi: 'MANTENER' });
+  const q = Bubble(g, '¿Camino más que antes?', { cx: 1350, cy: 170, size: 46 });
+  const b = CAP(g, 'CADA AVANCE CUENTA', { hi: 'CADA AVANCE' });
+  sfx('ding', at('pregunta1'));
+  return t => { show(a, t, at('mantener1') + 0.5, at('avance1')); pop(q, t, at('pregunta1'), 1350, 170); show(b, t, at('avance1')); };
+});
+scene(svg, c('sorpresa1'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿Todo en un solo paseo?', { cx: 1250, cy: 380, size: 56 });
+  const x = el('g', {}, g); IC.cross(x, 1200, 520, 1.3);
+  sfx('ding', at('sorpresa1') + 2); sfx('pop', at('sorpresa1') + 5);
+  return t => { host(t, at('sorpresa1')); pop(q, t, at('sorpresa1') + 2, 1250, 380); pop(x, t, at('sorpresa1') + 5, 1265, 585); };
+});
+
+window.draw = t => drawScenes(t);

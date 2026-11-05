@@ -1,0 +1,92 @@
+// Punto 2 — short bouts count: 3×10 min, post-meal walks lower glucose, not identical, easier habit, question.
+window.START = at('h2') - 0.5;
+window.END = at('h3') - 0.6;
+window.DURATION = window.END;
+const svg = Stage('p2');
+const c = k => () => at(k);
+
+TitleCard(svg, 2, '10 MINUTOS TAMBIÉN CUENTAN', 'Varias veces al día', () => START, c('creencia2'));
+stillScene(svg, 'p2ad', c('creencia2'), c('buena2'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const k = Kicker(g, 2, 'PUNTO 2 · 10 MINUTOS'); Progress(g, 1);
+  const a = CAP(g, '¿30 MINUTOS SEGUIDOS SÍ O SÍ?', { hi: 'SEGUIDOS' });
+  const r = SideChips(g, [['CANSANCIO', () => at('barrera2') + 6], ['ARTICULACIONES', () => at('barrera2') + 8], ['OBLIGACIONES', () => at('barrera2') + 10.5]], { cx: 1560, y0: 260, size: 38 });
+  [6, 8, 10.5].forEach(d => sfx('pop', at('barrera2') + d, 0.5));
+  return t => { slideIn(k, t, at('creencia2'), 'l', 600); show(a, t, at('treinta2')); r(t); };
+});
+scene(svg, c('buena2'), c('manana2'), g => {
+  const host = Host(g, 'face_happy', { cx: 1450, cy: 560, fit: 620 });
+  const a = Text(g, 'LA BUENA NOTICIA', { x: 680, y: 380, size: 80, color: C.green });
+  const b = Text(g, 'los ratos cortos también suman', { x: 680, y: 490, size: 48 });
+  const d = Chip(g, 'ACUMULA MOVIMIENTO EN EL DÍA', { cx: 680, cy: 650, fill: C.white, size: 40 });
+  sfx('ding', at('buena2')); sfx('pop', at('acumular2'));
+  return t => { host(t, at('buena2')); show(a, t, at('buena2')); show(b, t, at('breves2')); pop(d, t, at('acumular2'), 680, 650); };
+});
+// 3 × 10 min clock
+scene(svg, c('manana2'), c('practica2'), g => {
+  const ws = [['p2aa', 'MAÑANA', 'manana2'], ['p2ab', 'DESPUÉS DE COMER', 'comer2'], ['p2ac', 'TARDE', 'tarde2']].map(([n, l, k], i) => {
+    const w = el('g', {}, g), x = 90 + i * 600; const st = Still(w, 'cut/' + n + '.png', { x, y: 170, w: 540, h: 400, iw: SZ[n][0], ih: SZ[n][1], r: 26, zoom: 0.05 });
+    Chip(w, "10'", { cx: x + 270, cy: 640, fill: ACC, color: C.white, size: 56 }); Text(w, l, { x: x + 270, y: 730, size: 34 }); return [w, st, k, x];
+  });
+  const tot = el('g', {}, g); Card(tot, { x: 610, y: 800, w: 700, h: 150, fill: C.white }); Text(tot, "= 30 MINUTOS", { x: 960, y: 875, size: 64, color: C.green });
+  ws.forEach(([, , k]) => sfx('pop', at(k), 0.6)); sfx('ding', at('total2'));
+  return t => { ws.forEach(([w, st, k, x]) => { show(w, t, at(k)); st.draw(t, at(k), at('practica2')); }); pop(tot, t, at('total2'), 960, 875); };
+});
+stillScene(svg, 'a2a', c('practica2'), c('comidas2'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'IDEAL SI TE CANSAS PRONTO', { hi: 'TE CANSAS' });
+  return t => show(a, t, at('practica2') + 0.5);
+});
+stillScene(svg, 'p2ba', c('comidas2'), c('glucosa'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN PASEO DESPUÉS DE COMER', { hi: 'DESPUÉS DE COMER' });
+  return t => show(a, t, at('comidas2'));
+});
+scene(svg, c('glucosa'), c('nosustituye2'), g => {
+  const x0 = 300, x1 = 1620, y0 = 760, y1 = 280;
+  const ax = el('g', {}, g); el('path', { d: `M${x0} ${y1 - 20} V${y0} H${x1}`, fill: 'none', stroke: C.ink, 'stroke-width': 6 }, ax);
+  Text(ax, 'GLUCOSA', { x: x0, y: y1 - 50, size: 34, anchor: 'start' }); Text(ax, 'DESPUÉS DE COMER', { x: (x0 + x1) / 2, y: y0 + 50, size: 34 });
+  const sit = el('path', { fill: 'none', stroke: C.red, 'stroke-width': 10, 'stroke-linecap': 'round' }, g);
+  const walk = el('path', { fill: 'none', stroke: C.green, 'stroke-width': 10, 'stroke-linecap': 'round' }, g);
+  const l1 = Chip(g, 'SENTADO', { cx: 1000, cy: 250, fill: C.red, color: C.white, size: 36 });
+  const l2 = Chip(g, 'CON UN PASEO CORTO', { cx: 1350, cy: 520, fill: C.green, color: C.white, size: 36 });
+  const curve = (h, u) => { let d = ''; const N = Math.floor(80 * u); for (let i = 0; i <= N; i++) { const p = i / 80, x = x0 + (x1 - x0) * p, y = y0 - 60 - h * Math.exp(-((p - 0.35) ** 2) / 0.03); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1); } return d; };
+  sfx('pop', at('glucosa') + 1); sfx('pop', at('glucosa') + 4); 
+  return t => { show(ax, t, at('glucosa')); set(sit, { d: curve(400, prog(t, at('glucosa') + 1, at('glucosa') + 3)) }); set(walk, { d: curve(220, prog(t, at('glucosa') + 4, at('glucosa') + 6)) }); pop(l1, t, at('glucosa') + 2, 1000, 250); pop(l2, t, at('glucosa') + 5.5, 1350, 520); };
+});
+stillScene(svg, 'p2bb', c('nosustituye2'), c('aclarar2'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SUSTITUYE NINGÚN TRATAMIENTO', { hi: 'NO SUSTITUYE', size: 52 });
+  return t => show(a, t, at('nosustituye2') + 0.3);
+});
+scene(svg, c('aclarar2'), c('ventaja2'), g => {
+  const a = el('g', {}, g); Card(a, { x: 220, y: 260, w: 680, h: 360, fill: C.white }); Text(a, "3 × 10'", { x: 560, y: 400, size: 96, color: ACC }); Text(a, 'repartido', { x: 560, y: 500, size: 44, weight: 700 });
+  const eq = Text(g, '≈', { x: 960, y: 450, size: 150, color: C.grey });
+  const b = el('g', {}, g); Card(b, { x: 1020, y: 260, w: 680, h: 360, fill: C.white }); Text(b, "30'", { x: 1360, y: 400, size: 96, color: ACC }); Text(b, 'seguidos', { x: 1360, y: 500, size: 44, weight: 700 });
+  const r = ChipRow(g, [['INTENSIDAD', c('identicos')], ['RITMO', () => at('identicos') + 8.5], ['CADA PERSONA', () => at('identicos') + 10]], { cy: 740, size: 40, fill: C.white });
+  const ok = Chip(g, 'LAS DOS OPCIONES SUMAN', { cx: 960, cy: 900, fill: C.green, color: C.white, size: 44 });
+  sfx('pop', at('aclarar2') + 0.5); sfx('pop', at('aclarar2') + 1); sfx('ding', at('ambas2'));
+  return t => { pop(a, t, at('aclarar2') + 0.5, 560, 440); show(eq, t, at('identicos') + 2); pop(b, t, at('aclarar2') + 1, 1360, 440); r(t); pop(ok, t, at('ambas2'), 960, 900); };
+});
+stillScene(svg, 'p2bc', c('ventaja2'), c('pocos2'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MÁS FÁCIL DE MANTENER', { hi: 'MÁS FÁCIL' });
+  const b = Chip(g, 'PEQUEÑOS RECORRIDOS DEL DÍA', { cx: 1350, cy: 140, fill: C.white, size: 38 });
+  sfx('pop', at('dividir2') + 5);
+  return t => { show(a, t, at('dividir2')); pop(b, t, at('dividir2') + 5, 1350, 140); };
+});
+stillScene(svg, 'a2d', c('pocos2'), c('pregunta2'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'POCOS MINUTOS TAMBIÉN VALEN', { hi: 'TAMBIÉN VALEN' });
+  return t => show(a, t, at('pocos2') + 0.5);
+});
+stillScene(svg, 'p2bd', c('pregunta2'), c('falta2'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const q = Bubble(g, '¿30 seguidos o repartidos?', { cx: 1350, cy: 170, size: 46 });
+  const cta = CTA(el('g', {}, g), 'comment', 960);
+  sfx('ding', at('pregunta2') + 2); sfx('click', at('escribelo2'));
+  return t => { pop(q, t, at('pregunta2') + 2, 1350, 170); pop(cta, t, at('escribelo2'), 960, 960); };
+});
+scene(svg, c('falta2'), () => END + 1, g => {
+  const a = Medal(g, 'clock', 600, 470, 2.2);
+  const vs = Text(g, 'O', { x: 960, y: 480, size: 120, color: C.grey });
+  const b = Medal(g, 'speed', 1320, 470, 2.2);
+  const la = Text(g, '¿MUCHO TIEMPO?', { x: 600, y: 700, size: 46 }); const lb = Text(g, '¿BUENA VELOCIDAD?', { x: 1320, y: 700, size: 46 });
+  sfx('pop', at('falta2') + 3.3); sfx('pop', at('falta2') + 5.7);
+  return t => { pop(a, t, at('falta2') + 3.3, 600, 470); show(la, t, at('falta2') + 3.5); show(vs, t, at('falta2') + 5); pop(b, t, at('falta2') + 5.7, 1320, 470); show(lb, t, at('falta2') + 6); };
+});
+
+window.draw = t => drawScenes(t);

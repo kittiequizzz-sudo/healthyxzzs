@@ -365,3 +365,7 @@ function NerveSignal(g, x1, y, x2, { col = '#F2B84B' } = {}) {
   const dots = [0, 1, 2, 3, 4].map(() => el('circle', { r: 14, fill: col, stroke: C.ink, 'stroke-width': 3 }, g));
   return (t, t0, weak = 0) => dots.forEach((d, i) => { const u = ((t - t0) * 0.5 + i / 5) % 1; set(d, { cx: (x1 + (x2 - x1) * u).toFixed(1), cy: y, opacity: t > t0 ? (1 - weak * (i % 2 ? 1 : 0.4)) : 0 }); });
 }
+// big icon medallion
+function Medal(g, ic, cx, cy, s = 2.4, fill = C.white) { const b = el('g', {}, g); el('circle', { cx: cx + 6, cy: cy + 8, r: 62 * s, fill: SHADOW }, b); el('circle', { cx, cy, r: 62 * s, fill, stroke: C.ink, 'stroke-width': 6 }, b); IC[ic](b, cx - 50 * s * 0.8, cy - 50 * s * 0.8, s * 0.8); return b; }
+// warn helper for medical caution card
+const Caution = (g, head, lines, kind = 'amber', y = 200, w = 1500) => Warn(g, head, lines, { kind, y, w });

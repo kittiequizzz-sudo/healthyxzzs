@@ -13,14 +13,14 @@ stillScene(svg, 'p5aa', c('momento5'), c('av5'), { focus: [0.5, 0.5], zoom: 0.12
 });
 scene(svg, c('av5'), c('ganador5'), g => {
   const h = Text(g, 'PROTEÍNA POR RACIÓN', { x: 960, y: 130, size: 64, color: ACC });
-  const A = ProteinBar(g, 'AVENA · 40 g', 5, 6, 960, 300, { w: 1100, ic: 'bowl', col: '#A07A4E' });
-  const B = ProteinBar(g, 'HUEVOS · 2 unidades', 12, 14, 960, 520, { w: 1100, ic: 'egg', col: '#B5694E' });
-  const Cc = ProteinBar(g, 'QUESO FRESCO PROTEICO · 150 g', 12, 20, 960, 740, { w: 1100, ic: 'cheese', col: '#3E8080' });
-  const na = Chip(g, 'SU FUERTE: ENERGÍA Y FIBRA', { cx: 1500, cy: 230, fill: C.white, size: 28 });
-  const nb = Chip(g, 'PROTEÍNA COMPLETA · LEUCINA', { cx: 1500, cy: 450, fill: C.white, size: 28 });
-  const nc = Chip(g, 'DEPENDE DEL PRODUCTO', { cx: 1500, cy: 670, fill: C.white, size: 28 });
+  const A = ProteinBar(g, 'AVENA · 40 g', 5, 6, 960, 320, { w: 1100, ic: 'bowl', col: '#A07A4E' });
+  const B = ProteinBar(g, 'HUEVOS · 2 unidades', 12, 14, 960, 540, { w: 1100, ic: 'egg', col: '#B5694E' });
+  const Cc = ProteinBar(g, 'QUESO FRESCO PROTEICO · 150 g', 12, 20, 960, 760, { w: 1100, ic: 'cheese', col: '#3E8080' });
+  const na = Chip(g, 'SU FUERTE: ENERGÍA Y FIBRA', { cx: 960, cy: 415, fill: C.white, size: 30 });
+  const nb = Chip(g, 'PROTEÍNA COMPLETA · LEUCINA', { cx: 960, cy: 635, fill: C.white, size: 30 });
+  const nc = Chip(g, 'DEPENDE DEL PRODUCTO', { cx: 960, cy: 855, fill: C.white, size: 30 });
   sfx('pop', at('av5g')); sfx('pop', at('hu5g')); sfx('pop', at('qu5g'));
-  return t => { show(h, t, at('av5')); show(A.g, t, at('av5g')); A.draw(t, at('av5g') + 0.5); pop(na, t, at('av5g') + 6, 1500, 230); show(B.g, t, at('hu5g')); B.draw(t, at('hu5g') + 0.5); pop(nb, t, at('hu5g') + 6, 1500, 450); show(Cc.g, t, at('qu5g')); Cc.draw(t, at('qu5g') + 0.5); pop(nc, t, at('qu5g') + 8, 1500, 670); };
+  return t => { show(h, t, at('av5')); show(A.g, t, at('av5g')); A.draw(t, at('av5g') + 0.5); pop(na, t, at('av5g') + 6, 960, 415); show(B.g, t, at('hu5g')); B.draw(t, at('hu5g') + 0.5); pop(nb, t, at('hu5g') + 6, 960, 635); show(Cc.g, t, at('qu5g')); Cc.draw(t, at('qu5g') + 0.5); pop(nc, t, at('qu5g') + 8, 960, 855); };
 });
 stillScene(svg, 'p5ab', c('ganador5'), c('raciones'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
   const a = CAP(g, '¿GANA EL QUESO?', { hi: 'QUESO' });
@@ -30,7 +30,7 @@ stillScene(svg, 'p5ab', c('ganador5'), c('raciones'), { focus: [0.5, 0.5], zoom:
 });
 scene(svg, c('raciones'), c('calidad5'), g => {
   const h = Text(g, 'TAMBIÉN IMPORTAN…', { x: 960, y: 160, size: 70, color: ACC });
-  const ts = [['scale', 'TAMAÑO DE\nLA RACIÓN', () => at('raciones') + 0.5], ['drop', 'CALORÍAS', () => at('calorias5') + 1], ['cross', 'SAL', () => at('calorias5') + 2.4], ['plate', 'GRASAS', () => at('calorias5') + 3.4], ['heart', 'TUS\nNECESIDADES', () => at('calorias5') + 4.6]].map(([ic, l, k], i) => [IconTile(g, ic, l, 240 + i * 360, 520, { w: 320, h: 360 }), k, 240 + i * 360]);
+  const ts = [['scale', 'TAMAÑO DE\nLA RACIÓN', () => at('raciones') + 0.5], ['drop', 'CALORÍAS', () => at('raciones') + 2], ['cross', 'SAL', () => at('raciones') + 3.5], ['plate', 'GRASAS', () => at('calorias5') + 3.4], ['heart', 'TUS\nNECESIDADES', () => at('calorias5') + 4.6]].map(([ic, l, k], i) => [IconTile(g, ic, l, 240 + i * 360, 520, { w: 320, h: 360 }), k, 240 + i * 360]);
   ts.forEach(([, k]) => sfx('pop', k(), 0.5));
   return t => { show(h, t, at('raciones')); ts.forEach(([tile, k, cx]) => pop(tile, t, k(), cx, 520)); };
 });

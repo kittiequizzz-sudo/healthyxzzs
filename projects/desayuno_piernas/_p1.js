@@ -65,8 +65,8 @@ scene(svg, c('gkg'), () => at('gkg') + 12.5, g => {
   const ex = Chip(g, 'EJEMPLO: 70 kg ≈ 70–84 g / día', { cx: 960, cy: 680, fill: C.white, size: 46 });
   const n = Chip(g, 'ADULTOS MAYORES SANOS · SE ADAPTA A CADA PERSONA', { cx: 960, cy: 820, fill: '#E5D9D6', size: 32 });
   const src = Source(g, 'PROT-AGE 2013 · ESPEN 2014');
-  sfx('pop', at('gkg') + 3); sfx('pop', at('gkg') + 6); sfx('pop', at('gkg') + 10);
-  return t => { pop(a, t, at('gkg') + 3, 960, 400); show(b, t, at('gkg') + 4); pop(ex, t, at('gkg') + 6, 960, 680); pop(n, t, at('gkg') + 10, 960, 820); show(src, t, at('gkg') + 3); };
+  sfx('pop', at('gkg') + 0.3); sfx('pop', at('gkg') + 6); sfx('pop', at('gkg') + 10);
+  return t => { pop(a, t, at('gkg') + 0.3, 960, 400); show(b, t, at('gkg') + 1); pop(ex, t, at('gkg') + 6, 960, 680); pop(n, t, at('gkg') + 10, 960, 820); show(src, t, at('gkg') + 3); };
 });
 stillScene(svg, 'p1bb', () => at('gkg') + 12.5, c('problema1'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'SE ADAPTA A CADA PERSONA', { hi: 'CADA PERSONA' });

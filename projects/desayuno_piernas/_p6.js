@@ -51,8 +51,8 @@ stillScene(svg, 'p6bd', c('trabajo6'), c('objetivo6'), { focus: [0.5, 0.5], zoom
 scene(svg, c('objetivo6'), () => END + 1, g => {
   const ts = [['walk', 'CAMINAR CON\nSEGURIDAD'], ['chair', 'LEVANTARTE\nSOLO'], ['heart', 'DISFRUTAR\nMUCHOS AÑOS']].map(([ic, l], i) => [IconTile(g, ic, l, 420 + i * 540, 500, { w: 440, h: 440 }), 420 + i * 540, i]);
   const a = Text(g, 'EL VERDADERO OBJETIVO', { x: 960, y: 150, size: 70, color: ACC });
-  [0, 1, 2].forEach(i => sfx('pop', at('objetivo6') + 6 + i * 2, 0.5));
-  return t => { show(a, t, at('objetivo6')); ts.forEach(([tile, cx, i]) => pop(tile, t, at('objetivo6') + 6 + i * 2, cx, 500)); };
+  [0, 1, 2].forEach(i => sfx('pop', at('objetivo6') + 1.5 + i * 1.5, 0.5));
+  return t => { show(a, t, at('objetivo6')); ts.forEach(([tile, cx, i]) => pop(tile, t, at('objetivo6') + 1.5 + i * 1.5, cx, 500)); };
 });
 
 window.draw = t => drawScenes(t);

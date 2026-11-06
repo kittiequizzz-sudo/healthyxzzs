@@ -26,8 +26,8 @@ scene(svg, c('atencion4'), c('importante4'), g => {
   const h = Text(g, 'NO TODOS LOS QUESOS SON IGUALES', { x: 960, y: 140, size: 60, color: ACC });
   const it = [['queso_curado', 'CURADO'], ['queso_fresco', 'FRESCO'], ['queso_batido', 'FRESCO BATIDO PROTEICO']].map(([n, l], i) => [ItemCard(g, n, 420 + i * 540, 460, { w: 460, h: 440, fit: 300, label: l, size: l.length > 10 ? 30 : 40 }), i, 420 + i * 540]);
   const r = ChipRow(g, [['PROTEÍNA', () => at('tipos4') + 6], ['GRASA', () => at('tipos4') + 7.2], ['SAL', () => at('tipos4') + 8], ['CALORÍAS', () => at('tipos4') + 9]], { cy: 820, size: 40, fill: C.white });
-  it.forEach(([, i]) => sfx('pop', at('tipos4') + i * 1.6, 0.6));
-  return t => { show(h, t, at('atencion4')); it.forEach(([cc, i, cx]) => pop(cc, t, at('tipos4') + i * 1.6, cx, 460)); r(t); };
+  it.forEach(([, i]) => sfx('pop', at('atencion4') + 1 + i * 1.6, 0.6));
+  return t => { show(h, t, at('atencion4')); it.forEach(([cc, i, cx]) => pop(cc, t, at('atencion4') + 1 + i * 1.6, cx, 460)); r(t); };
 });
 stillScene(svg, 'p4aa', c('importante4'), c('caseina'), { focus: [0.5, 0.5], zoom: 0.08 }, g => {
   const a = CAP(g, 'LÁCTEOS: AMINOÁCIDOS ESENCIALES', { hi: 'ESENCIALES', size: 52 });

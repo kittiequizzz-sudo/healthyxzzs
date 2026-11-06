@@ -41,8 +41,8 @@ scene(svg, c('advertencia'), c('quiz'), g => {
   const k = Chip(g, 'ENFERMEDAD RENAL: CONSULTA ANTES DE AUMENTAR PROTEÍNA', { cx: 960, cy: 640, fill: C.white, size: 34 });
   const n = Chip(g, 'NINGÚN DESAYUNO SUSTITUYE UNA EVALUACIÓN MÉDICA', { cx: 960, cy: 770, fill: C.white, size: 34 });
   const s = Source(g, 'Contenido educativo · no sustituye una valoración médica', 960);
-  sfx('alert', at('urg')); sfx('pop', at('renal_c') + 4); sfx('pop', at('nosust_c'));
-  return t => { pop(w, t, at('urg'), 960, 310); pop(k, t, at('renal_c') + 4, 960, 640); pop(n, t, at('nosust_c'), 960, 770); show(s, t, at('nosust_c') + 1); };
+  sfx('alert', at('advertencia') + 0.3); sfx('pop', at('renal_c') + 4); sfx('pop', at('nosust_c'));
+  return t => { pop(w, t, at('advertencia') + 0.3, 960, 310); pop(k, t, at('renal_c') + 4, 960, 640); pop(n, t, at('nosust_c'), 960, 770); show(s, t, at('nosust_c') + 1); };
 });
 scene(svg, c('quiz'), c('suscribe_c'), g => {
   const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 110, size: 76, color: ACC });
@@ -50,9 +50,9 @@ scene(svg, c('quiz'), c('suscribe_c'), g => {
   const av = el('g', {}, g); cut(av, 'avena', 960, 340, 160);
   const ops = [['A', 'huevo_cocido', 'UN HUEVO'], ['B', 'manzana', 'UNA MANZANA'], ['C', 'miel', 'UNA CUCHARADA DE MIEL']].map(([L, n, s], i) => {
     const o = el('g', {}, g), cx = 480 + i * 480, cy = 640;
-    Card(o, { x: cx - 210, y: cy - 190, w: 420, h: 380, fill: C.white });
+    Card(o, { x: cx - 220, y: cy - 220, w: 440, h: 440, fill: C.white });
     el('circle', { cx, cy: cy - 130, r: 46, fill: ACC, stroke: C.ink, 'stroke-width': 5 }, o); Text(o, L, { x: cx, y: cy - 127, size: 56, color: C.white });
-    cut(o, n, cx, cy + 10, 170); Text(o, s, { x: cx, y: cy + 140, size: s.length > 12 ? 28 : 36 }); return [o, i, cx, cy];
+    cut(o, n, cx, cy + 10, 230); Text(o, s, { x: cx, y: cy + 170, size: s.length > 12 ? 30 : 40 }); return [o, i, cx, cy];
   });
   const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 940);
   const host = Host(g, 'three_q', { cx: 1760, cy: 880, fit: 300 });

@@ -1,0 +1,115 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 3 — talk test: sing = light, talk-but-not-sing = moderate, few words = too intense; practical sentence; orientative; meds/heart/lung caveat; age differs.
+window.START = at('h3') - 0.4;
+window.END = at('h4') - 0.4;
+window.DURATION = window.END;
+const svg = Stage('p3');
+const c = k => () => at(k);
+
+TitleCard(svg, 3, 'LA PRUEBA DEL HABLA', '¿Caminas al ritmo adecuado?', () => START, c('sabias3'));
+scene(svg, c('sabias3'), c('metodo3'), g => {
+  const k = Kicker(g, 3, 'PUNTO 3 · HABLA'); Progress(g, 2);
+  const b = el('g', {}, g); IC.bubble(b, 760, 220, 4);
+  const no = [['PULSACIONES', 'heart'], ['KILÓMETROS', 'route'], ['RELOJ', 'clock']].map(([l, ic], i) => { const x = el('g', {}, g), cy = 380 + i * 170; IC[ic](x, 1260, cy - 50, 1); Text(x, l, { x: 1490, y: cy + 4, size: 42, anchor: 'start' }); Mark(x, false, 1380, cy, 0.6); return [x, cy]; });
+  const a = CAP(g, 'ESCUCHA CÓMO RESPIRAS AL HABLAR', { hi: 'RESPIRAS' });
+  sfx('pop', at('sabias3') + 1); no.forEach((_, i) => sfx('pop', at('nonecesitas3') + i * 1.3, 0.5));
+  return t => { slideIn(k, t, at('sabias3'), 'l', 600); pop(b, t, at('sabias3') + 1, 960, 420); no.forEach(([x, cy], i) => slideIn(x, t, at('nonecesitas3') + i * 1.3, 'r', 400)); show(a, t, at('basta3')); };
+});
+scene(svg, c('metodo3'), c('tranquilo3'), g => {
+  const h = Text(g, 'LA PRUEBA DEL HABLA', { x: 960, y: 330, size: 110, color: ACC });
+  const s = Chip(g, 'ORIENTA LA INTENSIDAD DEL EJERCICIO', { cx: 960, cy: 520, fill: C.white, size: 46 });
+  const u = Chip(g, 'SENCILLA · ÚTIL DESPUÉS DE LOS 60', { cx: 960, cy: 680, fill: ACC, color: C.white, size: 44 });
+  sfx('stamp', at('metodo3') + 0.3); sfx('pop', at('metodo3') + 4); sfx('pop', at('metodo3') + 8);
+  return t => { pop(h, t, at('metodo3') + 0.3, 960, 330); pop(s, t, at('metodo3') + 4, 960, 520); pop(u, t, at('metodo3') + 8, 960, 680); };
+});
+// three levels — the core infographic, built up in three steps between the stills
+const LV = [['lento', 'LIGERA', '♪ PUEDES CANTAR', C.green], ['moderado', 'MODERADA', 'HABLAS, PERO NO CANTAS', '#B8873E'], ['rapido', 'DEMASIADO', 'SOLO POCAS PALABRAS', C.red]];
+function levels(a, b, n, extra) {
+  scene(svg, a, b, g => {
+    const lv = LV.slice(0, n).map(([nm, l, s, col], i) => { const cx = 360 + i * 600, x = el('g', {}, g);
+      Card(x, { x: cx - 270, y: 130, w: 540, h: 760, fill: C.white });
+      el('rect', { x: cx - 270, y: 130, width: 540, height: 100, rx: 36, fill: col }, x); el('rect', { x: cx - 270, y: 190, width: 540, height: 40, fill: col }, x);
+      Text(x, l, { x: cx, y: 184, size: 50, color: C.white });
+      cut(x, nm, cx, 500, 470);
+      Text(x, s, { x: cx, y: 820, size: s.length > 16 ? 32 : 40, color: col });
+      return [x, cx, i === n - 1 ? 0.4 : 0]; });
+    sfx('pop', a() + 0.4, 0.7);
+    const more = extra ? extra(g) : null;
+    return t => { lv.forEach(([x, cx, d]) => pop(x, t, a() + d, cx, 510)); if (more) more(t); };
+  });
+}
+stillScene(svg, 'h1a', c('tranquilo3'), c('ligera3'), { focus: [0.5, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'PASEO TRANQUILO: PUEDES CANTAR', { hi: 'CANTAR' });
+  return t => show(a, t, at('cantar3'));
+});
+levels(c('ligera3'), c('ahora3'), 1, g => { const n = Chip(g, 'SANA, PERO QUIZÁ NO BASTA PARA LA RESISTENCIA', { cx: 1260, cy: 510, fill: C.white, size: 34 }); return t => pop(n, t, at('ligera3') + 5, 1260, 510); });
+stillScene(svg, 'h1b', c('ahora3'), c('referencia3'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MÁS DEPRISA… PERO AÚN CONVERSAS', { hi: 'CONVERSAS' });
+  const b = Chip(g, 'INTENSIDAD MODERADA', { cx: 960, cy: 120, fill: ACC, color: C.white, size: 46 });
+  sfx('ding', at('moderada3') + 7);
+  return t => { show(a, t, at('ahora3') + 2); pop(b, t, at('moderada3') + 7, 960, 120); };
+});
+levels(c('referencia3'), c('cambio3'), 2, g => { const r = Callout(g, 960, 510, 300); sfx('ding', at('hablar3')); return t => r(t, at('hablar3')); });
+stillScene(svg, 'h1c', c('cambio3'), c('pocas3'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'CORAZÓN Y PULMONES TRABAJAN MÁS', { hi: 'TRABAJAN MÁS' });
+  return t => show(a, t, at('cambio3') + 0.3);
+});
+levels(c('pocas3'), c('practico3'), 3);
+stillScene(svg, 'h2a', c('practico3'), c('frase3'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const tr = Chip(g, '5 MIN A RITMO CÓMODO', { cx: 1480, cy: 140, fill: ACC, color: C.white, size: 46 });
+  const a = CAP(g, 'EJERCICIO PRÁCTICO', { hi: 'PRÁCTICO' });
+  sfx('pop', at('cinco3') + 1);
+  return t => { show(a, t, at('practico3')); pop(tr, t, at('cinco3') + 1, 1480, 140); };
+});
+stillScene(svg, 'h2b', c('frase3'), c('orientativa3'), { focus: [0.45, 0.45], zoom: 0.1 }, g => {
+  const b = Bubble(g, '«Hoy estoy caminando para cuidar mi salud…»', { cx: 960, cy: 140, size: 44 });
+  const a = CAP(g, 'SI LA DICES SIN AHOGARTE → RITMO ADECUADO', { hi: 'RITMO ADECUADO', size: 46 });
+  sfx('pop', at('hoy3'));
+  return t => { pop(b, t, at('hoy3'), 960, 140); show(a, t, at('adecuada3') + 1); };
+});
+scene(svg, c('orientativa3'), c('forzarte3'), g => {
+  const w = Warn(g, 'ES UNA PRUEBA ORIENTATIVA', ['ALGUNOS MEDICAMENTOS', 'ENFERMEDADES RESPIRATORIAS O CARDÍACAS', 'PUEDEN CAMBIAR TU RESPUESTA AL ESFUERZO'], { kind: 'amber', y: 120, w: 1500 });
+  const st = Still(el('g', {}, g), 'cut/h1d.png', { x: 1300, y: 640, w: 520, h: 300, iw: SZ.h1d[0], ih: SZ.h1d[1], r: 24 });
+  const k = Chip(g, 'SIGUE A TU PROFESIONAL SANITARIO', { cx: 640, cy: 800, fill: ACC, color: C.white, size: 40 });
+  sfx('alert', at('orientativa3') + 0.5); sfx('pop', at('limitacion3'));
+  return t => { pop(w, t, at('orientativa3') + 0.5, 960, 330); show(st.g, t, at('medicamentos3')); st.draw(t, at('orientativa3'), at('forzarte3')); pop(k, t, at('limitacion3'), 640, 800); };
+});
+stillScene(svg, 'h2c', c('forzarte3'), c('seguridad3'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = Chip(g, '65 AÑOS', { cx: 420, cy: 140, fill: C.white, size: 50 });
+  const b = Chip(g, '80 AÑOS', { cx: 1500, cy: 140, fill: C.white, size: 50 });
+  const cc = CAP(g, 'CADA UNO, SU RITMO', { hi: 'SU RITMO' });
+  sfx('pop', at('ochenta3')); sfx('pop', at('ochenta3') + 2);
+  return t => { show(cc, t, at('forzarte3') + 0.5); pop(a, t, at('ochenta3'), 420, 140); pop(b, t, at('ochenta3') + 2, 1500, 140); };
+});
+scene(svg, c('seguridad3'), c('cansas3'), g => {
+  const a = Text(g, 'SEGURIDAD', { x: 960, y: 420, size: 120, color: ACC });
+  const p = Text(g, '+', { x: 960, y: 540, size: 100, color: C.ink });
+  const b = Text(g, 'CONSTANCIA', { x: 960, y: 670, size: 120, color: ACC });
+  sfx('pop', at('seguridad3') + 0.3); sfx('pop', at('seguridad3') + 2);
+  return t => { pop(a, t, at('seguridad3') + 0.3, 960, 420); show(p, t, at('seguridad3') + 1.5); pop(b, t, at('seguridad3') + 2, 960, 670); };
+});
+stillScene(svg, 'h2d', c('cansas3'), c('solucion3'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, '¿AGOTADO A LOS 2 MINUTOS?', { hi: 'AGOTADO' });
+  return t => show(a, t, at('cansas3') + 0.5);
+}, true);
+scene(svg, c('solucion3'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'Alterna velocidades', { cx: 1220, cy: 330, size: 58 });
+  const st = IntervalStrip(g, [['', 2, 'slow'], ['', 1, 'fast'], ['', 2, 'slow'], ['', 1, 'fast'], ['', 2, 'slow']], { x0: 900, x1: 1760, y: 600, h: 120 });
+  sfx('ding', at('solucion3') + 1);
+  return t => { host(t, at('solucion3')); pop(q, t, at('solucion3') + 1, 1220, 330); st.forEach((s, i) => show(s.c, t, at('solucion3') + 4 + i * 0.5)); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 6 — how much: WHO 150–300 min/week moderate (≈30 min × 5 days); start with 10 min; example week; add strength 2 days/week + balance; consult if cane/falls/illness; red flags; goal = freedom of movement.
+window.START = at('h6') - 0.4;
+window.END = at('manana_c') - 0.4;
+window.DURATION = window.END;
+const svg = Stage('p6');
+const c = k => () => at(k);
+
+TitleCard(svg, 6, 'CUÁNTO Y CÓMO CAMINAR', 'Para proteger tu salud', () => START, c('mejor6'));
+scene(svg, c('mejor6'), c('oms6'), g => {
+  const k = Kicker(g, 6, 'PUNTO 6 · CADA SEMANA'); Progress(g, 5);
+  const no = [['LA MÁS LARGA', 520, 'mejor6'], ['LA MÁS RÁPIDA', 1400, 'mejor6']].map(([l, cx]) => { const x = el('g', {}, g); Card(x, { x: cx - 330, y: 260, w: 660, h: 180, fill: C.white }); Text(x, l, { x: cx + 40, y: 355, size: 48, color: C.grey }); Mark(x, false, cx - 230, 350, 0.8); return [x, cx]; });
+  const yes = el('g', {}, g); Card(yes, { x: 260, y: 520, w: 1400, h: 220, fill: ACC }); Text(yes, 'LA QUE PUEDES REPETIR CON SEGURIDAD', { x: 960, y: 632, size: 54, color: C.white });
+  const cc = Chip(g, 'MÁS AÑOS DE INDEPENDENCIA', { cx: 960, cy: 880, fill: C.white, size: 44 });
+  sfx('pop', at('mejor6') + 1); sfx('pop', at('mejor6') + 2.5); sfx('ding', at('mejor6') + 4.5); sfx('pop', at('independencia6') + 2);
+  return t => { slideIn(k, t, at('mejor6'), 'l', 600); no.forEach(([x, cx], i) => pop(x, t, at('mejor6') + 1 + i * 1.5, cx, 350)); pop(yes, t, at('mejor6') + 4.5, 960, 630); pop(cc, t, at('independencia6') + 2, 960, 880); };
+});
+scene(svg, c('oms6'), c('noempezar6'), g => {
+  const a = Text(g, '150 – 300', { x: 960, y: 330, size: 170, color: ACC });
+  const b = Text(g, 'MINUTOS A LA SEMANA · ACTIVIDAD MODERADA', { x: 960, y: 460, size: 48 });
+  const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D'].map((d, i) => { const x = el('g', {}, g), cx = 330 + i * 210, on = i < 5; Card(x, { x: cx - 85, y: 580, w: 170, h: 200, fill: on ? C.white : '#D5D9DE' }); Text(x, d, { x: cx, y: 630, size: 46, color: on ? ACC : C.grey }); if (on) Text(x, '30\'', { x: cx, y: 720, size: 56 }); return [x, cx, i]; });
+  const s = Source(g, 'OMS 2020 · si tu condición física lo permite');
+  sfx('stamp', at('oms6') + 1); days.forEach(([, , i]) => i < 5 && sfx('pop', at('oms6') + 6 + i * 0.4, 0.4));
+  return t => { pop(a, t, at('oms6') + 1, 960, 330); show(b, t, at('oms6') + 2); show(s, t, at('oms6') + 3); days.forEach(([x, cx, i]) => pop(x, t, at('oms6') + 6 + i * 0.4, cx, 680)); };
+});
+stillScene(svg, 'g1a', c('noempezar6'), c('distribucion6'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const steps = [['10 MIN', c('diez6')], ['UN POCO MÁS', c('gradual6')], ['+ TRAMOS RÁPIDOS', () => at('gradual6') + 4]].map(([s, k], i) => [Chip(g, s, { cx: 380 + i * 580, cy: 140, fill: i ? C.white : ACC, color: i ? C.ink : C.white, size: 42 }), k, 380 + i * 580]);
+  const a = CAP(g, 'EMPIEZA POCO A POCO', { hi: 'POCO A POCO' });
+  steps.forEach(([, k]) => sfx('pop', k(), 0.5));
+  return t => { show(a, t, at('noempezar6') + 0.5); steps.forEach(([x, k, cx]) => pop(x, t, k(), cx, 140)); };
+});
+scene(svg, c('distribucion6'), c('ejemplo6'), g => {
+  const h = Text(g, 'UNA SEMANA DE EJEMPLO', { x: 960, y: 140, size: 66, color: ACC });
+  const D = [['L', 'bubble', 'CAMINAR\nCONVERSANDO', 'lunes6'], ['M', 'bolt', 'INTERVALOS\nSUAVES', 'martes6'], ['X', 'bubble', 'CAMINAR\nCONVERSANDO', 'lunes6'], ['J', 'balance', 'PASEO +\nEQUILIBRIO', 'jueves6'], ['V', 'bolt', 'INTERVALOS\nSUAVES', 'martes6'], ['S', 'park', 'PARQUE O\nACTIVIDAD', 'finde6'], ['D', 'park', 'PARQUE O\nACTIVIDAD', 'finde6']];
+  const ds = D.map(([d, ic, l, k], i) => { const cx = 190 + i * 257; return [DayCard(g, d, ic, l, cx, 520, { w: 236, h: 380 }), k, cx, i]; });
+  const n = Chip(g, '20–30 MIN · SI PUEDES HABLAR, VAS BIEN', { cx: 960, cy: 820, fill: C.white, size: 36 });
+  ds.forEach(([, k, , i]) => sfx('pop', at(k) + (i % 2) * 0.8, 0.5));
+  return t => { show(h, t, at('distribucion6')); ds.forEach(([x, k, cx, i]) => pop(x, t, at(k) + ([1, 4, 6].includes(i) ? 1 : 0), cx, 520)); pop(n, t, at('lunes6') + 3, 960, 820); };
+});
+stillScene(svg, 'g1b', c('ejemplo6'), () => at('ejemplo6') + 4.6, { focus: [0.6, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'SOLO UN EJEMPLO: ADÁPTALO', { hi: 'ADÁPTALO' });
+  return t => show(a, t, at('ejemplo6') + 0.3);
+});
+stillScene(svg, 'g1c', () => at('ejemplo6') + 4.6, c('olvidan6'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO OTRA OBLIGACIÓN', { hi: 'OBLIGACIÓN' });
+  return t => show(a, t, at('ejemplo6') + 4.8);
+});
+scene(svg, c('olvidan6'), c('complementar6'), g => {
+  const h = Text(g, 'CAMINAR NO SUSTITUYE LA FUERZA', { x: 960, y: 140, size: 62, color: ACC });
+  const it = [['muslos', 'MUSLOS'], ['gemelos', 'PANTORRILLAS'], ['gluteos', 'GLÚTEOS']].map(([n, l], i) => [ItemCard(g, n, 260 + i * 330, 450, { w: 300, h: 400, fit: 240, label: l, size: 32 }), 260 + i * 330, i]);
+  const st = Still(el('g', {}, g), 'cut/g2a.png', { x: 1260, y: 260, w: 560, h: 380, iw: SZ.g2a[0], ih: SZ.g2a[1], r: 26 });
+  it.forEach(([, , i]) => sfx('pop', at('olvidan6') + 2.5 + i, 0.5));
+  return t => { show(h, t, at('olvidan6') + 1); it.forEach(([x, cx, i]) => pop(x, t, at('olvidan6') + 2.5 + i, cx, 450)); show(st.g, t, at('fuerza6') + 5); st.draw(t, at('fuerza6') + 5, at('complementar6')); };
+});
+stillScene(svg, 'g2b', c('complementar6'), c('baston6'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const r = ChipRow(g, [['FUERZA: 2 DÍAS / SEMANA', () => at('complementar6') + 0.5], ['+ EQUILIBRIO', () => at('complementar6') + 4]], { cy: 130, size: 44 });
+  [0.5, 4].forEach(d => sfx('pop', at('complementar6') + d, 0.5));
+  return r;
+});
+scene(svg, c('baston6'), c('carrera6'), g => {
+  const st = Still(el('g', {}, g), 'cut/g2c.png', { x: 120, y: 160, w: 760, h: 520, iw: SZ.g2c[0], ih: SZ.g2c[1], r: 28 });
+  const w = el('g', {}, g); Warn(el('g', { transform: 'translate(410 0)' }, w), 'CONSULTA ANTES SI…', ['USAS BASTÓN', 'HAS TENIDO CAÍDAS', 'ENFERMEDADES IMPORTANTES'], { kind: 'amber', y: 130, w: 900 });
+  const r = el('g', {}, g); Card(r, { x: 140, y: 760, w: 1640, h: 200, fill: C.white }); el('rect', { x: 140, y: 760, width: 26, height: 200, rx: 12, fill: C.red }, r);
+  Text(r, 'NUNCA IGNORES: DOLOR EN EL PECHO · MAREO INTENSO', { x: 980, y: 830, size: 46, color: C.red }); Text(r, 'DIFICULTAD PARA RESPIRAR INUSUAL', { x: 980, y: 900, size: 46, color: C.red });
+  sfx('alert', at('baston6') + 0.3); sfx('alert', at('senales6') + 0.3);
+  return t => { show(st.g, t, at('baston6')); st.draw(t, at('baston6'), at('carrera6')); show(w, t, at('baston6') + 0.3); pop(r, t, at('senales6') + 0.3, 960, 860); };
+}, true);
+scene(svg, c('carrera6'), c('ochenta6'), g => {
+  const a = el('g', {}, g); Text(a, 'NO ENTRENAS PARA UNA CARRERA', { x: 960, y: 380, size: 68, color: C.grey }); el('path', { d: 'M300 380 H1620', stroke: C.red, 'stroke-width': 10, 'stroke-linecap': 'round' }, a);
+  const b = Text(g, 'CUIDAS LO QUE DISFRUTAS HACER', { x: 960, y: 600, size: 72, color: ACC });
+  sfx('pop', at('carrera6') + 0.5); sfx('ding', at('carrera6') + 3.5);
+  return t => { show(a, t, at('carrera6') + 0.5); pop(b, t, at('carrera6') + 3.5, 960, 600); };
+});
+stillScene(svg, 'g2d', c('ochenta6'), c('meta6'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'VISITAR A LOS TUYOS CON AUTONOMÍA', { hi: 'AUTONOMÍA', size: 52 });
+  return t => show(a, t, at('ochenta6') + 3);
+});
+stillScene(svg, 'g1d', c('meta6'), () => END + 1, { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'LA META: TU LIBERTAD DE MOVIMIENTO', { hi: 'LIBERTAD', size: 52 });
+  return t => show(a, t, at('meta6') + 1.5);
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

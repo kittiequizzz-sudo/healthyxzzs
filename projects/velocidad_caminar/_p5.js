@@ -1,0 +1,106 @@
+// Punto 5 — 10,000 steps is not a magic number: 1960s Japanese pedometer marketing; more steps → lower mortality even below 10k; older adults ~6–8k (Paluch 2022); 2k→3k matters; total + speed; combine; sustainable habit.
+window.START = at('h5') - 0.4;
+window.END = at('h6') - 0.4;
+window.DURATION = window.END;
+const svg = Stage('p5');
+const c = k => () => at(k);
+
+TitleCard(svg, 5, 'LA OBSESIÓN DE LOS 10.000 PASOS', 'Un error frecuente después de los 60', () => START, c('examen5'));
+scene(svg, c('examen5'), c('magica5'), g => {
+  const k = Kicker(g, 5, 'PUNTO 5 · PASOS'); Progress(g, 4);
+  const a = el('g', {}, g); Card(a, { x: 260, y: 300, w: 620, h: 420, fill: C.white }); Text(a, '10.000', { x: 570, y: 470, size: 120, color: C.green }); Mark(a, true, 570, 620, 0.9);
+  const b = el('g', {}, g); Card(b, { x: 1040, y: 300, w: 620, h: 420, fill: C.white }); Text(b, '7.000', { x: 1350, y: 470, size: 120, color: C.grey }); Mark(b, false, 1350, 620, 0.9);
+  const cc = CAP(g, '¿UN EXAMEN DIARIO?', { hi: 'EXAMEN' });
+  sfx('pop', at('examen5') + 1.5); sfx('pop', at('siete5'));
+  return t => { slideIn(k, t, at('examen5'), 'l', 600); show(cc, t, at('examen5') + 0.5); pop(a, t, at('examen5') + 3, 570, 510); pop(b, t, at('siete5'), 1350, 510); };
+});
+stillScene(svg, 'f1a', c('magica5'), c('famoso5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO EXISTE UNA CIFRA MÁGICA', { hi: 'CIFRA MÁGICA' });
+  return t => show(a, t, at('magica5') + 0.3);
+});
+scene(svg, c('famoso5'), c('actuales5'), g => {
+  const p = ItemCard(g, 'podometro', 560, 500, { w: 560, h: 580, fit: 420, label: 'AÑOS 60 · JAPÓN', size: 44 });
+  const a = Chip(g, 'NO NACIÓ COMO RECOMENDACIÓN MÉDICA', { cx: 1320, cy: 360, fill: C.white, size: 36 });
+  const b = Chip(g, 'NACIÓ COMO PUBLICIDAD', { cx: 1320, cy: 520, fill: ACC, color: C.white, size: 44 });
+  const d = Chip(g, 'Y SE HIZO FAMOSO', { cx: 1320, cy: 680, fill: C.white, size: 40 });
+  sfx('pop', at('famoso5') + 2); sfx('pop', at('podometro5')); sfx('pop', at('podometro5') + 2); sfx('pop', at('referencia5'));
+  return t => { pop(a, t, at('famoso5') + 2, 1320, 360); pop(p, t, at('famoso5') + 0.5, 560, 500); pop(b, t, at('podometro5') + 2, 1320, 520); pop(d, t, at('referencia5'), 1320, 680); };
+});
+// steps vs mortality risk: risk falls as steps rise, flattening; older adults' sweet spot 6–8k
+scene(svg, c('actuales5'), c('setenta5'), g => {
+  const h = Text(g, 'MÁS PASOS → MENOR RIESGO', { x: 960, y: 130, size: 64, color: ACC });
+  const x0 = 260, x1 = 1660, y0 = 820, yTop = 260, sx = v => x0 + (x1 - x0) * v / 12000;
+  const ax = el('g', {}, g);
+  el('path', { d: `M${x0} ${yTop - 20} V${y0} H${x1 + 40}`, fill: 'none', stroke: C.ink, 'stroke-width': 6, 'stroke-linecap': 'round' }, ax);
+  [2000, 4000, 6000, 8000, 10000].forEach(v => Text(ax, (v / 1000) + '.000', { x: sx(v), y: y0 + 46, size: 32 }));
+  Text(ax, 'PASOS AL DÍA', { x: 1660, y: y0 + 100, size: 32, anchor: 'end', color: C.grey });
+  Text(ax, 'RIESGO', { x: x0 - 20, y: yTop - 50, size: 32, anchor: 'start', color: C.grey });
+  const band = el('g', {}, g); el('rect', { x: sx(6000), y: yTop, width: sx(8000) - sx(6000), height: y0 - yTop, fill: ACC, opacity: 0.2 }, band);
+  const bl = Chip(g, '6.000–8.000 PASOS', { cx: (sx(6000) + sx(8000)) / 2, cy: yTop - 30, fill: ACC, color: C.white, size: 36 });
+  const pts = []; for (let v = 1500; v <= 11500; v += 250) pts.push([sx(v), y0 - 40 - (y0 - yTop - 80) * Math.exp(-(v - 1500) / 2600)]);
+  const curve = el('path', { d: 'M' + pts.map(p => p.map(n => n.toFixed(1)).join(' ')).join(' L'), fill: 'none', stroke: C.red, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  const len = 2200; set(curve, { 'stroke-dasharray': len, 'stroke-dashoffset': len });
+  const t10 = el('g', {}, g); el('path', { d: `M${sx(10000)} ${yTop} V${y0}`, stroke: C.grey, 'stroke-width': 5, 'stroke-dasharray': '14 10' }, t10); Text(t10, '¿10.000?', { x: sx(10000), y: yTop - 10, size: 40, color: C.grey });
+  const n = Chip(g, 'NO ES UN LÍMITE EXACTO PARA TODOS', { cx: 960, cy: 980, fill: C.white, size: 36 });
+  const src = Source(g, 'Paluch et al., Lancet Public Health 2022 · adultos mayores');
+  sfx('pop', at('estudios5')); sfx('ding', at('mayores5') + 2); sfx('pop', at('limite5'));
+  return t => { show(h, t, at('actuales5') + 0.2); show(ax, t, at('actuales5') + 0.6); set(curve, { 'stroke-dashoffset': (len * (1 - E.inOut(prog(t, at('estudios5'), at('estudios5') + 4)))).toFixed(1) }); show(t10, t, at('estudios5') + 5); show(band, t, at('mayores5') + 2); show(bl, t, at('mayores5') + 2); show(src, t, at('mayores5') + 2); pop(n, t, at('limite5'), 960, 980); };
+});
+stillScene(svg, 'f1b', c('setenta5'), () => at('sentada5') + 2.5, { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const a = Chip(g, '75 AÑOS · 3.000 PASOS', { cx: 1400, cy: 140, fill: C.white, size: 44 });
+  const b = Stamp(g, '¡CLARO QUE SIRVE!', { cx: 960, cy: 940, size: 64, color: C.green, rot: -4 });
+  sfx('pop', at('setenta5') + 1); sfx('stamp', at('absoluto5'));
+  return t => { pop(a, t, at('setenta5') + 1, 1400, 140); b.draw(t, at('absoluto5')); };
+});
+scene(svg, () => at('sentada5') + 2.5, c('contrario5'), g => {
+  const h = Text(g, 'MEJORAR RESPECTO A TI MISMO', { x: 960, y: 150, size: 64, color: ACC });
+  const bar = (x, v, col, l) => { const w = el('g', {}, g); const r = el('rect', { x: x - 120, y: 800, width: 240, height: 0, rx: 18, fill: col, stroke: C.ink, 'stroke-width': 5 }, w); Text(w, l, { x, y: 860, size: 44 }); return [w, r, v]; };
+  const a = bar(700, 0.35, C.grey, '2.000'), b = bar(1220, 0.55, C.green, '3.000');
+  const ar = el('g', {}, g); Arrow(ar, 860, 520, 1060, 440, ACC, 14);
+  const cc = Chip(g, 'UN CAMBIO POSITIVO', { cx: 960, cy: 960, fill: C.white, size: 42 });
+  sfx('pop', at('sentada5') + 3); sfx('pop', at('sentada5') + 6); sfx('ding', at('inicial5'));
+  return t => { show(h, t, at('sentada5') + 2.7); [[a, 3], [b, 6]].forEach(([[w, r, v], d]) => { const u = E.out(prog(t, at('sentada5') + d, at('sentada5') + d + 1)); set(r, { y: 800 - 600 * v * u, height: 600 * v * u }); }); show(ar, t, at('sentada5') + 7); pop(cc, t, at('inicial5') + 1, 960, 960); };
+});
+stillScene(svg, 'f1c', c('contrario5'), c('total5'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, '5 MIN RÁPIDO Y EL RESTO DEL DÍA SENTADO', { hi: 'SENTADO', size: 48 });
+  return t => show(a, t, at('contrario5') + 2);
+});
+scene(svg, c('total5'), c('habituales5'), g => {
+  const a = IconTile(g, 'steps', 'CANTIDAD\n(PASOS)', 560, 470, { w: 480, h: 440 });
+  const p = Text(g, '+', { x: 960, y: 480, size: 140, color: ACC });
+  const b = IconTile(g, 'speed', 'INTENSIDAD\n(VELOCIDAD)', 1360, 470, { w: 480, h: 440 });
+  const cc = CAP(g, 'NO ENFRENTARLAS: COMBINARLAS', { hi: 'COMBINARLAS' });
+  sfx('pop', at('total5') + 1); sfx('pop', at('total5') + 6); sfx('ding', at('combinar5') + 2);
+  return t => { pop(a, t, at('total5') + 1, 560, 470); pop(b, t, at('total5') + 6, 1360, 470); show(p, t, at('combinar5')); show(cc, t, at('combinar5') + 2); };
+});
+stillScene(svg, 'f2a', c('habituales5'), () => at('habituales5') + 5.5, { focus: [0.45, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'TUS PASEOS DE SIEMPRE…', { hi: 'DE SIEMPRE' });
+  return t => show(a, t, at('habituales5') + 0.3);
+});
+stillScene(svg, 'f2b', () => at('habituales5') + 5.5, c('vecinos5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, '…+ ALGUNOS MINUTOS MÁS RÁPIDOS', { hi: 'MÁS RÁPIDOS' });
+  const b = Chip(g, 'DURACIÓN + INTENSIDAD', { cx: 960, cy: 120, fill: ACC, color: C.white, size: 44 });
+  sfx('pop', at('vecinos5') - 4.5);
+  return t => { show(a, t, at('habituales5') + 5.8); pop(b, t, at('vecinos5') - 4.5, 960, 120); };
+});
+stillScene(svg, 'f2c', c('vecinos5'), c('habito5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'SIN COMPETIR · SIN CULPA', { hi: 'SIN CULPA' });
+  return t => show(a, t, at('vecinos5') + 0.5);
+});
+stillScene(svg, 'f2d', c('habito5'), c('decisiva5'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN HÁBITO PARA MUCHOS AÑOS', { hi: 'MUCHOS AÑOS' });
+  return t => show(a, t, at('habito5') + 0.5);
+});
+stillScene(svg, 'f1d', c('decisiva5'), c('siguiente5'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, '¿CUÁNTO CAMINAR, ENTONCES?', { hi: 'CUÁNTO' });
+  return t => show(a, t, at('decisiva5') + 1);
+});
+scene(svg, c('siguiente5'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'Un plan semanal sencillo', { cx: 1220, cy: 330, size: 56 });
+  const ch = ChipRow(g, [['TIEMPO', () => at('siguiente5') + 4], ['INTENSIDAD', () => at('siguiente5') + 5], ['RECUPERACIÓN', () => at('siguiente5') + 6]], { cy: 700, cx: 1220, size: 40 });
+  sfx('ding', at('siguiente5') + 1);
+  return t => { host(t, at('siguiente5')); pop(q, t, at('siguiente5') + 1, 1220, 330); ch(t); };
+});
+
+window.draw = t => drawScenes(t);

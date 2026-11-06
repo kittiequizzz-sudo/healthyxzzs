@@ -1,0 +1,83 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Intro — steps vs speed; speed linked to heart, strength, life expectancy (but faster ≠ longer life); six points; point 4 teaser.
+window.START = 0;
+window.END = at('h1') - 0.8;
+window.DURATION = window.END;
+const svg = Stage('intro');
+const c = k => () => at(k);
+
+stillScene(svg, 'i1a', () => 0, c('nadie0'), { focus: [0.55, 0.5], zoom: 0.16 }, g => {
+  const n = ['10.000', '8.000', '6.000'].map((s, i) => Chip(g, s + ' PASOS', { cx: 1540, cy: 260 + i * 150, fill: i ? C.white : ACC, color: i ? C.ink : C.white, size: 50 }));
+  [0.4, 1.9, 3.1].forEach(d => sfx('pop', d, 0.6));
+  return t => n.forEach((x, i) => pop(x, t, [0.4, 1.9, 3.1][i], 1540, 260 + i * 150));
+}, true);
+stillScene(svg, 'i1b', c('nadie0'), c('detalle0'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'CONTAMOS PASOS… ¿Y LA VELOCIDAD?', { hi: 'VELOCIDAD', size: 52 });
+  return t => show(a, t, at('nadie0') + 1);
+}, true);
+stillScene(svg, 'i1c', c('detalle0'), c('ciencia0'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'DESPUÉS DE LOS 60, UN DETALLE QUE CUENTA', { hi: 'CUENTA', size: 50 });
+  return t => show(a, t, at('detalle0') + 0.3);
+}, true);
+scene(svg, c('ciencia0'), c('cuidado0'), g => {
+  const h = Text(g, 'TU VELOCIDAD HABITUAL SE RELACIONA CON…', { x: 960, y: 150, size: 56, color: ACC });
+  const it = [['corazon', 'EL CORAZÓN', 'corazon0'], ['muslos', 'LA FUERZA', 'fuerza0']].map(([n, l, k], i) => [ItemCard(g, n, 420 + i * 540, 520, { w: 440, h: 480, fit: 320, label: l, size: 44 }), k, 420 + i * 540]);
+  const v = el('g', {}, g); Card(v, { x: 1280, y: 280, w: 440, h: 480, fill: C.white }); IC.clock(v, 1400, 340, 2); Text(v, 'ESPERANZA', { x: 1500, y: 640, size: 44 }); Text(v, 'DE VIDA', { x: 1500, y: 700, size: 44 });
+  it.forEach(([, k]) => sfx('pop', at(k), 0.7)); sfx('pop', at('fuerza0') + 1.2, 0.7);
+  return t => { show(h, t, at('ciencia0') + 0.3); it.forEach(([cc, k, cx]) => pop(cc, t, at(k), cx, 520)); pop(v, t, at('fuerza0') + 1.2, 1500, 520); };
+});
+scene(svg, c('cuidado0'), c('paseo0'), g => {
+  const s = el('g', {}, g); cut(s, 'velocimetro', 560, 430, 460);
+  const a = Text(g, 'MÁS RÁPIDO', { x: 1300, y: 340, size: 84, color: ACC });
+  const ne = Text(g, '≠', { x: 1300, y: 470, size: 130, color: C.red });
+  const b = Text(g, 'MÁS AÑOS', { x: 1300, y: 600, size: 84, color: C.ink });
+  const k = Chip(g, '¿QUÉ RITMO NECESITA TU CUERPO?', { cx: 960, cy: 880, fill: ACC, color: C.white, size: 48 });
+  sfx('pop', at('cuidado0')); sfx('stamp', at('cuidado0') + 3); sfx('ding', at('clave0') + 1);
+  return t => { pop(s, t, at('cuidado0'), 560, 430); show(a, t, at('cuidado0') + 1.5); pop(ne, t, at('cuidado0') + 3, 1300, 470); show(b, t, at('cuidado0') + 3.6); pop(k, t, at('clave0') + 1, 960, 880); };
+});
+stillScene(svg, 'i2a', c('paseo0'), c('regresas0'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'LAS MISMAS CALLES CADA DÍA', { hi: 'CADA DÍA' });
+  return t => show(a, t, at('paseo0') + 0.5);
+});
+stillScene(svg, 'i2b', c('regresas0'), c('aprovechar0'), { focus: [0.5, 0.4], zoom: 0.14 }, g => {
+  const a = CAP(g, '«YA HE HECHO SUFICIENTE»', { hi: 'SUFICIENTE' });
+  return t => show(a, t, at('regresas0') + 1);
+});
+stillScene(svg, 'i1d', c('aprovechar0'), c('seis0'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, '¿APROVECHAS DE VERDAD ESOS MINUTOS?', { hi: 'DE VERDAD', size: 52 });
+  return t => show(a, t, at('aprovechar0') + 0.5);
+});
+scene(svg, c('seis0'), c('cuarto0'), g => {
+  const h = Text(g, '6 CLAVES PARA CAMINAR MEJOR', { x: 960, y: 150, size: 76, color: ACC });
+  const ks = [() => at('seis0') + 1.5, () => at('aprenderas0') + 1, c('aparato0'), () => at('aparato0') + 1, c('errores0'), () => at('errores0') + 1.5];
+  const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360, { w: 440, h: 300 }), ks[i], 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360]);
+  ks.forEach(k => sfx('pop', k(), 0.5));
+  return t => { show(h, t, at('seis0')); ts.forEach(([x, k, cx, cy]) => pop(x, t, k(), cx, cy)); };
+});
+scene(svg, c('cuarto0'), c('suscribe0'), g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const b = Bubble(g, 'Atento al punto 4', { cx: 1200, cy: 300, size: 56 });
+  const t4 = IconTile(g, 'bolt', 'ALTERNAR VELOCIDADES\nSIN AGOTARTE', 1220, 650, { w: 760, h: 380 });
+  sfx('ding', at('cuarto0') + 0.5); sfx('pop', at('cuarto0') + 3);
+  return t => { host(t, at('cuarto0')); pop(b, t, at('cuarto0') + 0.5, 1200, 300); pop(t4, t, at('cuarto0') + 3, 1220, 650); };
+});
+stillScene(svg, 'i2d', c('suscribe0'), () => END + 1, { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = el('g', {}, g); const s = CTA(a, 'sub', 160);
+  const cc = CAP(g, 'MOVILIDAD E INDEPENDENCIA', { hi: 'INDEPENDENCIA' });
+  sfx('click', at('suscribe0') + 4);
+  return t => { show(cc, t, at('suscribe0') + 0.5); pop(s, t, at('suscribe0') + 4, 960, 160); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

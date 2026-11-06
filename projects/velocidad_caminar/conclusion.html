@@ -1,0 +1,81 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Conclusion — not only steps: how you move; recap; faster ≠ guaranteed longer life; every step counts; medical warning; A/B quiz (answer not revealed); share + subscribe.
+window.START = at('manana_c') - 0.4;
+window.END = 1343.71;
+window.DURATION = window.END;
+const svg = Stage('end');
+const c = k => () => at(k);
+
+stillScene(svg, 'za', () => START, c('pantalla_c'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'A PARTIR DE MAÑANA…', { hi: 'MAÑANA' });
+  return t => show(a, t, at('manana_c') + 0.3);
+}, true);
+scene(svg, c('pantalla_c'), c('recap_c'), g => {
+  const w = el('g', {}, g); cut(w, 'reloj', 480, 480, 400); const x = el('g', {}, g); Text(x, 'NO SOLO', { x: 480, y: 780, size: 60, color: C.grey });
+  const r = SideChips(g, [['CÓMO TE MUEVES', c('como_c')], ['CUÁNTO ESFUERZO HACES', () => at('como_c') + 1.8], ['CÓMO RESPONDE TU CUERPO', () => at('como_c') + 4]], { cx: 1300, y0: 330, dy: 170, size: 42 });
+  sfx('pop', at('pantalla_c')); [0, 1.8, 4].forEach(d => sfx('pop', at('como_c') + d, 0.5));
+  return t => { pop(w, t, at('pantalla_c'), 480, 480); show(x, t, at('pantalla_c') + 1); r(t); };
+});
+scene(svg, c('recap_c'), c('garantiza_c'), g => {
+  const h = Text(g, 'HOY HEMOS VISTO', { x: 960, y: 150, size: 70, color: ACC });
+  const a = IconTile(g, 'speed', 'TU VELOCIDAD\nINFORMA', 560, 520, { w: 520, h: 460 });
+  const b = IconTile(g, 'heart', 'UN POCO MÁS DE RITMO\nAYUDA (SI ES SEGURO)', 1360, 520, { w: 620, h: 460 });
+  sfx('pop', at('recap_c') + 1); sfx('pop', at('ritmo_c') + 1);
+  return t => { show(h, t, at('recap_c')); pop(a, t, at('recap_c') + 1, 560, 520); pop(b, t, at('ritmo_c') + 1, 1360, 520); };
+});
+scene(svg, c('garantiza_c'), c('despacio_c'), g => {
+  const a = Text(g, 'MÁS RÁPIDO', { x: 960, y: 330, size: 96, color: ACC });
+  const ne = Text(g, '≠', { x: 960, y: 470, size: 130, color: C.red });
+  const b = Text(g, 'VIDA MÁS LARGA GARANTIZADA', { x: 960, y: 610, size: 80 });
+  const n = Chip(g, 'CANTIDAD + INTENSIDAD SUMAN', { cx: 960, cy: 820, fill: C.white, size: 44 });
+  sfx('pop', at('garantiza_c')); sfx('stamp', at('garantiza_c') + 1.5); sfx('pop', at('longevidad_c') + 3);
+  return t => { show(a, t, at('garantiza_c')); pop(ne, t, at('garantiza_c') + 1.5, 960, 470); show(b, t, at('garantiza_c') + 2); pop(n, t, at('longevidad_c') + 3, 960, 820); };
+});
+stillScene(svg, 'zc', c('despacio_c'), c('advertencia'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'CADA PASO CUENTA', { hi: 'CADA PASO', size: 64 });
+  const b = ChipRow(g, [['PROGRESA POCO A POCO', () => at('cuenta_c') + 2.5], ['CONSTANCIA', () => at('cuenta_c') + 4.5], ['RESPETA TUS LÍMITES', () => at('cuenta_c') + 6]], { cy: 120, size: 38 });
+  return t => { show(a, t, at('cuenta_c')); b(t); };
+});
+scene(svg, c('advertencia'), c('quiz'), g => {
+  const w = el('g', {}, g); Warn(el('g', { transform: 'translate(-300 0)' }, w), 'DETENTE Y BUSCA ATENCIÓN MÉDICA', ['DOLOR EN EL PECHO', 'MAREO INTENSO', 'DIFICULTAD PARA RESPIRAR INUSUAL', 'PÉRDIDA REPENTINA DEL EQUILIBRIO'], { kind: 'red', y: 90, w: 1180 });
+  const st = Still(el('g', {}, g), 'cut/zb.png', { x: 1300, y: 160, w: 540, h: 400, iw: SZ.zb[0], ih: SZ.zb[1], r: 26, focus: [0.55, 0.4] });
+  const u = Chip(g, 'SÍNTOMAS GRAVES O REPENTINOS → URGENCIAS (112)', { cx: 960, cy: 790, fill: C.red, color: C.white, size: 38 });
+  const s = Source(g, 'Contenido educativo · no sustituye una valoración médica individual', 940);
+  sfx('alert', at('advertencia') + 0.3); sfx('alert', at('urgente_c'));
+  return t => { show(w, t, at('advertencia') + 0.3); show(st.g, t, at('advertencia') + 1); st.draw(t, at('advertencia'), at('quiz')); pop(u, t, at('urgente_c'), 960, 790); show(s, t, at('educativo_c')); };
+}, true);
+scene(svg, c('quiz'), c('util_c'), g => {
+  const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 110, size: 76, color: ACC });
+  const q = Text(g, '¿Qué opción es más adecuada después de los 60?', { x: 960, y: 210, size: 46, weight: 800 });
+  const op = (L, lines, ic, cx, k) => { const o = el('g', {}, g); Card(o, { x: cx - 400, y: 290, w: 800, h: 500, fill: C.white });
+    el('circle', { cx, cy: 370, r: 50, fill: ACC, stroke: C.ink, 'stroke-width': 5 }, o); Text(o, L, { x: cx, y: 374, size: 60, color: C.white });
+    IC[ic](o, cx - 60, 450, 1.2);
+    lines.forEach((s, i) => Text(o, s, { x: cx, y: 640 + i * 52, size: s.length > 28 ? 31 : 36 })); return [o, cx, k]; };
+  const ops = [op('A', ['10.000 PASOS OBLIGATORIOS', 'AUNQUE TERMINES AGOTADO'], 'steps', 500, 'opA'), op('B', ['CAMINAR CON REGULARIDAD, A TU MEDIDA', '+ TRAMOS MÁS RÁPIDOS SI ES SEGURO'], 'calendar', 1420, 'opB')];
+  const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 920);
+  const n = Chip(g, '¿Y CUÁNTOS MINUTOS CAMINAS AL DÍA?', { cx: 1250, cy: 920, fill: C.white, size: 34 });
+  const host = Host(g, 'three_q', { cx: 1790, cy: 900, fit: 260 });
+  sfx('ding', at('quiz')); ops.forEach(([, , k]) => sfx('pop', at(k), 0.6)); sfx('click', at('escribe'));
+  return t => { show(h, t, at('quiz')); show(q, t, at('opcion_q')); ops.forEach(([o, cx, k]) => pop(o, t, at(k), cx, 540)); pop(cta, t, at('escribe'), 760, 920); pop(n, t, at('escribe') + 3, 1250, 920); host(t, at('quiz') + 1); };
+});
+stillScene(svg, 'zd', c('util_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const b = el('g', {}, g); Card(b, { x: 740, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(b, 770, 90, 1); Text(b, 'COMPARTE', { x: 1015, y: 142, size: 46 });
+  const a = el('g', {}, g); const s = CTA(a, 'sub', 140);
+  const cc = CAP(g, 'SEGUIR CAMINANDO MUCHOS AÑOS', { hi: 'MUCHOS AÑOS', size: 54 });
+  sfx('click', at('util_c') + 1); sfx('click', at('suscribe_c')); sfx('ding', at('recuerda_c') + 2);
+  return t => { pop(b, t, at('util_c') + 1, 960, 140, at('suscribe_c')); pop(s, t, at('suscribe_c'), 960, 140); show(cc, t, at('recuerda_c') + 1); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

@@ -25,8 +25,8 @@ scene(svg, c('diezmil0'), c('ciencia0'), g => {
   const w = ItemCard(g, 'reloj', 1420, 470, { w: 420, h: 460, fit: 340 });
   const b = Chip(g, '30 MINUTOS SIN PARAR', { cx: 700, cy: 720, fill: C.white, size: 46 });
   const q = Stamp(g, '¿SEGURO?', { cx: 1420, cy: 820, size: 70, color: C.red, rot: -6 });
-  sfx('pop', at('diezmil0') + 2); sfx('pop', at('diezmil0') + 5); sfx('stamp', at('diezmil0') + 8);
-  return t => { pop(n, t, at('diezmil0') + 2, 700, 440); show(l, t, at('diezmil0') + 2.3); pop(w, t, at('diezmil0') + 2.6, 1420, 470); pop(b, t, at('diezmil0') + 5, 700, 720); q.draw(t, at('diezmil0') + 8); };
+  sfx('pop', at('diezmil0') + 0.3); sfx('pop', at('diezmil0') + 5); sfx('stamp', at('diezmil0') + 8);
+  return t => { pop(n, t, at('diezmil0') + 0.3, 700, 440); show(l, t, at('diezmil0') + 0.6); pop(w, t, at('diezmil0') + 1, 1420, 470); pop(b, t, at('diezmil0') + 5, 700, 720); q.draw(t, at('diezmil0') + 8); };
 });
 scene(svg, c('ciencia0'), c('detalle0'), g => {
   const ts = [['calendar', 'FRECUENCIA'], ['speed', 'INTENSIDAD'], ['clock', 'REPARTO'], ['steps', 'DISTANCIA']].map(([ic, s], i) => [IconTile(g, ic, s, 300 + i * 440, 500, { w: 380, h: 400 }), 300 + i * 440, i]);

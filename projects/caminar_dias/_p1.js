@@ -8,7 +8,7 @@ const c = k => () => at(k);
 TitleCard(svg, 1, 'NO NECESITAS 10.000 PASOS', 'Para cuidar tu salud', () => START, c('diezmil1'));
 stillScene(svg, 'p1aa', c('diezmil1'), c('noneces1'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
   const k = Kicker(g, 1, 'PUNTO 1 · PASOS'); Progress(g, 0);
-  const n = Text(g, '10.000', { x: 1500, y: 300, size: 110, color: C.white });
+  const n = CAP(g, '10.000 PASOS: ¿UNA OBLIGACIÓN?', { hi: '10.000' });
   const r = SideChips(g, [['RELOJES', c('relojes1')], ['APLICACIONES', () => at('relojes1') + 1.6], ['INTERNET', () => at('relojes1') + 4]], { cx: 1560, y0: 440, size: 40 });
   [0, 1.6, 4].forEach(d => sfx('pop', at('relojes1') + d, 0.5));
   return t => { slideIn(k, t, at('diezmil1'), 'l', 600); show(n, t, at('diezmil1') + 0.5, at('relojes1')); r(t); };
@@ -38,7 +38,7 @@ scene(svg, c('estudios1'), c('significa1'), g => {
   const n2 = Chip(g, 'MÁS PASOS NO ES PERJUDICIAL', { cx: 1320, cy: 180, fill: C.white, size: 36 });
   sfx('pop', at('lancet')); sfx('ding', at('lancet') + 10);
   return t => {
-    show(ax, t, at('estudios1') + 0.5); show(src, t, at('lancet'));
+    show(ax, t, at('estudios1')); show(src, t, at('lancet'));
     const u = prog(t, at('lancet') + 1, at('lancet') + 9); let d = ''; const n = Math.floor(60 * u);
     for (let i = 0; i <= n; i++) { const s = 12000 * i / 60; d += (i ? 'L' : 'M') + X(s).toFixed(1) + ' ' + Y(f(s) * 0.92).toFixed(1); }
     set(curve, { d }); show(band, t, at('lancet') + 10); show(bl, t, at('lancet') + 10);
@@ -51,13 +51,14 @@ stillScene(svg, 'p1ad', () => at('significa1'), c('cuestion1'), { focus: [0.5, 0
 });
 // build up gradually
 scene(svg, c('cuestion1'), c('estrategia1'), g => {
+  const q0 = Text(g, 'OTRA CUESTIÓN IMPORTANTE', { x: 960, y: 300, size: 64, color: ACC });
   const a = Text(g, '2.000', { x: 420, y: 520, size: 120, color: C.grey });
   const ar = el('g', {}, g); Arrow(ar, 640, 520, 1250, 520, C.red, 16);
   const b = Text(g, '8.000', { x: 1500, y: 520, size: 120, color: C.red });
   const x = Stamp(g, 'DE GOLPE, NO', { cx: 960, cy: 300, size: 70, color: C.red, rot: -4 });
   const r = ChipRow(g, [['MÚSCULOS', c('adaptarse1')], ['ARTICULACIONES', () => at('adaptarse1') + 1], ['CORAZÓN', () => at('adaptarse1') + 2]], { cy: 800, size: 40, fill: C.white });
   sfx('pop', at('dosmil')); sfx('stamp', at('dosmil') + 4);
-  return t => { show(a, t, at('dosmil')); show(ar, t, at('dosmil') + 2); show(b, t, at('dosmil') + 3); x.draw(t, at('dosmil') + 4); r(t); };
+  return t => { show(q0, t, at('cuestion1'), at('dosmil') + 3.8); show(a, t, at('dosmil')); show(ar, t, at('dosmil') + 2); show(b, t, at('dosmil') + 3); x.draw(t, at('dosmil') + 4); r(t); };
 });
 stillScene(svg, 'p1ba', c('estrategia1'), c('quinientos'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'POCO A POCO', { hi: 'POCO A POCO' });

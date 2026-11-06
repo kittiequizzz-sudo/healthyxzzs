@@ -85,8 +85,8 @@ scene(svg, c('falta2'), () => END + 1, g => {
   const vs = Text(g, 'O', { x: 960, y: 480, size: 120, color: C.grey });
   const b = Medal(g, 'speed', 1320, 470, 2.2);
   const la = Text(g, '¿MUCHO TIEMPO?', { x: 600, y: 700, size: 46 }); const lb = Text(g, '¿BUENA VELOCIDAD?', { x: 1320, y: 700, size: 46 });
-  sfx('pop', at('falta2') + 3.3); sfx('pop', at('falta2') + 5.7);
-  return t => { pop(a, t, at('falta2') + 3.3, 600, 470); show(la, t, at('falta2') + 3.5); show(vs, t, at('falta2') + 5); pop(b, t, at('falta2') + 5.7, 1320, 470); show(lb, t, at('falta2') + 6); };
+  sfx('pop', at('falta2') + 0.4); sfx('pop', at('falta2') + 2.4);
+  return t => { pop(a, t, at('falta2') + 0.4, 600, 470); show(la, t, at('falta2') + 0.6); show(vs, t, at('falta2') + 1.6); pop(b, t, at('falta2') + 2.4, 1320, 470); show(lb, t, at('falta2') + 2.6); };
 });
 
 window.draw = t => drawScenes(t);

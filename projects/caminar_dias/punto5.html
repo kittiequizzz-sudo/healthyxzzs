@@ -39,8 +39,8 @@ scene(svg, c('oms'), c('cuidado5'), g => {
   const src = Source(g, 'OMS 2020 · adultos mayores');
   sfx('pop', at('oms')); [0, 1, 2, 3, 4].forEach(i => sfx('pop', at('cinco5') + i * 0.5, 0.4)); sfx('ding', at('cinco5') + 3); sfx('pop', at('repartir5'));
   return t => {
-    show(h, t, at('oms') + 2); show(s, t, at('oms') + 4); show(src, t, at('oms') + 2);
-    days.forEach(([w, f, n, i]) => { show(w, t, at('distribuir5') + i * 0.15); const on = i < 5 && t > at('cinco5') + i * 0.5; set(f, { y: on ? 380 : 640, height: on ? 260 : 0 }); n.setAttribute('opacity', on ? 1 : 0); });
+    show(h, t, at('oms')); show(s, t, at('oms') + 1); show(src, t, at('oms') + 1);
+    days.forEach(([w, f, n, i]) => { show(w, t, at('oms') + 3 + i * 0.15); const on = i < 5 && t > at('cinco5') + i * 0.5; set(f, { y: on ? 380 : 640, height: on ? 260 : 0 }); n.setAttribute('opacity', on ? 1 : 0); });
     pop(tot, t, at('cinco5') + 3, 960, 790); pop(alt, t, at('repartir5'), 960, 920);
   };
 });
@@ -76,7 +76,8 @@ scene(svg, c('disciplina'), c('pregunta5'), g => {
   const a = el('g', {}, g); Card(a, { x: 200, y: 280, w: 700, h: 420, fill: C.white }); Text(a, 'DISCIPLINA', { x: 550, y: 400, size: 64, color: C.green }); Text(a, 'construye hábitos', { x: 550, y: 500, size: 44, weight: 700 }); Mark(a, true, 550, 600, 0.9);
   const b = el('g', {}, g); Card(b, { x: 1020, y: 280, w: 700, h: 420, fill: '#EBDCD8' }); Text(b, 'EXIGENCIA EXCESIVA', { x: 1370, y: 400, size: 52, color: C.red }); Text(b, 'los rompe', { x: 1370, y: 500, size: 44, weight: 700 }); Mark(b, false, 1370, 600, 0.9);
   sfx('pop', at('construye')); sfx('pop', at('construye') + 2.4);
-  return t => { pop(a, t, at('construye'), 550, 490); pop(b, t, at('construye') + 2.4, 1370, 490); };
+  const hd = Text(g, 'DISCIPLINA ≠ EXIGENCIA', { x: 960, y: 170, size: 66, color: ACC });
+  return t => { show(hd, t, at('disciplina') + 0.3); pop(a, t, at('construye'), 550, 490); pop(b, t, at('construye') + 2.4, 1370, 490); };
 });
 stillScene(svg, 'p5bd', c('pregunta5'), c('siguiente5'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
   const q = Bubble(g, '¿7 días o descansas 1 o 2?', { cx: 1300, cy: 170, size: 46 });

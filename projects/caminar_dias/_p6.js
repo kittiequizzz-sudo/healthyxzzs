@@ -18,8 +18,8 @@ scene(svg, c('copiar'), c('tres6'), g => {
   const p = Text(g, '+', { x: 960, y: 640, size: 120, color: ACC });
   const b = Medal(g, 'heart', 1360, 640, 1.7);
   const bl = Text(g, 'RECUPERARTE Y MANTENERLO', { x: 1360, y: 860, size: 34 });
-  sfx('stamp', at('copiar')); sfx('pop', at('copiar') + 7); sfx('pop', at('copiar') + 10);
-  return t => { s.draw(t, at('copiar')); pop(a, t, at('copiar') + 7, 560, 640); show(p, t, at('copiar') + 9); pop(b, t, at('copiar') + 10, 1360, 640); show(bl, t, at('copiar') + 10.5); };
+  sfx('stamp', at('copiar')); sfx('pop', at('copiar') + 2.5); sfx('pop', at('copiar') + 4.5);
+  return t => { s.draw(t, at('copiar')); pop(a, t, at('copiar') + 2.5, 560, 640); show(p, t, at('copiar') + 3.5); pop(b, t, at('copiar') + 4.5, 1360, 640); show(bl, t, at('copiar') + 5); };
 });
 // three profiles
 scene(svg, c('tres6'), c('ninguna6'), g => {

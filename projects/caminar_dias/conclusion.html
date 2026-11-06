@@ -51,9 +51,9 @@ scene(svg, c('quiz'), c('comparte_c'), g => {
   const B = el('g', {}, g); Card(B, { x: 1000, y: 300, w: 760, h: 420, fill: C.white }); el('circle', { cx: 1380, cy: 370, r: 50, fill: ACC, stroke: C.ink, 'stroke-width': 5 }, B); Text(B, 'B', { x: 1380, y: 373, size: 60, color: C.white }); IC.dumbbell(B, 1330, 450, 1); Text(B, 'ADAPTAR A TU CAPACIDAD', { x: 1380, y: 600, size: 42 }); Text(B, '+ EJERCICIOS DE FUERZA', { x: 1380, y: 660, size: 34, weight: 800 });
   const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 880);
   const m = Bubble(g, '¿Cuántos minutos caminas?', { cx: 1300, cy: 1000, size: 40 });
-  const host = Host(g, 'three_q', { cx: 1780, cy: 900, fit: 260 });
+  const host = Host(g, 'three_q', { cx: 1760, cy: 880, fit: 300 });
   sfx('ding', at('quiz')); sfx('pop', at('qa')); sfx('pop', at('qb')); sfx('click', at('escribe')); sfx('pop', at('minutos_c'));
-  return t => { show(h, t, at('quiz')); show(q, t, at('quiz') + 5); pop(A, t, at('qa'), 540, 510); pop(B, t, at('qb'), 1380, 510); pop(cta, t, at('escribe'), 760, 880); pop(m, t, at('minutos_c'), 1300, 1000); host(t, at('escribe') - 0.5); };
+  return t => { show(h, t, at('quiz')); show(q, t, at('quiz') + 1.5); pop(A, t, at('qa'), 540, 510); pop(B, t, at('qb'), 1380, 510); pop(cta, t, at('escribe'), 760, 880); pop(m, t, at('minutos_c'), 1300, 1000); host(t, at('quiz') + 1); };
 });
 stillScene(svg, 'hd', c('comparte_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
   const b = el('g', {}, g); Card(b, { x: 300, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(b, 330, 90, 1); Text(b, 'COMPARTE', { x: 575, y: 142, size: 46 });

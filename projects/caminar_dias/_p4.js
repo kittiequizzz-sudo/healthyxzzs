@@ -13,8 +13,8 @@ scene(svg, c('confusion4'), c('cambios4'), g => {
   const A = gauge(560, 'RESISTENCIA', 0.85, C.green), B = gauge(1360, 'FUERZA MUSCULAR', 0.35, C.red);
   const ic1 = el('g', {}, A[0]); IC.walk(ic1, 510, 570, 1); const ic2 = el('g', {}, B[0]); IC.dumbbell(ic2, 1310, 570, 1);
   const a = CAP(g, 'CAMINAR CUIDA SOBRE TODO LA RESISTENCIA', { hi: 'RESISTENCIA', size: 48 });
-  sfx('pop', at('diferencia4') + 5); sfx('pop', at('diferencia4') + 7);
-  return t => { slideIn(k, t, at('confusion4'), 'l', 600); [[A, 5], [B, 7]].forEach(([[w, bar, v], d]) => { pop(w, t, at('diferencia4') + d, w === A[0] ? 560 : 1360, 520); set(bar, { width: (520 * v * E.out(prog(t, at('diferencia4') + d + 0.4, at('diferencia4') + d + 1.6))).toFixed(1) }); }); show(a, t, at('confusion4') + 2, at('diferencia4') + 4.5); };
+  sfx('pop', at('confusion4') + 3); sfx('pop', at('diferencia4') + 6);
+  return t => { slideIn(k, t, at('confusion4'), 'l', 600); [[A, at('confusion4') + 3], [B, at('diferencia4') + 6]].forEach(([[w, bar, v], d]) => { pop(w, t, d, w === A[0] ? 560 : 1360, 520); set(bar, { width: (520 * v * E.out(prog(t, d + 0.4, d + 1.6))).toFixed(1) }); }); show(a, t, at('diferencia4') + 8); };
 });
 scene(svg, c('cambios4'), c('sorpresa4'), g => {
   const m = ItemCard(g, 'muslos', 480, 500, { w: 460, h: 580, fit: 480 });

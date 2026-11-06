@@ -30,8 +30,8 @@ scene(svg, c('habla'), c('detalle3'), g => {
   const ko = el('g', {}, g); Card(ko, { x: 1000, y: 260, w: 760, h: 560, fill: C.white });
   const sk = el('g', {}, ko); const stk = Still(sk, 'cut/p3ac.png', { x: 1040, y: 300, w: 680, h: 340, iw: SZ.p3ac[0], ih: SZ.p3ac[1], r: 20, zoom: 0.04 });
   Text(ko, 'SOLO UNAS PALABRAS', { x: 1380, y: 700, size: 44, color: C.red }); Text(ko, '→ DEMASIADO INTENSO', { x: 1380, y: 770, size: 36, weight: 700 }); Mark(ko, false, 1700, 290, 0.7);
-  sfx('pop', at('frases')); sfx('alert_soft', at('palabras'));
-  return t => { show(h, t, at('habla')); pop(ok, t, at('frases'), 540, 540); sts.draw(t, at('frases'), at('detalle3')); pop(ko, t, at('palabras'), 1380, 540); stk.draw(t, at('palabras'), at('detalle3')); };
+  sfx('pop', at('conversacion')); sfx('alert_soft', at('palabras'));
+  return t => { show(h, t, at('habla')); pop(ok, t, at('conversacion'), 540, 540); sts.draw(t, at('conversacion'), at('detalle3')); pop(ko, t, at('palabras'), 1380, 540); stk.draw(t, at('palabras'), at('detalle3')); };
 });
 stillScene(svg, 'p3ad', c('detalle3'), c('concreta3'), { focus: [0.5, 0.5], zoom: 0.08 }, g => {
   const a = CAP(g, 'MISMA VELOCIDAD, DISTINTO ESFUERZO', { hi: 'DISTINTO', size: 50 });
@@ -50,8 +50,8 @@ scene(svg, c('variaciones'), c('competicion3'), g => {
     const s = el('g', {}, g), x = 220 + i * 500; el('rect', { x, y: 700 - 360 * hgt, width: 460, height: 360 * hgt, rx: 20, fill: col, 'fill-opacity': 0.8, stroke: C.ink, 'stroke-width': 5 }, s);
     Text(s, "5'", { x: x + 230, y: 650, size: 70, color: C.white }); Text(s, l, { x: x + 230, y: 770, size: 36 }); return [s, i];
   });
-  [0, 1, 2].forEach(i => sfx('pop', at('lento5') + i * 2.8, 0.6));
-  return t => { show(h, t, at('variaciones')); seg.forEach(([s, i]) => pop(s, t, at('lento5') + i * 2.8, 450 + i * 500, 600)); };
+  [0, 1, 2].forEach(i => sfx('pop', at('variaciones') + 1 + i * 1.5, 0.6));
+  return t => { show(h, t, at('variaciones')); seg.forEach(([s, i]) => pop(s, t, at('variaciones') + 1 + i * 1.5, 450 + i * 500, 600)); };
 });
 stillScene(svg, 'p3bb', c('competicion3'), c('cardiacas3'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
   const a = CAP(g, 'SIN CONVERTIRLO EN UNA COMPETICIÓN', { hi: 'COMPETICIÓN', size: 50 });

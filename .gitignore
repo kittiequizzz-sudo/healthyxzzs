@@ -24,3 +24,4 @@ projects/*/out/parts*/
 projects/*/out/*.log
 projects/*/qa.log
 projects/*/transcript.log
+projects/*/transcript.log

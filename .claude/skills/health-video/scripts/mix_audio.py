@@ -93,7 +93,8 @@ for b in range(nbars):
         m = arps[c][k % 4] + (12 if (b // 4) % 2 and k == 6 else 0)
         tp = t_(1.2); j = i0 + int((k * beat / 2 + rng.uniform(-0.01, 0.01)) * SR)
         pl = 0.13 * (np.sin(2 * np.pi * midi(m) * tp) + 0.3 * np.sin(4 * np.pi * midi(m) * tp)) * np.exp(-tp * 3.2) * env(tp.size, 0.004, 0.2)
-        music[j:j + pl.size] += pl[:max(0, music.size - j)]
+        if j >= music.size: continue
+        seg = music[j:j + pl.size]; seg += pl[:seg.size]
 music = music[:N]
 music = lowpass(music, 3)
 music *= env(N, 3.0, 4.0)

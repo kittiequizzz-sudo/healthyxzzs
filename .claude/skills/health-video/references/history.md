@@ -40,3 +40,4 @@ animated-figure method unless the owner asks for one explicitly.
 | 19 | vitaminas_piernas (6 vitaminas) | spring, old cast; owner flagged yellow cast → neutral theme + panel white balance; 4 spoken editor notes cut from the voice | delivered 5 Nov |
 | 20 | caminar_dias (6 verdades caminar) | summer, old cast; owner asked for darker/muted grade → muted theme + graded cut-outs | delivered 6 Nov |
 | 21 | desayuno_piernas (avena/huevos/queso) | rainy Galicia mornings, old cast, muted grade; protein bars per food | delivered 6 Nov |
+| 22 | velocidad_caminar (velocidad al caminar) | Canary Islands, old cast, muted grade; intensity gauge, talk-test levels, interval strip, steps-risk curve, week plan; items/pose sheet cut by blob (calf halves merged) | delivered 6 Nov |

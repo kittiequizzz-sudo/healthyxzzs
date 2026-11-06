@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 3 — eggs: 9 essential amino acids, ≈6–7 g each, 12–14 g for two, leucine, B12, choline; no guarantee; preparation; full breakfast; cholesterol note; subscribe.
+window.START = at('h3') - 0.3;
+window.END = at('h4') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p3');
+const c = k => () => at(k);
+
+TitleCard(svg, 3, 'LOS HUEVOS', 'Pequeños, económicos y de alta calidad', () => START, c('sencillo3'));
+stillScene(svg, 'p3aa', c('sencillo3'), c('interesante3'), { focus: [0.4, 0.45], zoom: 0.12 }, g => {
+  const k = Kicker(g, 3, 'PUNTO 3 · HUEVOS'); Progress(g, 2);
+  const a = CAP(g, 'PROTEÍNA DE ALTA CALIDAD', { hi: 'ALTA CALIDAD' });
+  return t => { slideIn(k, t, at('sencillo3'), 'l', 600); show(a, t, at('calidad3') + 6); };
+});
+scene(svg, c('interesante3'), c('seis7'), g => {
+  const e = ItemCard(g, 'huevo_cocido', 480, 500, { w: 460, h: 460, fit: 360 });
+  const h = Text(g, '9 AMINOÁCIDOS ESENCIALES', { x: 1300, y: 300, size: 56, color: ACC });
+  const dots = Array.from({ length: 9 }, (_, i) => el('circle', { cx: 1060 + (i % 5) * 120, cy: 450 + Math.floor(i / 5) * 120, r: 44, fill: ['#C9574A', '#D8875F', '#D9A84E', '#4F8F68', '#3E8080', '#6E9FC4', '#7D6AAE', '#B05C6E', '#9097A2'][i], stroke: C.ink, 'stroke-width': 5 }, g));
+  const t2 = Text(g, 'el cuerpo no los fabrica', { x: 1300, y: 720, size: 42, weight: 700 });
+  const r = Chip(g, 'CONSTRUIR Y REPARAR MÚSCULO', { cx: 1300, cy: 850, fill: C.white, size: 38 });
+  sfx('pop', at('interesante3')); dots.forEach((d, i) => sfx('pop', at('nueve') + 2 + i * 0.25, 0.3)); sfx('pop', at('tejidos3'));
+  return t => { pop(e, t, at('interesante3'), 480, 500); show(h, t, at('nueve') + 1); dots.forEach((d, i) => { const u = E.back(prog(t, at('nueve') + 2 + i * 0.25, at('nueve') + 2.4 + i * 0.25)); d.setAttribute('opacity', u > 0 ? 1 : 0); d.setAttribute('r', (44 * Math.max(0, u)).toFixed(1)); }); show(t2, t, at('nueve') + 5); pop(r, t, at('tejidos3'), 1300, 850); };
+});
+scene(svg, c('seis7'), c('calidad3b'), g => {
+  const a = ItemCard(g, 'huevos', 420, 480, { w: 420, h: 440, fit: 320, label: '1 HUEVO GRANDE ≈ 6–7 g', size: 32 });
+  const pb = ProteinBar(g, '2 HUEVOS', 12, 14, 1200, 480, { w: 760, ic: 'egg' });
+  const n = Chip(g, 'MUCHO PARA UN ALIMENTO TAN HABITUAL', { cx: 1200, cy: 720, fill: C.white, size: 36 });
+  sfx('pop', at('seis7')); sfx('pop', at('doce14')); sfx('pop', at('doce14') + 4);
+  return t => { pop(a, t, at('seis7'), 420, 480); show(pb.g, t, at('doce14')); pb.draw(t, at('doce14') + 0.5); pop(n, t, at('doce14') + 4, 1200, 720); };
+});
+scene(svg, c('calidad3b'), c('confusion3'), g => {
+  const h = Text(g, 'NO SOLO CANTIDAD: CALIDAD', { x: 960, y: 140, size: 64, color: ACC });
+  const L = [['leucina', 'LEUCINA', 'leucina3'], ['fibra', 'SÍNTESIS MUSCULAR', () => at('envejecemos3')], ['leucina', 'VITAMINA B12 · COLINA', 'b12']].map(([n, l, k], i) => [ItemCard(g, n, 420 + i * 540, 520, { w: 460, h: 480, fit: 300, label: l, size: 34 }), typeof k === 'string' ? c(k) : k, 420 + i * 540]);
+  L.forEach(([, k]) => sfx('pop', k(), 0.6));
+  return t => { show(h, t, at('calidad3b')); L.forEach(([cc, k, cx]) => pop(cc, t, k(), cx, 520)); };
+});
+stillScene(svg, 'p3ab', c('confusion3'), c('preparacion'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = Chip(g, '2 HUEVOS ≠ RECUPERAR LA FUERZA', { cx: 960, cy: 140, fill: C.white, size: 44 });
+  const b = CAP(g, 'TAMBIÉN HACE FALTA EJERCICIO', { hi: 'EJERCICIO' });
+  sfx('pop', at('garantiza3'));
+  return t => { pop(a, t, at('garantiza3'), 960, 140); show(b, t, at('ejercicio3')); };
+});
+stillScene(svg, 'p3ac', c('preparacion'), () => at('cocidos') + 4.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'COCIDOS, ESCALFADOS, POCO ACEITE', { hi: 'POCO ACEITE', size: 52 });
+  return t => show(a, t, at('cocidos'));
+});
+stillScene(svg, 'p3ba', () => at('cocidos') + 4.5, c('completo3'), { focus: [0.4, 0.55], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MEJOR SIN BACON NI EMBUTIDOS A DIARIO', { hi: 'SIN BACON', size: 48 });
+  return t => show(a, t, at('cocidos') + 4.7);
+});
+stillScene(svg, 'p3ad', c('completo3'), c('colesterol3'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['+ PAN INTEGRAL', () => at('combinar3') + 1.5], ['+ TOMATE', () => at('combinar3') + 3], ['+ FRUTA', () => at('combinar3') + 4]], { cx: 380, y0: 160, size: 40 });
+  [1.5, 3, 4].forEach(d => sfx('pop', at('combinar3') + d, 0.5));
+  return t => r(t);
+});
+scene(svg, c('colesterol3'), c('suscribe3'), g => {
+  const w = Warn(g, '¿COLESTEROL O PROBLEMAS DEL CORAZÓN?', ['ADAPTA CUÁNTOS HUEVOS COMES', 'SEGÚN TU PROFESIONAL SANITARIO'], { kind: 'amber', y: 240, w: 1400 });
+  const p = el('g', {}, g); cut(p, 'tension', 1680, 840, 240);
+  sfx('alert_soft', at('colesterol3') + 0.2);
+  return t => { pop(w, t, at('colesterol3') + 0.2, 960, 420); pop(p, t, at('colesterol3') + 1, 1680, 840); };
+});
+stillScene(svg, 'p3bc', c('suscribe3'), c('tercer'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = el('g', { transform: 'translate(420 -760)' }, g); const s = CTA(a, 'sub', 900);
+  sfx('click', at('suscribe3') + 3);
+  return t => pop(s, t, at('suscribe3') + 3, 1380, 140);
+});
+stillScene(svg, 'p3bd', c('tercer'), () => END + 1, { focus: [0.6, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, '¿EL QUESO, MÁS QUE DOS HUEVOS?', { hi: 'QUESO', size: 52 });
+  return t => show(a, t, at('tercer') + 2.5);
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

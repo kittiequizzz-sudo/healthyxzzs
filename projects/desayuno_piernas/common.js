@@ -391,3 +391,14 @@ function NerveSignal(g, x1, y, x2, { col = '#F2B84B' } = {}) {
 function Medal(g, ic, cx, cy, s = 2.4, fill = C.white) { const b = el('g', {}, g); el('circle', { cx: cx + 6, cy: cy + 8, r: 62 * s, fill: SHADOW }, b); el('circle', { cx, cy, r: 62 * s, fill, stroke: C.ink, 'stroke-width': 6 }, b); IC[ic](b, cx - 50 * s * 0.8, cy - 50 * s * 0.8, s * 0.8); return b; }
 // warn helper for medical caution card
 const Caution = (g, head, lines, kind = 'amber', y = 200, w = 1500) => Warn(g, head, lines, { kind, y, w });
+// recipe card: still on top, title, items, protein range
+function RecipeCard(g, n, title, lines, lo, hi, cx, cy, { w = 1500, h = 640 } = {}) {
+  const c = el('g', {}, g), x = cx - w / 2, y = cy - h / 2;
+  Card(c, { x, y, w, h, fill: C.white });
+  const st = Still(c, 'cut/' + n + '.png', { x: x + 30, y: y + 30, w: 640, h: h - 60, iw: SZ[n][0], ih: SZ[n][1], r: 24, zoom: 0.05 });
+  Text(c, title, { x: x + 720, y: y + 80, size: 50, color: ACC, anchor: 'start' });
+  const ls = lines.map((s, i) => { const t = Text(c, '· ' + s, { x: x + 720, y: y + 170 + i * 70, size: 38, weight: 800, anchor: 'start' }); return t; });
+  const pb = el('g', {}, c); el('rect', { x: x + 720, y: y + h - 150, width: w - 780, height: 100, rx: 50, fill: ACC }, pb);
+  const pt = Text(pb, '≈ ' + lo + '–' + hi + ' g de proteína', { x: x + 720 + (w - 780) / 2, y: y + h - 98, size: 46, color: C.white });
+  return { g: c, st, ls, pb };
+}

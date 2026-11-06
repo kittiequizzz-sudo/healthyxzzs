@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 6 — three breakfasts with protein ranges; check the label; alternate; kidney disease warning; exercise; goal.
+window.START = at('h6') - 0.3;
+window.END = at('c0') - 0.5;
+window.DURATION = window.END;
+const svg = Stage('p6');
+const c = k => () => at(k);
+
+TitleCard(svg, 6, 'TRES DESAYUNOS', 'Para cuidar la fuerza de tus piernas', () => START, c('llevar6'));
+stillScene(svg, 'p6ad', c('llevar6'), c('op1'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const k = Kicker(g, 6, 'PUNTO 6 · DESAYUNOS'); Progress(g, 5);
+  const a = CAP(g, 'SIN GASTAR MUCHO NI COMPLICARTE', { hi: 'SIN', size: 52 });
+  return t => { slideIn(k, t, at('llevar6'), 'l', 600); show(a, t, at('llevar6') + 6); };
+});
+scene(svg, c('op1'), c('op2'), g => {
+  const r = RecipeCard(g, 'p6aa', '1 · AVENA CON YOGUR', ['40 g de avena', '200 g de yogur alto en proteína', 'fresas, arándanos o manzana'], 23, 28, 960, 540);
+  const f = Chip(g, 'ENERGÍA + FIBRA + PROTEÍNA + CALCIO', { cx: 960, cy: 960, fill: C.white, size: 36 });
+  sfx('pop', at('op1')); sfx('pop', at('mezcla')); sfx('pop', at('fresas6')); sfx('ding', at('g1'));
+  return t => { pop(r.g, t, at('op1'), 960, 540); r.st.draw(t, at('op1'), at('op2')); r.ls.forEach((l, i) => show(l, t, [at('mezcla'), at('mezcla') + 2, at('fresas6')][i])); show(r.pb, t, at('g1')); pop(f, t, at('aporta6'), 960, 960); };
+});
+scene(svg, c('op2'), c('op3'), g => {
+  const r = RecipeCard(g, 'p6ab', '2 · HUEVOS CON PAN Y TOMATE', ['2 huevos cocidos o revueltos', 'un poco de aceite de oliva', '2 rebanadas de pan integral + tomate'], 18, 22, 960, 540);
+  const f = Chip(g, '¿MÁS PROTEÍNA? + LECHE O YOGUR', { cx: 960, cy: 960, fill: C.white, size: 38 });
+  sfx('pop', at('op2')); sfx('pop', at('prepara2')); sfx('pop', at('acompana6')); sfx('ding', at('g2'));
+  return t => { pop(r.g, t, at('op2'), 960, 540); r.st.draw(t, at('op2'), at('op3')); r.ls.forEach((l, i) => show(l, t, [at('prepara2'), at('prepara2') + 2.5, at('acompana6')][i])); show(r.pb, t, at('g2')); pop(f, t, at('leche6'), 960, 960); };
+});
+scene(svg, c('op3'), c('etiqueta'), g => {
+  const r = RecipeCard(g, 'p6ac', '3 · QUESO FRESCO CON TOSTADAS', ['200 g de queso fresco alto en proteína', 'pan integral', 'una pieza de fruta'], 22, 32, 960, 540);
+  sfx('pop', at('op3')); sfx('pop', at('elige3')); sfx('ding', at('g3'));
+  return t => { pop(r.g, t, at('op3'), 960, 540); r.st.draw(t, at('op3'), at('etiqueta')); r.ls.forEach((l, i) => show(l, t, [at('elige3'), at('elige3') + 4, at('elige3') + 5.5][i])); show(r.pb, t, at('g3')); };
+});
+stillScene(svg, 'p6ba', c('etiqueta'), c('alternar'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'COMPRUEBA SIEMPRE LA ETIQUETA', { hi: 'ETIQUETA' });
+  return t => show(a, t, at('etiqueta') + 0.3);
+});
+stillScene(svg, 'p6bb', c('alternar'), c('renal6'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ALTÉRNALOS A TU GUSTO', { hi: 'ALTÉRNALOS' });
+  return t => show(a, t, at('alternar') + 3);
+});
+scene(svg, c('renal6'), c('trabajo6'), g => {
+  const w = Warn(g, '¿ENFERMEDAD RENAL?', ['PIDE ASESORAMIENTO INDIVIDUAL', 'ANTES DE AUMENTAR LA PROTEÍNA'], { kind: 'amber', y: 240, w: 1300 });
+  const k = el('g', {}, g); cut(k, 'rinones', 1680, 820, 260);
+  sfx('alert_soft', at('renal6') + 0.2);
+  return t => { pop(w, t, at('renal6') + 0.2, 960, 420); pop(k, t, at('renal6') + 1, 1680, 820); };
+});
+stillScene(svg, 'p6bd', c('trabajo6'), c('objetivo6'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['CAMINAR', () => at('trabajo6') + 4.5], ['LEVANTARTE DE LA SILLA', () => at('trabajo6') + 5.6], ['FUERZA ADAPTADA', () => at('trabajo6') + 8]], { cx: 1520, y0: 160, size: 38 });
+  const a = CAP(g, 'COMER ES SOLO UNA PARTE', { hi: 'UNA PARTE' });
+  [4.5, 5.6, 8].forEach(d => sfx('pop', at('trabajo6') + d, 0.5));
+  return t => { show(a, t, at('trabajo6') + 0.3); r(t); };
+});
+scene(svg, c('objetivo6'), () => END + 1, g => {
+  const ts = [['walk', 'CAMINAR CON\nSEGURIDAD'], ['chair', 'LEVANTARTE\nSOLO'], ['heart', 'DISFRUTAR\nMUCHOS AÑOS']].map(([ic, l], i) => [IconTile(g, ic, l, 420 + i * 540, 500, { w: 440, h: 440 }), 420 + i * 540, i]);
+  const a = Text(g, 'EL VERDADERO OBJETIVO', { x: 960, y: 150, size: 70, color: ACC });
+  [0, 1, 2].forEach(i => sfx('pop', at('objetivo6') + 6 + i * 2, 0.5));
+  return t => { show(a, t, at('objetivo6')); ts.forEach(([tile, cx, i]) => pop(tile, t, at('objetivo6') + 6 + i * 2, cx, 500)); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

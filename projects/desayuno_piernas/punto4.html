@@ -1,0 +1,86 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 4 — cheese: types differ; dairy protein, casein; 150 g high-protein fresh cheese ≈ 12–20 g; calcium; salt/saturated fat warning; share.
+window.START = at('h4') - 0.3;
+window.END = at('h5') - 0.3;
+window.DURATION = window.END;
+const svg = Stage('p4');
+const c = k => () => at(k);
+
+TitleCard(svg, 4, 'EL QUESO', 'La sorpresa que muchos pasan por alto', () => START, c('acompana4'));
+stillScene(svg, 'p4ac', c('acompana4'), c('atencion4'), { focus: [0.5, 0.55], zoom: 0.12 }, g => {
+  const k = Kicker(g, 4, 'PUNTO 4 · QUESO'); Progress(g, 3);
+  const a = CAP(g, 'MÁS QUE UN ACOMPAÑAMIENTO', { hi: 'MÁS' });
+  return t => { slideIn(k, t, at('acompana4'), 'l', 600); show(a, t, at('acompana4') + 5); };
+});
+scene(svg, c('atencion4'), c('importante4'), g => {
+  const h = Text(g, 'NO TODOS LOS QUESOS SON IGUALES', { x: 960, y: 140, size: 60, color: ACC });
+  const it = [['queso_curado', 'CURADO'], ['queso_fresco', 'FRESCO'], ['queso_batido', 'FRESCO BATIDO PROTEICO']].map(([n, l], i) => [ItemCard(g, n, 420 + i * 540, 460, { w: 460, h: 440, fit: 300, label: l, size: l.length > 10 ? 30 : 40 }), i, 420 + i * 540]);
+  const r = ChipRow(g, [['PROTEÍNA', () => at('tipos4') + 6], ['GRASA', () => at('tipos4') + 7.2], ['SAL', () => at('tipos4') + 8], ['CALORÍAS', () => at('tipos4') + 9]], { cy: 820, size: 40, fill: C.white });
+  it.forEach(([, i]) => sfx('pop', at('tipos4') + i * 1.6, 0.6));
+  return t => { show(h, t, at('atencion4')); it.forEach(([cc, i, cx]) => pop(cc, t, at('tipos4') + i * 1.6, cx, 460)); r(t); };
+});
+stillScene(svg, 'p4aa', c('importante4'), c('caseina'), { focus: [0.5, 0.5], zoom: 0.08 }, g => {
+  const a = CAP(g, 'LÁCTEOS: AMINOÁCIDOS ESENCIALES', { hi: 'ESENCIALES', size: 52 });
+  return t => show(a, t, at('lacteos'));
+});
+scene(svg, c('caseina'), c('ciento50'), g => {
+  const h = Text(g, 'CASEÍNA', { x: 960, y: 170, size: 96, color: ACC });
+  const s = Text(g, 'se digiere despacio', { x: 960, y: 270, size: 48 });
+  const clk = el('g', {}, g); IC.clock(clk, 860, 340, 2);
+  const dots = [0, 1, 2, 3, 4, 5].map(() => el('circle', { r: 16, fill: '#D8C29C', stroke: C.ink, 'stroke-width': 3 }, g));
+  const a = CAP(g, 'AMINOÁCIDOS DURANTE VARIAS HORAS', { hi: 'VARIAS HORAS', size: 50 });
+  sfx('pop', at('caseina')); sfx('pop', at('caseina') + 3);
+  return t => { show(h, t, at('caseina')); show(s, t, at('caseina') + 2); pop(clk, t, at('caseina') + 3, 960, 440); dots.forEach((d, i) => { const u = ((t - at('caseina') - 3) * 0.12 + i / 6) % 1; set(d, { cx: (500 + 920 * u).toFixed(1), cy: (760 - 40 * Math.sin(u * Math.PI)).toFixed(1), opacity: t > at('caseina') + 3.5 ? 1 : 0 }); }); show(a, t, at('caseina') + 5); };
+});
+scene(svg, c('ciento50'), c('calcio4'), g => {
+  const a = ItemCard(g, 'queso_batido', 400, 460, { w: 420, h: 440, fit: 300, label: '150 g', size: 48 });
+  const pb = ProteinBar(g, 'QUESO FRESCO PROTEICO', 12, 20, 1220, 330, { w: 760, ic: 'cheese' });
+  const pe = ProteinBar(g, '2 HUEVOS', 12, 14, 1220, 560, { w: 760, ic: 'egg', col: C.grey });
+  const n = Chip(g, 'DEPENDE DEL PRODUCTO', { cx: 1220, cy: 770, fill: C.white, size: 38 });
+  const q = Stamp(g, '¿MEJOR? NO NECESARIAMENTE', { cx: 960, cy: 920, size: 52, color: C.red, rot: -2 });
+  sfx('pop', at('ciento50')); sfx('pop', at('supera4')); sfx('stamp', at('nonec4'));
+  return t => { pop(a, t, at('ciento50'), 400, 460); show(pb.g, t, at('ciento50') + 2); pb.draw(t, at('ciento50') + 3); show(pe.g, t, at('supera4')); pe.draw(t, at('supera4') + 0.3); pop(n, t, at('ciento50') + 8, 1220, 770); q.draw(t, at('nonec4')); };
+});
+stillScene(svg, 'p4ad', c('calcio4'), c('advertencia4'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'CALCIO: HUESOS Y MÚSCULOS', { hi: 'CALCIO' });
+  return t => show(a, t, at('calcio4') + 0.5);
+});
+scene(svg, c('advertencia4'), c('alternativa4'), g => {
+  const w = Warn(g, 'ALGUNOS QUESOS CURADOS', ['MUCHA SAL Y GRASA SATURADA', '¿HIPERTENSIÓN O COLESTEROL?', 'REVISA LA ETIQUETA'], { kind: 'amber', y: 160, w: 1300 });
+  const a = el('g', {}, g); cut(a, 'queso_curado', 280, 860, 220); const b = el('g', {}, g); cut(b, 'sal', 520, 860, 180);
+  sfx('alert_soft', at('advertencia4') + 0.2);
+  return t => { pop(w, t, at('advertencia4') + 0.2, 960, 380); pop(a, t, at('sal4'), 280, 860); pop(b, t, at('sal4') + 0.5, 520, 860); };
+});
+stillScene(svg, 'p4bc', c('alternativa4'), c('nosustituye4'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'QUESO FRESCO + TOSTADA + TOMATE + FRUTA', { hi: 'QUESO FRESCO', size: 46 });
+  return t => show(a, t, at('alternativa4') + 0.5);
+});
+stillScene(svg, 'p4bb', c('nosustituye4'), c('comparte4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SUSTITUYE LOS EJERCICIOS DE FUERZA', { hi: 'NO SUSTITUYE', size: 48 });
+  return t => show(a, t, at('nosustituye4') + 0.3);
+});
+stillScene(svg, 'p4bd', c('comparte4'), c('resumen4'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const b = el('g', {}, g); Card(b, { x: 740, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(b, 770, 90, 1); Text(b, 'COMPARTE', { x: 1015, y: 142, size: 46 });
+  sfx('click', at('comparte4') + 4);
+  return t => pop(b, t, at('comparte4') + 4, 960, 140);
+});
+scene(svg, c('resumen4'), () => END + 1, g => {
+  const it = [['avena', 'ENERGÍA Y FIBRA', () => at('resumen4') + 4.4], ['huevos', 'PROTEÍNA COMPLETA', () => at('resumen4') + 7.3], ['queso_fresco', 'PROTEÍNA Y CALCIO', () => at('resumen4') + 11]].map(([n, l, k], i) => [ItemCard(g, n, 420 + i * 540, 460, { w: 460, h: 460, fit: 300, label: l, size: 32 }), k, 420 + i * 540]);
+  const q = CAP(g, '¿CUÁL MERECE EL PRIMER PUESTO?', { hi: 'PRIMER PUESTO', size: 52 });
+  it.forEach(([, k]) => sfx('pop', k(), 0.6)); sfx('ding', at('decisiva'));
+  return t => { it.forEach(([cc, k, cx]) => pop(cc, t, k(), cx, 460)); show(q, t, at('decisiva')); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

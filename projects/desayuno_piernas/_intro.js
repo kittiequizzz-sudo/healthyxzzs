@@ -1,0 +1,50 @@
+// Intro — breakfast fills the stomach, not the muscles; silent strength loss; oats vs eggs vs cheese.
+window.START = 0;
+window.END = at('h1') - 1.5;
+window.DURATION = window.END;
+const svg = Stage('intro');
+const c = k => () => at(k);
+
+stillScene(svg, 'a1a', () => 0, c('fuerza0'), { focus: [0.4, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'ESTÓMAGO LLENO… ¿MÚSCULOS VACÍOS?', { hi: 'MÚSCULOS', size: 52 });
+  return t => show(a, t, 0.8);
+}, true);
+stillScene(svg, 'a1b', c('fuerza0'), c('escaleras0'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LA FUERZA SE PIERDE EN SILENCIO', { hi: 'EN SILENCIO', size: 52 });
+  return t => show(a, t, at('silencio0'));
+}, true);
+stillScene(svg, 'a1c', c('escaleras0'), () => at('escaleras0') + 3.3, { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ESCALERAS INTERMINABLES', { hi: 'INTERMINABLES' });
+  return t => show(a, t, at('escaleras0'));
+}, true);
+stillScene(svg, 'a1d', () => at('escaleras0') + 3.3, c('pregunta0'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MEDIA HORA, AGOTADO', { hi: 'AGOTADO' });
+  return t => show(a, t, at('escaleras0') + 3.5);
+}, true);
+scene(svg, c('pregunta0'), c('tres0'), g => {
+  const host = Host(g, 'three_q', { cx: 450, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿Alimentas tus músculos por la mañana?', { cx: 1220, cy: 380, size: 46 });
+  sfx('ding', at('pregunta0') + 1.5);
+  return t => { host(t, at('pregunta0')); pop(q, t, at('pregunta0') + 1.5, 1220, 380); };
+});
+scene(svg, c('tres0'), c('sorpresa0'), g => {
+  const h = Text(g, 'TRES CANDIDATOS', { x: 960, y: 150, size: 80, color: ACC });
+  const it = [['avena', 'AVENA', 'avena0'], ['huevos', 'HUEVOS', 'huevos0'], ['queso_fresco', 'QUESO', 'queso0']].map(([n, l, k], i) => [ItemCard(g, n, 420 + i * 540, 500, { w: 440, h: 460, fit: 340, label: l, size: 46 }), k, 420 + i * 540]);
+  const r = ChipRow(g, [['PROTEÍNAS', () => at('beneficios0') + 2], ['NUTRIENTES', () => at('beneficios0') + 3.3], ['EFECTOS DISTINTOS', () => at('beneficios0') + 4.6]], { cy: 880, size: 40, fill: C.white });
+  it.forEach(([, k]) => sfx('pop', at(k), 0.7));
+  return t => { show(h, t, at('tres0')); it.forEach(([cc, k, cx]) => pop(cc, t, at(k), cx, 500)); r(t); };
+});
+stillScene(svg, 'a2b', c('sorpresa0'), c('comparar0'), { focus: [0.45, 0.4], zoom: 0.12 }, g => {
+  const a = CAP(g, 'LO MÁS SANO ≠ LO QUE MÁS PROTEÍNA DA', { hi: '≠', size: 50 });
+  return t => show(a, t, at('sorpresa0') + 1.5);
+});
+stillScene(svg, 'a2a', c('comparar0'), c('quedate0'), { focus: [0.5, 0.55], zoom: 0.1 }, g => {
+  const a = CAP(g, 'COMPARAR Y COMBINAR', { hi: 'COMBINAR' });
+  return t => show(a, t, at('comparar0') + 0.5);
+});
+stillScene(svg, 'a2d', c('quedate0'), () => END + 1, { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'AL FINAL: 3 DESAYUNOS SENCILLOS', { hi: '3 DESAYUNOS', size: 52 });
+  return t => show(a, t, at('quedate0') + 0.5);
+});
+
+window.draw = t => drawScenes(t);

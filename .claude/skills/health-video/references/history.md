@@ -42,3 +42,4 @@ animated-figure method unless the owner asks for one explicitly.
 | 21 | desayuno_piernas (avena/huevos/queso) | rainy Galicia mornings, old cast, muted grade; protein bars per food | delivered 6 Nov |
 | 22 | velocidad_caminar (velocidad al caminar) | Canary Islands, old cast, muted grade; intensity gauge, talk-test levels, interval strip, steps-risk curve, week plan; items/pose sheet cut by blob (calf halves merged) | delivered 6 Nov |
 | 23 | senales_edad (6 señales "normal a mi edad") | Madrid late autumn, old cast, muted grade; normal-vs-attention cards, causes step-ups, artery/nerve diagrams, stroke dramatización with 112 | delivered 10 Nov |
+| 24 | cambios_60 (6 cambios después de los 60) | Basque Country early winter, old cast, muted grade; elastic vs stiff artery pulse, insulin key, CKD tests, bone density pair, Pilar 6-pose exercise row (poses overlapped: cut by fixed columns + largest blob) | delivered 10 Nov |

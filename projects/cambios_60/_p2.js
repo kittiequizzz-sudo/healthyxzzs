@@ -1,0 +1,104 @@
+// Señal 2 — heart and arteries: arteries stiffen, systolic BP rises with age, but high BP is not harmless (heart, stroke, kidneys); often no symptoms; other signs (breathless, ankles, effort); habits; home BP technique; one reading isn't a diagnosis; don't change meds; urgent signs.
+window.START = at('h2') - 1.2;
+window.END = at('h3') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('p2');
+const c = k => () => at(k);
+
+TitleCard(svg, 2, 'EL CORAZÓN Y LAS ARTERIAS', 'Cuando el peligro no produce dolor', () => START, c('latiendo2'));
+scene(svg, c('latiendo2'), c('elasticidad2'), g => {
+  const k = Kicker(g, 2, 'SEÑAL 2 · CORAZÓN'); Progress(g, 1);
+  const h = el('g', {}, g); IC.heart(h, 760, 280, 4);
+  const a = CAP(g, 'LATE NORMAL… MIENTRAS EL RIESGO AVANZA', { hi: 'RIESGO', size: 50 });
+  sfx('pop', at('latiendo2'));
+  return t => { slideIn(k, t, at('latiendo2'), 'l', 600); pop(h, t, at('latiendo2'), 960, 480); const s = 1 + 0.05 * Math.max(0, Math.sin(t * 7)); h.firstChild.setAttribute('transform', `translate(760 280) scale(${4 * s})`); show(a, t, at('latiendo2') + 3); };
+});
+// elastic vs stiff artery with pulse
+scene(svg, c('elasticidad2'), c('fundamental2'), g => {
+  const h = Text(g, 'CON LOS AÑOS, LAS ARTERIAS SE ENDURECEN', { x: 960, y: 140, size: 54, color: ACC });
+  const tube = (y, flex) => { const w = el('g', {}, g); const r = el('rect', { x: 260, y: y - 60, width: 1400, height: 120, rx: 60, fill: flex ? '#E7B8B0' : '#C9A79F', stroke: C.ink, 'stroke-width': flex ? 6 : 12 }, w); Text(w, flex ? 'JOVEN: ELÁSTICA' : 'MAYOR: MÁS RÍGIDA', { x: 260, y: y - 100, size: 40, anchor: 'start', color: flex ? C.green : C.red }); return [w, r, y, flex]; };
+  const ts = [tube(380, true), tube(680, false)];
+  const bp = Chip(g, 'SUBE LA PRESIÓN SISTÓLICA (EL NÚMERO DE ARRIBA)', { cx: 960, cy: 910, fill: C.white, size: 38 });
+  const tm = el('g', {}, g); cut(tm, 'tensiometro', 1700, 900, 200);
+  sfx('pop', at('elasticidad2')); sfx('pop', at('adaptarse2')); sfx('pop', at('sistolica2') + 1);
+  return t => { show(h, t, at('elasticidad2')); ts.forEach(([w, r, y, flex], i) => { show(w, t, i ? at('adaptarse2') : at('elasticidad2') + 0.5); const pulse = Math.max(0, Math.sin(t * 6)); const d = (flex ? 22 : 4) * pulse; set(r, { y: y - 60 - d, height: 120 + 2 * d }); }); pop(bp, t, at('sistolica2') + 1, 960, 910); pop(tm, t, at('sistolica2') + 2, 1700, 900); };
+});
+scene(svg, c('fundamental2'), c('dificultad2'), g => {
+  const a = Text(g, 'PUEDE SUBIR CON LA EDAD', { x: 960, y: 260, size: 70, color: C.grey });
+  const ne = Text(g, '≠', { x: 960, y: 380, size: 110, color: C.red });
+  const b = Text(g, 'ES INOFENSIVA', { x: 960, y: 500, size: 80 });
+  const ts = [['heart', 'CORAZÓN', 1.5], ['brain', 'ICTUS', 3.5], ['drop2', 'RIÑONES', 5]].map(([ic, l, d], i) => [IconTile(g, ic, l, 560 + i * 400, 790, { w: 340, h: 300, fill: '#EAD3D0' }), d, 560 + i * 400]);
+  const hh = Text(g, 'LA HIPERTENSIÓN AUMENTA EL RIESGO EN…', { x: 960, y: 610, size: 40, color: ACC });
+  sfx('stamp', at('inofensivo2')); ts.forEach(([, d]) => sfx('pop', at('hipertension2') + d, 0.5));
+  return t => { show(a, t, at('fundamental2') + 1); pop(ne, t, at('inofensivo2'), 960, 380); show(b, t, at('inofensivo2') + 0.5); show(hh, t, at('hipertension2')); ts.forEach(([x, d, cx]) => pop(x, t, at('hipertension2') + d, cx, 790)); };
+});
+stillScene(svg, 'c1b', c('dificultad2'), c('esperar2'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const r = ChipRow(g, [['SIN DOLOR DE CABEZA', () => at('cabeza2') + 0.5], ['SIN MAREOS', () => at('cabeza2') + 2], ['SIN PALPITACIONES', () => at('cabeza2') + 3]], { cy: 110, size: 36 });
+  const a = CAP(g, 'SE SIENTE BIEN… CON LA TENSIÓN ALTA', { hi: 'TENSIÓN ALTA', size: 52 });
+  return t => { show(a, t, at('sintomas2')); r(t); };
+});
+scene(svg, c('esperar2'), c('otros2'), g => {
+  const tm = el('g', {}, g); cut(tm, 'tensiometro', 960, 440, 440);
+  const a = CAP(g, 'NO ESPERES A SENTIRTE MAL PARA MEDIRLA', { hi: 'NO ESPERES', size: 50 });
+  sfx('pop', at('esperar2'));
+  return t => { pop(tm, t, at('esperar2'), 960, 440); show(a, t, at('esperar2') + 0.5); };
+});
+scene(svg, c('otros2'), c('proteger2'), g => {
+  const h = Text(g, 'TAMBIÉN MERECEN EVALUACIÓN', { x: 960, y: 140, size: 62, color: ACC });
+  const a = Still(el('g', {}, g), 'cut/c1c.png', { x: 120, y: 230, w: 820, h: 460, iw: SZ.c1c[0], ih: SZ.c1c[1], r: 26 });
+  const b = Still(el('g', {}, g), 'cut/c1d.png', { x: 980, y: 230, w: 820, h: 460, iw: SZ.c1d[0], ih: SZ.c1d[1], r: 26 });
+  const la = Chip(g, 'FALTA DE AIRE NUEVA', { cx: 530, cy: 770, fill: C.white, size: 40 });
+  const lb = Chip(g, 'TOBILLOS HINCHADOS', { cx: 1390, cy: 770, fill: C.white, size: 40 });
+  const lc = Chip(g, 'MENOS TOLERANCIA AL ESFUERZO', { cx: 960, cy: 900, fill: C.white, size: 40 });
+  sfx('pop', at('otros2') + 3); sfx('pop', at('otros2') + 7); sfx('pop', at('otros2') + 10);
+  return t => { show(h, t, at('otros2')); show(a.g, t, at('otros2') + 3); a.draw(t, at('otros2'), at('proteger2')); pop(la, t, at('otros2') + 3.5, 530, 770); show(b.g, t, at('otros2') + 7); b.draw(t, at('otros2'), at('proteger2')); pop(lb, t, at('otros2') + 7.5, 1390, 770); pop(lc, t, at('otros2') + 10.5, 960, 900); };
+});
+stillScene(svg, 'c2c', c('proteger2'), () => at('proteger2') + 5.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ACTIVIDAD FÍSICA REGULAR', { hi: 'REGULAR' });
+  return t => show(a, t, at('proteger2') + 0.5);
+});
+stillScene(svg, 'c2a', () => at('proteger2') + 5.5, () => at('proteger2') + 9.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MENOS SAL · VERDURAS, LEGUMBRES, FRUTA', { hi: 'MENOS SAL', size: 50 });
+  return t => show(a, t, at('proteger2') + 5.7);
+});
+stillScene(svg, 'c2b', () => at('proteger2') + 9.5, c('tensiometro2'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'SIN TABACO', { hi: 'SIN TABACO', size: 64 });
+  return t => show(a, t, at('proteger2') + 9.7);
+});
+scene(svg, c('tensiometro2'), c('medicacion2'), g => {
+  const h = Text(g, 'SI TE MIDES EN CASA', { x: 960, y: 130, size: 66, color: ACC });
+  const st = Still(el('g', {}, g), 'cut/c1a.png', { x: 120, y: 220, w: 900, h: 500, iw: SZ.c1a[0], ih: SZ.c1a[1], r: 28 });
+  const r = SideChips(g, [['DESCANSA UNOS MINUTOS', () => at('tensiometro2') + 2.5], ['BRAZO BIEN APOYADO', () => at('tensiometro2') + 5], ['MANGUITO ADECUADO', () => at('tensiometro2') + 7]], { cx: 1420, y0: 300, dy: 140, size: 40 });
+  const n = Chip(g, 'UNA SOLA MEDICIÓN ALTA NO ES UN DIAGNÓSTICO', { cx: 960, cy: 860, fill: '#D9A84E', size: 40 });
+  const m = CAP(g, 'INTERPRÉTALO CON TU PROFESIONAL', { hi: 'PROFESIONAL', cy: 990, size: 44 });
+  [2.5, 5, 7].forEach(d => sfx('pop', at('tensiometro2') + d, 0.5)); sfx('pop', at('sola2'));
+  return t => { show(h, t, at('tensiometro2')); show(st.g, t, at('tensiometro2') + 0.3); st.draw(t, at('tensiometro2'), at('medicacion2')); r(t); pop(n, t, at('sola2'), 960, 860); show(m, t, at('interpretar2')); };
+});
+scene(svg, c('medicacion2'), c('suscribe2'), g => {
+  const a = el('g', {}, g); Card(a, { x: 300, y: 120, w: 1320, h: 170, fill: C.white }); el('rect', { x: 300, y: 120, width: 26, height: 170, rx: 12, fill: '#D9A84E' }, a); Text(a, 'NUNCA MODIFIQUES TU MEDICACIÓN POR TU CUENTA', { x: 975, y: 207, size: 46 });
+  const w = Warn(g, 'URGENCIAS · 112', ['DOLOR INTENSO EN EL PECHO', 'DIFICULTAD RESPIRATORIA IMPORTANTE', 'SÍNTOMAS REPENTINOS DE ICTUS'], { kind: 'red', y: 350, w: 1300 });
+  sfx('alert', at('medicacion2') + 0.3); sfx('alert', at('urgente2'));
+  return t => { pop(a, t, at('medicacion2') + 0.3, 960, 205); pop(w, t, at('urgente2'), 960, 580); };
+}, true);
+stillScene(svg, 'c2d', c('suscribe2'), c('cuidar2'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const s = CTA(el('g', {}, g), 'sub', 160);
+  const a = CAP(g, 'PREVENCIÓN SIN PROMESAS MILAGROSAS', { hi: 'SIN PROMESAS', size: 50 });
+  sfx('click', at('suscribe2') + 1.5);
+  return t => { pop(s, t, at('suscribe2') + 1.5, 960, 160); show(a, t, at('prevencion2')); };
+});
+scene(svg, c('cuidar2'), c('azucar2'), g => {
+  const a = Text(g, 'CUIDAR EL CORAZÓN =', { x: 960, y: 360, size: 74, color: C.ink });
+  const b = Text(g, 'VER EL RIESGO ANTES', { x: 960, y: 480, size: 90, color: ACC });
+  const tm = el('g', {}, g); cut(tm, 'tensiometro', 960, 760, 300);
+  sfx('ding', at('cuidar2') + 4);
+  return t => { show(a, t, at('cuidar2') + 0.3); pop(b, t, at('cuidar2') + 4, 960, 480); pop(tm, t, at('cuidar2') + 5, 960, 760); };
+});
+scene(svg, c('azucar2'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿Cómo usa tu cuerpo el azúcar?', { cx: 1220, cy: 300, size: 50 });
+  const a = el('g', {}, g); cut(a, 'glucometro', 1220, 640, 320);
+  sfx('ding', at('azucar2') + 2);
+  return t => { host(t, at('azucar2')); pop(q, t, at('azucar2') + 2, 1220, 300); pop(a, t, at('azucar2') + 4, 1220, 640); };
+});
+
+window.draw = t => drawScenes(t);

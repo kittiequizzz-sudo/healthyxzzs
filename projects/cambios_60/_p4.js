@@ -1,0 +1,101 @@
+// Señal 4 — memory: normal slower recall vs the frontier (lost in known area, money confusion, recent conversations); not always Alzheimer's; other causes (meds, sleep, depression, thyroid, B12); two opposite errors; brain-heart link; protective habits; sudden confusion/speech/one-side weakness = stroke; calm; comment.
+window.START = at('h4') - 1.2;
+window.END = at('h5') - 2.6;
+window.DURATION = window.END;
+const svg = Stage('p4');
+const c = k => () => at(k);
+
+TitleCard(svg, 4, 'LA MEMORIA Y EL CEREBRO', '¿Olvidos normales o algo más serio?', () => START, c('llaves4'));
+scene(svg, c('llaves4'), c('envejece4'), g => {
+  const k = Kicker(g, 4, 'SEÑAL 4 · MEMORIA'); Progress(g, 3);
+  const b = el('g', {}, g); cut(b, 'cerebro', 960, 440, 440);
+  const a = CAP(g, 'OLVIDAR LAS LLAVES ≠ DEMENCIA', { hi: '≠', size: 56 });
+  const n = Chip(g, 'PERO NO TODO OLVIDO ES NORMAL', { cx: 960, cy: 140, fill: '#D9A84E', size: 42 });
+  sfx('pop', at('llaves4')); sfx('pop', at('tampoco4'));
+  return t => { slideIn(k, t, at('llaves4'), 'l', 600); pop(b, t, at('llaves4'), 960, 440); show(a, t, at('llaves4') + 1, at('tampoco4')); pop(n, t, at('tampoco4'), 960, 140); };
+});
+stillScene(svg, 'e1c', c('envejece4'), c('frontera4'), { focus: [0.35, 0.45], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['RECORDAR UN NOMBRE', () => at('nombre4') + 2], ['APRENDER ALGO NUEVO', () => at('nombre4') + 4.5], ['RESPONDER A LO COMPLEJO', () => at('nombre4') + 7]], { cx: 1440, y0: 170, dy: 120, size: 36 });
+  const a = CAP(g, 'MÁS TIEMPO… SIN PERDER INDEPENDENCIA', { hi: 'SIN PERDER', size: 50 });
+  return t => { r(t); show(a, t, at('habitual4')); };
+});
+scene(svg, c('frontera4'), c('deterioro4'), g => {
+  const v = VsCards(g, ['HABITUAL', [['Olvidar una palabra y recordarla luego', () => at('palabra4') + 0.5]]],
+    ['MERECE EVALUACIÓN', [['Dificultad repetida en tareas familiares', () => at('palabra4') + 5], ['Perderse en un barrio conocido', c('barrio4')], ['Confundirse con el dinero', c('dinero4')], ['Olvidar conversaciones recientes', c('conversaciones4')]]], { y: 200, h: 720 });
+  const h = Text(g, 'LA FRONTERA', { x: 960, y: 130, size: 60, color: ACC });
+  sfx('pop', at('palabra4')); sfx('pop', at('palabra4') + 4.5);
+  return t => { show(h, t, at('frontera4')); v.draw(t, at('palabra4'), at('palabra4') + 4.5); };
+});
+stillScene(svg, 'e1a', c('deterioro4'), () => at('deterioro4') + 3.5, { focus: [0.35, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'PUEDE SER DETERIORO COGNITIVO…', { hi: 'DETERIORO' });
+  return t => show(a, t, at('deterioro4') + 0.3);
+});
+stillScene(svg, 'e1b', () => at('deterioro4') + 3.5, c('otras4'), { focus: [0.4, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SIEMPRE ES ALZHEIMER', { hi: 'NO SIEMPRE' });
+  return t => show(a, t, at('deterioro4') + 3.7);
+});
+scene(svg, c('otras4'), c('errores4'), g => {
+  const h = Text(g, 'OTRAS CAUSAS QUE AFECTAN A LA MEMORIA', { x: 960, y: 140, size: 54, color: ACC });
+  const ts = [['pill', 'MEDICAMENTOS', 0], ['moon', 'SUEÑO', 2], ['bubble', 'DEPRESIÓN', 3.2], ['gear', 'TIROIDES', 4.6], ['drop', 'FALTA DE\nVITAMINA B12', 6.5]].map(([ic, l, d], i) => [IconTile(g, ic, l, 230 + i * 365, 520, { w: 340, h: 400 }), d, 230 + i * 365]);
+  ts.forEach(([, d]) => sfx('pop', at('medicamentos4') + d, 0.5));
+  return t => { show(h, t, at('otras4')); ts.forEach(([x, d, cx]) => pop(x, t, at('medicamentos4') + d, cx, 520)); };
+});
+scene(svg, c('errores4'), c('cardio4'), g => {
+  const h = Text(g, 'DOS ERRORES OPUESTOS', { x: 960, y: 150, size: 68, color: ACC });
+  const a = el('g', {}, g); Card(a, { x: 140, y: 260, w: 780, h: 380, fill: C.white }); Mark(a, false, 240, 360, 0.8); Text(a, '«CUALQUIER OLVIDO', { x: 560, y: 440, size: 44 }); Text(a, 'ES DEMENCIA»', { x: 560, y: 510, size: 44 });
+  const b = el('g', {}, g); Card(b, { x: 1000, y: 260, w: 780, h: 380, fill: C.white }); Mark(b, false, 1100, 360, 0.8); Text(b, '«TODO ES NORMAL', { x: 1420, y: 440, size: 44 }); Text(b, 'DESPUÉS DE LOS 60»', { x: 1420, y: 510, size: 44 });
+  const st = Still(el('g', {}, g), 'cut/e1d.png', { x: 560, y: 690, w: 800, h: 340, iw: SZ.e1d[0], ih: SZ.e1d[1], r: 24 });
+  sfx('pop', at('pensar4')); sfx('pop', at('pensar4') + 3); sfx('pop', at('valoracion4'));
+  return t => { show(h, t, at('errores4')); pop(a, t, at('pensar4'), 530, 450); pop(b, t, at('pensar4') + 3, 1390, 450); show(st.g, t, at('valoracion4')); st.draw(t, at('valoracion4'), at('cardio4')); };
+});
+scene(svg, c('cardio4'), c('social4'), g => {
+  const b = el('g', {}, g); cut(b, 'cerebro', 600, 440, 380);
+  const h = el('g', {}, g); IC.heart(h, 1200, 320, 2.6);
+  const l = el('path', { d: 'M800 440 C 960 360 1100 360 1200 440', fill: 'none', stroke: ACC, 'stroke-width': 10, 'stroke-dasharray': '18 12' }, g);
+  const r = ChipRow(g, [['TENSIÓN CONTROLADA', () => at('presion4') + 0.5], ['DIABETES TRATADA', () => at('presion4') + 3], ['ACTIVIDAD FÍSICA', () => at('presion4') + 6], ['SIN TABACO', () => at('presion4') + 8]], { cy: 820, size: 34 });
+  const a = Text(g, 'SALUD CEREBRAL = SALUD CARDIOVASCULAR', { x: 960, y: 150, size: 54, color: ACC });
+  sfx('pop', at('cardio4')); sfx('pop', at('cardio4') + 1.5);
+  return t => { show(a, t, at('cardio4')); pop(b, t, at('cardio4'), 600, 440); pop(h, t, at('cardio4') + 1.5, 1330, 450); show(l, t, at('cardio4') + 2.5); r(t); };
+});
+stillScene(svg, 'e2a', c('social4'), () => at('social4') + 3.5, { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'RELACIONES SOCIALES', { hi: 'SOCIALES' });
+  return t => show(a, t, at('social4') + 0.3);
+});
+stillScene(svg, 'e2b', () => at('social4') + 3.5, () => at('social4') + 6.5, { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'ACTIVIDADES QUE ESTIMULAN', { hi: 'ESTIMULAN' });
+  return t => show(a, t, at('social4') + 3.7);
+});
+stillScene(svg, 'e2c', () => at('social4') + 6.5, c('advertencia4'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'BUEN DESCANSO NOCTURNO', { hi: 'DESCANSO' });
+  return t => show(a, t, at('social4') + 6.7);
+});
+scene(svg, c('advertencia4'), c('tranquilidad4'), g => {
+  const w = el('g', {}, g); Warn(el('g', { transform: 'translate(-280 0)' }, w), 'AYUDA URGENTE · 112', ['CONFUSIÓN REPENTINA', 'DIFICULTAD SÚBITA PARA HABLAR', 'PÉRDIDA DE FUERZA EN UN LADO'], { kind: 'red', y: 150, w: 1100 });
+  const b = el('g', {}, g); cut(b, 'cerebro', 1570, 380, 340);
+  const n = Chip(g, 'PUEDE SER UN ICTUS', { cx: 1570, cy: 660, fill: C.red, color: C.white, size: 44 });
+  sfx('alert', at('advertencia4') + 0.3); sfx('alert', at('acv4'));
+  return t => { show(w, t, at('advertencia4') + 0.3); pop(b, t, at('repentina4'), 1570, 380); pop(n, t, at('acv4'), 1570, 660); };
+}, true);
+scene(svg, c('tranquilidad4'), c('dime4'), g => {
+  const a = Text(g, 'ATENCIÓN', { x: 700, y: 400, size: 100, color: ACC });
+  const p = Text(g, '+', { x: 960, y: 400, size: 100, color: C.ink });
+  const b = Text(g, 'TRANQUILIDAD', { x: 1300, y: 400, size: 100, color: C.green });
+  const n = Chip(g, '¿HAY UN CAMBIO PERSISTENTE RESPECTO A LO HABITUAL?', { cx: 960, cy: 660, fill: C.white, size: 40 });
+  sfx('pop', at('tranquilidad4')); sfx('pop', at('tranquilidad4') + 2); sfx('ding', at('persistente4'));
+  return t => { show(a, t, at('tranquilidad4')); show(p, t, at('tranquilidad4') + 1); show(b, t, at('tranquilidad4') + 2); pop(n, t, at('persistente4'), 960, 660); };
+});
+stillScene(svg, 'e2d', c('dime4'), c('rinones4'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const cc = CTA(el('g', {}, g), 'comment', 160);
+  const a = CAP(g, '¿TE CUESTA MÁS RECORDAR NOMBRES?', { hi: 'NOMBRES', size: 54 });
+  sfx('click', at('comparte4'));
+  return t => { show(a, t, at('dime4') + 0.5); pop(cc, t, at('comparte4'), 960, 160); };
+});
+scene(svg, c('rinones4'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'Dos órganos silenciosos…', { cx: 1220, cy: 300, size: 54 });
+  const r = el('g', {}, g); cut(r, 'rinones', 1220, 640, 380);
+  sfx('ding', at('rinones4') + 1); sfx('pop', at('rinones4') + 8);
+  return t => { host(t, at('rinones4')); pop(q, t, at('rinones4') + 1, 1220, 300); pop(r, t, at('rinones4') + 8, 1220, 640); };
+});
+
+window.draw = t => drawScenes(t);

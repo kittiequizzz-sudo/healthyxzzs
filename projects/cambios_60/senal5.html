@@ -1,0 +1,107 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Señal 5 — kidneys and bladder: once a night can be usual, more needs a look; nocturia causes; CKD can be silent, linked to BP and diabetes; kidney functions; signs; tests (creatinine, eGFR, urine albumin); protect (BP, glucose, avoid unnecessary NSAIDs, sensible hydration); subscribe.
+window.START = at('h5') - 2.6;
+window.END = at('h6') - 3.6;
+window.DURATION = window.END;
+const svg = Stage('p5');
+const c = k => () => at(k);
+
+TitleCard(svg, 5, 'LOS RIÑONES Y LA VEJIGA', 'Cuando ir al baño revela cambios', () => START, c('una5'));
+stillScene(svg, 'f1a', c('una5'), c('cambios5'), { focus: [0.45, 0.5], zoom: 0.14 }, g => {
+  const k = Kicker(g, 5, 'SEÑAL 5 · RIÑONES'); Progress(g, 4);
+  const a = Chip(g, '1 VEZ: PUEDE SER HABITUAL', { cx: 1400, cy: 260, fill: C.white, size: 40 });
+  const b = Chip(g, 'MUCHAS VECES: INVESTIGAR', { cx: 1400, cy: 380, fill: '#D9A84E', size: 40 });
+  sfx('pop', at('una5') + 1); sfx('pop', at('una5') + 7);
+  return t => { slideIn(k, t, at('una5'), 'l', 600); pop(a, t, at('una5') + 1, 1400, 260); pop(b, t, at('una5') + 7, 1400, 380); };
+});
+scene(svg, c('cambios5'), c('lista5'), g => {
+  const h = Text(g, 'CON LA EDAD CAMBIAN…', { x: 960, y: 140, size: 64, color: ACC });
+  const it = [['rinones', 'CONCENTRAR LA ORINA'], ['vejiga', 'LA VEJIGA']].map(([n, l], i) => [ItemCard(g, n, 620 + i * 680, 470, { w: 520, h: 480, fit: 320, label: l, size: 36 }), 620 + i * 680, i]);
+  const n = CAP(g, 'NICTURIA: NO ES SIEMPRE «LA EDAD»', { hi: 'NO ES SIEMPRE', size: 52 });
+  it.forEach(([, , i]) => sfx('pop', at('cambios5') + 2 + i * 2, 0.6));
+  return t => { show(h, t, at('cambios5')); it.forEach(([x, cx, i]) => pop(x, t, at('cambios5') + 2 + i * 2, cx, 470)); show(n, t, at('nicturia5') + 2); };
+});
+scene(svg, c('lista5'), c('silenciosa5'), g => {
+  const h = Text(g, 'POSIBLES CAUSAS', { x: 960, y: 140, size: 66, color: ACC });
+  const st = Still(el('g', {}, g), 'cut/f1b.png', { x: 100, y: 230, w: 680, h: 400, iw: SZ.f1b[0], ih: SZ.f1b[1], r: 24 });
+  const r = SideChips(g, [['LÍQUIDOS ANTES DE DORMIR', () => at('lista5') + 1], ['ALGUNOS MEDICAMENTOS', () => at('lista5') + 4.5], ['PRÓSTATA', () => at('lista5') + 6], ['VEJIGA', () => at('lista5') + 7.5], ['TRASTORNOS DEL SUEÑO', () => at('lista5') + 9], ['CORAZÓN O METABOLISMO', () => at('lista5') + 11]], { cx: 1340, y0: 240, dy: 120, size: 34 });
+  return t => { show(h, t, at('lista5')); show(st.g, t, at('lista5') + 0.5); st.draw(t, at('lista5'), at('silenciosa5')); r(t); };
+});
+scene(svg, c('silenciosa5'), c('funciones5'), g => {
+  const r = el('g', {}, g); cut(r, 'rinones', 960, 400, 420);
+  const a = Text(g, 'ENFERMEDAD RENAL CRÓNICA', { x: 960, y: 140, size: 62, color: ACC });
+  const b = CAP(g, 'PUEDE AVANZAR SIN SÍNTOMAS', { hi: 'SIN SÍNTOMAS' });
+  const r2 = ChipRow(g, [['HIPERTENSIÓN', () => at('erc5') + 5], ['DIABETES', () => at('erc5') + 6.5]], { cy: 760, size: 44, fill: '#EAD3D0' });
+  const l = Text(g, 'RELACIONADA CON…', { x: 960, y: 670, size: 40 });
+  sfx('pop', at('silenciosa5') + 0.5);
+  return t => { pop(r, t, at('silenciosa5') + 0.5, 960, 400); show(b, t, at('silenciosa5') + 2, at('erc5')); show(a, t, at('erc5')); show(l, t, at('erc5') + 4.5); r2(t); };
+});
+scene(svg, c('funciones5'), c('signos5'), g => {
+  const h = Text(g, 'LOS RIÑONES…', { x: 960, y: 140, size: 70, color: ACC });
+  const ts = [['drop', 'ELIMINAN\nDESECHOS', 2], ['drop2', 'REGULAN LOS\nLÍQUIDOS', 5], ['heart', 'CONTROLAN LA\nPRESIÓN', 7.5]].map(([ic, l, d], i) => [IconTile(g, ic, l, 420 + i * 540, 520, { w: 460, h: 420 }), d, 420 + i * 540]);
+  const n = CAP(g, 'CUIDARLOS ES CUIDAR MUCHO MÁS', { hi: 'MUCHO MÁS' });
+  ts.forEach(([, d]) => sfx('pop', at('funciones5') + d, 0.5));
+  return t => { show(h, t, at('funciones5')); ts.forEach(([x, d, cx]) => pop(x, t, at('funciones5') + d, cx, 520)); show(n, t, at('proteger5')); };
+});
+scene(svg, c('signos5'), c('pruebas5'), g => {
+  const w = Warn(g, 'REQUIEREN VALORACIÓN', ['SANGRE EN LA ORINA', 'HINCHAZÓN PERSISTENTE', 'CAMBIOS EN LA CANTIDAD DE ORINA', 'CANSANCIO INEXPLICABLE'], { kind: 'amber', y: 100, w: 1300 });
+  const n = Chip(g, 'PERO AL PRINCIPIO PUEDE NO HABER NINGUNA MOLESTIA', { cx: 960, cy: 830, fill: C.red, color: C.white, size: 38 });
+  sfx('alert', at('signos5') + 0.3); sfx('pop', at('inicial5') + 0.5);
+  return t => { pop(w, t, at('signos5') + 0.3, 960, 380); pop(n, t, at('inicial5') + 0.5, 960, 830); };
+}, true);
+scene(svg, c('pruebas5'), c('valorar5'), g => {
+  const h = Text(g, 'PRUEBAS QUE PUEDE PEDIR TU MÉDICO', { x: 960, y: 130, size: 56, color: ACC });
+  const st = Still(el('g', {}, g), 'cut/f2b.png', { x: 100, y: 220, w: 760, h: 440, iw: SZ.f2b[0], ih: SZ.f2b[1], r: 26 });
+  const r = SideChips(g, [['CREATININA EN SANGRE', () => at('pruebas5') + 5.5], ['FILTRADO GLOMERULAR ESTIMADO', () => at('pruebas5') + 7.5], ['ALBÚMINA EN ORINA', () => at('pruebas5') + 10]], { cx: 1360, y0: 300, dy: 150, size: 36 });
+    [5.5, 7.5, 10].forEach(d => sfx('pop', at('pruebas5') + d, 0.5));
+  return t => { show(h, t, at('pruebas5')); show(st.g, t, at('pruebas5') + 1); st.draw(t, at('pruebas5'), at('valorar5')); r(t); };
+});
+stillScene(svg, 'f2a', c('valorar5'), c('cuidar5'), { focus: [0.4, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'DETECTAN LO QUE NO SE VE', { hi: 'NO SE VE' });
+  return t => show(a, t, at('valorar5') + 0.5);
+});
+scene(svg, c('cuidar5'), c('agua5'), g => {
+  const h = Text(g, 'PARA CUIDAR LOS RIÑONES', { x: 960, y: 140, size: 64, color: ACC });
+  const tm = ItemCard(g, 'tensiometro', 420, 520, { w: 440, h: 440, fit: 280, label: 'PRESIÓN', size: 44 });
+  const gl = ItemCard(g, 'glucometro', 960, 520, { w: 440, h: 440, fit: 280, label: 'GLUCOSA', size: 44 });
+  const no = el('g', {}, g); Still(no, 'cut/f2c.png', { x: 1290, y: 300, w: 520, h: 440, iw: SZ.f2c[0], ih: SZ.f2c[1], r: 24, zoom: 0 }).draw(0, 0, 1);
+  const nl = Chip(g, 'SIN ANTIINFLAMATORIOS INNECESARIOS', { cx: 1550, cy: 820, fill: C.white, size: 28 });
+  sfx('pop', at('cuidar5') + 2.5); sfx('pop', at('cuidar5') + 4); sfx('pop', at('cuidar5') + 6.5);
+  return t => { show(h, t, at('cuidar5')); pop(tm, t, at('cuidar5') + 2.5, 420, 520); pop(gl, t, at('cuidar5') + 4, 960, 520); show(no, t, at('cuidar5') + 6.5); pop(nl, t, at('cuidar5') + 7, 1550, 820); };
+});
+stillScene(svg, 'f2d', c('agua5'), c('suscribe5'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'MÁS AGUA ≠ MEJORES RIÑONES', { hi: '≠', size: 56 });
+  const b = CAP(g, 'NO RESTRINJAS LÍQUIDOS SIN INDICACIÓN', { hi: 'SIN INDICACIÓN', size: 50 });
+  return t => { show(a, t, at('agua5') + 0.5, at('restringir5')); show(b, t, at('restringir5') + 0.3); };
+});
+stillScene(svg, 'f1c', c('suscribe5'), c('descansar5'), { focus: [0.45, 0.45], zoom: 0.1 }, g => {
+  const s = CTA(el('g', {}, g), 'sub', 160);
+  const a = CAP(g, 'DIFERENCIA LO NORMAL DE LO IMPORTANTE', { hi: 'IMPORTANTE', size: 50 });
+  sfx('click', at('suscribe5') + 4);
+  return t => { show(a, t, at('suscribe5') + 0.5); pop(s, t, at('suscribe5') + 4, 960, 160); };
+});
+stillScene(svg, 'f1d', c('descansar5'), c('huesos5'), { focus: [0.5, 0.5], zoom: 0.12 }, g => {
+  const a = CAP(g, 'DORMIR MAL NO ES PARA ACEPTARLO SIN MÁS', { hi: 'SIN MÁS', size: 50 });
+  return t => show(a, t, at('descansar5') + 0.5);
+});
+scene(svg, c('huesos5'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'El último cambio…', { cx: 1220, cy: 300, size: 56 });
+  const b = el('g', {}, g); cut(b, 'rodilla', 1220, 640, 340);
+  sfx('ding', at('huesos5') + 0.5); sfx('pop', at('huesos5') + 6);
+  return t => { host(t, at('huesos5')); pop(q, t, at('huesos5') + 0.5, 1220, 300); pop(b, t, at('huesos5') + 6, 1220, 640); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

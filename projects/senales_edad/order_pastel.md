@@ -3,7 +3,7 @@
 **Khác các video trước:** **Madrid cuối thu** (chung cư cổ ban công sắt, căn hộ ấm cúng, công viên Retiro lá rụng, cầu thang metro, chợ khu phố, cảnh đêm ánh xanh). Màu **trầm, không ám vàng**.
 Dàn nhân vật **cũ**: **đính kèm tấm `reparto`** vào mọi tấm có người (A1 → H). Lucía đóng vai nhân viên y tế. Mascot của bạn làm người dẫn (đã có sẵn).
 
-**Tổng: 16 tấm cảnh + 1 tấm đồ vật = 17 ảnh.**
+**Tổng: 15 tấm cảnh + 1 tấm đồ vật = 16 ảnh.**
 
 # PHẦN 1 · Mở đầu + Señal 1 (mệt mỏi không hết)
 

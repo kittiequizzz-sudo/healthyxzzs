@@ -1,0 +1,114 @@
+// Señal 2 — nocturia: common with age but not always harmless; evening fluids, coffee, diuretics; diabetes, bladder, sleep apnoea, kidneys; heart (fluid from legs at night); log 3 nights; don't cut water or stop meds; blood in urine → doctor; comment question.
+window.START = at('h2') - 1.2;
+window.END = at('h3') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('p2');
+const c = k => () => at(k);
+
+TitleCard(svg, 2, 'LEVANTARTE POR LA NOCHE', 'Para orinar, varias veces', () => START, c('costumbre2'));
+stillScene(svg, 'c1a', c('costumbre2'), c('inevitable2'), { focus: [0.45, 0.5], zoom: 0.14 }, g => {
+  const k = Kicker(g, 2, 'SEÑAL 2 · NOCHE'); Progress(g, 1);
+  const n = ['2', '3', '4'].map((s, i) => Chip(g, s + ' VECES', { cx: 1240 + i * 230, cy: 300, fill: i === 2 ? C.red : C.white, color: i === 2 ? C.white : C.ink, size: 42 }));
+  [0, 1, 2].forEach(i => sfx('pop', at('interrumpir2') + 1.5 + i * 0.6, 0.5));
+  return t => { slideIn(k, t, at('costumbre2'), 'l', 600); n.forEach((x, i) => pop(x, t, at('interrumpir2') + 1.5 + i * 0.6, 1240 + i * 230, 300)); };
+});
+scene(svg, c('inevitable2'), c('nicturia2'), g => {
+  const a = el('g', {}, g); Card(a, { x: 200, y: 260, w: 680, h: 420, fill: C.white }); IC.clock(a, 470, 300, 1.4); Text(a, '«ES LA EDAD»', { x: 540, y: 600, size: 54 }); Mark(a, false, 800, 300, 0.8);
+  const b = el('g', {}, g); Card(b, { x: 1040, y: 260, w: 680, h: 420, fill: C.white }); IC.drop2(b, 1310, 300, 1.4); Text(b, '«BEBO MENOS AGUA»', { x: 1380, y: 600, size: 48 }); Mark(b, false, 1640, 300, 0.8);
+  const cc = CAP(g, 'LA REALIDAD ES MÁS COMPLEJA', { hi: 'MÁS COMPLEJA' });
+  sfx('pop', at('inevitable2') + 0.5); sfx('pop', at('beber2') + 0.5); sfx('ding', at('beber2') + 5);
+  return t => { pop(a, t, at('inevitable2') + 0.5, 540, 470); pop(b, t, at('beber2') + 0.5, 1380, 470); show(cc, t, at('beber2') + 5); };
+});
+scene(svg, c('nicturia2'), c('reduce2'), g => {
+  const a = Text(g, 'NICTURIA', { x: 960, y: 330, size: 150, color: ACC });
+  const b = Chip(g, 'MÁS FRECUENTE CON LOS AÑOS', { cx: 960, cy: 520, fill: C.white, size: 44 });
+  const d = Chip(g, 'PERO NO SIEMPRE INOFENSIVA', { cx: 960, cy: 660, fill: '#D9A84E', size: 44 });
+  const m = el('g', {}, g); IC.moon2(m, 1500, 160, 1.6);
+  sfx('stamp', at('nicturia2') + 1); sfx('pop', at('nicturia2') + 3); sfx('pop', at('nicturia2') + 6);
+  return t => { pop(a, t, at('nicturia2') + 1, 960, 330); pop(m, t, at('nicturia2') + 1.5, 1580, 240); pop(b, t, at('nicturia2') + 3, 960, 520); pop(d, t, at('nicturia2') + 6, 960, 660); };
+});
+stillScene(svg, 'i2b', c('reduce2'), c('alterar2'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, 'DE NOCHE, EL CUERPO PRODUCE MENOS ORINA', { hi: 'MENOS ORINA', size: 50 });
+  return t => show(a, t, at('reduce2') + 1);
+});
+stillScene(svg, 'c1b', c('alterar2'), c('problema2'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['LÍQUIDO POR LA TARDE', () => at('cafe2') + 0.3], ['CAFÉ', () => at('cafe2') + 2], ['ALGUNOS DIURÉTICOS', () => at('cafe2') + 3.5]], { cx: 400, y0: 160, dy: 120, size: 40 });
+  const a = CAP(g, 'EXPLICACIONES HABITUALES', { hi: 'HABITUALES' });
+  [0.3, 2, 3.5].forEach(d => sfx('pop', at('cafe2') + d, 0.5));
+  return t => { show(a, t, at('alterar2') + 0.5); r(t); };
+});
+stillScene(svg, 'c1c', c('problema2'), c('diabetes2'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'CUANDO EMPEORA LA CALIDAD DEL SUEÑO', { hi: 'CALIDAD DEL SUEÑO', size: 50 });
+  return t => show(a, t, at('problema2') + 0.5);
+});
+scene(svg, c('diabetes2'), c('corazon2'), g => {
+  const h = Text(g, 'OTRAS POSIBLES CAUSAS', { x: 960, y: 140, size: 70, color: ACC });
+  const d = el('g', {}, g); Still(d, 'cut/c2b.png', { x: 120, y: 230, w: 660, h: 370, iw: SZ.c2b[0], ih: SZ.c2b[1], r: 26, zoom: 0 }).draw(0, 0, 1);
+  const dl = Text(g, 'DIABETES', { x: 450, y: 670, size: 50, color: ACC });
+  const it = [['vejiga', 'VEJIGA', () => at('vejiga2') + 2], ['moon', 'APNEA DEL SUEÑO', () => at('vejiga2') + 3.5], ['rinones', 'RIÑONES', () => at('vejiga2') + 5]].map(([n, l, k], i) => {
+    const cy = 300 + i * 220, x = el('g', {}, g); Card(x, { x: 920, y: cy - 90, w: 880, h: 180, fill: C.white });
+    if (SZ[n]) cut(x, n, 1030, cy, 150); else IC[n](x, 980, cy - 50, 1);
+    Text(x, l, { x: 1140, y: cy + 4, size: 48, anchor: 'start' }); return [x, k, cy]; });
+  sfx('pop', at('diabetes2')); it.forEach(([, k]) => sfx('pop', k(), 0.5));
+  return t => { show(h, t, at('diabetes2')); show(d, t, at('diabetes2') + 0.3); show(dl, t, at('diabetes2') + 1); it.forEach(([x, k, cy]) => slideIn(x, t, k(), 'r', 500)); };
+});
+// heart: fluid in the legs returns to the circulation at night
+scene(svg, c('corazon2'), c('atencion2'), g => {
+  const h = Text(g, 'UNA RELACIÓN MENOS CONOCIDA: EL CORAZÓN', { x: 960, y: 130, size: 54, color: ACC });
+  const st = Still(el('g', {}, g), 'cut/c1d.png', { x: 120, y: 220, w: 760, h: 430, iw: SZ.c1d[0], ih: SZ.c1d[1], r: 26, focus: [0.5, 0.6] });
+  const s1 = Chip(g, 'DE DÍA: LÍQUIDO EN LAS PIERNAS', { cx: 500, cy: 760, fill: C.white, size: 38 });
+  const ar = el('g', {}, g); Arrow(ar, 920, 440, 1120, 440, ACC, 14);
+  const hh = el('g', {}, g); cut(hh, 'corazon', 1260, 400, 220); cut(hh, 'vejiga', 1580, 400, 200);
+  const s2 = Chip(g, 'AL ACOSTARTE: VUELVE A LA CIRCULACIÓN', { cx: 1420, cy: 640, fill: C.white, size: 34 });
+  const s3 = Chip(g, '→ MÁS ORINA NOCTURNA', { cx: 1420, cy: 760, fill: ACC, color: C.white, size: 40 });
+  const n = Chip(g, 'POSIBLE EN INSUFICIENCIA CARDÍACA · HAY MUCHAS OTRAS CAUSAS', { cx: 960, cy: 920, fill: '#D5D9DE', size: 32 });
+  sfx('pop', at('liquidos2')); sfx('pop', at('liquidos2') + 4); sfx('pop', at('liquidos2') + 7); sfx('pop', at('insuf2'));
+  return t => { show(h, t, at('corazon2')); show(st.g, t, at('liquidos2')); st.draw(t, at('liquidos2'), at('atencion2')); pop(s1, t, at('liquidos2') + 1.5, 500, 760); show(ar, t, at('liquidos2') + 4); pop(hh, t, at('liquidos2') + 4, 1420, 400); pop(s2, t, at('liquidos2') + 5, 1420, 640); pop(s3, t, at('liquidos2') + 7, 1420, 760); pop(n, t, at('insuf2') + 1, 960, 920); };
+});
+scene(svg, c('atencion2'), c('hacer2'), g => {
+  const h = Text(g, 'ATENCIÓN SI ADEMÁS NOTAS…', { x: 960, y: 150, size: 64, color: ACC });
+  const ts = [['feet', 'TOBILLOS\nHINCHADOS', 3], ['drop2', 'SED\nEXCESIVA', 5], ['battery', 'CANSANCIO\nPERSISTENTE', 6.5], ['question', 'CAMBIOS EN LA\nCANTIDAD DE ORINA', 8.5]].map(([ic, l, d], i) => [IconTile(g, ic, l, 300 + i * 440, 540, { w: 400, h: 420 }), d, 300 + i * 440]);
+  ts.forEach(([, d]) => sfx('pop', at('atencion2') + d, 0.5));
+  return t => { show(h, t, at('atencion2')); ts.forEach(([x, d, cx]) => pop(x, t, at('atencion2') + d, cx, 540)); };
+});
+stillScene(svg, 'c2a', c('hacer2'), c('eso2'), { focus: [0.45, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['¿CUÁNTAS VECES VAS AL BAÑO?', () => at('tres2') + 1.5], ['¿QUÉ BEBES POR LA TARDE?', () => at('tres2') + 3.5], ['¿MOLESTIAS AL ORINAR?', () => at('tres2') + 5.5]], { cx: 1380, y0: 180, dy: 120, size: 36 });
+  const a = CAP(g, 'APUNTA DURANTE 3 NOCHES', { hi: '3 NOCHES' });
+  [1.5, 3.5, 5.5].forEach(d => sfx('pop', at('tres2') + d, 0.5));
+  return t => { show(a, t, at('tres2')); r(t); };
+});
+scene(svg, c('eso2'), c('pregunta2'), g => {
+  const w = Warn(g, 'POR TU CUENTA, NUNCA', ['NO REDUZCAS DRÁSTICAMENTE EL AGUA', 'NO SUSPENDAS MEDICAMENTOS'], { kind: 'amber', y: 160, w: 1400 });
+  const s = el('g', {}, g); Card(s, { x: 300, y: 650, w: 1320, h: 170, fill: C.white }); el('rect', { x: 300, y: 650, width: 26, height: 170, rx: 12, fill: C.red }, s);
+  Text(s, 'SANGRE EN LA ORINA → MÉDICO SIN DEMORA', { x: 975, y: 737, size: 52, color: C.red });
+  sfx('alert', at('eso2') + 0.3); sfx('alert', at('sangre2'));
+  return t => { pop(w, t, at('eso2') + 0.3, 960, 340); pop(s, t, at('sangre2'), 960, 735); };
+}, true);
+scene(svg, c('pregunta2'), c('comenta2'), g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿Cuántas veces te levantas?', { cx: 1220, cy: 300, size: 52 });
+  const ops = ['1', '2', '3+'].map((s, i) => { const x = el('g', {}, g), cx = 940 + i * 280; el('circle', { cx: cx + 6, cy: 638, r: 100, fill: SHADOW }, x); el('circle', { cx, cy: 630, r: 100, fill: C.white, stroke: C.ink, 'stroke-width': 6 }, x); Text(x, s, { x: cx, y: 634, size: 90, color: ACC }); return [x, cx, i]; });
+  sfx('ding', at('pregunta2') + 1); ops.forEach(([, , i]) => sfx('pop', at('cuantas2') + 3.5 + i * 0.9, 0.5));
+  return t => { host(t, at('pregunta2')); pop(q, t, at('cuantas2'), 1220, 300); ops.forEach(([x, cx, i]) => pop(x, t, at('cuantas2') + 3.5 + i * 0.9, cx, 630)); };
+});
+stillScene(svg, 'c2d', c('comenta2'), c('suscribe2'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const cc = CTA(el('g', {}, g), 'comment', 160);
+  const a = CAP(g, 'TU EXPERIENCIA AYUDA A OTROS', { hi: 'AYUDA' });
+  sfx('click', at('comenta2') + 0.3);
+  return t => { pop(cc, t, at('comenta2') + 0.3, 960, 160); show(a, t, at('comenta2') + 2); };
+});
+stillScene(svg, 'c2c', c('suscribe2'), c('pies2'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const s = CTA(el('g', {}, g), 'sub', 160);
+  const a = CAP(g, 'APRENDE A ESCUCHAR A TU CUERPO', { hi: 'ESCUCHAR' });
+  sfx('click', at('suscribe2') + 2);
+  return t => { pop(s, t, at('suscribe2') + 2, 960, 160); show(a, t, at('suscribe2') + 0.5); };
+});
+scene(svg, c('pies2'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, '¿Frío u hormigueo en los pies?', { cx: 1220, cy: 330, size: 50 });
+  const p = el('g', {}, g); cut(p, 'pie', 1220, 650, 280);
+  sfx('ding', at('pies2'));
+  return t => { host(t, at('pies2')); pop(q, t, at('pies2'), 1220, 330); pop(p, t, at('pies2') + 1.5, 1220, 650); };
+});
+
+window.draw = t => drawScenes(t);

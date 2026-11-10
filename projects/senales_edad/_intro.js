@@ -1,0 +1,68 @@
+// Intro — «Eso es normal a mi edad»; ageing vs symptoms; when, how long, worsening; six signs; watch the fifth; subscribe.
+window.START = 0;
+window.END = at('h1') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('intro');
+const c = k => () => at(k);
+
+stillScene(svg, 'i1a', () => 0, c('repetimos0'), { focus: [0.45, 0.45], zoom: 0.16 }, g => {
+  const a = CAP(g, '«ESO ES NORMAL A MI EDAD»', { hi: 'NORMAL', size: 62 });
+  return t => show(a, t, at('normal0'));
+}, true);
+stillScene(svg, 'i1b', c('repetimos0'), c('escaleras0'), { focus: [0.6, 0.6], zoom: 0.14 }, g => {
+  const a = CAP(g, 'AGOTAMIENTO · HORMIGUEO', { hi: 'HORMIGUEO' });
+  return t => show(a, t, at('repetimos0') + 0.5);
+}, true);
+stillScene(svg, 'i1c', c('escaleras0'), c('aceptamos0'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'SIN ALIENTO EN LAS ESCALERAS', { hi: 'SIN ALIENTO' });
+  return t => show(a, t, at('escaleras0') + 0.3);
+}, true);
+stillScene(svg, 'i1d', c('aceptamos0'), c('diferencia0'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UNA SEÑAL DE ALERTA… QUE ACEPTAMOS', { hi: 'ACEPTAMOS', size: 52 });
+  return t => show(a, t, at('aceptamos0') + 0.5);
+}, true);
+scene(svg, c('diferencia0'), c('avisa0'), g => {
+  const a = el('g', {}, g); Card(a, { x: 160, y: 300, w: 700, h: 360, fill: C.white }); Text(a, 'ENVEJECIMIENTO', { x: 510, y: 430, size: 56, color: C.green }); Text(a, 'CAMBIOS NATURALES', { x: 510, y: 520, size: 40 });
+  const ne = Text(g, '≠', { x: 960, y: 490, size: 140, color: C.red });
+  const b = el('g', {}, g); Card(b, { x: 1060, y: 300, w: 700, h: 360, fill: C.white }); Text(b, 'SÍNTOMAS', { x: 1410, y: 430, size: 56, color: C.red }); Text(b, 'QUE MERECEN ATENCIÓN', { x: 1410, y: 520, size: 40 });
+  sfx('pop', at('diferencia0') + 0.4); sfx('stamp', at('diferencia0') + 3.5); sfx('pop', at('diferencia0') + 4.5);
+  return t => { pop(a, t, at('diferencia0') + 0.4, 510, 480); pop(ne, t, at('diferencia0') + 3.5, 960, 490); pop(b, t, at('diferencia0') + 4.5, 1410, 480); };
+});
+stillScene(svg, 'i2a', c('avisa0'), c('preocupante0'), { focus: [0.4, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'LAS PRIMERAS SEÑALES SON DISCRETAS', { hi: 'DISCRETAS', size: 52 });
+  const r = ChipRow(g, [['CANSANCIO', () => at('discretas0') + 2.5], ['NOCHES INTERRUMPIDAS', () => at('discretas0') + 4.5], ['PEQUEÑOS CAMBIOS', () => at('discretas0') + 7]], { cy: 120, size: 38 });
+  [2.5, 4.5, 7].forEach(d => sfx('pop', at('discretas0') + d, 0.5));
+  return t => { show(a, t, at('discretas0')); r(t); };
+});
+scene(svg, c('preocupante0'), c('seis0'), g => {
+  const h = Text(g, 'LO IMPORTANTE ES RECONOCER…', { x: 960, y: 170, size: 62, color: ACC });
+  const iso = Chip(g, 'UN SÍNTOMA AISLADO NO ES PARA ALARMARSE', { cx: 960, cy: 540, fill: C.white, size: 44 });
+  const ts = [['question', '¿CUÁNDO\nAPARECE?', 0], ['clock', '¿CUÁNTO\nDURA?', 1.6], ['speed', '¿ESTÁ\nEMPEORANDO?', 3.2]].map(([ic, l, d], i) => [IconTile(g, ic, l, 420 + i * 540, 560, { w: 460, h: 440 }), d, 420 + i * 540]);
+  ts.forEach(([, d]) => sfx('pop', at('importante0') + 1 + d, 0.6));
+  return t => { show(iso, t, at('preocupante0') + 0.3, at('importante0') + 0.8); show(h, t, at('importante0')); ts.forEach(([x, d, cx]) => pop(x, t, at('importante0') + 1 + d, cx, 560)); };
+});
+scene(svg, c('seis0'), c('quinta0'), g => {
+  const h = Text(g, '6 SEÑALES «NORMALES»', { x: 960, y: 150, size: 80, color: ACC });
+  const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360, { w: 460, h: 310 }), at('seis0') + 1.2 + i * 0.9, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360]);
+  ts.forEach(([, k]) => sfx('pop', k, 0.5));
+  return t => { show(h, t, at('seis0')); ts.forEach(([x, k, cx, cy]) => pop(x, t, k, cx, cy)); };
+});
+scene(svg, c('quinta0'), c('suscribe0'), g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const b = Bubble(g, 'Atento a la quinta', { cx: 1200, cy: 300, size: 56 });
+  const t5 = IconTile(g, 'bubble', 'CAMBIOS REPENTINOS:\nAYUDA INMEDIATA', 1220, 650, { w: 760, h: 380 });
+  sfx('ding', at('quinta0') + 0.5); sfx('alert', at('quinta0') + 3);
+  return t => { host(t, at('quinta0')); pop(b, t, at('quinta0') + 0.5, 1200, 300); pop(t5, t, at('quinta0') + 3, 1220, 650); };
+});
+stillScene(svg, 'i2d', c('suscribe0'), c('empecemos0'), { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const s = CTA(el('g', {}, g), 'sub', 160);
+  const cc = CAP(g, 'INFORMACIÓN CLARA, SIN ALARMISMOS', { hi: 'SIN ALARMISMOS', size: 52 });
+  sfx('click', at('suscribe0') + 0.5);
+  return t => { pop(s, t, at('suscribe0') + 0.5, 960, 160); show(cc, t, at('suscribe0') + 2); };
+});
+stillScene(svg, 'i2c', c('empecemos0'), () => END + 1, { focus: [0.45, 0.45], zoom: 0.1 }, g => {
+  const a = CAP(g, 'EMPECEMOS…', { hi: 'EMPECEMOS' });
+  return t => show(a, t, at('empecemos0') + 0.3);
+});
+
+window.draw = t => drawScenes(t);

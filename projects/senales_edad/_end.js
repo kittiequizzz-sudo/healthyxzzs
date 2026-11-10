@@ -1,0 +1,62 @@
+// Conclusion — don't get used to symptoms; recap of the six; three questions; 112 warning; educational disclaimer; open comment question; share + subscribe.
+window.START = at('c0') - 0.6;
+window.END = 1284.88;
+window.DURATION = window.END;
+const svg = Stage('end');
+const c = k => () => at(k);
+
+scene(svg, () => START, c('recap_c'), g => {
+  const a = Text(g, 'TU CUERPO HABLA…', { x: 960, y: 360, size: 110, color: ACC });
+  const b = Text(g, '¿ESTÁS ESCUCHANDO?', { x: 960, y: 520, size: 96, color: C.ink });
+  const n = Chip(g, 'EL ERROR: ACOSTUMBRARSE A UN SÍNTOMA', { cx: 960, cy: 760, fill: C.white, size: 46 });
+  sfx('stamp', START + 0.5); sfx('pop', at('error_c') + 1);
+  return t => { pop(a, t, START + 0.5, 960, 360); show(b, t, START + 2); pop(n, t, at('error_c') + 1, 960, 760); };
+}, true);
+scene(svg, c('recap_c'), c('clave_c'), g => {
+  const ks = [0.3, 2, 4.5, 6.3, 8.2, 10.5];
+  const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 330 + Math.floor(i / 3) * 360, { w: 460, h: 310 }), ks[i], 360 + (i % 3) * 600, 330 + Math.floor(i / 3) * 360]);
+  const r = ChipRow(g, [['ALGUNAS LEVES', c('leves_c')], ['OTRAS NECESITAN EVALUACIÓN', () => at('leves_c') + 2.8]], { cy: 960, size: 40 });
+  ts.forEach(([, d]) => sfx('pop', at('recap_c') + d, 0.5));
+  return t => { ts.forEach(([x, d, cx, cy]) => pop(x, t, at('recap_c') + d, cx, cy)); r(t); };
+});
+stillScene(svg, 'za', c('clave_c'), c('advertencia'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const q = [['¿ME OCURRÍA ANTES?', 'q1'], ['¿ESTÁ EMPEORANDO?', 'q2'], ['¿ME IMPIDE HACER MIS COSAS?', 'q3']].map(([s, k], i) => [Chip(g, s, { cx: 1380, cy: 220 + i * 150, fill: C.white, size: 44 }), k, 220 + i * 150]);
+  const a = CAP(g, 'NO CADA MOLESTIA: LO QUE HA CAMBIADO', { hi: 'CAMBIADO', size: 50 });
+  const b = CAP(g, '3 PREGUNTAS PARA DECIDIR CUÁNDO CONSULTAR', { hi: '3 PREGUNTAS', size: 48 });
+  q.forEach(([, k]) => sfx('pop', at(k), 0.6));
+  return t => { show(a, t, at('clave_c') + 0.5, at('q1')); q.forEach(([x, k, cy]) => slideIn(x, t, at(k), 'r', 500)); show(b, t, at('ayudan_c')); };
+});
+scene(svg, c('advertencia'), c('pregunta_c'), g => {
+  const w = el('g', {}, g); Warn(el('g', { transform: 'translate(-280 0)' }, w), 'LLAMA INMEDIATAMENTE AL 112', ['DIFICULTAD REPENTINA PARA HABLAR', 'DEBILIDAD EN UN LADO DEL CUERPO', 'DOLOR INTENSO EN EL PECHO', 'FALTA DE AIRE GRAVE'], { kind: 'red', y: 100, w: 1100 });
+  const st = el('g', {}, g); cut(st, 'cerebro', 1440, 260, 240); cut(st, 'corazon', 1700, 300, 200); cut(st, 'pulmones', 1560, 480, 220);
+  const n = Chip(g, 'NO ESPERES A QUE DESAPAREZCAN', { cx: 1560, cy: 660, fill: C.red, color: C.white, size: 34 });
+  const s = Source(g, 'Contenido educativo · no sustituye una valoración médica ni permite autodiagnósticos', 1000);
+  sfx('alert', at('advertencia') + 0.3); sfx('pop', at('noesperes_c'));
+  return t => { show(w, t, at('advertencia') + 0.3); pop(st, t, at('si_c'), 1560, 380); pop(n, t, at('noesperes_c'), 1560, 660); show(s, t, at('educativo_c')); };
+}, true);
+scene(svg, c('pregunta_c'), c('util_c'), g => {
+  const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 120, size: 76, color: ACC });
+  const a = Chip(g, '¿QUÉ SEÑAL TE HA SORPRENDIDO MÁS?', { cx: 960, cy: 260, fill: C.white, size: 46 });
+  const b = Chip(g, '¿CUÁL SOLEMOS IGNORAR MÁS?', { cx: 960, cy: 400, fill: C.white, size: 46 });
+  const ts = SIGNS.map(([ic, l], i) => { const x = el('g', {}, g), cx = 260 + i * 280; el('circle', { cx: cx + 5, cy: 618, r: 92, fill: SHADOW }, x); el('circle', { cx, cy: 610, r: 92, fill: C.white, stroke: C.ink, 'stroke-width': 5 }, x); IC[ic](x, cx - 45, 565, 0.9); Text(x, l, { x: cx, y: 740, size: 28 }); return [x, cx, i]; });
+  const cta = CTA(el('g', {}, g), 'comment', 900);
+  sfx('ding', at('pregunta_c')); sfx('pop', at('cual_c')); sfx('pop', at('cual_c') + 3); sfx('click', at('leo_c'));
+  return t => { show(h, t, at('pregunta_c')); pop(a, t, at('cual_c'), 960, 260); pop(b, t, at('cual_c') + 3, 960, 400); ts.forEach(([x, cx, i]) => pop(x, t, at('cual_c') + 1 + i * 0.3, cx, 610)); pop(cta, t, at('leo_c'), 960, 900); };
+});
+stillScene(svg, 'zb', c('util_c'), c('miedo_c'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const b = el('g', {}, g); Card(b, { x: 460, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(b, 490, 90, 1); Text(b, 'COMPARTE', { x: 735, y: 142, size: 46 });
+  const s = CTA(el('g', { transform: 'translate(350 0)' }, g), 'sub', 140);
+  sfx('click', at('util_c') + 1); sfx('click', at('util_c') + 2.5);
+  return t => { pop(b, t, at('util_c') + 1, 680, 140); pop(s, t, at('util_c') + 2.5, 1310, 140); };
+});
+stillScene(svg, 'zc', c('miedo_c'), () => at('miedo_c') + 5.5, { focus: [0.5, 0.5], zoom: 0.1 }, g => {
+  const a = CAP(g, 'SIN MIEDO · CON CONOCIMIENTO', { hi: 'CONOCIMIENTO', size: 56 });
+  return t => show(a, t, at('miedo_c') + 0.5);
+});
+stillScene(svg, 'zd', () => at('miedo_c') + 5.5, () => END + 1, { focus: [0.5, 0.45], zoom: 0.08 }, g => {
+  const a = CAP(g, 'DISFRUTA CADA ETAPA DE LA VIDA', { hi: 'CADA ETAPA', size: 56 });
+  sfx('ding', at('miedo_c') + 6);
+  return t => show(a, t, at('miedo_c') + 6);
+});
+
+window.draw = t => drawScenes(t);

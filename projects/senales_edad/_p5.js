@@ -1,0 +1,94 @@
+// Señal 5 — speech and memory: normal slower recall vs memory problems (consult; many causes, not automatically Alzheimer's) vs SUDDEN speech/face/arm/balance/vision changes = stroke → 112 now, don't drive; TIA still urgent; slow vs sudden.
+window.START = at('h5') - 1.2;
+window.END = at('h6') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('p5');
+const c = k => () => at(k);
+
+TitleCard(svg, 5, 'CAMBIOS AL HABLAR O RECORDAR', 'Lento o repentino: no es lo mismo', () => START, c('llaves5'));
+stillScene(svg, 'f1a', c('llaves5'), c('nombre5'), { focus: [0.45, 0.45], zoom: 0.14 }, g => {
+  const k = Kicker(g, 5, 'SEÑAL 5 · HABLA'); Progress(g, 4);
+  const a = CAP(g, '¿DÓNDE DEJÉ LAS LLAVES?', { hi: 'LLAVES' });
+  return t => { slideIn(k, t, at('llaves5'), 'l', 600); show(a, t, at('llaves5') + 0.5); };
+});
+stillScene(svg, 'f1b', c('nombre5'), c('confunden5'), { focus: [0.35, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'TARDAR EN RECORDAR UN NOMBRE', { hi: 'UN NOMBRE' });
+  return t => show(a, t, at('nombre5') + 0.3);
+});
+scene(svg, c('confunden5'), c('diferente5'), g => {
+  const h = Text(g, 'NO TODO ES «COSA DE LA EDAD»', { x: 960, y: 150, size: 66, color: ACC });
+  const v = VsCards(g, ['PUEDE SER NORMAL', [['Tardar en encontrar una palabra', () => at('tiempo5') + 2], ['Recordar un nombre más tarde', () => at('tiempo5') + 4], ['Sin perder autonomía', () => at('habitual5') + 3]]],
+    ['NO ES LO MISMO', [['Olvidar para qué sirven las llaves', () => at('confunden5') + 2], ['Perder el habla de repente', () => at('confunden5') + 3.5]]], { y: 240 });
+  sfx('pop', at('confunden5') + 1); sfx('pop', at('tiempo5'));
+  return t => { show(h, t, at('confunden5') + 0.3); v.draw(t, at('tiempo5'), at('confunden5') + 1); };
+});
+stillScene(svg, 'f1c', c('diferente5'), c('cognitivo5'), { focus: [0.4, 0.45], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['OLVIDAR CONVERSACIONES RECIENTES', () => at('olvidar5') + 0.5], ['PERDERSE EN LUGARES CONOCIDOS', () => at('olvidar5') + 3.5], ['DIFICULTAD CRECIENTE EN EL DÍA A DÍA', () => at('olvidar5') + 6]], { cx: 1300, y0: 200, dy: 120, size: 32 });
+  const a = CAP(g, 'MERECE UNA CONSULTA MÉDICA', { hi: 'CONSULTA' });
+  [0.5, 3.5, 6].forEach(d => sfx('pop', at('olvidar5') + d, 0.5));
+  return t => { r(t); show(a, t, at('olvidar5') + 9); };
+});
+scene(svg, c('cognitivo5'), c('velocidad5'), g => {
+  const h = Text(g, 'POSIBLES CAUSAS', { x: 960, y: 140, size: 66, color: ACC });
+  const ts = [['brain', 'DETERIORO\nCOGNITIVO', 0.3], ['moon', 'PROBLEMAS\nDE SUEÑO', 2.5], ['bubble', 'DEPRESIÓN', 3.8], ['pill', 'EFECTOS DE\nMEDICAMENTOS', 5], ['drop', 'ALTERACIONES\nMETABÓLICAS', 7]].map(([ic, l, d], i) => [IconTile(g, ic, l, 230 + i * 365, 500, { w: 340, h: 380 }), d, 230 + i * 365]);
+  const st = Stamp(g, '≠ ALZHEIMER AUTOMÁTICO', { cx: 960, cy: 870, size: 54, color: C.blueDark, rot: -3 });
+  ts.forEach(([, d]) => sfx('pop', at('cognitivo5') + d, 0.5)); sfx('stamp', at('alzheimer5') + 1);
+  return t => { show(h, t, at('cognitivo5')); ts.forEach(([x, d, cx]) => pop(x, t, at('cognitivo5') + d, cx, 500)); st.draw(t, at('alzheimer5') + 1); };
+});
+// slow vs sudden
+scene(svg, c('velocidad5'), c('repente5'), g => {
+  const h = Text(g, 'LA CLAVE: LA VELOCIDAD', { x: 960, y: 160, size: 74, color: ACC });
+  const a = IconTile(g, 'clock', 'AVANZA\nLENTAMENTE', 600, 560, { w: 520, h: 460 });
+  const b = IconTile(g, 'bolt', 'APARECE DE\nREPENTE', 1320, 560, { w: 520, h: 460, fill: '#EAD3D0' });
+  sfx('pop', at('velocidad5') + 0.6); sfx('alert', at('velocidad5') + 2.5);
+  return t => { show(h, t, at('velocidad5')); pop(a, t, at('velocidad5') + 0.6, 600, 560); pop(b, t, at('velocidad5') + 2.5, 1320, 560); };
+});
+// dramatised stroke
+stillScene(svg, 'f2a', c('repente5'), c('dolor5'), { focus: [0.35, 0.4], zoom: 0.14 }, g => {
+  const d = Drama2(g, 'ANTONIO');
+  const r = SideChips(g, [['HABLA CONFUSA', () => at('repente5') + 3], ['ARRASTRA LAS PALABRAS', () => at('repente5') + 5], ['NO COMPRENDE FRASES', () => at('repente5') + 7]], { cx: 1460, y0: 280, dy: 120, size: 36 });
+  const a = CAP(g, 'POSIBLE ICTUS', { hi: 'ICTUS', size: 64 });
+  [3, 5, 7].forEach(dd => sfx('pop', at('repente5') + dd, 0.5)); sfx('alert', at('repente5') + 9);
+  return t => { slideIn(d, t, at('repente5'), 'r', 400); r(t); show(a, t, at('repente5') + 9); };
+}, true);
+scene(svg, c('dolor5'), c('llama5'), g => {
+  const h = Text(g, 'NO SIEMPRE HAY DOLOR', { x: 960, y: 140, size: 68, color: C.red });
+  const ts = [['eye', 'SONRISA\nASIMÉTRICA', 0.5], ['hand', 'DEBILIDAD\nEN UN BRAZO', 2.5], ['balance', 'PÉRDIDA DE\nEQUILIBRIO', 4.5], ['eye', 'ALTERACIÓN\nDE LA VISIÓN', 6]].map(([ic, l, d], i) => [IconTile(g, ic, l, 300 + i * 440, 560, { w: 400, h: 440 }), d, 300 + i * 440]);
+  const st = Still(el('g', {}, g), 'cut/f2b.png', { x: 1440, y: 800, w: 420, h: 230, iw: SZ.f2b[0], ih: SZ.f2b[1], r: 20 });
+  ts.forEach(([, d], i) => sfx('pop', at('sonrisa5') + d - (i ? 0 : 3), 0.5));
+  return t => { show(h, t, at('dolor5')); ts.forEach(([x, d, cx], i) => pop(x, t, at('sonrisa5') + d - (i ? 0 : 3), cx, 560)); show(st.g, t, at('sonrisa5') + 2.5); st.draw(t, at('sonrisa5'), at('llama5')); };
+});
+stillScene(svg, 'f2c', c('llama5'), c('ait5'), { focus: [0.4, 0.45], zoom: 0.12 }, g => {
+  const d = Drama2(g, 'PILAR');
+  const u = el('g', {}, g); Card(u, { x: 560, y: 80, w: 800, h: 150, fill: C.red, r: 75 }); IC.phone(u, 600, 105, 1); Text(u, 'LLAMA YA AL 112', { x: 1010, y: 157, size: 60, color: C.white });
+  const a = CAP(g, 'NO ESPERES · NO CONDUZCAS TÚ', { hi: 'NO CONDUZCAS', size: 54 });
+  sfx('alert', at('llama5') + 0.3);
+  return t => { slideIn(d, t, at('llama5'), 'r', 400); pop(u, t, at('llama5') + 0.3, 960, 155); show(a, t, at('noesperes5')); };
+}, true);
+stillScene(svg, 'f2d', c('ait5'), c('distincion5'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const d = Drama2(g, 'URGENCIAS');
+  const a = CAP(g, 'AUNQUE DURE MINUTOS Y DESAPAREZCA', { hi: 'MINUTOS', size: 52 });
+  const b = Chip(g, 'ATAQUE ISQUÉMICO TRANSITORIO → VALORACIÓN URGENTE', { cx: 860, cy: 150, fill: C.white, size: 34 });
+  sfx('pop', at('ait5') + 5);
+  return t => { slideIn(d, t, at('ait5'), 'r', 400); show(a, t, at('ait5') + 0.5); pop(b, t, at('ait5') + 5, 860, 150); };
+});
+scene(svg, c('distincion5'), c('pendiente5'), g => {
+  const h = Text(g, 'RECUERDA LA DIFERENCIA', { x: 960, y: 150, size: 70, color: ACC });
+  const a = el('g', {}, g); Card(a, { x: 140, y: 260, w: 780, h: 520, fill: C.white }); IC.clock(a, 460, 300, 1.6); Text(a, 'MEMORIA QUE EMPEORA', { x: 530, y: 540, size: 44 }); Text(a, 'POCO A POCO', { x: 530, y: 600, size: 44 }); el('rect', { x: 230, y: 660, width: 600, height: 80, rx: 40, fill: C.green }, a); Text(a, 'CONSULTA MÉDICA', { x: 530, y: 703, size: 42, color: C.white });
+  const b = el('g', {}, g); Card(b, { x: 1000, y: 260, w: 780, h: 520, fill: C.white }); IC.bolt(b, 1320, 300, 1.6); Text(b, 'CAMBIO NEUROLÓGICO', { x: 1390, y: 540, size: 44 }); Text(b, 'REPENTINO', { x: 1390, y: 600, size: 44 }); el('rect', { x: 1090, y: 660, width: 600, height: 80, rx: 40, fill: C.red }, b); Text(b, 'EMERGENCIA · 112', { x: 1390, y: 703, size: 42, color: C.white });
+  sfx('pop', at('lentos5')); sfx('alert', at('lentos5') + 4);
+  return t => { show(h, t, at('distincion5')); pop(a, t, at('lentos5'), 530, 520); pop(b, t, at('lentos5') + 4, 1390, 520); };
+});
+stillScene(svg, 'f1d', c('pendiente5'), c('ultima5'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO VIVIR CON MIEDO: SABER RECONOCER', { hi: 'RECONOCER', size: 52 });
+  return t => show(a, t, at('pendiente5') + 1);
+});
+scene(svg, c('ultima5'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'La última señal…', { cx: 1220, cy: 300, size: 58 });
+  const l = el('g', {}, g); cut(l, 'pulmones', 1220, 640, 320);
+  sfx('ding', at('ultima5'));
+  return t => { host(t, at('ultima5')); pop(q, t, at('ultima5'), 1220, 300); pop(l, t, at('ultima5') + 4, 1220, 640); };
+});
+
+window.draw = t => drawScenes(t);

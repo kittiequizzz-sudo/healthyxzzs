@@ -1,0 +1,106 @@
+// Señal 4 — unexplained bruises: thinner skin and fragile vessels with age (usually benign, forearms/hands); meds (anticoagulants, antiplatelets, corticosteroids); platelets, clotting, liver, blood diseases; red flags; never stop anticoagulants; photograph and note.
+window.START = at('h4') - 1.2;
+window.END = at('h5') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('p4');
+const c = k => () => at(k);
+
+TitleCard(svg, 4, 'MORATONES SIN EXPLICACIÓN', 'Cuándo merecen atención', () => START, c('brazo4'));
+stillScene(svg, 'e1a', c('brazo4'), c('pregunta4'), { focus: [0.4, 0.5], zoom: 0.14 }, g => {
+  const k = Kicker(g, 4, 'SEÑAL 4 · MORATONES'); Progress(g, 3);
+  const a = CAP(g, '¿Y ESTE MORATÓN… DE DÓNDE SALIÓ?', { hi: 'DE DÓNDE', size: 52 });
+  return t => { slideIn(k, t, at('brazo4'), 'l', 600); show(a, t, at('brazo4') + 4); };
+});
+scene(svg, c('pregunta4'), c('piel4'), g => {
+  const m = ItemCard(g, 'moraton', 960, 470, { w: 620, h: 520, fit: 440 });
+  const q = Text(g, '¿NORMAL O SEÑAL DE ALERTA?', { x: 960, y: 860, size: 64, color: ACC });
+  sfx('pop', at('pregunta4') + 0.5); sfx('ding', at('pregunta4') + 4);
+  return t => { pop(m, t, at('pregunta4') + 0.5, 960, 470); show(q, t, at('pregunta4') + 4); };
+});
+// skin layers: thinner skin + fragile vessels
+scene(svg, c('piel4'), c('golpe4'), g => {
+  const h = Text(g, 'CON LOS AÑOS…', { x: 960, y: 140, size: 70, color: ACC });
+  const lay = (x, th, lab, frag) => { const w = el('g', {}, g);
+    el('rect', { x, y: 320, width: 640, height: 360, rx: 28, fill: '#F2C9AE', stroke: C.ink, 'stroke-width': 6 }, w);
+    el('rect', { x, y: 320, width: 640, height: th, rx: 28, fill: '#E9A890', stroke: C.ink, 'stroke-width': 5 }, w);
+    for (let i = 0; i < 4; i++) el('path', { d: `M${x + 60 + i * 150} 560 q40 -40 80 0 t80 0`, fill: 'none', stroke: C.red, 'stroke-width': frag ? 5 : 9, 'stroke-dasharray': frag ? '10 8' : '' }, w);
+    Text(w, lab, { x: x + 320, y: 740, size: 44 }); return w; };
+  const a = lay(220, 120, 'PIEL JOVEN', false), b = lay(1060, 50, 'PIEL MAYOR: MÁS FINA', true);
+  const r = ChipRow(g, [['MENOS GROSOR Y ELASTICIDAD', c('piel4')], ['VASOS MÁS FRÁGILES', c('vasos4')]], { cy: 880, size: 36 });
+  sfx('pop', at('piel4') + 0.5); sfx('pop', at('piel4') + 1.5);
+  return t => { show(h, t, at('piel4')); pop(a, t, at('piel4') + 0.5, 540, 500); pop(b, t, at('piel4') + 1.5, 1380, 500); r(t); };
+});
+stillScene(svg, 'e1b', () => at('golpe4') - 0.01, c('benigno4'), { focus: [0.6, 0.6], zoom: 0.12 }, g => {
+  const a = CAP(g, 'UN ROCE PEQUEÑO, UNA MANCHA VISIBLE', { hi: 'MANCHA', size: 52 });
+  return t => show(a, t, at('golpe4') + 0.5);
+});
+scene(svg, c('benigno4'), c('misma4'), g => {
+  const m = el('g', {}, g); cut(m, 'moraton', 700, 500, 520);
+  const s = Stamp(g, 'SUELE SER BENIGNO', { cx: 1360, cy: 400, size: 60, color: C.green, rot: -4 });
+  const r = Chip(g, 'ANTEBRAZOS Y MANOS · TRAS PEQUEÑOS ROCES', { cx: 960, cy: 860, fill: C.white, size: 38 });
+  sfx('pop', at('benigno4')); sfx('stamp', at('benigno4') + 1); sfx('pop', at('benigno4') + 4);
+  return t => { pop(m, t, at('benigno4'), 700, 500); s.draw(t, at('benigno4') + 1); pop(r, t, at('benigno4') + 4, 960, 860); };
+});
+scene(svg, c('misma4'), c('plaquetas4'), g => {
+  const h = Text(g, 'ALGUNOS MEDICAMENTOS', { x: 960, y: 150, size: 70, color: ACC });
+  const p = el('g', {}, g); cut(p, 'pastillero', 520, 520, 520);
+  const r = SideChips(g, [['ANTICOAGULANTES', () => at('medicamentos4') + 1.5], ['ANTIAGREGANTES PLAQUETARIOS', () => at('medicamentos4') + 3], ['CORTICOIDES', () => at('medicamentos4') + 5.5]], { cx: 1340, y0: 380, dy: 140, size: 40 });
+  const st = Still(el('g', {}, g), 'cut/e1c.png', { x: 940, y: 760, w: 520, h: 280, iw: SZ.e1c[0], ih: SZ.e1c[1], r: 22 });
+  const n = CAP(g, 'REVÍSALOS CON TU PROFESIONAL SANITARIO', { hi: 'REVÍSALOS', cx: 640, cy: 950, size: 34 });
+  sfx('pop', at('medicamentos4')); [1.5, 3, 5.5].forEach(d => sfx('pop', at('medicamentos4') + d, 0.5));
+  return t => { show(h, t, at('misma4') + 0.5); pop(p, t, at('medicamentos4'), 520, 520); r(t); show(st.g, t, at('revisar4')); st.draw(t, at('revisar4'), at('plaquetas4')); show(n, t, at('revisar4') + 0.5); };
+});
+scene(svg, c('plaquetas4'), c('atencion4'), g => {
+  const h = Text(g, 'OTRAS POSIBLES CAUSAS', { x: 960, y: 150, size: 70, color: ACC });
+  const ts = [['drop', 'PLAQUETAS', 0.5], ['drop', 'COAGULACIÓN', 2], ['plate', 'HÍGADO', 4.5], ['question', 'ENFERMEDADES\nDE LA SANGRE', 10]].map(([ic, l, d], i) => [IconTile(g, ic, l, 300 + i * 440, 560, { w: 400, h: 420 }), d, 300 + i * 440]);
+  const g2 = el('g', {}, g); cut(g2, 'globulos', 1620, 220, 180);
+  ts.forEach(([, d]) => sfx('pop', at('plaquetas4') + d, 0.5));
+  return t => { show(h, t, at('plaquetas4')); ts.forEach(([x, d, cx]) => pop(x, t, at('plaquetas4') + d, cx, 560)); pop(g2, t, at('plaquetas4') + 0.5, 1620, 220); };
+});
+scene(svg, c('atencion4'), c('ejemplo4'), g => {
+  const a = Text(g, 'UN MORATÓN', { x: 960, y: 340, size: 96, color: C.ink });
+  const ne = Text(g, '≠', { x: 960, y: 470, size: 120, color: C.red });
+  const b = Text(g, 'ENFERMEDAD GRAVE', { x: 960, y: 600, size: 96, color: C.ink });
+  const r = ChipRow(g, [['SIN GOLPES, REPETIDOS', () => at('alerta4') + 3], ['MUY GRANDES', () => at('alerta4') + 6.5], ['CON OTROS SÍNTOMAS', () => at('alerta4') + 8]], { cy: 840, size: 38, fill: '#EAD3D0' });
+  sfx('stamp', at('atencion4') + 1.5); [3, 6.5, 8].forEach(d => sfx('pop', at('alerta4') + d, 0.5));
+  return t => { show(a, t, at('atencion4')); pop(ne, t, at('atencion4') + 1.5, 960, 470); show(b, t, at('atencion4') + 2); r(t); };
+});
+scene(svg, c('ejemplo4'), c('valoracion4'), g => {
+  const h = Text(g, 'SEÑALES ACOMPAÑANTES', { x: 960, y: 140, size: 66, color: ACC });
+  const a = Still(el('g', {}, g), 'cut/e2b.png', { x: 120, y: 220, w: 820, h: 460, iw: SZ.e2b[0], ih: SZ.e2b[1], r: 26 });
+  const b = Still(el('g', {}, g), 'cut/e1d.png', { x: 980, y: 220, w: 820, h: 460, iw: SZ.e1d[0], ih: SZ.e1d[1], r: 26 });
+  const la = Chip(g, 'SANGRADO DE ENCÍAS', { cx: 530, cy: 760, fill: C.white, size: 40 });
+  const lb = Chip(g, 'SANGRADO NASAL DIFÍCIL', { cx: 1390, cy: 760, fill: C.white, size: 40 });
+  const r = ChipRow(g, [['PUNTITOS ROJOS EN LA PIEL', () => at('ejemplo4') + 6.5], ['FATIGA NUEVA', () => at('ejemplo4') + 8.5]], { cy: 900, size: 38 });
+  sfx('pop', at('ejemplo4') + 0.5); sfx('pop', at('ejemplo4') + 3);
+  return t => { show(h, t, at('ejemplo4')); show(a.g, t, at('ejemplo4') + 0.5); a.draw(t, at('ejemplo4'), at('valoracion4')); pop(la, t, at('ejemplo4') + 1, 530, 760); show(b.g, t, at('ejemplo4') + 3); b.draw(t, at('ejemplo4'), at('valoracion4')); pop(lb, t, at('ejemplo4') + 3.5, 1390, 760); r(t); };
+});
+scene(svg, c('valoracion4'), c('consejo4'), g => {
+  const a = Chip(g, 'SI OBSERVAS ESTOS CAMBIOS → VALORACIÓN MÉDICA', { cx: 960, cy: 170, fill: C.white, size: 42 });
+  const w = Warn(g, 'SI TOMAS ANTICOAGULANTES', ['NUNCA SUSPENDAS EL TRATAMIENTO', 'POR TU CUENTA'], { kind: 'red', y: 320, w: 1300 });
+  const st = Still(el('g', {}, g), 'cut/e2c.png', { x: 1400, y: 700, w: 460, h: 260, iw: SZ.e2c[0], ih: SZ.e2c[1], r: 22 });
+  sfx('pop', at('valoracion4')); sfx('alert', at('nunca4'));
+  return t => { pop(a, t, at('valoracion4'), 960, 170); pop(w, t, at('nunca4'), 960, 500); show(st.g, t, at('nunca4') + 2); st.draw(t, at('nunca4'), at('consejo4')); };
+}, true);
+stillScene(svg, 'e2a', c('consejo4'), c('suscribe4'), { focus: [0.4, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['FOTOGRAFÍA LOS NUEVOS', () => at('foto4') + 0.3], ['ANOTA CUÁNDO APARECEN', () => at('foto4') + 2], ['¿MÁS NÚMERO O TAMAÑO?', () => at('foto4') + 4.5]], { cx: 1420, y0: 200, dy: 120, size: 36 });
+  const a = CAP(g, 'UN CONSEJO SENCILLO', { hi: 'SENCILLO' });
+  [0.3, 2, 4.5].forEach(d => sfx('pop', at('foto4') + d, 0.5));
+  return t => { show(a, t, at('consejo4')); r(t); };
+});
+stillScene(svg, 'e2d', c('suscribe4'), c('delicada4'), { focus: [0.5, 0.45], zoom: 0.1 }, g => {
+  const s = CTA(el('g', {}, g), 'sub', 160);
+  const a = CAP(g, 'SIN MIEDO, PERO SIN IGNORAR LO IMPORTANTE', { hi: 'SIN IGNORAR', size: 48 });
+  sfx('click', at('suscribe4') + 3);
+  return t => { pop(s, t, at('suscribe4') + 3, 960, 160); show(a, t, at('suscribe4') + 6.5); };
+});
+scene(svg, c('delicada4'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'Una señal muy delicada', { cx: 1220, cy: 300, size: 56 });
+  const b = el('g', {}, g); cut(b, 'cerebro', 1220, 600, 320);
+  const m = Chip(g, 'CADA MINUTO CUENTA', { cx: 1220, cy: 860, fill: C.red, color: C.white, size: 48 });
+  sfx('ding', at('delicada4')); sfx('alert', at('minuto4'));
+  return t => { host(t, at('delicada4')); pop(q, t, at('delicada4'), 1220, 300); pop(b, t, at('delicada4') + 4, 1220, 600); pop(m, t, at('minuto4'), 1220, 860); };
+});
+
+window.draw = t => drawScenes(t);

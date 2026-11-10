@@ -1,0 +1,186 @@
+# Cues on audio/voice.mp3 (21:25)
+# intro
+normal0 | Eso es normal a mi edad
+repetimos0 | La repetimos cuando nos sentimos
+hormiguear0 | las piernas empiezan a hormiguear
+escaleras0 | subir unas escaleras nos deja
+aceptamos0 | convertimos una posible señal
+diferencia0 | Pero hay una diferencia enorme
+avisa0 | Tu cuerpo no siempre avisa
+discretas0 | las primeras señales son discretas
+preocupante0 | Lo preocupante no es experimentar
+importante0 | Lo importante es reconocer
+seis0 | vamos a descubrir seis señales
+quinta0 | Presta especial atención a la quinta
+suscribe0 | Suscríbete a hábitos que sanan si quieres
+empecemos0 | Empecemos por una señal
+# señal 1
+h1 | El cansancio que no desaparece
+intenso1 | Estar cansado después de un día
+agotado1 | Lo que merece atención es despertarte
+error1 | Y aquí aparece uno de los errores
+cambia1 | Es cierto que nuestro organismo cambia
+nosolo1 | Sin embargo, el envejecimiento por sí solo
+causas1 | Detrás de esa fatiga
+anemia1 | Una de ellas es la anemia
+sintomas1 | Como consecuencia, algunas personas
+hipo1 | Otra posibilidad es el hipotiroidismo
+tiroides1 | Cuando la glándula tiroides
+frio1 | Esto puede provocar cansancio
+tercera1 | Pero hay una tercera posibilidad
+corazon1 | Algunos problemas cardíacos
+nosignifica1 | Esto no significa que estar cansado
+sueno1 | La falta de sueño
+cuando1 | Entonces, cuándo deberías prestar
+sinexplicacion1 | Cuando el agotamiento aparece sin
+consejo1 | Un consejo práctico
+anota1 | anota cuánto duermes
+medico1 | Esta información puede ayudar a tu médico
+recuerda1 | Y recuerda algo importante
+urgente1 | Si el cansancio aparece de repente
+asumir1 | No necesitas asumir
+independencia1 | Escuchar esos cambios también
+noche1 | vamos a hablar de otra señal
+# señal 2
+h2 | Levantarte varias veces por la noche
+costumbre2 | Hay una costumbre que muchas
+interrumpir2 | Interrumpir el sueño dos
+inevitable2 | Algunos lo consideran
+beber2 | Otros creen que basta con beber
+nicturia2 | Este fenómeno se conoce como nicturia
+reduce2 | Durante la noche, nuestro organismo
+alterar2 | diferentes circunstancias pueden alterar
+cafe2 | Beber abundante líquido por la tarde
+problema2 | El problema aparece cuando las visitas
+diabetes2 | una persona con diabetes
+vejiga2 | En otros casos
+corazon2 | También existe una relación menos conocida
+liquidos2 | Cuando una persona presenta retención
+insuf2 | Esto puede ocurrir en algunas personas
+atencion2 | Por eso, presta atención si además
+hacer2 | Qué puedes hacer
+tres2 | Durante tres noches apunta
+util2 | Esta sencilla información
+eso2 | no reduzcas drásticamente
+sangre2 | Si observas sangre
+pregunta2 | Y ahora quiero preguntarte
+cuantas2 | Cuántas veces te levantas
+comenta2 | Cuéntamelo en los comentarios
+suscribe2 | Y si te interesa aprender
+pies2 | Esa extraña sensación de frío
+# señal 3
+h3 | Los pies fríos o el hormigueo
+revelar3 | Tus pies pueden revelar
+curioso3 | Y lo más curioso es que
+invierno3 | Sentir los pies fríos durante
+duerma3 | También puede ocurrir que una pierna
+repetida3 | Pero cuando el frío, el hormigueo
+dos3 | Para comprenderlo, debemos conocer
+carreteras3 | Imagina que las arterias son
+placas3 | Cuando estas vías se estrechan
+eap3 | Esta situación puede aparecer
+pista3 | Una pista importante es sentir dolor
+heridas3 | También pueden observarse heridas
+nervios3 | no todos los hormigueos tienen
+cables3 | Los nervios periféricos funcionan
+pinchazos3 | Cuando sufren alguna alteración
+b12_3 | Esto puede relacionarse con la diabetes
+detalle3 | Y aquí encontramos un detalle
+sensibilidad3 | Algunas personas pierden sensibilidad
+diabetes3 | Por eso, quienes tienen diabetes
+urgente3 | Si un pie se vuelve repentinamente
+leves3 | En cambio, si las molestias son leves
+observa3 | Observa tus pies
+movilidad3 | Porque cuidar la movilidad
+moratones3 | Y hay otro señal que suele pasar
+# señal 4
+h4 | Los moratones que aparecen sin
+brazo4 | Un pequeño moratón en el brazo
+habitual4 | Para muchas personas mayores
+pregunta4 | Pero existe una pregunta importante
+piel4 | Con los años, nuestra piel
+vasos4 | los pequeños vasos sanguíneos
+golpe4 | Por eso, un golpe que antes
+benigno4 | Este fenómeno suele ser benigno
+misma4 | no todos tienen la misma explicación
+medicamentos4 | Algunos medicamentos, como los anticoagulantes
+revisar4 | es importante revisar los tratamientos
+plaquetas4 | También existen problemas relacionados con las plaquetas
+sangre4 | En ocasiones, los moratones inexplicables
+atencion4 | Pero atención, tener un moratón
+alerta4 | La verdadera señal de alerta
+ejemplo4 | Por ejemplo, sangrado frecuente
+valoracion4 | Si observas estos cambios
+nunca4 | Y si tomas anticoagulantes
+consejo4 | Un consejo sencillo
+foto4 | Fotografía los moratones
+suscribe4 | Si esta información te está ayudando
+delicada4 | Porque la siguiente señal es especialmente
+minuto4 | cada minuto puede ser decisivo
+# señal 5
+h5 | Los pequeños cambios al hablar
+llaves5 | Olvidar donde has dejado las llaves
+nombre5 | Tardar unos segundos en recordar
+confunden5 | Sin embargo, muchas personas confunden
+tiempo5 | Con los años, es posible
+habitual5 | Estos cambios pueden formar parte
+diferente5 | Pero hay señales que merecen
+olvidar5 | Por ejemplo, olvidar repetidamente
+cognitivo5 | Estos síntomas pueden relacionarse
+alzheimer5 | No significan automáticamente
+velocidad5 | existe una diferencia fundamental
+repente5 | Si una persona comienza de repente
+dolor5 | Y lo más inquietante
+sonrisa5 | En ocasiones, estos cambios se acompañan
+llama5 | Ante cualquiera de estas señales
+noesperes5 | No esperes a comprobar
+ait5 | Incluso cuando los síntomas duran
+distincion5 | Por eso, recuerda esta distinción
+lentos5 | Los problemas de memoria que avanzan
+pendiente5 | No se trata de vivir pendiente
+ultima5 | Y todavía queda una última señal
+# señal 6
+h6 | Quedarte sin aire al hacer cosas
+dice6 | Hay una diferencia que puede decir
+pisos6 | No es lo mismo cansarte
+reducir6 | muchas personas mayores empiezan a reducir
+deprisa6 | Primero, dejan de caminar
+escaleras6 | Después, evitan las escaleras
+detenerse6 | Finalmente, necesitan detenerse
+edad6 | Será cosa de la edad
+respirar6 | Pero respirar con dificultad
+juntos6 | Nuestros pulmones y nuestro corazón
+insuf6 | Una posible causa es la insuficiencia
+bombear6 | Cuando el corazón no consigue
+pulmones6 | el problema puede encontrarse en los pulmones
+epoc6 | Enfermedades como la enfermedad pulmonar
+menos6 | También existen causas menos graves
+preocuparte6 | Entonces, qué señales deberían
+distancias6 | Presta atención si necesitas detenerte
+tobillos6 | La hinchazón de los tobillos
+recuerda6 | Y recuerda algo fundamental
+intensa6 | Una dificultad respiratoria intensa
+nointentes6 | No intentes comprobar
+seis6 | Si has reconocido alguna de estas seis
+comparte6 | Y ahora quiero pedirte algo
+informacion6 | A veces, una información sencilla
+suscribe6 | Suscríbete a hábitos que sanan para seguir
+# conclusion
+c0 | Hay algo que merece la pena recordar
+error_c | El mayor error no siempre
+recap_c | Un cansancio persistente
+leves_c | Algunas son leves
+clave_c | La clave no consiste
+q1 | Pregúntate
+q2 | Está empeorando
+q3 | Me impide realizar actividades
+ayudan_c | Estas tres preguntas
+advertencia | quiero hacer una advertencia importante
+si_c | Si experimentas dificultad repentina
+noesperes_c | No esperes a que los síntomas
+educativo_c | Y recuerda que este contenido es educativo
+pregunta_c | quiero dejarte una pregunta
+cual_c | Cuál de estas seis señales
+leo_c | Te leo en los comentarios
+util_c | Si este vídeo te ha resultado útil
+miedo_c | Porque cuidar tu salud no significa

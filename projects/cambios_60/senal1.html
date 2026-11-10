@@ -49,8 +49,8 @@ scene(svg, c('sarcopenia1'), c('desconocen1'), g => {
   const b = Chip(g, 'PÉRDIDA SIGNIFICATIVA DE FUERZA MUSCULAR', { cx: 960, cy: 410, fill: C.white, size: 44 });
   const d = Chip(g, '+ MENOS CANTIDAD O CALIDAD DE MÚSCULO', { cx: 960, cy: 530, fill: C.white, size: 40 });
   const ts = [['stairs', 'CAÍDAS', 0], ['walk', 'CAMINAR\nPEOR', 1.8], ['hand', 'MENOS\nAUTONOMÍA', 3.6]].map(([ic, l, d2], i) => [IconTile(g, ic, l, 560 + i * 400, 790, { w: 340, h: 320, fill: '#EAD3D0' }), d2, 560 + i * 400]);
-  sfx('stamp', at('sarcopenia1') + 1); sfx('pop', at('sarcopenia1') + 4); sfx('pop', at('sarcopenia1') + 8); ts.forEach(([, d2]) => sfx('pop', at('riesgo1') + d2, 0.5));
-  return t => { pop(a, t, at('sarcopenia1') + 1, 960, 260); pop(b, t, at('sarcopenia1') + 4, 960, 410); pop(d, t, at('sarcopenia1') + 8, 960, 530); ts.forEach(([x, d2, cx]) => pop(x, t, at('riesgo1') + d2, cx, 790)); };
+  sfx('stamp', at('sarcopenia1') + 0.3); sfx('pop', at('sarcopenia1') + 4); sfx('pop', at('sarcopenia1') + 8); ts.forEach(([, d2]) => sfx('pop', at('riesgo1') + d2, 0.5));
+  return t => { pop(a, t, at('sarcopenia1') + 0.3, 960, 260); pop(b, t, at('sarcopenia1') + 4, 960, 410); pop(d, t, at('sarcopenia1') + 8, 960, 530); ts.forEach(([x, d2, cx]) => pop(x, t, at('riesgo1') + d2, cx, 790)); };
 });
 stillScene(svg, 'b1d', c('desconocen1'), c('bascula1'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
   const a = CAP(g, 'MISMO PESO… MENOS MÚSCULO', { hi: 'MENOS MÚSCULO' });
@@ -114,8 +114,8 @@ scene(svg, c('arterias1'), () => END + 1, g => {
   const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
   const q = Bubble(g, 'Algo menos visible…', { cx: 1220, cy: 300, size: 56 });
   const a = el('g', {}, g); cut(a, 'arteria_sana', 1220, 640, 380);
-  sfx('ding', at('arterias1') + 3);
-  return t => { host(t, at('arterias1')); pop(q, t, at('arterias1') + 3, 1220, 300); pop(a, t, at('arterias1') + 6, 1220, 640); };
+  sfx('ding', at('arterias1') + 0.5);
+  return t => { host(t, at('arterias1')); pop(q, t, at('arterias1') + 0.5, 1220, 300); pop(a, t, at('arterias1') + 4, 1220, 640); };
 });
 
 window.draw = t => drawScenes(t);

@@ -16,13 +16,13 @@ scene(svg, c('molestias3'), c('cambios3'), g => {
 });
 // insulin as a key
 scene(svg, c('cambios3'), c('aclarar3'), g => {
-  const r = ChipRow(g, [['GRASA', () => at('cambios3') + 3], ['MÚSCULO', () => at('cambios3') + 5], ['SENSIBILIDAD A LA INSULINA', () => at('cambios3') + 6.5]], { cy: 110, size: 36 });
+  const r = ChipRow(g, [['GRASA', () => at('cambios3') + 0.5], ['MÚSCULO', () => at('cambios3') + 2], ['SENSIBILIDAD A LA INSULINA', () => at('cambios3') + 3.5]], { cy: 110, size: 36 });
   const key = el('g', {}, g); cut(key, 'insulina', 700, 500, 460);
   const exp = Chip(g, 'LA INSULINA: LA LLAVE QUE DEJA ENTRAR LA GLUCOSA', { cx: 960, cy: 800, fill: C.white, size: 38 });
   const rs = el('g', {}, g); Card(rs, { x: 1160, y: 330, w: 640, h: 300, fill: '#EAD3D0' }); Text(rs, 'RESISTENCIA', { x: 1480, y: 440, size: 54, color: C.red }); Text(rs, 'A LA INSULINA', { x: 1480, y: 520, size: 54, color: C.red });
   const p = Chip(g, 'LA LLAVE ENTRA PEOR → MÁS ESFUERZO', { cx: 1480, cy: 690, fill: C.white, size: 32 });
   sfx('pop', at('insulina3')); sfx('pop', at('peor3') + 1); sfx('stamp', at('resistencia3'));
-  return t => { r(t); pop(key, t, at('insulina3'), 700, 500); pop(exp, t, at('insulina3') + 1, 960, 800); pop(p, t, at('peor3') + 1, 1480, 690); pop(rs, t, at('resistencia3'), 1480, 480); };
+  return t => { r(t); pop(key, t, at('cambios3') + 4, 700, 500); pop(exp, t, at('insulina3') + 1, 960, 800); pop(p, t, at('peor3') + 1, 1480, 690); pop(rs, t, at('resistencia3'), 1480, 480); };
 });
 scene(svg, c('aclarar3'), c('sinsintomas3'), g => {
   const a = Text(g, 'CUMPLIR 60', { x: 960, y: 290, size: 90, color: C.ink });
@@ -31,7 +31,7 @@ scene(svg, c('aclarar3'), c('sinsintomas3'), g => {
   const r = ChipRow(g, [['EDAD', c('factores3')], ['FAMILIA', () => at('factores3') + 3], ['GRASA ABDOMINAL', () => at('factores3') + 5], ['HÁBITOS', () => at('factores3') + 7]], { cy: 760, size: 40, fill: '#EAD3D0' });
   const h = Text(g, 'FACTORES DE RIESGO', { x: 960, y: 660, size: 40, color: ACC });
   sfx('stamp', at('noimplica3') + 1);
-  return t => { show(a, t, at('noimplica3')); pop(ne, t, at('noimplica3') + 1, 960, 410); show(b, t, at('noimplica3') + 1.5); show(h, t, at('factores3')); r(t); };
+  return t => { show(a, t, at('aclarar3') + 0.3); pop(ne, t, at('noimplica3') + 1, 960, 410); show(b, t, at('noimplica3') + 1.5); show(h, t, at('factores3')); r(t); };
 });
 stillScene(svg, 'd2a', c('sinsintomas3'), c('sed3'), { focus: [0.45, 0.45], zoom: 0.12 }, g => {
   const a = CAP(g, 'A VECES, SIN SÍNTOMAS', { hi: 'SIN SÍNTOMAS' });
@@ -52,8 +52,8 @@ scene(svg, c('confirma3'), c('musculos3'), g => {
   const gl = ItemCard(g, 'glucometro', 640, 560, { w: 460, h: 480, fit: 330, label: 'GLUCOSA', size: 44 });
   const hb = el('g', {}, g); Card(hb, { x: 1060, y: 320, w: 460, h: 480, fill: C.white }); Text(hb, 'HbA1c', { x: 1290, y: 520, size: 96, color: ACC }); Text(hb, 'HEMOGLOBINA', { x: 1290, y: 640, size: 36 }); Text(hb, 'GLUCOSILADA', { x: 1290, y: 690, size: 36 });
   const n = CAP(g, 'CONTROLES CUANDO ESTÉN INDICADOS', { hi: 'CONTROLES', size: 50 });
-  sfx('pop', at('confirma3')); sfx('pop', at('hba1c3') + 3); sfx('pop', at('hba1c3') + 5);
-  return t => { pop(a, t, at('confirma3'), 960, 180); pop(gl, t, at('hba1c3') + 3, 640, 560); pop(hb, t, at('hba1c3') + 5, 1290, 560); show(n, t, at('hba1c3') + 7); };
+  sfx('pop', at('confirma3')); sfx('pop', at('confirma3') + 2); sfx('pop', at('hba1c3') + 3);
+  return t => { pop(a, t, at('confirma3'), 960, 180); pop(gl, t, at('confirma3') + 2, 640, 560); pop(hb, t, at('hba1c3') + 3, 1290, 560); show(n, t, at('hba1c3') + 7); };
 });
 scene(svg, c('musculos3'), c('caminar3'), g => {
   const m = ItemCard(g, 'musculo_fuerte', 600, 500, { w: 480, h: 540, fit: 380, label: 'MÚSCULO', size: 48 });
@@ -93,8 +93,8 @@ scene(svg, c('cerebro3'), () => END + 1, g => {
   const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
   const q = Bubble(g, 'Otro órgano a vigilar…', { cx: 1220, cy: 300, size: 54 });
   const b = el('g', {}, g); cut(b, 'cerebro', 1220, 640, 360);
-  sfx('ding', at('cerebro3')); sfx('pop', at('cerebro3') + 10);
-  return t => { host(t, at('cerebro3')); pop(q, t, at('cerebro3'), 1220, 300); pop(b, t, at('cerebro3') + 9.5, 1220, 640); };
+  sfx('ding', at('cerebro3')); sfx('pop', at('cerebro3') + 2.5);
+  return t => { host(t, at('cerebro3')); pop(q, t, at('cerebro3'), 1220, 300); pop(b, t, at('cerebro3') + 2.5, 1220, 640); };
 });
 
 window.draw = t => drawScenes(t);

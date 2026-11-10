@@ -35,7 +35,7 @@ scene(svg, c('frontera4'), c('deterioro4'), g => {
     ['MERECE EVALUACIÓN', [['Dificultad repetida en tareas familiares', () => at('palabra4') + 5], ['Perderse en un barrio conocido', c('barrio4')], ['Confundirse con el dinero', c('dinero4')], ['Olvidar conversaciones recientes', c('conversaciones4')]]], { y: 200, h: 720 });
   const h = Text(g, 'LA FRONTERA', { x: 960, y: 130, size: 60, color: ACC });
   sfx('pop', at('palabra4')); sfx('pop', at('palabra4') + 4.5);
-  return t => { show(h, t, at('frontera4')); v.draw(t, at('palabra4'), at('palabra4') + 4.5); };
+  return t => { show(h, t, at('frontera4')); v.draw(t, at('frontera4') + 0.8, at('palabra4') + 4.5); };
 });
 stillScene(svg, 'e1a', c('deterioro4'), () => at('deterioro4') + 3.5, { focus: [0.35, 0.45], zoom: 0.12 }, g => {
   const a = CAP(g, 'PUEDE SER DETERIORO COGNITIVO…', { hi: 'DETERIORO' });
@@ -48,16 +48,16 @@ stillScene(svg, 'e1b', () => at('deterioro4') + 3.5, c('otras4'), { focus: [0.4,
 scene(svg, c('otras4'), c('errores4'), g => {
   const h = Text(g, 'OTRAS CAUSAS QUE AFECTAN A LA MEMORIA', { x: 960, y: 140, size: 54, color: ACC });
   const ts = [['pill', 'MEDICAMENTOS', 0], ['moon', 'SUEÑO', 2], ['bubble', 'DEPRESIÓN', 3.2], ['gear', 'TIROIDES', 4.6], ['drop', 'FALTA DE\nVITAMINA B12', 6.5]].map(([ic, l, d], i) => [IconTile(g, ic, l, 230 + i * 365, 520, { w: 340, h: 400 }), d, 230 + i * 365]);
-  ts.forEach(([, d]) => sfx('pop', at('medicamentos4') + d, 0.5));
-  return t => { show(h, t, at('otras4')); ts.forEach(([x, d, cx]) => pop(x, t, at('medicamentos4') + d, cx, 520)); };
+  ts.forEach(([, d], i) => sfx('pop', at('medicamentos4') + (i ? d : -3), 0.5));
+  return t => { show(h, t, at('otras4')); ts.forEach(([x, d, cx], i) => pop(x, t, at('medicamentos4') + (i ? d : -3), cx, 520)); };
 });
 scene(svg, c('errores4'), c('cardio4'), g => {
   const h = Text(g, 'DOS ERRORES OPUESTOS', { x: 960, y: 150, size: 68, color: ACC });
   const a = el('g', {}, g); Card(a, { x: 140, y: 260, w: 780, h: 380, fill: C.white }); Mark(a, false, 240, 360, 0.8); Text(a, '«CUALQUIER OLVIDO', { x: 560, y: 440, size: 44 }); Text(a, 'ES DEMENCIA»', { x: 560, y: 510, size: 44 });
   const b = el('g', {}, g); Card(b, { x: 1000, y: 260, w: 780, h: 380, fill: C.white }); Mark(b, false, 1100, 360, 0.8); Text(b, '«TODO ES NORMAL', { x: 1420, y: 440, size: 44 }); Text(b, 'DESPUÉS DE LOS 60»', { x: 1420, y: 510, size: 44 });
   const st = Still(el('g', {}, g), 'cut/e1d.png', { x: 560, y: 690, w: 800, h: 340, iw: SZ.e1d[0], ih: SZ.e1d[1], r: 24 });
-  sfx('pop', at('pensar4')); sfx('pop', at('pensar4') + 3); sfx('pop', at('valoracion4'));
-  return t => { show(h, t, at('errores4')); pop(a, t, at('pensar4'), 530, 450); pop(b, t, at('pensar4') + 3, 1390, 450); show(st.g, t, at('valoracion4')); st.draw(t, at('valoracion4'), at('cardio4')); };
+  sfx('pop', at('errores4') + 1); sfx('pop', at('pensar4') + 3); sfx('pop', at('valoracion4'));
+  return t => { show(h, t, at('errores4')); pop(a, t, at('errores4') + 1, 530, 450); pop(b, t, at('pensar4') + 3, 1390, 450); show(st.g, t, at('valoracion4')); st.draw(t, at('valoracion4'), at('cardio4')); };
 });
 scene(svg, c('cardio4'), c('social4'), g => {
   const b = el('g', {}, g); cut(b, 'cerebro', 600, 440, 380);

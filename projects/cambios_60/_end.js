@@ -32,8 +32,8 @@ scene(svg, c('advertencia'), c('pregunta_c'), g => {
   const a = el('g', {}, g); Card(a, { x: 260, y: 110, w: 1400, h: 170, fill: C.white }); el('rect', { x: 260, y: 110, width: 26, height: 170, rx: 12, fill: '#D9A84E' }, a); Text(a, 'SÍNTOMAS NUEVOS, PERSISTENTES O QUE EMPEORAN', { x: 975, y: 175, size: 40 }); Text(a, '→ CONSULTA CON UN PROFESIONAL', { x: 975, y: 235, size: 40, color: ACC });
   const w = Warn(g, 'ATENCIÓN URGENTE · 112', ['DOLOR TORÁCICO INTENSO', 'DIFICULTAD RESPIRATORIA GRAVE', 'SIGNOS REPENTINOS DE ICTUS'], { kind: 'red', y: 340, w: 1300 });
   const s = Source(g, 'Contenido educativo · no sustituye una valoración médica', 1010);
-  sfx('alert', at('advertencia') + 0.3); sfx('pop', at('consulta_c')); sfx('alert', at('urgente_c'));
-  return t => { show(s, t, at('educativo_c')); pop(a, t, at('consulta_c'), 960, 195); pop(w, t, at('urgente_c'), 960, 570); };
+  sfx('alert', at('advertencia') + 0.3); sfx('alert', at('consulta_c'));
+  return t => { show(s, t, at('educativo_c')); pop(a, t, at('advertencia') + 0.3, 960, 195); pop(w, t, at('consulta_c'), 960, 570); };
 }, true);
 scene(svg, c('pregunta_c'), c('suscribe_c'), g => {
   const h = Text(g, 'PREGUNTA DEL DÍA', { x: 960, y: 120, size: 76, color: ACC });

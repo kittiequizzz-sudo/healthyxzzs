@@ -47,8 +47,8 @@ scene(svg, c('diferencia0'), c('seis0'), g => {
   const ne = Text(g, '≠', { x: 960, y: 490, size: 140, color: C.red });
   const b = el('g', {}, g); Card(b, { x: 1060, y: 300, w: 700, h: 360, fill: C.white }); Text(b, 'ENFERMEDAD', { x: 1410, y: 430, size: 60, color: C.red }); Text(b, 'CRÓNICA QUE TRATAR', { x: 1410, y: 520, size: 40 });
   const cc = CAP(g, 'CONFUNDIRLAS = IGNORAR SEÑALES', { hi: 'IGNORAR', size: 54 });
-  sfx('pop', at('diferencia0') + 1); sfx('stamp', at('diferencia0') + 3); sfx('pop', at('diferencia0') + 4.5);
-  return t => { pop(a, t, at('diferencia0') + 1, 510, 480); pop(ne, t, at('diferencia0') + 3, 960, 490); pop(b, t, at('diferencia0') + 4.5, 1410, 480); show(cc, t, at('confunden0') + 1); };
+  sfx('pop', at('diferencia0') + 0.3); sfx('stamp', at('diferencia0') + 3); sfx('pop', at('diferencia0') + 4.5);
+  return t => { pop(a, t, at('diferencia0') + 0.3, 510, 480); pop(ne, t, at('diferencia0') + 3, 960, 490); pop(b, t, at('diferencia0') + 4.5, 1410, 480); show(cc, t, at('confunden0') + 1); };
 });
 scene(svg, c('seis0'), c('final0'), g => {
   const h = Text(g, '6 CAMBIOS DESPUÉS DE LOS 60', { x: 960, y: 150, size: 76, color: ACC });

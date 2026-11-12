@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#E4E6E9;overflow:hidden} svg{display:block} text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="sizes.js"></script>
+<script src="cues.js"></script>
+<script src="common.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// Punto 2 — bedroom air: closed rooms collect damp, dust, pollutants, mould; too much humidity → mites and mould, too dry → irritation; aim for 30–50 % with a hygrometer; condensation/stains/smell → fix; clean the humidifier; ventilate; night cough → medical review; comment.
+window.START = at('h2') - 1.2;
+window.END = at('h3') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('p2');
+const c = k => () => at(k);
+
+TitleCard(svg, 2, 'TU DORMITORIO Y TUS BRONQUIOS', 'El aire de dentro también cuenta', () => START, c('prueba2'));
+stillScene(svg, 'c1a', c('prueba2'), c('toser2'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const k = Kicker(g, 2, 'CONSEJO 2 · DORMITORIO'); Progress(g, 1);
+  const r = ChipRow(g, [['VENTANAS CERRADAS', () => at('ventanas2') + 0.3], ['CALEFACCIÓN', () => at('ventanas2') + 2], ['MANTAS', () => at('ventanas2') + 3.5]], { cy: 980, size: 38 });
+  return t => { slideIn(k, t, at('prueba2'), 'l', 600); r(t); };
+});
+stillScene(svg, 'c1b', c('toser2'), c('cerradas2'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿POR QUÉ LA TOS AL ACOSTARSE?', { hi: 'AL ACOSTARSE' });
+  return t => show(a, t, at('toser2') + 0.5);
+});
+scene(svg, c('cerradas2'), c('confusion2'), g => {
+  const h = Text(g, 'HABITACIONES CERRADAS MÁS TIEMPO', { x: 960, y: 140, size: 58, color: ACC });
+  const ts = [['drop2', 'HUMEDAD', at('acumulacion2') + 1.5], ['gear', 'POLVO', at('acumulacion2') + 2.8], ['flame', 'CONTAMINANTES', at('acumulacion2') + 4]].map(([ic, l, k], i) => [IconTile(g, ic, l, 300 + i * 440, 500, { w: 400, h: 380 }), k, 300 + i * 440]);
+  const st = Still(el('g', {}, g), 'cut/c1d.png', { x: 1400, y: 300, w: 440, h: 400, iw: SZ.c1d[0], ih: SZ.c1d[1], r: 24, focus: [0.7, 0.3] });
+  const m = Chip(g, 'HONGOS Y MOHO', { cx: 1620, cy: 780, fill: '#EAD3D0', size: 40 });
+  ts.forEach(([, k]) => sfx('pop', k, 0.5)); sfx('pop', at('moho2') + 2);
+  return t => { show(h, t, at('cerradas2')); ts.forEach(([x, k, cx]) => pop(x, t, k, cx, 500)); show(st.g, t, at('moho2') + 2); st.draw(t, at('moho2'), at('confusion2')); pop(m, t, at('moho2') + 3, 1620, 780); };
+});
+stillScene(svg, 'c1c', c('confusion2'), c('humid2'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, '«CUANTO MÁS HÚMEDO, MEJOR»', { hi: 'MEJOR' });
+  const x = el('g', {}, g); Mark(x, false, 1700, 180, 1.2);
+  sfx('stamp', at('humedo2') + 4);
+  return t => { show(a, t, at('humedo2')); pop(x, t, at('humedo2') + 4, 1700, 180); };
+});
+scene(svg, c('humid2'), c('hacer2'), g => {
+  const hb = HumidityBar(g, 960, 520, 1300);
+  const h = el('g', {}, g); cut(h, 'humidificador', 300, 250, 260);
+  const a = CAP(g, 'NI DEMASIADA HUMEDAD NI AIRE MUY SECO', { hi: 'NI', size: 50 });
+  sfx('pop', at('humid2')); sfx('pop', at('demasiada2'));
+  return t => { pop(h, t, at('humid2'), 300, 250); show(hb.g, t, at('humid2') + 1.5); hb.set(needle([[at('humid2') + 1.5, 0.4], [at('demasiada2') + 1, 0.85], [at('seco2') + 1, 0.12], [at('seco2') + 4, 0.12]], t) * 100); show(a, t, at('seco2') + 3); };
+});
+scene(svg, c('hacer2'), c('condensacion2'), g => {
+  const hb = HumidityBar(g, 960, 420, 1300);
+  const hg = ItemCard(g, 'higrometro', 960, 790, { w: 420, h: 360, fit: 230, label: 'HIGRÓMETRO', size: 40 });
+  sfx('ding', at('rango2') + 1); sfx('pop', at('higrometro2'));
+  return t => { show(hb.g, t, at('hacer2') + 0.5); hb.set(needle([[at('hacer2'), 0.15], [at('rango2') + 1.5, 0.4]], t) * 100); pop(hg, t, at('higrometro2'), 960, 790); };
+});
+stillScene(svg, 'c2a', c('condensacion2'), c('limpiar2'), { focus: [0.6, 0.5], zoom: 0.12 }, g => {
+  const r = SideChips(g, [['CONDENSACIÓN EN VENTANAS', () => at('condensacion2') + 0.5], ['MANCHAS OSCURAS', () => at('condensacion2') + 3], ['OLOR A HUMEDAD', () => at('condensacion2') + 5]], { cx: 440, y0: 180, dy: 120, size: 36 });
+  const a = CAP(g, 'BUSCA EL ORIGEN Y CORRÍGELO', { hi: 'CORRÍGELO' });
+  return t => { r(t); show(a, t, at('condensacion2') + 7); };
+});
+stillScene(svg, 'c2b', c('limpiar2'), c('ventilar2'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, 'LIMPIA EL HUMIDIFICADOR', { hi: 'LIMPIA' });
+  const b = CAP(g, 'MAL MANTENIDO, DISPERSA MICROORGANISMOS', { hi: 'MICROORGANISMOS', size: 46 });
+  return t => { show(a, t, at('limpiar2') + 0.3, at('limpiar2') + 5.5); show(b, t, at('limpiar2') + 5.8); };
+});
+stillScene(svg, 'c2c', c('ventilar2'), c('otro2'), { focus: [0.5, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'VENTILA TRAS COCINAR O LIMPIAR', { hi: 'VENTILA' });
+  return t => show(a, t, at('ventilar2') + 0.5);
+});
+scene(svg, c('otro2'), c('comenta2'), g => {
+  const st = Still(el('g', {}, g), 'cut/c2d.png', { x: 120, y: 160, w: 840, h: 500, iw: SZ.c2d[0], ih: SZ.c2d[1], r: 28 });
+  const w = el('g', {}, g); Card(w, { x: 1020, y: 180, w: 780, h: 460, fill: C.white }); el('rect', { x: 1020, y: 180, width: 780, height: 110, rx: 36, fill: '#D9A84E' }, w); el('rect', { x: 1020, y: 240, width: 780, height: 50, fill: '#D9A84E' }, w);
+  Text(w, '¿TE DESPIERTAS CON TOS?', { x: 1410, y: 237, size: 44 }); Text(w, 'NO ES «COSA DEL INVIERNO»', { x: 1410, y: 390, size: 38 }); Text(w, 'TU ASMA NECESITA', { x: 1410, y: 480, size: 38, color: ACC }); Text(w, 'UNA REVISIÓN MÉDICA', { x: 1410, y: 540, size: 38, color: ACC });
+  sfx('alert', at('noche2'));
+  return t => { show(st.g, t, at('otro2')); st.draw(t, at('otro2'), at('comenta2')); pop(w, t, at('noche2'), 1410, 410); };
+}, true);
+scene(svg, c('comenta2'), c('inesperado2'), g => {
+  const cc = CTA(g, 'comment', 200);
+  const a = IconTile(g, 'moon2', 'AL ACOSTARTE', 640, 620, { w: 440, h: 360 });
+  const b = IconTile(g, 'snow', 'AL SALIR A LA CALLE', 1280, 620, { w: 440, h: 360 });
+  sfx('click', at('comenta2')); sfx('pop', at('comenta2') + 2); sfx('pop', at('comenta2') + 3.5);
+  return t => { pop(cc, t, at('comenta2'), 960, 200); pop(a, t, at('comenta2') + 2, 640, 620); pop(b, t, at('comenta2') + 3.5, 1280, 620); };
+});
+scene(svg, c('inesperado2'), () => END + 1, g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const q = Bubble(g, 'Enemigos silenciosos…', { cx: 1220, cy: 300, size: 56 });
+  const a = el('g', {}, g); cut(a, 'ambientador', 1120, 640, 280); cut(a, 'vela', 1360, 660, 240);
+  sfx('ding', at('inesperado2')); sfx('pop', at('inesperado2') + 4);
+  return t => { host(t, at('inesperado2')); pop(q, t, at('inesperado2'), 1220, 300); pop(a, t, at('inesperado2') + 4, 1240, 650); };
+});
+
+window.draw = t => drawScenes(t);
+</script>
+</body></html>

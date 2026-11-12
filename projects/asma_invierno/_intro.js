@@ -1,0 +1,67 @@
+// Intro — the invisible alarm in the lungs; winter problem is also indoors; three questions; six tips; watch point 4; comment.
+window.START = 0;
+window.END = at('h1') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('intro');
+const c = k => () => at(k);
+
+stillScene(svg, 'i1a', () => 0, c('tos0'), { focus: [0.5, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, 'UNA ALARMA INVISIBLE EN TUS PULMONES', { hi: 'ALARMA', size: 52 });
+  return t => show(a, t, 0.4);
+}, true);
+stillScene(svg, 'i1b', c('tos0'), c('presion0'), { focus: [0.5, 0.4], zoom: 0.16 }, g => {
+  const a = CAP(g, 'PRIMERO, UNA PEQUEÑA TOS', { hi: 'TOS' });
+  return t => show(a, t, at('tos0') + 0.2);
+}, true);
+stillScene(svg, 'i1c', c('presion0'), c('esfuerzo0'), { focus: [0.45, 0.45], zoom: 0.16 }, g => {
+  const a = CAP(g, 'PRESIÓN EN EL PECHO', { hi: 'PECHO' });
+  return t => show(a, t, at('presion0') + 0.2);
+}, true);
+stillScene(svg, 'i1d', c('esfuerzo0'), c('sorprendente0'), { focus: [0.55, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, 'RESPIRAR SE VUELVE UN ESFUERZO', { hi: 'ESFUERZO' });
+  return t => show(a, t, at('esfuerzo0') + 0.3);
+}, true);
+scene(svg, c('sorprendente0'), c('calefaccion0'), g => {
+  const a = el('g', {}, g); IC.snow(a, 360, 280, 3); Text(a, 'EL FRÍO DE LA CALLE', { x: 510, y: 680, size: 46, color: C.grey });
+  const ne = Text(g, '+', { x: 960, y: 500, size: 140, color: ACC });
+  const b = el('g', {}, g); IC.house(b, 1260, 280, 3); Text(b, 'TU PROPIA CASA', { x: 1410, y: 680, size: 46, color: ACC });
+  const cc = CAP(g, 'EL PROBLEMA NO SIEMPRE ESTÁ FUERA', { hi: 'NO SIEMPRE', size: 52 });
+  sfx('pop', at('sorprendente0') + 2); sfx('pop', at('casa0'));
+  return t => { pop(a, t, at('sorprendente0') + 2, 510, 450); show(cc, t, at('sorprendente0') + 2.5); show(ne, t, at('casa0')); pop(b, t, at('casa0'), 1410, 450); };
+});
+stillScene(svg, 'i2a', c('calefaccion0'), c('humidificador0'), { focus: [0.6, 0.5], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿PEOR CON LA CALEFACCIÓN?', { hi: 'CALEFACCIÓN' });
+  return t => show(a, t, at('calefaccion0') + 0.3);
+});
+stillScene(svg, 'i2b', c('humidificador0'), c('inhalador0'), { focus: [0.55, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, '¿HUMIDIFICADOR TODA LA NOCHE?', { hi: 'TODA LA NOCHE' });
+  return t => show(a, t, at('humidificador0') + 0.3);
+});
+stillScene(svg, 'i2c', c('inhalador0'), c('seis0'), { focus: [0.45, 0.5], zoom: 0.16 }, g => {
+  const a = CAP(g, '¿UN ERROR CON EL INHALADOR?', { hi: 'ERROR' });
+  return t => show(a, t, at('inhalador0') + 0.3);
+});
+scene(svg, c('seis0'), c('cuarto0'), g => {
+  const h = Text(g, '6 CONSEJOS PARA EL INVIERNO', { x: 960, y: 150, size: 76, color: ACC });
+  const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360, { w: 460, h: 310 }), at('seis0') + 1 + i * 0.7, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360]);
+  ts.forEach(([, k]) => sfx('pop', k, 0.5));
+  return t => { show(h, t, at('seis0')); ts.forEach(([x, k, cx, cy]) => pop(x, t, k, cx, cy)); };
+});
+scene(svg, c('cuarto0'), c('comenta0'), g => {
+  const host = Host(g, 'three_q', { cx: 420, cy: 600, fit: 700 });
+  const b = Bubble(g, 'Atento al consejo 4', { cx: 1200, cy: 300, size: 56 });
+  const t4 = IconTile(g, 'inhaler', 'UN FALLO QUE MUCHOS\nPASAN POR ALTO', 1220, 650, { w: 760, h: 380 });
+  sfx('ding', at('cuarto0') + 0.3); sfx('pop', at('cuarto0') + 2.5);
+  return t => { host(t, at('cuarto0')); pop(b, t, at('cuarto0') + 0.3, 1200, 300); pop(t4, t, at('cuarto0') + 2.5, 1220, 650); };
+});
+scene(svg, c('comenta0'), () => END + 1, g => {
+  const cc = CTA(g, 'comment', 200);
+  const q = Text(g, '¿MÁS DIFICULTAD…', { x: 960, y: 420, size: 64, color: ACC });
+  const a = IconTile(g, 'light', 'POR LA\nMAÑANA', 640, 680, { w: 420, h: 360 });
+  const b = IconTile(g, 'moon2', 'POR LA\nNOCHE', 1280, 680, { w: 420, h: 360 });
+  const n = CAP(g, 'RESPIRAR MEJOR EMPIEZA POR COMPRENDER', { hi: 'COMPRENDER', cy: 990, size: 44 });
+  sfx('click', at('comenta0')); sfx('pop', at('comenta0') + 3.5); sfx('pop', at('comenta0') + 5);
+  return t => { pop(cc, t, at('comenta0'), 960, 200); show(q, t, at('comenta0') + 2.7); pop(a, t, at('comenta0') + 3.5, 640, 680); pop(b, t, at('comenta0') + 5, 1280, 680); show(n, t, at('irritando0')); };
+});
+
+window.draw = t => drawScenes(t);

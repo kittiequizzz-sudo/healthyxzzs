@@ -1,0 +1,182 @@
+# Cues on audio/voice.mp3 (19:20)
+# intro
+silencio0 | Durante gran parte del año
+tos0 | Primero aparece una pequeña tos
+presion0 | una presión incómoda en el pecho
+esfuerzo0 | respirar deja de ser algo automático
+sensacion0 | Si tienes asma, probablemente
+sorprendente0 | Pero aquí viene lo sorprendente
+casa0 | A veces se encuentra dentro de tu propia casa
+calefaccion0 | Por qué algunas personas empeoran
+humidificador0 | Es realmente bueno utilizar
+inhalador0 | Y qué error con el inhalador
+seis0 | descubrirás seis consejos
+cuarto0 | presta especial atención al cuarto
+comenta0 | Antes de empezar, cuéntanos
+irritando0 | Porque respirar mejor empieza
+# punto 1
+h1 | El frío no es tan inofensivo
+curioso1 | Hay algo curioso que ocurre
+dos1 | Dos personas salen juntas
+una1 | Una continúa caminando
+porque1 | Por qué sucede esto
+bronquios1 | La respuesta está en cómo reaccionan
+sensibles1 | Cuando tienes asma, tus vías
+frio1 | El aire frío y seco puede irritarlas
+deprisa1 | Y cuanto más deprisa respiras
+consejo1 | Pero aquí aparece el primer consejo
+encerrarte1 | No necesitas encerrarte en casa
+proteger1 | Necesitas aprender a proteger
+bufanda1 | Antes de salir
+calentarse1 | Así, parte del aire frío
+ligera1 | No se trata de taparte
+nariz1 | Otro detalle importante es utilizar la nariz
+filtra1 | Filtra, calienta y humedece
+boca1 | Por eso, respirar exclusivamente por la boca
+temprano1 | Si necesitas salir temprano
+calentamiento1 | Evita acelerar inmediatamente
+intenso1 | También conviene prestar atención a los días
+medico1 | Y recuerda algo fundamental
+sustituye1 | La bufanda ayuda
+detalle1 | Ahora bien, existe un detalle
+hogar1 | A veces, el aire que más perjudica
+# punto 2
+h2 | Tu dormitorio puede estar irritando
+prueba2 | Haz una pequeña prueba mental
+ventanas2 | Las ventanas están cerradas
+toser2 | Sin embargo, por qué algunas personas con asma comienzan
+interior2 | Una posible explicación
+cerradas2 | Durante los meses fríos solemos
+acumulacion2 | Esto puede favorecer la acumulación
+moho2 | Además, si aparecen zonas húmedas
+confusion2 | Pero cuidado, porque aquí existe
+humedo2 | Muchas personas creen que cuanto más
+humid2 | Por eso colocan humidificadores
+demasiada2 | El problema es que demasiada humedad
+seco2 | Por otro lado, un ambiente excesivamente seco
+hacer2 | Entonces, qué deberías hacer
+rango2 | Lo más práctico es mantener
+higrometro2 | Puedes comprobarla utilizando
+condensacion2 | Si observas condensación
+limpiar2 | Y si utilizas un humidificador, recuerda
+ventilar2 | También es recomendable ventilar
+otro2 | Presta atención a otro detalle
+noche2 | Si despiertas frecuentemente
+comenta2 | Cuéntanos en los comentarios
+inesperado2 | Y ahora vamos a descubrir algo todavía
+# punto 3
+h3 | Una casa que huele bien
+limpiar3 | Voy a decirte algo que puede cambiar
+olor3 | El olor a limpio no es una garantía
+ambientadores3 | Piensa en esos ambientadores
+velas3 | las velas aromáticas
+productos3 | los productos de limpieza
+irritar3 | Aunque parezcan inofensivos
+pequenas3 | En personas sensibles
+invierno3 | Durante el invierno, esta situación
+consejo3 | El tercer consejo consiste
+tabaco3 | Empieza por el humo del tabaco
+segura3 | No existe una cantidad de humo
+chimeneas3 | También conviene limitar el humo
+aerosoles3 | Cuando limpies, intenta evitar
+sencillos3 | Siempre que sea posible, utiliza
+polvo3 | Para retirar el polvo
+detalle3 | Y hay otro detalle importante
+calefactores3 | Algunos calefactores que utilizan
+co3 | Entre ellos se encuentra el monóxido
+detectores3 | Por eso es esencial mantener
+aroma3 | No confundas el aroma
+saludable3 | Una vivienda saludable
+motivo3 | Pero incluso cuando protegemos
+importante3 | Y ese motivo nos lleva
+# punto 4
+h4 | El error con el inhalador que muchos
+semanas4 | Imagina que llevas semanas
+nombre4 | Lo tienes siempre a mano
+noche4 | Sin embargo, continúas despertándote
+funcionar4 | Es fácil pensar que el medicamento
+correcto4 | Estás utilizando correctamente
+tecnica4 | La técnica de inhalación
+anos4 | Y lo sorprendente es que incluso
+lenta4 | Algunos inhaladores requieren coordinar
+rapida4 | Otros funcionan de manera diferente
+unica4 | Por eso no existe una única técnica
+boca4 | Un error puede hacer que parte
+dosis4 | La solución no consiste en aumentar
+observe4 | Consiste en pedir a tu médico
+segunda4 | Pero hay una segunda cuestión
+funcion4 | No todos los inhaladores cumplen
+controlar4 | Algunos contienen medicamentos
+aliviar4 | Otros están destinados a aliviar
+combinaciones4 | Y determinadas combinaciones
+corticoides4 | Actualmente, las recomendaciones
+saba4 | Depender únicamente de un broncodilatador
+nunca4 | Por eso, aunque te encuentres bien
+plan4 | También conviene disponer de un plan
+control4 | Y recuerda, necesitar el inhalador
+comparte4 | Si conoces a alguien que utiliza
+gesto4 | A veces, revisar un gesto
+herramientas4 | Porque cuidar los pulmones
+# punto 5
+h5 | Un simple resfriado puede complicar
+frase5 | Hay una frase que escuchamos
+solo5 | No te preocupes
+infeccion5 | Pero cuando una persona tiene asma
+virus5 | Los virus que provocan resfriados
+nosignifica5 | Esto no significa que todas
+prevencion5 | Significa que conviene prestar
+manos5 | El quinto consejo comienza
+transmitirse5 | Los virus respiratorios pueden transmitirse
+higiene5 | Por eso, la higiene de manos
+contacto5 | También resulta recomendable evitar
+mascarilla5 | En lugares interiores concurridos
+vacunas5 | Y hay un aspecto especialmente importante
+consulta5 | Consulta con tu profesional sanitario
+lista5 | Entre ellas pueden encontrarse
+mantener5 | No olvides mantener el tratamiento
+empeora5 | Si notas que la tos
+pregunta5 | Y ahora viene una pregunta
+dejar5 | Si el frío puede provocar síntomas
+# punto 6
+h6 | No dejes que el asma
+errores6 | Uno de los errores más comprensibles
+caminar6 | Primero dejamos de caminar
+sentados6 | Finalmente pasamos cada vez más
+movimiento6 | Pero el cuerpo necesita movimiento
+adaptada6 | La actividad física adaptada
+controlada6 | Lo importante es que el asma esté
+interiores6 | Si el aire frío desencadena
+pasillo6 | Caminar por un pasillo
+lento6 | Comienza lentamente
+respiras6 | También merece la pena observar
+aceleran6 | Muchas personas, cuando sienten
+tranquila6 | Practicar una respiración tranquila
+labios6 | Algunas técnicas, como respirar
+noabren6 | Sin embargo, estas técnicas no abren
+silbidos6 | Si aparecen silbidos
+repetida6 | Y si el ejercicio provoca
+idea6 | Quiero que recuerdes una idea
+renunciar6 | Tener asma no significa
+limites6 | Significa conocer tus límites
+objetivo6 | El objetivo no es que pases
+truco6 | Porque respirar mejor no depende
+advertencia6 | Y antes de terminar
+# conclusion
+c0 | Respirar sin dificultad parece
+noche_c | Hasta que llega una noche fría
+valioso_c | Si tienes asma, sabes perfectamente
+miedo_c | El invierno no tiene por qué
+seis_c | Protegerte del aire frío
+golpe_c | Y recuerda, no necesitas cambiar
+identificar_c | Comienza identificando
+advertencia | Sin embargo, hay una advertencia médica
+si_c | Si experimentas dificultad intensa
+noesperes_c | No esperes a que los síntomas
+educativos_c | Estos consejos son educativos
+quiz | Y ahora, vamos con nuestra pregunta
+cual_q | Cuál de estas situaciones
+opA | Solamente respirar aire frío
+opB | El aire frío, la humedad excesiva
+opC | Únicamente hacer ejercicio
+escribe | Escribe A, B o C
+util_c | Si este vídeo te ha resultado útil

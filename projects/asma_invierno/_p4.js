@@ -1,0 +1,88 @@
+// Punto 4 — inhaler errors: still coughing at night → check technique first; even long-time users err; pMDI slow deep breath vs DPI fast strong; ask doctor/nurse/pharmacist, don't raise dose; controller vs reliever; ICS-containing treatment recommended, SABA-only not for adults (GINA); never stop/change; written action plan; signs of poor control; share.
+window.START = at('h4') - 1.0;
+window.END = at('h5') - 1.2;
+window.DURATION = window.END;
+const svg = Stage('p4');
+const c = k => () => at(k);
+
+TitleCard(svg, 4, 'EL ERROR CON EL INHALADOR', 'El que muchos pasan por alto', () => START, c('semanas4'));
+stillScene(svg, 'e2c', c('semanas4'), c('noche4'), { focus: [0.45, 0.5], zoom: 0.14 }, g => {
+  const k = Kicker(g, 4, 'CONSEJO 4 · INHALADOR'); Progress(g, 3);
+  const a = CAP(g, '«SÉ USARLO PERFECTAMENTE»', { hi: 'PERFECTAMENTE' });
+  return t => { slideIn(k, t, at('semanas4'), 'l', 600); show(a, t, at('nombre4') + 1); };
+});
+stillScene(svg, 'e1b', c('noche4'), c('correcto4'), { focus: [0.55, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'Y AUN ASÍ, TOS POR LA NOCHE', { hi: 'TOS' });
+  const b = CAP(g, '¿HA DEJADO DE FUNCIONAR?', { hi: 'DEJADO', size: 56 });
+  return t => { show(a, t, at('noche4') + 0.3, at('funcionar4')); show(b, t, at('funcionar4') + 0.3); };
+});
+scene(svg, c('correcto4'), c('lenta4'), g => {
+  const q = Text(g, '¿LO USAS BIEN?', { x: 960, y: 300, size: 120, color: ACC });
+  const i = el('g', {}, g); cut(i, 'inhalador', 960, 580, 280);
+  const n = Chip(g, 'INCLUSO TRAS AÑOS USÁNDOLO, HAY ERRORES', { cx: 960, cy: 860, fill: C.white, size: 40 });
+  sfx('stamp', at('correcto4')); sfx('pop', at('anos4') + 1);
+  return t => { pop(q, t, at('correcto4'), 960, 300); pop(i, t, at('tecnica4'), 960, 580); pop(n, t, at('anos4') + 1, 960, 860); };
+});
+scene(svg, c('lenta4'), c('boca4'), g => {
+  const h = Text(g, 'CADA DISPOSITIVO, SU TÉCNICA', { x: 960, y: 140, size: 64, color: ACC });
+  const a = ItemCard(g, 'inhalador', 560, 500, { w: 620, h: 560, fit: 300, label: 'CARTUCHO PRESURIZADO', size: 36 });
+  const al = Chip(g, 'INSPIRACIÓN LENTA Y PROFUNDA', { cx: 560, cy: 860, fill: C.white, size: 34 });
+  const b = ItemCard(g, 'inhalador_polvo', 1360, 500, { w: 620, h: 560, fit: 300, label: 'POLVO SECO', size: 40 });
+  const bl = Chip(g, 'INHALACIÓN RÁPIDA Y ENÉRGICA', { cx: 1360, cy: 860, fill: C.white, size: 34 });
+  sfx('pop', at('lenta4')); sfx('pop', at('rapida4'));
+  return t => { show(h, t, at('lenta4')); pop(a, t, at('lenta4'), 560, 500); pop(al, t, at('lenta4') + 3, 560, 860); pop(b, t, at('rapida4'), 1360, 500); pop(bl, t, at('rapida4') + 2.5, 1360, 860); };
+});
+stillScene(svg, 'e1a', c('boca4'), c('dosis4'), { focus: [0.4, 0.45], zoom: 0.14 }, g => {
+  const a = CAP(g, 'UN FALLO: EL MEDICAMENTO SE QUEDA EN LA BOCA', { hi: 'EN LA BOCA', size: 46 });
+  return t => show(a, t, at('boca4') + 0.5);
+}, true);
+stillScene(svg, 'e1c', c('dosis4'), () => at('observe4') + 2, { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'NO SUBAS LA DOSIS: QUE REVISEN TU TÉCNICA', { hi: 'REVISEN', size: 48 });
+  return t => show(a, t, at('dosis4') + 0.3);
+});
+// correct pMDI + spacer sequence
+scene(svg, () => at('observe4') + 2, c('segunda4'), g => {
+  const row = PoseRow(g, ['p1', 'p2', 'p3', 'p4'], [], { y: 130, h: 640, x0: 120, x1: 1800 });
+  const w = (1680 - 72) / 4, k0 = at('observe4') + 2.3, keys = [k0, k0 + 1.4, k0 + 2.8, k0 + 4.2];
+  const labs = ['AGITA', 'ESPIRA', 'INHALA DESPACIO', 'AGUANTA EL AIRE'].map((s, i) => [Chip(g, s, { cx: 120 + i * (w + 24) + w / 2, cy: 850, fill: C.white, size: 34 }), 120 + i * (w + 24) + w / 2]);
+  const n = CAP(g, 'MÉDICO, ENFERMERO O FARMACÉUTICO', { hi: 'FARMACÉUTICO', cy: 980, size: 44 });
+  keys.forEach(k => sfx('pop', k, 0.5));
+  return t => { lightRow(row, t, keys); labs.forEach(([l, cx], i) => pop(l, t, keys[i], cx, 850)); show(n, t, k0 + 0.5); };
+});
+scene(svg, c('segunda4'), c('nunca4'), g => {
+  const h = Text(g, 'NO TODOS HACEN LO MISMO', { x: 960, y: 130, size: 64, color: ACC });
+  const a = IconTile(g, 'drop', 'CONTROLAN LA\nINFLAMACIÓN', 420, 440, { w: 460, h: 380 });
+  const b = IconTile(g, 'bolt', 'ALIVIAN\nSÍNTOMAS', 960, 440, { w: 460, h: 380 });
+  const d = IconTile(g, 'inhaler', 'MANTENIMIENTO\nY ALIVIO', 1500, 440, { w: 460, h: 380 });
+  const r = el('g', {}, g); Card(r, { x: 160, y: 700, w: 1600, h: 220, fill: C.white });
+  Mark(r, true, 250, 765, 0.6); Text(r, 'CORTICOIDES INHALADOS: MENOS RIESGO DE CRISIS', { x: 300, y: 768, size: 38, anchor: 'start' });
+  Mark(r, false, 250, 855, 0.6); Text(r, 'SOLO BRONCODILATADOR DE ACCIÓN CORTA (ADULTOS)', { x: 300, y: 858, size: 38, anchor: 'start' });
+  const src = Source(g, 'Recomendaciones internacionales (GINA)', 1000);
+  sfx('pop', at('controlar4')); sfx('pop', at('aliviar4')); sfx('pop', at('combinaciones4')); sfx('pop', at('corticoides4'));
+  return t => { show(h, t, at('funcion4')); pop(a, t, at('controlar4'), 420, 440); pop(b, t, at('aliviar4'), 960, 440); pop(d, t, at('combinaciones4'), 1500, 440); pop(r, t, at('corticoides4'), 960, 810); show(src, t, at('corticoides4') + 2); };
+});
+scene(svg, c('nunca4'), c('control4'), g => {
+  const a = el('g', {}, g); Card(a, { x: 260, y: 130, w: 1400, h: 170, fill: C.white }); el('rect', { x: 260, y: 130, width: 26, height: 170, rx: 12, fill: C.red }, a); Text(a, 'NUNCA SUSPENDAS NI CAMBIES TU MEDICACIÓN SIN CONSULTAR', { x: 975, y: 217, size: 38 });
+  const st = Still(el('g', {}, g), 'cut/e2b.png', { x: 160, y: 380, w: 860, h: 500, iw: SZ.e2b[0], ih: SZ.e2b[1], r: 28 });
+  const p = el('g', {}, g); cut(p, 'plan', 1400, 620, 340);
+  const pl = Chip(g, 'PLAN DE ACCIÓN ESCRITO', { cx: 1400, cy: 870, fill: ACC, color: C.white, size: 40 });
+  sfx('alert', at('nunca4')); sfx('pop', at('plan4'));
+  return t => { pop(a, t, at('nunca4'), 960, 215); show(st.g, t, at('plan4')); st.draw(t, at('plan4'), at('control4')); pop(p, t, at('plan4') + 1, 1400, 620); pop(pl, t, at('plan4') + 2, 1400, 870); };
+}, true);
+scene(svg, c('control4'), c('comparte4'), g => {
+  const w = Warn(g, 'REVISA EL CONTROL DE TU ASMA SI…', ['USAS MÁS EL INHALADOR DE ALIVIO', 'TE DESPIERTAS POR LA NOCHE', 'LIMITAS TUS ACTIVIDADES'], { kind: 'amber', y: 180, w: 1400 });
+  sfx('alert', at('control4') + 0.3);
+  return t => pop(w, t, at('control4') + 0.3, 960, 420);
+});
+stillScene(svg, 'e2d', c('comparte4'), c('herramientas4'), { focus: [0.5, 0.45], zoom: 0.12 }, g => {
+  const b = el('g', {}, g); Card(b, { x: 740, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(b, 770, 90, 1); Text(b, 'COMPARTE', { x: 1015, y: 142, size: 46 });
+  const a = CAP(g, 'REVISAR UN GESTO COTIDIANO', { hi: 'GESTO' });
+  sfx('click', at('comparte4') + 1);
+  return t => { pop(b, t, at('comparte4') + 1, 960, 140); show(a, t, at('gesto4')); };
+});
+stillScene(svg, 'e1d', c('herramientas4'), () => END + 1, { focus: [0.35, 0.45], zoom: 0.12 }, g => {
+  const a = CAP(g, 'USA BIEN LAS HERRAMIENTAS QUE TIENES', { hi: 'USA BIEN', size: 50 });
+  return t => show(a, t, at('herramientas4') + 3);
+});
+
+window.draw = t => drawScenes(t);

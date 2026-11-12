@@ -12,7 +12,7 @@ scene(svg, c('limpiar3'), c('ambientadores3'), g => {
   const ne = Text(g, '≠', { x: 960, y: 500, size: 130, color: C.red });
   const b = Text(g, 'AIRE SALUDABLE', { x: 960, y: 640, size: 96, color: ACC });
   sfx('stamp', at('olor3') + 1);
-  return t => { slideIn(k, t, at('limpiar3'), 'l', 600); show(a, t, at('olor3')); pop(ne, t, at('olor3') + 1, 960, 500); show(b, t, at('olor3') + 1.5); };
+  return t => { slideIn(k, t, at('limpiar3'), 'l', 600); show(a, t, at('limpiar3') + 0.5); pop(ne, t, at('olor3') + 0.5, 960, 500); show(b, t, at('olor3') + 1.5); };
 });
 stillScene(svg, 'd1a', c('ambientadores3'), c('velas3'), { focus: [0.45, 0.5], zoom: 0.14 }, g => {
   const a = CAP(g, 'AMBIENTADORES', { hi: 'AMBIENTADORES' });

@@ -22,7 +22,7 @@ stillScene(svg, 'za', () => START, c('miedo_c'), { focus: [0.5, 0.45], zoom: 0.1
 }, true);
 scene(svg, c('miedo_c'), c('golpe_c'), g => {
   const h = Text(g, 'EL INVIERNO NO TIENE QUE SER UNA TEMPORADA DE MIEDO', { x: 960, y: 140, size: 46, color: ACC });
-  const ks = [0.3, 1.8, 3.4, 5.2, 7.5, 9.8];
+  const ks = [-3.5, -2.5, 3.4, 5.2, 7.5, 9.8];
   const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 380 + Math.floor(i / 3) * 360, { w: 460, h: 310 }), ks[i], 360 + (i % 3) * 600, 380 + Math.floor(i / 3) * 360]);
   ts.forEach(([, d]) => sfx('pop', at('seis_c') + d, 0.5));
   return t => { show(h, t, at('miedo_c')); ts.forEach(([x, d, cx, cy]) => pop(x, t, at('seis_c') + d, cx, cy)); };
@@ -50,7 +50,7 @@ scene(svg, c('quiz'), c('util_c'), g => {
   const cta = CTA(el('g', { transform: 'translate(-200 0)' }, g), 'comment', 920);
   const host = Host(g, 'three_q', { cx: 1760, cy: 880, fit: 300 });
   sfx('ding', at('quiz')); ops.forEach(([, , k]) => sfx('pop', at(k), 0.6)); sfx('click', at('escribe'));
-  return t => { show(h, t, at('quiz')); show(q, t, at('cual_q')); ops.forEach(([o, cx, k]) => pop(o, t, at(k) - 1, cx, 540)); pop(cta, t, at('escribe'), 760, 920); host(t, at('quiz') + 1); };
+  return t => { show(h, t, at('quiz')); show(q, t, at('quiz') + 0.5); ops.forEach(([o, cx, k]) => pop(o, t, at(k) - 1, cx, 540)); pop(cta, t, at('escribe'), 760, 920); host(t, at('quiz') + 1); };
 });
 stillScene(svg, 'zd', c('util_c'), () => END + 1, { focus: [0.5, 0.45], zoom: 0.1 }, g => {
   const b = el('g', {}, g); Card(b, { x: 460, y: 75, w: 440, h: 130, fill: C.white, r: 65 }); IC.share(b, 490, 90, 1); Text(b, 'COMPARTE', { x: 735, y: 142, size: 46 });

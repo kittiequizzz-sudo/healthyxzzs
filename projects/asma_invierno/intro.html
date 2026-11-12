@@ -54,7 +54,7 @@ stillScene(svg, 'i2c', c('inhalador0'), c('seis0'), { focus: [0.45, 0.5], zoom: 
 });
 scene(svg, c('seis0'), c('cuarto0'), g => {
   const h = Text(g, '6 CONSEJOS PARA EL INVIERNO', { x: 960, y: 150, size: 76, color: ACC });
-  const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360, { w: 460, h: 310 }), at('seis0') + 1 + i * 0.7, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360]);
+  const ts = SIGNS.map(([ic, l], i) => [IconTile(g, ic, l, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360, { w: 460, h: 310 }), at('seis0') + 0.2 + i * 0.7, 360 + (i % 3) * 600, 410 + Math.floor(i / 3) * 360]);
   ts.forEach(([, k]) => sfx('pop', k, 0.5));
   return t => { show(h, t, at('seis0')); ts.forEach(([x, k, cx, cy]) => pop(x, t, k, cx, cy)); };
 });
@@ -72,7 +72,7 @@ scene(svg, c('comenta0'), () => END + 1, g => {
   const b = IconTile(g, 'moon2', 'POR LA\nNOCHE', 1280, 680, { w: 420, h: 360 });
   const n = CAP(g, 'RESPIRAR MEJOR EMPIEZA POR COMPRENDER', { hi: 'COMPRENDER', cy: 990, size: 44 });
   sfx('click', at('comenta0')); sfx('pop', at('comenta0') + 3.5); sfx('pop', at('comenta0') + 5);
-  return t => { pop(cc, t, at('comenta0'), 960, 200); show(q, t, at('comenta0') + 2.7); pop(a, t, at('comenta0') + 3.5, 640, 680); pop(b, t, at('comenta0') + 5, 1280, 680); show(n, t, at('irritando0')); };
+  return t => { pop(cc, t, at('comenta0'), 960, 200); show(q, t, at('comenta0') + 0.5); pop(a, t, at('comenta0') + 1.5, 640, 680); pop(b, t, at('comenta0') + 3, 1280, 680); show(n, t, at('irritando0')); };
 });
 
 window.draw = t => drawScenes(t);

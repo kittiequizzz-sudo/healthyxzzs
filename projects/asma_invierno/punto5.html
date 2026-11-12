@@ -51,7 +51,7 @@ scene(svg, c('vacunas5'), c('mantener5'), g => {
   const vs = ['GRIPE', 'COVID-19', 'NEUMOCOCO', 'VIRUS RESPIRATORIO SINCITIAL'].map((s, i) => [Chip(g, s, { cx: 1340, cy: 320 + i * 110, fill: C.white, size: s.length > 12 ? 30 : 40 }), i]);
   const n = CAP(g, 'CONSULTA CUÁLES TE CORRESPONDEN', { hi: 'CONSULTA' });
   vs.forEach(([, i]) => sfx('pop', at('lista5') + i * 1.4, 0.5));
-  return t => { show(st.g, t, at('vacunas5')); st.draw(t, at('vacunas5'), at('mantener5')); show(h, t, at('consulta5')); vs.forEach(([x, i]) => slideIn(x, t, at('lista5') + i * 1.4, 'r', 400)); show(n, t, at('consulta5') + 1); };
+  return t => { show(st.g, t, at('vacunas5')); st.draw(t, at('vacunas5'), at('mantener5')); show(h, t, at('vacunas5') + 1); vs.forEach(([x, i]) => slideIn(x, t, at('lista5') + i * 1.4, 'r', 400)); show(n, t, at('consulta5') + 1); };
 });
 stillScene(svg, 'f2b', c('mantener5'), c('empeora5'), { focus: [0.55, 0.45], zoom: 0.14 }, g => {
   const a = CAP(g, 'MANTÉN TU TRATAMIENTO DURANTE LA INFECCIÓN', { hi: 'MANTÉN', size: 46 });

@@ -28,7 +28,7 @@ stillScene(svg, 'c1b', c('toser2'), c('cerradas2'), { focus: [0.5, 0.45], zoom: 
 });
 scene(svg, c('cerradas2'), c('confusion2'), g => {
   const h = Text(g, 'HABITACIONES CERRADAS MÁS TIEMPO', { x: 960, y: 140, size: 58, color: ACC });
-  const ts = [['drop2', 'HUMEDAD', at('acumulacion2') + 1.5], ['gear', 'POLVO', at('acumulacion2') + 2.8], ['flame', 'CONTAMINANTES', at('acumulacion2') + 4]].map(([ic, l, k], i) => [IconTile(g, ic, l, 300 + i * 440, 500, { w: 400, h: 380 }), k, 300 + i * 440]);
+  const ts = [['drop2', 'HUMEDAD', at('cerradas2') + 1], ['gear', 'POLVO', at('acumulacion2') + 2.5], ['flame', 'CONTAMINANTES', at('acumulacion2') + 4]].map(([ic, l, k], i) => [IconTile(g, ic, l, 300 + i * 440, 500, { w: 400, h: 380 }), k, 300 + i * 440]);
   const st = Still(el('g', {}, g), 'cut/c1d.png', { x: 1400, y: 300, w: 440, h: 400, iw: SZ.c1d[0], ih: SZ.c1d[1], r: 24, focus: [0.7, 0.3] });
   const m = Chip(g, 'HONGOS Y MOHO', { cx: 1620, cy: 780, fill: '#EAD3D0', size: 40 });
   ts.forEach(([, k]) => sfx('pop', k, 0.5)); sfx('pop', at('moho2') + 2);

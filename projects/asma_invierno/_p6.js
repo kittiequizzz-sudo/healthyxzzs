@@ -15,8 +15,8 @@ scene(svg, c('movimiento6'), c('interiores6'), g => {
   const a = Text(g, 'EL CUERPO NECESITA MOVIMIENTO', { x: 960, y: 200, size: 66, color: ACC });
   const ts = [['heart', 'CORAZÓN', 1.5], ['dumbbell', 'FUERZA', 3.5], ['light', 'BIENESTAR', 5.5]].map(([ic, l, d], i) => [IconTile(g, ic, l, 420 + i * 540, 520, { w: 420, h: 380 }), d, 420 + i * 540]);
   const n = Chip(g, 'CON EL ASMA BIEN CONTROLADA', { cx: 960, cy: 860, fill: C.white, size: 44 });
-  ts.forEach(([, d]) => sfx('pop', at('adaptada6') + d, 0.5)); sfx('pop', at('controlada6'));
-  return t => { show(a, t, at('movimiento6')); ts.forEach(([x, d, cx]) => pop(x, t, at('adaptada6') + d, cx, 520)); pop(n, t, at('controlada6'), 960, 860); };
+  ts.forEach(([, d]) => sfx('pop', at('movimiento6') + 1 + d, 0.5)); sfx('pop', at('controlada6'));
+  return t => { show(a, t, at('movimiento6')); ts.forEach(([x, d, cx]) => pop(x, t, at('movimiento6') + 1 + d, cx, 520)); pop(n, t, at('controlada6'), 960, 860); };
 });
 stillScene(svg, 'g1b', c('interiores6'), () => at('pasillo6') + 3, { focus: [0.5, 0.45], zoom: 0.14 }, g => {
   const a = CAP(g, '¿FRÍO FUERA? MUÉVETE DENTRO', { hi: 'DENTRO' });

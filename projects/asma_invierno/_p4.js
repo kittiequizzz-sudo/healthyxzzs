@@ -59,7 +59,7 @@ scene(svg, c('segunda4'), c('nunca4'), g => {
   Mark(r, false, 250, 855, 0.6); Text(r, 'SOLO BRONCODILATADOR DE ACCIÓN CORTA (ADULTOS)', { x: 300, y: 858, size: 38, anchor: 'start' });
   const src = Source(g, 'Recomendaciones internacionales (GINA)', 1000);
   sfx('pop', at('controlar4')); sfx('pop', at('aliviar4')); sfx('pop', at('combinaciones4')); sfx('pop', at('corticoides4'));
-  return t => { show(h, t, at('funcion4')); pop(a, t, at('controlar4'), 420, 440); pop(b, t, at('aliviar4'), 960, 440); pop(d, t, at('combinaciones4'), 1500, 440); pop(r, t, at('corticoides4'), 960, 810); show(src, t, at('corticoides4') + 2); };
+  return t => { show(h, t, at('segunda4') + 0.3); pop(a, t, at('controlar4'), 420, 440); pop(b, t, at('aliviar4'), 960, 440); pop(d, t, at('combinaciones4'), 1500, 440); pop(r, t, at('corticoides4'), 960, 810); show(src, t, at('corticoides4') + 2); };
 });
 scene(svg, c('nunca4'), c('control4'), g => {
   const a = el('g', {}, g); Card(a, { x: 260, y: 130, w: 1400, h: 170, fill: C.white }); el('rect', { x: 260, y: 130, width: 26, height: 170, rx: 12, fill: C.red }, a); Text(a, 'NUNCA SUSPENDAS NI CAMBIES TU MEDICACIÓN SIN CONSULTAR', { x: 975, y: 217, size: 38 });

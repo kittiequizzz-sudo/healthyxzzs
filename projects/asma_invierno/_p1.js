@@ -35,7 +35,7 @@ scene(svg, c('consejo1'), c('bufanda1'), g => {
   const b = Text(g, 'PROTEGE EL AIRE QUE RESPIRAS', { x: 960, y: 520, size: 80, color: ACC });
   const s = el('g', {}, g); cut(s, 'bufanda', 960, 780, 280);
   sfx('pop', at('proteger1'));
-  return t => { show(a, t, at('encerrarte1')); pop(b, t, at('proteger1'), 960, 520); pop(s, t, at('proteger1') + 1, 960, 780); };
+  return t => { show(a, t, at('consejo1') + 0.3); pop(b, t, at('proteger1'), 960, 520); pop(s, t, at('proteger1') + 1, 960, 780); };
 });
 stillScene(svg, 'b1c', c('bufanda1'), c('nariz1'), { focus: [0.45, 0.45], zoom: 0.16 }, g => {
   const r = SideChips(g, [['EL AIRE SE CALIENTA', () => at('calentarse1') + 0.5], ['Y SE HUMEDECE', () => at('calentarse1') + 2.5], ['SIN AGOBIARTE', () => at('ligera1') + 1]], { cx: 1480, y0: 200, dy: 120, size: 40 });

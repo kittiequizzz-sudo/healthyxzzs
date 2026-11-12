@@ -1,0 +1,192 @@
+[0.32 - 3.56] (w0-7) Imagina que tus pulmones tienen una alarma invisible.
+[3.80 - 10.78] (w8-28) Durante gran parte del año permanece en silencio, pero basta con que llegue una mañana fría para que empiece a sonar.
+[11.02 - 21.68] (w29-54) Primero aparece una pequeña tos, después una presión incómoda en el pecho, y de repente respirar deja de ser algo automático para convertirse en un esfuerzo.
+[21.90 - 25.28] (w55-61) Si tienes asma, probablemente conoces esa sensación.
+[25.54 - 27.46] (w62-66) Pero aquí viene lo sorprendente.
+[27.64 - 31.94] (w67-80) El verdadero problema del invierno no siempre está en el frío de la calle.
+[32.12 - 41.16] (w81-105) A veces se encuentra dentro de tu propia casa, en el dormitorio donde duermes o incluso en ciertos hábitos que repites pensando que te protegen.
+[41.18 - 44.98] (w106-114) ¿Por qué algunas personas empeoran al encender la calefacción?
+[45.06 - 48.68] (w115-123) ¿Es realmente bueno utilizar un humidificador toda la noche?
+[48.94 - 52.90] (w124-135) ¿Y qué error con el inhalador puede dificultar el control del asma?
+[53.26 - 68.10] (w136-172) Hoy, en hábitos que sanan, descubrirás seis consejos prácticos para cuidar tus vías respiratorias durante los meses fríos, y presta especial atención al cuarto, porque podría ayudarte a identificar un fallo que muchas personas pasan por alto.
+[68.44 - 70.56] (w173-179) Antes de empezar, cuéntanos en los comentarios.
+[71.14 - 74.78] (w180-191) ¿Notas más dificultad para respirar por la mañana o durante la noche?
+[75.66 - 79.84] (w192-202) Porque respirar mejor empieza por comprender qué está irritando tus pulmones.
+[80.92 - 81.20] (w203-203) 1.
+[82.16 - 85.44] (w204-211) El frío no es tan inofensivo como parece.
+[85.64 - 88.74] (w212-220) Hay algo curioso que ocurre cuando llega el invierno.
+[88.98 - 98.70] (w221-242) Dos personas salen juntas a la calle, respiran exactamente el mismo aire, y sin embargo, sus pulmones reaccionan de maneras completamente diferentes.
+[98.90 - 106.08] (w243-260) Una continúa caminando tranquilamente, la otra empieza a toser, siente presión en el pecho y y necesita detenerse.
+[106.68 - 108.22] (w261-264) ¿Por qué sucede esto?
+[108.48 - 116.74] (w265-285) La respuesta está en cómo reaccionan los bronquios, esos pequeños conductos que transportan el aire hacia el interior de los pulmones.
+[116.94 - 121.46] (w286-294) Cuando tienes asma, tus vías respiratorias son especialmente sensibles.
+[121.84 - 131.12] (w295-314) El aire frío y seco puede irritarlas, favorecer su estrechamiento y provocar síntomas como tos, silbidos o dificultad para respirar.
+[131.24 - 138.72] (w315-331) Y cuanto más deprisa respiras, especialmente al caminar rápido o subir escaleras, mayor puede ser el problema.
+[138.96 - 141.36] (w332-337) Pero aquí aparece el primer consejo.
+[141.66 - 145.04] (w338-346) No necesitas encerrarte en casa durante todo el invierno.
+[145.28 - 148.74] (w347-354) Necesitas aprender a proteger el aire que respiras.
+[149.02 - 155.12] (w355-372) Antes de salir, cubres suavemente tu nariz y tu boca con una bufanda limpia o una prenda adecuada.
+[155.44 - 161.12] (w373-387) Así, parte del aire frío puede calentarse y humedecerse antes de llegar a tus pulmones.
+[161.36 - 168.84] (w388-407) No se trata de taparte hasta sentir incomodidad, sino de crear una protección ligera que te permita respirar sin dificultad.
+[169.04 - 173.72] (w408-418) Otro detalle importante es utilizar la nariz siempre que resulte cómodo.
+[173.88 - 177.78] (w419-428) La nariz funciona como un pequeño sistema natural de acondicionamiento.
+[178.14 - 181.04] (w429-434) Filtra, calienta y humedece el aire.
+[181.20 - 187.74] (w435-449) Por eso, respirar exclusivamente por la boca durante una mañana helada puede resultar más irritante.
+[188.06 - 192.30] (w450-457) Si necesitas salir temprano, procura comenzar caminando despacio.
+[192.46 - 200.40] (w458-475) Evita acelerar inmediatamente al cruzar la puerta y, cuando sea posible, realiza un pequeño calentamiento dentro de casa.
+[200.82 - 208.96] (w476-496) También conviene prestar atención a los días de frío intenso, especialmente si ya sabes que las bajas temperaturas desencadenan tus síntomas.
+[209.12 - 219.68] (w497-523) Y recuerda algo fundamental, si tu médico te ha indicado un tratamiento específico para prevenir los síntomas relacionados con el ejercicio o el frío, sigue sus instrucciones.
+[220.20 - 224.00] (w524-531) La bufanda ayuda, pero nunca sustituye tu medicación.
+[224.26 - 227.50] (w532-537) Ahora bien, existe un detalle sorprendente.
+[227.68 - 235.40] (w538-558) A veces, el aire que más perjudica tus pulmones no está en la calle, sino dentro del hogar donde intentas protegerte.
+[235.92 - 236.84] (w559-560) Punto 2.
+[237.02 - 240.46] (w561-567) Tu dormitorio puede estar irritando tus bronquios.
+[240.84 - 242.80] (w568-572) Haz una pequeña prueba mental.
+[242.98 - 246.16] (w573-581) Piensa en tu dormitorio durante una noche de invierno.
+[246.34 - 252.86] (w582-596) Las ventanas están cerradas, la calefacción funciona y posiblemente tienes varias mantas sobre la cama.
+[253.02 - 256.00] (w597-602) Todo parece preparado para descansar cómodamente.
+[256.76 - 262.78] (w603-617) Sin embargo, ¿por qué algunas personas con asma comienzan a toser precisamente cuando se acuestan?
+[263.32 - 267.46] (w618-627) Una posible explicación está en las condiciones del aire interior.
+[267.66 - 272.74] (w628-639) Durante los meses fríos solemos mantener las habitaciones cerradas durante más tiempo.
+[273.06 - 278.44] (w640-650) Esto puede favorecer la acumulación de humedad, polvo y determinados contaminantes.
+[278.84 - 287.04] (w651-667) Además, si aparecen zonas húmedas, también pueden desarrollarse hongos y moho, capaces de empeorar los síntomas respiratorios.
+[287.36 - 292.00] (w668-676) Pero cuidado, porque aquí existe una confusión bastante frecuente.
+[292.28 - 297.02] (w677-688) Muchas personas creen que cuanto más húmedo esté el aire, mejor respirarán.
+[297.24 - 302.66] (w689-702) Por eso colocan humidificadores junto a la cama y los mantienen encendidos durante horas.
+[302.88 - 308.10] (w703-715) El problema es que demasiada humedad puede favorecer la proliferación de ácaro simó.
+[308.54 - 314.96] (w716-731) Por otro lado, un ambiente excesivamente seco puede resultar molesto para la nariz y la garganta.
+[315.54 - 317.92] (w732-735) Entonces, ¿qué deberías hacer?
+[318.10 - 323.64] (w736-751) Lo más práctico es mantener una humedad relativa aproximada entre el 30 y el 50 %.
+[324.34 - 328.56] (w752-759) Puedes comprobarla utilizando un pequeño aparato llamado higrómetro.
+[328.74 - 338.76] (w760-783) Si observas condensación frecuente en las ventanas, manchas oscuras en las paredes o un olor persistente a humedad, conviene investigar su origen y corregirlo.
+[338.92 - 344.40] (w784-795) Y si utilizas un humidificador, recuerda limpiarlo siguiendo las instrucciones del fabricante.
+[344.66 - 350.74] (w796-809) Un aparato mal mantenido puede dispersar partículas y micro -organismos que no deseas respirar.
+[351.24 - 360.08] (w810-829) También es recomendable ventilar de manera adecuada cuando las condiciones exteriores lo permitan, especialmente si has cocinado o limpiado recientemente.
+[360.42 - 362.00] (w830-834) Presta atención a otro detalle.
+[362.48 - 370.00] (w835-851) Si despiertas frecuentemente por la noche, con tos o dificultad respiratoria, no lo atribuyas automáticamente al invierno.
+[370.26 - 373.88] (w852-860) Puede indicar que tu asma necesita una revisión médica.
+[374.08 - 375.80] (w861-864) Cuéntanos en los comentarios.
+[375.90 - 380.00] (w865-877) Tu tos suele empeorar cuando estás acostado o cuando sales a la calle.
+[380.22 - 384.82] (w878-888) Quizás tu respuesta ayude a otras personas a reconocer situaciones similares.
+[385.04 - 388.76] (w889-897) Y ahora vamos a descubrir algo todavía más inesperado.
+[389.14 - 397.20] (w898-914) Algunos productos que utilizamos para mantener la casa agradable pueden convertirse en enemigos silenciosos de nuestra respiración.
+[397.58 - 398.64] (w915-916) Punto 3.
+[398.94 - 402.72] (w917-927) Una casa que huele bien no siempre es una casa saludable.
+[403.44 - 407.62] (w928-941) Voy a decirte algo que puede cambiar tu manera de limpiar durante el invierno.
+[407.80 - 412.76] (w942-955) El olor a limpio no es una garantía de que estés respirando aire saludable.
+[413.00 - 425.04] (w956-985) Piensa en esos ambientadores que desprenden perfume continuamente, las velas aromáticas que encendemos para crear un ambiente acogedor o los productos de limpieza que dejan un olor intenso durante horas.
+[425.24 - 439.40] (w986-1016) Aunque parezcan inofensivos, algunas fragancias y sustancias químicas pueden irritar las vías respiratorias de determinadas personas con asma, y no necesitamos encontrarnos ante una gran cantidad de humo para experimentar molestias.
+[439.58 - 447.10] (w1017-1030) En personas sensibles, incluso exposiciones relativamente pequeñas pueden desencadenar tos o sensación de opresión.
+[447.40 - 454.76] (w1031-1046) Durante el invierno, esta situación merece especial atención, porque pasamos más tiempo dentro de espacios cerrados.
+[454.94 - 461.64] (w1047-1062) El tercer consejo consiste en identificar y reducir los irritantes que realmente afectan a tus pulmones.
+[461.86 - 463.84] (w1063-1068) Empieza por el humo del tabaco.
+[464.00 - 469.60] (w1069-1084) No existe una cantidad de humo ambiental que pueda considerarse segura para una persona con asma.
+[469.84 - 475.88] (w1085-1098) Por eso, lo más recomendable es mantener los espacios interiores completamente libres de tabaco.
+[476.34 - 486.00] (w1099-1122) También conviene limitar el humo procedente de chimeneas, estufas de leña, incienso y velas, especialmente si notas que tus síntomas empeoran después de utilizarlos.
+[486.92 - 491.36] (w1123-1130) Cuando limpies, intenta evitar los aerosoles intensamente perfumados.
+[491.64 - 498.24] (w1131-1146) Siempre que sea posible, utiliza productos sencillos, adecuados para la superficie y con una ventilación suficiente.
+[499.02 - 507.72] (w1147-1168) Para retirar el polvo, una balleta ligeramente húmeda puede ser preferible a sacudirlo con con fuerza y dispersarlo por toda la habitación.
+[508.00 - 510.00] (w1169-1173) Y hay otro detalle importante.
+[510.26 - 516.38] (w1174-1185) Algunos calefactores que utilizan combustibles pueden producir contaminantes peligrosos si funcionan mal.
+[516.68 - 523.84] (w1186-1205) Entre ellos se encuentra el monóxido de carbono, un gas que no tiene olor y que puede causar intoxicaciones graves.
+[524.08 - 530.84] (w1206-1220) Por eso es esencial mantener estos equipos correctamente y contar con detectores adecuados cuando corresponda.
+[531.12 - 535.00] (w1221-1230) No confundas el aroma agradable con la calidad del aire.
+[535.20 - 542.74] (w1231-1246) Una vivienda saludable no necesita oler intensamente a perfume, necesita reducir la exposición a sustancias irritantes.
+[543.34 - 550.56] (w1247-1264) Pero incluso cuando protegemos nuestra casa y evitamos el frío, podemos seguir teniendo síntomas por un motivo diferente.
+[550.70 - 554.50] (w1265-1276) Y ese motivo nos lleva al consejo más importante de este vídeo.
+[555.98 - 556.76] (w1277-1277) 4.
+[556.94 - 560.70] (w1278-1287) El error con el inhalador que muchos pasan por alto.
+[560.90 - 564.08] (w1288-1294) Imagina que llevas semanas utilizando tu inhalador.
+[564.28 - 570.86] (w1295-1310) Lo tienes siempre a mano, recuerdas su nombre y estás convencido de que sabes manejarlo perfectamente.
+[571.12 - 579.46] (w1311-1331) Sin embargo, continúas despertándote por la noche con dos, o necesitas detenerte varias veces al caminar porque te falta el aire.
+[579.66 - 588.14] (w1332-1355) Es fácil pensar que el medicamento ha dejado de funcionar, pero antes de llegar a esa conclusión, existe algo que merece la pena comprobar?
+[588.38 - 591.28] (w1356-1360) ¿Estás utilizando correctamente tu inhalador?
+[591.82 - 596.88] (w1361-1374) La técnica de inhalación es uno de los aspectos fundamentales del tratamiento del asma.
+[597.12 - 605.44] (w1375-1393) Y lo sorprendente es que incluso personas que llevan años utilizando estos dispositivos pueden cometer errores sin darse cuenta.
+[605.76 - 611.80] (w1394-1405) Algunos inhaladores requieren coordinar la pulsación con una inspiración lenta y profunda.
+[611.98 - 617.56] (w1406-1418) Otros funcionan de manera diferente y necesitan una inhalación más rápida y energica.
+[617.74 - 622.42] (w1419-1430) Por eso no existe una única técnica válida para todos los dispositivos.
+[622.60 - 630.12] (w1431-1453) Un error puede hacer que parte del medicamento se quede en la boca o la garganta en lugar de alcanzar las vías respiratorias.
+[630.30 - 633.86] (w1454-1464) La solución no consiste en aumentar las dosis por tu cuenta.
+[634.10 - 643.10] (w1465-1486) Consiste en pedir a tu médico, enfermero o farmacéutico que observe cómo utilizas tu dispositivo y te enseña a corregir cualquier fallo.
+[643.62 - 647.00] (w1487-1494) Pero hay una segunda cuestión todavía más importante.
+[647.32 - 650.00] (w1495-1502) No todos los inhaladores cumplen la misma función.
+[650.96 - 655.00] (w1503-1514) Algunos contienen medicamentos que ayudan a controlar la inflamación de los bronqueos.
+[655.82 - 658.00] (w1515-1521) Otros están destinados a aliviar los síntomas.
+[658.80 - 667.00] (w1522-1540) Y determinadas combinaciones pueden utilizarse tanto para mantenimiento como para alivio, siempre que así lo indique el tratamiento prescrito.
+[667.70 - 676.94] (w1541-1560) Actualmente, las recomendaciones internacionales destacan la importancia de los tratamientos que incluyen corticoides inhalados para reducir el riesgo de crisis.
+[677.22 - 685.92] (w1561-1581) Depender únicamente de un broncodilatador de acción corta, sin tratamiento antiinflamatorio, no es la estrategia recomendada para el asma en adultos.
+[686.16 - 693.74] (w1582-1599) Por eso, aunque te encuentres bien, nunca suspendas ni modifiques tu medicación sin consultar con un profesional sanitario.
+[694.12 - 703.08] (w1600-1623) También conviene disponer de un plan de acción escrito que explique qué hacer cuando aparecen síntomas, cómo reconocer un empeoramiento y cuándo solicitar ayuda.
+[703.82 - 716.14] (w1624-1652) Y recuerda, necesitar el inhalador de alivio con mayor frecuencia, despertarte repetidamente por la noche o limitar tus actividades habituales son motivos para revisar el control de tu asma.
+[716.32 - 720.18] (w1653-1662) Si conoces a alguien que utiliza inhaladores, comparte este vídeo.
+[720.30 - 737.40] (w1663-1699) A veces, revisar un gesto cotidiano puede mejorar considerablemente el aprovechamiento de un tratamiento, porque cuidar los pulmones no significa únicamente evitar el frío, también significa utilizar correctamente las herramientas que la medicina pone a nuestra disposición.
+[737.74 - 738.88] (w1700-1701) Punto 5.
+[739.10 - 742.40] (w1702-1708) Un simple resfriado puede complicar tu asma.
+[742.58 - 745.86] (w1709-1717) Hay una frase que escuchamos constantemente durante el invierno.
+[746.54 - 749.34] (w1718-1724) No te preocupes, es solamente un presfriado.
+[749.52 - 757.28] (w1725-1743) Pero cuando una persona tiene asma, una infección respiratoria puede representar algo más que unos días de congestión nasal.
+[757.50 - 768.10] (w1744-1766) Los virus que provocan resfriados, gripe y otras infecciones respiratorias pueden aumentar la inflamación de las vías respiratorias y desencadenar una crisis astmática.
+[768.38 - 774.52] (w1767-1783) Esto no significa que todas las personas con asthma vayan a sufrir complicaciones graves cuando se resfrian.
+[774.86 - 781.40] (w1784-1799) Significa que conviene prestar mayor atención a la prevención y a los primeros signos de empeoramiento.
+[781.60 - 786.94] (w1800-1813) El quinto consejo comienza con un hábito tan sencillo como lavarse correctamente las manos.
+[787.86 - 796.78] (w1814-1830) Los virus respiratorios pueden transmitirse de diferentes maneras, incluyendo partículas respiratorias y el contacto con superficies contaminadas.
+[796.94 - 802.88] (w1831-1846) Por eso, la higiene de manos es una medida útil, aunque no suficiente por sí sola.
+[803.20 - 810.60] (w1847-1863) También resulta recomendable evitar, cuando sea posible, el contacto cercano con personas que presentan síntomas de infección.
+[811.16 - 821.30] (w1864-1883) En lugares interiores concurridos, especialmente durante periodos de elevada circulación de virus, una mascarilla bien ajustada puede proporcionar protección adicional.
+[821.90 - 826.86] (w1884-1895) Y hay un aspecto especialmente importante para las personas mayores, las vacunas.
+[827.82 - 835.10] (w1896-1912) Consulta con tu profesional sanitario cuáles son las vacunas recomendadas según tu edad, antecedentes y situación médica.
+[835.38 - 843.00] (w1913-1930) Entre ellas pueden encontrarse las de la gripe, covid -19, pneumococo y virus respiratorio sincitial cuando estén indicadas.
+[844.22 - 850.86] (w1931-1949) No olvides mantener el tratamiento habitual de lasma durante una infección, salvo que tu médico te indique otra cosa.
+[851.08 - 861.88] (w1950-1978) Si notas que la tosa empeora, necesitas más medicación de alivio o comienzas a tener dificultad para respirar, sigue tu plan de acción y solicita valoración médica cuando corresponda.
+[862.66 - 865.12] (w1979-1984) Y ahora viene una pregunta interesante.
+[865.34 - 872.14] (w1985-2003) Si el frío puede provocar síntomas, ¿sería mejor dejar de caminar y hacer ejercicio hasta que llegue la primavera?
+[872.40 - 875.64] (w2004-2011) La respuesta quizá no sea la que imaginas.
+[875.96 - 877.26] (w2012-2013) Punto 6.
+[877.38 - 880.68] (w2014-2021) No dejes que el asma terrobe el movimiento.
+[880.82 - 888.80] (w2022-2043) Uno de los errores más comprensibles durante el invierno es comenzar a evitar cualquier actividad física por miedo a quedarse sin aire.
+[889.08 - 894.18] (w2044-2054) Primero dejamos de caminar por las mañanas, después evitamos las escaleras.
+[894.44 - 901.08] (w2055-2068) Finalmente pasamos cada vez más horas sentados, convencidos de que así protegemos nuestros pulmones.
+[901.48 - 906.10] (w2069-2077) Pero el cuerpo necesita movimiento, también cuando tenemos asma.
+[906.32 - 914.36] (w2078-2095) La actividad física adaptada puede contribuir a mantener la capacidad cardiovascular, la fuerza muscular y el bienestar general.
+[914.48 - 921.04] (w2096-2113) Lo importante es que el asma esté adecuadamente controlada y que el ejercicio se ajuste a nuestra situación.
+[921.28 - 925.52] (w2114-2125) Si el aire frío desencadena tus síntomas, puedes elegir actividades en interiores.
+[926.42 - 934.72] (w2126-2145) Caminar por un pasillo, realizar movimientos suaves junto a una silla, o seguir una rutina moderada pueden ser alternativas razonables.
+[934.98 - 940.92] (w2146-2158) Comienza lentamente y dedica unos minutos a calentar antes de aumentar la intensidad.
+[941.34 - 943.64] (w2159-2165) También merece la pena observar cómo respiras.
+[944.54 - 951.62] (w2166-2180) Muchas personas, cuando sienten incomodidad, aceleran involuntariamente la respiración y aumentan su sensación de angustia.
+[952.28 - 958.50] (w2181-2196) Practicar una respiración tranquila y controlada en momentos de estabilidad puede ayudar a manejar esa sensación.
+[959.32 - 966.08] (w2197-2211) Algunas técnicas, como respirar suavemente con los labios fruncidos, pueden resultar útiles para determinadas personas.
+[967.16 - 977.90] (w2212-2238) Sin embargo, estas técnicas no abren los bronquios de la misma manera que la medicación indicada y nunca deben utilizarse como sustituto del tratamiento durante una crisis.
+[978.10 - 987.56] (w2239-2262) Si aparecen silbidos intensos o presión en el pecho o dificultad respiratoria, detén la actividad y sigue las instrucciones de tu plan de acción.
+[987.80 - 992.58] (w2263-2273) Y si el ejercicio provoca síntomas repetidamente, consulta con tu médico.
+[992.76 - 995.68] (w2274-2279) Puede ser necesario revisar el tratamiento.
+[995.78 - 997.82] (w2280-2284) Quiero que recuerdes una idea.
+[997.90 - 1002.00] (w2285-2294) Tener asthma no significa renunciar a las actividades que disfrutas.
+[1002.32 - 1008.94] (w2295-2307) Significa conocer tus límites, reconocer tus desencadenantes y disponer de un tratamiento adecuado.
+[1009.10 - 1017.90] (w2308-2331) El objetivo no es que pases el invierno evitando cualquier esfuerzo, es que puedas continuar con tu vida cotidiana con la mayor seguridad posible.
+[1018.24 - 1029.72] (w2332-2358) Porque respirar mejor no depende de un único truco milagroso, depende de pequeñas decisiones que, acompañadas del tratamiento correcto, pueden marcar una diferencia real en tu bienestar.
+[1029.92 - 1035.24] (w2359-2372) Y antes de terminar, hay una advertencia que toda persona con asma debería conocer.
+[1035.52 - 1040.54] (w2373-2384) Respirar sin dificultad parece algo tan sencillo que apenas pensamos en ello.
+[1040.76 - 1047.44] (w2385-2403) Hasta que llega una noche fría, aparece una tosina esperada y sentimos que el aire no entra como debería.
+[1047.62 - 1053.48] (w2404-2418) Si tienes asma, sabes perfectamente lo valioso que puede llegar a ser respirar con tranquilidad.
+[1053.68 - 1056.54] (w2419-2424) Pero hoy hemos descubierto algo importante.
+[1056.70 - 1061.64] (w2425-2438) El invierno no tiene por qué convertirse en una temporada de miedo y limitaciones.
+[1061.86 - 1078.28] (w2439-2473) Protegerte del aire frío, controlar la humedad de tu hogar, evitar sustancias irritantes, utilizar correctamente tus inhaladores, prevenir infecciones respiratorias y mantenerte físicamente activo, son seis decisiones que pueden ayudarte a controlar mejor tus síntomas.
+[1078.56 - 1082.60] (w2474-2483) Y recuerda, no necesitas cambiar todos tus hábitos de golpe.
+[1082.76 - 1088.94] (w2484-2498) Comienza identificando aquello que más afecta a tu respiración y realiza pequeños ajustes cada día.
+[1089.14 - 1093.26] (w2499-2508) Sin embargo, hay una advertencia médica que nunca debes ignorar.
+[1093.46 - 1106.94] (w2509-2539) Si experimentas dificultad intensa para respirar, no puedes hablar con normalidad, notas un empeoramiento rápido o tu medicación de rescate no funciona según tu plan de acción, busca atención médica urgente.
+[1107.18 - 1110.30] (w2540-2547) No esperes a que los síntomas desaparezcan solos.
+[1110.50 - 1115.34] (w2548-2560) Estos consejos son educativos y no sustituyen el tratamiento indicado por tu médico.
+[1115.60 - 1119.08] (w2561-2568) Y ahora, vamos con nuestra pregunta del día.
+[1119.10 - 1123.54] (w2569-2579) ¿Cuál de estas situaciones puede empeorar el asma durante el invierno?
+[1123.76 - 1124.80] (w2580-2581) Opción A.
+[1125.02 - 1127.22] (w2582-2585) Solamente respirar aire frío.
+[1127.46 - 1128.46] (w2586-2587) Opción B.
+[1128.60 - 1133.88] (w2588-2599) El aire frío, la humedad excesiva, los irritantes y las infecciones respiratorias.
+[1134.48 - 1135.56] (w2600-2601) Opción C.
+[1135.66 - 1137.88] (w2602-2604) Únicamente hacer ejercicio.
+[1138.10 - 1141.40] (w2605-2612) Escribe A, B o C en los comentarios.
+[1141.52 - 1145.32] (w2613-2621) Queremos saber cuántas personas han aprendido algo nuevo hoy.
+[1145.50 - 1159.30] (w2622-2657) Si este vídeo te ha resultado útil, compártelo con alguien que tenga problemas respiratorios y suscríbete a hábitos que sanan, porque cuidar tu respiración es también cuidar tu independencia, tu tranquilidad y tu calidad de vida.

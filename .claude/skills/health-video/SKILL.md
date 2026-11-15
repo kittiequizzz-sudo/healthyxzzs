@@ -3,6 +3,69 @@ name: health-video
 description: Make health and fitness science explainer videos for YouTube (short exercise explainers or 10–20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format: picture-first, key-phrase captions only, a paced hook, never a slide-deck look. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
+## Living Scenes V5 — actual character motion AND subtle environmental motion
+
+The owner has now requested to add a code command so that **both recurring characters and their environments can move naturally** rather than remaining in a static frame. Implement this with the new `animate-live` command, which overrides the older static-background advice for V5 clips without disabling the existing `animate` workflow.
+
+- Run `node scripts/motion_v2.mjs animate-live PROJECT --batch 1 --max 1` (from the skill folder) to PREVIEW motion prompts. With no `--execute` there is no paid API or video generation.
+- A chosen batch's `motion/batches/batch_001_live_prompts.md` includes scene-by-scene instructions for character action **and** existing environment secondary motion.
+- For an ordinary scene `mode: "character"`, define `action` in `motion/scenes.json` describing a single physically coherent movement. Use `environment_motion` to control visible curtains/leaves/cloth/shadows, never introduce unseen objects.
+- For an environment-only living shot, set `mode: "still", "animate_environment": true` with a specific `environment_motion`; the resulting video is a real animated B-roll scene. Unflagged stills remain ordinary stills; `graphic` is unchanged.
+- Optional `motion_intensity` accepts `subtle` (default) or `balanced`; minimize overstated wind, camera motion, perspective drift, AI limb-morphing and flicker. Fixed camera inside each clip, diverse angles BETWEEN clips.
+- `scripts/living_scene.mjs` infers optional surroundings from locations, but **explicit scene motion wins**. Only elements present in the approved first frame may move. Keep the approved user Master Style and character identity from V4.
+- For actual clip generation use the chosen external image-to-video tool and save `SC###.mp4`, or ONLY with explicit consent and configuration, `FAL_KEY` plus `--execute` for the pre-existing optional API; max defaults to 1 clip. Never charge/trigger API by default.
+- `qa --frames` must inspect image/video assets, but human review of movement, limbs, face, props and surroundings remains mandatory; `approve` also supports environment-only motion B-roll. Final `render` requires missing flagged motion clips unless `--draft --allow-stills` is used.
+- This does NOT mean Python/FFmpeg can automatically turn static figures into anatomically correct human animations. Actual body/environment motions are produced by a video model or supplied clip.
+- Do not delete/replace original project artifacts or break V2, V3, V4 legacy commands.
+
+## Universal Master Style V4 — priority over V1/V2 and old 2D-only rules
+
+The owner wants **ANY custom user-selected Master Style**, not just V1/V2/LEGACY. For each new video, first check whether the user supplied an image master, a JSON master style, or both.
+
+- Default presets V1/V2/LEGACY still work **only when no custom master is supplied**.
+- With a user master, use `motion_v2.mjs init PROJECT --srt ... --voice ... --master-image /path/style.png`, or `--master /path/style.json`, optionally `--character-image /path/character.png`. Read `MOTION_V2_VI.md` and template `styles/master_style.template.json` first.
+- `scripts/master_style.mjs` stores custom master style descriptors and copies approved visual references into `PROJECT/motion/master/`; `scripts/motion_style.mjs` accepts a custom style object for scene images and motion.
+- The style may use crayon, watercolor, scrapbook, doodle, flat vector, stop motion, 3D stylized, realistic photography, or any other coherent aesthetic. **Do NOT add 2D-only, pastel-only, white-border-only or anti-3D constraints to a custom master**. If the master is V1/V2, retain its previous mandatory frame, contrast and palette requirements.
+- Keep the same chosen art medium and character identity across shots. Scene Director V3 varies setting, shot, action and lighting, NOT the identity or master style. Both older adults and user-supplied mascots are supported.
+- Every 20-image agent batch must explicitly mention the master reference files and require the image generation app to ATTACH them. A filename in a text prompt is NOT the actual image. The CLI cannot infer detailed style properties from unseen pixels, and does not automatically generate images from reference pictures.
+- If a master has no character identity reference, approve an initial character design before subsequent scenes and reuse it consistently.
+- The model producing MP4 video uses the approved SC### image as the first frame; custom master reference images are not automatically passed as additional model inputs unless that specific provider supports them.
+- Honor user's rights to the references and protect private pictures in a publicly visible repository. Avoid uploading secrets, private photographs or copyrighted artwork without permission.
+- For medical teaching, validate human anatomy, exercises and claims even when a master uses a stylized or fantastical aesthetic.
+- All previous safety gates remain: one batch per execution, review/approval, no paid API unless explicitly enabled, no pretending that still image zooms are actual character motion.
+
+## Scene Variety Director V3 — natural scenes, not an idle talking-head loop
+
+The owner explicitly requests **varied environments and visual storytelling** with the same recurring character, instead of an older adult always standing in one static room. This is the DEFAULT for new videos.
+
+- `scripts/scene_director.mjs` uses the Spanish SRT to construct an initial editable scene story arc. Every scene receives a **narrative kind, setting, framing, camera view, props, lighting, mood, wardrobe constraints, style treatment, and distinct physical action** for moving character scenes.
+- After `motion_v2.mjs init`, open `motion/scene_map.md` and `motion/scenes.json`. These are rule-based suggestions, so rewrite any medically inappropriate setting/action manually.
+- Maintain one chosen master aesthetic per channel/video: V1/V2/LEGACY or the user's custom Master Style. Visual diversity means different scenes, framing and infographic compositions, NEVER an unrequested style or identity switch.
+- Prefer a balanced rhythm of wide / medium / over-shoulder / close-up / full-body / flat-lay images. Environments can move between living room, outdoor walking path, exercise corner, kitchen, bedroom and clinic where the script warrants it.
+- Keep character identity consistent: face, hairstyle, age and body proportions must match the master reference. Use appropriate wardrobe changes only when actually necessary.
+- Every character scene must have one contextually meaningful action (walking, sitting, cooking, reaching, exercising safely). Avoid repeating the default standing/pointing/talking pose.
+- In the 20-image batch, prompts must be varied by shot, setting, and treatment; the agent still generates **one batch only and stops for approval**.
+- Use `motion_v2.mjs map PROJECT` to refresh the scene map after manual scene edits. `qa` reports repeated three-scene location+framing combinations and diversity statistics.
+- Different scenes may use different first-frame camera angles, but each short motion clip should keep its own camera stable to reduce image-to-video hallucination.
+
+## Motion V2: nâng cấp theo yêu cầu mới — nhân vật được CHUYỂN ĐỘNG THẬT
+
+The channel owner has requested *actual smooth, attractive, animated recurring characters*, in the user-selected Master Style (which may or may not be 2D).
+This section overrides the older "no animated characters" restriction when using the Motion V2 workflow.
+Keep the original HTML infographic workflow working; never run rejected puppet/body-part rotations or image morphing.
+
+- Read repository-root MOTION_V2_VI.md for complete Vietnamese setup and commands.
+- Use scripts/motion_style.mjs to produce matching visual DNA from V1/V2 presets OR a custom user-supplied Master Style and first-frame motion prompts.
+- Use scripts/motion_v2.mjs to turn SRT plus narration into scene plan (3–6 s where feasible).
+- Generate one batch of at most 20 scene images, name them SC###.png, move to Collection/folder, then STOP for OK.
+- Create an actual MP4 image-to-video clip SC###.mp4 for each scene marked mode=character. Never claim Ken Burns, still-image zoom, crossfade, puppet or flipbook is real human body movement.
+- Prefer user's own free external image/video tools. Optional fal.ai Wan API requires explicit FAL_KEY and --execute (paid, opt-in only).
+- Use QA still frames at beginning, middle and end for every moving scene. Look for facial drift, unnatural joint movement, extra limbs, fused hands, footwear/clothes changes, instability, flicker and border drift. Only approve after visually checking.
+- Final render must use only motion clips marked approved for full output, while --draft --allow-stills remains a clearly labeled fallback.
+- Narration is added once; never include AI clip audio when joining.
+- Older renderer + old section projects remain untouched and usable.
+- Existing medically grounded exercise cards and character QA still apply.
+
 # Health explainer video creator
 
 You make research-backed health and fitness explainer videos for this channel. They are **YouTube

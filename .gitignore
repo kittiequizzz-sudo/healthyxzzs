@@ -16,3 +16,17 @@ projects/*/out/parts/
 projects/azucar_sube/out/
 projects/azucar_sube/transcript.log
 projects/*/out_render.log
+
+# Motion V2: avoid accidental commits of large renders and temporary assets
+projects/*/out/*.mp4
+projects/*/motion/render/
+projects/*/motion/qa/
+projects/*/clips/*.mp4
+*.partial
+.env
+.env.*
+
+# ocho_senales_mente: renders and temp audio stay local
+projects/ocho_senales_mente/out/
+projects/oido_memoria/out/
+projects/oido_memoria/qa/

@@ -34,8 +34,10 @@
   scene is fading out.
 
 ## Rendering
-- Short pieces: `flat/render.mjs --audio`. Long videos: `scripts/render_sections.mjs` (3 jobs on 4 cores
-  ≈ 22 min of video in ~30 min).
+- Short pieces: `flat/render.mjs --audio`. Long videos: `scripts/render_sections.mjs` (3 jobs on 4 cores).
+  Speed: infographic-on-cream scenes ≈ 3× real time per job; full-bleed panel scenes (YouTube style)
+  ≈ 10× real time per job, so a 10-minute video takes about 35–40 min with 3 jobs. Render a hook preview
+  (intro only, with `--audio`) for the user while waiting on assets.
 - After the join: `ffprobe` that video ≈ audio length, then pull ~20 frames across the whole video for a
   final contact sheet.
 

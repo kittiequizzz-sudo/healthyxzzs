@@ -60,7 +60,11 @@ video from now on. Read them before planning scenes.
 - Hook: scrub the first 45 s at 1.5 s steps; every step must look different.
 - Read every caption aloud: if it repeats the voice sentence word for word, shorten it to the key phrase.
 
-## Helpers (`flat/kit.js`)
+## Helpers (`flat/kit.js`, project `common.js`)
+`FullStill(svg, href, {iw, ih, focus, zoom})`: full-bleed panel with push-in (the default for scene
+panels). `Kicker(svg, str)`: top-left section pill. In a project's `common.js`: `full(g, name)`,
+`hard(svg, a, b, build)` for hard cuts, `Captions(g, [[text, cue, opts], …])` for one caption at a time,
+and a `SUB` map of stand-in panels for drawings not yet delivered.
 `Caption(svg, str, {cx, cy, size, hi})`: lower-third pill with a highlighted word.
 `cutVis(g, t, a, b)`: hard cut on/off.
 `punch(g, t, t0, cx, cy, k)`: zoom lean-in on a word.

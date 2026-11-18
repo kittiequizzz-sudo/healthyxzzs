@@ -35,3 +35,18 @@ theo phong cách của kênh (tên tổ chức + năm).
 
 ## Nhạc nền (không bắt buộc)
 - Nhạc nhẹ, ấm, không lời → `music.mp3`.
+
+---
+
+# Đợt 2 (bản dựng lại theo phong cách YouTube): thêm 2 tấm cảnh
+
+*Giải thích: phong cách mới cần mỗi đoạn đều có hình. 8 cảnh dưới đây lấp vào các đoạn hiện còn chỉ có chữ.
+Đính kèm ảnh `carmen_1` khi tạo để bà Carmen giống hệt.*
+
+## ORDER E: Doña Carmen, 4 cảnh (`carmen_3`)
+
+> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, the same Doña Carmen character as the attached image (71-year-old Latina grandmother, blue skin, glowing white eyes, grey hair in a bun, round glasses, embroidered white blouse, black skirt), same 2D cartoon style with bold outlines and flat shading, warm simple backgrounds, no text, no letters, no brands. Panel 1: a family dinner table, Carmen in front of a very large plate of food and a big glass of dark soda, family around her. Panel 2: Carmen in her kitchen carefully measuring rice with a small measuring cup, gently pushing away a plate of Mexican sweet bread. Panel 3: Carmen and her friendly female doctor sitting side by side, both smiling, looking together at a simple chart on a sheet of paper (no readable text). Panel 4: Carmen walking briskly in a sunny park with a friend, wearing sneakers, both smiling. 16:9, high resolution.
+
+## ORDER F: Doña Carmen, 4 cảnh (`carmen_4`)
+
+> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, the same Doña Carmen character as the attached image (71-year-old Latina grandmother, blue skin, glowing white eyes, grey hair in a bun, round glasses, embroidered white blouse, black skirt), same 2D cartoon style with bold outlines and flat shading, warm simple backgrounds, no text, no letters, no brands. Panel 1: Carmen sitting on a chair at home doing a gentle exercise with a red resistance band, proud smile. Panel 2: Carmen at breakfast pouring a big glass of orange juice from a large jug. Panel 3: Carmen at her kitchen table writing a short list in a small notebook with a pen, focused, a calendar on the wall (no readable text). Panel 4: Carmen on her sofa holding a smartphone, smiling as she sends a message to her family (no readable screen). 16:9, high resolution.

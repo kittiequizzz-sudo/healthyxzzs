@@ -23,6 +23,8 @@
   use two-line labels (`'A\nB'` in Tile), or measure with `getComputedTextLength()` (strike-throughs).
 - **Overlaps:** stamps over the cards they judge (put stamps below), chips over chart lines, icons over
   button text, labels under drawings.
+- **Transforms:** `pop`, `show`, `punch`, `slideIn` and `float` REPLACE the element's `transform`. Never apply
+  them to something that carries its own transform (an `Icon.*`, a scaled group): wrap it in a plain `<g>` first.
 - **Z-order:** SVG draws in creation order. Anything that moves *into* another shape (glucose into a
   cell) must be appended after that shape.
 - **Contrast:** a white check on a green card disappears (use an ink check); a red icon on a red

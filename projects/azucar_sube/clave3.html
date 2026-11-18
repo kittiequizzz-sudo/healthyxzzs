@@ -14,74 +14,88 @@ window.END = at('b4') - 0.4;
 window.DURATION = window.END;
 const svg = Stage();
 
-scene(svg, () => START, () => at('fabrica') - 0.1, g => SectionCard(g, 3, 'EL PÁNCREAS CANSADO', 'la fábrica de llaves', ['pancreas'])(START + 0.1));
-
-// 1. key factory: overtime → tired beta cells
-scene(svg, () => at('fabrica') - 0.1, () => at('ukpds'), g => {
-  Progress(g, 2);
-  const s1 = still(g, 'm_fabrica', { x: 60, y: 170, w: 1200, h: 690, focus: [0.4, 0.6], zoom: 0.06 });
-  const s2 = still(g, 'm_fabrica_cansada', { x: 60, y: 170, w: 1200, h: 690, focus: [0.4, 0.6], zoom: 0.06 });
-  const h = Chip(g, 'PÁNCREAS = FÁBRICA DE LLAVES', { cx: 660, cy: 100, fill: C.white, size: 40 });
-  const l = [['HORAS EXTRA', 'horas', C.amber, C.ink], ['MÁS Y MÁS INSULINA', 'compensar', C.white, C.ink], ['DURANTE AÑOS, LO LOGRA', 'logra', C.green, C.white], ['LAS CÉLULAS BETA SE CANSAN', 'cansando', C.red, C.white]].map(([s, k, f, col], i) => {
-    const c = el('g', {}, g); Card(c, { x: 1320, y: 200 + i * 175, w: 540, h: 135, fill: f });
-    Text(c, s, { x: 1590, y: 268 + i * 175, size: s.length > 18 ? 32 : 40, color: col });
-    return [c, k];
-  });
-  const beta = Chip(g, 'CÉLULAS BETA', { cx: 660, cy: 940, fill: C.ink, color: C.amber, size: 44 });
+// 1. the key factory, working overtime → tired workers (full-bleed panels)
+scene(svg, () => START, () => at('ukpds'), g => {
+  const z = el('g', {}, g);
+  const s1 = full(z, 'm_fabrica', { focus: [0.35, 0.65], zoom: 0.1 });
+  const s2 = full(z, 'm_fabrica_cansada', { focus: [0.3, 0.55], zoom: 0.1 });
+  const k = Kicker(g, 'CLAVE 3 · EL PÁNCREAS CANSADO');
+  const caps = Captions(g, [['EL PÁNCREAS = FÁBRICA DE LLAVES', 'fabrica', { hi: 'FÁBRICA DE LLAVES' }], ['HORAS EXTRA', 'horas', { fill: C.amber, color: C.ink }], ['MÁS Y MÁS INSULINA', 'compensar'], ['DURANTE AÑOS, LO LOGRA', 'logra', { fill: C.green }], ['LAS CÉLULAS BETA SE CANSAN', 'beta', { hi: 'SE CANSAN', hiColor: C.red }]], { cy: 970 });
   return t => {
-    const k = E.inOut(prog(t, at('cansando') - 0.3, at('cansando') + 0.3));
-    s1.g.setAttribute('opacity', 1 - k); s2.g.setAttribute('opacity', k);
-    s1.draw(t, at('fabrica'), at('cansando')); s2.draw(t, at('cansando'), at('ukpds'));
-    show(h, t, at('fabrica')); l.forEach(([c, kk]) => show(c, t, at(kk))); show(beta, t, at('beta'));
+    const kk = E.inOut(prog(t, at('cansando') - 0.3, at('cansando') + 0.3));
+    s1.g.setAttribute('opacity', 1 - kk); s2.g.setAttribute('opacity', kk);
+    s1.draw(t, START, at('cansando')); s2.draw(t, at('cansando'), at('ukpds'));
+    punch(z, t, at('horas'), 700, 600, 0.06);
+    show(k, t, START + 0.1, 1e9, { dy: -20, dur: 0.3 }); caps(t);
   };
 });
 
 // 2. UKPDS: about half at diagnosis, still falling for 6 years on every treatment
 scene(svg, () => at('ukpds'), () => at('simples'), g => {
   Progress(g, 2);
-  const h = Chip(g, 'ESTUDIO UKPDS · REINO UNIDO · MILES DE PERSONAS', { cx: 900, cy: 110, fill: C.ink, color: C.amber, size: 38 });
-  const ch = el('g', {}, g); Card(ch, { x: 120, y: 200, w: 1120, h: 700 });
-  Text(ch, 'FUNCIÓN DE LAS CÉLULAS BETA', { x: 170, y: 260, size: 36, anchor: 'start' });
-  const X = y => 260 + (y + 4) / 10 * 900, Y = p => 820 - p / 100 * 500;
-  el('line', { x1: 240, y1: 830, x2: 1200, y2: 830, stroke: C.ink, 'stroke-width': 5 }, ch);
-  el('line', { x1: 240, y1: Y(100), x2: 1200, y2: Y(100), stroke: C.grey, 'stroke-width': 3, 'stroke-dasharray': '10 10' }, ch);
-  Text(ch, '100 %', { x: 230, y: Y(100), size: 26, weight: 800, anchor: 'end', color: C.grey });
-  [['−4', -4], ['diagnóstico', 0], ['+3 años', 3], ['+6 años', 6]].forEach(([s, y]) => Text(ch, s, { x: X(y), y: 866, size: 26, weight: 800, color: C.grey }));
-  const pre = el('path', { d: `M${X(-4)} ${Y(80)} C${X(-2)} ${Y(70)} ${X(-1)} ${Y(58)} ${X(0)} ${Y(50)}`, fill: 'none', stroke: C.ink, 'stroke-width': 8, 'stroke-dasharray': '16 12', opacity: 0 }, ch);
-  const dot = el('circle', { cx: X(0), cy: Y(50), r: 16, fill: C.orange, stroke: C.ink, 'stroke-width': 5, opacity: 0 }, ch);
-  const lab50 = Text(ch, '≈ 50 %', { x: X(0) - 20, y: Y(50) - 50, size: 50, color: C.orange });
+  const X = y => 220 + (y + 4) / 10 * 1300, Y = p => 830 - p / 100 * 600;
+  const ch = el('g', {}, g);
+  el('line', { x1: 200, y1: 840, x2: 1560, y2: 840, stroke: C.ink, 'stroke-width': 8, 'stroke-linecap': 'round' }, ch);
+  el('line', { x1: 200, y1: Y(100), x2: 1560, y2: Y(100), stroke: C.grey, 'stroke-width': 4, 'stroke-dasharray': '12 12' }, ch);
+  [['diagnóstico', 0], ['+6 años', 6]].forEach(([s, y]) => Text(ch, s, { x: X(y), y: 890, size: 38, weight: 800, color: C.grey }));
+  const pre = el('path', { d: `M${X(-4)} ${Y(100)} C${X(-2)} ${Y(92)} ${X(-1)} ${Y(66)} ${X(0)} ${Y(50)}`, fill: 'none', stroke: C.ink, 'stroke-width': 10, 'stroke-dasharray': '18 14' }, ch);
+  const preMask = el('rect', { x: X(-4) - 20, y: 150, height: 676, fill: C.cream }, ch);   // wipes left→right to reveal the dashed line
+  // "miles de personas": a small crowd
+  const crowd = el('g', {}, g);
+  for (let i = 0; i < 24; i++) {
+    const x = 1020 + (i % 8) * 62, y = 210 + Math.floor(i / 8) * 80;
+    el('circle', { cx: x, cy: y, r: 13, fill: C.blue, stroke: C.ink, 'stroke-width': 3 }, crowd);
+    el('rect', { x: x - 16, y: y + 15, width: 32, height: 34, rx: 12, fill: C.blue, stroke: C.ink, 'stroke-width': 3 }, crowd);
+  }
+  const dot = el('circle', { cx: X(0), cy: Y(50), r: 22, fill: C.orange, stroke: C.ink, 'stroke-width': 6, opacity: 0 }, ch);
+  const lab = Text(ch, '≈ 50 %', { x: X(0) - 30, y: Y(50) - 80, size: 90, color: C.orange });
   const cols = [[C.green, 0], [C.blue, 8], [C.red, -8]];
-  const lines = cols.map(([col, off]) => el('path', { d: `M${X(0)} ${Y(50)} C${X(2)} ${Y(44 + off / 4)} ${X(4)} ${Y(36 + off / 3)} ${X(6)} ${Y(28 + off / 2)}`, fill: 'none', stroke: col, 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-dasharray': 900, 'stroke-dashoffset': 900 }, ch));
-  const leg = ['DIETA', 'PASTILLAS', 'INSULINA'].map((s, i) => Chip(g, s, { cx: 1560, cy: 560 + i * 120, fill: cols[i][0], color: C.white, size: 40 }));
-  const big = el('g', {}, g); Card(big, { x: 1290, y: 200, w: 560, h: 260, fill: C.white });
-  Text(big, 'AL DIAGNÓSTICO,', { x: 1570, y: 275, size: 38 }); Text(big, 'EL PÁNCREAS YA', { x: 1570, y: 330, size: 38 }); Text(big, 'TRABAJA A LA MITAD', { x: 1570, y: 395, size: 42, color: C.orange });
-  Source(g, 'UKPDS 16 · Diabetes 1995 · estimación HOMA-B · curva ilustrativa');
+  const lines = cols.map(([col, off]) => el('path', { d: `M${X(0)} ${Y(50)} C${X(2)} ${Y(44 + off / 4)} ${X(4)} ${Y(36 + off / 3)} ${X(6)} ${Y(28 + off / 2)}`, fill: 'none', stroke: col, 'stroke-width': 12, 'stroke-linecap': 'round', 'stroke-dasharray': 1200, 'stroke-dashoffset': 1200 }, ch));
+  const leg = [['DIETA', 'plato'], ['PASTILLAS', null], ['INSULINA', 'llave']].map(([s, n], i) => {
+    const c = el('g', {}, g), y = 300 + i * 190;
+    if (n) cut(c, n, 1700, y, 140); else Icon.pill(c, 1640, y - 60, 1.2);
+    el('rect', { x: 1600, y: y + 70, width: 200, height: 14, rx: 7, fill: cols[i][0] }, c);
+    Text(c, s, { x: 1700, y: y + 115, size: 32 });
+    return c;
+  });
+  const fac = el('g', {}, g); cut(fac, 'pancreas', 0, 0, 300);
+  const caps = Captions(g, [['EL ESTUDIO UKPDS', 'ukpds'], ['REINO UNIDO · MILES DE PERSONAS', 'reino'], ['AL DIAGNÓSTICO: A LA MITAD', 'amitad', { hi: 'A LA MITAD', hiColor: C.orange }], ['Y SIGUE BAJANDO', 'seis', { hi: 'BAJANDO', hiColor: C.red }]], { cy: 990 });
+  Text(g, 'UKPDS 16 · Diabetes 1995 · estimación HOMA-B · curva ilustrativa', { x: 880, y: 1052, size: 24, weight: 700, color: C.grey });
   return t => {
-    show(h, t, at('ukpds')); show(ch, t, at('reino'));
-    pre.setAttribute('opacity', prog(t, at('diagnostico') - 0.5, at('diagnostico')));
-    dot.setAttribute('opacity', prog(t, at('amitad') - 0.3, at('amitad'))); show(lab50, t, at('amitad')); show(big, t, at('amitad') + 0.6);
-    lines.forEach(l => l.setAttribute('stroke-dashoffset', 900 * (1 - E.inOut(prog(t, at('seis'), at('seis') + 2)))));
-    leg.forEach((c, i) => show(c, t, at('dieta') + i * 0.5));
+    fac.setAttribute('transform', `translate(380 ${250 + 6 * Math.sin(t * 2)})`); fac.setAttribute('opacity', prog(t, at('ukpds'), at('ukpds') + 0.3));
+    const w = (X(0) - X(-4) + 40) * (1 - E.inOut(prog(t, at('reino'), at('diagnostico'))));
+    set(preMask, { x: X(0) + 20 - w, width: Math.max(0, w) });
+    show(crowd, t, at('reino'));
+    crowd.setAttribute('opacity', Math.min(+crowd.getAttribute('opacity'), 1 - prog(t, at('amitad') - 0.5, at('amitad'))));
+    dot.setAttribute('opacity', prog(t, at('amitad') - 0.3, at('amitad'))); show(lab, t, at('amitad'));
+    lines.forEach(l => l.setAttribute('stroke-dashoffset', 1200 * (1 - E.inOut(prog(t, at('seis'), at('seis') + 2)))));
+    leg.forEach((c, i) => slideIn(c, t, at('dieta') + i * 0.4, 'r', 300));
+    caps(t);
   };
 });
 
 // 3. needing more help ≠ failing
 scene(svg, () => at('simples'), () => at('honesto'), g => {
-  const st = still(g, 'm_fabrica_cansada', { x: 460, y: 110, w: 1000, h: 572, focus: [0.4, 0.5], zoom: 0.06 });
-  const a = el('g', {}, g); Card(a, { x: 260, y: 740, w: 1400, h: 150, fill: C.white });
-  Text(a, 'CON LOS AÑOS SE NECESITA MÁS AYUDA', { x: 960, y: 817, size: 54 });
-  const b = Chip(g, 'NO PORQUE USTED FALLÓ', { cx: 960, cy: 980, fill: C.green, color: C.white, size: 50 });
-  return t => { st.draw(t, at('simples'), at('honesto')); show(a, t, at('ayuda')); show(b, t, at('fallo')); };
+  const z = el('g', {}, g);
+  const st = full(z, 'm_fabrica_cansada', { focus: [0.3, 0.5], zoom: 0.12 });
+  const caps = Captions(g, [['CON LOS AÑOS, MÁS AYUDA', 'ayuda'], ['NO PORQUE USTED FALLÓ', 'fallo', { fill: C.green, hi: 'NO', hiColor: C.ink }]], { cy: 970 });
+  return t => { st.draw(t, at('simples'), at('honesto')); punch(z, t, at('fallo'), 960, 500, 0.05); caps(t); };
 });
 
 // 4. honest detail: an old study
 scene(svg, () => at('honesto'), () => END + 1, g => {
-  const h = Text(g, 'UN DETALLE HONESTO', { x: 960, y: 220, size: 76, color: C.amber });
-  const a = el('g', {}, g); Card(a, { x: 310, y: 330, w: 1300, h: 200 });
-  Text(a, 'El estudio empezó a finales de los 70', { x: 960, y: 405, size: 50 }); Text(a, 'antes de varias medicinas modernas', { x: 960, y: 475, size: 44, color: C.blueDark });
-  const b = el('g', {}, g); Card(b, { x: 310, y: 600, w: 1300, h: 200, fill: C.amber });
-  Text(b, '¿Los tratamientos nuevos cambian', { x: 960, y: 675, size: 48 }); Text(b, 'ese cansancio? Se sigue estudiando.', { x: 960, y: 745, size: 48 });
-  return t => { show(h, t, at('honesto')); show(a, t, at('setenta') - 0.5); show(b, t, at('nuevos')); };
+  const p = el('g', {}, g); cut(p, 'pancreas', 0, 0, 700);
+  const cal = el('g', {}, g);
+  Card(cal, { x: 1240, y: 250, w: 420, h: 420, fill: C.white });
+  el('rect', { x: 1240, y: 250, width: 420, height: 110, rx: 22, fill: C.red }, cal);
+  Text(cal, '1977', { x: 1450, y: 520, size: 150, color: C.ink });
+  const pills = el('g', {}, g); Icon.pill(pills, 1300, 720, 1.2); Icon.pill(pills, 1430, 720, 1.2); Icon.question(pills, 1570, 720, 1.2, C.amber);
+  const caps = Captions(g, [['UN DETALLE HONESTO', 'honesto', { fill: C.amber, color: C.ink }], ['ANTES DE LAS MEDICINAS MODERNAS', 'setenta'], ['¿LAS NUEVAS LO CAMBIAN? SE ESTUDIA', 'nuevos', { hi: 'SE ESTUDIA', hiColor: C.amber }]], { cy: 980, size: 50 });
+  return t => {
+    p.setAttribute('transform', `translate(620 ${480 + 8 * Math.sin(t * 1.8)})`);
+    pop(cal, t, at('setenta') - 0.4, 1450, 460); show(pills, t, at('nuevos'));
+    caps(t);
+  };
 });
 
 window.draw = t => drawScenes(t);

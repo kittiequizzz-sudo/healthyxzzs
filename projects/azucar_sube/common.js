@@ -3,8 +3,15 @@
 const T = CUE, LEAD = 0.2;
 const at = k => { if (!(k in T)) throw new Error('missing cue ' + k); return T[k] - LEAD; };
 const SZ = { body: [242, 453], brain: [318, 267], bolsa: [720, 430], c_baile: [826, 483], c_consulta: [827, 442], c_desayuno: [827, 442], c_duda: [827, 482], c_hipo: [827, 483], c_medicinas: [827, 442], c_noche: [826, 442], c_silla: [827, 482], cafe: [280, 316], calf: [111, 372], candado: [259, 356], candado_oxidado: [269, 372], glucometro: [257, 395], heart: [194, 270], llave: [183, 375], m_fabrica: [828, 474], m_fabrica_cansada: [828, 474], m_tienda: [828, 451], m_tienda_chica: [828, 451], pancreas: [333, 193], pesas: [571, 404], plato: [552, 354] };
-// a drawn panel (c_*, m_*) as a framed still with push-in
-const still = (g, n, o) => Still(g, 'cut/' + n + '.png', { iw: SZ[n][0], ih: SZ[n][1], ...o });
+// Panels ordered in round 2 (carmen_3 = e_*, carmen_4 = f_*). Until they are delivered and cut, each
+// shows a stand-in panel; delete an entry from SUB once its PNG exists.
+const SUB = { e_familia: 'c_desayuno', e_arroz: 'c_desayuno', e_doctora: 'c_consulta', e_parque: 'c_silla',
+  f_banda: 'c_silla', f_jugo: 'c_desayuno', f_lista: 'c_medicinas', f_mensaje: 'c_silla' };
+const real = n => SUB[n] || n;
+// a drawn panel (c_*, m_*, e_*, f_*) as a framed still with push-in
+const still = (g, n, o) => { n = real(n); return Still(g, 'cut/' + n + '.png', { iw: SZ[n][0], ih: SZ[n][1], ...o }); };
+// …or full-bleed (the YouTube default)
+const full = (g, n, o = {}) => { n = real(n); return FullStill(g, 'cut/' + n + '.png', { iw: SZ[n][0], ih: SZ[n][1], ...o }); };
 const img = n => ['cut/' + n + '.png', ...SZ[n]];
 const cut = (p, n, cx, cy, fit) => Cutout(p, 'cut/' + n + '.png', { cx, cy, iw: SZ[n][0], ih: SZ[n][1], fit });
 
@@ -15,13 +22,23 @@ function Stage() {
 }
 // A scene is a group shown between two times with a draw(t) for its contents.
 const scenes = [];
-function scene(svg, a, b, build) {
+// fade: seconds of cross-fade (0 = hard cut, used in the hook); youtube-style.md
+function scene(svg, a, b, build, { fade = 0.25 } = {}) {
   const g = el('g', {}, svg);
   const draw = build(g) || (() => {});
-  scenes.push({ g, a, b, draw });
+  scenes.push({ g, a, b, draw, fade });
 }
+const hard = (svg, a, b, build) => scene(svg, a, b, build, { fade: 0 });
 function drawScenes(t) {
-  for (const s of scenes) if (sceneVis(s.g, t, s.a(), s.b()) > 0) s.draw(t);
+  for (const s of scenes) {
+    const v = s.fade ? sceneVis(s.g, t, s.a(), s.b(), s.fade) : cutVis(s.g, t, s.a(), s.b());
+    if (v > 0) s.draw(t);
+  }
+}
+// One caption at a time: list of [text, cueKey, opts]; each shows from its cue until the next one.
+function Captions(g, list, base = {}) {
+  const els = list.map(([s, k, o]) => [Caption(g, s, { ...base, ...(o || {}) }), k]);
+  return t => els.forEach(([e, k], i) => show(e, t, at(k), i + 1 < els.length ? at(els[i + 1][1]) : 1e9, { dy: 20, dur: 0.3 }));
 }
 
 // Dark section title card: "PUNTO n" + title + subtitle + drawings.

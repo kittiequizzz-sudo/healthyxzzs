@@ -199,8 +199,35 @@ function Caption(svg, str, { cx = 960, cy = 960, size = 56, hi = '', fill = C.in
   el('rect', { x: cx - w / 2, y: cy - h / 2, width: w, height: h, rx: h / 2, fill, opacity: 0.92 }, g);
   const t = el('text', { x: cx, y: cy + 2, 'font-size': size, 'font-weight': 900, 'text-anchor': 'middle', 'dominant-baseline': 'middle', 'font-family': 'Inter', fill: color }, g);
   if (hi && str.includes(hi)) {
-    const [a, b] = str.split(hi);
-    for (const [s, c] of [[a, color], [hi, hiColor], [b, color]]) if (s) { const sp = el('tspan', { fill: c }, t); sp.textContent = s; }
+    str.split(hi).forEach((s, i) => {     // every occurrence of the highlighted word is coloured
+      if (i) { const h = el('tspan', { fill: hiColor }, t); h.textContent = hi; }
+      if (s) { const sp = el('tspan', { fill: color }, t); sp.textContent = s; }
+    });
   } else t.textContent = str;
+  return g;
+}
+// Full-bleed drawn panel (no frame) with a slow push-in toward `focus`; the YouTube default for stills.
+function FullStill(svg, href, { iw, ih, focus = [0.5, 0.45], zoom = 0.08 }) {
+  const id = 'fclip' + Math.random().toString(36).slice(2);
+  const g = el('g', {}, svg);
+  const cp = el('clipPath', { id }, g);
+  el('rect', { x: 0, y: 0, width: 1920, height: 1080 }, cp);
+  const img = el('image', { href, preserveAspectRatio: 'none' }, el('g', { 'clip-path': `url(#${id})` }, g));
+  const s0 = Math.max(1920 / iw, 1080 / ih);
+  return {
+    g,
+    draw(t, a, b) {
+      const u = E.inOut(prog(t, a, b)), s = s0 * (1 + zoom * u), dw = iw * s, dh = ih * s;
+      const cx = 960 - (focus[0] - 0.5) * (dw - 1920) * u, cy = 540 - (focus[1] - 0.5) * (dh - 1080) * u;
+      set(img, { x: clamp(cx - dw / 2, 1920 - dw, 0).toFixed(1), y: clamp(cy - dh / 2, 1080 - dh, 0).toFixed(1), width: dw.toFixed(1), height: dh.toFixed(1) });
+    },
+  };
+}
+// Section kicker: small ink pill at the top-left ("CLAVE 2 · MENOS PUERTAS").
+function Kicker(svg, str, { x = 60, y = 60, size = 40 } = {}) {
+  const g = el('g', {}, svg);
+  const w = str.length * size * 0.62 + 60, h = size * 1.7;
+  el('rect', { x, y, width: w, height: h, rx: h / 2, fill: C.ink, opacity: 0.92 }, g);
+  const t = Text(g, str, { x: x + w / 2, y: y + h / 2 + 2, size, color: C.amber });
   return g;
 }

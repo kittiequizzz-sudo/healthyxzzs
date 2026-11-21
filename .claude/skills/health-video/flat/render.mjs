@@ -18,7 +18,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM || 
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
 page.on('pageerror', e => { console.error('page error:', e.message); process.exit(1); });
 await page.goto('file://' + path.resolve(scene));
-await page.evaluate(() => document.fonts.ready);
+await page.evaluate(() => Promise.all([...document.fonts].map(f => f.load())).then(() => document.fonts.ready));   // load every @font-face, used yet or not
 const dur = await page.evaluate(() => window.DURATION);
 
 if (frames) {
